@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Clutter 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Clutter.PathNode" href="PathNode.html"/>
         <link rel="prev" title="Clutter.MotionEvent" href="MotionEvent.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -227,7 +225,7 @@ bounding volume may be added in the future.</p>
 </tr>
 </tbody>
 </table>
-<p>Copies <cite>pv</cite> into a new <a class="reference internal" href="#Clutter.PaintVolume" title="Clutter.PaintVolume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume</span></code></a></p>
+<p>Copies <cite>self</cite> into a new <a class="reference internal" href="#Clutter.PaintVolume" title="Clutter.PaintVolume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume</span></code></a></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -236,7 +234,7 @@ bounding volume may be added in the future.</p>
 <dl class="method">
 <dt id="Clutter.PaintVolume.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Frees the resources allocated by <cite>pv</cite></p>
+<dd><p>Frees the resources allocated by <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -249,7 +247,7 @@ bounding volume may be added in the future.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the depth, in units of <cite>pv</cite> &#8216;s local coordinate system.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the depth, in units of <cite>self</cite>&#8216;s local coordinate system.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a></td>
 </tr>
@@ -257,15 +255,15 @@ bounding volume may be added in the future.</p>
 </table>
 <p>Retrieves the depth of the volume&#8217;s, axis aligned, bounding box.</p>
 <p>In other words; this takes into account what actor&#8217;s coordinate
-space <cite>pv</cite> belongs too and conceptually fits an axis aligned box
+space <cite>self</cite> belongs too and conceptually fits an axis aligned box
 around the volume. It returns the size of that bounding box as
 measured along the z-axis.</p>
-<p>If, for example, <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a> ()
+<p>If, for example, <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a>()
 is used to transform a 2D child actor that is 100px wide, 100px
 high and 0px deep into container coordinates then the depth might
 not simply be 0px if the child actor has a 3D rotation applied to
 it.</p>
-<p>Remember: if <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a> () is
+<p>Remember: if <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a>() is
 used then the transformed volume will be defined relative to the
 container actor and in container coordinates a 2D child actor
 can have a 3D bounding volume.</p>
@@ -285,7 +283,7 @@ volumes for efficiency.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the height, in units of <cite>pv</cite> &#8216;s local coordinate system.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the height, in units of <cite>self</cite>&#8216;s local coordinate system.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a></td>
 </tr>
@@ -293,15 +291,15 @@ volumes for efficiency.</p>
 </table>
 <p>Retrieves the height of the volume&#8217;s, axis aligned, bounding box.</p>
 <p>In other words; this takes into account what actor&#8217;s coordinate
-space <cite>pv</cite> belongs too and conceptually fits an axis aligned box
+space <cite>self</cite> belongs too and conceptually fits an axis aligned box
 around the volume. It returns the size of that bounding box as
 measured along the y-axis.</p>
-<p>If, for example, <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a> ()
+<p>If, for example, <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a>()
 is used to transform a 2D child actor that is 100px wide, 100px
 high and 0px deep into container coordinates then the height might
 not simply be 100px if the child actor has a 3D rotation applied to
 it.</p>
-<p>Remember: if <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a> () is
+<p>Remember: if <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a>() is
 used then a transformed child volume will be defined relative to the
 ancestor container actor and so a 2D child actor
 can have a 3D bounding volume.</p>
@@ -340,7 +338,7 @@ volumes for efficiency.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the width, in units of <cite>pv</cite> &#8216;s local coordinate system.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the width, in units of <cite>self</cite>&#8216;s local coordinate system.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a></td>
 </tr>
@@ -348,15 +346,15 @@ volumes for efficiency.</p>
 </table>
 <p>Retrieves the width of the volume&#8217;s, axis aligned, bounding box.</p>
 <p>In other words; this takes into account what actor&#8217;s coordinate
-space <cite>pv</cite> belongs too and conceptually fits an axis aligned box
+space <cite>self</cite> belongs too and conceptually fits an axis aligned box
 around the volume. It returns the size of that bounding box as
 measured along the x-axis.</p>
-<p>If, for example, <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a> ()
+<p>If, for example, <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a>()
 is used to transform a 2D child actor that is 100px wide, 100px
 high and 0px deep into container coordinates then the width might
 not simply be 100px if the child actor has a 3D rotation applied to
 it.</p>
-<p>Remember: if <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a> () is
+<p>Remember: if <a class="reference internal" href="../classes/Actor.html#Clutter.Actor.get_transformed_paint_volume" title="Clutter.Actor.get_transformed_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.get_transformed_paint_volume</span></code></a>() is
 used then a transformed child volume will be defined relative to the
 ancestor container actor and so a 2D child actor can have a 3D
 bounding volume.</p>
@@ -381,7 +379,7 @@ fitting paint volumes for efficiency.</p>
 </tbody>
 </table>
 <p>Sets the depth of the paint volume. The depth is measured along
-the z axis in the actor coordinates that <cite>pv</cite> is associated with.</p>
+the z axis in the actor coordinates that <cite>self</cite> is associated with.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -405,15 +403,15 @@ otherwise</td>
 </table>
 <p>Sets the <a class="reference internal" href="#Clutter.PaintVolume" title="Clutter.PaintVolume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume</span></code></a> from the allocation of <cite>actor</cite>.</p>
 <p>This function should be used when overriding the
-<a class="reference internal" href="../class-structs/ActorClass.html#Clutter.ActorClass" title="Clutter.ActorClass"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ActorClass</span></code></a>.get_paint_volume() by <a class="reference internal" href="../classes/Actor.html#Clutter.Actor" title="Clutter.Actor"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor</span></code></a> sub-classes
+<a class="reference internal" href="../classes/Actor.html#Clutter.Actor.do_get_paint_volume" title="Clutter.Actor.do_get_paint_volume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.do_get_paint_volume</span></code></a>() by <a class="reference internal" href="../classes/Actor.html#Clutter.Actor" title="Clutter.Actor"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor</span></code></a> sub-classes
 that do not paint outside their allocation.</p>
 <p>A typical example is:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="n">gboolean</span>
-<span class="nf">my_actor_get_paint_volume</span> <span class="p">(</span><span class="n">ClutterActor</span>       <span class="o">*</span><span class="n">self</span><span class="p">,</span>
-                           <span class="n">ClutterPaintVolume</span> <span class="o">*</span><span class="n">volume</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="n">clutter_paint_volume_set_from_allocation</span> <span class="p">(</span><span class="n">volume</span><span class="p">,</span> <span class="n">self</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-none"><div class="highlight"><pre>static gboolean
+my_actor_get_paint_volume (ClutterActor       *self,
+                           ClutterPaintVolume *volume)
+{
+  return clutter_paint_volume_set_from_allocation (volume, self);
+}
 </pre></div>
 </div>
 <div class="versionadded">
@@ -433,7 +431,7 @@ that do not paint outside their allocation.</p>
 </tbody>
 </table>
 <p>Sets the height of the paint volume. The height is measured along
-the y axis in the actor coordinates that <cite>pv</cite> is associated with.</p>
+the y axis in the actor coordinates that <cite>self</cite> is associated with.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -471,7 +469,7 @@ corner of an actor&#8217;s paint volume, in actor coordinates.</p>
 </tbody>
 </table>
 <p>Sets the width of the paint volume. The width is measured along
-the x axis in the actor coordinates that <cite>pv</cite> is associated with.</p>
+the x axis in the actor coordinates that <cite>self</cite> is associated with.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -484,11 +482,11 @@ the x axis in the actor coordinates that <cite>pv</cite> is associated with.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>another_pv</strong> (<a class="reference internal" href="#Clutter.PaintVolume" title="Clutter.PaintVolume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume</span></code></a>) &#8211; A second <a class="reference internal" href="#Clutter.PaintVolume" title="Clutter.PaintVolume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume</span></code></a> to union with <cite>pv</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>another_pv</strong> (<a class="reference internal" href="#Clutter.PaintVolume" title="Clutter.PaintVolume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume</span></code></a>) &#8211; A second <a class="reference internal" href="#Clutter.PaintVolume" title="Clutter.PaintVolume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume</span></code></a> to union with <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
-<p>Updates the geometry of <cite>pv</cite> to encompass <cite>pv</cite> and <cite>another_pv</cite>.</p>
+<p>Updates the geometry of <cite>self</cite> to encompass <cite>self</cite> and <cite>another_pv</cite>.</p>
 <p>There are no guarantees about how precisely the two volumes
 will be unioned.</p>
 <div class="versionadded">
@@ -503,12 +501,12 @@ will be unioned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>box</strong> (<a class="reference internal" href="ActorBox.html#Clutter.ActorBox" title="Clutter.ActorBox"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ActorBox</span></code></a>) &#8211; a <a class="reference internal" href="ActorBox.html#Clutter.ActorBox" title="Clutter.ActorBox"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ActorBox</span></code></a> to union to <cite>pv</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>box</strong> (<a class="reference internal" href="ActorBox.html#Clutter.ActorBox" title="Clutter.ActorBox"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ActorBox</span></code></a>) &#8211; a <a class="reference internal" href="ActorBox.html#Clutter.ActorBox" title="Clutter.ActorBox"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ActorBox</span></code></a> to union to <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
 <p>Unions the 2D region represented by <cite>box</cite> to a <a class="reference internal" href="#Clutter.PaintVolume" title="Clutter.PaintVolume"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume</span></code></a>.</p>
-<p>This function is similar to <a class="reference internal" href="#Clutter.PaintVolume.union" title="Clutter.PaintVolume.union"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume.union</span></code></a> (), but it is
+<p>This function is similar to <a class="reference internal" href="#Clutter.PaintVolume.union" title="Clutter.PaintVolume.union"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.PaintVolume.union</span></code></a>(), but it is
 specific for 2D regions.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
@@ -531,7 +529,4 @@ specific for 2D regions.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

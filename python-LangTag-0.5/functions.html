@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="LangTag 0.5 Python API Docs" href="index.html"/>
         <link rel="next" title="Callbacks" href="callbacks.html"/>
         <link rel="prev" title="LangTag 0.5" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -325,7 +323,7 @@
 <code class="descclassname">LangTag.</code><code class="descname">ext_modules_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Load all of the modules on the system, including the internal accessor.
 This has to be invoked before processing something with #lt_extension_t.
-or <a class="reference internal" href="#LangTag.db_initialize" title="LangTag.db_initialize"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.db_initialize</span></code></a> () does.</p>
+or <a class="reference internal" href="#LangTag.db_initialize" title="LangTag.db_initialize"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.db_initialize</span></code></a>() does.</p>
 </dd></dl>
 
 <dl class="function">
@@ -350,17 +348,17 @@ or <a class="reference internal" href="#LangTag.db_initialize" title="LangTag.db
 </tbody>
 </table>
 <p>Initialize the iterator with <cite>tmpl</cite> object. this function has to be called
-before performing any opperation with the iterator and <a class="reference internal" href="structs/Iter.html#LangTag.Iter.finish" title="LangTag.Iter.finish"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.Iter.finish</span></code></a> ()
+before performing any opperation with the iterator and <a class="reference internal" href="structs/Iter.html#LangTag.Iter.finish" title="LangTag.Iter.finish"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.Iter.finish</span></code></a>()
 when the iterator isn&#8217;t needed anymore.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">lt_lang_db</span> <span class="o">*</span><span class="n">lang</span> <span class="o">=</span> <span class="n">lt_lang_db_new</span><span class="p">();</span>
-<span class="n">LtPointer</span> <span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="o">*</span><span class="n">val</span><span class="p">;</span>
-<span class="n">LtIter</span> <span class="o">*</span><span class="n">iter</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>lt_lang_db *lang = lt_lang_db_new();
+LtPointer *key, *val;
+LtIter *iter;
 
-<span class="n">iter</span> <span class="o">=</span> <span class="n">LT_ITER_INIT</span> <span class="p">(</span><span class="n">lang</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">lt_iter_next</span><span class="p">(</span><span class="n">iter</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">))</span> <span class="p">{</span>
-  <span class="cm">/* do something with key and value */</span>
-<span class="p">}</span>
-<span class="n">lt_iter_finish</span><span class="p">(</span><span class="n">iter</span><span class="p">);</span>
+iter = LT_ITER_INIT (lang);
+while (lt_iter_next(iter, &amp;key, &amp;val)) {
+  /* do something with key and value */
+}
+lt_iter_finish(iter);
 </pre></div>
 </div>
 </dd></dl>
@@ -435,7 +433,4 @@ when the iterator isn&#8217;t needed anymore.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

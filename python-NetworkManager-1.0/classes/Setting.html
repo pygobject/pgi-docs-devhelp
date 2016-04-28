@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="NetworkManager 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="NetworkManager.Setting8021x" href="Setting8021x.html"/>
         <link rel="prev" title="NetworkManager.Connection" href="Connection.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -431,7 +429,7 @@ leakage of information.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#NetworkManager.SettingClearSecretsWithFlagsFn" title="NetworkManager.SettingClearSecretsWithFlagsFn"><code class="xref py py-obj docutils literal"><span class="pre">NetworkManager.SettingClearSecretsWithFlagsFn</span></code></a>) &#8211; function to be called to determine whether a
 specific secret should be cleared or not</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; caller-supplied data passed to <cite>func</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; caller-supplied data passed to <cite>func</cite></li>
 </ul>
 </td>
 </tr>
@@ -540,7 +538,7 @@ source <a class="reference internal" href="#NetworkManager.Setting" title="Netwo
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#NetworkManager.SettingValueIterFn" title="NetworkManager.SettingValueIterFn"><code class="xref py py-obj docutils literal"><span class="pre">NetworkManager.SettingValueIterFn</span></code></a>) &#8211; user-supplied function called for each property of the setting</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <cite>func</cite> at each invocation</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to <cite>func</cite> at each invocation</li>
 </ul>
 </td>
 </tr>
@@ -580,7 +578,7 @@ like &#8216;ppp&#8217; or &#8216;wireless&#8217; or &#8216;wired&#8217;.</td>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success (if the given secret name was a valid property of
@@ -623,7 +621,7 @@ needs to use if specified in the settings.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/structs/PtrArray.html#GLib.PtrArray" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray</span></code></a> containing
 the property names of secrets of the <a class="reference internal" href="#NetworkManager.Setting" title="NetworkManager.Setting"><code class="xref py py-obj docutils literal"><span class="pre">NetworkManager.Setting</span></code></a> which may be required; the
-caller owns the array and must free it with <code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray.free</span></code> (), but must not
+caller owns the array and must free it with g_ptr_array_free(), but must not
 free the elements.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]</td>
@@ -649,7 +647,7 @@ is no way to conclusively determine exactly which secrets are needed.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success (if the given secret name was a valid property of
@@ -695,7 +693,7 @@ D-Bus or serializing.  The mapping is string to <a class="reference external" hr
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an allocated string containing a textual representation of the
 setting&#8217;s properties and values (including secrets!), which the caller should
-free with <a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ()</td>
+free with <a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>()</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -716,7 +714,7 @@ output format is not guaranteed to be stable and may change at any time.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>secrets</strong> ({<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>: <a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>}) &#8211; a <a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> mapping
 string to <a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> of setting property names and secrets</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the secrets were successfully updated, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on failure to
 update one or more of the secrets.</td>
@@ -737,9 +735,9 @@ setting (deserialized from D-Bus for example).</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>all_settings</strong> ([<a class="reference internal" href="#NetworkManager.Setting" title="NetworkManager.Setting"><code class="xref py py-obj docutils literal"><span class="pre">NetworkManager.Setting</span></code></a>]) &#8211; a <a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/structs/SList.html#GLib.SList" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.SList</span></code></a> of all settings
-in the connection from which <cite>setting</cite> came</td>
+in the connection from which <cite>self</cite> came</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the setting is valid, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if it is not</td>
 </tr>
@@ -748,8 +746,8 @@ in the connection from which <cite>setting</cite> came</td>
 </tbody>
 </table>
 <p>Validates the setting.  Each setting&#8217;s properties have allowed values, and
-some are dependent on other values (hence the need for <cite>all_settings</cite> ).  The
-returned <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code> contains information about which property of the setting
+some are dependent on other values (hence the need for <cite>all_settings</cite>).  The
+returned <a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> contains information about which property of the setting
 failed validation, and in what way that property failed validation.</p>
 </dd></dl>
 
@@ -822,7 +820,7 @@ needs to use if specified in the settings.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="../_docs/NetworkManager-1.0/../../../python-GLib-2.0/structs/PtrArray.html#GLib.PtrArray" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray</span></code></a> containing
 the property names of secrets of the <a class="reference internal" href="#NetworkManager.Setting" title="NetworkManager.Setting"><code class="xref py py-obj docutils literal"><span class="pre">NetworkManager.Setting</span></code></a> which may be required; the
-caller owns the array and must free it with <code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray.free</span></code> (), but must not
+caller owns the array and must free it with g_ptr_array_free(), but must not
 free the elements.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]</td>
@@ -917,7 +915,4 @@ example &#8220;ppp&#8221; or &#8220;wireless&#8221; or &#8220;wired&#8221;.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

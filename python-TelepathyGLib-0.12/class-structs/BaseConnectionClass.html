@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="TelepathyGLib 0.12 Python API Docs" href="../index.html"/>
         <link rel="up" title="Class Structures" href="index.html"/>
         <link rel="next" title="TelepathyGLib.BasicProxyFactoryClass" href="BasicProxyFactoryClass.html"/>
         <link rel="prev" title="TelepathyGLib.BaseClientClass" href="BaseClientClass.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -188,7 +186,7 @@
 <tr class="row-odd"><td>get_interfaces_always_present</td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
 <td>r</td>
-<td>Returns a <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/structs/PtrArray.html#GLib.PtrArray" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray</span></code></a> of extra D-Bus interfaces which are always implemented by instances of this class, which may be filled in by subclasses. The default is to list no additional interfaces. Individual instances may detect which additional interfaces they support and signal them before going to state CONNECTED by calling <code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.BaseConnection.add_interfaces</span></code> ().</td>
+<td>Returns a <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/structs/PtrArray.html#GLib.PtrArray" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray</span></code></a> of extra D-Bus interfaces which are always implemented by instances of this class, which may be filled in by subclasses. The default is to list no additional interfaces. Individual instances may detect which additional interfaces they support and signal them before going to state CONNECTED by calling tp_base_connection_add_interfaces().</td>
 </tr>
 <tr class="row-even"><td>get_unique_connection_name</td>
 <td><a class="reference internal" href="../callbacks.html#TelepathyGLib.BaseConnectionGetUniqueConnectionNameImpl" title="TelepathyGLib.BaseConnectionGetUniqueConnectionNameImpl"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.BaseConnectionGetUniqueConnectionNameImpl</span></code></a></td>
@@ -213,7 +211,7 @@
 <tr class="row-even"><td>shut_down</td>
 <td><a class="reference internal" href="../callbacks.html#TelepathyGLib.BaseConnectionProc" title="TelepathyGLib.BaseConnectionProc"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.BaseConnectionProc</span></code></a></td>
 <td>r</td>
-<td>Called after disconnected() is called, to clean up the connection. Must start the shutdown process for the underlying network connection, and arrange for <code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.BaseConnection.finish_shutdown</span></code> () to be called after the underlying connection has been closed. May not be left as <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
+<td>Called after disconnected() is called, to clean up the connection. Must start the shutdown process for the underlying network connection, and arrange for tp_base_connection_finish_shutdown() to be called after the underlying connection has been closed. May not be left as <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
 <tr class="row-odd"><td>start_connecting</td>
 <td><a class="reference internal" href="../callbacks.html#TelepathyGLib.BaseConnectionStartConnectingImpl" title="TelepathyGLib.BaseConnectionStartConnectingImpl"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.BaseConnectionStartConnectingImpl</span></code></a></td>
@@ -250,7 +248,4 @@ to be filled in in the subclass&#8217; class_init function.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

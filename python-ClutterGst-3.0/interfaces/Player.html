@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="ClutterGst 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Classes" href="../classes/index.html"/>
         <link rel="prev" title="Interfaces" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -331,13 +329,13 @@
 <td>The <a class="reference internal" href="#ClutterGst.Player.signals.error" title="ClutterGst.Player.signals.error"><code class="xref py py-func docutils literal"><span class="pre">::error</span></code></a> signal is emitted each time an error occurred.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#ClutterGst.Player.signals.new_frame" title="ClutterGst.Player.signals.new_frame"><code class="xref py py-func docutils literal"><span class="pre">new-frame</span></code></a></td>
-<td>The <a class="reference internal" href="#ClutterGst.Player.signals.ready" title="ClutterGst.Player.signals.ready"><code class="xref py py-func docutils literal"><span class="pre">::ready</span></code></a> signal is emitted each time the gstreamer pipeline becomes ready.</td>
+<td>The <a class="reference internal" href="#ClutterGst.Player.signals.new_frame" title="ClutterGst.Player.signals.new_frame"><code class="xref py py-func docutils literal"><span class="pre">::new-frame</span></code></a> signal is emitted each time a frame is received from the video sink.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#ClutterGst.Player.signals.ready" title="ClutterGst.Player.signals.ready"><code class="xref py py-func docutils literal"><span class="pre">ready</span></code></a></td>
 <td>The <a class="reference internal" href="#ClutterGst.Player.signals.ready" title="ClutterGst.Player.signals.ready"><code class="xref py py-func docutils literal"><span class="pre">::ready</span></code></a> signal is emitted each time the gstreamer pipeline becomes ready.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#ClutterGst.Player.signals.size_change" title="ClutterGst.Player.signals.size_change"><code class="xref py py-func docutils literal"><span class="pre">size-change</span></code></a></td>
-<td>The <a class="reference internal" href="#ClutterGst.Player.signals.size_change" title="ClutterGst.Player.signals.size_change"><code class="xref py py-func docutils literal"><span class="pre">::size-change</span></code></a> signal is emitted each time the gstreamer pipeline becomes ready.</td>
+<td>The <a class="reference internal" href="#ClutterGst.Player.signals.size_change" title="ClutterGst.Player.signals.size_change"><code class="xref py py-func docutils literal"><span class="pre">::size-change</span></code></a> signal is emitted each time the new frame has different dimensions to the previous frame.</td>
 </tr>
 </tbody>
 </table>
@@ -513,7 +511,7 @@ GStreamer API.</p>
 <p>The implementation might be asynchronous, so the way to know whether
 the actual playing state of the <cite>self</cite> is to use the <a class="reference external" href="../_docs/ClutterGst-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> <a class="reference external" href="../_docs/ClutterGst-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.signals.notify" title="(in GObject 2.0 v2.0)"><code class="xref py py-func docutils literal"><span class="pre">::notify</span></code></a>
 signal on the <a class="reference internal" href="#ClutterGst.Player" title="ClutterGst.Player"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Player</span></code></a> <a class="reference internal" href="#ClutterGst.Player.props.playing" title="ClutterGst.Player.props.playing"><code class="xref py py-data docutils literal"><span class="pre">:playing</span></code></a> property and then retrieve the
-current state with <a class="reference internal" href="#ClutterGst.Player.get_playing" title="ClutterGst.Player.get_playing"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Player.get_playing</span></code></a> (). ClutterGstVideoActor
+current state with <a class="reference internal" href="#ClutterGst.Player.get_playing" title="ClutterGst.Player.get_playing"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Player.get_playing</span></code></a>(). ClutterGstVideoActor
 in clutter-gst is an example of such an asynchronous implementation.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
@@ -532,7 +530,7 @@ in clutter-gst is an example of such an asynchronous implementation.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>error</strong> (<a class="reference external" href="../_docs/ClutterGst-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>error</strong> (<a class="reference external" href="../_docs/ClutterGst-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a>) &#8211; </td>
 </tr>
 </tbody>
 </table>
@@ -703,7 +701,7 @@ GStreamer API.</p>
 <p>The implementation might be asynchronous, so the way to know whether
 the actual playing state of the <cite>self</cite> is to use the <a class="reference external" href="../_docs/ClutterGst-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> <a class="reference external" href="../_docs/ClutterGst-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.signals.notify" title="(in GObject 2.0 v2.0)"><code class="xref py py-func docutils literal"><span class="pre">::notify</span></code></a>
 signal on the <a class="reference internal" href="#ClutterGst.Player" title="ClutterGst.Player"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Player</span></code></a> <a class="reference internal" href="#ClutterGst.Player.props.playing" title="ClutterGst.Player.props.playing"><code class="xref py py-data docutils literal"><span class="pre">:playing</span></code></a> property and then retrieve the
-current state with <a class="reference internal" href="#ClutterGst.Player.get_playing" title="ClutterGst.Player.get_playing"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Player.get_playing</span></code></a> (). ClutterGstVideoActor
+current state with <a class="reference internal" href="#ClutterGst.Player.get_playing" title="ClutterGst.Player.get_playing"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Player.get_playing</span></code></a>(). ClutterGstVideoActor
 in clutter-gst is an example of such an asynchronous implementation.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
@@ -765,7 +763,7 @@ in clutter-gst is an example of such an asynchronous implementation.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>player</strong> (<a class="reference internal" href="#ClutterGst.Player" title="ClutterGst.Player"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Player</span></code></a>) &#8211; The object which received the signal</li>
-<li><strong>error</strong> (<a class="reference external" href="../_docs/ClutterGst-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a>) &#8211; the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></li>
+<li><strong>error</strong> (<a class="reference external" href="../_docs/ClutterGst-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a>) &#8211; the <a class="reference external" href="../_docs/ClutterGst-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a></li>
 </ul>
 </td>
 </tr>
@@ -789,14 +787,14 @@ in clutter-gst is an example of such an asynchronous implementation.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>player</strong> (<a class="reference internal" href="#ClutterGst.Player" title="ClutterGst.Player"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Player</span></code></a>) &#8211; The object which received the signal</li>
-<li><strong>frame</strong> (<a class="reference internal" href="../structs/Frame.html#ClutterGst.Frame" title="ClutterGst.Frame"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Frame</span></code></a>) &#8211; the <a class="reference internal" href="../structs/Frame.html#ClutterGst.Frame" title="ClutterGst.Frame"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Frame</span></code></a> newly receive from the video sink</li>
+<li><strong>frame</strong> (<a class="reference internal" href="../structs/Frame.html#ClutterGst.Frame" title="ClutterGst.Frame"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Frame</span></code></a>) &#8211; the <a class="reference internal" href="../structs/Frame.html#ClutterGst.Frame" title="ClutterGst.Frame"><code class="xref py py-obj docutils literal"><span class="pre">ClutterGst.Frame</span></code></a> newly received from the video sink</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>The <a class="reference internal" href="#ClutterGst.Player.signals.ready" title="ClutterGst.Player.signals.ready"><code class="xref py py-func docutils literal"><span class="pre">::ready</span></code></a> signal is emitted each time the gstreamer pipeline
-becomes ready.</p>
+<p>The <a class="reference internal" href="#ClutterGst.Player.signals.new_frame" title="ClutterGst.Player.signals.new_frame"><code class="xref py py-func docutils literal"><span class="pre">::new-frame</span></code></a> signal is emitted each time a frame is received
+from the video sink.</p>
 </dd></dl>
 
 <dl class="function">
@@ -840,8 +838,8 @@ becomes ready.</p>
 </tr>
 </tbody>
 </table>
-<p>The <a class="reference internal" href="#ClutterGst.Player.signals.size_change" title="ClutterGst.Player.signals.size_change"><code class="xref py py-func docutils literal"><span class="pre">::size-change</span></code></a> signal is emitted each time the gstreamer pipeline
-becomes ready.</p>
+<p>The <a class="reference internal" href="#ClutterGst.Player.signals.size_change" title="ClutterGst.Player.signals.size_change"><code class="xref py py-func docutils literal"><span class="pre">::size-change</span></code></a> signal is emitted each time the new frame
+has different dimensions to the previous frame.</p>
 </dd></dl>
 
 </div>
@@ -925,7 +923,4 @@ becomes ready.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

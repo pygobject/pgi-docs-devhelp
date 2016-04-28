@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="TelepathyGLib 0.12 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="TelepathyGLib.ClientMessage" href="ClientMessage.html"/>
         <link rel="prev" title="TelepathyGLib.ChannelDispatcher" href="ChannelDispatcher.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -450,13 +448,13 @@ tp_proxy_or_subclass_hook_on_interface_add() with first argument
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>bus_daemon</strong> (<a class="reference internal" href="DBusDaemon.html#TelepathyGLib.DBusDaemon" title="TelepathyGLib.DBusDaemon"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.DBusDaemon</span></code></a>) &#8211; Proxy for the D-Bus daemon</li>
-<li><strong>object_path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The non-NULL object path of this channel request</li>
+<li><strong>object_path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> object path of this channel request</li>
 <li><strong>immutable_properties</strong> ({<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>}) &#8211; As many as are known of the immutable D-Bus
 properties of this channel request, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if none are known</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new reference to an channel request proxy, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if
@@ -474,7 +472,7 @@ not running</p>
 is responsible for calling tp_cli_channel_request_call_proceed() when it
 is ready for the channel request to proceed.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Since 0.19.9. New code should get <a class="reference internal" href="#TelepathyGLib.ChannelRequest" title="TelepathyGLib.ChannelRequest"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.ChannelRequest</span></code></a> objects from a <a class="reference internal" href="BaseClient.html#TelepathyGLib.BaseClient" title="TelepathyGLib.BaseClient"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.BaseClient</span></code></a></p>
+<p><span class="versionmodified">Deprecated since version 0.19.9: </span>New code should get <a class="reference internal" href="#TelepathyGLib.ChannelRequest" title="TelepathyGLib.ChannelRequest"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.ChannelRequest</span></code></a> objects from a <a class="reference internal" href="BaseClient.html#TelepathyGLib.BaseClient" title="TelepathyGLib.BaseClient"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.BaseClient</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -690,7 +688,7 @@ set to the newly-created channel, and the connection which owns it.</p>
 <p>The <a class="reference internal" href="Channel.html#TelepathyGLib.Channel" title="TelepathyGLib.Channel"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.Channel</span></code></a> is created using <a class="reference internal" href="#TelepathyGLib.ChannelRequest" title="TelepathyGLib.ChannelRequest"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.ChannelRequest</span></code></a> <a class="reference internal" href="#TelepathyGLib.ChannelRequest.props.channel_factory" title="TelepathyGLib.ChannelRequest.props.channel_factory"><code class="xref py py-data docutils literal"><span class="pre">:channel-factory</span></code></a> or
 <a class="reference internal" href="Proxy.html#TelepathyGLib.Proxy" title="TelepathyGLib.Proxy"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.Proxy</span></code></a> <a class="reference internal" href="Proxy.html#TelepathyGLib.Proxy.props.factory" title="TelepathyGLib.Proxy.props.factory"><code class="xref py py-data docutils literal"><span class="pre">:factory</span></code></a> but the features of the factory are NOT prepared.
 It&#8217;s up to the user to prepare the features returned by
-<a class="reference internal" href="SimpleClientFactory.html#TelepathyGLib.SimpleClientFactory.dup_channel_features" title="TelepathyGLib.SimpleClientFactory.dup_channel_features"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.SimpleClientFactory.dup_channel_features</span></code></a> () himself.</p>
+<a class="reference internal" href="SimpleClientFactory.html#TelepathyGLib.SimpleClientFactory.dup_channel_features" title="TelepathyGLib.SimpleClientFactory.dup_channel_features"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.SimpleClientFactory.dup_channel_features</span></code></a>() himself.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.13.14.</span></p>
 </div>
@@ -745,7 +743,7 @@ to be prepared.</p>
 that will be used to create channel proxies when the
 <a class="reference internal" href="#TelepathyGLib.ChannelRequest" title="TelepathyGLib.ChannelRequest"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.ChannelRequest</span></code></a> <a class="reference internal" href="#TelepathyGLib.ChannelRequest.signals.succeeded_with_channel" title="TelepathyGLib.ChannelRequest.signals.succeeded_with_channel"><code class="xref py py-func docutils literal"><span class="pre">::succeeded-with-channel</span></code></a> signal is fired.
 This property can be changed using
-<a class="reference internal" href="#TelepathyGLib.ChannelRequest.set_channel_factory" title="TelepathyGLib.ChannelRequest.set_channel_factory"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.ChannelRequest.set_channel_factory</span></code></a> ().</p>
+<a class="reference internal" href="#TelepathyGLib.ChannelRequest.set_channel_factory" title="TelepathyGLib.ChannelRequest.set_channel_factory"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.ChannelRequest.set_channel_factory</span></code></a>().</p>
 <p>If no channel factory is specified then <a class="reference internal" href="AutomaticProxyFactory.html#TelepathyGLib.AutomaticProxyFactory" title="TelepathyGLib.AutomaticProxyFactory"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.AutomaticProxyFactory</span></code></a> is used.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.13.14.</span></p>
@@ -826,7 +824,7 @@ set during the construction of the <a class="reference internal" href="#Telepath
 </tr>
 </tbody>
 </table>
-<p>Either the well-known bus name (starting with <a class="reference internal" href="../constants.html#TelepathyGLib.CLIENT_BUS_NAME_BASE" title="TelepathyGLib.CLIENT_BUS_NAME_BASE"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.CLIENT_BUS_NAME_BASE</span></code></a> )
+<p>Either the well-known bus name (starting with <a class="reference internal" href="../constants.html#TelepathyGLib.CLIENT_BUS_NAME_BASE" title="TelepathyGLib.CLIENT_BUS_NAME_BASE"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.CLIENT_BUS_NAME_BASE</span></code></a>)
 of the preferred handler for this channel request,
 or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to indicate that any handler would be acceptable.</p>
 <p>Read-only.</p>
@@ -875,7 +873,4 @@ for some reason not involving user action.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

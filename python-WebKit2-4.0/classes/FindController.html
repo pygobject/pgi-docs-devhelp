@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="WebKit2 4.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="WebKit2.FormSubmissionRequest" href="FormSubmissionRequest.html"/>
         <link rel="prev" title="WebKit2.FileChooserRequest" href="FileChooserRequest.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -311,7 +309,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#WebKit2.FindController.signals.counted_matches" title="WebKit2.FindController.signals.counted_matches"><code class="xref py py-func docutils literal"><span class="pre">counted-matches</span></code></a></td>
-<td>This signal is emitted when the <a class="reference internal" href="#WebKit2.FindController" title="WebKit2.FindController"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController</span></code></a> has counted the number of matches for a given text after a call to <a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a> ().</td>
+<td>This signal is emitted when the <a class="reference internal" href="#WebKit2.FindController" title="WebKit2.FindController"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController</span></code></a> has counted the number of matches for a given text after a call to <a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a>().</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#WebKit2.FindController.signals.failed_to_find_text" title="WebKit2.FindController.signals.failed_to_find_text"><code class="xref py py-func docutils literal"><span class="pre">failed-to-find-text</span></code></a></td>
 <td>This signal is emitted when a search operation does not find any result for the given text.</td>
@@ -409,8 +407,8 @@ matches will be provided by the
 </table>
 <p>Gets the maximum number of matches to report during a text
 lookup. This number is passed as the last argument of
-<a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a> () or
-<a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a> ().</p>
+<a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a>() or
+<a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -444,10 +442,10 @@ the current search.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets the text that <cite>find_controller</cite> is currently searching
+<p>Gets the text that <cite>self</cite> is currently searching
 for. This text is passed to either
-<a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a> () or
-<a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a> ().</p>
+<a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a>() or
+<a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -485,20 +483,20 @@ not unref the returned instance as it belongs to the
 </tbody>
 </table>
 <p>Looks for <cite>search_text</cite> in the <a class="reference internal" href="WebView.html#WebKit2.WebView" title="WebKit2.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.WebView</span></code></a> associated with
-<cite>find_controller</cite> since the beginning of the document highlighting
+<cite>self</cite> since the beginning of the document highlighting
 up to <cite>max_match_count</cite> matches. The outcome of the search will be
 asynchronously provided by the <a class="reference internal" href="#WebKit2.FindController" title="WebKit2.FindController"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController</span></code></a> <a class="reference internal" href="#WebKit2.FindController.signals.found_text" title="WebKit2.FindController.signals.found_text"><code class="xref py py-func docutils literal"><span class="pre">::found-text</span></code></a>
 and <a class="reference internal" href="#WebKit2.FindController" title="WebKit2.FindController"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController</span></code></a> <a class="reference internal" href="#WebKit2.FindController.signals.failed_to_find_text" title="WebKit2.FindController.signals.failed_to_find_text"><code class="xref py py-func docutils literal"><span class="pre">::failed-to-find-text</span></code></a> signals.</p>
 <p>To look for the next or previous occurrences of the same text
-with the same find options use <a class="reference internal" href="#WebKit2.FindController.search_next" title="WebKit2.FindController.search_next"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_next</span></code></a> ()
-and/or <a class="reference internal" href="#WebKit2.FindController.search_previous" title="WebKit2.FindController.search_previous"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_previous</span></code></a> (). The
+with the same find options use <a class="reference internal" href="#WebKit2.FindController.search_next" title="WebKit2.FindController.search_next"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_next</span></code></a>()
+and/or <a class="reference internal" href="#WebKit2.FindController.search_previous" title="WebKit2.FindController.search_previous"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_previous</span></code></a>(). The
 <a class="reference internal" href="#WebKit2.FindController" title="WebKit2.FindController"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController</span></code></a> will use the same text and options for the
 following searches unless they are modified by another call to this
 method.</p>
 <p>Note that if the number of matches is higher than <cite>max_match_count</cite>
 then <a class="reference internal" href="#WebKit2.FindController" title="WebKit2.FindController"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController</span></code></a> <a class="reference internal" href="#WebKit2.FindController.signals.found_text" title="WebKit2.FindController.signals.found_text"><code class="xref py py-func docutils literal"><span class="pre">::found-text</span></code></a> will report <a class="reference external" href="../_docs/WebKit2-4.0/../../../python-GObject-2.0/constants.html#GObject.G_MAXUINT" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.G_MAXUINT</span></code></a> matches
 instead of the actual number.</p>
-<p>Callers should call <a class="reference internal" href="#WebKit2.FindController.search_finish" title="WebKit2.FindController.search_finish"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_finish</span></code></a> () to
+<p>Callers should call <a class="reference internal" href="#WebKit2.FindController.search_finish" title="WebKit2.FindController.search_finish"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_finish</span></code></a>() to
 finish the current search operation.</p>
 </dd></dl>
 
@@ -506,7 +504,7 @@ finish the current search operation.</p>
 <dt id="WebKit2.FindController.search_finish">
 <code class="descname">search_finish</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Finishes a find operation started by
-<a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a> (). It will basically unhighlight
+<a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a>(). It will basically unhighlight
 every text match found.</p>
 <p>This method will be typically called when the search UI is
 closed/hidden by the client application.</p>
@@ -516,16 +514,16 @@ closed/hidden by the client application.</p>
 <dt id="WebKit2.FindController.search_next">
 <code class="descname">search_next</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Looks for the next occurrence of the search text.</p>
-<p>Calling this method before <a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a> () or
-<a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a> () is a programming error.</p>
+<p>Calling this method before <a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a>() or
+<a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a>() is a programming error.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="WebKit2.FindController.search_previous">
 <code class="descname">search_previous</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Looks for the previous occurrence of the search text.</p>
-<p>Calling this method before <a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a> () or
-<a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a> () is a programming error.</p>
+<p>Calling this method before <a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a>() or
+<a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a>() is a programming error.</p>
 </dd></dl>
 
 </dd></dl>
@@ -556,7 +554,7 @@ closed/hidden by the client application.</p>
 </table>
 <p>This signal is emitted when the <a class="reference internal" href="#WebKit2.FindController" title="WebKit2.FindController"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController</span></code></a> has
 counted the number of matches for a given text after a call
-to <a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a> ().</p>
+to <a class="reference internal" href="#WebKit2.FindController.count_matches" title="WebKit2.FindController.count_matches"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.count_matches</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -577,8 +575,8 @@ to <a class="reference internal" href="#WebKit2.FindController.count_matches" ti
 <p>This signal is emitted when a search operation does not find
 any result for the given text. It will be issued if the text
 is not found asynchronously after a call to
-<a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a> (), <a class="reference internal" href="#WebKit2.FindController.search_next" title="WebKit2.FindController.search_next"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_next</span></code></a> ()
-or <a class="reference internal" href="#WebKit2.FindController.search_previous" title="WebKit2.FindController.search_previous"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_previous</span></code></a> ().</p>
+<a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a>(), <a class="reference internal" href="#WebKit2.FindController.search_next" title="WebKit2.FindController.search_next"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_next</span></code></a>()
+or <a class="reference internal" href="#WebKit2.FindController.search_previous" title="WebKit2.FindController.search_previous"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_previous</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -604,9 +602,9 @@ or <a class="reference internal" href="#WebKit2.FindController.search_previous" 
 </table>
 <p>This signal is emitted when a given text is found in the web
 page text. It will be issued if the text is found
-asynchronously after a call to <a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a> (),
-<a class="reference internal" href="#WebKit2.FindController.search_next" title="WebKit2.FindController.search_next"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_next</span></code></a> () or
-<a class="reference internal" href="#WebKit2.FindController.search_previous" title="WebKit2.FindController.search_previous"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_previous</span></code></a> ().</p>
+asynchronously after a call to <a class="reference internal" href="#WebKit2.FindController.search" title="WebKit2.FindController.search"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search</span></code></a>(),
+<a class="reference internal" href="#WebKit2.FindController.search_next" title="WebKit2.FindController.search_next"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_next</span></code></a>() or
+<a class="reference internal" href="#WebKit2.FindController.search_previous" title="WebKit2.FindController.search_previous"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.FindController.search_previous</span></code></a>().</p>
 </dd></dl>
 
 </div>
@@ -706,7 +704,4 @@ asynchronously after a call to <a class="reference internal" href="#WebKit2.Find
   </div> 
 
 </body>
-
-  
-
 </html>

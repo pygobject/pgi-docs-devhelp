@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GSound 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Symbol Mapping" href="mapping.html"/>
         <link rel="prev" title="Enums" href="enums.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -220,7 +218,7 @@ event is running in. A POSIX locale string such as de_DE`euro`.</p>
 human readable string. (e.g. &#8220;GNU Emacs&#8221;) Localized if possible and
 applicable.</p>
 <p>This attribute will automatically be added to the <a class="reference internal" href="classes/Context.html#GSound.Context" title="GSound.Context"><code class="xref py py-obj docutils literal"><span class="pre">GSound.Context</span></code></a> if
-it has previously been set with <a class="reference external" href="_docs/GSound-1.0/../../../python-GLib-2.0/functions.html#GLib.set_application_name" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.set_application_name</span></code></a> (), so you normally
+it has previously been set with <a class="reference external" href="_docs/GSound-1.0/../../../python-GLib-2.0/functions.html#GLib.set_application_name" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.set_application_name</span></code></a>(), so you normally
 do not need to supply this yourself.</p>
 </dd></dl>
 
@@ -268,9 +266,9 @@ server temporarily. They will expire after some time or on cache
 pressure. Finally, &#8220;never&#8221; may be used for sounds that should never
 be cached, because they are only generated very seldomly or even
 only once at most (such as desktop login sounds).</p>
-<p>If this attribute is not explicitly passed to gsound_context_play_simple()
-or gsound_context_play_full() it will default to &#8220;never&#8221;. If it is not
-explicitly passed to gsound_context_cache() it will default to &#8220;permanent&#8221;.</p>
+<p>If this attribute is not explicitly passed to <a class="reference internal" href="classes/Context.html#GSound.Context.play_simple" title="GSound.Context.play_simple"><code class="xref py py-obj docutils literal"><span class="pre">GSound.Context.play_simple</span></code></a>()
+or <a class="reference internal" href="classes/Context.html#GSound.Context.play_full" title="GSound.Context.play_full"><code class="xref py py-obj docutils literal"><span class="pre">GSound.Context.play_full</span></code></a>() it will default to &#8220;never&#8221;. If it is not
+explicitly passed to <a class="reference internal" href="classes/Context.html#GSound.Context.cache" title="GSound.Context.cache"><code class="xref py py-obj docutils literal"><span class="pre">GSound.Context.cache</span></code></a>() it will default to &#8220;permanent&#8221;.</p>
 <p>If the list of attributes is handed on to the sound server this
 attribute is stripped from it.</p>
 </dd></dl>
@@ -281,7 +279,7 @@ attribute is stripped from it.</p>
 <dd><p>A special attribute that can be used to control whether any sounds
 are played at all. If this attribute is &#8220;1&#8221; or unset sounds are
 played as normal. However, if it is &#8220;0&#8221; all calls to
-gsound_context_play_simple() or <code class="docutils literal"><span class="pre">play_full()</span></code> will fail with
+<a class="reference internal" href="classes/Context.html#GSound.Context.play_simple" title="GSound.Context.play_simple"><code class="xref py py-obj docutils literal"><span class="pre">GSound.Context.play_simple</span></code></a>() or <code class="docutils literal"><span class="pre">play_full()</span></code> will fail with
 <a class="reference internal" href="enums.html#GSound.Error.DISABLED" title="GSound.Error.DISABLED"><code class="xref py py-obj docutils literal"><span class="pre">GSound.Error.DISABLED</span></code></a>.</p>
 <p>If the list of attributes is handed on to the sound server this
 attribute is stripped from it.</p>
@@ -564,7 +562,4 @@ screen to the top left corner of the window.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GOffice 0.10 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GOffice.gOutlinedObject" href="gOutlinedObject.html"/>
         <link rel="prev" title="GOffice.gLegend" href="gLegend.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -705,11 +703,11 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>role</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
-<li><strong>child</strong> (<a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a>) &#8211; optionally null <a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a></li>
+<li><strong>child</strong> (<a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; optionally null <a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a newly created child of <cite>parent</cite> in <cite>role</cite>.  If <cite>child</cite> is provided,
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a newly created child of <cite>self</cite> in <cite>role</cite>.  If <cite>child</cite> is provided,
 it is assumed to be an unaffiliated object that will be assigned in <cite>role</cite>.
 On failure return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 </td>
@@ -742,7 +740,7 @@ On failure return <a class="reference external" href="http://docs.python.org/2.7
 </tr>
 </tbody>
 </table>
-<p>Absorb a ref to <cite>child</cite> if it is non-NULL.</p>
+<p>Absorb a ref to <cite>child</cite> if it is non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -760,7 +758,7 @@ On failure return <a class="reference external" href="http://docs.python.org/2.7
 </tr>
 </tbody>
 </table>
-<p>If <cite>obj</cite> can move forward or backward in its parents child list</p>
+<p>If <cite>self</cite> can move forward or backward in its parents child list</p>
 </dd></dl>
 
 <dl class="method">
@@ -801,8 +799,8 @@ previously associated with the parent.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>new_parent</strong> (<a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a>) &#8211; <a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a> the parent tree for the object (can be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> )</li>
-<li><strong>datadup</strong> (<a class="reference internal" href="../callbacks.html#GOffice.gDataDuplicator" title="GOffice.gDataDuplicator"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gDataDuplicator</span></code></a>) &#8211; a function to duplicate the data (a default one is used if <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> )</li>
+<li><strong>new_parent</strong> (<a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a>) &#8211; <a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a> the parent tree for the object (can be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>)</li>
+<li><strong>datadup</strong> (<a class="reference internal" href="../callbacks.html#GOffice.gDataDuplicator" title="GOffice.gDataDuplicator"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gDataDuplicator</span></code></a>) &#8211; a function to duplicate the data (a default one is used if <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>)</li>
 </ul>
 </td>
 </tr>
@@ -890,7 +888,7 @@ previously associated with the parent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filter</strong> (<a class="reference internal" href="../structs/gObjectRole.html#GOffice.gObjectRole" title="GOffice.gObjectRole"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObjectRole</span></code></a>) &#8211; an optional <a class="reference internal" href="../structs/gObjectRole.html#GOffice.gObjectRole" title="GOffice.gObjectRole"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObjectRole</span></code></a> to use as a filter</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of <cite>obj</cite> &#8216;s
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of <cite>self</cite>&#8216;s
 Children.  Caller must free the list, but not the children.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a>]</td>
@@ -920,7 +918,7 @@ Children.  Caller must free the list, but not the children.</td>
 </tr>
 </tbody>
 </table>
-<p>Builds an object property editor, by calling <a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a> <code class="xref py py-func docutils literal"><span class="pre">::populate-editor</span></code>
+<p>Builds an object property editor, by calling GogObject::populate_editor
 virtual functions.</p>
 </dd></dl>
 
@@ -1026,8 +1024,8 @@ its size request.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>obj</cite> &#8216;s parent, potentially <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if it has not been added to a
-heirarchy yet.  does not change ref-count in any way.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s parent, potentially <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if it has not been added to a
+heirarchy yet.  does not change ref-<code class="xref py py-obj docutils literal"><span class="pre">GOffice.count</span></code> in any way.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a></td>
 </tr>
@@ -1042,9 +1040,9 @@ heirarchy yet.  does not change ref-count in any way.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> (<a class="reference external" href="../_docs/GOffice-0.10/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; a <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> (<a class="reference external" href="../_docs/GOffice-0.10/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GOffice-0.10/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><cite>obj</cite> &#8216;s parent of type <cite>type</cite>, potentially <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if it has not been
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s parent of type <cite>type</cite>, potentially <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if it has not been
 added to a hierarchy yet or none of the parents are of type <cite>type</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a></td>
@@ -1062,7 +1060,7 @@ added to a hierarchy yet or none of the parents are of type <cite>type</cite>.</
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mask</strong> (<a class="reference internal" href="../flags.html#GOffice.gObjectPosition" title="GOffice.gObjectPosition"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObjectPosition</span></code></a>) &#8211; <a class="reference internal" href="../flags.html#GOffice.gObjectPosition" title="GOffice.gObjectPosition"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObjectPosition</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><cite>obj</cite> &#8216;s position flags, masked by <cite>mask</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s position flags, masked by <cite>mask</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../flags.html#GOffice.gObjectPosition" title="GOffice.gObjectPosition"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObjectPosition</span></code></a></td>
 </tr>
@@ -1107,7 +1105,7 @@ added to a hierarchy yet or none of the parents are of type <cite>type</cite>.</
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>obj</cite> can be deleted.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> can be deleted.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -1130,7 +1128,7 @@ added to a hierarchy yet or none of the parents are of type <cite>type</cite>.</
 </tr>
 </tbody>
 </table>
-<p>Creates a new <a class="reference internal" href="gView.html#GOffice.gView" title="GOffice.gView"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gView</span></code></a> associated to <cite>obj</cite>, and sets its parent to <cite>parent</cite>.</p>
+<p>Creates a new <a class="reference internal" href="gView.html#GOffice.gView" title="GOffice.gView"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gView</span></code></a> associated to <cite>self</cite>, and sets its parent to <cite>parent</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1162,7 +1160,7 @@ of GogObjectRoles that could be added. The resulting list needs to be freed</td>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the object just before <cite>obj</cite> in the new ordering.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the object just before <cite>self</cite> in the new ordering.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a></p>
@@ -1226,9 +1224,9 @@ in order to refresh their states.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The new name for <cite>obj</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The new name for <cite>self</cite></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GOffice-0.10/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GOffice-0.10/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1246,7 +1244,7 @@ if <cite>name</cite> == <a class="reference external" href="http://docs.python.o
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>parent</strong> (<a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a>) &#8211; <a class="reference internal" href="#GOffice.gObject" title="GOffice.gObject"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObject</span></code></a>.</li>
-<li><strong>role</strong> (<a class="reference internal" href="../structs/gObjectRole.html#GOffice.gObjectRole" title="GOffice.gObjectRole"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObjectRole</span></code></a>) &#8211; a static string that can be sent to <cite>parent</cite> <code class="xref py py-func docutils literal"><span class="pre">::add</span></code></li>
+<li><strong>role</strong> (<a class="reference internal" href="../structs/gObjectRole.html#GOffice.gObjectRole" title="GOffice.gObjectRole"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.gObjectRole</span></code></a>) &#8211; a static string that can be sent to <cite>parent</cite><code class="xref py py-func docutils literal"><span class="pre">::add</span></code></li>
 <li><strong>id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; optionally <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</li>
 </ul>
 </td>
@@ -1259,7 +1257,7 @@ if <cite>name</cite> == <a class="reference external" href="http://docs.python.o
 </tr>
 </tbody>
 </table>
-<p>Absorbs a ref to <cite>child</cite></p>
+<p>Absorbs a ref to <cite>self</cite></p>
 </dd></dl>
 
 <dl class="method">
@@ -1283,7 +1281,7 @@ if <cite>name</cite> == <a class="reference external" href="http://docs.python.o
 </tr>
 </tbody>
 </table>
-<p>Attempts to set the position flags of <cite>obj</cite> to <cite>flags</cite>.</p>
+<p>Attempts to set the position flags of <cite>self</cite> to <cite>flags</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1804,7 +1802,4 @@ added and BEFORE the parent-changed signal has been called for it.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

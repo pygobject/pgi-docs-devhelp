@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Cogl.SwapChain" href="SwapChain.html"/>
         <link rel="prev" title="Cogl.Snippet" href="Snippet.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -80,8 +78,6 @@
 <li><a class="reference internal" href="#">Cogl.SubTexture</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -125,8 +121,6 @@
 <li><a class="reference internal" href="#">Cogl.SubTexture</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -215,14 +209,6 @@
 <span id="cogl-subtexture-vfuncs"></span><h2>Virtual Methods</h2>
 <p>None</p>
 </div>
-<div class="section" id="properties">
-<span id="cogl-subtexture-props"></span><h2>Properties</h2>
-<p>None</p>
-</div>
-<div class="section" id="signals">
-<span id="cogl-subtexture-signals"></span><h2>Signals</h2>
-<p>None</p>
-</div>
 <div class="section" id="fields">
 <span id="cogl-subtexture-fields"></span><h2>Fields</h2>
 <p>None</p>
@@ -275,12 +261,12 @@ representing a sub-region of <cite>parent_texture</cite>.</p>
 <p>Creates a high-level <a class="reference internal" href="#Cogl.SubTexture" title="Cogl.SubTexture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.SubTexture</span></code></a> representing a sub-region of
 any other <a class="reference internal" href="../interfaces/Texture.html#Cogl.Texture" title="Cogl.Texture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture</span></code></a>. The sub-region must strictly lye within the
 bounds of the <cite>parent_texture</cite>. The returned texture implements the
-<code class="xref py py-obj docutils literal"><span class="pre">Cogl.MetaTexture</span></code> interface because it&#8217;s not a low level texture
+#CoglMetaTexture interface because it&#8217;s not a low level texture
 that hardware can understand natively.</p>
 <p>Remember: Unless you are using high level drawing APIs such
 as cogl_rectangle() or other APIs documented to understand the
-<code class="xref py py-obj docutils literal"><span class="pre">Cogl.MetaTexture</span></code> interface then you need to use the
-<code class="xref py py-obj docutils literal"><span class="pre">Cogl.MetaTexture</span></code> interface to resolve a <a class="reference internal" href="#Cogl.SubTexture" title="Cogl.SubTexture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.SubTexture</span></code></a> into a
+#CoglMetaTexture interface then you need to use the
+#CoglMetaTexture interface to resolve a <a class="reference internal" href="#Cogl.SubTexture" title="Cogl.SubTexture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.SubTexture</span></code></a> into a
 low-level texture before drawing.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
@@ -294,16 +280,16 @@ low-level texture before drawing.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The parent texture that <cite>sub_texture</cite>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The parent texture that <cite>self</cite>
 derives its content from.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../interfaces/Texture.html#Cogl.Texture" title="Cogl.Texture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the parent texture that <cite>sub_texture</cite> derives its content
+<p>Retrieves the parent texture that <cite>self</cite> derives its content
 from.  This is the texture that was passed to
-<a class="reference internal" href="#Cogl.SubTexture.new" title="Cogl.SubTexture.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.SubTexture.new</span></code></a> () as the parent_texture argument.</p>
+<a class="reference internal" href="#Cogl.SubTexture.new" title="Cogl.SubTexture.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.SubTexture.new</span></code></a>() as the parent_texture argument.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -325,7 +311,4 @@ from.  This is the texture that was passed to
   </div> 
 
 </body>
-
-  
-
 </html>

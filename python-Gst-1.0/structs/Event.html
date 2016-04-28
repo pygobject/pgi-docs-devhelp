@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gst.FormatDefinition" href="FormatDefinition.html"/>
         <link rel="prev" title="Gst.DebugMessage" href="DebugMessage.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -350,8 +348,8 @@
 and functions to query (parse) received events.</p>
 <p>Events are usually created with gst_event_new_*() which takes event-type
 specific parameters as arguments.
-To send an event application will usually use <a class="reference internal" href="../classes/Element.html#Gst.Element.send_event" title="Gst.Element.send_event"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element.send_event</span></code></a> () and
-elements will use <a class="reference internal" href="../classes/Pad.html#Gst.Pad.send_event" title="Gst.Pad.send_event"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.send_event</span></code></a> () or <a class="reference internal" href="../classes/Pad.html#Gst.Pad.push_event" title="Gst.Pad.push_event"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.push_event</span></code></a> ().
+To send an event application will usually use <a class="reference internal" href="../classes/Element.html#Gst.Element.send_event" title="Gst.Element.send_event"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element.send_event</span></code></a>() and
+elements will use <a class="reference internal" href="../classes/Pad.html#Gst.Pad.send_event" title="Gst.Pad.send_event"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.send_event</span></code></a>() or <a class="reference internal" href="../classes/Pad.html#Gst.Pad.push_event" title="Gst.Pad.push_event"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.push_event</span></code></a>().
 The event should be unreffed with gst_event_unref() if it has not been sent.</p>
 <p>Events that have been received can be parsed with their respective
 gst_event_parse_*() functions. It is valid to pass <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for unwanted details.</p>
@@ -363,7 +361,7 @@ EOS (end of stream) or the start of a new stream-segment.
 Events are also used to flush the pipeline of any pending data.</p>
 <p>Most of the event API is used inside plugins. Applications usually only
 construct and use seek events.
-To do that <a class="reference internal" href="#Gst.Event.new_seek" title="Gst.Event.new_seek"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.new_seek</span></code></a> () is used to create a seek event. It takes
+To do that <a class="reference internal" href="#Gst.Event.new_seek" title="Gst.Event.new_seek"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.new_seek</span></code></a>() is used to create a seek event. It takes
 the needed parameters to specify seeking time and mode.</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="n">GstEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">;</span>
 <span class="n">gboolean</span> <span class="n">result</span><span class="p">;</span>
@@ -384,7 +382,7 @@ the needed parameters to specify seeking time and mode.</p>
 </div>
 <dl class="staticmethod">
 <dt id="Gst.Event.new_buffer_size">
-<em class="property">static </em><code class="descname">new_buffer_size</code><span class="sig-paren">(</span><em>format</em>, <em>minsize</em>, <em>maxsize</em>, <em>async</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n888"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_buffer_size</code><span class="sig-paren">(</span><em>format</em>, <em>minsize</em>, <em>maxsize</em>, <em>async</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n888"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -412,7 +410,7 @@ elements that they should provide a buffer of the specified dimensions.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_caps">
-<em class="property">static </em><code class="descname">new_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n675"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n675"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -432,7 +430,7 @@ that will follow after the event.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_custom">
-<em class="property">static </em><code class="descname">new_custom</code><span class="sig-paren">(</span><em>type</em>, <em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n295"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_custom</code><span class="sig-paren">(</span><em>type</em>, <em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n295"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -464,7 +462,7 @@ needed.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_eos">
-<em class="property">static </em><code class="descname">new_eos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n599"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_eos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n599"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -489,7 +487,7 @@ forwarded to the application.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_flush_start">
-<em class="property">static </em><code class="descname">new_flush_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n521"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_flush_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n521"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -503,9 +501,9 @@ forwarded to the application.</p>
 <p>Allocate a new flush start event. The flush start event can be sent
 upstream and downstream and travels out-of-bounds with the dataflow.</p>
 <p>It marks pads as being flushing and will make them return
-<a class="reference internal" href="../enums.html#Gst.FlowReturn.FLUSHING" title="Gst.FlowReturn.FLUSHING"><code class="xref py py-obj docutils literal"><span class="pre">Gst.FlowReturn.FLUSHING</span></code></a> when used for data flow with <a class="reference internal" href="../classes/Pad.html#Gst.Pad.push" title="Gst.Pad.push"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.push</span></code></a> (),
-<a class="reference internal" href="../classes/Pad.html#Gst.Pad.chain" title="Gst.Pad.chain"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.chain</span></code></a> (), <a class="reference internal" href="../classes/Pad.html#Gst.Pad.get_range" title="Gst.Pad.get_range"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.get_range</span></code></a> () and <a class="reference internal" href="../classes/Pad.html#Gst.Pad.pull_range" title="Gst.Pad.pull_range"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.pull_range</span></code></a> ().
-Any event (except a <a class="reference internal" href="../enums.html#Gst.EventType.FLUSH_STOP" title="Gst.EventType.FLUSH_STOP"><code class="xref py py-obj docutils literal"><span class="pre">Gst.EventType.FLUSH_STOP</span></code></a> ) received
+<a class="reference internal" href="../enums.html#Gst.FlowReturn.FLUSHING" title="Gst.FlowReturn.FLUSHING"><code class="xref py py-obj docutils literal"><span class="pre">Gst.FlowReturn.FLUSHING</span></code></a> when used for data flow with <a class="reference internal" href="../classes/Pad.html#Gst.Pad.push" title="Gst.Pad.push"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.push</span></code></a>(),
+<a class="reference internal" href="../classes/Pad.html#Gst.Pad.chain" title="Gst.Pad.chain"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.chain</span></code></a>(), <a class="reference internal" href="../classes/Pad.html#Gst.Pad.get_range" title="Gst.Pad.get_range"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.get_range</span></code></a>() and <a class="reference internal" href="../classes/Pad.html#Gst.Pad.pull_range" title="Gst.Pad.pull_range"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.pull_range</span></code></a>().
+Any event (except a <a class="reference internal" href="../enums.html#Gst.EventType.FLUSH_STOP" title="Gst.EventType.FLUSH_STOP"><code class="xref py py-obj docutils literal"><span class="pre">Gst.EventType.FLUSH_STOP</span></code></a>) received
 on a flushing pad will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> immediately.</p>
 <p>Elements should unlock any blocking functions and exit their streaming
 functions as fast as possible when this event is received.</p>
@@ -515,7 +513,7 @@ in the pipeline so that the new media is played as soon as possible.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_flush_stop">
-<em class="property">static </em><code class="descname">new_flush_stop</code><span class="sig-paren">(</span><em>reset_time</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n546"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_flush_stop</code><span class="sig-paren">(</span><em>reset_time</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n546"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -540,7 +538,7 @@ dataflow.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_gap">
-<em class="property">static </em><code class="descname">new_gap</code><span class="sig-paren">(</span><em>timestamp</em>, <em>duration</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n617"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_gap</code><span class="sig-paren">(</span><em>timestamp</em>, <em>duration</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n617"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -568,7 +566,7 @@ for sparse streams such as subtitle streams.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_latency">
-<em class="property">static </em><code class="descname">new_latency</code><span class="sig-paren">(</span><em>latency</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1243"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_latency</code><span class="sig-paren">(</span><em>latency</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1251"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -590,7 +588,7 @@ the time format.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_navigation">
-<em class="property">static </em><code class="descname">new_navigation</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1219"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_navigation</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1227"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -609,7 +607,7 @@ ownership of the structure.</td>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_protection">
-<em class="property">static </em><code class="descname">new_protection</code><span class="sig-paren">(</span><em>system_id</em>, <em>data</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1741"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_protection</code><span class="sig-paren">(</span><em>system_id</em>, <em>data</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1752"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -635,7 +633,7 @@ if unsuccessful.</p>
 </tbody>
 </table>
 <p>Creates a new event containing information specific to a particular
-protection system (uniquely identified by <cite>system_id</cite> ), by which that
+protection system (uniquely identified by <cite>system_id</cite>), by which that
 protection system can acquire key(s) to decrypt a protected stream.</p>
 <p>In order for a decryption element to decrypt media
 protected using a specific system, it first needs all the
@@ -655,7 +653,7 @@ identifying from which of these locations the encapsulated protection system
 specific information originated. This origin information is required as
 some protection systems use different encodings depending upon where the
 information originates.</p>
-<p>The events returned by <a class="reference internal" href="#Gst.Event.new_protection" title="Gst.Event.new_protection"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.new_protection</span></code></a> () are implemented
+<p>The events returned by <a class="reference internal" href="#Gst.Event.new_protection" title="Gst.Event.new_protection"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.new_protection</span></code></a>() are implemented
 in such a way as to ensure that the most recently-pushed protection info
 event of a particular <cite>origin</cite> and <cite>system_id</cite> will
 be stuck to the output pad of the sending element.</p>
@@ -666,7 +664,7 @@ be stuck to the output pad of the sending element.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_qos">
-<em class="property">static </em><code class="descname">new_qos</code><span class="sig-paren">(</span><em>type</em>, <em>proportion</em>, <em>diff</em>, <em>timestamp</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1000"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_qos</code><span class="sig-paren">(</span><em>type</em>, <em>proportion</em>, <em>diff</em>, <em>timestamp</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1000"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -727,7 +725,7 @@ event and implement custom application specific QoS handling.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_reconfigure">
-<em class="property">static </em><code class="descname">new_reconfigure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1373"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_reconfigure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1381"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -746,7 +744,7 @@ or changing the topology of the pipeline.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_seek">
-<em class="property">static </em><code class="descname">new_seek</code><span class="sig-paren">(</span><em>rate</em>, <em>format</em>, <em>flags</em>, <em>start_type</em>, <em>start</em>, <em>stop_type</em>, <em>stop</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1118"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_seek</code><span class="sig-paren">(</span><em>rate</em>, <em>format</em>, <em>flags</em>, <em>start_type</em>, <em>start</em>, <em>stop_type</em>, <em>stop</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1126"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -789,7 +787,7 @@ means that the position should not be updated.</p>
 from the newly configured start position.</p>
 <p>For negative rates, playback will start from the newly configured stop
 position (if any). If the stop position is updated, it must be different from
--1 (<a class="reference internal" href="../constants.html#Gst.CLOCK_TIME_NONE" title="Gst.CLOCK_TIME_NONE"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CLOCK_TIME_NONE</span></code></a> ) for negative rates.</p>
+-1 (<a class="reference internal" href="../constants.html#Gst.CLOCK_TIME_NONE" title="Gst.CLOCK_TIME_NONE"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CLOCK_TIME_NONE</span></code></a>) for negative rates.</p>
 <p>It is not possible to seek relative to the current playback position, to do
 this, PAUSE the pipeline, query the current playback position with
 <a class="reference internal" href="../enums.html#Gst.QueryType.POSITION" title="Gst.QueryType.POSITION"><code class="xref py py-obj docutils literal"><span class="pre">Gst.QueryType.POSITION</span></code></a> and update the playback segment current position with a
@@ -798,7 +796,7 @@ this, PAUSE the pipeline, query the current playback position with
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_segment">
-<em class="property">static </em><code class="descname">new_segment</code><span class="sig-paren">(</span><em>segment</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n753"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_segment</code><span class="sig-paren">(</span><em>segment</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n753"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -829,7 +827,7 @@ is a valid <cite>stop</cite> given, it must be greater or equal the <cite>start<
 when the indicated playback <cite>rate</cite> is &lt; 0.</p>
 <p>The <cite>applied_rate</cite> value provides information about any rate adjustment that
 has already been made to the timestamps and content on the buffers of the
-stream. (<cite>rate</cite> * <cite>applied_rate</cite> ) should always equal the rate that has been
+stream. (<cite>rate</cite> * <cite>applied_rate</cite>) should always equal the rate that has been
 requested for playback. For example, if an element has an input segment
 with intended playback <cite>rate</cite> of 2.0 and applied_rate of 1.0, it can adjust
 incoming timestamps and buffer content by half and output a segment event
@@ -840,7 +838,7 @@ with <cite>rate</cite> of 1.0 and <cite>applied_rate</cite> of 2.0</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_segment_done">
-<em class="property">static </em><code class="descname">new_segment_done</code><span class="sig-paren">(</span><em>format</em>, <em>position</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1818"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_segment_done</code><span class="sig-paren">(</span><em>format</em>, <em>position</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1829"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -865,7 +863,7 @@ finish playback of a segment as a result of a segment seek.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_sink_message">
-<em class="property">static </em><code class="descname">new_sink_message</code><span class="sig-paren">(</span><em>name</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1396"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_sink_message</code><span class="sig-paren">(</span><em>name</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1404"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -892,7 +890,7 @@ with the stream.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_step">
-<em class="property">static </em><code class="descname">new_step</code><span class="sig-paren">(</span><em>format</em>, <em>amount</em>, <em>rate</em>, <em>flush</em>, <em>intermediate</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1299"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_step</code><span class="sig-paren">(</span><em>format</em>, <em>amount</em>, <em>rate</em>, <em>flush</em>, <em>intermediate</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1307"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -915,7 +913,7 @@ with the stream.</p>
 </tbody>
 </table>
 <p>Create a new step event. The purpose of the step event is to instruct a sink
-to skip <cite>amount</cite> (expressed in <cite>format</cite> ) of media. It can be used to implement
+to skip <cite>amount</cite> (expressed in <cite>format</cite>) of media. It can be used to implement
 stepping through the video frame by frame or for doing fast trick modes.</p>
 <p>A rate of &lt;= 0.0 is not allowed. Pause the pipeline, for the effect of rate
 = 0.0 or first reverse the direction of playback using a seek event to get
@@ -928,7 +926,7 @@ part of a larger step operation.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_stream_start">
-<em class="property">static </em><code class="descname">new_stream_start</code><span class="sig-paren">(</span><em>stream_id</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1463"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_stream_start</code><span class="sig-paren">(</span><em>stream_id</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1474"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -955,13 +953,16 @@ stream-id, / as separator and a unique stream-id for this specific
 stream. A new stream-id should only be created for a stream if the upstream
 stream is split into (potentially) multiple new streams, e.g. in a demuxer,
 but not for every single element in the pipeline.
-<a class="reference internal" href="../classes/Pad.html#Gst.Pad.create_stream_id" title="Gst.Pad.create_stream_id"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.create_stream_id</span></code></a> () or <code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.create_stream_id_printf</span></code> () can be
-used to create a stream-id.</p>
+<a class="reference internal" href="../classes/Pad.html#Gst.Pad.create_stream_id" title="Gst.Pad.create_stream_id"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.create_stream_id</span></code></a>() or gst_pad_create_stream_id_printf() can be
+used to create a stream-id.  There are no particular semantics for the
+stream-id, though it should be deterministic (to support stream matching)
+and it might be used to order streams (besides any information conveyed by
+stream flags).</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_tag">
-<em class="property">static </em><code class="descname">new_tag</code><span class="sig-paren">(</span><em>taglist</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n831"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_tag</code><span class="sig-paren">(</span><em>taglist</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n831"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -985,7 +986,7 @@ scope and create a new tag event from it.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_toc">
-<em class="property">static </em><code class="descname">new_toc</code><span class="sig-paren">(</span><em>toc</em>, <em>updated</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1598"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_toc</code><span class="sig-paren">(</span><em>toc</em>, <em>updated</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1609"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1010,7 +1011,7 @@ inform elements that some kind of the TOC was found.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Event.new_toc_select">
-<em class="property">static </em><code class="descname">new_toc_select</code><span class="sig-paren">(</span><em>uid</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1659"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_toc_select</code><span class="sig-paren">(</span><em>uid</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1670"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1030,7 +1031,7 @@ given <cite>uid</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Event.copy_segment">
-<code class="descname">copy_segment</code><span class="sig-paren">(</span><em>segment</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n802"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy_segment</code><span class="sig-paren">(</span><em>segment</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n802"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1039,13 +1040,13 @@ given <cite>uid</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Parses a segment <cite>event</cite> and copies the <a class="reference internal" href="Segment.html#Gst.Segment" title="Gst.Segment"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Segment</span></code></a> into the location
+<p>Parses a segment <cite>self</cite> and copies the <a class="reference internal" href="Segment.html#Gst.Segment" title="Gst.Segment"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Segment</span></code></a> into the location
 given by <cite>segment</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.get_running_time_offset">
-<code class="descname">get_running_time_offset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n472"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_running_time_offset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n472"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1059,7 +1060,7 @@ given by <cite>segment</cite>.</p>
 </table>
 <p>Retrieve the accumulated running time offset of the event.</p>
 <p>Events passing through <a class="reference internal" href="../classes/Pad.html#Gst.Pad" title="Gst.Pad"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pads</span></code></a> that have a running time
-offset set via <a class="reference internal" href="../classes/Pad.html#Gst.Pad.set_offset" title="Gst.Pad.set_offset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.set_offset</span></code></a> () will get their offset
+offset set via <a class="reference internal" href="../classes/Pad.html#Gst.Pad.set_offset" title="Gst.Pad.set_offset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.set_offset</span></code></a>() will get their offset
 adjusted according to the pad&#8217;s offset.</p>
 <p>If the event contains any information that related to the
 running time, this information will need to be updated
@@ -1071,7 +1072,7 @@ before usage with this offset.</p>
 
 <dl class="method">
 <dt id="Gst.Event.get_seqnum">
-<code class="descname">get_seqnum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n423"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_seqnum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n423"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1085,7 +1086,7 @@ before usage with this offset.</p>
 </table>
 <p>Retrieve the sequence number of a event.</p>
 <p>Events have ever-incrementing sequence numbers, which may also be set
-explicitly via <a class="reference internal" href="#Gst.Event.set_seqnum" title="Gst.Event.set_seqnum"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.set_seqnum</span></code></a> (). Sequence numbers are typically used to
+explicitly via <a class="reference internal" href="#Gst.Event.set_seqnum" title="Gst.Event.set_seqnum"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.set_seqnum</span></code></a>(). Sequence numbers are typically used to
 indicate that a event corresponds to some other set of events or messages,
 for example an EOS event corresponding to a SEEK event. It is considered good
 practice to make this correspondence when possible, though it is not
@@ -1097,7 +1098,7 @@ that correspondence was made explicitly.</p>
 
 <dl class="method">
 <dt id="Gst.Event.get_structure">
-<code class="descname">get_structure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n339"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_structure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n339"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1116,7 +1117,7 @@ that the pointer becomes invalid when you free the event.<p>MT safe.</p>
 
 <dl class="method">
 <dt id="Gst.Event.has_name">
-<code class="descname">has_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n391"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">has_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n391"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1129,13 +1130,13 @@ that the pointer becomes invalid when you free the event.<p>MT safe.</p>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>event</cite> has the given <cite>name</cite>. This function is usually used to
+<p>Checks if <cite>self</cite> has the given <cite>name</cite>. This function is usually used to
 check the name of a custom event.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.parse_buffer_size">
-<code class="descname">parse_buffer_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n923"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_buffer_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n923"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1165,7 +1166,7 @@ check the name of a custom event.</p>
 
 <dl class="method">
 <dt id="Gst.Event.parse_caps">
-<code class="descname">parse_caps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n700"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_caps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n700"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1176,13 +1177,13 @@ check the name of a custom event.</p>
 </tr>
 </tbody>
 </table>
-<p>Get the caps from <cite>event</cite>. The caps remains valid as long as <cite>event</cite> remains
+<p>Get the caps from <cite>self</cite>. The caps remains valid as long as <cite>self</cite> remains
 valid.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.parse_flush_stop">
-<code class="descname">parse_flush_stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n567"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_flush_stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n567"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1198,7 +1199,7 @@ valid.</p>
 
 <dl class="method">
 <dt id="Gst.Event.parse_gap">
-<code class="descname">parse_gap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n651"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_gap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n651"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1226,7 +1227,7 @@ the gap, or <a class="reference external" href="http://docs.python.org/2.7/libra
 
 <dl class="method">
 <dt id="Gst.Event.parse_group_id">
-<code class="descname">parse_group_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1573"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_group_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1584"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1253,7 +1254,7 @@ the gap, or <a class="reference external" href="http://docs.python.org/2.7/libra
 
 <dl class="method">
 <dt id="Gst.Event.parse_latency">
-<code class="descname">parse_latency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1263"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_latency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1271"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1269,13 +1270,13 @@ the gap, or <a class="reference external" href="http://docs.python.org/2.7/libra
 
 <dl class="method">
 <dt id="Gst.Event.parse_protection">
-<code class="descname">parse_protection</code><span class="sig-paren">(</span><em>origin</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1788"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_protection</code><span class="sig-paren">(</span><em>origin</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1799"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>origin</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; pointer to store a value that
-indicates where the protection information carried by <cite>event</cite> was extracted
+indicates where the protection information carried by <cite>self</cite> was extracted
 from.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><table class="docutils field-list" frame="void" rules="none">
@@ -1298,7 +1299,7 @@ holding protection system specific information.</td>
 </table>
 <p>Parses an event containing protection system specific information and stores
 the results in <cite>system_id</cite>, <cite>data</cite> and <cite>origin</cite>. The data stored in <cite>system_id</cite>,
-<cite>origin</cite> and <cite>data</cite> are valid until <cite>event</cite> is released.</p>
+<cite>origin</cite> and <cite>data</cite> are valid until <cite>self</cite> is released.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -1306,7 +1307,7 @@ the results in <cite>system_id</cite>, <cite>data</cite> and <cite>origin</cite>
 
 <dl class="method">
 <dt id="Gst.Event.parse_qos">
-<code class="descname">parse_qos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1041"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_qos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1041"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1332,13 +1333,13 @@ the results in <cite>system_id</cite>, <cite>data</cite> and <cite>origin</cite>
 </tbody>
 </table>
 <p>Get the type, proportion, diff and timestamp in the qos event. See
-<a class="reference internal" href="#Gst.Event.new_qos" title="Gst.Event.new_qos"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.new_qos</span></code></a> () for more information about the different QoS values.</p>
+<a class="reference internal" href="#Gst.Event.new_qos" title="Gst.Event.new_qos"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.new_qos</span></code></a>() for more information about the different QoS values.</p>
 <p><cite>timestamp</cite> will be adjusted for any pad offsets of pads it was passing through.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.parse_seek">
-<code class="descname">parse_seek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1170"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_seek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1178"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1369,12 +1370,12 @@ the results in <cite>system_id</cite>, <cite>data</cite> and <cite>origin</cite>
 </tr>
 </tbody>
 </table>
-<p>Parses a seek <cite>event</cite> and stores the results in the given result locations.</p>
+<p>Parses a seek <cite>self</cite> and stores the results in the given result locations.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.parse_segment">
-<code class="descname">parse_segment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n782"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_segment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n782"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1385,14 +1386,14 @@ the results in <cite>system_id</cite>, <cite>data</cite> and <cite>origin</cite>
 </tr>
 </tbody>
 </table>
-<p>Parses a segment <cite>event</cite> and stores the result in the given <cite>segment</cite> location.
-<cite>segment</cite> remains valid only until the <cite>event</cite> is freed. Don&#8217;t modify the segment
+<p>Parses a segment <cite>self</cite> and stores the result in the given <cite>segment</cite> location.
+<cite>segment</cite> remains valid only until the <cite>self</cite> is freed. Don&#8217;t modify the segment
 and make a copy if you want to modify it or store it for later use.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.parse_segment_done">
-<code class="descname">parse_segment_done</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1849"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_segment_done</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1860"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1418,7 +1419,7 @@ and make a copy if you want to modify it or store it for later use.</p>
 
 <dl class="method">
 <dt id="Gst.Event.parse_sink_message">
-<code class="descname">parse_sink_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1423"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_sink_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1431"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1434,7 +1435,7 @@ and make a copy if you want to modify it or store it for later use.</p>
 
 <dl class="method">
 <dt id="Gst.Event.parse_step">
-<code class="descname">parse_step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1336"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1344"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1467,7 +1468,7 @@ boolean in</td>
 
 <dl class="method">
 <dt id="Gst.Event.parse_stream_flags">
-<code class="descname">parse_stream_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1526"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_stream_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1537"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1485,7 +1486,7 @@ boolean in</td>
 
 <dl class="method">
 <dt id="Gst.Event.parse_stream_start">
-<code class="descname">parse_stream_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1488"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_stream_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1499"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1496,15 +1497,15 @@ boolean in</td>
 </tr>
 </tbody>
 </table>
-<p>Parse a stream-id <cite>event</cite> and store the result in the given <cite>stream_id</cite>
+<p>Parse a stream-id <cite>self</cite> and store the result in the given <cite>stream_id</cite>
 location. The string stored in <cite>stream_id</cite> must not be modified and will
-remain valid only until <cite>event</cite> gets freed. Make a copy if you want to
+remain valid only until <cite>self</cite> gets freed. Make a copy if you want to
 modify it or store it for later use.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.parse_tag">
-<code class="descname">parse_tag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n860"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_tag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n860"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1515,15 +1516,15 @@ modify it or store it for later use.</p>
 </tr>
 </tbody>
 </table>
-<p>Parses a tag <cite>event</cite> and stores the results in the given <cite>taglist</cite> location.
+<p>Parses a tag <cite>self</cite> and stores the results in the given <cite>taglist</cite> location.
 No reference to the taglist will be returned, it remains valid only until
-the <cite>event</cite> is freed. Don&#8217;t modify or free the taglist, make a copy if you
+the <cite>self</cite> is freed. Don&#8217;t modify or free the taglist, make a copy if you
 want to modify it or store it for later use.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.parse_toc">
-<code class="descname">parse_toc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1633"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_toc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1644"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1544,12 +1545,12 @@ want to modify it or store it for later use.</p>
 </tr>
 </tbody>
 </table>
-<p>Parse a TOC <cite>event</cite> and store the results in the given <cite>toc</cite> and <cite>updated</cite> locations.</p>
+<p>Parse a TOC <cite>self</cite> and store the results in the given <cite>toc</cite> and <cite>updated</cite> locations.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.parse_toc_select">
-<code class="descname">parse_toc_select</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1682"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">parse_toc_select</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1693"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1560,12 +1561,12 @@ want to modify it or store it for later use.</p>
 </tr>
 </tbody>
 </table>
-<p>Parse a TOC select <cite>event</cite> and store the results in the given <cite>uid</cite> location.</p>
+<p>Parse a TOC select <cite>self</cite> and store the results in the given <cite>uid</cite> location.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.set_group_id">
-<code class="descname">set_group_id</code><span class="sig-paren">(</span><em>group_id</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1553"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_group_id</code><span class="sig-paren">(</span><em>group_id</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1564"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1579,7 +1580,7 @@ together, i.e. all streams inside a container file should have the
 same group id but different stream ids. The group id should change
 each time the stream is started, resulting in different group ids
 each time a file is played for example.</p>
-<p>Use <a class="reference internal" href="../functions.html#Gst.util_group_id_next" title="Gst.util_group_id_next"><code class="xref py py-obj docutils literal"><span class="pre">Gst.util_group_id_next</span></code></a> () to get a new group id.</p>
+<p>Use <a class="reference internal" href="../functions.html#Gst.util_group_id_next" title="Gst.util_group_id_next"><code class="xref py py-obj docutils literal"><span class="pre">Gst.util_group_id_next</span></code></a>() to get a new group id.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
 </div>
@@ -1587,7 +1588,7 @@ each time a file is played for example.</p>
 
 <dl class="method">
 <dt id="Gst.Event.set_running_time_offset">
-<code class="descname">set_running_time_offset</code><span class="sig-paren">(</span><em>offset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n493"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_running_time_offset</code><span class="sig-paren">(</span><em>offset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n493"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1597,7 +1598,7 @@ each time a file is played for example.</p>
 </tbody>
 </table>
 <p>Set the running time offset of a event. See
-<a class="reference internal" href="#Gst.Event.get_running_time_offset" title="Gst.Event.get_running_time_offset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.get_running_time_offset</span></code></a> () for more information.</p>
+<a class="reference internal" href="#Gst.Event.get_running_time_offset" title="Gst.Event.get_running_time_offset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.get_running_time_offset</span></code></a>() for more information.</p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
@@ -1606,7 +1607,7 @@ each time a file is played for example.</p>
 
 <dl class="method">
 <dt id="Gst.Event.set_seqnum">
-<code class="descname">set_seqnum</code><span class="sig-paren">(</span><em>seqnum</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n445"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_seqnum</code><span class="sig-paren">(</span><em>seqnum</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n445"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1617,14 +1618,14 @@ each time a file is played for example.</p>
 </table>
 <p>Set the sequence number of a event.</p>
 <p>This function might be called by the creator of a event to indicate that the
-event relates to other events or messages. See <a class="reference internal" href="#Gst.Event.get_seqnum" title="Gst.Event.get_seqnum"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.get_seqnum</span></code></a> () for
+event relates to other events or messages. See <a class="reference internal" href="#Gst.Event.get_seqnum" title="Gst.Event.get_seqnum"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.get_seqnum</span></code></a>() for
 more information.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Event.set_stream_flags">
-<code class="descname">set_stream_flags</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n1508"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_stream_flags</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n1519"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1640,7 +1641,7 @@ more information.</p>
 
 <dl class="method">
 <dt id="Gst.Event.writable_structure">
-<code class="descname">writable_structure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.6.2#n361"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">writable_structure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstevent.c?h=1.8.1#n361"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1648,7 +1649,7 @@ more information.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The structure of the event. The structure
 is still owned by the event, which means that you should not free
 it and that the pointer becomes invalid when you free the event.
-This function checks if <cite>event</cite> is writable and will never return
+This function checks if <cite>self</cite> is writable and will never return
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.<p>MT safe.</p>
 </td>
 </tr>
@@ -1675,7 +1676,4 @@ This function checks if <cite>event</cite> is writable and will never return
   </div> 
 
 </body>
-
-  
-
 </html>

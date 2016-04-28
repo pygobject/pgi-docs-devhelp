@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Soup 2.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Soup.MultipartInputStream" href="MultipartInputStream.html"/>
         <link rel="prev" title="Soup.Logger" href="Logger.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -645,22 +643,22 @@ fields are filled in, they will be terminated with a &#8216;\0&#8217; byte
 (which is not included in the <code class="docutils literal"><span class="pre">length</span></code>), so you
 can use them as ordinary C strings (assuming that you know that the
 body doesn&#8217;t have any other &#8216;\0&#8217; bytes).</p>
-<p>For a client-side <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>, <cite>request_body</cite> &#8216;s
+<p>For a client-side <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>, <cite>request_body</cite>&#8216;s
 <code class="docutils literal"><span class="pre">data</span></code> is usually filled in right before libsoup
 writes the request to the network, but you should not count on
-this; use <a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.flatten" title="Soup.MessageBody.flatten"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.flatten</span></code></a> () if you want to ensure that
+this; use <a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.flatten" title="Soup.MessageBody.flatten"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.flatten</span></code></a>() if you want to ensure that
 <code class="docutils literal"><span class="pre">data</span></code> is filled in. If you are not using
-<a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a> to read the response, then <cite>response_body</cite> &#8216;s
+<a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a> to read the response, then <cite>response_body</cite>&#8216;s
 <code class="docutils literal"><span class="pre">data</span></code> will be filled in before
 <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.finished" title="Soup.Message.signals.finished"><code class="xref py py-func docutils literal"><span class="pre">::finished</span></code></a> is emitted. (If you are using <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a>,
 then the message body is not accumulated by default, so
-<cite>response_body</cite> &#8216;s <code class="docutils literal"><span class="pre">data</span></code> will always be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.)</p>
-<p>For a server-side <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>, <cite>request_body</cite> &#8216;s %data will be
-filled in before <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_body" title="Soup.Message.signals.got_body"><code class="xref py py-func docutils literal"><span class="pre">::got-body</span></code></a> is emitted.</p>
+<cite>response_body</cite>&#8216;s <code class="docutils literal"><span class="pre">data</span></code> will always be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.)</p>
+<p>For a server-side <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>, <cite>request_body</cite>&#8216;s %data will be
+filled in before #SoupMessage::got_body is emitted.</p>
 <p>To prevent the %data field from being filled in at all (eg, if you
-are handling the data from a <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_chunk" title="Soup.Message.signals.got_chunk"><code class="xref py py-func docutils literal"><span class="pre">::got-chunk</span></code></a>, and so don&#8217;t
+are handling the data from a #SoupMessage::got_chunk, and so don&#8217;t
 need to see it all at the end), call
-<a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.set_accumulate" title="Soup.MessageBody.set_accumulate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.set_accumulate</span></code></a> () on <cite>response_body</cite> or
+<a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.set_accumulate" title="Soup.MessageBody.set_accumulate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.set_accumulate</span></code></a>() on <cite>response_body</cite> or
 <cite>request_body</cite> as appropriate, passing <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</p>
 <dl class="staticmethod">
 <dt id="Soup.Message.new">
@@ -696,7 +694,7 @@ could not be parsed).</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>method</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the HTTP method for the created request</li>
-<li><strong>uri</strong> (<a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a>) &#8211; the destination endpoint (as a <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a> )</li>
+<li><strong>uri</strong> (<a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a>) &#8211; the destination endpoint (as a <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a>)</li>
 </ul>
 </td>
 </tr>
@@ -735,16 +733,16 @@ could not be parsed).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of a <a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of a <a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>This disables the actions of <a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a> s with the
-given <cite>feature_type</cite> (or a subclass of that type) on <cite>msg</cite>, so that
-<cite>msg</cite> is processed as though the feature(s) hadn&#8217;t been added to the
+given <cite>feature_type</cite> (or a subclass of that type) on <cite>self</cite>, so that
+<cite>self</cite> is processed as though the feature(s) hadn&#8217;t been added to the
 session. Eg, passing #SOUP_TYPE_CONTENT_SNIFFER for <cite>feature_type</cite>
 will disable Content-Type sniffing on the message.</p>
-<p>You must call this before queueing <cite>msg</cite> on a session; calling it on
+<p>You must call this before queueing <cite>self</cite> on a session; calling it on
 a message that has already been queued is undefined. In particular,
 you cannot call this on a message that is being requeued after a
 redirect or authentication.</p>
@@ -765,13 +763,13 @@ redirect or authentication.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the address <cite>msg</cite> &#8216;s URI points to</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the address <cite>self</cite>&#8216;s URI points to</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Address.html#Soup.Address" title="Soup.Address"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Address</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the address <cite>msg</cite> &#8216;s URI points to. After first setting the
+<p>Gets the address <cite>self</cite>&#8216;s URI points to. After first setting the
 URI on a message, this will be unresolved, although the message&#8217;s
 session will resolve it before sending the message.</p>
 <div class="versionadded">
@@ -786,13 +784,13 @@ session will resolve it before sending the message.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <cite>msg</cite> &#8216;s first party <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <cite>self</cite>&#8216;s first party <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>msg</cite> &#8216;s first-party <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a></p>
+<p>Gets <cite>self</cite>&#8216;s first-party <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
 </div>
@@ -811,7 +809,7 @@ session will resolve it before sending the message.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets the flags on <cite>msg</cite></p>
+<p>Gets the flags on <cite>self</cite></p>
 </dd></dl>
 
 <dl class="method">
@@ -827,7 +825,7 @@ session will resolve it before sending the message.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets the HTTP version of <cite>msg</cite>. This is the minimum of the
+<p>Gets the HTTP version of <cite>self</cite>. This is the minimum of the
 version from the request and the version from the response.</p>
 </dd></dl>
 
@@ -838,11 +836,11 @@ version from the request and the version from the response.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>msg</cite> used/attempted https, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not<table class="docutils field-list" frame="void" rules="none">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> used/attempted https, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">certificate:</th><td class="field-body"><cite>msg</cite> &#8216;s TLS certificate</td>
+<tr class="field-odd field"><th class="field-name">certificate:</th><td class="field-body"><cite>self</cite>&#8216;s TLS certificate</td>
 </tr>
 <tr class="field-even field"><th class="field-name">errors:</th><td class="field-body">the verification status of <cite>certificate</cite></td>
 </tr>
@@ -854,8 +852,8 @@ version from the request and the version from the response.</p>
 </tr>
 </tbody>
 </table>
-<p>If <cite>msg</cite> is using https (or attempted to use https but got
-<a class="reference internal" href="../enums.html#Soup.Status.SSL_FAILED" title="Soup.Status.SSL_FAILED"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Status.SSL_FAILED</span></code></a> ), this retrieves the <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a>
+<p>If <cite>self</cite> is using https (or attempted to use https but got
+<a class="reference internal" href="../enums.html#Soup.Status.SSL_FAILED" title="Soup.Status.SSL_FAILED"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Status.SSL_FAILED</span></code></a>), this retrieves the <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a>
 associated with its connection, and the <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/flags.html#Gio.TlsCertificateFlags" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificateFlags</span></code></a>
 showing what problems, if any, have been found with that
 certificate.</p>
@@ -893,13 +891,13 @@ to <a class="reference internal" href="../enums.html#Soup.MessagePriority.NORMAL
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>msg</cite> &#8216;s associated <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s associated <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>If <cite>msg</cite> is associated with a <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a>, this returns that
+<p>If <cite>self</cite> is associated with a <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a>, this returns that
 request. Otherwise it returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.42.</span></p>
@@ -913,13 +911,13 @@ request. Otherwise it returns <a class="reference external" href="http://docs.py
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the URI <cite>msg</cite> is targeted for.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the URI <cite>self</cite> is targeted for.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>msg</cite> &#8216;s URI</p>
+<p>Gets <cite>self</cite>&#8216;s URI</p>
 </dd></dl>
 
 <dl class="method">
@@ -963,8 +961,8 @@ request. Otherwise it returns <a class="reference external" href="http://docs.py
 </tr>
 </tbody>
 </table>
-<p>Determines whether or not <cite>msg</cite> &#8216;s connection can be kept alive for
-further requests after processing <cite>msg</cite>, based on the HTTP version,
+<p>Determines whether or not <cite>self</cite>&#8216;s connection can be kept alive for
+further requests after processing <cite>self</cite>, based on the HTTP version,
 Connection header, etc.</p>
 </dd></dl>
 
@@ -982,14 +980,14 @@ Connection header, etc.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>allocator</strong> (<a class="reference internal" href="../callbacks.html#Soup.ChunkAllocator" title="Soup.ChunkAllocator"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ChunkAllocator</span></code></a>) &#8211; the chunk allocator callback</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data to pass to <cite>allocator</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data to pass to <cite>allocator</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Sets an alternate chunk-allocation function to use when reading
-<cite>msg</cite> &#8216;s body when using the traditional (ie,
+<cite>self</cite>&#8216;s body when using the traditional (ie,
 non-<a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a> -based) API. Every time data is available
 to read, libsoup will call <cite>allocator</cite>, which should return a
 <a class="reference internal" href="../structs/Buffer.html#Soup.Buffer" title="Soup.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer</span></code></a>. (See <a class="reference internal" href="../callbacks.html#Soup.ChunkAllocator" title="Soup.ChunkAllocator"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ChunkAllocator</span></code></a> for additional details.)
@@ -997,22 +995,22 @@ Libsoup will then read data from the network into that buffer, and
 update the buffer&#8217;s <code class="docutils literal"><span class="pre">length</span></code> to indicate how much
 data it read.</p>
 <p>Generally, a custom chunk allocator would be used in conjunction
-with <a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.set_accumulate" title="Soup.MessageBody.set_accumulate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.set_accumulate</span></code></a> () <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> and
-<a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_chunk" title="Soup.Message.signals.got_chunk"><code class="xref py py-func docutils literal"><span class="pre">::got-chunk</span></code></a>, as part of a strategy to avoid unnecessary
+with <a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.set_accumulate" title="Soup.MessageBody.set_accumulate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.set_accumulate</span></code></a>() <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> and
+#SoupMessage::got_chunk, as part of a strategy to avoid unnecessary
 copying of data. However, you cannot assume that every call to the
 allocator will be followed by a call to your
-<a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_chunk" title="Soup.Message.signals.got_chunk"><code class="xref py py-func docutils literal"><span class="pre">::got-chunk</span></code></a> handler; if an I/O error occurs, then the
+#SoupMessage::got_chunk handler; if an I/O error occurs, then the
 buffer will be unreffed without ever having been used. If your
 buffer-allocation strategy requires special cleanup, use
-<a class="reference internal" href="../structs/Buffer.html#Soup.Buffer.new_with_owner" title="Soup.Buffer.new_with_owner"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.new_with_owner</span></code></a> () rather than doing the cleanup from the
-<a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_chunk" title="Soup.Message.signals.got_chunk"><code class="xref py py-func docutils literal"><span class="pre">::got-chunk</span></code></a> handler.</p>
+<a class="reference internal" href="../structs/Buffer.html#Soup.Buffer.new_with_owner" title="Soup.Buffer.new_with_owner"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.new_with_owner</span></code></a>() rather than doing the cleanup from the
+#SoupMessage::got_chunk handler.</p>
 <p>The other thing to remember when using non-accumulating message
-bodies is that the buffer passed to the <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_chunk" title="Soup.Message.signals.got_chunk"><code class="xref py py-func docutils literal"><span class="pre">::got-chunk</span></code></a>
+bodies is that the buffer passed to the #SoupMessage::got_chunk
 handler will be unreffed after the handler returns, just as it
 would be in the non-custom-allocated case. If you want to hand the
 chunk data off to some other part of your program to use later,
 you&#8217;ll need to ref the <a class="reference internal" href="../structs/Buffer.html#Soup.Buffer" title="Soup.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer</span></code></a> (or its owner, in the
-<a class="reference internal" href="../structs/Buffer.html#Soup.Buffer.new_with_owner" title="Soup.Buffer.new_with_owner"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.new_with_owner</span></code></a> () case) to ensure that the data remains
+<a class="reference internal" href="../structs/Buffer.html#Soup.Buffer.new_with_owner" title="Soup.Buffer.new_with_owner"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.new_with_owner</span></code></a>() case) to ensure that the data remains
 valid.</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span><a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a> provides a much simpler API that lets you read the response directly into your own buffers without needing to mess with callbacks, pausing/unpausing, etc.</p>
@@ -1026,11 +1024,11 @@ valid.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>first_party</strong> (<a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a>) &#8211; the <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a> for the <cite>msg</cite> &#8216;s first party</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>first_party</strong> (<a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a>) &#8211; the <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a> for the <cite>self</cite>&#8216;s first party</td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>first_party</cite> as the main document <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a> for <cite>msg</cite>. For
+<p>Sets <cite>first_party</cite> as the main document <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a> for <cite>self</cite>. For
 details of when and how this is used refer to the documentation for
 <a class="reference internal" href="../enums.html#Soup.CookieJarAcceptPolicy" title="Soup.CookieJarAcceptPolicy"><code class="xref py py-obj docutils literal"><span class="pre">Soup.CookieJarAcceptPolicy</span></code></a>.</p>
 <div class="versionadded">
@@ -1049,7 +1047,7 @@ details of when and how this is used refer to the documentation for
 </tr>
 </tbody>
 </table>
-<p>Sets the specified flags on <cite>msg</cite>.</p>
+<p>Sets the specified flags on <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1063,7 +1061,7 @@ details of when and how this is used refer to the documentation for
 </tr>
 </tbody>
 </table>
-<p>Sets the HTTP version on <cite>msg</cite>. The default version is
+<p>Sets the HTTP version on <cite>self</cite>. The default version is
 <a class="reference internal" href="../enums.html#Soup.HTTPVersion.HTTP_1_1" title="Soup.HTTPVersion.HTTP_1_1"><code class="xref py py-obj docutils literal"><span class="pre">Soup.HTTPVersion.HTTP_1_1</span></code></a>. Setting it to <a class="reference internal" href="../enums.html#Soup.HTTPVersion.HTTP_1_0" title="Soup.HTTPVersion.HTTP_1_0"><code class="xref py py-obj docutils literal"><span class="pre">Soup.HTTPVersion.HTTP_1_0</span></code></a> will prevent certain
 functionality from being used.</p>
 </dd></dl>
@@ -1086,7 +1084,7 @@ message processing queue.</p>
 message with lower priority (messages with the same priority are
 processed on a FIFO basis).</p>
 <p>Setting priorities does not currently work with <a class="reference internal" href="SessionSync.html#Soup.SessionSync" title="Soup.SessionSync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionSync</span></code></a>
-(or with synchronous messages on a plain <a class="reference internal" href="Session.html#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> ) because in
+(or with synchronous messages on a plain <a class="reference internal" href="Session.html#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a>) because in
 the synchronous/blocking case, priority ends up being determined
 semi-randomly by thread scheduling.</p>
 <div class="versionadded">
@@ -1103,19 +1101,19 @@ semi-randomly by thread scheduling.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>status_code</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a 3xx status code</li>
-<li><strong>redirect_uri</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the URI to redirect <cite>msg</cite> to</li>
+<li><strong>redirect_uri</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the URI to redirect <cite>self</cite> to</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>msg</cite> &#8216;s status_code to <cite>status_code</cite> and adds a Location header
+<p>Sets <cite>self</cite>&#8216;s status_code to <cite>status_code</cite> and adds a Location header
 pointing to <cite>redirect_uri</cite>. Use this from a <a class="reference internal" href="Server.html#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> when you
 want to redirect the client to another URI.</p>
 <p><cite>redirect_uri</cite> can be a relative URI, in which case it is
-interpreted relative to <cite>msg</cite> &#8216;s current URI. In particular, if
+interpreted relative to <cite>self</cite>&#8216;s current URI. In particular, if
 <cite>redirect_uri</cite> is just a path, it will replace the path
-and query of <cite>msg</cite> &#8216;s URI.</p>
+and query of <cite>self</cite>&#8216;s URI.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.38.</span></p>
 </div>
@@ -1172,8 +1170,8 @@ and query of <cite>msg</cite> &#8216;s URI.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>msg</cite> &#8216;s status code to <cite>status_code</cite>. If <cite>status_code</cite> is a
-known value, it will also set <cite>msg</cite> &#8216;s reason_phrase.</p>
+<p>Sets <cite>self</cite>&#8216;s status code to <cite>status_code</cite>. If <cite>status_code</cite> is a
+known value, it will also set <cite>self</cite>&#8216;s reason_phrase.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1191,7 +1189,7 @@ known value, it will also set <cite>msg</cite> &#8216;s reason_phrase.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>msg</cite> &#8216;s status code and reason phrase.</p>
+<p>Sets <cite>self</cite>&#8216;s status code and reason phrase.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1205,9 +1203,9 @@ known value, it will also set <cite>msg</cite> &#8216;s reason_phrase.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>msg</cite> &#8216;s URI to <cite>uri</cite>. If <cite>msg</cite> has already been sent and you want
+<p>Sets <cite>self</cite>&#8216;s URI to <cite>uri</cite>. If <cite>self</cite> has already been sent and you want
 to re-send it with the new URI, you need to call
-<a class="reference internal" href="Session.html#Soup.Session.requeue_message" title="Soup.Session.requeue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.requeue_message</span></code></a> ().</p>
+<a class="reference internal" href="Session.html#Soup.Session.requeue_message" title="Soup.Session.requeue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.requeue_message</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1376,8 +1374,8 @@ emission of <a class="reference internal" href="#Soup.Message" title="Soup.Messa
 </tbody>
 </table>
 <p>Emitted when all HTTP processing is finished for a message.
-(After <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_body" title="Soup.Message.signals.got_body"><code class="xref py py-func docutils literal"><span class="pre">::got-body</span></code></a> for client-side messages, or
-after <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.wrote_body" title="Soup.Message.signals.wrote_body"><code class="xref py py-func docutils literal"><span class="pre">::wrote-body</span></code></a> for server-side messages.)</p>
+(After #SoupMessage::got_body for client-side messages, or
+after #SoupMessage::wrote_body for server-side messages.)</p>
 </dd></dl>
 
 <dl class="function">
@@ -1399,8 +1397,8 @@ after <a class="reference internal" href="#Soup.Message" title="Soup.Message"><c
 server-side message, this means it has received the request
 body. For a client-side message, this means it has received
 the response body and is nearly done with the message.)</p>
-<p>See also <code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.add_header_handler</span></code> () and
-<code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.add_status_code_handler</span></code> (), which can be used
+<p>See also soup_message_add_header_handler() and
+soup_message_add_status_code_handler(), which can be used
 to connect to a subset of emissions of this signal.</p>
 </dd></dl>
 
@@ -1431,7 +1429,7 @@ body, not necessarily the specific HTTP 1.1 chunks sent by
 the other side.</p>
 <p>If you cancel or requeue <cite>msg</cite> while processing this signal,
 then the current HTTP I/O will be stopped after this signal
-emission finished, and <cite>msg</cite> &#8216;s connection will be closed.</p>
+emission finished, and <cite>msg</cite>&#8216;s connection will be closed.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1454,16 +1452,16 @@ emission finished, and <cite>msg</cite> &#8216;s connection will be closed.</p>
 Status-Line and response headers; for a server-side
 message, it is after receiving the Request-Line and request
 headers.)</p>
-<p>See also <code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.add_header_handler</span></code> () and
-<code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.add_status_code_handler</span></code> (), which can be used
+<p>See also soup_message_add_header_handler() and
+soup_message_add_status_code_handler(), which can be used
 to connect to a subset of emissions of this signal.</p>
 <p>If you cancel or requeue <cite>msg</cite> while processing this signal,
 then the current HTTP I/O will be stopped after this signal
-emission finished, and <cite>msg</cite> &#8216;s connection will be closed.
+emission finished, and <cite>msg</cite>&#8216;s connection will be closed.
 (If you need to requeue a message&#8211;eg, after handling
 authentication or redirection&#8211;it is usually better to
-requeue it from a <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_body" title="Soup.Message.signals.got_body"><code class="xref py py-func docutils literal"><span class="pre">::got-body</span></code></a> handler rather
-than a <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_headers" title="Soup.Message.signals.got_headers"><code class="xref py py-func docutils literal"><span class="pre">::got-headers</span></code></a> handler, so that the
+requeue it from a #SoupMessage::got_body handler rather
+than a #SoupMessage::got_headers handler, so that the
 existing HTTP connection can be reused.)</p>
 </dd></dl>
 
@@ -1489,7 +1487,7 @@ informational response; however, those header values will
 be erased after this signal is done.</p>
 <p>If you cancel or requeue <cite>msg</cite> while processing this signal,
 then the current HTTP I/O will be stopped after this signal
-emission finished, and <cite>msg</cite> &#8216;s connection will be closed.</p>
+emission finished, and <cite>msg</cite>&#8216;s connection will be closed.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1618,7 +1616,7 @@ done with the message.)</p>
 </table>
 <p>Emitted immediately after writing a portion of the message
 body to the network.</p>
-<p>Unlike <a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.wrote_chunk" title="Soup.Message.signals.wrote_chunk"><code class="xref py py-func docutils literal"><span class="pre">::wrote-chunk</span></code></a>, this is emitted after
+<p>Unlike #SoupMessage::wrote_chunk, this is emitted after
 every successful write() call, not only after finishing a
 complete &#8220;chunk&#8221;.</p>
 <div class="versionadded">
@@ -1643,11 +1641,11 @@ complete &#8220;chunk&#8221;.</p>
 </table>
 <p>Emitted immediately after writing a body chunk for a message.</p>
 <p>Note that this signal is not parallel to
-<a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.got_chunk" title="Soup.Message.signals.got_chunk"><code class="xref py py-func docutils literal"><span class="pre">::got-chunk</span></code></a> ; it is emitted only when a complete
-chunk (added with soup_message_body_append() or
-<a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.append_buffer" title="Soup.MessageBody.append_buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.append_buffer</span></code></a> ()) has been written. To get
+#SoupMessage::got_chunk; it is emitted only when a complete
+chunk (added with <a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.append" title="Soup.MessageBody.append"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.append</span></code></a>() or
+<a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.append_buffer" title="Soup.MessageBody.append_buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.append_buffer</span></code></a>()) has been written. To get
 more useful continuous progress information, use
-<a class="reference internal" href="#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="#Soup.Message.signals.wrote_body_data" title="Soup.Message.signals.wrote_body_data"><code class="xref py py-func docutils literal"><span class="pre">::wrote-body-data</span></code></a>.</p>
+#SoupMessage::wrote_body_data.</p>
 </dd></dl>
 
 <dl class="function">
@@ -2063,7 +2061,4 @@ queued.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

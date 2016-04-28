@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.Gesture" href="Gesture.html"/>
         <link rel="prev" title="Gtk.FrameAccessible" href="FrameAccessible.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -274,9 +272,9 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Widget.html#gtk-widget-methods"><span>Gtk.Widget (262)</span></a>,     <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (33)</span></a>,     <a class="reference internal" href="../interfaces/Buildable.html#gtk-buildable-methods"><span>Gtk.Buildable (10)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Widget.html#gtk-widget-methods"><span>Gtk.Widget (266)</span></a>,     <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (33)</span></a>,     <a class="reference internal" href="../interfaces/Buildable.html#gtk-buildable-methods"><span>Gtk.Buildable (10)</span></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference internal" href="../class-structs/WidgetClass.html#gtk-widgetclass-methods"><span>Gtk.WidgetClass (10)</span></a>,     <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/class-structs/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
+<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference internal" href="../class-structs/WidgetClass.html#gtk-widgetclass-methods"><span>Gtk.WidgetClass (12)</span></a>,     <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/class-structs/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -371,7 +369,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Widget.html#gtk-widget-props"><span>Gtk.Widget (38)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Widget.html#gtk-widget-props"><span>Gtk.Widget (39)</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -518,7 +516,7 @@ creates a custom GL framebuffer that the widget will do GL rendering onto.
 It also ensures that this framebuffer is the default GL rendering target
 when rendering.</p>
 <p>In order to draw, you have to connect to the <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a> <a class="reference internal" href="#Gtk.GLArea.signals.render" title="Gtk.GLArea.signals.render"><code class="xref py py-func docutils literal"><span class="pre">::render</span></code></a> signal,
-or subclass <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a> and override the <a class="reference internal" href="../class-structs/GLAreaClass.html#Gtk.GLAreaClass" title="Gtk.GLAreaClass"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLAreaClass</span></code></a>.render() virtual
+or subclass <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a> and override the <cite>GtkGLAreaClass</cite>.render() virtual
 function.</p>
 <p>The <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a> widget ensures that the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/GLContext.html#Gdk.GLContext" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> is associated with
 the widget&#8217;s drawing area, and it is kept updated when the size and
@@ -562,8 +560,9 @@ for you to draw its content:</p>
 </div>
 <p>If you need to initialize OpenGL state, e.g. buffer objects or
 shaders, you should use the <a class="reference internal" href="Widget.html#Gtk.Widget" title="Gtk.Widget"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> <a class="reference internal" href="Widget.html#Gtk.Widget.signals.realize" title="Gtk.Widget.signals.realize"><code class="xref py py-func docutils literal"><span class="pre">::realize</span></code></a> signal; you
-can use the <a class="reference internal" href="Widget.html#Gtk.Widget" title="Gtk.Widget"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> <a class="reference internal" href="Widget.html#Gtk.Widget.signals.unrealize" title="Gtk.Widget.signals.unrealize"><code class="xref py py-func docutils literal"><span class="pre">::unrealize</span></code></a> signal to clean up.#GdkGLContext creation and initialization may fail, you will
-need to check for errors, using <a class="reference internal" href="#Gtk.GLArea.get_error" title="Gtk.GLArea.get_error"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.get_error</span></code></a> (). An example
+can use the <a class="reference internal" href="Widget.html#Gtk.Widget" title="Gtk.Widget"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> <a class="reference internal" href="Widget.html#Gtk.Widget.signals.unrealize" title="Gtk.Widget.signals.unrealize"><code class="xref py py-func docutils literal"><span class="pre">::unrealize</span></code></a> signal to clean up. Since the
+<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/GLContext.html#Gdk.GLContext" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> creation and initialization may fail, you will
+need to check for errors, using <a class="reference internal" href="#Gtk.GLArea.get_error" title="Gtk.GLArea.get_error"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.get_error</span></code></a>(). An example
 of how to safely initialize the GL state is:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="kt">void</span>
 <span class="nf">on_realize</span> <span class="p">(</span><span class="n">GtkGLarea</span> <span class="o">*</span><span class="n">area</span><span class="p">)</span>
@@ -607,7 +606,7 @@ you should use the <a class="reference internal" href="#Gtk.GLArea" title="Gtk.G
 </div>
 <dl class="staticmethod">
 <dt id="Gtk.GLArea.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n966"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n966"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -626,9 +625,9 @@ you should use the <a class="reference internal" href="#Gtk.GLArea" title="Gtk.G
 
 <dl class="method">
 <dt id="Gtk.GLArea.attach_buffers">
-<code class="descname">attach_buffers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n486"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Ensures that the <cite>area</cite> framebuffer object is made the current draw
-and read target, and that all the required buffers for the <cite>area</cite>
+<code class="descname">attach_buffers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n486"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Ensures that the <cite>self</cite> framebuffer object is made the current draw
+and read target, and that all the required buffers for the <cite>self</cite>
 are created and bound to the frambuffer.</p>
 <p>This function is automatically called before emitting the
 <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a> <a class="reference internal" href="#Gtk.GLArea.signals.render" title="Gtk.GLArea.signals.render"><code class="xref py py-func docutils literal"><span class="pre">::render</span></code></a> signal, and doesn&#8217;t normally need to be called
@@ -640,12 +639,12 @@ by application code.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.get_auto_render">
-<code class="descname">get_auto_render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1261"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_auto_render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1261"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>area</cite> is auto rendering, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>self</cite> is auto rendering, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -659,7 +658,7 @@ by application code.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.get_context">
-<code class="descname">get_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1319"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1319"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -670,7 +669,7 @@ by application code.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/GLContext.html#Gdk.GLContext" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> used by <cite>area</cite>.</p>
+<p>Retrieves the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/GLContext.html#Gdk.GLContext" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> used by <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -678,18 +677,18 @@ by application code.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.get_error">
-<code class="descname">get_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1006"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1006"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the current error set on the <cite>area</cite>.</p>
+<p>Gets the current error set on the <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -697,12 +696,12 @@ by application code.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.get_has_alpha">
-<code class="descname">get_has_alpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1078"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_has_alpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1078"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>area</cite> has an alpha component, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>self</cite> has an alpha component, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -716,12 +715,12 @@ by application code.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.get_has_depth_buffer">
-<code class="descname">get_has_depth_buffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1132"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_has_depth_buffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1132"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>area</cite> has a depth buffer, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>self</cite> has a depth buffer, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -735,12 +734,12 @@ by application code.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.get_has_stencil_buffer">
-<code class="descname">get_has_stencil_buffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1183"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_has_stencil_buffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1183"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>area</cite> has a stencil buffer, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>self</cite> has a stencil buffer, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -754,7 +753,7 @@ by application code.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.get_required_version">
-<code class="descname">get_required_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1055"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_required_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1055"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -776,7 +775,7 @@ by application code.</p>
 </tbody>
 </table>
 <p>Retrieves the required version of OpenGL set
-using <a class="reference internal" href="#Gtk.GLArea.set_required_version" title="Gtk.GLArea.set_required_version"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.set_required_version</span></code></a> ().</p>
+using <a class="reference internal" href="#Gtk.GLArea.set_required_version" title="Gtk.GLArea.set_required_version"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.set_required_version</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -784,8 +783,8 @@ using <a class="reference internal" href="#Gtk.GLArea.set_required_version" titl
 
 <dl class="method">
 <dt id="Gtk.GLArea.make_current">
-<code class="descname">make_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1342"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Ensures that the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/GLContext.html#Gdk.GLContext" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> used by <cite>area</cite> is associated with
+<code class="descname">make_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1342"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Ensures that the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/GLContext.html#Gdk.GLContext" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> used by <cite>self</cite> is associated with
 the <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a>.</p>
 <p>This function is automatically called before emitting the
 <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a> <a class="reference internal" href="#Gtk.GLArea.signals.render" title="Gtk.GLArea.signals.render"><code class="xref py py-func docutils literal"><span class="pre">::render</span></code></a> signal, and doesn&#8217;t normally need to be called
@@ -797,11 +796,11 @@ by application code.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.queue_render">
-<code class="descname">queue_render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1238"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">queue_render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1238"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Marks the currently rendered data (if any) as invalid, and queues
 a redraw of the widget, ensuring that the <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a> <a class="reference internal" href="#Gtk.GLArea.signals.render" title="Gtk.GLArea.signals.render"><code class="xref py py-func docutils literal"><span class="pre">::render</span></code></a> signal
 is emitted during the draw.</p>
-<p>This is only needed when the <a class="reference internal" href="#Gtk.GLArea.set_auto_render" title="Gtk.GLArea.set_auto_render"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.set_auto_render</span></code></a> () has
+<p>This is only needed when the <a class="reference internal" href="#Gtk.GLArea.set_auto_render" title="Gtk.GLArea.set_auto_render"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.set_auto_render</span></code></a>() has
 been called with a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> value. The default behaviour is to
 emit <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a> <a class="reference internal" href="#Gtk.GLArea.signals.render" title="Gtk.GLArea.signals.render"><code class="xref py py-func docutils literal"><span class="pre">::render</span></code></a> on each draw.</p>
 <div class="versionadded">
@@ -811,7 +810,7 @@ emit <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code c
 
 <dl class="method">
 <dt id="Gtk.GLArea.set_auto_render">
-<code class="descname">set_auto_render</code><span class="sig-paren">(</span><em>auto_render</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1289"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_auto_render</code><span class="sig-paren">(</span><em>auto_render</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1289"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -826,7 +825,7 @@ useful if drawing the widget is faster.</p>
 <p>If <cite>auto_render</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> the data from previous rendering is kept
 around and will be used for drawing the widget the next time,
 unless the window is resized. In order to force a rendering
-<a class="reference internal" href="#Gtk.GLArea.queue_render" title="Gtk.GLArea.queue_render"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.queue_render</span></code></a> () must be called. This mode is useful when
+<a class="reference internal" href="#Gtk.GLArea.queue_render" title="Gtk.GLArea.queue_render"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.queue_render</span></code></a>() must be called. This mode is useful when
 the scene changes seldomly, but takes a long time to redraw.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
@@ -835,12 +834,12 @@ the scene changes seldomly, but takes a long time to redraw.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.set_error">
-<code class="descname">set_error</code><span class="sig-paren">(</span><em>error</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n984"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_error</code><span class="sig-paren">(</span><em>error</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n984"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>error</strong> (<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a new <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to unset the error</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>error</strong> (<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a new <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to unset the error</td>
 </tr>
 </tbody>
 </table>
@@ -854,7 +853,7 @@ signal if GL context creation fails.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.set_has_alpha">
-<code class="descname">set_has_alpha</code><span class="sig-paren">(</span><em>has_alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1103"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_has_alpha</code><span class="sig-paren">(</span><em>has_alpha</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1103"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -875,7 +874,7 @@ buffer will fully replace anything below the widget.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.set_has_depth_buffer">
-<code class="descname">set_has_depth_buffer</code><span class="sig-paren">(</span><em>has_depth_buffer</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1154"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_has_depth_buffer</code><span class="sig-paren">(</span><em>has_depth_buffer</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1154"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -894,7 +893,7 @@ there will be none.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.set_has_stencil_buffer">
-<code class="descname">set_has_stencil_buffer</code><span class="sig-paren">(</span><em>has_stencil_buffer</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1205"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_has_stencil_buffer</code><span class="sig-paren">(</span><em>has_stencil_buffer</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1205"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -913,7 +912,7 @@ there will be none.</p>
 
 <dl class="method">
 <dt id="Gtk.GLArea.set_required_version">
-<code class="descname">set_required_version</code><span class="sig-paren">(</span><em>major</em>, <em>minor</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.18.6#n1031"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_required_version</code><span class="sig-paren">(</span><em>major</em>, <em>minor</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkglarea.c?h=3.20.3#n1031"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -984,7 +983,7 @@ for the widget.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>g_l_area</strong> (<a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a>) &#8211; The object which received the signal</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly created <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/GLContext.html#Gdk.GLContext" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> ;
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly created <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/GLContext.html#Gdk.GLContext" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a>;
 the <a class="reference internal" href="#Gtk.GLArea" title="Gtk.GLArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea</span></code></a> widget will take ownership of the returned value.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/GLContext.html#Gdk.GLContext" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a></td>
@@ -997,7 +996,7 @@ created. This is useful when you want to reuse an existing GL
 context, or if you want to try creating different kinds of GL
 options.</p>
 <p>If context creation fails then the signal handler can use
-<a class="reference internal" href="#Gtk.GLArea.set_error" title="Gtk.GLArea.set_error"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.set_error</span></code></a> () to register a more detailed error
+<a class="reference internal" href="#Gtk.GLArea.set_error" title="Gtk.GLArea.set_error"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.set_error</span></code></a>() to register a more detailed error
 of how the construction failed.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
@@ -1100,7 +1099,7 @@ the widget draws. This is the default and is useful if drawing the widget
 is faster.</p>
 <p>If set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> the data from previous rendering is kept around and will
 be used for drawing the widget the next time, unless the window is resized.
-In order to force a rendering <a class="reference internal" href="#Gtk.GLArea.queue_render" title="Gtk.GLArea.queue_render"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.queue_render</span></code></a> () must be called.
+In order to force a rendering <a class="reference internal" href="#Gtk.GLArea.queue_render" title="Gtk.GLArea.queue_render"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GLArea.queue_render</span></code></a>() must be called.
 This mode is useful when the scene changes seldomly, but takes a long time
 to redraw.</p>
 <div class="versionadded">
@@ -1223,7 +1222,4 @@ target framebuffer.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

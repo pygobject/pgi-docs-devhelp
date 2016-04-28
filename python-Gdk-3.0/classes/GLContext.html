@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gdk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gdk.Keymap" href="Keymap.html"/>
         <link rel="prev" title="Gdk.FrameClock" href="FrameClock.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -234,18 +232,21 @@
 <td><a class="reference internal" href="#Gdk.GLContext.get_window" title="Gdk.GLContext.get_window"><code class="xref py py-func docutils literal"><span class="pre">get_window</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gdk.GLContext.is_legacy" title="Gdk.GLContext.is_legacy"><code class="xref py py-func docutils literal"><span class="pre">is_legacy</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gdk.GLContext.make_current" title="Gdk.GLContext.make_current"><code class="xref py py-func docutils literal"><span class="pre">make_current</span></code></a> ()</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gdk.GLContext.realize" title="Gdk.GLContext.realize"><code class="xref py py-func docutils literal"><span class="pre">realize</span></code></a> ()</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gdk.GLContext.set_debug_enabled" title="Gdk.GLContext.set_debug_enabled"><code class="xref py py-func docutils literal"><span class="pre">set_debug_enabled</span></code></a> (enabled)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gdk.GLContext.set_forward_compatible" title="Gdk.GLContext.set_forward_compatible"><code class="xref py py-func docutils literal"><span class="pre">set_forward_compatible</span></code></a> (compatible)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gdk.GLContext.set_required_version" title="Gdk.GLContext.set_required_version"><code class="xref py py-func docutils literal"><span class="pre">set_required_version</span></code></a> (major, minor)</td>
 </tr>
 </tbody>
@@ -337,12 +338,12 @@
 <p><a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> is an object representing the platform-specific
 OpenGL drawing context.</p>
 <p><a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContexts</span></code></a> are created for a <a class="reference internal" href="Window.html#Gdk.Window" title="Gdk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window</span></code></a> using
-<a class="reference internal" href="Window.html#Gdk.Window.create_gl_context" title="Gdk.Window.create_gl_context"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.create_gl_context</span></code></a> (), and the context will match
+<a class="reference internal" href="Window.html#Gdk.Window.create_gl_context" title="Gdk.Window.create_gl_context"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.create_gl_context</span></code></a>(), and the context will match
 the <a class="reference internal" href="Visual.html#Gdk.Visual" title="Gdk.Visual"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Visual</span></code></a> of the window.</p>
 <p>A <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> is not tied to any particular normal framebuffer.
 For instance, it cannot draw to the <a class="reference internal" href="Window.html#Gdk.Window" title="Gdk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window</span></code></a> back buffer. The GDK
 repaint system is in full control of the painting to that. Instead,
-you can create render buffers or textures and use <a class="reference internal" href="../functions.html#Gdk.cairo_draw_from_gl" title="Gdk.cairo_draw_from_gl"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.cairo_draw_from_gl</span></code></a> ()
+you can create render buffers or textures and use <a class="reference internal" href="../functions.html#Gdk.cairo_draw_from_gl" title="Gdk.cairo_draw_from_gl"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.cairo_draw_from_gl</span></code></a>()
 in the draw function of your widget to draw them. Then GDK will handle
 the integration of your rendering with that of other widgets.</p>
 <p>Support for <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> is platform-specific, context creation
@@ -356,11 +357,11 @@ it, otherwise any OpenGL call will be ignored.</p>
 <p>In order to create a new <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> instance you need a
 <a class="reference internal" href="Window.html#Gdk.Window" title="Gdk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window</span></code></a>, which you typically get during the realize call
 of a widget.</p>
-<p>A <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> is not realized until either <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gdk.GLContext.make_current"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.make_current</span></code></a> (),
-or until it is realized using <a class="reference internal" href="#Gdk.GLContext.realize" title="Gdk.GLContext.realize"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.realize</span></code></a> (). It is possible to
+<p>A <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> is not realized until either <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gdk.GLContext.make_current"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.make_current</span></code></a>(),
+or until it is realized using <a class="reference internal" href="#Gdk.GLContext.realize" title="Gdk.GLContext.realize"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.realize</span></code></a>(). It is possible to
 specify details of the GL context like the OpenGL version to be used, or
 whether the GL context should have extra state validation enabled after
-calling <a class="reference internal" href="Window.html#Gdk.Window.create_gl_context" title="Gdk.Window.create_gl_context"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.create_gl_context</span></code></a> () by calling <a class="reference internal" href="#Gdk.GLContext.realize" title="Gdk.GLContext.realize"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.realize</span></code></a> ().
+calling <a class="reference internal" href="Window.html#Gdk.Window.create_gl_context" title="Gdk.Window.create_gl_context"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.create_gl_context</span></code></a>() by calling <a class="reference internal" href="#Gdk.GLContext.realize" title="Gdk.GLContext.realize"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.realize</span></code></a>().
 If the realization fails you have the option to change the settings of the
 <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> and try again.</p>
 <dl class="docutils">
@@ -375,14 +376,14 @@ want to draw with is the current one before issuing commands:</p>
 <p><code class="docutils literal"><span class="pre">gdk_gl_context_make_current</span> <span class="pre">(context);</span></code></p>
 <p>You can now perform your drawing using OpenGL commands.</p>
 <p>You can check which <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> is the current one by using
-<a class="reference internal" href="#Gdk.GLContext.get_current" title="Gdk.GLContext.get_current"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.get_current</span></code></a> (); you can also unset any <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a>
-that is currently set by calling <a class="reference internal" href="#Gdk.GLContext.clear_current" title="Gdk.GLContext.clear_current"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.clear_current</span></code></a> ().</p>
+<a class="reference internal" href="#Gdk.GLContext.get_current" title="Gdk.GLContext.get_current"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.get_current</span></code></a>(); you can also unset any <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a>
+that is currently set by calling <a class="reference internal" href="#Gdk.GLContext.clear_current" title="Gdk.GLContext.clear_current"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.clear_current</span></code></a>().</p>
 <dl class="staticmethod">
 <dt id="Gdk.GLContext.clear_current">
-<em class="property">static </em><code class="descname">clear_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n776"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">clear_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n825"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Clears the current <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a>.</p>
 <p>Any OpenGL call after this function returns will be ignored
-until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gdk.GLContext.make_current"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.make_current</span></code></a> () is called.</p>
+until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gdk.GLContext.make_current"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.make_current</span></code></a>() is called.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -390,7 +391,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="staticmethod">
 <dt id="Gdk.GLContext.get_current">
-<em class="property">static </em><code class="descname">get_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n800"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n849"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -409,7 +410,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="method">
 <dt id="Gdk.GLContext.get_debug_enabled">
-<code class="descname">get_debug_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n415"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_debug_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n419"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -420,7 +421,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 </tr>
 </tbody>
 </table>
-<p>Retrieves the value set using <a class="reference internal" href="#Gdk.GLContext.set_debug_enabled" title="Gdk.GLContext.set_debug_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.set_debug_enabled</span></code></a> ().</p>
+<p>Retrieves the value set using <a class="reference internal" href="#Gdk.GLContext.set_debug_enabled" title="Gdk.GLContext.set_debug_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.set_debug_enabled</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -428,7 +429,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="method">
 <dt id="Gdk.GLContext.get_display">
-<code class="descname">get_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n685"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n734"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -439,7 +440,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 </tr>
 </tbody>
 </table>
-<p>Retrieves the <a class="reference internal" href="Display.html#Gdk.Display" title="Gdk.Display"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display</span></code></a> the <cite>context</cite> is created for</p>
+<p>Retrieves the <a class="reference internal" href="Display.html#Gdk.Display" title="Gdk.Display"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display</span></code></a> the <cite>self</cite> is created for</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -447,7 +448,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="method">
 <dt id="Gdk.GLContext.get_forward_compatible">
-<code class="descname">get_forward_compatible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n466"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_forward_compatible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n470"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -458,7 +459,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 </tr>
 </tbody>
 </table>
-<p>Retrieves the value set using <a class="reference internal" href="#Gdk.GLContext.set_forward_compatible" title="Gdk.GLContext.set_forward_compatible"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.set_forward_compatible</span></code></a> ().</p>
+<p>Retrieves the value set using <a class="reference internal" href="#Gdk.GLContext.set_forward_compatible" title="Gdk.GLContext.set_forward_compatible"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.set_forward_compatible</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -466,7 +467,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="method">
 <dt id="Gdk.GLContext.get_required_version">
-<code class="descname">get_required_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n534"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_required_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n538"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -488,7 +489,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 </tbody>
 </table>
 <p>Retrieves the major and minor version requested by calling
-<a class="reference internal" href="#Gdk.GLContext.set_required_version" title="Gdk.GLContext.set_required_version"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.set_required_version</span></code></a> ().</p>
+<a class="reference internal" href="#Gdk.GLContext.set_required_version" title="Gdk.GLContext.set_required_version"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext.set_required_version</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -496,7 +497,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="method">
 <dt id="Gdk.GLContext.get_shared_context">
-<code class="descname">get_shared_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n725"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_shared_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n774"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -507,7 +508,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 </tr>
 </tbody>
 </table>
-<p>Retrieves the <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> that this <cite>context</cite> share data with.</p>
+<p>Retrieves the <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> that this <cite>self</cite> share data with.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -515,7 +516,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="method">
 <dt id="Gdk.GLContext.get_version">
-<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n749"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n798"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -536,8 +537,8 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 </tr>
 </tbody>
 </table>
-<p>Retrieves the OpenGL version of the <cite>context</cite>.</p>
-<p>The <cite>context</cite> must be realized prior to calling this function.</p>
+<p>Retrieves the OpenGL version of the <cite>self</cite>.</p>
+<p>The <cite>self</cite> must be realized prior to calling this function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -545,7 +546,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="method">
 <dt id="Gdk.GLContext.get_window">
-<code class="descname">get_window</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n705"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_window</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n754"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -556,16 +557,46 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 </tr>
 </tbody>
 </table>
-<p>Retrieves the <a class="reference internal" href="Window.html#Gdk.Window" title="Gdk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window</span></code></a> used by the <cite>context</cite>.</p>
+<p>Retrieves the <a class="reference internal" href="Window.html#Gdk.Window" title="Gdk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window</span></code></a> used by the <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
+<dt id="Gdk.GLContext.is_legacy">
+<code class="descname">is_legacy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n587"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the GL context is in legacy mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Whether the <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> is in legacy mode or not.</p>
+<p>The <a class="reference internal" href="#Gdk.GLContext" title="Gdk.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.GLContext</span></code></a> must be realized before calling this function.</p>
+<p>When realizing a GL context, GDK will try to use the OpenGL 3.2 core
+profile; this profile removes all the OpenGL API that was deprecated
+prior to the 3.2 version of the specification. If the realization is
+successful, this function will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</p>
+<p>If the underlying OpenGL implementation does not support core profiles,
+GDK will fall back to a pre-3.2 compatibility profile, and this function
+will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
+<p>You can use the value returned by this function to decide which kind
+of OpenGL API to use, or whether to do extension discovery, or what
+kind of shader programs to load.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.20.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="Gdk.GLContext.make_current">
-<code class="descname">make_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n642"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Makes the <cite>context</cite> the current one.</p>
+<code class="descname">make_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n691"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Makes the <cite>self</cite> the current one.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.16.</span></p>
 </div>
@@ -573,12 +604,12 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="method">
 <dt id="Gdk.GLContext.realize">
-<code class="descname">realize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n572"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">realize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n621"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the context is realized</td>
 </tr>
@@ -595,7 +626,7 @@ until <a class="reference internal" href="#Gdk.GLContext.make_current" title="Gd
 
 <dl class="method">
 <dt id="Gdk.GLContext.set_debug_enabled">
-<code class="descname">set_debug_enabled</code><span class="sig-paren">(</span><em>enabled</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n392"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_debug_enabled</code><span class="sig-paren">(</span><em>enabled</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n396"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -616,7 +647,7 @@ calling this function.</p>
 
 <dl class="method">
 <dt id="Gdk.GLContext.set_forward_compatible">
-<code class="descname">set_forward_compatible</code><span class="sig-paren">(</span><em>compatible</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n443"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_forward_compatible</code><span class="sig-paren">(</span><em>compatible</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n447"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -639,7 +670,7 @@ this function.</p>
 
 <dl class="method">
 <dt id="Gdk.GLContext.set_required_version">
-<code class="descname">set_required_version</code><span class="sig-paren">(</span><em>major</em>, <em>minor</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n493"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_required_version</code><span class="sig-paren">(</span><em>major</em>, <em>minor</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n497"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -749,7 +780,4 @@ this function.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

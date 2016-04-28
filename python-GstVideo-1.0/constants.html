@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstVideo 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Symbol Mapping" href="mapping.html"/>
         <link rel="prev" title="Enums" href="enums.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -133,9 +131,11 @@
   <div class="section" id="constants">
 <h1>Constants</h1>
 <ul class="simple">
+<li><a class="reference internal" href="#GstVideo.BUFFER_POOL_OPTION_VIDEO_AFFINE_TRANSFORMATION_META" title="GstVideo.BUFFER_POOL_OPTION_VIDEO_AFFINE_TRANSFORMATION_META"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.BUFFER_POOL_OPTION_VIDEO_AFFINE_TRANSFORMATION_META</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.BUFFER_POOL_OPTION_VIDEO_ALIGNMENT" title="GstVideo.BUFFER_POOL_OPTION_VIDEO_ALIGNMENT"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.BUFFER_POOL_OPTION_VIDEO_ALIGNMENT</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.BUFFER_POOL_OPTION_VIDEO_GL_TEXTURE_UPLOAD_META" title="GstVideo.BUFFER_POOL_OPTION_VIDEO_GL_TEXTURE_UPLOAD_META"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.BUFFER_POOL_OPTION_VIDEO_GL_TEXTURE_UPLOAD_META</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.BUFFER_POOL_OPTION_VIDEO_META" title="GstVideo.BUFFER_POOL_OPTION_VIDEO_META"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.BUFFER_POOL_OPTION_VIDEO_META</span></code></a></li>
+<li><a class="reference internal" href="#GstVideo.CAPS_FEATURE_META_GST_VIDEO_AFFINE_TRANSFORMATION_META" title="GstVideo.CAPS_FEATURE_META_GST_VIDEO_AFFINE_TRANSFORMATION_META"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.CAPS_FEATURE_META_GST_VIDEO_AFFINE_TRANSFORMATION_META</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.CAPS_FEATURE_META_GST_VIDEO_GL_TEXTURE_UPLOAD_META" title="GstVideo.CAPS_FEATURE_META_GST_VIDEO_GL_TEXTURE_UPLOAD_META"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.CAPS_FEATURE_META_GST_VIDEO_GL_TEXTURE_UPLOAD_META</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.CAPS_FEATURE_META_GST_VIDEO_META" title="GstVideo.CAPS_FEATURE_META_GST_VIDEO_META"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.CAPS_FEATURE_META_GST_VIDEO_META</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.CAPS_FEATURE_META_GST_VIDEO_OVERLAY_COMPOSITION" title="GstVideo.CAPS_FEATURE_META_GST_VIDEO_OVERLAY_COMPOSITION"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.CAPS_FEATURE_META_GST_VIDEO_OVERLAY_COMPOSITION</span></code></a></li>
@@ -204,10 +204,15 @@
 <div class="section" id="details">
 <h2>Details</h2>
 <dl class="data">
+<dt id="GstVideo.BUFFER_POOL_OPTION_VIDEO_AFFINE_TRANSFORMATION_META">
+<code class="descclassname">GstVideo.</code><code class="descname">BUFFER_POOL_OPTION_VIDEO_AFFINE_TRANSFORMATION_META</code><em class="property"> = 'GstBufferPoolOptionVideoAffineTransformation'</em></dt>
+<dd></dd></dl>
+
+<dl class="data">
 <dt id="GstVideo.BUFFER_POOL_OPTION_VIDEO_ALIGNMENT">
 <code class="descclassname">GstVideo.</code><code class="descname">BUFFER_POOL_OPTION_VIDEO_ALIGNMENT</code><em class="property"> = 'GstBufferPoolOptionVideoAlignment'</em></dt>
 <dd><p>A bufferpool option to enable extra padding. When a bufferpool supports this
-option, <a class="reference internal" href="functions.html#GstVideo.buffer_pool_config_set_video_alignment" title="GstVideo.buffer_pool_config_set_video_alignment"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.buffer_pool_config_set_video_alignment</span></code></a> () can be called.</p>
+option, <a class="reference internal" href="functions.html#GstVideo.buffer_pool_config_set_video_alignment" title="GstVideo.buffer_pool_config_set_video_alignment"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.buffer_pool_config_set_video_alignment</span></code></a>() can be called.</p>
 <p>When this option is enabled on the bufferpool,
 <a class="reference internal" href="#GstVideo.BUFFER_POOL_OPTION_VIDEO_META" title="GstVideo.BUFFER_POOL_OPTION_VIDEO_META"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.BUFFER_POOL_OPTION_VIDEO_META</span></code></a> should also be enabled.</p>
 </dd></dl>
@@ -230,6 +235,11 @@ meta on buffers from the pool.</p>
 <dd><p>An option that can be activated on bufferpool to request video metadata
 on buffers from the pool.</p>
 </dd></dl>
+
+<dl class="data">
+<dt id="GstVideo.CAPS_FEATURE_META_GST_VIDEO_AFFINE_TRANSFORMATION_META">
+<code class="descclassname">GstVideo.</code><code class="descname">CAPS_FEATURE_META_GST_VIDEO_AFFINE_TRANSFORMATION_META</code><em class="property"> = 'meta:GstVideoAffineTransformation'</em></dt>
+<dd></dd></dl>
 
 <dl class="data">
 <dt id="GstVideo.CAPS_FEATURE_META_GST_VIDEO_GL_TEXTURE_UPLOAD_META">
@@ -552,7 +562,7 @@ Default is 0: let the resampler choose a good value.</p>
 <dl class="data">
 <dt id="GstVideo.VIDEO_OVERLAY_COMPOSITION_BLEND_FORMATS">
 <code class="descclassname">GstVideo.</code><code class="descname">VIDEO_OVERLAY_COMPOSITION_BLEND_FORMATS</code><em class="property"> = '{ BGRx, RGBx, xRGB, xBGR, RGBA, BGRA, ARGB, ABGR, RGB, BGR, I420, YV12, AYUV, YUY2, UYVY, v308, Y41B, Y42B, Y444, NV12, NV21, A420, YUV9, YVU9, IYU1, GRAY8 }'</em></dt>
-<dd><p>Video formats supported by <a class="reference internal" href="structs/VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.blend" title="GstVideo.VideoOverlayComposition.blend"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.blend</span></code></a> (), for
+<dd><p>Video formats supported by <a class="reference internal" href="structs/VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.blend" title="GstVideo.VideoOverlayComposition.blend"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.blend</span></code></a>(), for
 use in overlay elements&#8217; pad template caps.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
@@ -664,7 +674,4 @@ quatization errors.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

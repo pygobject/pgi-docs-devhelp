@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gio.ThemedIcon" href="ThemedIcon.html"/>
         <link rel="prev" title="Gio.TcpWrapperConnection" href="TcpWrapperConnection.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -331,7 +329,7 @@ is a good place to put this file.</p>
 uninstalled service executable in your source tree. Using autotools we would
 achieve this by adding a file such as <code class="docutils literal"><span class="pre">my-server.service.in</span></code> in the services
 directory and have it processed by configure.</p>
-<div class="highlight-c"><div class="highlight"><pre>[D-BUS Service]
+<div class="highlight-none"><div class="highlight"><pre>[D-BUS Service]
 Name=org.gtk.GDBus.Examples.ObjectManager
 Exec=@abs_top_builddir@/gio/tests/gdbus-example-objectmanager-server
 </pre></div>
@@ -364,7 +362,7 @@ in the above fixture_setup() routine.</p>
 <p>The <a class="reference internal" href="Settings.html#Gio.Settings" title="Gio.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Settings</span></code></a> schemas need to be locally pre-compiled for this to work. This can be achieved
 by compiling the schemas locally as a step before running test cases, an autotools setup might
 do the following in the directory holding schemas:</p>
-<div class="highlight-c"><div class="highlight"><pre>all-am:
+<div class="highlight-none"><div class="highlight"><pre>all-am:
         $(GLIB_COMPILE_SCHEMAS) .
 
 CLEANFILES += gschemas.compiled
@@ -375,7 +373,7 @@ CLEANFILES += gschemas.compiled
 </div>
 <dl class="staticmethod">
 <dt id="Gio.TestDBus.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.46.2#n685"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.48.0#n687"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -393,17 +391,17 @@ CLEANFILES += gschemas.compiled
 
 <dl class="staticmethod">
 <dt id="Gio.TestDBus.unset">
-<em class="property">static </em><code class="descname">unset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.46.2#n836"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">unset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.48.0#n838"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Unset DISPLAY and DBUS_SESSION_BUS_ADDRESS env variables to ensure the test
 won&#8217;t use user&#8217;s session bus.</p>
 <p>This is useful for unit tests that want to verify behaviour when no session
 bus is running. It is not necessary to call this if unit test already calls
-<a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a> () before acquiring the session bus.</p>
+<a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a>() before acquiring the session bus.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.TestDBus.add_service_dir">
-<code class="descname">add_service_dir</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.46.2#n736"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_service_dir</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.48.0#n738"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -413,39 +411,39 @@ bus is running. It is not necessary to call this if unit test already calls
 </tbody>
 </table>
 <p>Add a path where dbus-daemon will look up .service files. This can&#8217;t be
-called after <a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a> ().</p>
+called after <a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.TestDBus.down">
-<code class="descname">down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.46.2#n803"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Stop the session bus started by <a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a> ().</p>
-<p>This will wait for the singleton returned by <a class="reference internal" href="../functions.html#Gio.bus_get" title="Gio.bus_get"><code class="xref py py-obj docutils literal"><span class="pre">Gio.bus_get</span></code></a> () or <a class="reference internal" href="../functions.html#Gio.bus_get_sync" title="Gio.bus_get_sync"><code class="xref py py-obj docutils literal"><span class="pre">Gio.bus_get_sync</span></code></a> ()
+<code class="descname">down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.48.0#n805"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Stop the session bus started by <a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a>().</p>
+<p>This will wait for the singleton returned by <a class="reference internal" href="../functions.html#Gio.bus_get" title="Gio.bus_get"><code class="xref py py-obj docutils literal"><span class="pre">Gio.bus_get</span></code></a>() or <a class="reference internal" href="../functions.html#Gio.bus_get_sync" title="Gio.bus_get_sync"><code class="xref py py-obj docutils literal"><span class="pre">Gio.bus_get_sync</span></code></a>()
 is destroyed. This is done to ensure that the next unit test won&#8217;t get a
 leaked singleton from this test.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.TestDBus.get_bus_address">
-<code class="descname">get_bus_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.46.2#n719"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_bus_address</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.48.0#n721"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the address of the bus, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Get the address on which dbus-daemon is running. If <a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a> () has not
+<p>Get the address on which dbus-daemon is running. If <a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a>() has not
 been called yet, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned. This can be used with
-<a class="reference internal" href="DBusConnection.html#Gio.DBusConnection.new_for_address" title="Gio.DBusConnection.new_for_address"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DBusConnection.new_for_address</span></code></a> ().</p>
+<a class="reference internal" href="DBusConnection.html#Gio.DBusConnection.new_for_address" title="Gio.DBusConnection.new_for_address"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DBusConnection.new_for_address</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.TestDBus.get_flags">
-<code class="descname">get_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.46.2#n701"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.48.0#n703"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -461,23 +459,23 @@ been called yet, <a class="reference external" href="http://docs.python.org/2.7/
 
 <dl class="method">
 <dt id="Gio.TestDBus.stop">
-<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.46.2#n784"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Stop the session bus started by <a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a> ().</p>
-<p>Unlike <a class="reference internal" href="#Gio.TestDBus.down" title="Gio.TestDBus.down"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.down</span></code></a> (), this won&#8217;t verify the <a class="reference internal" href="DBusConnection.html#Gio.DBusConnection" title="Gio.DBusConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DBusConnection</span></code></a>
-singleton returned by <a class="reference internal" href="../functions.html#Gio.bus_get" title="Gio.bus_get"><code class="xref py py-obj docutils literal"><span class="pre">Gio.bus_get</span></code></a> () or <a class="reference internal" href="../functions.html#Gio.bus_get_sync" title="Gio.bus_get_sync"><code class="xref py py-obj docutils literal"><span class="pre">Gio.bus_get_sync</span></code></a> () is destroyed. Unit
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.48.0#n786"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Stop the session bus started by <a class="reference internal" href="#Gio.TestDBus.up" title="Gio.TestDBus.up"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.up</span></code></a>().</p>
+<p>Unlike <a class="reference internal" href="#Gio.TestDBus.down" title="Gio.TestDBus.down"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.down</span></code></a>(), this won&#8217;t verify the <a class="reference internal" href="DBusConnection.html#Gio.DBusConnection" title="Gio.DBusConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DBusConnection</span></code></a>
+singleton returned by <a class="reference internal" href="../functions.html#Gio.bus_get" title="Gio.bus_get"><code class="xref py py-obj docutils literal"><span class="pre">Gio.bus_get</span></code></a>() or <a class="reference internal" href="../functions.html#Gio.bus_get_sync" title="Gio.bus_get_sync"><code class="xref py py-obj docutils literal"><span class="pre">Gio.bus_get_sync</span></code></a>() is destroyed. Unit
 tests wanting to verify behaviour after the session bus has been stopped
-can use this function but should still call <a class="reference internal" href="#Gio.TestDBus.down" title="Gio.TestDBus.down"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.down</span></code></a> () when done.</p>
+can use this function but should still call <a class="reference internal" href="#Gio.TestDBus.down" title="Gio.TestDBus.down"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.down</span></code></a>() when done.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.TestDBus.up">
-<code class="descname">up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.46.2#n758"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtestdbus.c?h=2.48.0#n760"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Start a dbus-daemon instance and set DBUS_SESSION_BUS_ADDRESS. After this
 call, it is safe for unit tests to start sending messages on the session bus.</p>
 <p>If this function is called from setup callback of g_test_add(),
-<a class="reference internal" href="#Gio.TestDBus.down" title="Gio.TestDBus.down"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.down</span></code></a> () must be called in its teardown callback.</p>
-<p>If this function is called from unit test&#8217;s main(), then <a class="reference internal" href="#Gio.TestDBus.down" title="Gio.TestDBus.down"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.down</span></code></a> ()
-must be called after <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/functions.html#GLib.test_run" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.test_run</span></code></a> ().</p>
+<a class="reference internal" href="#Gio.TestDBus.down" title="Gio.TestDBus.down"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.down</span></code></a>() must be called in its teardown callback.</p>
+<p>If this function is called from unit test&#8217;s main(), then <a class="reference internal" href="#Gio.TestDBus.down" title="Gio.TestDBus.down"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TestDBus.down</span></code></a>()
+must be called after <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/functions.html#GLib.test_run" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.test_run</span></code></a>().</p>
 </dd></dl>
 
 </dd></dl>
@@ -522,7 +520,4 @@ must be called after <a class="reference external" href="../_docs/Gio-2.0/../../
   </div> 
 
 </body>
-
-  
-
 </html>

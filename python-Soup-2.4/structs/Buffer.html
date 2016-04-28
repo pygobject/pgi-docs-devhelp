@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Soup 2.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Soup.ClientContext" href="ClientContext.html"/>
         <link rel="prev" title="Structures" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -233,7 +231,7 @@ situations you may need to cast it to #guchar or another type.</p>
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#Soup.Buffer" title="Soup.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer</span></code></a> containing <cite>length</cite> bytes from <cite>data</cite>.</p>
-<p>This function is exactly equivalent to soup_buffer_new() with
+<p>This function is exactly equivalent to <a class="reference internal" href="#Soup.Buffer.new" title="Soup.Buffer.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.new</span></code></a>() with
 <a class="reference internal" href="../enums.html#Soup.MemoryUse.TAKE" title="Soup.MemoryUse.TAKE"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MemoryUse.TAKE</span></code></a> as first argument; it exists mainly for
 convenience and simplifying language bindings.</p>
 <div class="versionadded">
@@ -250,7 +248,7 @@ convenience and simplifying language bindings.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bytes</span></code></a>) &#8211; data</li>
-<li><strong>owner</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; pointer to an object that owns <cite>data</cite></li>
+<li><strong>owner</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; pointer to an object that owns <cite>data</cite></li>
 <li><strong>owner_dnotify</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/callbacks.html#GLib.DestroyNotify" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a function to free/unref <cite>owner</cite> when
 the buffer is freed</li>
 </ul>
@@ -270,9 +268,9 @@ the <a class="reference internal" href="#Soup.Buffer" title="Soup.Buffer"><code 
 <cite>owner_dnotify</cite> is called.</p>
 <p>For example, you could use this to create a buffer containing data
 returned from libxml without needing to do an extra copy:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">xmlDocDumpMemory</span> <span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">xmlbody</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">len</span><span class="p">);</span>
-<span class="k">return</span> <span class="nf">soup_buffer_new_with_owner</span> <span class="p">(</span><span class="n">xmlbody</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">xmlbody</span><span class="p">,</span>
-                                   <span class="p">(</span><span class="n">GDestroyNotify</span><span class="p">)</span><span class="n">xmlFree</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>xmlDocDumpMemory (doc, &amp;amp;xmlbody, &amp;amp;len);
+return soup_buffer_new_with_owner (xmlbody, len, xmlbody,
+                                   (GDestroyNotify)xmlFree);
 </pre></div>
 </div>
 <p>In this example, <cite>data</cite> and <cite>owner</cite> are the same, but in other cases
@@ -293,10 +291,10 @@ would be a pointer to one of the object&#8217;s fields).</p>
 </tr>
 </tbody>
 </table>
-<p>Makes a copy of <cite>buffer</cite>. In reality, <a class="reference internal" href="#Soup.Buffer" title="Soup.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer</span></code></a> is a refcounted
-type, and calling <a class="reference internal" href="#Soup.Buffer.copy" title="Soup.Buffer.copy"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.copy</span></code></a> () will normally just increment
-the refcount on <cite>buffer</cite> and return it. However, if <cite>buffer</cite> was
-created with <a class="reference internal" href="../enums.html#Soup.MemoryUse.TEMPORARY" title="Soup.MemoryUse.TEMPORARY"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MemoryUse.TEMPORARY</span></code></a> memory, then <a class="reference internal" href="#Soup.Buffer.copy" title="Soup.Buffer.copy"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.copy</span></code></a> ()
+<p>Makes a copy of <cite>self</cite>. In reality, <a class="reference internal" href="#Soup.Buffer" title="Soup.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer</span></code></a> is a refcounted
+type, and calling <a class="reference internal" href="#Soup.Buffer.copy" title="Soup.Buffer.copy"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.copy</span></code></a>() will normally just increment
+the refcount on <cite>self</cite> and return it. However, if <cite>self</cite> was
+created with <a class="reference internal" href="../enums.html#Soup.MemoryUse.TEMPORARY" title="Soup.MemoryUse.TEMPORARY"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MemoryUse.TEMPORARY</span></code></a> memory, then <a class="reference internal" href="#Soup.Buffer.copy" title="Soup.Buffer.copy"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.copy</span></code></a>()
 will actually return a copy of it, so that the data in the copy
 will remain valid after the temporary buffer is freed.</p>
 </dd></dl>
@@ -304,9 +302,9 @@ will remain valid after the temporary buffer is freed.</p>
 <dl class="method">
 <dt id="Soup.Buffer.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Frees <cite>buffer</cite>. (In reality, as described in the documentation for
-<a class="reference internal" href="#Soup.Buffer.copy" title="Soup.Buffer.copy"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.copy</span></code></a> (), this is actually an &#8220;unref&#8221; operation, and may
-or may not actually free <cite>buffer</cite>.)</p>
+<dd><p>Frees <cite>self</cite>. (In reality, as described in the documentation for
+<a class="reference internal" href="#Soup.Buffer.copy" title="Soup.Buffer.copy"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.copy</span></code></a>(), this is actually an &#8220;unref&#8221; operation, and may
+or may not actually free <cite>self</cite>.)</p>
 </dd></dl>
 
 <dl class="method">
@@ -323,8 +321,8 @@ as the <a class="reference internal" href="#Soup.Buffer" title="Soup.Buffer"><co
 </tr>
 </tbody>
 </table>
-<p>Creates a <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> pointing to the same memory as <cite>buffer</cite>. The
-<a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> will hold a reference on <cite>buffer</cite> to ensure that it is not
+<p>Creates a <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> pointing to the same memory as <cite>self</cite>. The
+<a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> will hold a reference on <cite>self</cite> to ensure that it is not
 freed while the <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> is still valid.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.40.</span></p>
@@ -362,12 +360,12 @@ of <a class="reference internal" href="#Soup.Buffer" title="Soup.Buffer"><code c
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the owner pointer</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets the &#8220;owner&#8221; object for a buffer created with
-<a class="reference internal" href="#Soup.Buffer.new_with_owner" title="Soup.Buffer.new_with_owner"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.new_with_owner</span></code></a> ().</p>
+<a class="reference internal" href="#Soup.Buffer.new_with_owner" title="Soup.Buffer.new_with_owner"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer.new_with_owner</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -378,8 +376,8 @@ of <a class="reference internal" href="#Soup.Buffer" title="Soup.Buffer"><code c
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>offset</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; offset within <cite>parent</cite> to start at</li>
-<li><strong>length</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; number of bytes to copy from <cite>parent</cite></li>
+<li><strong>offset</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; offset within <cite>self</cite> to start at</li>
+<li><strong>length</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; number of bytes to copy from <cite>self</cite></li>
 </ul>
 </td>
 </tr>
@@ -392,9 +390,9 @@ of <a class="reference internal" href="#Soup.Buffer" title="Soup.Buffer"><code c
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#Soup.Buffer" title="Soup.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Buffer</span></code></a> containing <cite>length</cite> bytes &#8220;copied&#8221; from
-<cite>parent</cite> starting at <cite>offset</cite>. (Normally this will not actually copy
+<cite>self</cite> starting at <cite>offset</cite>. (Normally this will not actually copy
 any data, but will instead simply reference the same data as
-<cite>parent</cite> does.)</p>
+<cite>self</cite> does.)</p>
 </dd></dl>
 
 </dd></dl>
@@ -413,7 +411,4 @@ any data, but will instead simply reference the same data as
   </div> 
 
 </body>
-
-  
-
 </html>

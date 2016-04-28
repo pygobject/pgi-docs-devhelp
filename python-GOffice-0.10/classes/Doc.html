@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GOffice 0.10 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GOffice.DocControl" href="DocControl.html"/>
         <link rel="prev" title="GOffice.Distribution" href="Distribution.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -481,7 +479,7 @@ the returned image might be different from <cite>id</cite>, even if given.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the time (as in <a class="reference external" href="../_docs/GOffice-0.10/../../../python-GLib-2.0/functions.html#GLib.get_real_time" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_real_time</span></code></a> ()) the document was first marked
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the time (as in <a class="reference external" href="../_docs/GOffice-0.10/../../../python-GLib-2.0/functions.html#GLib.get_real_time" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_real_time</span></code></a>()) the document was first marked
 dirty.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
@@ -530,7 +528,7 @@ reference.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>doc</cite> &#8216;s metadata</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s metadata</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/GOffice-0.10/../../../python-Gsf-1/classes/DocMetaData.html#Gsf.DocMetaData" title="(in Gsf 1 v1)"><code class="xref py py-obj docutils literal"><span class="pre">Gsf.DocMetaData</span></code></a></td>
 </tr>
@@ -575,7 +573,7 @@ reference.</td>
 <p>Searches for a <a class="reference internal" href="Image.html#GOffice.Image" title="GOffice.Image"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.Image</span></code></a> with name <cite>id</cite> in the document image buffer and
 creates one if needed. The caller does not own a reference on the returned
 <a class="reference internal" href="Image.html#GOffice.Image" title="GOffice.Image"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.Image</span></code></a>.
-This function must be called after a call to <a class="reference internal" href="#GOffice.Doc.init_read" title="GOffice.Doc.init_read"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.Doc.init_read</span></code></a> (), otherwise
+This function must be called after a call to <a class="reference internal" href="#GOffice.Doc.init_read" title="GOffice.Doc.init_read"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.Doc.init_read</span></code></a>(), otherwise
 it will emit a critical and return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
 
@@ -612,7 +610,7 @@ it will emit a critical and return <a class="reference external" href="http://do
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>doc</cite> has been modified.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> has been modified.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -695,7 +693,7 @@ once.</p>
 </tr>
 </tbody>
 </table>
-<p>Changes the dirty state of <cite>doc</cite> to <cite>is_dirty</cite> and clears the pristine state
+<p>Changes the dirty state of <cite>self</cite> to <cite>is_dirty</cite> and clears the pristine state
 no matter what.</p>
 </dd></dl>
 
@@ -764,8 +762,8 @@ created.  Note: if both &#8220;dirty&#8221; and &#8220;pristine&#8221; are being
 <dl class="method">
 <dt id="GOffice.Doc.update_meta_data">
 <code class="descname">update_meta_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Signal that <cite>doc</cite> &#8216;s metadata should be updated
-- statistics (sheet <code class="xref py py-obj docutils literal"><span class="pre">GOffice.count</span></code>, word <code class="xref py py-obj docutils literal"><span class="pre">GOffice.count</span></code> )
+<dd><p>Signal that <cite>self</cite>&#8216;s metadata should be updated
+- statistics (sheet <code class="xref py py-obj docutils literal"><span class="pre">GOffice.count</span></code>, word <code class="xref py py-obj docutils literal"><span class="pre">GOffice.count</span></code>)
 - content (sheet names, bookmarks)
 - reloading linked items</p>
 </dd></dl>
@@ -919,7 +917,4 @@ created.  Note: if both &#8220;dirty&#8221; and &#8220;pristine&#8221; are being
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.TextCellAccessible" href="TextCellAccessible.html"/>
         <link rel="prev" title="Gtk.TearoffMenuItem" href="TearoffMenuItem.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -344,7 +342,7 @@
 <td><a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-func docutils literal"><span class="pre">get_text</span></code></a> (start, end, include_hidden_chars)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-func docutils literal"><span class="pre">insert</span></code></a> (iter, text, len)</td>
+<td><a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-func docutils literal"><span class="pre">insert</span></code></a> (iter, text, length=-1)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gtk.TextBuffer.insert_at_cursor" title="Gtk.TextBuffer.insert_at_cursor"><code class="xref py py-func docutils literal"><span class="pre">insert_at_cursor</span></code></a> (text, len)</td>
@@ -422,7 +420,7 @@
 <td><a class="reference internal" href="#Gtk.TextBuffer.set_modified" title="Gtk.TextBuffer.set_modified"><code class="xref py py-func docutils literal"><span class="pre">set_modified</span></code></a> (setting)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Gtk.TextBuffer.set_text" title="Gtk.TextBuffer.set_text"><code class="xref py py-func docutils literal"><span class="pre">set_text</span></code></a> (text, len)</td>
+<td><a class="reference internal" href="#Gtk.TextBuffer.set_text" title="Gtk.TextBuffer.set_text"><code class="xref py py-func docutils literal"><span class="pre">set_text</span></code></a> (text, length=-1)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gtk.TextBuffer.unregister_deserialize_format" title="Gtk.TextBuffer.unregister_deserialize_format"><code class="xref py py-func docutils literal"><span class="pre">unregister_deserialize_format</span></code></a> (format)</td>
@@ -569,7 +567,7 @@
 <td>The <a class="reference internal" href="#Gtk.TextBuffer.signals.begin_user_action" title="Gtk.TextBuffer.signals.begin_user_action"><code class="xref py py-func docutils literal"><span class="pre">::begin-user-action</span></code></a> signal is emitted at the beginning of a single user-visible operation on a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#Gtk.TextBuffer.signals.changed" title="Gtk.TextBuffer.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">changed</span></code></a></td>
-<td>The <a class="reference internal" href="#Gtk.TextBuffer.signals.changed" title="Gtk.TextBuffer.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal is emitted when the content of a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>  has changed.</td>
+<td>The <a class="reference internal" href="#Gtk.TextBuffer.signals.changed" title="Gtk.TextBuffer.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal is emitted when the content of a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a> has changed.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#Gtk.TextBuffer.signals.delete_range" title="Gtk.TextBuffer.signals.delete_range"><code class="xref py py-func docutils literal"><span class="pre">delete-range</span></code></a></td>
 <td>The <a class="reference internal" href="#Gtk.TextBuffer.signals.delete_range" title="Gtk.TextBuffer.signals.delete_range"><code class="xref py py-func docutils literal"><span class="pre">::delete-range</span></code></a> signal is emitted to delete a range from a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>.</td>
@@ -581,7 +579,7 @@
 <td>The <a class="reference internal" href="#Gtk.TextBuffer.signals.insert_child_anchor" title="Gtk.TextBuffer.signals.insert_child_anchor"><code class="xref py py-func docutils literal"><span class="pre">::insert-child-anchor</span></code></a> signal is emitted to insert a <a class="reference internal" href="TextChildAnchor.html#Gtk.TextChildAnchor" title="Gtk.TextChildAnchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextChildAnchor</span></code></a> in a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#Gtk.TextBuffer.signals.insert_pixbuf" title="Gtk.TextBuffer.signals.insert_pixbuf"><code class="xref py py-func docutils literal"><span class="pre">insert-pixbuf</span></code></a></td>
-<td>The <a class="reference internal" href="#Gtk.TextBuffer.signals.insert_pixbuf" title="Gtk.TextBuffer.signals.insert_pixbuf"><code class="xref py py-func docutils literal"><span class="pre">::insert-pixbuf</span></code></a> signal is emitted to insert a <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GdkPixbuf-2.0/classes/Pixbuf.html#GdkPixbuf.Pixbuf" title="(in GdkPixbuf 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GdkPixbuf.Pixbuf</span></code></a>  in a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>.</td>
+<td>The <a class="reference internal" href="#Gtk.TextBuffer.signals.insert_pixbuf" title="Gtk.TextBuffer.signals.insert_pixbuf"><code class="xref py py-func docutils literal"><span class="pre">::insert-pixbuf</span></code></a> signal is emitted to insert a <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GdkPixbuf-2.0/classes/Pixbuf.html#GdkPixbuf.Pixbuf" title="(in GdkPixbuf 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GdkPixbuf.Pixbuf</span></code></a> in a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#Gtk.TextBuffer.signals.insert_text" title="Gtk.TextBuffer.signals.insert_text"><code class="xref py py-func docutils literal"><span class="pre">insert-text</span></code></a></td>
 <td>The <a class="reference internal" href="#Gtk.TextBuffer.signals.insert_text" title="Gtk.TextBuffer.signals.insert_text"><code class="xref py py-func docutils literal"><span class="pre">::insert-text</span></code></a> signal is emitted to insert text in a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>.</td>
@@ -660,7 +658,7 @@ which gives an overview of all the objects and data
 types related to the text widget and how they work together.</p>
 <dl class="staticmethod">
 <dt id="Gtk.TextBuffer.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>table</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n769"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>table</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n770"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -678,7 +676,7 @@ types related to the text widget and how they work together.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.add_mark">
-<code class="descname">add_mark</code><span class="sig-paren">(</span><em>mark</em>, <em>where</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2144"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_mark</code><span class="sig-paren">(</span><em>mark</em>, <em>where</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2145"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -703,7 +701,7 @@ initial placement.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.add_selection_clipboard">
-<code class="descname">add_selection_clipboard</code><span class="sig-paren">(</span><em>clipboard</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3689"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_selection_clipboard</code><span class="sig-paren">(</span><em>clipboard</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3731"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -713,13 +711,13 @@ initial placement.</p>
 </tbody>
 </table>
 <p>Adds <cite>clipboard</cite> to the list of clipboards in which the selection
-contents of <cite>buffer</cite> are available. In most cases, <cite>clipboard</cite> will be
-the <a class="reference internal" href="Clipboard.html#Gtk.Clipboard" title="Gtk.Clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard</span></code></a> of type %GDK_SELECTION_PRIMARY for a view of <cite>buffer</cite>.</p>
+contents of <cite>self</cite> are available. In most cases, <cite>clipboard</cite> will be
+the <a class="reference internal" href="Clipboard.html#Gtk.Clipboard" title="Gtk.Clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard</span></code></a> of type %GDK_SELECTION_PRIMARY for a view of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.apply_tag">
-<code class="descname">apply_tag</code><span class="sig-paren">(</span><em>tag</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2615"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">apply_tag</code><span class="sig-paren">(</span><em>tag</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2616"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -733,14 +731,14 @@ the <a class="reference internal" href="Clipboard.html#Gtk.Clipboard" title="Gtk
 </tr>
 </tbody>
 </table>
-<p>Emits the “apply-tag” signal on <cite>buffer</cite>. The default
+<p>Emits the “apply-tag” signal on <cite>self</cite>. The default
 handler for the signal applies <cite>tag</cite> to the given range.
 <cite>start</cite> and <cite>end</cite> do not have to be in order.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.apply_tag_by_name">
-<code class="descname">apply_tag_by_name</code><span class="sig-paren">(</span><em>name</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2671"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">apply_tag_by_name</code><span class="sig-paren">(</span><em>name</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2672"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -754,19 +752,19 @@ handler for the signal applies <cite>tag</cite> to the given range.
 </tr>
 </tbody>
 </table>
-<p>Calls <a class="reference internal" href="TextTagTable.html#Gtk.TextTagTable.lookup" title="Gtk.TextTagTable.lookup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextTagTable.lookup</span></code></a> () on the buffer’s tag table to
-get a <a class="reference internal" href="TextTag.html#Gtk.TextTag" title="Gtk.TextTag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextTag</span></code></a>, then calls <a class="reference internal" href="#Gtk.TextBuffer.apply_tag" title="Gtk.TextBuffer.apply_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.apply_tag</span></code></a> ().</p>
+<p>Calls <a class="reference internal" href="TextTagTable.html#Gtk.TextTagTable.lookup" title="Gtk.TextTagTable.lookup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextTagTable.lookup</span></code></a>() on the buffer’s tag table to
+get a <a class="reference internal" href="TextTag.html#Gtk.TextTag" title="Gtk.TextTag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextTag</span></code></a>, then calls <a class="reference internal" href="#Gtk.TextBuffer.apply_tag" title="Gtk.TextBuffer.apply_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.apply_tag</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.backspace">
-<code class="descname">backspace</code><span class="sig-paren">(</span><em>iter</em>, <em>interactive</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3878"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">backspace</code><span class="sig-paren">(</span><em>iter</em>, <em>interactive</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3920"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>iter</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>buffer</cite></li>
+<li><strong>iter</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>self</cite></li>
 <li><strong>interactive</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether the deletion is caused by user interaction</li>
 <li><strong>default_editable</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether the buffer is editable by default</li>
 </ul>
@@ -796,20 +794,20 @@ re-initialized to point to the location where text was deleted.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.begin_user_action">
-<code class="descname">begin_user_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n4095"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">begin_user_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n4137"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Called to indicate that the buffer operations between here and a
-call to <a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a> () are part of a single
+call to <a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a>() are part of a single
 user-visible operation. The operations between
-<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a> () and
-<a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a> () can then be grouped when creating
+<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a>() and
+<a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a>() can then be grouped when creating
 an undo stack. <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a> maintains a count of calls to
-<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a> () that have not been closed with
-a call to <a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a> (), and emits the
+<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a>() that have not been closed with
+a call to <a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a>(), and emits the
 “begin-user-action” and “end-user-action” signals only for the
 outermost pair of calls. This allows you to build user actions
 from other user actions.</p>
 <p>The “interactive” buffer mutation functions, such as
-<a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a> (), automatically call begin/end
+<a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a>(), automatically call begin/end
 user action around the buffer operations they perform, so there&#8217;s
 no need to add extra calls if you user action consists solely of a
 single call to one of those functions.</p>
@@ -817,7 +815,7 @@ single call to one of those functions.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.copy_clipboard">
-<code class="descname">copy_clipboard</code><span class="sig-paren">(</span><em>clipboard</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n4043"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy_clipboard</code><span class="sig-paren">(</span><em>clipboard</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n4085"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -831,7 +829,7 @@ single call to one of those functions.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.create_child_anchor">
-<code class="descname">create_child_anchor</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1995"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">create_child_anchor</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1996"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -845,15 +843,15 @@ single call to one of those functions.</p>
 </tbody>
 </table>
 <p>This is a convenience function which simply creates a child anchor
-with <a class="reference internal" href="TextChildAnchor.html#Gtk.TextChildAnchor.new" title="Gtk.TextChildAnchor.new"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextChildAnchor.new</span></code></a> () and inserts it into the buffer
-with <a class="reference internal" href="#Gtk.TextBuffer.insert_child_anchor" title="Gtk.TextBuffer.insert_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_child_anchor</span></code></a> (). The new anchor is
+with <a class="reference internal" href="TextChildAnchor.html#Gtk.TextChildAnchor.new" title="Gtk.TextChildAnchor.new"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextChildAnchor.new</span></code></a>() and inserts it into the buffer
+with <a class="reference internal" href="#Gtk.TextBuffer.insert_child_anchor" title="Gtk.TextBuffer.insert_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_child_anchor</span></code></a>(). The new anchor is
 owned by the buffer; no reference count is returned to
-the caller of <a class="reference internal" href="#Gtk.TextBuffer.create_child_anchor" title="Gtk.TextBuffer.create_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.create_child_anchor</span></code></a> ().</p>
+the caller of <a class="reference internal" href="#Gtk.TextBuffer.create_child_anchor" title="Gtk.TextBuffer.create_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.create_child_anchor</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.create_mark">
-<code class="descname">create_mark</code><span class="sig-paren">(</span><em>mark_name</em>, <em>where</em>, <em>left_gravity</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2118"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">create_mark</code><span class="sig-paren">(</span><em>mark_name</em>, <em>where</em>, <em>left_gravity</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2119"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -875,10 +873,10 @@ the caller of <a class="reference internal" href="#Gtk.TextBuffer.create_child_a
 </table>
 <p>Creates a mark at position <cite>where</cite>. If <cite>mark_name</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, the mark
 is anonymous; otherwise, the mark can be retrieved by name using
-<a class="reference internal" href="#Gtk.TextBuffer.get_mark" title="Gtk.TextBuffer.get_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_mark</span></code></a> (). If a mark has left gravity, and text is
+<a class="reference internal" href="#Gtk.TextBuffer.get_mark" title="Gtk.TextBuffer.get_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_mark</span></code></a>(). If a mark has left gravity, and text is
 inserted at the mark’s current location, the mark will be moved to
 the left of the newly-inserted text. If the mark has right gravity
-(<cite>left_gravity</cite> = <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> ), the mark will end up on the right of
+(<cite>left_gravity</cite> = <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>), the mark will end up on the right of
 newly-inserted text. The standard left-to-right cursor is a mark
 with right gravity (when you type, the cursor stays on the right
 side of the text you’re typing).</p>
@@ -892,18 +890,21 @@ initial placement.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.create_tag">
-<code class="descname">create_tag</code><span class="sig-paren">(</span><em>tag_name=None</em>, <em>**properties</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2481"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">create_tag</code><span class="sig-paren">(</span><em>tag_name=None</em>, <em>**properties</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2482"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Creates a tag and adds it to the tag table of the TextBuffer.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param str tag_name:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Name of the new tag, or None</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tag_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of the new tag, or None</li>
+<li><strong>**properties</strong> &#8211; <p>Keyword list of properties and their values</p>
+</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param <a href="#id1"><span class="problematic" id="id2">**</span></a>properties:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Keyword list of properties and their values</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A new tag.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -915,20 +916,11 @@ the buffer&#8217;s tag table.</p>
 exist in the tag table for this buffer.</p>
 <p>Properties are passed as a keyword list of names and values (e.g.
 foreground=&#8217;DodgerBlue&#8217;, weight=Pango.Weight.BOLD)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">returns:</th><td class="field-body">A new tag.</td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.cut_clipboard">
-<code class="descname">cut_clipboard</code><span class="sig-paren">(</span><em>clipboard</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n4026"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">cut_clipboard</code><span class="sig-paren">(</span><em>clipboard</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n4068"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -947,21 +939,21 @@ said text if it’s editable.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1662"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">delete</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1663"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>start</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>buffer</cite></li>
-<li><strong>end</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; another position in <cite>buffer</cite></li>
+<li><strong>start</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>self</cite></li>
+<li><strong>end</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; another position in <cite>self</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Deletes text between <cite>start</cite> and <cite>end</cite>. The order of <cite>start</cite> and <cite>end</cite>
-is not actually relevant; <a class="reference internal" href="#Gtk.TextBuffer.delete" title="Gtk.TextBuffer.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete</span></code></a> () will reorder
+is not actually relevant; <a class="reference internal" href="#Gtk.TextBuffer.delete" title="Gtk.TextBuffer.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete</span></code></a>() will reorder
 them. This function actually emits the “delete-range” signal, and
 the default handler of that signal deletes the text. Because the
 buffer is modified, all outstanding iterators become invalid after
@@ -971,7 +963,7 @@ re-initialized to point to the location where text was deleted.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.delete_interactive">
-<code class="descname">delete_interactive</code><span class="sig-paren">(</span><em>start_iter</em>, <em>end_iter</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1692"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">delete_interactive</code><span class="sig-paren">(</span><em>start_iter</em>, <em>end_iter</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1693"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -992,29 +984,29 @@ re-initialized to point to the location where text was deleted.</p>
 </tbody>
 </table>
 <p>Deletes all editable text in the given range.
-Calls <a class="reference internal" href="#Gtk.TextBuffer.delete" title="Gtk.TextBuffer.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete</span></code></a> () for each editable sub-range of
-[&#64;start,&#64;end). <cite>start</cite> and <cite>end</cite> are revalidated to point to
+Calls <a class="reference internal" href="#Gtk.TextBuffer.delete" title="Gtk.TextBuffer.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete</span></code></a>() for each editable sub-range of
+[<cite>start</cite>,`end`). <cite>start</cite> and <cite>end</cite> are revalidated to point to
 the location of the last deleted range, or left untouched if
 no text was deleted.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.delete_mark">
-<code class="descname">delete_mark</code><span class="sig-paren">(</span><em>mark</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2224"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">delete_mark</code><span class="sig-paren">(</span><em>mark</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2225"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mark</strong> (<a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a>) &#8211; a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a> in <cite>buffer</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mark</strong> (<a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a>) &#8211; a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a> in <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
 <p>Deletes <cite>mark</cite>, so that it’s no longer located anywhere in the
 buffer. Removes the reference the buffer holds to the mark, so if
-you haven’t called <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.ref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.ref</span></code></a> () on the mark, it will be freed. Even
+you haven’t called <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.ref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.ref</span></code></a>() on the mark, it will be freed. Even
 if the mark isn’t freed, most operations on <cite>mark</cite> become
 invalid, until it gets added to a buffer again with
-<a class="reference internal" href="#Gtk.TextBuffer.add_mark" title="Gtk.TextBuffer.add_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.add_mark</span></code></a> (). Use <a class="reference internal" href="TextMark.html#Gtk.TextMark.get_deleted" title="Gtk.TextMark.get_deleted"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark.get_deleted</span></code></a> () to
+<a class="reference internal" href="#Gtk.TextBuffer.add_mark" title="Gtk.TextBuffer.add_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.add_mark</span></code></a>(). Use <a class="reference internal" href="TextMark.html#Gtk.TextMark.get_deleted" title="Gtk.TextMark.get_deleted"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark.get_deleted</span></code></a>() to
 find out if a mark has been removed from its buffer.
 The <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a> <a class="reference internal" href="#Gtk.TextBuffer.signals.mark_deleted" title="Gtk.TextBuffer.signals.mark_deleted"><code class="xref py py-func docutils literal"><span class="pre">::mark-deleted</span></code></a> signal will be emitted as notification after
 the mark is deleted.</p>
@@ -1022,22 +1014,22 @@ the mark is deleted.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.delete_mark_by_name">
-<code class="descname">delete_mark_by_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2309"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">delete_mark_by_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2310"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; name of a mark in <cite>buffer</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; name of a mark in <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
-<p>Deletes the mark named <cite>name</cite> ; the mark must exist. See
-<a class="reference internal" href="#Gtk.TextBuffer.delete_mark" title="Gtk.TextBuffer.delete_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_mark</span></code></a> () for details.</p>
+<p>Deletes the mark named <cite>name</cite>; the mark must exist. See
+<a class="reference internal" href="#Gtk.TextBuffer.delete_mark" title="Gtk.TextBuffer.delete_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_mark</span></code></a>() for details.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.delete_selection">
-<code class="descname">delete_selection</code><span class="sig-paren">(</span><em>interactive</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3832"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">delete_selection</code><span class="sig-paren">(</span><em>interactive</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3874"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1064,7 +1056,7 @@ uneditable text).</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.deserialize">
-<code class="descname">deserialize</code><span class="sig-paren">(</span><em>content_buffer</em>, <em>format</em>, <em>iter</em>, <em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n544"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">deserialize</code><span class="sig-paren">(</span><em>content_buffer</em>, <em>format</em>, <em>iter</em>, <em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n544"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1077,7 +1069,7 @@ uneditable text).</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</p>
@@ -1091,8 +1083,8 @@ uneditable text).</p>
 <p>This function deserializes rich text in format <cite>format</cite> and inserts
 it at <cite>iter</cite>.</p>
 <p><cite>formats</cite> to be used must be registered using
-<a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_format" title="Gtk.TextBuffer.register_deserialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_format</span></code></a> () or
-<a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_tagset" title="Gtk.TextBuffer.register_deserialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_tagset</span></code></a> () beforehand.</p>
+<a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_format" title="Gtk.TextBuffer.register_deserialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_format</span></code></a>() or
+<a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_tagset" title="Gtk.TextBuffer.register_deserialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_tagset</span></code></a>() beforehand.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -1100,7 +1092,7 @@ it at <cite>iter</cite>.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.deserialize_get_can_create_tags">
-<code class="descname">deserialize_get_can_create_tags</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n370"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">deserialize_get_can_create_tags</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n370"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1114,7 +1106,7 @@ it at <cite>iter</cite>.</p>
 </tbody>
 </table>
 <p>This functions returns the value set with
-<a class="reference internal" href="#Gtk.TextBuffer.deserialize_set_can_create_tags" title="Gtk.TextBuffer.deserialize_set_can_create_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.deserialize_set_can_create_tags</span></code></a> ()</p>
+<a class="reference internal" href="#Gtk.TextBuffer.deserialize_set_can_create_tags" title="Gtk.TextBuffer.deserialize_set_can_create_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.deserialize_set_can_create_tags</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -1122,7 +1114,7 @@ it at <cite>iter</cite>.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.deserialize_set_can_create_tags">
-<code class="descname">deserialize_set_can_create_tags</code><span class="sig-paren">(</span><em>format</em>, <em>can_create_tags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n327"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">deserialize_set_can_create_tags</code><span class="sig-paren">(</span><em>format</em>, <em>can_create_tags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n327"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1142,7 +1134,7 @@ functions you register should know how to map the rich text format
 they handler to your text buffers set of tags.</p>
 <p>The ability of creating new (arbitrary!) tags in the receiving buffer
 is meant for special rich text formats like the internal one that
-is registered using <a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_tagset" title="Gtk.TextBuffer.register_deserialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_tagset</span></code></a> (),
+is registered using <a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_tagset" title="Gtk.TextBuffer.register_deserialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_tagset</span></code></a>(),
 because that format is essentially a dump of the internal structure
 of the source buffer, including its tag names.</p>
 <p>You should allow creation of tags only if you know what you are
@@ -1157,14 +1149,14 @@ handle the newly created tags.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.end_user_action">
-<code class="descname">end_user_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n4116"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Should be paired with a call to <a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a> ().
+<code class="descname">end_user_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n4158"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Should be paired with a call to <a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a>().
 See that function for a full explanation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_bounds">
-<code class="descname">get_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3004"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3046"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1186,12 +1178,12 @@ See that function for a full explanation.</p>
 </tbody>
 </table>
 <p>Retrieves the first and last iterators in the buffer, i.e. the
-entire buffer lies within the range [&#64;start,&#64;end).</p>
+entire buffer lies within the range [<cite>start</cite>,`end`).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_char_count">
-<code class="descname">get_char_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3118"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_char_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3160"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1210,7 +1202,7 @@ count is cached, so this function is very fast.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_copy_target_list">
-<code class="descname">get_copy_target_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n4201"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_copy_target_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n4243"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1224,8 +1216,8 @@ count is cached, so this function is very fast.</p>
 <p>This function returns the list of targets this text buffer can
 provide for copying and as DND source. The targets in the list are
 added with <cite>info</cite> values from the <a class="reference internal" href="../enums.html#Gtk.TextBufferTargetInfo" title="Gtk.TextBufferTargetInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBufferTargetInfo</span></code></a> enum,
-using <a class="reference internal" href="../structs/TargetList.html#Gtk.TargetList.add_rich_text_targets" title="Gtk.TargetList.add_rich_text_targets"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TargetList.add_rich_text_targets</span></code></a> () and
-<a class="reference internal" href="../structs/TargetList.html#Gtk.TargetList.add_text_targets" title="Gtk.TargetList.add_text_targets"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TargetList.add_text_targets</span></code></a> ().</p>
+using <a class="reference internal" href="../structs/TargetList.html#Gtk.TargetList.add_rich_text_targets" title="Gtk.TargetList.add_rich_text_targets"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TargetList.add_rich_text_targets</span></code></a>() and
+<a class="reference internal" href="../structs/TargetList.html#Gtk.TargetList.add_text_targets" title="Gtk.TargetList.add_text_targets"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TargetList.add_text_targets</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -1233,7 +1225,7 @@ using <a class="reference internal" href="../structs/TargetList.html#Gtk.TargetL
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_deserialize_formats">
-<code class="descname">get_deserialize_formats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n444"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_deserialize_formats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n444"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1246,8 +1238,8 @@ using <a class="reference internal" href="../structs/TargetList.html#Gtk.TargetL
 </tbody>
 </table>
 <p>This function returns the rich text deserialize formats registered
-with <cite>buffer</cite> using <a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_format" title="Gtk.TextBuffer.register_deserialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_format</span></code></a> () or
-<a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_tagset" title="Gtk.TextBuffer.register_deserialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_tagset</span></code></a> ()</p>
+with <cite>self</cite> using <a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_format" title="Gtk.TextBuffer.register_deserialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_format</span></code></a>() or
+<a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_tagset" title="Gtk.TextBuffer.register_deserialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_tagset</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -1255,7 +1247,7 @@ with <cite>buffer</cite> using <a class="reference internal" href="#Gtk.TextBuff
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_end_iter">
-<code class="descname">get_end_iter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2984"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_end_iter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3026"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1268,15 +1260,15 @@ with <cite>buffer</cite> using <a class="reference internal" href="#Gtk.TextBuff
 </table>
 <p>Initializes <cite>iter</cite> with the “end iterator,” one past the last valid
 character in the text buffer. If dereferenced with
-<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter.get_char" title="Gtk.TextIter.get_char"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter.get_char</span></code></a> (), the end iterator has a character value of 0.
+<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter.get_char" title="Gtk.TextIter.get_char"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter.get_char</span></code></a>(), the end iterator has a character value of 0.
 The entire buffer lies in the range from the first position in
-the buffer (call <a class="reference internal" href="#Gtk.TextBuffer.get_start_iter" title="Gtk.TextBuffer.get_start_iter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_start_iter</span></code></a> () to get
+the buffer (call <a class="reference internal" href="#Gtk.TextBuffer.get_start_iter" title="Gtk.TextBuffer.get_start_iter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_start_iter</span></code></a>() to get
 character position 0) to the end iterator.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_has_selection">
-<code class="descname">get_has_selection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3077"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_has_selection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3119"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1295,7 +1287,7 @@ character position 0) to the end iterator.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_insert">
-<code class="descname">get_insert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2339"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_insert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2340"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1307,19 +1299,19 @@ character position 0) to the end iterator.</p>
 </tbody>
 </table>
 <p>Returns the mark that represents the cursor (insertion point).
-Equivalent to calling <a class="reference internal" href="#Gtk.TextBuffer.get_mark" title="Gtk.TextBuffer.get_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_mark</span></code></a> () to get the mark
+Equivalent to calling <a class="reference internal" href="#Gtk.TextBuffer.get_mark" title="Gtk.TextBuffer.get_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_mark</span></code></a>() to get the mark
 named “insert”, but very slightly more efficient, and involves less
 typing.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_iter_at_child_anchor">
-<code class="descname">get_iter_at_child_anchor</code><span class="sig-paren">(</span><em>anchor</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2383"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_iter_at_child_anchor</code><span class="sig-paren">(</span><em>anchor</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2384"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>anchor</strong> (<a class="reference internal" href="TextChildAnchor.html#Gtk.TextChildAnchor" title="Gtk.TextChildAnchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextChildAnchor</span></code></a>) &#8211; a child anchor that appears in <cite>buffer</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>anchor</strong> (<a class="reference internal" href="TextChildAnchor.html#Gtk.TextChildAnchor" title="Gtk.TextChildAnchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextChildAnchor</span></code></a>) &#8211; a child anchor that appears in <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an iterator to be initialized</td>
 </tr>
@@ -1327,12 +1319,12 @@ typing.</p>
 </tr>
 </tbody>
 </table>
-<p>Obtains the location of <cite>anchor</cite> within <cite>buffer</cite>.</p>
+<p>Obtains the location of <cite>anchor</cite> within <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_iter_at_line">
-<code class="descname">get_iter_at_line</code><span class="sig-paren">(</span><em>line_number</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2921"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_iter_at_line</code><span class="sig-paren">(</span><em>line_number</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2963"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1346,12 +1338,12 @@ typing.</p>
 </tbody>
 </table>
 <p>Initializes <cite>iter</cite> to the start of the given line. If <cite>line_number</cite> is greater
-than the number of lines in the <cite>buffer</cite>, the end iterator is returned.</p>
+than the number of lines in the <cite>self</cite>, the end iterator is returned.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_iter_at_line_index">
-<code class="descname">get_iter_at_line_index</code><span class="sig-paren">(</span><em>line_number</em>, <em>byte_index</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2900"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_iter_at_line_index</code><span class="sig-paren">(</span><em>line_number</em>, <em>byte_index</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2925"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1371,14 +1363,17 @@ than the number of lines in the <cite>buffer</cite>, the end iterator is returne
 </tbody>
 </table>
 <p>Obtains an iterator pointing to <cite>byte_index</cite> within the given line.
-<cite>byte_index</cite> must be the start of a UTF-8 character, and must not be
-beyond the end of the line.  Note bytes, not
+<cite>byte_index</cite> must be the start of a UTF-8 character. Note bytes, not
 characters; UTF-8 may encode one character as multiple bytes.</p>
+<p>Before the 3.20 version, it was not allowed to pass an invalid location.</p>
+<p>Since the 3.20 version, if <cite>line_number</cite> is greater than the number of lines
+in the <cite>self</cite>, the end iterator is returned. And if <cite>byte_index</cite> is off the
+end of the line, the iterator at the end of the line is returned.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_iter_at_line_offset">
-<code class="descname">get_iter_at_line_offset</code><span class="sig-paren">(</span><em>line_number</em>, <em>char_offset</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2875"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_iter_at_line_offset</code><span class="sig-paren">(</span><em>line_number</em>, <em>char_offset</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2879"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1397,20 +1392,22 @@ characters; UTF-8 may encode one character as multiple bytes.</p>
 </tr>
 </tbody>
 </table>
-<p>Obtains an iterator pointing to <cite>char_offset</cite> within the given
-line. The <cite>char_offset</cite> must exist, offsets off the end of the line
-are not allowed. Note characters, not bytes;
-UTF-8 may encode one character as multiple bytes.</p>
+<p>Obtains an iterator pointing to <cite>char_offset</cite> within the given line. Note
+characters, not bytes; UTF-8 may encode one character as multiple bytes.</p>
+<p>Before the 3.20 version, it was not allowed to pass an invalid location.</p>
+<p>Since the 3.20 version, if <cite>line_number</cite> is greater than the number of lines
+in the <cite>self</cite>, the end iterator is returned. And if <cite>char_offset</cite> is off the
+end of the line, the iterator at the end of the line is returned.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_iter_at_mark">
-<code class="descname">get_iter_at_mark</code><span class="sig-paren">(</span><em>mark</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2196"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_iter_at_mark</code><span class="sig-paren">(</span><em>mark</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2197"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mark</strong> (<a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a>) &#8211; a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a> in <cite>buffer</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mark</strong> (<a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a>) &#8211; a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a> in <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">iterator to initialize</td>
 </tr>
@@ -1423,7 +1420,7 @@ UTF-8 may encode one character as multiple bytes.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_iter_at_offset">
-<code class="descname">get_iter_at_offset</code><span class="sig-paren">(</span><em>char_offset</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2943"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_iter_at_offset</code><span class="sig-paren">(</span><em>char_offset</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2985"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1444,7 +1441,7 @@ the iterator one past the last valid character in the buffer.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_line_count">
-<code class="descname">get_line_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3099"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_line_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3141"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1461,7 +1458,7 @@ the function is very fast.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_mark">
-<code class="descname">get_mark</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2257"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_mark</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2258"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1470,17 +1467,17 @@ the function is very fast.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the mark named <cite>name</cite> in buffer <cite>buffer</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no such
+<p>Returns the mark named <cite>name</cite> in buffer <cite>self</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no such
 mark exists in the buffer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_modified">
-<code class="descname">get_modified</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3029"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_modified</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3071"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1492,14 +1489,14 @@ mark exists in the buffer.</p>
 </tbody>
 </table>
 <p>Indicates whether the buffer has been modified since the last call
-to <a class="reference internal" href="#Gtk.TextBuffer.set_modified" title="Gtk.TextBuffer.set_modified"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.set_modified</span></code></a> () set the modification flag to
+to <a class="reference internal" href="#Gtk.TextBuffer.set_modified" title="Gtk.TextBuffer.set_modified"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.set_modified</span></code></a>() set the modification flag to
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>. Used for example to enable a “save” function in a text
 editor.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_paste_target_list">
-<code class="descname">get_paste_target_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n4233"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_paste_target_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n4275"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1513,8 +1510,8 @@ editor.</p>
 <p>This function returns the list of targets this text buffer supports
 for pasting and as DND destination. The targets in the list are
 added with <cite>info</cite> values from the <a class="reference internal" href="../enums.html#Gtk.TextBufferTargetInfo" title="Gtk.TextBufferTargetInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBufferTargetInfo</span></code></a> enum,
-using <a class="reference internal" href="../structs/TargetList.html#Gtk.TargetList.add_rich_text_targets" title="Gtk.TargetList.add_rich_text_targets"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TargetList.add_rich_text_targets</span></code></a> () and
-<a class="reference internal" href="../structs/TargetList.html#Gtk.TargetList.add_text_targets" title="Gtk.TargetList.add_text_targets"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TargetList.add_text_targets</span></code></a> ().</p>
+using <a class="reference internal" href="../structs/TargetList.html#Gtk.TargetList.add_rich_text_targets" title="Gtk.TargetList.add_rich_text_targets"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TargetList.add_rich_text_targets</span></code></a>() and
+<a class="reference internal" href="../structs/TargetList.html#Gtk.TargetList.add_text_targets" title="Gtk.TargetList.add_text_targets"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TargetList.add_text_targets</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -1522,7 +1519,7 @@ using <a class="reference internal" href="../structs/TargetList.html#Gtk.TargetL
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_selection_bound">
-<code class="descname">get_selection_bound</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2365"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_selection_bound</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2366"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1534,37 +1531,38 @@ using <a class="reference internal" href="../structs/TargetList.html#Gtk.TargetL
 </tbody>
 </table>
 <p>Returns the mark that represents the selection bound.  Equivalent
-to calling <a class="reference internal" href="#Gtk.TextBuffer.get_mark" title="Gtk.TextBuffer.get_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_mark</span></code></a> () to get the mark named
+to calling <a class="reference internal" href="#Gtk.TextBuffer.get_mark" title="Gtk.TextBuffer.get_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_mark</span></code></a>() to get the mark named
 “selection_bound”, but very slightly more efficient, and involves
 less typing.</p>
-<p>The currently-selected text in <cite>buffer</cite> is the region between the
+<p>The currently-selected text in <cite>self</cite> is the region between the
 “selection_bound” and “insert” marks. If “selection_bound” and
 “insert” are in the same place, then there is no current selection.
-<a class="reference internal" href="#Gtk.TextBuffer.get_selection_bounds" title="Gtk.TextBuffer.get_selection_bounds"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_selection_bounds</span></code></a> () is another convenient function
+<a class="reference internal" href="#Gtk.TextBuffer.get_selection_bounds" title="Gtk.TextBuffer.get_selection_bounds"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_selection_bounds</span></code></a>() is another convenient function
 for handling the selection, if you just want to know whether there’s a
 selection and what its bounds are.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_selection_bounds">
-<code class="descname">get_selection_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n4065"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_selection_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n4107"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether the selection has nonzero length<table class="docutils field-list" frame="void" rules="none">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">If there is no selection returns an empty tuple otherwise a tuple
+containing:<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">start:</th><td class="field-body">iterator to initialize with selection start</td>
+<tr class="field-odd field"><th class="field-name">start:</th><td class="field-body">selection start</td>
 </tr>
-<tr class="field-even field"><th class="field-name">end:</th><td class="field-body">iterator to initialize with selection end</td>
+<tr class="field-even field"><th class="field-name">end:</th><td class="field-body">selection end</td>
 </tr>
 </tbody>
 </table>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>start</strong>: <a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>, <strong>end</strong>: <a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>)</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(<strong>start</strong>: <a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>, <strong>end</strong>: <a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1578,7 +1576,7 @@ whether text is selected.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_serialize_formats">
-<code class="descname">get_serialize_formats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n416"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_serialize_formats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n416"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1591,8 +1589,8 @@ whether text is selected.</p>
 </tbody>
 </table>
 <p>This function returns the rich text serialize formats registered
-with <cite>buffer</cite> using <a class="reference internal" href="#Gtk.TextBuffer.register_serialize_format" title="Gtk.TextBuffer.register_serialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_format</span></code></a> () or
-<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_tagset" title="Gtk.TextBuffer.register_serialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_tagset</span></code></a> ()</p>
+with <cite>self</cite> using <a class="reference internal" href="#Gtk.TextBuffer.register_serialize_format" title="Gtk.TextBuffer.register_serialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_format</span></code></a>() or
+<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_tagset" title="Gtk.TextBuffer.register_serialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_tagset</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -1600,7 +1598,7 @@ with <cite>buffer</cite> using <a class="reference internal" href="#Gtk.TextBuff
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_slice">
-<code class="descname">get_slice</code><span class="sig-paren">(</span><em>start</em>, <em>end</em>, <em>include_hidden_chars</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1876"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_slice</code><span class="sig-paren">(</span><em>start</em>, <em>end</em>, <em>include_hidden_chars</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1877"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1620,21 +1618,21 @@ with <cite>buffer</cite> using <a class="reference internal" href="#Gtk.TextBuff
 </tr>
 </tbody>
 </table>
-<p>Returns the text in the range [&#64;start,&#64;end). Excludes undisplayed
+<p>Returns the text in the range [<cite>start</cite>,`end`). Excludes undisplayed
 text (text marked with tags that set the invisibility attribute) if
 <cite>include_hidden_chars</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>. The returned string includes a
 0xFFFC character whenever the buffer contains
 embedded images, so byte and character indexes into
 the returned string do correspond to byte
 and character indexes into the buffer. Contrast with
-<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a> (). Note that 0xFFFC can occur in normal
+<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a>(). Note that 0xFFFC can occur in normal
 text as well, so it is not a reliable indicator that a pixbuf or
 widget is in the buffer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_start_iter">
-<code class="descname">get_start_iter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2962"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_start_iter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3004"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1646,13 +1644,13 @@ widget is in the buffer.</p>
 </tbody>
 </table>
 <p>Initialized <cite>iter</cite> with the first position in the text buffer. This
-is the same as using <a class="reference internal" href="#Gtk.TextBuffer.get_iter_at_offset" title="Gtk.TextBuffer.get_iter_at_offset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_iter_at_offset</span></code></a> () to get
+is the same as using <a class="reference internal" href="#Gtk.TextBuffer.get_iter_at_offset" title="Gtk.TextBuffer.get_iter_at_offset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_iter_at_offset</span></code></a>() to get
 the iter at character offset 0.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_tag_table">
-<code class="descname">get_tag_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n839"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_tag_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n840"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1668,7 +1666,7 @@ the iter at character offset 0.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.get_text">
-<code class="descname">get_text</code><span class="sig-paren">(</span><em>start</em>, <em>end</em>, <em>include_hidden_chars</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1838"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_text</code><span class="sig-paren">(</span><em>start</em>, <em>end</em>, <em>include_hidden_chars</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1839"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1688,18 +1686,18 @@ the iter at character offset 0.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the text in the range [&#64;start,&#64;end). Excludes undisplayed
+<p>Returns the text in the range [<cite>start</cite>,`end`). Excludes undisplayed
 text (text marked with tags that set the invisibility attribute) if
 <cite>include_hidden_chars</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>. Does not include characters
 representing embedded images, so byte and character indexes into
 the returned string do not correspond to byte
 and character indexes into the buffer. Contrast with
-<a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert">
-<code class="descname">insert</code><span class="sig-paren">(</span><em>iter</em>, <em>text</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n941"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert</code><span class="sig-paren">(</span><em>iter</em>, <em>text</em>, <em>length=-1</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n942"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1724,7 +1722,7 @@ inserted text.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_at_cursor">
-<code class="descname">insert_at_cursor</code><span class="sig-paren">(</span><em>text</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n963"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_at_cursor</code><span class="sig-paren">(</span><em>text</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n964"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1737,13 +1735,13 @@ inserted text.</p>
 </tr>
 </tbody>
 </table>
-<p>Simply calls <a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert</span></code></a> (), using the current
+<p>Simply calls <a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert</span></code></a>(), using the current
 cursor position as the insertion point.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_child_anchor">
-<code class="descname">insert_child_anchor</code><span class="sig-paren">(</span><em>iter</em>, <em>anchor</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1969"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_child_anchor</code><span class="sig-paren">(</span><em>iter</em>, <em>anchor</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1970"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1762,22 +1760,22 @@ when obtaining the buffer contents as a string, will be represented
 by the Unicode “object replacement character” 0xFFFC. Note that the
 “slice” variants for obtaining portions of the buffer as a string
 include this character for child anchors, but the “text” variants do
-not. E.g. see <a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a> () and
-<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a> (). Consider
-<a class="reference internal" href="#Gtk.TextBuffer.create_child_anchor" title="Gtk.TextBuffer.create_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.create_child_anchor</span></code></a> () as a more convenient
+not. E.g. see <a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a>() and
+<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a>(). Consider
+<a class="reference internal" href="#Gtk.TextBuffer.create_child_anchor" title="Gtk.TextBuffer.create_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.create_child_anchor</span></code></a>() as a more convenient
 alternative to this function. The buffer will add a reference to
 the anchor, so you can unref it after insertion.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_interactive">
-<code class="descname">insert_interactive</code><span class="sig-paren">(</span><em>iter</em>, <em>text</em>, <em>len</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1000"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_interactive</code><span class="sig-paren">(</span><em>iter</em>, <em>text</em>, <em>len</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1001"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>iter</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>buffer</cite></li>
+<li><strong>iter</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>self</cite></li>
 <li><strong>text</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; some UTF-8 text</li>
 <li><strong>len</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; length of text in bytes, or -1</li>
 <li><strong>default_editable</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; default editability of buffer</li>
@@ -1792,18 +1790,18 @@ the anchor, so you can unref it after insertion.</p>
 </tr>
 </tbody>
 </table>
-<p>Like <a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert</span></code></a> (), but the insertion will not occur if
+<p>Like <a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert</span></code></a>(), but the insertion will not occur if
 <cite>iter</cite> is at a non-editable location in the buffer. Usually you
 want to prevent insertions at ineditable locations if the insertion
 results from a user action (is interactive).</p>
 <p><cite>default_editable</cite> indicates the editability of text that doesn&#8217;t
 have a tag affecting editability applied to it. Typically the
-result of <a class="reference internal" href="TextView.html#Gtk.TextView.get_editable" title="Gtk.TextView.get_editable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextView.get_editable</span></code></a> () is appropriate here.</p>
+result of <a class="reference internal" href="TextView.html#Gtk.TextView.get_editable" title="Gtk.TextView.get_editable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextView.get_editable</span></code></a>() is appropriate here.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_interactive_at_cursor">
-<code class="descname">insert_interactive_at_cursor</code><span class="sig-paren">(</span><em>text</em>, <em>len</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1037"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_interactive_at_cursor</code><span class="sig-paren">(</span><em>text</em>, <em>len</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1038"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1823,16 +1821,16 @@ result of <a class="reference internal" href="TextView.html#Gtk.TextView.get_edi
 </tr>
 </tbody>
 </table>
-<p>Calls <a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a> () at the cursor
+<p>Calls <a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a>() at the cursor
 position.</p>
 <p><cite>default_editable</cite> indicates the editability of text that doesn&#8217;t
 have a tag affecting editability applied to it. Typically the
-result of <a class="reference internal" href="TextView.html#Gtk.TextView.get_editable" title="Gtk.TextView.get_editable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextView.get_editable</span></code></a> () is appropriate here.</p>
+result of <a class="reference internal" href="TextView.html#Gtk.TextView.get_editable" title="Gtk.TextView.get_editable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextView.get_editable</span></code></a>() is appropriate here.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_markup">
-<code class="descname">insert_markup</code><span class="sig-paren">(</span><em>iter</em>, <em>markup</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n4909"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_markup</code><span class="sig-paren">(</span><em>iter</em>, <em>markup</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n4951"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1858,7 +1856,7 @@ to the end of the inserted text on return.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_pixbuf">
-<code class="descname">insert_pixbuf</code><span class="sig-paren">(</span><em>iter</em>, <em>pixbuf</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1922"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_pixbuf</code><span class="sig-paren">(</span><em>iter</em>, <em>pixbuf</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1923"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1877,19 +1875,19 @@ the buffer contents as a string, will be represented by the Unicode
 “object replacement character” 0xFFFC. Note that the “slice”
 variants for obtaining portions of the buffer as a string include
 this character for pixbufs, but the “text” variants do
-not. e.g. see <a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a> () and
-<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a> ().</p>
+not. e.g. see <a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a>() and
+<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_range">
-<code class="descname">insert_range</code><span class="sig-paren">(</span><em>iter</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1420"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_range</code><span class="sig-paren">(</span><em>iter</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1421"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>iter</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>buffer</cite></li>
+<li><strong>iter</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>self</cite></li>
 <li><strong>start</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a></li>
 <li><strong>end</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; another position in the same buffer as <cite>start</cite></li>
 </ul>
@@ -1901,20 +1899,20 @@ not. e.g. see <a class="reference internal" href="#Gtk.TextBuffer.get_slice" tit
 of <cite>start</cite> and <cite>end</cite> doesn’t matter) and inserts the copy at <cite>iter</cite>.
 Used instead of simply getting/inserting text because it preserves
 images and tags. If <cite>start</cite> and <cite>end</cite> are in a different buffer from
-<cite>buffer</cite>, the two buffers must share the same tag table.</p>
+<cite>self</cite>, the two buffers must share the same tag table.</p>
 <p>Implemented via emissions of the insert_text and apply_tag signals,
 so expect those.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_range_interactive">
-<code class="descname">insert_range_interactive</code><span class="sig-paren">(</span><em>iter</em>, <em>start</em>, <em>end</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1456"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_range_interactive</code><span class="sig-paren">(</span><em>iter</em>, <em>start</em>, <em>end</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1457"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>iter</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>buffer</cite></li>
+<li><strong>iter</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in <cite>self</cite></li>
 <li><strong>start</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; a position in a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a></li>
 <li><strong>end</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; another position in the same buffer as <cite>start</cite></li>
 <li><strong>default_editable</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; default editability of the buffer</li>
@@ -1929,40 +1927,40 @@ so expect those.</p>
 </tr>
 </tbody>
 </table>
-<p>Same as <a class="reference internal" href="#Gtk.TextBuffer.insert_range" title="Gtk.TextBuffer.insert_range"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range</span></code></a> (), but does nothing if the
+<p>Same as <a class="reference internal" href="#Gtk.TextBuffer.insert_range" title="Gtk.TextBuffer.insert_range"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range</span></code></a>(), but does nothing if the
 insertion point isn’t editable. The <cite>default_editable</cite> parameter
 indicates whether the text is editable at <cite>iter</cite> if no tags
 enclosing <cite>iter</cite> affect editability. Typically the result of
-<a class="reference internal" href="TextView.html#Gtk.TextView.get_editable" title="Gtk.TextView.get_editable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextView.get_editable</span></code></a> () is appropriate here.</p>
+<a class="reference internal" href="TextView.html#Gtk.TextView.get_editable" title="Gtk.TextView.get_editable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextView.get_editable</span></code></a>() is appropriate here.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_with_tags">
-<code class="descname">insert_with_tags</code><span class="sig-paren">(</span><em>iter</em>, <em>text</em>, <em>*tags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1497"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Inserts <cite>text</cite> into <cite>buffer</cite> at <cite>iter</cite>, applying the list of tags to
+<code class="descname">insert_with_tags</code><span class="sig-paren">(</span><em>iter</em>, <em>text</em>, <em>*tags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1498"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Inserts <cite>text</cite> into <cite>self</cite> at <cite>iter</cite>, applying the list of tags to
 the newly-inserted text. The last tag specified must be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to
-terminate the list. Equivalent to calling <a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert</span></code></a> (),
-then <a class="reference internal" href="#Gtk.TextBuffer.apply_tag" title="Gtk.TextBuffer.apply_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.apply_tag</span></code></a> () on the inserted text;
-<a class="reference internal" href="#Gtk.TextBuffer.insert_with_tags" title="Gtk.TextBuffer.insert_with_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_with_tags</span></code></a> () is just a convenience function.</p>
+terminate the list. Equivalent to calling <a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert</span></code></a>(),
+then <a class="reference internal" href="#Gtk.TextBuffer.apply_tag" title="Gtk.TextBuffer.apply_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.apply_tag</span></code></a>() on the inserted text;
+<a class="reference internal" href="#Gtk.TextBuffer.insert_with_tags" title="Gtk.TextBuffer.insert_with_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_with_tags</span></code></a>() is just a convenience function.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.insert_with_tags_by_name">
-<code class="descname">insert_with_tags_by_name</code><span class="sig-paren">(</span><em>iter</em>, <em>text</em>, <em>*tags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n1548"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Same as <a class="reference internal" href="#Gtk.TextBuffer.insert_with_tags" title="Gtk.TextBuffer.insert_with_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_with_tags</span></code></a> (), but allows you
+<code class="descname">insert_with_tags_by_name</code><span class="sig-paren">(</span><em>iter</em>, <em>text</em>, <em>*tags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n1549"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Same as <a class="reference internal" href="#Gtk.TextBuffer.insert_with_tags" title="Gtk.TextBuffer.insert_with_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_with_tags</span></code></a>(), but allows you
 to pass in tag names instead of tag objects.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.move_mark">
-<code class="descname">move_mark</code><span class="sig-paren">(</span><em>mark</em>, <em>where</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2176"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">move_mark</code><span class="sig-paren">(</span><em>mark</em>, <em>where</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2177"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>mark</strong> (<a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a>) &#8211; a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a></li>
-<li><strong>where</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; new location for <cite>mark</cite> in <cite>buffer</cite></li>
+<li><strong>where</strong> (<a class="reference internal" href="../structs/TextIter.html#Gtk.TextIter" title="Gtk.TextIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextIter</span></code></a>) &#8211; new location for <cite>mark</cite> in <cite>self</cite></li>
 </ul>
 </td>
 </tr>
@@ -1974,7 +1972,7 @@ signal as notification of the move.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.move_mark_by_name">
-<code class="descname">move_mark_by_name</code><span class="sig-paren">(</span><em>name</em>, <em>where</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2281"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">move_mark_by_name</code><span class="sig-paren">(</span><em>name</em>, <em>where</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2282"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1988,12 +1986,12 @@ signal as notification of the move.</p>
 </tbody>
 </table>
 <p>Moves the mark named <cite>name</cite> (which must exist) to location <cite>where</cite>.
-See <a class="reference internal" href="#Gtk.TextBuffer.move_mark" title="Gtk.TextBuffer.move_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.move_mark</span></code></a> () for details.</p>
+See <a class="reference internal" href="#Gtk.TextBuffer.move_mark" title="Gtk.TextBuffer.move_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.move_mark</span></code></a>() for details.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.paste_clipboard">
-<code class="descname">paste_clipboard</code><span class="sig-paren">(</span><em>clipboard</em>, <em>override_location</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3782"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">paste_clipboard</code><span class="sig-paren">(</span><em>clipboard</em>, <em>override_location</em>, <em>default_editable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3824"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2017,7 +2015,7 @@ be inserted.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.place_cursor">
-<code class="descname">place_cursor</code><span class="sig-paren">(</span><em>where</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2411"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">place_cursor</code><span class="sig-paren">(</span><em>where</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2412"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2028,7 +2026,7 @@ be inserted.</p>
 </table>
 <p>This function moves the “insert” and “selection_bound” marks
 simultaneously.  If you move them to the same place in two steps
-with <a class="reference internal" href="#Gtk.TextBuffer.move_mark" title="Gtk.TextBuffer.move_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.move_mark</span></code></a> (), you will temporarily select a
+with <a class="reference internal" href="#Gtk.TextBuffer.move_mark" title="Gtk.TextBuffer.move_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.move_mark</span></code></a>(), you will temporarily select a
 region in between their old and new locations, which can be pretty
 inefficient since the temporarily-selected region will force stuff
 to be recalculated. This function moves them as a unit, which can
@@ -2037,7 +2035,7 @@ be optimized.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.register_deserialize_format">
-<code class="descname">register_deserialize_format</code><span class="sig-paren">(</span><em>mime_type</em>, <em>function</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n175"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">register_deserialize_format</code><span class="sig-paren">(</span><em>mime_type</em>, <em>function</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n175"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2045,7 +2043,7 @@ be optimized.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>mime_type</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the format’s mime-type</li>
 <li><strong>function</strong> (<a class="reference internal" href="../callbacks.html#Gtk.TextBufferDeserializeFunc" title="Gtk.TextBufferDeserializeFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBufferDeserializeFunc</span></code></a>) &#8211; the deserialize function to register</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; <cite>function</cite> ’s user_data</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; <cite>function</cite>’s user_data</li>
 </ul>
 </td>
 </tr>
@@ -2059,7 +2057,7 @@ newly registered format’s mime-type.</p>
 </tbody>
 </table>
 <p>This function registers a rich text deserialization <cite>function</cite> along with
-its <cite>mime_type</cite> with the passed <cite>buffer</cite>.</p>
+its <cite>mime_type</cite> with the passed <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -2067,7 +2065,7 @@ its <cite>mime_type</cite> with the passed <cite>buffer</cite>.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.register_deserialize_tagset">
-<code class="descname">register_deserialize_tagset</code><span class="sig-paren">(</span><em>tagset_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n215"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">register_deserialize_tagset</code><span class="sig-paren">(</span><em>tagset_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n215"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2082,8 +2080,8 @@ newly registered format’s mime-type.</td>
 </tbody>
 </table>
 <p>This function registers GTK+’s internal rich text serialization
-format with the passed <cite>buffer</cite>. See
-<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_tagset" title="Gtk.TextBuffer.register_serialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_tagset</span></code></a> () for details.</p>
+format with the passed <cite>self</cite>. See
+<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_tagset" title="Gtk.TextBuffer.register_serialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_tagset</span></code></a>() for details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -2091,7 +2089,7 @@ format with the passed <cite>buffer</cite>. See
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.register_serialize_format">
-<code class="descname">register_serialize_format</code><span class="sig-paren">(</span><em>mime_type</em>, <em>function</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n77"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">register_serialize_format</code><span class="sig-paren">(</span><em>mime_type</em>, <em>function</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n77"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2099,7 +2097,7 @@ format with the passed <cite>buffer</cite>. See
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>mime_type</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the format’s mime-type</li>
 <li><strong>function</strong> (<a class="reference internal" href="../callbacks.html#Gtk.TextBufferSerializeFunc" title="Gtk.TextBufferSerializeFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBufferSerializeFunc</span></code></a>) &#8211; the serialize function to register</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; <cite>function</cite> ’s user_data</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; <cite>function</cite>’s user_data</li>
 </ul>
 </td>
 </tr>
@@ -2113,7 +2111,7 @@ newly registered format’s mime-type.</p>
 </tbody>
 </table>
 <p>This function registers a rich text serialization <cite>function</cite> along with
-its <cite>mime_type</cite> with the passed <cite>buffer</cite>.</p>
+its <cite>mime_type</cite> with the passed <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -2121,7 +2119,7 @@ its <cite>mime_type</cite> with the passed <cite>buffer</cite>.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.register_serialize_tagset">
-<code class="descname">register_serialize_tagset</code><span class="sig-paren">(</span><em>tagset_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n131"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">register_serialize_tagset</code><span class="sig-paren">(</span><em>tagset_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n131"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2136,14 +2134,14 @@ newly registered format’s mime-type.</td>
 </tbody>
 </table>
 <p>This function registers GTK+’s internal rich text serialization
-format with the passed <cite>buffer</cite>. The internal format does not comply
+format with the passed <cite>self</cite>. The internal format does not comply
 to any standard rich text format and only works between <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>
 instances. It is capable of serializing all of a text buffer’s tags
 and embedded pixbufs.</p>
 <p>This function is just a wrapper around
-<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_format" title="Gtk.TextBuffer.register_serialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_format</span></code></a> (). The mime type used
+<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_format" title="Gtk.TextBuffer.register_serialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_format</span></code></a>(). The mime type used
 for registering is “application/x-gtk-text-buffer-rich-text”, or
-“application/x-gtk-text-buffer-rich-text;format=&#64;tagset_name” if a
+“application/x-gtk-text-buffer-rich-text;format=`tagset_name`” if a
 <cite>tagset_name</cite> was passed.</p>
 <p>The <cite>tagset_name</cite> can be used to restrict the transfer of rich text
 to buffers with compatible sets of tags, in order to avoid unknown
@@ -2157,7 +2155,7 @@ receiving buffer to deal with with pasting of arbitrary tags.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.remove_all_tags">
-<code class="descname">remove_all_tags</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2758"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_all_tags</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2759"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2179,23 +2177,23 @@ that add tags.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.remove_selection_clipboard">
-<code class="descname">remove_selection_clipboard</code><span class="sig-paren">(</span><em>clipboard</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3724"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_selection_clipboard</code><span class="sig-paren">(</span><em>clipboard</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3766"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>clipboard</strong> (<a class="reference internal" href="Clipboard.html#Gtk.Clipboard" title="Gtk.Clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard</span></code></a>) &#8211; a <a class="reference internal" href="Clipboard.html#Gtk.Clipboard" title="Gtk.Clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard</span></code></a> added to <cite>buffer</cite> by
-<a class="reference internal" href="#Gtk.TextBuffer.add_selection_clipboard" title="Gtk.TextBuffer.add_selection_clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.add_selection_clipboard</span></code></a> ()</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>clipboard</strong> (<a class="reference internal" href="Clipboard.html#Gtk.Clipboard" title="Gtk.Clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard</span></code></a>) &#8211; a <a class="reference internal" href="Clipboard.html#Gtk.Clipboard" title="Gtk.Clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard</span></code></a> added to <cite>self</cite> by
+<a class="reference internal" href="#Gtk.TextBuffer.add_selection_clipboard" title="Gtk.TextBuffer.add_selection_clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.add_selection_clipboard</span></code></a>()</td>
 </tr>
 </tbody>
 </table>
 <p>Removes a <a class="reference internal" href="Clipboard.html#Gtk.Clipboard" title="Gtk.Clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard</span></code></a> added with
-<a class="reference internal" href="#Gtk.TextBuffer.add_selection_clipboard" title="Gtk.TextBuffer.add_selection_clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.add_selection_clipboard</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.add_selection_clipboard" title="Gtk.TextBuffer.add_selection_clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.add_selection_clipboard</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.remove_tag">
-<code class="descname">remove_tag</code><span class="sig-paren">(</span><em>tag</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2644"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_tag</code><span class="sig-paren">(</span><em>tag</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2645"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2216,7 +2214,7 @@ removes all occurrences of <cite>tag</cite> from the given range. <cite>start</c
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.remove_tag_by_name">
-<code class="descname">remove_tag_by_name</code><span class="sig-paren">(</span><em>name</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2708"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_tag_by_name</code><span class="sig-paren">(</span><em>name</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2709"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2230,13 +2228,13 @@ removes all occurrences of <cite>tag</cite> from the given range. <cite>start</c
 </tr>
 </tbody>
 </table>
-<p>Calls <a class="reference internal" href="TextTagTable.html#Gtk.TextTagTable.lookup" title="Gtk.TextTagTable.lookup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextTagTable.lookup</span></code></a> () on the buffer’s tag table to
-get a <a class="reference internal" href="TextTag.html#Gtk.TextTag" title="Gtk.TextTag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextTag</span></code></a>, then calls <a class="reference internal" href="#Gtk.TextBuffer.remove_tag" title="Gtk.TextBuffer.remove_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.remove_tag</span></code></a> ().</p>
+<p>Calls <a class="reference internal" href="TextTagTable.html#Gtk.TextTagTable.lookup" title="Gtk.TextTagTable.lookup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextTagTable.lookup</span></code></a>() on the buffer’s tag table to
+get a <a class="reference internal" href="TextTag.html#Gtk.TextTag" title="Gtk.TextTag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextTag</span></code></a>, then calls <a class="reference internal" href="#Gtk.TextBuffer.remove_tag" title="Gtk.TextBuffer.remove_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.remove_tag</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.select_range">
-<code class="descname">select_range</code><span class="sig-paren">(</span><em>ins</em>, <em>bound</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n2434"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">select_range</code><span class="sig-paren">(</span><em>ins</em>, <em>bound</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n2435"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2251,7 +2249,7 @@ get a <a class="reference internal" href="TextTag.html#Gtk.TextTag" title="Gtk.T
 </table>
 <p>This function moves the “insert” and “selection_bound” marks
 simultaneously.  If you move them in two steps
-with <a class="reference internal" href="#Gtk.TextBuffer.move_mark" title="Gtk.TextBuffer.move_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.move_mark</span></code></a> (), you will temporarily select a
+with <a class="reference internal" href="#Gtk.TextBuffer.move_mark" title="Gtk.TextBuffer.move_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.move_mark</span></code></a>(), you will temporarily select a
 region in between their old and new locations, which can be pretty
 inefficient since the temporarily-selected region will force stuff
 to be recalculated. This function moves them as a unit, which can
@@ -2263,7 +2261,7 @@ be optimized.</p>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.serialize">
-<code class="descname">serialize</code><span class="sig-paren">(</span><em>content_buffer</em>, <em>format</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n483"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">serialize</code><span class="sig-paren">(</span><em>content_buffer</em>, <em>format</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n483"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2288,8 +2286,8 @@ data, encoded as <cite>format</cite></p>
 <p>This function serializes the portion of text between <cite>start</cite>
 and <cite>end</cite> in the rich text format represented by <cite>format</cite>.</p>
 <p><cite>formats</cite> to be used must be registered using
-<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_format" title="Gtk.TextBuffer.register_serialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_format</span></code></a> () or
-<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_tagset" title="Gtk.TextBuffer.register_serialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_tagset</span></code></a> () beforehand.</p>
+<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_format" title="Gtk.TextBuffer.register_serialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_format</span></code></a>() or
+<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_tagset" title="Gtk.TextBuffer.register_serialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_tagset</span></code></a>() beforehand.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -2297,7 +2295,7 @@ and <cite>end</cite> in the rich text format represented by <cite>format</cite>.
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.set_modified">
-<code class="descname">set_modified</code><span class="sig-paren">(</span><em>setting</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n3049"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_modified</code><span class="sig-paren">(</span><em>setting</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n3091"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2308,14 +2306,14 @@ and <cite>end</cite> in the rich text format represented by <cite>format</cite>.
 </table>
 <p>Used to keep track of whether the buffer has been modified since the
 last time it was saved. Whenever the buffer is saved to disk, call
-<a class="reference internal" href="#Gtk.TextBuffer.set_modified" title="Gtk.TextBuffer.set_modified"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.set_modified</span></code></a> (<cite>buffer</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> ). When the buffer is modified,
+<a class="reference internal" href="#Gtk.TextBuffer.set_modified" title="Gtk.TextBuffer.set_modified"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.set_modified</span></code></a> (<cite>self</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>). When the buffer is modified,
 it will automatically toggled on the modified bit again. When the modified
 bit flips, the buffer emits the <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a> <a class="reference internal" href="#Gtk.TextBuffer.signals.modified_changed" title="Gtk.TextBuffer.signals.modified_changed"><code class="xref py py-func docutils literal"><span class="pre">::modified-changed</span></code></a> signal.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.set_text">
-<code class="descname">set_text</code><span class="sig-paren">(</span><em>text</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.18.6#n858"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_text</code><span class="sig-paren">(</span><em>text</em>, <em>length=-1</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbuffer.c?h=3.20.3#n859"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2328,13 +2326,13 @@ bit flips, the buffer emits the <a class="reference internal" href="#Gtk.TextBuf
 </tr>
 </tbody>
 </table>
-<p>Deletes current contents of <cite>buffer</cite>, and inserts <cite>text</cite> instead. If
+<p>Deletes current contents of <cite>self</cite>, and inserts <cite>text</cite> instead. If
 <cite>len</cite> is -1, <cite>text</cite> must be nul-terminated. <cite>text</cite> must be valid UTF-8.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.unregister_deserialize_format">
-<code class="descname">unregister_deserialize_format</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n281"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unregister_deserialize_format</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n281"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2344,8 +2342,8 @@ bit flips, the buffer emits the <a class="reference internal" href="#Gtk.TextBuf
 </tbody>
 </table>
 <p>This function unregisters a rich text format that was previously
-registered using <a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_format" title="Gtk.TextBuffer.register_deserialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_format</span></code></a> () or
-<a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_tagset" title="Gtk.TextBuffer.register_deserialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_tagset</span></code></a> ().</p>
+registered using <a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_format" title="Gtk.TextBuffer.register_deserialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_format</span></code></a>() or
+<a class="reference internal" href="#Gtk.TextBuffer.register_deserialize_tagset" title="Gtk.TextBuffer.register_deserialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_deserialize_tagset</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -2353,7 +2351,7 @@ registered using <a class="reference internal" href="#Gtk.TextBuffer.register_de
 
 <dl class="method">
 <dt id="Gtk.TextBuffer.unregister_serialize_format">
-<code class="descname">unregister_serialize_format</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.18.6#n251"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unregister_serialize_format</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktextbufferrichtext.c?h=3.20.3#n251"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2363,8 +2361,8 @@ registered using <a class="reference internal" href="#Gtk.TextBuffer.register_de
 </tbody>
 </table>
 <p>This function unregisters a rich text format that was previously
-registered using <a class="reference internal" href="#Gtk.TextBuffer.register_serialize_format" title="Gtk.TextBuffer.register_serialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_format</span></code></a> () or
-<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_tagset" title="Gtk.TextBuffer.register_serialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_tagset</span></code></a> ()</p>
+registered using <a class="reference internal" href="#Gtk.TextBuffer.register_serialize_format" title="Gtk.TextBuffer.register_serialize_format"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_format</span></code></a>() or
+<a class="reference internal" href="#Gtk.TextBuffer.register_serialize_tagset" title="Gtk.TextBuffer.register_serialize_tagset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.register_serialize_tagset</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -2395,18 +2393,18 @@ handler for the signal applies <cite>tag</cite> to the given range.
 <dt id="Gtk.TextBuffer.do_begin_user_action">
 <code class="descname">do_begin_user_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
 <dd><p>Called to indicate that the buffer operations between here and a
-call to <a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a> () are part of a single
+call to <a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a>() are part of a single
 user-visible operation. The operations between
-<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a> () and
-<a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a> () can then be grouped when creating
+<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a>() and
+<a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a>() can then be grouped when creating
 an undo stack. <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a> maintains a count of calls to
-<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a> () that have not been closed with
-a call to <a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a> (), and emits the
+<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a>() that have not been closed with
+a call to <a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a>(), and emits the
 “begin-user-action” and “end-user-action” signals only for the
 outermost pair of calls. This allows you to build user actions
 from other user actions.</p>
 <p>The “interactive” buffer mutation functions, such as
-<a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a> (), automatically call begin/end
+<a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a>(), automatically call begin/end
 user action around the buffer operations they perform, so there&#8217;s
 no need to add extra calls if you user action consists solely of a
 single call to one of those functions.</p>
@@ -2437,7 +2435,7 @@ single call to one of those functions.</p>
 <dl class="method">
 <dt id="Gtk.TextBuffer.do_end_user_action">
 <code class="descname">do_end_user_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
-<dd><p>Should be paired with a call to <a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a> ().
+<dd><p>Should be paired with a call to <a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a>().
 See that function for a full explanation.</p>
 </dd></dl>
 
@@ -2462,9 +2460,9 @@ when obtaining the buffer contents as a string, will be represented
 by the Unicode “object replacement character” 0xFFFC. Note that the
 “slice” variants for obtaining portions of the buffer as a string
 include this character for child anchors, but the “text” variants do
-not. E.g. see <a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a> () and
-<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a> (). Consider
-<a class="reference internal" href="#Gtk.TextBuffer.create_child_anchor" title="Gtk.TextBuffer.create_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.create_child_anchor</span></code></a> () as a more convenient
+not. E.g. see <a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a>() and
+<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a>(). Consider
+<a class="reference internal" href="#Gtk.TextBuffer.create_child_anchor" title="Gtk.TextBuffer.create_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.create_child_anchor</span></code></a>() as a more convenient
 alternative to this function. The buffer will add a reference to
 the anchor, so you can unref it after insertion.</p>
 </dd></dl>
@@ -2490,8 +2488,8 @@ the buffer contents as a string, will be represented by the Unicode
 “object replacement character” 0xFFFC. Note that the “slice”
 variants for obtaining portions of the buffer as a string include
 this character for pixbufs, but the “text” variants do
-not. e.g. see <a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a> () and
-<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a> ().</p>
+not. e.g. see <a class="reference internal" href="#Gtk.TextBuffer.get_slice" title="Gtk.TextBuffer.get_slice"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_slice</span></code></a>() and
+<a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -2615,9 +2613,9 @@ Applying actually occurs in the default handler.</p>
 <p>Note that if your handler runs before the default handler it must not
 invalidate the <cite>start</cite> and <cite>end</cite> iters (or has to revalidate them).</p>
 <p>See also:
-<a class="reference internal" href="#Gtk.TextBuffer.apply_tag" title="Gtk.TextBuffer.apply_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.apply_tag</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.insert_with_tags" title="Gtk.TextBuffer.insert_with_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_with_tags</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.insert_range" title="Gtk.TextBuffer.insert_range"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.apply_tag" title="Gtk.TextBuffer.apply_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.apply_tag</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.insert_with_tags" title="Gtk.TextBuffer.insert_with_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_with_tags</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.insert_range" title="Gtk.TextBuffer.insert_range"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2638,12 +2636,12 @@ invalidate the <cite>start</cite> and <cite>end</cite> iters (or has to revalida
 <p>The <a class="reference internal" href="#Gtk.TextBuffer.signals.begin_user_action" title="Gtk.TextBuffer.signals.begin_user_action"><code class="xref py py-func docutils literal"><span class="pre">::begin-user-action</span></code></a> signal is emitted at the beginning of a single
 user-visible operation on a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>.</p>
 <p>See also:
-<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.insert_range_interactive" title="Gtk.TextBuffer.insert_range_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range_interactive</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.delete_interactive" title="Gtk.TextBuffer.delete_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_interactive</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.backspace" title="Gtk.TextBuffer.backspace"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.backspace</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.delete_selection" title="Gtk.TextBuffer.delete_selection"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_selection</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.begin_user_action" title="Gtk.TextBuffer.begin_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.begin_user_action</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.insert_range_interactive" title="Gtk.TextBuffer.insert_range_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range_interactive</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.delete_interactive" title="Gtk.TextBuffer.delete_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_interactive</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.backspace" title="Gtk.TextBuffer.backspace"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.backspace</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.delete_selection" title="Gtk.TextBuffer.delete_selection"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_selection</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2695,7 +2693,7 @@ The default signal handler revalidates the <cite>start</cite> and <cite>end</cit
 both point to the location where text was deleted. Handlers
 which run after the default handler (see g_signal_connect_after())
 do not have access to the deleted text.</p>
-<p>See also: <a class="reference internal" href="#Gtk.TextBuffer.delete" title="Gtk.TextBuffer.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete</span></code></a> ().</p>
+<p>See also: <a class="reference internal" href="#Gtk.TextBuffer.delete" title="Gtk.TextBuffer.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2716,13 +2714,13 @@ do not have access to the deleted text.</p>
 <p>The <a class="reference internal" href="#Gtk.TextBuffer.signals.end_user_action" title="Gtk.TextBuffer.signals.end_user_action"><code class="xref py py-func docutils literal"><span class="pre">::end-user-action</span></code></a> signal is emitted at the end of a single
 user-visible operation on the <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>.</p>
 <p>See also:
-<a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.insert_range_interactive" title="Gtk.TextBuffer.insert_range_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range_interactive</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.delete_interactive" title="Gtk.TextBuffer.delete_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_interactive</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.backspace" title="Gtk.TextBuffer.backspace"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.backspace</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.delete_selection" title="Gtk.TextBuffer.delete_selection"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_selection</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.backspace" title="Gtk.TextBuffer.backspace"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.backspace</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.end_user_action" title="Gtk.TextBuffer.end_user_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.end_user_action</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.insert_interactive" title="Gtk.TextBuffer.insert_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_interactive</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.insert_range_interactive" title="Gtk.TextBuffer.insert_range_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range_interactive</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.delete_interactive" title="Gtk.TextBuffer.delete_interactive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_interactive</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.backspace" title="Gtk.TextBuffer.backspace"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.backspace</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.delete_selection" title="Gtk.TextBuffer.delete_selection"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_selection</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.backspace" title="Gtk.TextBuffer.backspace"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.backspace</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2754,7 +2752,7 @@ Insertion actually occurs in the default handler.</p>
 not invalidate the <cite>location</cite> iter (or has to revalidate it).
 The default signal handler revalidates it to be placed after the
 inserted <cite>anchor</cite>.</p>
-<p>See also: <a class="reference internal" href="#Gtk.TextBuffer.insert_child_anchor" title="Gtk.TextBuffer.insert_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_child_anchor</span></code></a> ().</p>
+<p>See also: <a class="reference internal" href="#Gtk.TextBuffer.insert_child_anchor" title="Gtk.TextBuffer.insert_child_anchor"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_child_anchor</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2785,7 +2783,7 @@ in a <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"
 invalidate the <cite>location</cite> iter (or has to revalidate it).
 The default signal handler revalidates it to be placed after the
 inserted <cite>pixbuf</cite>.</p>
-<p>See also: <a class="reference internal" href="#Gtk.TextBuffer.insert_pixbuf" title="Gtk.TextBuffer.insert_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_pixbuf</span></code></a> ().</p>
+<p>See also: <a class="reference internal" href="#Gtk.TextBuffer.insert_pixbuf" title="Gtk.TextBuffer.insert_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_pixbuf</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2818,8 +2816,8 @@ invalidate the <cite>location</cite> iter (or has to revalidate it).
 The default signal handler revalidates it to point to the end of the
 inserted text.</p>
 <p>See also:
-<a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.insert_range" title="Gtk.TextBuffer.insert_range"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.insert" title="Gtk.TextBuffer.insert"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.insert_range" title="Gtk.TextBuffer.insert_range"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.insert_range</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2846,7 +2844,7 @@ inserted text.</p>
 <p>The <a class="reference internal" href="#Gtk.TextBuffer.signals.mark_deleted" title="Gtk.TextBuffer.signals.mark_deleted"><code class="xref py py-func docutils literal"><span class="pre">::mark-deleted</span></code></a> signal is emitted as notification
 after a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a> is deleted.</p>
 <p>See also:
-<a class="reference internal" href="#Gtk.TextBuffer.delete_mark" title="Gtk.TextBuffer.delete_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_mark</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.delete_mark" title="Gtk.TextBuffer.delete_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.delete_mark</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2874,8 +2872,8 @@ after a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="G
 <p>The <a class="reference internal" href="#Gtk.TextBuffer.signals.mark_set" title="Gtk.TextBuffer.signals.mark_set"><code class="xref py py-func docutils literal"><span class="pre">::mark-set</span></code></a> signal is emitted as notification
 after a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="Gtk.TextMark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextMark</span></code></a> is set.</p>
 <p>See also:
-<a class="reference internal" href="#Gtk.TextBuffer.create_mark" title="Gtk.TextBuffer.create_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.create_mark</span></code></a> (),
-<a class="reference internal" href="#Gtk.TextBuffer.move_mark" title="Gtk.TextBuffer.move_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.move_mark</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.create_mark" title="Gtk.TextBuffer.create_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.create_mark</span></code></a>(),
+<a class="reference internal" href="#Gtk.TextBuffer.move_mark" title="Gtk.TextBuffer.move_mark"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.move_mark</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2896,7 +2894,7 @@ after a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="G
 <p>The <a class="reference internal" href="#Gtk.TextBuffer.signals.modified_changed" title="Gtk.TextBuffer.signals.modified_changed"><code class="xref py py-func docutils literal"><span class="pre">::modified-changed</span></code></a> signal is emitted when the modified bit of a
 <a class="reference internal" href="#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a> flips.</p>
 <p>See also:
-<a class="reference internal" href="#Gtk.TextBuffer.set_modified" title="Gtk.TextBuffer.set_modified"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.set_modified</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.set_modified" title="Gtk.TextBuffer.set_modified"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.set_modified</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -2922,7 +2920,7 @@ after a <a class="reference internal" href="TextMark.html#Gtk.TextMark" title="G
 </table>
 <p>The paste-done signal is emitted after paste operation has been completed.
 This is useful to properly scroll the view to the end of the pasted text.
-See <a class="reference internal" href="#Gtk.TextBuffer.paste_clipboard" title="Gtk.TextBuffer.paste_clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.paste_clipboard</span></code></a> () for more details.</p>
+See <a class="reference internal" href="#Gtk.TextBuffer.paste_clipboard" title="Gtk.TextBuffer.paste_clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.paste_clipboard</span></code></a>() for more details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.16.</span></p>
 </div>
@@ -2957,7 +2955,7 @@ Removal actually occurs in the default handler.</p>
 <p>Note that if your handler runs before the default handler it must not
 invalidate the <cite>start</cite> and <cite>end</cite> iters (or has to revalidate them).</p>
 <p>See also:
-<a class="reference internal" href="#Gtk.TextBuffer.remove_tag" title="Gtk.TextBuffer.remove_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.remove_tag</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.TextBuffer.remove_tag" title="Gtk.TextBuffer.remove_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.remove_tag</span></code></a>().</p>
 </dd></dl>
 
 </div>
@@ -3097,7 +3095,7 @@ and as DND destination.</p>
 </tbody>
 </table>
 <p>The text content of the buffer. Without child widgets and images,
-see <a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a> () for more information.</p>
+see <a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.TextBuffer.get_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.get_text</span></code></a>() for more information.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.8.</span></p>
 </div>
@@ -3117,7 +3115,4 @@ see <a class="reference internal" href="#Gtk.TextBuffer.get_text" title="Gtk.Tex
   </div> 
 
 </body>
-
-  
-
 </html>

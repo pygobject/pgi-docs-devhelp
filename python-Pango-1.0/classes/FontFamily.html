@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Pango 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Pango.FontMap" href="FontMap.html"/>
         <link rel="prev" title="Pango.FontFace" href="FontFace.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -314,7 +312,7 @@ font faces. The faces in a family share a common design, but differ in
 slant, weight, width and other aspects.</p>
 <dl class="method">
 <dt id="Pango.FontFamily.get_name">
-<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/fonts.c?h=1.38.1#n1936"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/fonts.c?h=1.40.1#n1936"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -333,7 +331,7 @@ to specify that a face from this family is desired.</p>
 
 <dl class="method">
 <dt id="Pango.FontFamily.is_monospace">
-<code class="descname">is_monospace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/fonts.c?h=1.38.1#n1988"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_monospace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/fonts.c?h=1.40.1#n1988"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -349,11 +347,11 @@ characters form a regular grid. For Western languages this would
 mean that the advance width of all characters are the same, but
 this categorization also includes Asian fonts which include
 double-width characters: characters that occupy two grid cells.
-<a class="reference external" href="../_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.unichar_iswide" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.unichar_iswide</span></code></a> () returns a result that indicates whether a
+<a class="reference external" href="../_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.unichar_iswide" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.unichar_iswide</span></code></a>() returns a result that indicates whether a
 character is typically double-width in a monospace font.</p>
 <p>The best way to find out the grid-cell size is to call
-<a class="reference internal" href="../structs/FontMetrics.html#Pango.FontMetrics.get_approximate_digit_width" title="Pango.FontMetrics.get_approximate_digit_width"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontMetrics.get_approximate_digit_width</span></code></a> (), since the results
-of <a class="reference internal" href="../structs/FontMetrics.html#Pango.FontMetrics.get_approximate_char_width" title="Pango.FontMetrics.get_approximate_char_width"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontMetrics.get_approximate_char_width</span></code></a> () may be affected
+<a class="reference internal" href="../structs/FontMetrics.html#Pango.FontMetrics.get_approximate_digit_width" title="Pango.FontMetrics.get_approximate_digit_width"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontMetrics.get_approximate_digit_width</span></code></a>(), since the results
+of <a class="reference internal" href="../structs/FontMetrics.html#Pango.FontMetrics.get_approximate_char_width" title="Pango.FontMetrics.get_approximate_char_width"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontMetrics.get_approximate_char_width</span></code></a>() may be affected
 by double-width characters.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
@@ -362,20 +360,20 @@ by double-width characters.</p>
 
 <dl class="method">
 <dt id="Pango.FontFamily.list_faces">
-<code class="descname">list_faces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/fonts.c?h=1.38.1#n1959"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">list_faces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/fonts.c?h=1.40.1#n1959"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">location to store an array of pointers to <a class="reference internal" href="FontFace.html#Pango.FontFace" title="Pango.FontFace"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontFace</span></code></a> objects,
-or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. This array should be freed with <a class="reference external" href="../_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> () when it is no
+or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. This array should be freed with <a class="reference external" href="../_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when it is no
 longer needed.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><strong>faces</strong>: [<a class="reference internal" href="FontFace.html#Pango.FontFace" title="Pango.FontFace"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontFace</span></code></a>]</td>
 </tr>
 </tbody>
 </table>
-<p>Lists the different font faces that make up <cite>family</cite>. The faces
+<p>Lists the different font faces that make up <cite>self</cite>. The faces
 in a family share a common design, but differ in slant, weight,
 width and other aspects.</p>
 </dd></dl>
@@ -417,11 +415,11 @@ characters form a regular grid. For Western languages this would
 mean that the advance width of all characters are the same, but
 this categorization also includes Asian fonts which include
 double-width characters: characters that occupy two grid cells.
-<a class="reference external" href="../_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.unichar_iswide" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.unichar_iswide</span></code></a> () returns a result that indicates whether a
+<a class="reference external" href="../_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.unichar_iswide" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.unichar_iswide</span></code></a>() returns a result that indicates whether a
 character is typically double-width in a monospace font.</p>
 <p>The best way to find out the grid-cell size is to call
-<a class="reference internal" href="../structs/FontMetrics.html#Pango.FontMetrics.get_approximate_digit_width" title="Pango.FontMetrics.get_approximate_digit_width"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontMetrics.get_approximate_digit_width</span></code></a> (), since the results
-of <a class="reference internal" href="../structs/FontMetrics.html#Pango.FontMetrics.get_approximate_char_width" title="Pango.FontMetrics.get_approximate_char_width"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontMetrics.get_approximate_char_width</span></code></a> () may be affected
+<a class="reference internal" href="../structs/FontMetrics.html#Pango.FontMetrics.get_approximate_digit_width" title="Pango.FontMetrics.get_approximate_digit_width"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontMetrics.get_approximate_digit_width</span></code></a>(), since the results
+of <a class="reference internal" href="../structs/FontMetrics.html#Pango.FontMetrics.get_approximate_char_width" title="Pango.FontMetrics.get_approximate_char_width"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontMetrics.get_approximate_char_width</span></code></a>() may be affected
 by double-width characters.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
@@ -436,7 +434,7 @@ by double-width characters.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">location to store an array of pointers to <a class="reference internal" href="FontFace.html#Pango.FontFace" title="Pango.FontFace"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontFace</span></code></a> objects,
-or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. This array should be freed with <a class="reference external" href="../_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> () when it is no
+or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. This array should be freed with <a class="reference external" href="../_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when it is no
 longer needed.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><strong>faces</strong>: [<a class="reference internal" href="FontFace.html#Pango.FontFace" title="Pango.FontFace"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontFace</span></code></a>]</td>
@@ -464,7 +462,4 @@ width and other aspects.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

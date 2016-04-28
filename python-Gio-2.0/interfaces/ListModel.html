@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gio.LoadableIcon" href="LoadableIcon.html"/>
         <link rel="prev" title="Gio.Initable" href="Initable.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -221,9 +219,12 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Gio.ListModel.do_get_item_type" title="Gio.ListModel.do_get_item_type"><code class="xref py py-func docutils literal"><span class="pre">do_get_item_type</span></code></a> ()</td>
+<td><a class="reference internal" href="#Gio.ListModel.do_get_item" title="Gio.ListModel.do_get_item"><code class="xref py py-func docutils literal"><span class="pre">do_get_item</span></code></a> (position)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gio.ListModel.do_get_item_type" title="Gio.ListModel.do_get_item_type"><code class="xref py py-func docutils literal"><span class="pre">do_get_item_type</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gio.ListModel.do_get_n_items" title="Gio.ListModel.do_get_n_items"><code class="xref py py-func docutils literal"><span class="pre">do_get_n_items</span></code></a> ()</td>
 </tr>
 </tbody>
@@ -290,14 +291,14 @@ membership.  If you want to observe changes to the objects themselves
 then you need to connect signals to the objects that you are
 interested in.</p>
 <p>All items in a <a class="reference internal" href="#Gio.ListModel" title="Gio.ListModel"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel</span></code></a> are of (or derived from) the same type.
-<a class="reference internal" href="#Gio.ListModel.get_item_type" title="Gio.ListModel.get_item_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel.get_item_type</span></code></a> () returns that type.  The type may be an
+<a class="reference internal" href="#Gio.ListModel.get_item_type" title="Gio.ListModel.get_item_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel.get_item_type</span></code></a>() returns that type.  The type may be an
 interface, in which case all objects in the list must implement it.</p>
 <p>The semantics are close to that of an array:
-g_list_model_get_length() returns the number of items in the list and
-g_list_model_get_item() returns an item at a (0-based) position. In
+<a class="reference internal" href="#Gio.ListModel.get_n_items" title="Gio.ListModel.get_n_items"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel.get_n_items</span></code></a>() returns the number of items in the list and
+<a class="reference internal" href="#Gio.ListModel.get_item" title="Gio.ListModel.get_item"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel.get_item</span></code></a>() returns an item at a (0-based) position. In
 order to allow implementations to calculate the list length lazily,
 you can also iterate over items: starting from 0, repeatedly call
-g_list_model_get_item() until it returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
+<a class="reference internal" href="#Gio.ListModel.get_item" title="Gio.ListModel.get_item"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel.get_item</span></code></a>() until it returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 <p>An implementation may create objects lazily, but must take care to
 return the same object for a given position until all references to
 it are gone.</p>
@@ -308,11 +309,11 @@ reduce the required number of signal connections at a given time.</p>
 <p>This interface is intended only to be used from a single thread.  The
 thread in which it is appropriate to use it depends on the particular
 implementation, but typically it will be from the thread that owns
-the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.push_thread_default</span></code></a>
+the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">thread-default</span> <span class="pre">main</span> <span class="pre">context</span></code></a>
 in effect at the time that the model was created.</p>
 <dl class="method">
 <dt id="Gio.ListModel.get_item">
-<code class="descname">get_item</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/glistmodel.c?h=2.46.2#n219"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_item</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/glistmodel.c?h=2.48.0#n219"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -326,9 +327,9 @@ in effect at the time that the model was created.</p>
 </tbody>
 </table>
 <p>Get the item at <cite>position</cite>. If <cite>position</cite> is greater than the number of
-items in <cite>list</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.</p>
+items in <cite>self</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.</p>
 <p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is never returned for an index that is smaller than the length
-of the list.  See <a class="reference internal" href="#Gio.ListModel.get_n_items" title="Gio.ListModel.get_n_items"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel.get_n_items</span></code></a> ().</p>
+of the list.  See <a class="reference internal" href="#Gio.ListModel.get_n_items" title="Gio.ListModel.get_n_items"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel.get_n_items</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.44.</span></p>
 </div>
@@ -336,18 +337,18 @@ of the list.  See <a class="reference internal" href="#Gio.ListModel.get_n_items
 
 <dl class="method">
 <dt id="Gio.ListModel.get_item_type">
-<code class="descname">get_item_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/glistmodel.c?h=2.46.2#n149"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_item_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/glistmodel.c?h=2.48.0#n149"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the items contained in <cite>list</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the items contained in <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the type of the items in <cite>list</cite>. All items returned from
+<p>Gets the type of the items in <cite>self</cite>. All items returned from
 g_list_model_get_type() are of that type or a subtype, or are an
 implementation of that interface.</p>
 <p>The item type of a <a class="reference internal" href="#Gio.ListModel" title="Gio.ListModel"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel</span></code></a> can not change during the life of the
@@ -359,21 +360,21 @@ model.</p>
 
 <dl class="method">
 <dt id="Gio.ListModel.get_n_items">
-<code class="descname">get_n_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/glistmodel.c?h=2.46.2#n171"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_n_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/glistmodel.c?h=2.48.0#n171"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of items in <cite>list</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of items in <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the number of items in <cite>list</cite>.</p>
+<p>Gets the number of items in <cite>self</cite>.</p>
 <p>Depending on the model implementation, calling this function may be
 less efficient than iterating the list with increasing values for
-<cite>position</cite> until g_list_model_get_item() returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
+<cite>position</cite> until <a class="reference internal" href="#Gio.ListModel.get_item" title="Gio.ListModel.get_item"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel.get_item</span></code></a>() returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.44.</span></p>
 </div>
@@ -381,13 +382,13 @@ less efficient than iterating the list with increasing values for
 
 <dl class="method">
 <dt id="Gio.ListModel.items_changed">
-<code class="descname">items_changed</code><span class="sig-paren">(</span><em>position</em>, <em>removed</em>, <em>added</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/glistmodel.c?h=2.46.2#n264"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">items_changed</code><span class="sig-paren">(</span><em>position</em>, <em>removed</em>, <em>added</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/glistmodel.c?h=2.48.0#n264"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the position at which <cite>list</cite> changed</li>
+<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the position at which <cite>self</cite> changed</li>
 <li><strong>removed</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the number of items removed</li>
 <li><strong>added</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the number of items added</li>
 </ul>
@@ -395,15 +396,15 @@ less efficient than iterating the list with increasing values for
 </tr>
 </tbody>
 </table>
-<p>Emits the <a class="reference internal" href="#Gio.ListModel" title="Gio.ListModel"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel</span></code></a> <a class="reference internal" href="#Gio.ListModel.signals.items_changed" title="Gio.ListModel.signals.items_changed"><code class="xref py py-func docutils literal"><span class="pre">::items-changed</span></code></a> signal on <cite>list</cite>.</p>
+<p>Emits the <a class="reference internal" href="#Gio.ListModel" title="Gio.ListModel"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel</span></code></a> <a class="reference internal" href="#Gio.ListModel.signals.items_changed" title="Gio.ListModel.signals.items_changed"><code class="xref py py-func docutils literal"><span class="pre">::items-changed</span></code></a> signal on <cite>self</cite>.</p>
 <p>This function should only be called by classes implementing
 <a class="reference internal" href="#Gio.ListModel" title="Gio.ListModel"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel</span></code></a>. It has to be called after the internal representation
-of <cite>list</cite> has been updated, because handlers connected to this signal
+of <cite>self</cite> has been updated, because handlers connected to this signal
 might query the new state of the list.</p>
 <p>Implementations must only make changes to the model (as visible to
 its consumer) in places that will not cause problems for that
 consumer.  For models that are driven directly by a write API (such
-as <a class="reference internal" href="../classes/ListStore.html#Gio.ListStore" title="Gio.ListStore"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListStore</span></code></a> ), changes can be reported in response to uses of that
+as <a class="reference internal" href="../classes/ListStore.html#Gio.ListStore" title="Gio.ListStore"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListStore</span></code></a>), changes can be reported in response to uses of that
 API.  For models that represent remote data, changes should only be
 made from a fresh mainloop dispatch.  It is particularly not
 permitted to make changes in response to a call to the <a class="reference internal" href="#Gio.ListModel" title="Gio.ListModel"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel</span></code></a>
@@ -418,13 +419,28 @@ same contents of the model.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="Gio.ListModel.do_get_item">
+<code class="descname">do_get_item</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="Gio.ListModel.do_get_item_type">
 <code class="descname">do_get_item_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the items contained in <cite>list</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the items contained in <cite>list</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
@@ -456,7 +472,7 @@ model.</p>
 <p>Gets the number of items in <cite>list</cite>.</p>
 <p>Depending on the model implementation, calling this function may be
 less efficient than iterating the list with increasing values for
-<cite>position</cite> until g_list_model_get_item() returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
+<cite>position</cite> until <a class="reference internal" href="#Gio.ListModel.get_item" title="Gio.ListModel.get_item"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel.get_item</span></code></a>() returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.44.</span></p>
 </div>
@@ -482,7 +498,7 @@ less efficient than iterating the list with increasing values for
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>list_model</strong> (<a class="reference internal" href="#Gio.ListModel" title="Gio.ListModel"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ListModel</span></code></a>) &#8211; The object which received the signal</li>
-<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the position at which <cite>list</cite> changed</li>
+<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the position at which <cite>self</cite> changed</li>
 <li><strong>removed</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the number of items removed</li>
 <li><strong>added</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the number of items added</li>
 </ul>
@@ -512,7 +528,4 @@ were added in their place.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

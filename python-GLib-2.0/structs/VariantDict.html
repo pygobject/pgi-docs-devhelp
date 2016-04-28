@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.VariantType" href="VariantType.html"/>
         <link rel="prev" title="GLib.VariantBuilder" href="VariantBuilder.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -221,15 +219,15 @@ in order to create new ones.</p>
 dictionaries.</p>
 <p>It is possible to use <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> allocated on the stack or on the
 heap.  When using a stack-allocated <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a>, you begin with a
-call to <code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.init</span></code> () and free the resources with a call to
-<a class="reference internal" href="#GLib.VariantDict.clear" title="GLib.VariantDict.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.clear</span></code></a> ().</p>
+call to g_variant_dict_init() and free the resources with a call to
+<a class="reference internal" href="#GLib.VariantDict.clear" title="GLib.VariantDict.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.clear</span></code></a>().</p>
 <p>Heap-allocated <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> follows normal refcounting rules: you
-allocate it with <a class="reference internal" href="#GLib.VariantDict.new" title="GLib.VariantDict.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.new</span></code></a> () and use <a class="reference internal" href="#GLib.VariantDict.ref" title="GLib.VariantDict.ref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.ref</span></code></a> ()
-and <a class="reference internal" href="#GLib.VariantDict.unref" title="GLib.VariantDict.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.unref</span></code></a> ().</p>
-<p><a class="reference internal" href="#GLib.VariantDict.end" title="GLib.VariantDict.end"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.end</span></code></a> () is used to convert the <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> back into a
+allocate it with <a class="reference internal" href="#GLib.VariantDict.new" title="GLib.VariantDict.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.new</span></code></a>() and use <a class="reference internal" href="#GLib.VariantDict.ref" title="GLib.VariantDict.ref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.ref</span></code></a>()
+and <a class="reference internal" href="#GLib.VariantDict.unref" title="GLib.VariantDict.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.unref</span></code></a>().</p>
+<p><a class="reference internal" href="#GLib.VariantDict.end" title="GLib.VariantDict.end"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.end</span></code></a>() is used to convert the <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> back into a
 dictionary-type <a class="reference internal" href="Variant.html#GLib.Variant" title="GLib.Variant"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>.  When used with stack-allocated instances,
 this also implicitly frees all associated memory, but for
-heap-allocated instances, you must still call <a class="reference internal" href="#GLib.VariantDict.unref" title="GLib.VariantDict.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.unref</span></code></a> ()
+heap-allocated instances, you must still call <a class="reference internal" href="#GLib.VariantDict.unref" title="GLib.VariantDict.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.unref</span></code></a>()
 afterwards.</p>
 <p>You will typically want to use a heap-allocated <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> when
 you expose it as part of an API.  For most other uses, the
@@ -300,7 +298,7 @@ key is not found.  Each returns the new dictionary as a floating
 </div>
 <dl class="staticmethod">
 <dt id="GLib.VariantDict.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>from_asv</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.46.2#n3771"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>from_asv</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.48.0#n3771"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -315,12 +313,12 @@ dictionary</td>
 </tbody>
 </table>
 <p>Allocates and initialises a new <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a>.</p>
-<p>You should call <a class="reference internal" href="#GLib.VariantDict.unref" title="GLib.VariantDict.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.unref</span></code></a> () on the return value when it
+<p>You should call <a class="reference internal" href="#GLib.VariantDict.unref" title="GLib.VariantDict.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.unref</span></code></a>() on the return value when it
 is no longer needed.  The memory will not be automatically freed by
 any other call.</p>
 <p>In some cases it may be easier to place a <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> directly on
 the stack of the calling function and initialise it with
-<code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.init</span></code> ().  This is particularly useful when you are
+g_variant_dict_init().  This is particularly useful when you are
 using <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> to construct a <a class="reference internal" href="Variant.html#GLib.Variant" title="GLib.Variant"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.40.</span></p>
@@ -329,18 +327,18 @@ using <a class="reference internal" href="#GLib.VariantDict" title="GLib.Variant
 
 <dl class="method">
 <dt id="GLib.VariantDict.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.46.2#n4033"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.48.0#n4033"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Releases all memory associated with a <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> without freeing
 the <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> structure itself.</p>
 <p>It typically only makes sense to do this on a stack-allocated
 <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> if you want to abort building the value part-way
 through.  This function need not be called if you call
-<a class="reference internal" href="#GLib.VariantDict.end" title="GLib.VariantDict.end"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.end</span></code></a> () and it also doesn&#8217;t need to be called on dicts
-allocated with <a class="reference internal" href="#GLib.VariantDict.new" title="GLib.VariantDict.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.new</span></code></a> (see <a class="reference internal" href="#GLib.VariantDict.unref" title="GLib.VariantDict.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.unref</span></code></a> () for
+<a class="reference internal" href="#GLib.VariantDict.end" title="GLib.VariantDict.end"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.end</span></code></a>() and it also doesn&#8217;t need to be called on dicts
+allocated with <a class="reference internal" href="#GLib.VariantDict.new" title="GLib.VariantDict.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.new</span></code></a> (see <a class="reference internal" href="#GLib.VariantDict.unref" title="GLib.VariantDict.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.unref</span></code></a>() for
 that).</p>
 <p>It is valid to call this function on either an initialised
 <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> or one that was previously cleared by an earlier call
-to <a class="reference internal" href="#GLib.VariantDict.clear" title="GLib.VariantDict.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.clear</span></code></a> () but it is not valid to call this function
+to <a class="reference internal" href="#GLib.VariantDict.clear" title="GLib.VariantDict.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.clear</span></code></a>() but it is not valid to call this function
 on uninitialised memory.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.40.</span></p>
@@ -349,20 +347,20 @@ on uninitialised memory.</p>
 
 <dl class="method">
 <dt id="GLib.VariantDict.contains">
-<code class="descname">contains</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.46.2#n3926"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">contains</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.48.0#n3926"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the key to lookup in the dictionary</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>key</cite> is in <cite>dict</cite></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>key</cite> is in <cite>self</cite></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>key</cite> exists in <cite>dict</cite>.</p>
+<p>Checks if <cite>key</cite> exists in <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.40.</span></p>
 </div>
@@ -370,7 +368,7 @@ on uninitialised memory.</p>
 
 <dl class="method">
 <dt id="GLib.VariantDict.end">
-<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.46.2#n4063"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.48.0#n4063"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -381,11 +379,11 @@ on uninitialised memory.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the current value of <cite>dict</cite> as a <a class="reference internal" href="Variant.html#GLib.Variant" title="GLib.Variant"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type
+<p>Returns the current value of <cite>self</cite> as a <a class="reference internal" href="Variant.html#GLib.Variant" title="GLib.Variant"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type
 %G_VARIANT_TYPE_VARDICT, clearing it in the process.</p>
-<p>It is not permissible to use <cite>dict</cite> in any way after this call except
+<p>It is not permissible to use <cite>self</cite> in any way after this call except
 for reference counting operations (in the case of a heap-allocated
-<a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> ) or by reinitialising it with <code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict.init</span></code> () (in
+<a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a>) or by reinitialising it with g_variant_dict_init() (in
 the case of stack-allocated).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.40.</span></p>
@@ -394,7 +392,7 @@ the case of stack-allocated).</p>
 
 <dl class="method">
 <dt id="GLib.VariantDict.insert_value">
-<code class="descname">insert_value</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.46.2#n3981"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_value</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.48.0#n3981"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -416,7 +414,7 @@ the case of stack-allocated).</p>
 
 <dl class="method">
 <dt id="GLib.VariantDict.lookup_value">
-<code class="descname">lookup_value</code><span class="sig-paren">(</span><em>key</em>, <em>expected_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.46.2#n3898"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">lookup_value</code><span class="sig-paren">(</span><em>key</em>, <em>expected_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.48.0#n3898"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -450,18 +448,18 @@ value will have this type.</p>
 
 <dl class="method">
 <dt id="GLib.VariantDict.ref">
-<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.46.2#n4097"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.48.0#n4097"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new reference to <cite>dict</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new reference to <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Increases the reference count on <cite>dict</cite>.</p>
+<p>Increases the reference count on <cite>self</cite>.</p>
 <p>Don&#8217;t call this on stack-allocated <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> instances or bad
 things will happen.</p>
 <div class="versionadded">
@@ -471,7 +469,7 @@ things will happen.</p>
 
 <dl class="method">
 <dt id="GLib.VariantDict.remove">
-<code class="descname">remove</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.46.2#n4002"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.48.0#n4002"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -492,8 +490,8 @@ things will happen.</p>
 
 <dl class="method">
 <dt id="GLib.VariantDict.unref">
-<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.46.2#n4121"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Decreases the reference count on <cite>dict</cite>.</p>
+<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvariant.c?h=2.48.0#n4121"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Decreases the reference count on <cite>self</cite>.</p>
 <p>In the event that there are no more references, releases all memory
 associated with the <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a>.</p>
 <p>Don&#8217;t call this on stack-allocated <a class="reference internal" href="#GLib.VariantDict" title="GLib.VariantDict"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantDict</span></code></a> instances or bad
@@ -519,7 +517,4 @@ things will happen.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

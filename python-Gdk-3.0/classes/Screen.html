@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
-    <link rel="top" title="Gdk 3.0 Python API Docs" href="../index.html"/>
-        <link rel="up" title="Classes" href="index.html"/>
-        <link rel="next" title="Gdk.Visual" href="Visual.html"/>
-        <link rel="prev" title="Gdk.Keymap" href="Keymap.html"/> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    <link rel="top" title="Gdk 3.0 Python API Docs" href="../index.html"/>
+        <link rel="up" title="Classes" href="index.html"/>
+        <link rel="next" title="Gdk.Seat" href="Seat.html"/>
+        <link rel="prev" title="Gdk.Keymap" href="Keymap.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -69,7 +67,7 @@
 
 
 
-<td><a accesskey="n" href="Visual.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="Seat.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -116,7 +114,7 @@
 
 
 
-<td><a accesskey="n" href="Visual.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="Seat.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -420,15 +418,15 @@
 which windows can be displayed and on which the pointer moves.
 X originally identified screens with physical screens, but
 nowadays it is more common to have a single <a class="reference internal" href="#Gdk.Screen" title="Gdk.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen</span></code></a> which
-combines several physical monitors (see <a class="reference internal" href="#Gdk.Screen.get_n_monitors" title="Gdk.Screen.get_n_monitors"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_n_monitors</span></code></a> ()).</p>
+combines several physical monitors (see <a class="reference internal" href="#Gdk.Screen.get_n_monitors" title="Gdk.Screen.get_n_monitors"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_n_monitors</span></code></a>()).</p>
 <p><a class="reference internal" href="#Gdk.Screen" title="Gdk.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen</span></code></a> is used throughout GDK and GTK+ to specify which screen
 the top level windows are to be displayed on. it is also used to
 query the screen specification and default settings such as
-the default visual (<a class="reference internal" href="#Gdk.Screen.get_system_visual" title="Gdk.Screen.get_system_visual"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_system_visual</span></code></a> ()), the dimensions
-of the physical monitors (<a class="reference internal" href="#Gdk.Screen.get_monitor_geometry" title="Gdk.Screen.get_monitor_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_monitor_geometry</span></code></a> ()), etc.</p>
+the default visual (<a class="reference internal" href="#Gdk.Screen.get_system_visual" title="Gdk.Screen.get_system_visual"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_system_visual</span></code></a>()), the dimensions
+of the physical monitors (<a class="reference internal" href="#Gdk.Screen.get_monitor_geometry" title="Gdk.Screen.get_monitor_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_monitor_geometry</span></code></a>()), etc.</p>
 <dl class="staticmethod">
 <dt id="Gdk.Screen.get_default">
-<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkdisplaymanager.c?h=3.18.6#n364"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkdisplaymanager.c?h=3.20.3#n364"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -449,7 +447,7 @@ there is no default display.</td>
 
 <dl class="staticmethod">
 <dt id="Gdk.Screen.height">
-<em class="property">static </em><code class="descname">height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n355"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n359"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -460,12 +458,14 @@ there is no default display.</td>
 </tr>
 </tbody>
 </table>
-<p>Returns the height of the default screen in pixels.</p>
+<p>Gets the height of the default screen in pixels. The returned
+size is in ”application pixels”, not in ”device pixels” (see
+<a class="reference internal" href="#Gdk.Screen.get_monitor_scale_factor" title="Gdk.Screen.get_monitor_scale_factor"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_monitor_scale_factor</span></code></a>()).</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Gdk.Screen.height_mm">
-<em class="property">static </em><code class="descname">height_mm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n385"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">height_mm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n389"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -483,7 +483,7 @@ Note that on many X servers this value will not be correct.</p>
 
 <dl class="staticmethod">
 <dt id="Gdk.Screen.width">
-<em class="property">static </em><code class="descname">width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n342"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n344"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -494,12 +494,14 @@ Note that on many X servers this value will not be correct.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the width of the default screen in pixels.</p>
+<p>Gets the width of the default screen in pixels. The returned
+size is in ”application pixels”, not in ”device pixels” (see
+<a class="reference internal" href="#Gdk.Screen.get_monitor_scale_factor" title="Gdk.Screen.get_monitor_scale_factor"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_monitor_scale_factor</span></code></a>()).</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Gdk.Screen.width_mm">
-<em class="property">static </em><code class="descname">width_mm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n370"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">width_mm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n374"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -517,7 +519,7 @@ Note that on many X servers this value will not be correct.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_active_window">
-<code class="descname">get_active_window</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n1019"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_active_window</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n1031"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -538,7 +540,7 @@ window, or the window manager does not support the
 _NET_ACTIVE_WINDOW hint, this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 <p>On other platforms, this function may return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, depending on whether
 it is implementable on that platform.</p>
-<p>The returned window should be unrefed using <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> () when
+<p>The returned window should be unrefed using <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>() when
 no longer needed.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
@@ -547,18 +549,18 @@ no longer needed.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_display">
-<code class="descname">get_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n573"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n577"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the display to which <cite>screen</cite> belongs</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the display to which <cite>self</cite> belongs</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Display.html#Gdk.Display" title="Gdk.Display"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the display to which the <cite>screen</cite> belongs.</p>
+<p>Gets the display to which the <cite>self</cite> belongs.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -566,7 +568,7 @@ no longer needed.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_font_options">
-<code class="descname">get_font_options</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n436"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_font_options</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n440"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -578,7 +580,7 @@ default font options have been set.</td>
 </tr>
 </tbody>
 </table>
-<p>Gets any options previously set with <a class="reference internal" href="#Gdk.Screen.set_font_options" title="Gdk.Screen.set_font_options"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.set_font_options</span></code></a> ().</p>
+<p>Gets any options previously set with <a class="reference internal" href="#Gdk.Screen.set_font_options" title="Gdk.Screen.set_font_options"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.set_font_options</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -586,18 +588,20 @@ default font options have been set.</td>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_height">
-<code class="descname">get_height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n610"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n618"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the height of <cite>screen</cite> in pixels.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the height of <cite>self</cite> in pixels.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the height of <cite>screen</cite> in pixels</p>
+<p>Gets the height of <cite>self</cite> in pixels. The returned size is in
+”application pixels”, not in ”device pixels” (see
+<a class="reference internal" href="#Gdk.Screen.get_monitor_scale_factor" title="Gdk.Screen.get_monitor_scale_factor"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_monitor_scale_factor</span></code></a>()).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -605,18 +609,18 @@ default font options have been set.</td>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_height_mm">
-<code class="descname">get_height_mm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n654"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_height_mm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n662"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the heigth of <cite>screen</cite> in millimeters.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the heigth of <cite>self</cite> in millimeters.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the height of <cite>screen</cite> in millimeters.</p>
+<p>Returns the height of <cite>self</cite> in millimeters.</p>
 <p>Note that this value is somewhat ill-defined when the screen
 has multiple monitors of different resolution. It is recommended
 to use the monitor dimensions instead.</p>
@@ -627,7 +631,7 @@ to use the monitor dimensions instead.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_monitor_at_point">
-<code class="descname">get_monitor_at_point</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n261"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_monitor_at_point</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n261"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -638,8 +642,8 @@ to use the monitor dimensions instead.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the monitor number in which the point (<cite>x</cite>,`y` ) lies, or
-a monitor close to (<cite>x</cite>,`y` ) if the point is not in any monitor.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the monitor number in which the point (<cite>x</cite>,`y`) lies, or
+a monitor close to (<cite>x</cite>,`y`) if the point is not in any monitor.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
@@ -647,7 +651,7 @@ a monitor close to (<cite>x</cite>,`y` ) if the point is not in any monitor.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the monitor number in which the point (<cite>x</cite>,`y` ) is located.</p>
+<p>Returns the monitor number in which the point (<cite>x</cite>,`y`) is located.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -655,7 +659,7 @@ a monitor close to (<cite>x</cite>,`y` ) if the point is not in any monitor.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_monitor_at_window">
-<code class="descname">get_monitor_at_window</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n301"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_monitor_at_window</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n301"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -679,7 +683,7 @@ bounding rectangle of <cite>window</cite> resides.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_monitor_geometry">
-<code class="descname">get_monitor_geometry</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n831"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_monitor_geometry</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n841"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -694,11 +698,13 @@ the monitor geometry</td>
 </tbody>
 </table>
 <p>Retrieves the <a class="reference internal" href="../structs/Rectangle.html#Gdk.Rectangle" title="Gdk.Rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Rectangle</span></code></a> representing the size and position of
-the individual monitor within the entire screen area.</p>
+the individual monitor within the entire screen area. The returned
+geometry is in ”application pixels”, not in ”device pixels” (see
+<a class="reference internal" href="#Gdk.Screen.get_monitor_scale_factor" title="Gdk.Screen.get_monitor_scale_factor"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_monitor_scale_factor</span></code></a>()).</p>
 <p>Monitor numbers start at 0. To obtain the number of monitors of
-<cite>screen</cite>, use <a class="reference internal" href="#Gdk.Screen.get_n_monitors" title="Gdk.Screen.get_n_monitors"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_n_monitors</span></code></a> ().</p>
+<cite>self</cite>, use <a class="reference internal" href="#Gdk.Screen.get_n_monitors" title="Gdk.Screen.get_n_monitors"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_n_monitors</span></code></a>().</p>
 <p>Note that the size of the entire screen area can be retrieved via
-<a class="reference internal" href="#Gdk.Screen.get_width" title="Gdk.Screen.get_width"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_width</span></code></a> () and <a class="reference internal" href="#Gdk.Screen.get_height" title="Gdk.Screen.get_height"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_height</span></code></a> ().</p>
+<a class="reference internal" href="#Gdk.Screen.get_width" title="Gdk.Screen.get_width"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_width</span></code></a>() and <a class="reference internal" href="#Gdk.Screen.get_height" title="Gdk.Screen.get_height"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_height</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -706,7 +712,7 @@ the individual monitor within the entire screen area.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_monitor_height_mm">
-<code class="descname">get_monitor_height_mm</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n776"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_monitor_height_mm</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n784"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -727,7 +733,7 @@ the individual monitor within the entire screen area.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_monitor_plug_name">
-<code class="descname">get_monitor_plug_name</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n801"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_monitor_plug_name</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n809"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -751,7 +757,7 @@ product name of the display device.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_monitor_scale_factor">
-<code class="descname">get_monitor_scale_factor</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n1106"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_monitor_scale_factor</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n1118"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -764,12 +770,12 @@ product name of the display device.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the internal scale factor that maps from monitor coordiantes
+<p>Returns the internal scale factor that maps from monitor coordinates
 to the actual device pixels. On traditional systems this is 1, but
 on very high density outputs this can be a higher value (often 2).</p>
 <p>This can be used if you want to create pixel based data for a
 particular monitor, but most of the time you’re drawing to a window
-where it is better to use <a class="reference internal" href="Window.html#Gdk.Window.get_scale_factor" title="Gdk.Window.get_scale_factor"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.get_scale_factor</span></code></a> () instead.</p>
+where it is better to use <a class="reference internal" href="Window.html#Gdk.Window.get_scale_factor" title="Gdk.Window.get_scale_factor"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.get_scale_factor</span></code></a>() instead.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.10.</span></p>
 </div>
@@ -777,7 +783,7 @@ where it is better to use <a class="reference internal" href="Window.html#Gdk.Wi
 
 <dl class="method">
 <dt id="Gdk.Screen.get_monitor_width_mm">
-<code class="descname">get_monitor_width_mm</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n754"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_monitor_width_mm</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n762"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -798,7 +804,7 @@ where it is better to use <a class="reference internal" href="Window.html#Gdk.Wi
 
 <dl class="method">
 <dt id="Gdk.Screen.get_monitor_workarea">
-<code class="descname">get_monitor_workarea</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n866"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_monitor_workarea</code><span class="sig-paren">(</span><em>monitor_num</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n878"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -813,7 +819,9 @@ the monitor workarea</td>
 </tbody>
 </table>
 <p>Retrieves the <a class="reference internal" href="../structs/Rectangle.html#Gdk.Rectangle" title="Gdk.Rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Rectangle</span></code></a> representing the size and position of
-the “work area” on a monitor within the entire screen area.</p>
+the “work area” on a monitor within the entire screen area. The returned
+geometry is in ”application pixels”, not in ”device pixels” (see
+<a class="reference internal" href="#Gdk.Screen.get_monitor_scale_factor" title="Gdk.Screen.get_monitor_scale_factor"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_monitor_scale_factor</span></code></a>()).</p>
 <p>The work area should be considered when positioning menus and
 similar popups, to avoid placing them below panels, docks or other
 desktop components.</p>
@@ -821,7 +829,7 @@ desktop components.</p>
 function will return the monitor geometry if a workarea is not
 available, or does not apply.</p>
 <p>Monitor numbers start at 0. To obtain the number of monitors of
-<cite>screen</cite>, use <a class="reference internal" href="#Gdk.Screen.get_n_monitors" title="Gdk.Screen.get_n_monitors"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_n_monitors</span></code></a> ().</p>
+<cite>self</cite>, use <a class="reference internal" href="#Gdk.Screen.get_n_monitors" title="Gdk.Screen.get_n_monitors"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_n_monitors</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.4.</span></p>
 </div>
@@ -829,18 +837,18 @@ available, or does not apply.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_n_monitors">
-<code class="descname">get_n_monitors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n709"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_n_monitors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n717"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of monitors which <cite>screen</cite> consists of</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of monitors which <cite>self</cite> consists of</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the number of monitors which <cite>screen</cite> consists of.</p>
+<p>Returns the number of monitors which <cite>self</cite> consists of.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -848,7 +856,7 @@ available, or does not apply.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_number">
-<code class="descname">get_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n673"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n681"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -859,8 +867,8 @@ available, or does not apply.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets the index of <cite>screen</cite> among the screens in the display
-to which it belongs. (See <a class="reference internal" href="#Gdk.Screen.get_display" title="Gdk.Screen.get_display"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_display</span></code></a> ())</p>
+<p>Gets the index of <cite>self</cite> among the screens in the display
+to which it belongs. (See <a class="reference internal" href="#Gdk.Screen.get_display" title="Gdk.Screen.get_display"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_display</span></code></a>())</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -868,7 +876,7 @@ to which it belongs. (See <a class="reference internal" href="#Gdk.Screen.get_di
 
 <dl class="method">
 <dt id="Gdk.Screen.get_primary_monitor">
-<code class="descname">get_primary_monitor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n734"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_primary_monitor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n742"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -879,7 +887,7 @@ to which it belongs. (See <a class="reference internal" href="#Gdk.Screen.get_di
 </tr>
 </tbody>
 </table>
-<p>Gets the primary monitor for <cite>screen</cite>.  The primary monitor
+<p>Gets the primary monitor for <cite>self</cite>.  The primary monitor
 is considered the monitor where the “main desktop” lives.
 While normal application windows typically allow the window
 manager to place the windows, specialized desktop applications
@@ -893,7 +901,7 @@ will be 0, defaulting to the first monitor.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_resolution">
-<code class="descname">get_resolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n511"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_resolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n515"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -906,7 +914,7 @@ has been set.</td>
 </tbody>
 </table>
 <p>Gets the resolution for font handling on the screen; see
-<a class="reference internal" href="#Gdk.Screen.set_resolution" title="Gdk.Screen.set_resolution"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.set_resolution</span></code></a> () for full details.</p>
+<a class="reference internal" href="#Gdk.Screen.set_resolution" title="Gdk.Screen.set_resolution"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.set_resolution</span></code></a>() for full details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -914,7 +922,7 @@ has been set.</td>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_rgba_visual">
-<code class="descname">get_rgba_visual</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n944"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_rgba_visual</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n956"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -937,7 +945,7 @@ X an appropriate windowing manager and compositing manager
 must be running to provide appropriate display.</p>
 <p>This functionality is not implemented in the Windows backend.</p>
 <p>For setting an overall opacity for a top-level window, see
-<a class="reference internal" href="Window.html#Gdk.Window.set_opacity" title="Gdk.Window.set_opacity"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.set_opacity</span></code></a> ().</p>
+<a class="reference internal" href="Window.html#Gdk.Window.set_opacity" title="Gdk.Window.set_opacity"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.set_opacity</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.8.</span></p>
 </div>
@@ -945,7 +953,7 @@ must be running to provide appropriate display.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_root_window">
-<code class="descname">get_root_window</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n691"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_root_window</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n699"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -956,7 +964,7 @@ must be running to provide appropriate display.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets the root window of <cite>screen</cite>.</p>
+<p>Gets the root window of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -964,7 +972,7 @@ must be running to provide appropriate display.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_setting">
-<code class="descname">get_setting</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n1079"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_setting</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n1091"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -985,7 +993,7 @@ in <cite>value</cite>, <a class="reference external" href="http://docs.python.or
 </tbody>
 </table>
 <p>Retrieves a desktop-wide setting such as double-click time
-for the <a class="reference internal" href="#Gdk.Screen" title="Gdk.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen</span></code></a> <cite>screen</cite>.</p>
+for the <a class="reference internal" href="#Gdk.Screen" title="Gdk.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen</span></code></a> <cite>self</cite>.</p>
 <p>FIXME needs a list of valid settings here, or a link to
 more information.</p>
 <div class="versionadded">
@@ -995,7 +1003,7 @@ more information.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_system_visual">
-<code class="descname">get_system_visual</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n912"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_system_visual</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n924"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1006,7 +1014,7 @@ more information.</p>
 </tr>
 </tbody>
 </table>
-<p>Get the system’s default visual for <cite>screen</cite>.
+<p>Get the system’s default visual for <cite>self</cite>.
 This is the visual for the root window of the display.
 The return value should not be freed.</p>
 <div class="versionadded">
@@ -1016,21 +1024,21 @@ The return value should not be freed.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_toplevel_windows">
-<code class="descname">get_toplevel_windows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkwindow.c?h=3.18.6#n2658"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_toplevel_windows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkwindow.c?h=3.20.3#n2656"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of toplevel windows, free with <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> ()</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of toplevel windows, free with g_list_free()</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="Window.html#Gdk.Window" title="Gdk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window</span></code></a>]</td>
 </tr>
 </tbody>
 </table>
-<p>Obtains a list of all toplevel windows known to GDK on the screen <cite>screen</cite>.
+<p>Obtains a list of all toplevel windows known to GDK on the screen <cite>self</cite>.
 A toplevel window is a child of the root window (see
-<a class="reference internal" href="../functions.html#Gdk.get_default_root_window" title="Gdk.get_default_root_window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.get_default_root_window</span></code></a> ()).</p>
-<p>The returned list should be freed with <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> (), but
+<a class="reference internal" href="../functions.html#Gdk.get_default_root_window" title="Gdk.get_default_root_window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.get_default_root_window</span></code></a>()).</p>
+<p>The returned list should be freed with g_list_free(), but
 its elements need not be freed.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
@@ -1039,18 +1047,20 @@ its elements need not be freed.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_width">
-<code class="descname">get_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n592"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n598"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the width of <cite>screen</cite> in pixels.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the width of <cite>self</cite> in pixels.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the width of <cite>screen</cite> in pixels</p>
+<p>Gets the width of <cite>self</cite> in pixels. The returned size is in
+”application pixels”, not in ”device pixels” (see
+<a class="reference internal" href="#Gdk.Screen.get_monitor_scale_factor" title="Gdk.Screen.get_monitor_scale_factor"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Screen.get_monitor_scale_factor</span></code></a>()).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1058,18 +1068,18 @@ its elements need not be freed.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_width_mm">
-<code class="descname">get_width_mm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n632"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_width_mm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n640"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the width of <cite>screen</cite> in millimeters.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the width of <cite>self</cite> in millimeters.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the width of <cite>screen</cite> in millimeters.</p>
+<p>Gets the width of <cite>self</cite> in millimeters.</p>
 <p>Note that this value is somewhat ill-defined when the screen
 has multiple monitors of different resolution. It is recommended
 to use the monitor dimensions instead.</p>
@@ -1080,7 +1090,7 @@ to use the monitor dimensions instead.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.get_window_stack">
-<code class="descname">get_window_stack</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n1052"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_window_stack</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n1064"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1102,8 +1112,8 @@ _NET_CLIENT_LIST_STACKING hint, this function returns <a class="reference extern
 <p>On other platforms, this function may return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, depending on whether
 it is implementable on that platform.</p>
 <p>The returned list is newly allocated and owns references to the
-windows it contains, so it should be freed using <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> () and
-its windows unrefed using <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> () when no longer needed.</p>
+windows it contains, so it should be freed using g_list_free() and
+its windows unrefed using <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>() when no longer needed.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -1111,7 +1121,7 @@ its windows unrefed using <a class="reference external" href="../_docs/Gdk-3.0/.
 
 <dl class="method">
 <dt id="Gdk.Screen.is_composited">
-<code class="descname">is_composited</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n968"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_composited</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n980"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1127,7 +1137,7 @@ expected to have their alpha channels drawn correctly on the screen.</td>
 be expected to have their alpha channel drawn correctly on
 the screen.</p>
 <p>On X11 this function returns whether a compositing manager is
-compositing <cite>screen</cite>.</p>
+compositing <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -1135,7 +1145,7 @@ compositing <cite>screen</cite>.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.list_visuals">
-<code class="descname">list_visuals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n892"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">list_visuals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n904"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1146,11 +1156,11 @@ compositing <cite>screen</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Lists the available visuals for the specified <cite>screen</cite>.
+<p>Lists the available visuals for the specified <cite>self</cite>.
 A visual describes a hardware image data format.
 For example, a visual might support 24-bit color, or 8-bit color,
 and might expect pixels to be in a certain format.</p>
-<p>Call <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> () on the return value when you’re finished with it.</p>
+<p>Call g_list_free() on the return value when you’re finished with it.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1158,18 +1168,18 @@ and might expect pixels to be in a certain format.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.make_display_name">
-<code class="descname">make_display_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n987"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">make_display_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n999"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly allocated string, free with <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ()</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly allocated string, free with <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>()</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines the name to pass to <a class="reference internal" href="Display.html#Gdk.Display.open" title="Gdk.Display.open"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display.open</span></code></a> () to get
+<p>Determines the name to pass to <a class="reference internal" href="Display.html#Gdk.Display.open" title="Gdk.Display.open"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display.open</span></code></a>() to get
 a <a class="reference internal" href="Display.html#Gdk.Display" title="Gdk.Display"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display</span></code></a> with this screen as the default screen.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
@@ -1178,7 +1188,7 @@ a <a class="reference internal" href="Display.html#Gdk.Display" title="Gdk.Displ
 
 <dl class="method">
 <dt id="Gdk.Screen.set_font_options">
-<code class="descname">set_font_options</code><span class="sig-paren">(</span><em>options</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n406"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_font_options</code><span class="sig-paren">(</span><em>options</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n410"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1189,8 +1199,8 @@ previously set default font options.</td>
 </tbody>
 </table>
 <p>Sets the default font options for the screen. These
-options will be set on any <a class="reference external" href="../_docs/Gdk-3.0/../../../python-Pango-1.0/classes/Context.html#Pango.Context" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Context</span></code></a> ’s newly created
-with <a class="reference internal" href="../functions.html#Gdk.pango_context_get_for_screen" title="Gdk.pango_context_get_for_screen"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.pango_context_get_for_screen</span></code></a> (). Changing the
+options will be set on any <a class="reference external" href="../_docs/Gdk-3.0/../../../python-Pango-1.0/classes/Context.html#Pango.Context" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Context</span></code></a>’s newly created
+with <a class="reference internal" href="../functions.html#Gdk.pango_context_get_for_screen" title="Gdk.pango_context_get_for_screen"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.pango_context_get_for_screen</span></code></a>(). Changing the
 default set of font options does not affect contexts that
 have already been created.</p>
 <div class="versionadded">
@@ -1200,7 +1210,7 @@ have already been created.</p>
 
 <dl class="method">
 <dt id="Gdk.Screen.set_resolution">
-<code class="descname">set_resolution</code><span class="sig-paren">(</span><em>dpi</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.18.6#n458"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_resolution</code><span class="sig-paren">(</span><em>dpi</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkscreen.c?h=3.20.3#n462"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1349,7 +1359,4 @@ height of a screen changes.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

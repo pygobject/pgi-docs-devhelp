@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Mx 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interface Structures" href="index.html"/>
         <link rel="next" title="Flags" href="../flags.html"/>
         <link rel="prev" title="Mx.ScrollableIface" href="ScrollableIface.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -230,7 +228,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>owner_type</strong> (<a class="reference external" href="../_docs/Mx-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the style property owner</li>
+<li><strong>owner_type</strong> (<a class="reference external" href="../_docs/Mx-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; <a class="reference external" href="../_docs/Mx-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the style property owner</li>
 <li><strong>pspec</strong> (<a class="reference external" href="../_docs/Mx-1.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Mx-1.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a></li>
 </ul>
 </td>
@@ -241,29 +239,29 @@
 description.</p>
 <p>This function should be used inside the <a class="reference internal" href="#Mx.StylableIface" title="Mx.StylableIface"><code class="xref py py-obj docutils literal"><span class="pre">Mx.StylableIface</span></code></a> initialization
 function of a class, for instance:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">G_DEFINE_TYPE_WITH_CODE</span> <span class="p">(</span><span class="n">FooActor</span><span class="p">,</span> <span class="n">foo_actor</span><span class="p">,</span> <span class="n">CLUTTER_TYPE_ACTOR</span><span class="p">,</span>
-                         <span class="n">G_IMPLEMENT_INTERFACE</span> <span class="p">(</span><span class="n">MX_TYPE_STYLABLE</span><span class="p">,</span>
-                                                <span class="n">mx_stylable_init</span><span class="p">));</span>
-<span class="p">...</span>
-<span class="k">static</span> <span class="kt">void</span>
-<span class="n">mx_stylable_init</span> <span class="p">(</span><span class="n">MxStylableIface</span> <span class="o">*</span><span class="n">iface</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">static</span> <span class="n">gboolean</span> <span class="n">is_initialized</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>G_DEFINE_TYPE_WITH_CODE (FooActor, foo_actor, CLUTTER_TYPE_ACTOR,
+                         G_IMPLEMENT_INTERFACE (MX_TYPE_STYLABLE,
+                                                mx_stylable_init));
+...
+static void
+mx_stylable_init (MxStylableIface *iface)
+{
+  static gboolean is_initialized = FALSE;
 
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_initialized</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="p">...</span>
-      <span class="n">mx_stylable_iface_install_property</span> <span class="p">(</span><span class="n">stylable</span><span class="p">,</span>
-                                            <span class="n">FOO_TYPE_ACTOR</span><span class="p">,</span>
-                                            <span class="n">g_param_spec_int</span> <span class="p">(</span><span class="s">&quot;x-spacing&quot;</span><span class="p">,</span>
-                                                              <span class="s">&quot;X Spacing&quot;</span><span class="p">,</span>
-                                                              <span class="s">&quot;Horizontal spacing&quot;</span><span class="p">,</span>
-                                                              <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">G_MAXINT</span><span class="p">,</span>
-                                                              <span class="mi">2</span><span class="p">,</span>
-                                                              <span class="n">G_PARAM_READWRITE</span><span class="p">));</span>
-      <span class="p">...</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+  if (!is_initialized)
+    {
+      ...
+      mx_stylable_iface_install_property (stylable,
+                                            FOO_TYPE_ACTOR,
+                                            g_param_spec_int (&quot;x-spacing&quot;,
+                                                              &quot;X Spacing&quot;,
+                                                              &quot;Horizontal spacing&quot;,
+                                                              -1, G_MAXINT,
+                                                              2,
+                                                              G_PARAM_READWRITE));
+      ...
+    }
+}
 </pre></div>
 </div>
 </dd></dl>
@@ -284,7 +282,4 @@ function of a class, for instance:</p>
   </div> 
 
 </body>
-
-  
-
 </html>

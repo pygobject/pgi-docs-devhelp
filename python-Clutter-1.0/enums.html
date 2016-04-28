@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Clutter 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -163,6 +161,7 @@
 <li><a class="reference internal" href="#Clutter.ScalingFilter" title="Clutter.ScalingFilter"><code class="xref py py-class docutils literal"><span class="pre">Clutter.ScalingFilter</span></code></a></li>
 <li><a class="reference internal" href="#Clutter.ScriptError" title="Clutter.ScriptError"><code class="xref py py-class docutils literal"><span class="pre">Clutter.ScriptError</span></code></a></li>
 <li><a class="reference internal" href="#Clutter.ScrollDirection" title="Clutter.ScrollDirection"><code class="xref py py-class docutils literal"><span class="pre">Clutter.ScrollDirection</span></code></a></li>
+<li><a class="reference internal" href="#Clutter.ScrollSource" title="Clutter.ScrollSource"><code class="xref py py-class docutils literal"><span class="pre">Clutter.ScrollSource</span></code></a></li>
 <li><a class="reference internal" href="#Clutter.ShaderError" title="Clutter.ShaderError"><code class="xref py py-class docutils literal"><span class="pre">Clutter.ShaderError</span></code></a></li>
 <li><a class="reference internal" href="#Clutter.ShaderType" title="Clutter.ShaderType"><code class="xref py py-class docutils literal"><span class="pre">Clutter.ShaderType</span></code></a></li>
 <li><a class="reference internal" href="#Clutter.SnapEdge" title="Clutter.SnapEdge"><code class="xref py py-class docutils literal"><span class="pre">Clutter.SnapEdge</span></code></a></li>
@@ -260,8 +259,8 @@ enumeration can be expanded in later versions of Clutter.</p>
 <dt>Easing modes provided by Clutter</dt>
 <dd></dd>
 </dl>
-<p>Every global alpha function registered using clutter_alpha_register_func()
-or <a class="reference internal" href="classes/Alpha.html#Clutter.Alpha.register_func" title="Clutter.Alpha.register_func"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Alpha.register_func</span></code></a> () will have a logical id greater than
+<p>Every global alpha function registered using <a class="reference internal" href="classes/Alpha.html#Clutter.Alpha.register_func" title="Clutter.Alpha.register_func"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Alpha.register_func</span></code></a>()
+or <a class="reference internal" href="classes/Alpha.html#Clutter.Alpha.register_func" title="Clutter.Alpha.register_func"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Alpha.register_func</span></code></a>() will have a logical id greater than
 <a class="reference internal" href="#Clutter.AnimationMode.ANIMATION_LAST" title="Clutter.AnimationMode.ANIMATION_LAST"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.ANIMATION_LAST</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
@@ -276,59 +275,6 @@ or <a class="reference internal" href="classes/Alpha.html#Clutter.Alpha.register
 <dt id="Clutter.AnimationMode.LINEAR">
 <code class="descname">LINEAR</code><em class="property"> = 1</em></dt>
 <dd><p>linear tweening</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.AnimationMode.EASE_IN_QUAD">
-<code class="descname">EASE_IN_QUAD</code><em class="property"> = 2</em></dt>
-<dd><p>quadratic tweening</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.AnimationMode.EASE_OUT_QUAD">
-<code class="descname">EASE_OUT_QUAD</code><em class="property"> = 3</em></dt>
-<dd><p>quadratic tweening, inverse of
-<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_QUAD" title="Clutter.AnimationMode.EASE_IN_QUAD"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_QUAD</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.AnimationMode.EASE_IN_OUT_QUAD">
-<code class="descname">EASE_IN_OUT_QUAD</code><em class="property"> = 4</em></dt>
-<dd><p>quadratic tweening, combininig
-<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_QUAD" title="Clutter.AnimationMode.EASE_IN_QUAD"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_QUAD</span></code></a> and <a class="reference internal" href="#Clutter.AnimationMode.EASE_OUT_QUAD" title="Clutter.AnimationMode.EASE_OUT_QUAD"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_OUT_QUAD</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.AnimationMode.EASE_IN_CUBIC">
-<code class="descname">EASE_IN_CUBIC</code><em class="property"> = 5</em></dt>
-<dd><p>cubic tweening</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.AnimationMode.EASE_OUT_CUBIC">
-<code class="descname">EASE_OUT_CUBIC</code><em class="property"> = 6</em></dt>
-<dd><p>cubic tweening, invers of
-<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_CUBIC" title="Clutter.AnimationMode.EASE_IN_CUBIC"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_CUBIC</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.AnimationMode.EASE_IN_OUT_CUBIC">
-<code class="descname">EASE_IN_OUT_CUBIC</code><em class="property"> = 7</em></dt>
-<dd><p>cubic tweening, combining
-<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_CUBIC" title="Clutter.AnimationMode.EASE_IN_CUBIC"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_CUBIC</span></code></a> and <a class="reference internal" href="#Clutter.AnimationMode.EASE_OUT_CUBIC" title="Clutter.AnimationMode.EASE_OUT_CUBIC"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_OUT_CUBIC</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.AnimationMode.EASE_IN_QUART">
-<code class="descname">EASE_IN_QUART</code><em class="property"> = 8</em></dt>
-<dd><p>quartic tweening</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.AnimationMode.EASE_OUT_QUART">
-<code class="descname">EASE_OUT_QUART</code><em class="property"> = 9</em></dt>
-<dd><p>quartic tweening, inverse of
-<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_QUART" title="Clutter.AnimationMode.EASE_IN_QUART"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_QUART</span></code></a></p>
 </dd></dl>
 
 <dl class="attribute">
@@ -399,6 +345,12 @@ or <a class="reference internal" href="classes/Alpha.html#Clutter.Alpha.register
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Clutter.AnimationMode.EASE_IN_QUAD">
+<code class="descname">EASE_IN_QUAD</code><em class="property"> = 2</em></dt>
+<dd><p>quadratic tweening</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Clutter.AnimationMode.EASE_IN_CIRC">
 <code class="descname">EASE_IN_CIRC</code><em class="property"> = 20</em></dt>
 <dd><p>circular tweening</p>
@@ -465,6 +417,13 @@ tweening, with bounce on start</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Clutter.AnimationMode.EASE_OUT_QUAD">
+<code class="descname">EASE_OUT_QUAD</code><em class="property"> = 3</em></dt>
+<dd><p>quadratic tweening, inverse of
+<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_QUAD" title="Clutter.AnimationMode.EASE_IN_QUAD"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_QUAD</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Clutter.AnimationMode.EASE_OUT_BOUNCE">
 <code class="descname">EASE_OUT_BOUNCE</code><em class="property"> = 30</em></dt>
 <dd><p>exponentially decaying parabolic (bounce)
@@ -481,7 +440,7 @@ tweening, with bounce on both ends</p>
 <dl class="attribute">
 <dt id="Clutter.AnimationMode.STEPS">
 <code class="descname">STEPS</code><em class="property"> = 32</em></dt>
-<dd><p>parametrized step function; see <a class="reference internal" href="classes/Timeline.html#Clutter.Timeline.set_step_progress" title="Clutter.Timeline.set_step_progress"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Timeline.set_step_progress</span></code></a> ()
+<dd><p>parametrized step function; see <a class="reference internal" href="classes/Timeline.html#Clutter.Timeline.set_step_progress" title="Clutter.Timeline.set_step_progress"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Timeline.set_step_progress</span></code></a>()
 for further details. (Since 1.12)</p>
 </dd></dl>
 
@@ -503,7 +462,7 @@ equal to 1, and a step mode of <a class="reference internal" href="#Clutter.Step
 <dt id="Clutter.AnimationMode.CUBIC_BEZIER">
 <code class="descname">CUBIC_BEZIER</code><em class="property"> = 35</em></dt>
 <dd><p>cubic bezier between (0, 0) and (1, 1) with two
-control points; see <a class="reference internal" href="classes/Timeline.html#Clutter.Timeline.set_cubic_bezier_progress" title="Clutter.Timeline.set_cubic_bezier_progress"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Timeline.set_cubic_bezier_progress</span></code></a> (). (Since 1.12)</p>
+control points; see <a class="reference internal" href="classes/Timeline.html#Clutter.Timeline.set_cubic_bezier_progress" title="Clutter.Timeline.set_cubic_bezier_progress"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Timeline.set_cubic_bezier_progress</span></code></a>(). (Since 1.12)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -535,10 +494,50 @@ in (0.42, 0) and (0.58, 1.0). (Since 1.12)</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Clutter.AnimationMode.EASE_IN_OUT_QUAD">
+<code class="descname">EASE_IN_OUT_QUAD</code><em class="property"> = 4</em></dt>
+<dd><p>quadratic tweening, combininig
+<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_QUAD" title="Clutter.AnimationMode.EASE_IN_QUAD"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_QUAD</span></code></a> and <a class="reference internal" href="#Clutter.AnimationMode.EASE_OUT_QUAD" title="Clutter.AnimationMode.EASE_OUT_QUAD"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_OUT_QUAD</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Clutter.AnimationMode.ANIMATION_LAST">
 <code class="descname">ANIMATION_LAST</code><em class="property"> = 40</em></dt>
 <dd><p>last animation mode, used as a guard for
 registered global alpha functions</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.AnimationMode.EASE_IN_CUBIC">
+<code class="descname">EASE_IN_CUBIC</code><em class="property"> = 5</em></dt>
+<dd><p>cubic tweening</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.AnimationMode.EASE_OUT_CUBIC">
+<code class="descname">EASE_OUT_CUBIC</code><em class="property"> = 6</em></dt>
+<dd><p>cubic tweening, invers of
+<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_CUBIC" title="Clutter.AnimationMode.EASE_IN_CUBIC"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_CUBIC</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.AnimationMode.EASE_IN_OUT_CUBIC">
+<code class="descname">EASE_IN_OUT_CUBIC</code><em class="property"> = 7</em></dt>
+<dd><p>cubic tweening, combining
+<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_CUBIC" title="Clutter.AnimationMode.EASE_IN_CUBIC"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_CUBIC</span></code></a> and <a class="reference internal" href="#Clutter.AnimationMode.EASE_OUT_CUBIC" title="Clutter.AnimationMode.EASE_OUT_CUBIC"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_OUT_CUBIC</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.AnimationMode.EASE_IN_QUART">
+<code class="descname">EASE_IN_QUART</code><em class="property"> = 8</em></dt>
+<dd><p>quartic tweening</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.AnimationMode.EASE_OUT_QUART">
+<code class="descname">EASE_OUT_QUART</code><em class="property"> = 9</em></dt>
+<dd><p>quartic tweening, inverse of
+<a class="reference internal" href="#Clutter.AnimationMode.EASE_IN_QUART" title="Clutter.AnimationMode.EASE_IN_QUART"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.AnimationMode.EASE_IN_QUART</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
@@ -552,7 +551,7 @@ registered global alpha functions</p>
 <p><span class="versionmodified">New in version 1.2.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.12: </span>Use <a class="reference internal" href="#Clutter.ActorAlign" title="Clutter.ActorAlign"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ActorAlign</span></code></a> and the <a class="reference internal" href="classes/Actor.html#Clutter.Actor" title="Clutter.Actor"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor</span></code></a>  API instead</p>
+<p><span class="versionmodified">Deprecated since version 1.12: </span>Use <a class="reference internal" href="#Clutter.ActorAlign" title="Clutter.ActorAlign"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ActorAlign</span></code></a> and the <a class="reference internal" href="classes/Actor.html#Clutter.Actor" title="Clutter.Actor"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor</span></code></a> API instead</p>
 </div>
 <dl class="attribute">
 <dt id="Clutter.BinAlignment.FIXED">
@@ -697,6 +696,13 @@ the right, depending on the used axis</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Clutter.ContentGravity.RESIZE_ASPECT">
+<code class="descname">RESIZE_ASPECT</code><em class="property"> = 10</em></dt>
+<dd><p>Resize the content to remain within the
+allocation, while maintaining the aspect ratio</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Clutter.ContentGravity.TOP_RIGHT">
 <code class="descname">TOP_RIGHT</code><em class="property"> = 2</em></dt>
 <dd><p>Align the content to the top right corner</p>
@@ -742,13 +748,6 @@ the right, depending on the used axis</p>
 <dt id="Clutter.ContentGravity.RESIZE_FILL">
 <code class="descname">RESIZE_FILL</code><em class="property"> = 9</em></dt>
 <dd><p>Resize the content to fill the allocation</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.ContentGravity.RESIZE_ASPECT">
-<code class="descname">RESIZE_ASPECT</code><em class="property"> = 10</em></dt>
-<dd><p>Resize the content to remain within the
-allocation, while maintaining the aspect ratio</p>
 </dd></dl>
 
 </dd></dl>
@@ -800,54 +799,6 @@ dragging action</p>
 <dt id="Clutter.EventType.KEY_PRESS">
 <code class="descname">KEY_PRESS</code><em class="property"> = 1</em></dt>
 <dd><p>Key press event</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.EventType.KEY_RELEASE">
-<code class="descname">KEY_RELEASE</code><em class="property"> = 2</em></dt>
-<dd><p>Key release event</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.EventType.MOTION">
-<code class="descname">MOTION</code><em class="property"> = 3</em></dt>
-<dd><p>Pointer motion event</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.EventType.ENTER">
-<code class="descname">ENTER</code><em class="property"> = 4</em></dt>
-<dd><p>Actor enter event</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.EventType.LEAVE">
-<code class="descname">LEAVE</code><em class="property"> = 5</em></dt>
-<dd><p>Actor leave event</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.EventType.BUTTON_PRESS">
-<code class="descname">BUTTON_PRESS</code><em class="property"> = 6</em></dt>
-<dd><p>Pointer button press event</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.EventType.BUTTON_RELEASE">
-<code class="descname">BUTTON_RELEASE</code><em class="property"> = 7</em></dt>
-<dd><p>Pointer button release event</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.EventType.SCROLL">
-<code class="descname">SCROLL</code><em class="property"> = 8</em></dt>
-<dd><p>Pointer scroll event</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.EventType.STAGE_STATE">
-<code class="descname">STAGE_STATE</code><em class="property"> = 9</em></dt>
-<dd><p>Stage state change event</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -917,6 +868,54 @@ determined by its phase field; event added in 1.24</p>
 added in 1.10</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="Clutter.EventType.KEY_RELEASE">
+<code class="descname">KEY_RELEASE</code><em class="property"> = 2</em></dt>
+<dd><p>Key release event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.EventType.MOTION">
+<code class="descname">MOTION</code><em class="property"> = 3</em></dt>
+<dd><p>Pointer motion event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.EventType.ENTER">
+<code class="descname">ENTER</code><em class="property"> = 4</em></dt>
+<dd><p>Actor enter event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.EventType.LEAVE">
+<code class="descname">LEAVE</code><em class="property"> = 5</em></dt>
+<dd><p>Actor leave event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.EventType.BUTTON_PRESS">
+<code class="descname">BUTTON_PRESS</code><em class="property"> = 6</em></dt>
+<dd><p>Pointer button press event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.EventType.BUTTON_RELEASE">
+<code class="descname">BUTTON_RELEASE</code><em class="property"> = 7</em></dt>
+<dd><p>Pointer button release event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.EventType.SCROLL">
+<code class="descname">SCROLL</code><em class="property"> = 8</em></dt>
+<dd><p>Pointer scroll event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.EventType.STAGE_STATE">
+<code class="descname">STAGE_STATE</code><em class="property"> = 9</em></dt>
+<dd><p>Stage state change event</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -948,7 +947,7 @@ vertically first</p>
 <dt id="Clutter.GestureTriggerEdge">
 <em class="property">class </em><code class="descclassname">Clutter.</code><code class="descname">GestureTriggerEdge</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Clutter-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>Enum passed to the <a class="reference internal" href="classes/GestureAction.html#Clutter.GestureAction.set_threshold_trigger_edge" title="Clutter.GestureAction.set_threshold_trigger_edge"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.GestureAction.set_threshold_trigger_edge</span></code></a> ()
+<p>Enum passed to the <a class="reference internal" href="classes/GestureAction.html#Clutter.GestureAction.set_threshold_trigger_edge" title="Clutter.GestureAction.set_threshold_trigger_edge"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.GestureAction.set_threshold_trigger_edge</span></code></a>()
 function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.18.</span></p>
@@ -1113,7 +1112,7 @@ of the specified portion at the same coordinates.</p>
 <dt id="Clutter.ImageError.DATA">
 <code class="descname">DATA</code><em class="property"> = 0</em></dt>
 <dd><p>Invalid data passed to the
-<a class="reference internal" href="classes/Image.html#Clutter.Image.set_data" title="Clutter.Image.set_data"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Image.set_data</span></code></a> () function.</p>
+<a class="reference internal" href="classes/Image.html#Clutter.Image.set_data" title="Clutter.Image.set_data"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Image.set_data</span></code></a>() function.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1122,7 +1121,7 @@ of the specified portion at the same coordinates.</p>
 <dt id="Clutter.InitError">
 <em class="property">class </em><code class="descclassname">Clutter.</code><code class="descname">InitError</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Clutter-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>Error conditions returned by <a class="reference internal" href="functions.html#Clutter.init" title="Clutter.init"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a> () and <a class="reference internal" href="functions.html#Clutter.init_with_args" title="Clutter.init_with_args"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init_with_args</span></code></a> ().</p>
+<p>Error conditions returned by <a class="reference internal" href="functions.html#Clutter.init" title="Clutter.init"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a>() and <a class="reference internal" href="functions.html#Clutter.init_with_args" title="Clutter.init_with_args"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init_with_args</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.2.</span></p>
 </div>
@@ -1140,9 +1139,9 @@ of the specified portion at the same coordinates.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Clutter.InitError.ERROR_INTERNAL">
-<code class="descname">ERROR_INTERNAL</code><em class="property"> = -3</em></dt>
-<dd><p>Internal error</p>
+<dt id="Clutter.InitError.ERROR_THREADS">
+<code class="descname">ERROR_THREADS</code><em class="property"> = -1</em></dt>
+<dd><p>Thread initialisation failed</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1152,9 +1151,9 @@ of the specified portion at the same coordinates.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Clutter.InitError.ERROR_THREADS">
-<code class="descname">ERROR_THREADS</code><em class="property"> = -1</em></dt>
-<dd><p>Thread initialisation failed</p>
+<dt id="Clutter.InitError.ERROR_INTERNAL">
+<code class="descname">ERROR_INTERNAL</code><em class="property"> = -3</em></dt>
+<dd><p>Internal error</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1259,6 +1258,12 @@ date; not every platform supports every input device type.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Clutter.InputDeviceType.N_DEVICE_TYPES">
+<code class="descname">N_DEVICE_TYPES</code><em class="property"> = 10</em></dt>
+<dd><p>The number of device types</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Clutter.InputDeviceType.EXTENSION_DEVICE">
 <code class="descname">EXTENSION_DEVICE</code><em class="property"> = 2</em></dt>
 <dd><p>A generic extension device</p>
@@ -1304,12 +1309,6 @@ date; not every platform supports every input device type.</p>
 <dt id="Clutter.InputDeviceType.CURSOR_DEVICE">
 <code class="descname">CURSOR_DEVICE</code><em class="property"> = 9</em></dt>
 <dd><p>A cursor device</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.InputDeviceType.N_DEVICE_TYPES">
-<code class="descname">N_DEVICE_TYPES</code><em class="property"> = 10</em></dt>
-<dd><p>The number of device types</p>
 </dd></dl>
 
 </dd></dl>
@@ -1740,6 +1739,44 @@ has precise scrolling delta information.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="Clutter.ScrollSource">
+<em class="property">class </em><code class="descclassname">Clutter.</code><code class="descname">ScrollSource</code></dt>
+<dd><p>Bases: <a class="reference external" href="_docs/Clutter-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<p>The scroll source determines the source of the scroll event. Keep in mind
+that the source device <a class="reference internal" href="#Clutter.InputDeviceType" title="Clutter.InputDeviceType"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.InputDeviceType</span></code></a> is not enough to infer
+the scroll source.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.26.</span></p>
+</div>
+<dl class="attribute">
+<dt id="Clutter.ScrollSource.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
+<dd><p>Source of scroll events is unknown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.ScrollSource.WHEEL">
+<code class="descname">WHEEL</code><em class="property"> = 1</em></dt>
+<dd><p>The scroll event is originated by a mouse wheel.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.ScrollSource.FINGER">
+<code class="descname">FINGER</code><em class="property"> = 2</em></dt>
+<dd><p>The scroll event is originated by one or more
+fingers on the device (eg. touchpads).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.ScrollSource.CONTINUOUS">
+<code class="descname">CONTINUOUS</code><em class="property"> = 3</em></dt>
+<dd><p>The scroll event is originated by the
+motion of some device (eg. a scroll button is set).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="Clutter.ShaderError">
 <em class="property">class </em><code class="descclassname">Clutter.</code><code class="descname">ShaderError</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Clutter-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
@@ -1860,54 +1897,6 @@ has precise scrolling delta information.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Clutter.StaticColor.RED">
-<code class="descname">RED</code><em class="property"> = 2</em></dt>
-<dd><p>Red color (ff0000ff)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.StaticColor.DARK_RED">
-<code class="descname">DARK_RED</code><em class="property"> = 3</em></dt>
-<dd><p>Dark red color (800000ff)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.StaticColor.GREEN">
-<code class="descname">GREEN</code><em class="property"> = 4</em></dt>
-<dd><p>Green color (00ff00ff)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.StaticColor.DARK_GREEN">
-<code class="descname">DARK_GREEN</code><em class="property"> = 5</em></dt>
-<dd><p>Dark green color (008000ff)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.StaticColor.BLUE">
-<code class="descname">BLUE</code><em class="property"> = 6</em></dt>
-<dd><p>Blue color (0000ffff)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.StaticColor.DARK_BLUE">
-<code class="descname">DARK_BLUE</code><em class="property"> = 7</em></dt>
-<dd><p>Dark blue color (000080ff)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.StaticColor.CYAN">
-<code class="descname">CYAN</code><em class="property"> = 8</em></dt>
-<dd><p>Cyan color (00ffffff)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Clutter.StaticColor.DARK_CYAN">
-<code class="descname">DARK_CYAN</code><em class="property"> = 9</em></dt>
-<dd><p>Dark cyan color (008080ff)</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="Clutter.StaticColor.MAGENTA">
 <code class="descname">MAGENTA</code><em class="property"> = 10</em></dt>
 <dd><p>Magenta color (ff00ffff)</p>
@@ -1965,6 +1954,12 @@ has precise scrolling delta information.</p>
 <dt id="Clutter.StaticColor.BUTTER_DARK">
 <code class="descname">BUTTER_DARK</code><em class="property"> = 19</em></dt>
 <dd><p>Dark butter color (c4a000ff)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.StaticColor.RED">
+<code class="descname">RED</code><em class="property"> = 2</em></dt>
+<dd><p>Red color (ff0000ff)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2028,6 +2023,12 @@ has precise scrolling delta information.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Clutter.StaticColor.DARK_RED">
+<code class="descname">DARK_RED</code><em class="property"> = 3</em></dt>
+<dd><p>Dark red color (800000ff)</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Clutter.StaticColor.SKY_BLUE_LIGHT">
 <code class="descname">SKY_BLUE_LIGHT</code><em class="property"> = 30</em></dt>
 <dd><p>Light sky color (729fcfff)</p>
@@ -2088,6 +2089,12 @@ has precise scrolling delta information.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Clutter.StaticColor.GREEN">
+<code class="descname">GREEN</code><em class="property"> = 4</em></dt>
+<dd><p>Green color (00ff00ff)</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Clutter.StaticColor.ALUMINIUM_3">
 <code class="descname">ALUMINIUM_3</code><em class="property"> = 40</em></dt>
 <dd><p>Aluminium, third variant (babdb6ff)</p>
@@ -2117,6 +2124,36 @@ has precise scrolling delta information.</p>
 <dd><p>Transparent color (00000000)</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="Clutter.StaticColor.DARK_GREEN">
+<code class="descname">DARK_GREEN</code><em class="property"> = 5</em></dt>
+<dd><p>Dark green color (008000ff)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.StaticColor.BLUE">
+<code class="descname">BLUE</code><em class="property"> = 6</em></dt>
+<dd><p>Blue color (0000ffff)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.StaticColor.DARK_BLUE">
+<code class="descname">DARK_BLUE</code><em class="property"> = 7</em></dt>
+<dd><p>Dark blue color (000080ff)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.StaticColor.CYAN">
+<code class="descname">CYAN</code><em class="property"> = 8</em></dt>
+<dd><p>Cyan color (00ffffff)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Clutter.StaticColor.DARK_CYAN">
+<code class="descname">DARK_CYAN</code><em class="property"> = 9</em></dt>
+<dd><p>Dark cyan color (008080ff)</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -2124,7 +2161,7 @@ has precise scrolling delta information.</p>
 <em class="property">class </em><code class="descclassname">Clutter.</code><code class="descname">StepMode</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Clutter-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Change the value transition of a step function.</p>
-<p>See <a class="reference internal" href="classes/Timeline.html#Clutter.Timeline.set_step_progress" title="Clutter.Timeline.set_step_progress"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Timeline.set_step_progress</span></code></a> ().</p>
+<p>See <a class="reference internal" href="classes/Timeline.html#Clutter.Timeline.set_step_progress" title="Clutter.Timeline.set_step_progress"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Timeline.set_step_progress</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -2192,7 +2229,7 @@ right of a cell in the table, depending on the axis</p>
 <dt id="Clutter.TextDirection.DEFAULT">
 <code class="descname">DEFAULT</code><em class="property"> = 0</em></dt>
 <dd><p>Use the default setting, as returned
-by <a class="reference internal" href="functions.html#Clutter.get_default_text_direction" title="Clutter.get_default_text_direction"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.get_default_text_direction</span></code></a> ()</p>
+by <a class="reference internal" href="functions.html#Clutter.get_default_text_direction" title="Clutter.get_default_text_direction"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.get_default_text_direction</span></code></a>()</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2262,7 +2299,7 @@ found</p>
 <p><span class="versionmodified">New in version 0.8.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.22: </span>The <a class="reference internal" href="classes/Texture.html#Clutter.Texture" title="Clutter.Texture"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Texture</span></code></a> class was the only used ot this API; use <a class="reference internal" href="classes/Image.html#Clutter.Image" title="Clutter.Image"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Image</span></code></a> and <a class="reference internal" href="classes/Actor.html#Clutter.Actor.set_content_scaling_filters" title="Clutter.Actor.set_content_scaling_filters"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.set_content_scaling_filters</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 1.22: </span>The <a class="reference internal" href="classes/Texture.html#Clutter.Texture" title="Clutter.Texture"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Texture</span></code></a> class was the only used ot this API; use <a class="reference internal" href="classes/Image.html#Clutter.Image" title="Clutter.Image"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Image</span></code></a> and <a class="reference internal" href="classes/Actor.html#Clutter.Actor.set_content_scaling_filters" title="Clutter.Actor.set_content_scaling_filters"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor.set_content_scaling_filters</span></code></a>() instead.</p>
 </div>
 <dl class="attribute">
 <dt id="Clutter.TextureQuality.LOW">
@@ -2443,7 +2480,4 @@ zooming action.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

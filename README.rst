@@ -11,7 +11,5 @@ To update:
 
 1) cd ~/.local/share/devhelp/books
 
-2) git fetch --all
-
-3) git reset --hard origin/master
+2) git pull
 

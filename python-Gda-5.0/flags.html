@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gda 5.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Enums" href="enums.html"/>
         <link rel="prev" title="Gda.LockableIface" href="iface-structs/LockableIface.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -148,7 +146,7 @@
 <dl class="class">
 <dt id="Gda.ConnectionOptions">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">ConnectionOptions</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>Specifies some aspects of a connection when opening it.</p>
 <p>Additional information about the <a class="reference internal" href="#Gda.ConnectionOptions.SQL_IDENTIFIERS_CASE_SENSITIVE" title="Gda.ConnectionOptions.SQL_IDENTIFIERS_CASE_SENSITIVE"><code class="xref py py-obj docutils literal"><span class="pre">Gda.ConnectionOptions.SQL_IDENTIFIERS_CASE_SENSITIVE</span></code></a> flag:</p>
 <ul class="simple">
@@ -171,7 +169,7 @@ while a &#8220;wrapper connection&#8221; is actually returned and used by the ca
 from the calling thread to the actual connection&#8217;s specific thread, and gets the results back).</p>
 <p>The <a class="reference internal" href="#Gda.ConnectionOptions.THREAD_ISOLATED" title="Gda.ConnectionOptions.THREAD_ISOLATED"><code class="xref py py-obj docutils literal"><span class="pre">Gda.ConnectionOptions.THREAD_ISOLATED</span></code></a> forces using a specific thread and a &#8220;wrapper connection&#8221; even if the
 &#8220;normal&#8221; connection would itself be thread safe; this is useful for example to be sure the asynchronous API can
-always be used (see <a class="reference internal" href="classes/Connection.html#Gda.Connection.async_statement_execute" title="Gda.Connection.async_statement_execute"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Connection.async_statement_execute</span></code></a> ()).</p>
+always be used (see <a class="reference internal" href="classes/Connection.html#Gda.Connection.async_statement_execute" title="Gda.Connection.async_statement_execute"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Connection.async_statement_execute</span></code></a>()).</p>
 <p>Having a specific thread and a &#8220;wrapper connection&#8221; definitely has an impact on the performances (because it involves
 messages passing between threads for every method call), so using the
 <a class="reference internal" href="#Gda.ConnectionOptions.THREAD_SAFE" title="Gda.ConnectionOptions.THREAD_SAFE"><code class="xref py py-obj docutils literal"><span class="pre">Gda.ConnectionOptions.THREAD_SAFE</span></code></a> or <a class="reference internal" href="#Gda.ConnectionOptions.THREAD_ISOLATED" title="Gda.ConnectionOptions.THREAD_ISOLATED"><code class="xref py py-obj docutils literal"><span class="pre">Gda.ConnectionOptions.THREAD_ISOLATED</span></code></a> flags should be carefully considered.</p>
@@ -196,6 +194,15 @@ is not rolled back or committed, then the meta data may end up being wrong</li>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Gda.ConnectionOptions.AUTO_META_DATA">
+<code class="descname">AUTO_META_DATA</code><em class="property"> = 16</em></dt>
+<dd><p>this flags specifies that if a <a class="reference internal" href="classes/MetaStore.html#Gda.MetaStore" title="Gda.MetaStore"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaStore</span></code></a> has been associated
+to the connection, then it is kept up to date with the evolutions in the
+database&#8217;s structure. Be aware however that there are some drawbacks
+explained below.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Gda.ConnectionOptions.SQL_IDENTIFIERS_CASE_SENSITIVE">
 <code class="descname">SQL_IDENTIFIERS_CASE_SENSITIVE</code><em class="property"> = 2</em></dt>
 <dd><p>this flag specifies that SQL identifiers submitted as input
@@ -217,24 +224,20 @@ by several threads at once and requests that the real connection be used
 only in a sub thread created specifically for it</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="Gda.ConnectionOptions.AUTO_META_DATA">
-<code class="descname">AUTO_META_DATA</code><em class="property"> = 16</em></dt>
-<dd><p>this flags specifies that if a <a class="reference internal" href="classes/MetaStore.html#Gda.MetaStore" title="Gda.MetaStore"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaStore</span></code></a> has been associated
-to the connection, then it is kept up to date with the evolutions in the
-database&#8217;s structure. Be aware however that there are some drawbacks
-explained below.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
 <dt id="Gda.DataModelAccessFlags">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">DataModelAccessFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <dl class="attribute">
 <dt id="Gda.DataModelAccessFlags.RANDOM">
 <code class="descname">RANDOM</code><em class="property"> = 1</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gda.DataModelAccessFlags.UPDATE">
+<code class="descname">UPDATE</code><em class="property"> = 16</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -243,8 +246,18 @@ explained below.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Gda.DataModelAccessFlags.DELETE">
+<code class="descname">DELETE</code><em class="property"> = 32</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Gda.DataModelAccessFlags.CURSOR_BACKWARD">
 <code class="descname">CURSOR_BACKWARD</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gda.DataModelAccessFlags.WRITE">
+<code class="descname">WRITE</code><em class="property"> = 56</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -257,27 +270,12 @@ explained below.</p>
 <code class="descname">INSERT</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="Gda.DataModelAccessFlags.UPDATE">
-<code class="descname">UPDATE</code><em class="property"> = 16</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.DataModelAccessFlags.DELETE">
-<code class="descname">DELETE</code><em class="property"> = 32</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.DataModelAccessFlags.WRITE">
-<code class="descname">WRITE</code><em class="property"> = 56</em></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="class">
 <dt id="Gda.MetaGraphInfo">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">MetaGraphInfo</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <dl class="attribute">
 <dt id="Gda.MetaGraphInfo.META_GRAPH_COLUMNS">
 <code class="descname">META_GRAPH_COLUMNS</code><em class="property"> = 1</em></dt>
@@ -288,7 +286,7 @@ explained below.</p>
 <dl class="class">
 <dt id="Gda.MetaStructFeature">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">MetaStructFeature</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>Controls which features are computed about database objects.</p>
 <dl class="attribute">
 <dt id="Gda.MetaStructFeature.NONE">
@@ -319,25 +317,10 @@ explained below.</p>
 <dl class="class">
 <dt id="Gda.ServerOperationCreateTableFlag">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">ServerOperationCreateTableFlag</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <dl class="attribute">
 <dt id="Gda.ServerOperationCreateTableFlag.NOTHING_FLAG">
 <code class="descname">NOTHING_FLAG</code><em class="property"> = 1</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.ServerOperationCreateTableFlag.PKEY_FLAG">
-<code class="descname">PKEY_FLAG</code><em class="property"> = 2</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.ServerOperationCreateTableFlag.NOT_NULL_FLAG">
-<code class="descname">NOT_NULL_FLAG</code><em class="property"> = 4</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.ServerOperationCreateTableFlag.UNIQUE_FLAG">
-<code class="descname">UNIQUE_FLAG</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -351,8 +334,23 @@ explained below.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Gda.ServerOperationCreateTableFlag.PKEY_FLAG">
+<code class="descname">PKEY_FLAG</code><em class="property"> = 2</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Gda.ServerOperationCreateTableFlag.FKEY_FLAG">
 <code class="descname">FKEY_FLAG</code><em class="property"> = 32</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gda.ServerOperationCreateTableFlag.NOT_NULL_FLAG">
+<code class="descname">NOT_NULL_FLAG</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gda.ServerOperationCreateTableFlag.UNIQUE_FLAG">
+<code class="descname">UNIQUE_FLAG</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -360,7 +358,7 @@ explained below.</p>
 <dl class="class">
 <dt id="Gda.SqlIdentifierStyle">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">SqlIdentifierStyle</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>Specifies how SQL identifiers are represented by a specific database</p>
 <dl class="attribute">
 <dt id="Gda.SqlIdentifierStyle.LOWER_CASE">
@@ -379,12 +377,18 @@ explained below.</p>
 <dl class="class">
 <dt id="Gda.StatementModelUsage">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">StatementModelUsage</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>These flags specify how the <a class="reference internal" href="interfaces/DataModel.html#Gda.DataModel" title="Gda.DataModel"><code class="xref py py-obj docutils literal"><span class="pre">Gda.DataModel</span></code></a> returned when executing a <a class="reference internal" href="classes/Statement.html#Gda.Statement" title="Gda.Statement"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Statement</span></code></a> will be used</p>
 <dl class="attribute">
 <dt id="Gda.StatementModelUsage.RANDOM_ACCESS">
 <code class="descname">RANDOM_ACCESS</code><em class="property"> = 1</em></dt>
 <dd><p>access to the data model will be random (usually this will result in a data model completely stored in memory)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gda.StatementModelUsage.OFFLINE">
+<code class="descname">OFFLINE</code><em class="property"> = 16</em></dt>
+<dd><p>specifies that the data model&#8217;s contents will be fully loaded into the client side (the memory of the process using Libgda), not requiring the server any more to access the data (the default behaviour is to access the server any time data is to be read, and data is cached in memory). This flag is useful only if used in conjunction with the <a class="reference internal" href="#Gda.StatementModelUsage.RANDOM_ACCESS" title="Gda.StatementModelUsage.RANDOM_ACCESS"><code class="xref py py-obj docutils literal"><span class="pre">Gda.StatementModelUsage.RANDOM_ACCESS</span></code></a> flag (otherwise an error will be returned).</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -411,18 +415,12 @@ explained below.</p>
 <dd><p>specifies that the data model should be executed even if some parameters required to execute it are invalid (in this case the data model will have no row, and will automatically be re-run when the missing parameters are once again valid)</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="Gda.StatementModelUsage.OFFLINE">
-<code class="descname">OFFLINE</code><em class="property"> = 16</em></dt>
-<dd><p>specifies that the data model&#8217;s contents will be fully loaded into the client side (the memory of the process using Libgda), not requiring the server any more to access the data (the default behaviour is to access the server any time data is to be read, and data is cached in memory). This flag is useful only if used in conjunction with the <a class="reference internal" href="#Gda.StatementModelUsage.RANDOM_ACCESS" title="Gda.StatementModelUsage.RANDOM_ACCESS"><code class="xref py py-obj docutils literal"><span class="pre">Gda.StatementModelUsage.RANDOM_ACCESS</span></code></a> flag (otherwise an error will be returned).</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
 <dt id="Gda.StatementSqlFlag">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">StatementSqlFlag</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>Specifies rendering options</p>
 <dl class="attribute">
 <dt id="Gda.StatementSqlFlag.PARAMS_AS_VALUES">
@@ -437,21 +435,9 @@ explained below.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Gda.StatementSqlFlag.PARAMS_LONG">
-<code class="descname">PARAMS_LONG</code><em class="property"> = 2</em></dt>
-<dd><p>parameters will be rendered using the &#8220;/&amp;amp;ast name:&lt;param_name&gt; ... &amp;amp;ast/&#8221; syntax</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.StatementSqlFlag.PARAMS_SHORT">
-<code class="descname">PARAMS_SHORT</code><em class="property"> = 4</em></dt>
-<dd><p>parameters will be rendered using the &#8220;##&lt;param_name&gt;...&#8221; syntax</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.StatementSqlFlag.PARAMS_AS_COLON">
-<code class="descname">PARAMS_AS_COLON</code><em class="property"> = 8</em></dt>
-<dd><p>parameters will be rendered using the &#8221;:&lt;param_name&gt;&#8221; syntax</p>
+<dt id="Gda.StatementSqlFlag.TIMEZONE_TO_GMT">
+<code class="descname">TIMEZONE_TO_GMT</code><em class="property"> = 128</em></dt>
+<dd><p>time and timestamp with a timezone information are converted to GMT before rendering, and rendering does not show the timezone information</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -461,9 +447,21 @@ explained below.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Gda.StatementSqlFlag.PARAMS_LONG">
+<code class="descname">PARAMS_LONG</code><em class="property"> = 2</em></dt>
+<dd><p>parameters will be rendered using the &#8220;/&amp;amp;ast name:&lt;param_name&gt; ... &amp;amp;ast/&#8221; syntax</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Gda.StatementSqlFlag.PARAMS_AS_QMARK">
 <code class="descname">PARAMS_AS_QMARK</code><em class="property"> = 32</em></dt>
 <dd><p>parameters will be rendered using the &#8221;?&lt;param_number&gt;&#8221; syntax where parameters are numbered starting from 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gda.StatementSqlFlag.PARAMS_SHORT">
+<code class="descname">PARAMS_SHORT</code><em class="property"> = 4</em></dt>
+<dd><p>parameters will be rendered using the &#8220;##&lt;param_name&gt;...&#8221; syntax</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -473,9 +471,9 @@ explained below.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Gda.StatementSqlFlag.TIMEZONE_TO_GMT">
-<code class="descname">TIMEZONE_TO_GMT</code><em class="property"> = 128</em></dt>
-<dd><p>time and timestamp with a timezone information are converted to GMT before rendering, and rendering does not show the timezone information</p>
+<dt id="Gda.StatementSqlFlag.PARAMS_AS_COLON">
+<code class="descname">PARAMS_AS_COLON</code><em class="property"> = 8</em></dt>
+<dd><p>parameters will be rendered using the &#8221;:&lt;param_name&gt;&#8221; syntax</p>
 </dd></dl>
 
 </dd></dl>
@@ -483,7 +481,7 @@ explained below.</p>
 <dl class="class">
 <dt id="Gda.ValueAttribute">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">ValueAttribute</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Gda-5.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <dl class="attribute">
 <dt id="Gda.ValueAttribute.NONE">
 <code class="descname">NONE</code><em class="property"> = 0</em></dt>
@@ -495,18 +493,8 @@ explained below.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Gda.ValueAttribute.CAN_BE_NULL">
-<code class="descname">CAN_BE_NULL</code><em class="property"> = 2</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.ValueAttribute.IS_DEFAULT">
-<code class="descname">IS_DEFAULT</code><em class="property"> = 4</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.ValueAttribute.CAN_BE_DEFAULT">
-<code class="descname">CAN_BE_DEFAULT</code><em class="property"> = 8</em></dt>
+<dt id="Gda.ValueAttribute.HAS_VALUE_ORIG">
+<code class="descname">HAS_VALUE_ORIG</code><em class="property"> = 128</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -515,18 +503,8 @@ explained below.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Gda.ValueAttribute.ACTIONS_SHOWN">
-<code class="descname">ACTIONS_SHOWN</code><em class="property"> = 32</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.ValueAttribute.DATA_NON_VALID">
-<code class="descname">DATA_NON_VALID</code><em class="property"> = 64</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gda.ValueAttribute.HAS_VALUE_ORIG">
-<code class="descname">HAS_VALUE_ORIG</code><em class="property"> = 128</em></dt>
+<dt id="Gda.ValueAttribute.CAN_BE_NULL">
+<code class="descname">CAN_BE_NULL</code><em class="property"> = 2</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -535,8 +513,28 @@ explained below.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Gda.ValueAttribute.ACTIONS_SHOWN">
+<code class="descname">ACTIONS_SHOWN</code><em class="property"> = 32</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gda.ValueAttribute.IS_DEFAULT">
+<code class="descname">IS_DEFAULT</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Gda.ValueAttribute.UNUSED">
 <code class="descname">UNUSED</code><em class="property"> = 512</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gda.ValueAttribute.DATA_NON_VALID">
+<code class="descname">DATA_NON_VALID</code><em class="property"> = 64</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gda.ValueAttribute.CAN_BE_DEFAULT">
+<code class="descname">CAN_BE_DEFAULT</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -555,7 +553,4 @@ explained below.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

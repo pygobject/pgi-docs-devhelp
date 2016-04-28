@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gio.ActionGroup" href="ActionGroup.html"/>
         <link rel="prev" title="Interfaces" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -338,12 +336,12 @@
 </table>
 <p><a class="reference internal" href="#Gio.Action" title="Gio.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action</span></code></a> represents a single named action.</p>
 <p>The main interface to an action is that it can be activated with
-<a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a> ().  This results in the &#8216;activate&#8217; signal being
+<a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a>().  This results in the &#8216;activate&#8217; signal being
 emitted.  An activation has a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> parameter (which may be
-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> ).  The correct type for the parameter is determined by a static
+<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>).  The correct type for the parameter is determined by a static
 parameter type (which is given at construction time).</p>
 <p>An action may optionally have a state, in which case the state may be
-set with <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a> ().  This call takes a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>.  The
+set with <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a>().  This call takes a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>.  The
 correct type for the state is determined by a static state type
 (which is given at construction time).</p>
 <p>The state may have a hint associated with it, specifying its valid
@@ -354,14 +352,14 @@ described above.  Various implementations of actions exist, including
 <p>In all cases, the implementing class is responsible for storing the
 name of the action, the parameter type, the enabled state, the
 optional state type and the state and emitting the appropriate
-signals when these change.  The implementor responsible for filtering
-calls to <a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a> () and <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a> () for type
+signals when these change.  The implementor is responsible for filtering
+calls to <a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a>() and <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a>() for type
 safety and for the state being enabled.</p>
 <p>Probably the only useful thing to do with a <a class="reference internal" href="#Gio.Action" title="Gio.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action</span></code></a> is to put it
 inside of a <a class="reference internal" href="../classes/SimpleActionGroup.html#Gio.SimpleActionGroup" title="Gio.SimpleActionGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SimpleActionGroup</span></code></a>.</p>
 <dl class="staticmethod">
 <dt id="Gio.Action.name_is_valid">
-<em class="property">static </em><code class="descname">name_is_valid</code><span class="sig-paren">(</span><em>action_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n425"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">name_is_valid</code><span class="sig-paren">(</span><em>action_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n425"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -386,14 +384,14 @@ plus &#8216;-&#8216; and &#8216;.&#8217;.  The empty string is not a valid actio
 
 <dl class="staticmethod">
 <dt id="Gio.Action.parse_detailed_name">
-<em class="property">static </em><code class="descname">parse_detailed_name</code><span class="sig-paren">(</span><em>detailed_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n475"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">parse_detailed_name</code><span class="sig-paren">(</span><em>detailed_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n475"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>detailed_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a detailed action name</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if successful, else <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> with <cite>error</cite> set<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -425,7 +423,7 @@ separated by a double colon (&#8221;::&#8221;).  For example:
 <p>The third format is used to represent an action with any type of
 target value, including strings.  The target value follows the action
 name, surrounded in parens.  For example: &#8220;app.action(42)&#8221;.  The
-target value is parsed using <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.parse" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.parse</span></code></a> ().  If a tuple-typed
+target value is parsed using <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.parse" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.parse</span></code></a>().  If a tuple-typed
 value is desired, it must be specified in the same way, resulting in
 two sets of parens, for example: &#8220;app.action((1,2,3))&#8221;.  A string
 target can be specified this way as well: &#8220;app.action(&#8216;target&#8217;)&#8221;.
@@ -438,7 +436,7 @@ empty or contains characters other than alphanumerics, &#8216;-&#8216; and &#821
 
 <dl class="staticmethod">
 <dt id="Gio.Action.print_detailed_name">
-<em class="property">static </em><code class="descname">print_detailed_name</code><span class="sig-paren">(</span><em>action_name</em>, <em>target_value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n565"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">print_detailed_name</code><span class="sig-paren">(</span><em>action_name</em>, <em>target_value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n565"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -472,7 +470,7 @@ this function.</p>
 
 <dl class="method">
 <dt id="Gio.Action.activate">
-<code class="descname">activate</code><span class="sig-paren">(</span><em>parameter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n390"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">activate</code><span class="sig-paren">(</span><em>parameter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n390"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -493,7 +491,7 @@ type was <a class="reference external" href="http://docs.python.org/2.7/library/
 
 <dl class="method">
 <dt id="Gio.Action.change_state">
-<code class="descname">change_state</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n196"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">change_state</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n196"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -502,12 +500,12 @@ type was <a class="reference external" href="http://docs.python.org/2.7/library/
 </tr>
 </tbody>
 </table>
-<p>Request for the state of <cite>action</cite> to be changed to <cite>value</cite>.</p>
+<p>Request for the state of <cite>self</cite> to be changed to <cite>value</cite>.</p>
 <p>The action must be stateful and <cite>value</cite> must be of the correct type.
-See <a class="reference internal" href="#Gio.Action.get_state_type" title="Gio.Action.get_state_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_type</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.Action.get_state_type" title="Gio.Action.get_state_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_type</span></code></a>().</p>
 <p>This call merely requests a change.  The action may refuse to change
 its state or may change its state to something other than <cite>value</cite>.
-See <a class="reference internal" href="#Gio.Action.get_state_hint" title="Gio.Action.get_state_hint"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_hint</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.Action.get_state_hint" title="Gio.Action.get_state_hint"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_hint</span></code></a>().</p>
 <p>If the <cite>value</cite> <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> is floating, it is consumed.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
@@ -516,7 +514,7 @@ See <a class="reference internal" href="#Gio.Action.get_state_hint" title="Gio.A
 
 <dl class="method">
 <dt id="Gio.Action.get_enabled">
-<code class="descname">get_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n365"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n365"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -527,7 +525,7 @@ See <a class="reference internal" href="#Gio.Action.get_state_hint" title="Gio.A
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>action</cite> is currently enabled.</p>
+<p>Checks if <cite>self</cite> is currently enabled.</p>
 <p>An action must be enabled in order to be activated or in order to
 have its state changed from outside callers.</p>
 <div class="versionadded">
@@ -537,7 +535,7 @@ have its state changed from outside callers.</p>
 
 <dl class="method">
 <dt id="Gio.Action.get_name">
-<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n251"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n251"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -548,7 +546,7 @@ have its state changed from outside callers.</p>
 </tr>
 </tbody>
 </table>
-<p>Queries the name of <cite>action</cite>.</p>
+<p>Queries the name of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -556,20 +554,20 @@ have its state changed from outside callers.</p>
 
 <dl class="method">
 <dt id="Gio.Action.get_parameter_type">
-<code class="descname">get_parameter_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n277"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_parameter_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n277"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the parameter type</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Queries the type of the parameter that must be given when activating
-<cite>action</cite>.</p>
-<p>When activating the action using <a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a> (), the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>
+<cite>self</cite>.</p>
+<p>When activating the action using <a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a>(), the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>
 given to that function must be of the type returned by this function.</p>
 <p>In the case that this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, you must not give any
 <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>, but <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> instead.</p>
@@ -580,7 +578,7 @@ given to that function must be of the type returned by this function.</p>
 
 <dl class="method">
 <dt id="Gio.Action.get_state">
-<code class="descname">get_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n232"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n232"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -591,12 +589,12 @@ given to that function must be of the type returned by this function.</p>
 </tr>
 </tbody>
 </table>
-<p>Queries the current state of <cite>action</cite>.</p>
+<p>Queries the current state of <cite>self</cite>.</p>
 <p>If the action is not stateful then <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> will be returned.  If the
 action is stateful then the type of the return value is the type
-given by <a class="reference internal" href="#Gio.Action.get_state_type" title="Gio.Action.get_state_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_type</span></code></a> ().</p>
-<p>The return value (if non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> ) should be freed with
-<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a> () when it is no longer required.</p>
+given by <a class="reference internal" href="#Gio.Action.get_state_type" title="Gio.Action.get_state_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_type</span></code></a>().</p>
+<p>The return value (if non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) should be freed with
+<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a>() when it is no longer required.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -604,7 +602,7 @@ given by <a class="reference internal" href="#Gio.Action.get_state_type" title="
 
 <dl class="method">
 <dt id="Gio.Action.get_state_hint">
-<code class="descname">get_state_hint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n343"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_state_hint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n343"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -616,7 +614,7 @@ given by <a class="reference internal" href="#Gio.Action.get_state_type" title="
 </tbody>
 </table>
 <p>Requests a hint about the valid range of values for the state of
-<cite>action</cite>.</p>
+<cite>self</cite>.</p>
 <p>If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned it either means that the action is not stateful
 or that there is no hint about the valid range of values for the
 state of the action.</p>
@@ -627,8 +625,8 @@ of valid values for the state.</p>
 <p>In any case, the information is merely a hint.  It may be possible to
 have a state value outside of the hinted range and setting a value
 within the range may fail.</p>
-<p>The return value (if non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> ) should be freed with
-<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a> () when it is no longer required.</p>
+<p>The return value (if non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) should be freed with
+<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a>() when it is no longer required.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -636,27 +634,27 @@ within the range may fail.</p>
 
 <dl class="method">
 <dt id="Gio.Action.get_state_type">
-<code class="descname">get_state_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.46.2#n307"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_state_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gaction.c?h=2.48.0#n307"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the state type, if the action is stateful</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Queries the type of the state of <cite>action</cite>.</p>
+<p>Queries the type of the state of <cite>self</cite>.</p>
 <p>If the action is stateful (e.g. created with
-<a class="reference internal" href="../classes/SimpleAction.html#Gio.SimpleAction.new_stateful" title="Gio.SimpleAction.new_stateful"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SimpleAction.new_stateful</span></code></a> ()) then this function returns the
+<a class="reference internal" href="../classes/SimpleAction.html#Gio.SimpleAction.new_stateful" title="Gio.SimpleAction.new_stateful"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SimpleAction.new_stateful</span></code></a>()) then this function returns the
 <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> of the state.  This is the type of the initial value
-given as the state. All calls to <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a> () must give a
-<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of this type and <a class="reference internal" href="#Gio.Action.get_state" title="Gio.Action.get_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state</span></code></a> () will return a
+given as the state. All calls to <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a>() must give a
+<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of this type and <a class="reference internal" href="#Gio.Action.get_state" title="Gio.Action.get_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state</span></code></a>() will return a
 <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of the same type.</p>
-<p>If the action is not stateful (e.g. created with <a class="reference internal" href="../classes/SimpleAction.html#Gio.SimpleAction.new" title="Gio.SimpleAction.new"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SimpleAction.new</span></code></a> ())
-then this function will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. In that case, <a class="reference internal" href="#Gio.Action.get_state" title="Gio.Action.get_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state</span></code></a> ()
-will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> and you must not call <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a> ().</p>
+<p>If the action is not stateful (e.g. created with <a class="reference internal" href="../classes/SimpleAction.html#Gio.SimpleAction.new" title="Gio.SimpleAction.new"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SimpleAction.new</span></code></a>())
+then this function will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. In that case, <a class="reference internal" href="#Gio.Action.get_state" title="Gio.Action.get_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state</span></code></a>()
+will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> and you must not call <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -696,10 +694,10 @@ type was <a class="reference external" href="http://docs.python.org/2.7/library/
 </table>
 <p>Request for the state of <cite>action</cite> to be changed to <cite>value</cite>.</p>
 <p>The action must be stateful and <cite>value</cite> must be of the correct type.
-See <a class="reference internal" href="#Gio.Action.get_state_type" title="Gio.Action.get_state_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_type</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.Action.get_state_type" title="Gio.Action.get_state_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_type</span></code></a>().</p>
 <p>This call merely requests a change.  The action may refuse to change
 its state or may change its state to something other than <cite>value</cite>.
-See <a class="reference internal" href="#Gio.Action.get_state_hint" title="Gio.Action.get_state_hint"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_hint</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.Action.get_state_hint" title="Gio.Action.get_state_hint"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_hint</span></code></a>().</p>
 <p>If the <cite>value</cite> <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> is floating, it is consumed.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
@@ -755,13 +753,13 @@ have its state changed from outside callers.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the parameter type</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Queries the type of the parameter that must be given when activating
 <cite>action</cite>.</p>
-<p>When activating the action using <a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a> (), the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>
+<p>When activating the action using <a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a>(), the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>
 given to that function must be of the type returned by this function.</p>
 <p>In the case that this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, you must not give any
 <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>, but <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> instead.</p>
@@ -786,9 +784,9 @@ given to that function must be of the type returned by this function.</p>
 <p>Queries the current state of <cite>action</cite>.</p>
 <p>If the action is not stateful then <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> will be returned.  If the
 action is stateful then the type of the return value is the type
-given by <a class="reference internal" href="#Gio.Action.get_state_type" title="Gio.Action.get_state_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_type</span></code></a> ().</p>
-<p>The return value (if non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> ) should be freed with
-<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a> () when it is no longer required.</p>
+given by <a class="reference internal" href="#Gio.Action.get_state_type" title="Gio.Action.get_state_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state_type</span></code></a>().</p>
+<p>The return value (if non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) should be freed with
+<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a>() when it is no longer required.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -819,8 +817,8 @@ of valid values for the state.</p>
 <p>In any case, the information is merely a hint.  It may be possible to
 have a state value outside of the hinted range and setting a value
 within the range may fail.</p>
-<p>The return value (if non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> ) should be freed with
-<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a> () when it is no longer required.</p>
+<p>The return value (if non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) should be freed with
+<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a>() when it is no longer required.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -835,20 +833,20 @@ within the range may fail.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the state type, if the action is stateful</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Queries the type of the state of <cite>action</cite>.</p>
 <p>If the action is stateful (e.g. created with
-<a class="reference internal" href="../classes/SimpleAction.html#Gio.SimpleAction.new_stateful" title="Gio.SimpleAction.new_stateful"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SimpleAction.new_stateful</span></code></a> ()) then this function returns the
+<a class="reference internal" href="../classes/SimpleAction.html#Gio.SimpleAction.new_stateful" title="Gio.SimpleAction.new_stateful"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SimpleAction.new_stateful</span></code></a>()) then this function returns the
 <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/VariantType.html#GLib.VariantType" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> of the state.  This is the type of the initial value
-given as the state. All calls to <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a> () must give a
-<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of this type and <a class="reference internal" href="#Gio.Action.get_state" title="Gio.Action.get_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state</span></code></a> () will return a
+given as the state. All calls to <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a>() must give a
+<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of this type and <a class="reference internal" href="#Gio.Action.get_state" title="Gio.Action.get_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state</span></code></a>() will return a
 <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of the same type.</p>
-<p>If the action is not stateful (e.g. created with <a class="reference internal" href="../classes/SimpleAction.html#Gio.SimpleAction.new" title="Gio.SimpleAction.new"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SimpleAction.new</span></code></a> ())
-then this function will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. In that case, <a class="reference internal" href="#Gio.Action.get_state" title="Gio.Action.get_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state</span></code></a> ()
-will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> and you must not call <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a> ().</p>
+<p>If the action is not stateful (e.g. created with <a class="reference internal" href="../classes/SimpleAction.html#Gio.SimpleAction.new" title="Gio.SimpleAction.new"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SimpleAction.new</span></code></a>())
+then this function will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. In that case, <a class="reference internal" href="#Gio.Action.get_state" title="Gio.Action.get_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.get_state</span></code></a>()
+will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> and you must not call <a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -877,8 +875,8 @@ will return <a class="reference external" href="http://docs.python.org/2.7/libra
 </tbody>
 </table>
 <p>If <cite>action</cite> is currently enabled.</p>
-<p>If the action is disabled then calls to <a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a> () and
-<a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a> () have no effect.</p>
+<p>If the action is disabled then calls to <a class="reference internal" href="#Gio.Action.activate" title="Gio.Action.activate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.activate</span></code></a>() and
+<a class="reference internal" href="#Gio.Action.change_state" title="Gio.Action.change_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Action.change_state</span></code></a>() have no effect.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -994,7 +992,4 @@ action is stateless. This is immutable.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

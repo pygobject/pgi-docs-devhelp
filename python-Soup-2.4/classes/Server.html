@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Soup 2.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Soup.Session" href="Session.html"/>
         <link rel="prev" title="Soup.Requester" href="Requester.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -409,7 +407,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#Soup.Server.signals.request_aborted" title="Soup.Server.signals.request_aborted"><code class="xref py py-func docutils literal"><span class="pre">request-aborted</span></code></a></td>
-<td>Emitted when processing has failed for a message; this could mean either that it could not be read (if <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_read" title="Soup.Server.signals.request_read"><code class="xref py py-func docutils literal"><span class="pre">::request-read</span></code></a> has not been emitted for it yet), or that the response could not be written back (if <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_read" title="Soup.Server.signals.request_read"><code class="xref py py-func docutils literal"><span class="pre">::request-read</span></code></a> has been emitted but <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_finished" title="Soup.Server.signals.request_finished"><code class="xref py py-func docutils literal"><span class="pre">::request-finished</span></code></a> has not been).</td>
+<td>Emitted when processing has failed for a message; this could mean either that it could not be read (if #SoupServer::request_read has not been emitted for it yet), or that the response could not be written back (if #SoupServer::request_read has been emitted but #SoupServer::request_finished has not been).</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#Soup.Server.signals.request_finished" title="Soup.Server.signals.request_finished"><code class="xref py py-func docutils literal"><span class="pre">request-finished</span></code></a></td>
 <td>Emitted when the server has finished writing a response to a request.</td>
@@ -487,7 +485,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the stream could not be
@@ -500,7 +498,7 @@ set).</p>
 </tr>
 </tbody>
 </table>
-<p>Add a new client stream to the <cite>server</cite>.</p>
+<p>Add a new client stream to the <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.50.</span></p>
 </div>
@@ -517,16 +515,16 @@ set).</p>
 </tr>
 </tbody>
 </table>
-<p>Adds an authentication domain to <cite>server</cite>. Each auth domain will
+<p>Adds an authentication domain to <cite>self</cite>. Each auth domain will
 have the chance to require authentication for each request that
 comes in; normally auth domains will require authentication for
 requests on certain paths that they have been set up to watch, or
 that meet other criteria set by the caller. If an auth domain
 determines that a request requires authentication (and the request
-doesn&#8217;t contain authentication), <cite>server</cite> will automatically reject
+doesn&#8217;t contain authentication), <cite>self</cite> will automatically reject
 the request with an appropriate status (401 Unauthorized or 407
 Proxy Authentication Required). If the request used the
-&#8220;100-continue&#8221; Expectation, <cite>server</cite> will reject it before the
+&#8220;100-continue&#8221; Expectation, <cite>self</cite> will reject it before the
 request body is sent.</p>
 </dd></dl>
 
@@ -540,13 +538,13 @@ request body is sent.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the toplevel path for the handler</li>
 <li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Soup.ServerCallback" title="Soup.ServerCallback"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerCallback</span></code></a>) &#8211; callback to invoke for requests under <cite>path</cite></li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data for <cite>callback</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data for <cite>callback</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Adds an &#8220;early&#8221; handler to <cite>server</cite> for requests under <cite>path</cite>. Note
+<p>Adds an &#8220;early&#8221; handler to <cite>self</cite> for requests under <cite>path</cite>. Note
 that &#8220;normal&#8221; and &#8220;early&#8221; handlers are matched up together, so if
 you add a normal handler for &#8220;/foo&#8221; and an early handler for
 &#8220;/foo/bar&#8221;, then a request to &#8220;/foo/bar&#8221; (or any path below it)
@@ -560,7 +558,7 @@ receiving the request body; the message&#8217;s <a class="reference internal" hr
 <p>Early handlers are generally used for processing requests with
 request bodies in a streaming fashion. If you determine that the
 request will contain a message body, normally you would call
-<a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.set_accumulate" title="Soup.MessageBody.set_accumulate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.set_accumulate</span></code></a> () on the message&#8217;s
+<a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.set_accumulate" title="Soup.MessageBody.set_accumulate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.set_accumulate</span></code></a>() on the message&#8217;s
 <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="Message.html#Soup.Message.props.request_body" title="Soup.Message.props.request_body"><code class="xref py py-data docutils literal"><span class="pre">:request-body</span></code></a> to turn off request-body accumulation,
 and connect to the message&#8217;s <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="Message.html#Soup.Message.signals.got_chunk" title="Soup.Message.signals.got_chunk"><code class="xref py py-func docutils literal"><span class="pre">::got-chunk</span></code></a> signal to
 process each chunk as it comes in.</p>
@@ -585,13 +583,13 @@ run as well.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the toplevel path for the handler</li>
 <li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Soup.ServerCallback" title="Soup.ServerCallback"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerCallback</span></code></a>) &#8211; callback to invoke for requests under <cite>path</cite></li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data for <cite>callback</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data for <cite>callback</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Adds a handler to <cite>server</cite> for requests under <cite>path</cite>. If <cite>path</cite> is
+<p>Adds a handler to <cite>self</cite> for requests under <cite>path</cite>. If <cite>path</cite> is
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> or &#8220;/&#8221;, then this will be the default handler for all
 requests that don&#8217;t have a more specific handler. (Note though that
 if you want to handle requests to the special &#8220;*&#8221; URI, you must
@@ -604,25 +602,25 @@ request body; the message&#8217;s <a class="reference internal" href="Message.ht
 <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="Message.html#Soup.Message.props.request_headers" title="Soup.Message.props.request_headers"><code class="xref py py-data docutils literal"><span class="pre">:request-headers</span></code></a>, and <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="Message.html#Soup.Message.props.request_body" title="Soup.Message.props.request_body"><code class="xref py py-data docutils literal"><span class="pre">:request-body</span></code></a> fields
 will be filled in.</p>
 <p>After determining what to do with the request, the callback must at
-a minimum call <a class="reference internal" href="Message.html#Soup.Message.set_status" title="Soup.Message.set_status"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.set_status</span></code></a> () (or
-<a class="reference internal" href="Message.html#Soup.Message.set_status_full" title="Soup.Message.set_status_full"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.set_status_full</span></code></a> ()) on the message to set the response
+a minimum call <a class="reference internal" href="Message.html#Soup.Message.set_status" title="Soup.Message.set_status"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.set_status</span></code></a>() (or
+<a class="reference internal" href="Message.html#Soup.Message.set_status_full" title="Soup.Message.set_status_full"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.set_status_full</span></code></a>()) on the message to set the response
 status code. Additionally, it may set response headers and/or fill
 in the response body.</p>
 <p>If the callback cannot fully fill in the response before returning
 (eg, if it needs to wait for information from a database, or
-another network server), it should call <a class="reference internal" href="#Soup.Server.pause_message" title="Soup.Server.pause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.pause_message</span></code></a> ()
-to tell <cite>server</cite> to not send the response right away. When the
-response is ready, call <a class="reference internal" href="#Soup.Server.unpause_message" title="Soup.Server.unpause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.unpause_message</span></code></a> () to cause it
+another network server), it should call <a class="reference internal" href="#Soup.Server.pause_message" title="Soup.Server.pause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.pause_message</span></code></a>()
+to tell <cite>self</cite> to not send the response right away. When the
+response is ready, call <a class="reference internal" href="#Soup.Server.unpause_message" title="Soup.Server.unpause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.unpause_message</span></code></a>() to cause it
 to be sent.</p>
 <p>To send the response body a bit at a time using &#8220;chunked&#8221; encoding,
-first call <a class="reference internal" href="../structs/MessageHeaders.html#Soup.MessageHeaders.set_encoding" title="Soup.MessageHeaders.set_encoding"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageHeaders.set_encoding</span></code></a> () to set
+first call <a class="reference internal" href="../structs/MessageHeaders.html#Soup.MessageHeaders.set_encoding" title="Soup.MessageHeaders.set_encoding"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageHeaders.set_encoding</span></code></a>() to set
 <a class="reference internal" href="../enums.html#Soup.Encoding.CHUNKED" title="Soup.Encoding.CHUNKED"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Encoding.CHUNKED</span></code></a> on the <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="Message.html#Soup.Message.props.response_headers" title="Soup.Message.props.response_headers"><code class="xref py py-data docutils literal"><span class="pre">:response-headers</span></code></a>. Then call
-soup_message_body_append() (or <a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.append_buffer" title="Soup.MessageBody.append_buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.append_buffer</span></code></a> ())
+<a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.append" title="Soup.MessageBody.append"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.append</span></code></a>() (or <a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.append_buffer" title="Soup.MessageBody.append_buffer"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.append_buffer</span></code></a>())
 to append each chunk as it becomes ready, and
-<a class="reference internal" href="#Soup.Server.unpause_message" title="Soup.Server.unpause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.unpause_message</span></code></a> () to make sure it&#8217;s running. (The
+<a class="reference internal" href="#Soup.Server.unpause_message" title="Soup.Server.unpause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.unpause_message</span></code></a>() to make sure it&#8217;s running. (The
 server will automatically pause the message if it is using chunked
 encoding but no more chunks are available.) When you are done, call
-<a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.complete" title="Soup.MessageBody.complete"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.complete</span></code></a> () to indicate that no more chunks are
+<a class="reference internal" href="../structs/MessageBody.html#Soup.MessageBody.complete" title="Soup.MessageBody.complete"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageBody.complete</span></code></a>() to indicate that no more chunks are
 coming.</p>
 </dd></dl>
 
@@ -639,16 +637,16 @@ coming.</p>
 <li><strong>protocols</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>] or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the protocols
 supported by this handler</li>
 <li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Soup.ServerWebsocketCallback" title="Soup.ServerWebsocketCallback"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerWebsocketCallback</span></code></a>) &#8211; callback to invoke for successful WebSocket requests under <cite>path</cite></li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data for <cite>callback</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data for <cite>callback</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Adds a WebSocket handler to <cite>server</cite> for requests under <cite>path</cite>. (If
+<p>Adds a WebSocket handler to <cite>self</cite> for requests under <cite>path</cite>. (If
 <cite>path</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> or &#8220;/&#8221;, then this will be the default handler for
 all requests that don&#8217;t have a more specific handler.)</p>
-<p>When a path has a WebSocket handler registered, <cite>server</cite> will check
+<p>When a path has a WebSocket handler registered, <cite>self</cite> will check
 incoming requests for WebSocket handshakes after all other handlers
 have run (unless some earlier handler has already set a status code
 on the message), and update the request&#8217;s status, response headers,
@@ -666,13 +664,13 @@ setting a failure status code if the handshake should be rejected.</p>
 <dl class="method">
 <dt id="Soup.Server.disconnect">
 <code class="descname">disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Closes and frees <cite>server</cite> &#8216;s listening sockets. If you are using the
+<dd><p>Closes and frees <cite>self</cite>&#8216;s listening sockets. If you are using the
 old <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> APIs, this also includes the effect of
-<a class="reference internal" href="#Soup.Server.quit" title="Soup.Server.quit"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.quit</span></code></a> ().</p>
-<p>Note that if there are currently requests in progress on <cite>server</cite>,
-that they will continue to be processed if <cite>server</cite> &#8216;s <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>
+<a class="reference internal" href="#Soup.Server.quit" title="Soup.Server.quit"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.quit</span></code></a>().</p>
+<p>Note that if there are currently requests in progress on <cite>self</cite>,
+that they will continue to be processed if <cite>self</cite>&#8216;s <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>
 is still running.</p>
-<p>You can call <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, after calling this function
+<p>You can call <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, after calling this function
 if you want to start listening again.</p>
 </dd></dl>
 
@@ -683,20 +681,20 @@ if you want to start listening again.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>server</cite> &#8216;s <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>,
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>,
 which may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>server</cite> &#8216;s async_context, if you are using the old API. (With
+<p>Gets <cite>self</cite>&#8216;s async_context, if you are using the old API. (With
 the new API, the server runs in the thread&#8217;s thread-default
 <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>, regardless of what this method returns.)</p>
 <p>This does not add a ref to the context, so you will need to ref it
 yourself if you want it to outlive its server.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>If you are using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, then the server listens on the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>, and this property is ignored.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>If you are using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, then the server listens on the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>, and this property is ignored.</p>
 </div>
 </dd></dl>
 
@@ -713,11 +711,11 @@ yourself if you want it to outlive its server.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>server</cite> &#8216;s listening socket, if you are using the old API.</p>
+<p>Gets <cite>self</cite>&#8216;s listening socket, if you are using the old API.</p>
 <p>You should treat this socket as read-only; writing to it or
-modifiying it may cause <cite>server</cite> to malfunction.</p>
+modifiying it may cause <cite>self</cite> to malfunction.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>If you are using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, then use <a class="reference internal" href="#Soup.Server.get_listeners" title="Soup.Server.get_listeners"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_listeners</span></code></a> () to get a list of all listening sockets, but note that that function returns <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Socket.html#Gio.Socket" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Sockets</span></code></a>, not <a class="reference internal" href="Socket.html#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Sockets</span></code></a>.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>If you are using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, then use <a class="reference internal" href="#Soup.Server.get_listeners" title="Soup.Server.get_listeners"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_listeners</span></code></a>() to get a list of all listening sockets, but note that that function returns <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Socket.html#Gio.Socket" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Sockets</span></code></a>, not <a class="reference internal" href="Socket.html#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Sockets</span></code></a>.</p>
 </div>
 </dd></dl>
 
@@ -735,10 +733,10 @@ list of listening sockets.</td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>server</cite> &#8216;s list of listening sockets.</p>
+<p>Gets <cite>self</cite>&#8216;s list of listening sockets.</p>
 <p>You should treat these sockets as read-only; writing to or
-modifiying any of these sockets may cause <cite>server</cite> to malfunction.</p>
-<p>(Beware that in contrast to the old <a class="reference internal" href="#Soup.Server.get_listener" title="Soup.Server.get_listener"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_listener</span></code></a> (), this
+modifiying any of these sockets may cause <cite>self</cite> to malfunction.</p>
+<p>(Beware that in contrast to the old <a class="reference internal" href="#Soup.Server.get_listener" title="Soup.Server.get_listener"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_listener</span></code></a>(), this
 function returns <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Socket.html#Gio.Socket" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Sockets</span></code></a>, not <a class="reference internal" href="Socket.html#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Sockets</span></code></a>.)</p>
 </dd></dl>
 
@@ -749,16 +747,16 @@ function returns <a class="reference external" href="../_docs/Soup-2.4/../../../
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the port <cite>server</cite> is listening on.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the port <cite>self</cite> is listening on.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the TCP port that <cite>server</cite> is listening on, if you are using
+<p>Gets the TCP port that <cite>self</cite> is listening on, if you are using
 the old API.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>If you are using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, then use <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a> () to get a list of all listening addresses.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>If you are using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, then use <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a>() to get a list of all listening addresses.</p>
 </div>
 </dd></dl>
 
@@ -776,10 +774,10 @@ the old API.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets a list of URIs corresponding to the interfaces <cite>server</cite> is
+<p>Gets a list of URIs corresponding to the interfaces <cite>self</cite> is
 listening on. These will contain IP addresses, not hostnames, and
 will also indicate whether the given listener is http or https.</p>
-<p>Note that if you used <a class="reference internal" href="#Soup.Server.listen_all" title="Soup.Server.listen_all"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen_all</span></code></a> (), the returned URIs
+<p>Note that if you used <a class="reference internal" href="#Soup.Server.listen_all" title="Soup.Server.listen_all"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen_all</span></code></a>(), the returned URIs
 will use the addresses <code class="docutils literal"><span class="pre">0.0.0.0</span></code> and
 <code class="docutils literal"><span class="pre">::</span></code>, rather than actually returning separate URIs
 for each interface on the system.</p>
@@ -795,23 +793,23 @@ for each interface on the system.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>server</cite> is configured to serve https.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is configured to serve https.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks whether <cite>server</cite> is capable of https.</p>
+<p>Checks whether <cite>self</cite> is capable of https.</p>
 <p>In order for a server to run https, you must call
-<a class="reference internal" href="#Soup.Server.set_ssl_cert_file" title="Soup.Server.set_ssl_cert_file"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.set_ssl_cert_file</span></code></a> (), or set the
+<a class="reference internal" href="#Soup.Server.set_ssl_cert_file" title="Soup.Server.set_ssl_cert_file"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.set_ssl_cert_file</span></code></a>(), or set the
 <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.props.tls_certificate" title="Soup.Server.props.tls_certificate"><code class="xref py py-data docutils literal"><span class="pre">:tls-certificate</span></code></a> property, to provide it with a
 certificate to use.</p>
 <p>If you are using the deprecated single-listener APIs, then a return
 value of <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> indicates that the <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> serves https
-exclusively. If you are using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, then a
+exclusively. If you are using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, then a
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> return value merely indicates that the server is
 able to do https, regardless of whether it
-actually currently is or not. Use <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a> () to see if
+actually currently is or not. Use <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a>() to see if
 it currently has any https listeners.</p>
 </dd></dl>
 
@@ -828,7 +826,7 @@ it currently has any https listeners.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if <cite>address</cite> could not be
@@ -841,15 +839,15 @@ set).</p>
 </tr>
 </tbody>
 </table>
-<p>This attempts to set up <cite>server</cite> to listen for connections on
+<p>This attempts to set up <cite>self</cite> to listen for connections on
 <cite>address</cite>.</p>
-<p>If <cite>options</cite> includes <a class="reference internal" href="../flags.html#Soup.ServerListenOptions.HTTPS" title="Soup.ServerListenOptions.HTTPS"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerListenOptions.HTTPS</span></code></a>, and <cite>server</cite> has
-been configured for TLS, then <cite>server</cite> will listen for https
+<p>If <cite>options</cite> includes <a class="reference internal" href="../flags.html#Soup.ServerListenOptions.HTTPS" title="Soup.ServerListenOptions.HTTPS"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerListenOptions.HTTPS</span></code></a>, and <cite>self</cite> has
+been configured for TLS, then <cite>self</cite> will listen for https
 connections on this port. Otherwise it will listen for plain http.</p>
 <p>You may call this method (along with the other &#8220;listen&#8221; methods)
 any number of times on a server, if you want to listen on multiple
 ports, or set up both http and https service.</p>
-<p>After calling this method, <cite>server</cite> will begin accepting and
+<p>After calling this method, <cite>self</cite> will begin accepting and
 processing connections as soon as the appropriate <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is
 run.</p>
 <p>Note that <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> never makes use of dual IPv4/IPv6 sockets; if
@@ -873,7 +871,7 @@ You must configure IPv4 listening separately.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if <cite>port</cite> could not be bound
@@ -885,15 +883,15 @@ or any other error occurred (in which case <cite>error</cite> will be set).</p>
 </tr>
 </tbody>
 </table>
-<p>This attempts to set up <cite>server</cite> to listen for connections on all
+<p>This attempts to set up <cite>self</cite> to listen for connections on all
 interfaces on the system. (That is, it listens on the addresses
 <code class="docutils literal"><span class="pre">0.0.0.0</span></code> and/or <code class="docutils literal"><span class="pre">::</span></code>, depending
 on whether <cite>options</cite> includes <a class="reference internal" href="../flags.html#Soup.ServerListenOptions.IPV4_ONLY" title="Soup.ServerListenOptions.IPV4_ONLY"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerListenOptions.IPV4_ONLY</span></code></a>,
 <a class="reference internal" href="../flags.html#Soup.ServerListenOptions.IPV6_ONLY" title="Soup.ServerListenOptions.IPV6_ONLY"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerListenOptions.IPV6_ONLY</span></code></a>, or neither.) If <cite>port</cite> is specified,
-<cite>server</cite> will listen on that port. If it is 0, <cite>server</cite> will find an
+<cite>self</cite> will listen on that port. If it is 0, <cite>self</cite> will find an
 unused port to listen on. (In that case, you can use
-<a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a> () to find out what port it ended up choosing.)</p>
-<p>See <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> () for more details.</p>
+<a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a>() to find out what port it ended up choosing.)</p>
+<p>See <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>() for more details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.48.</span></p>
 </div>
@@ -912,7 +910,7 @@ unused port to listen on. (In that case, you can use
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if an error occurred (in
@@ -924,11 +922,11 @@ which case <cite>error</cite> will be set).</p>
 </tr>
 </tbody>
 </table>
-<p>This attempts to set up <cite>server</cite> to listen for connections on
+<p>This attempts to set up <cite>self</cite> to listen for connections on
 <cite>fd</cite>.</p>
-<p>See <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> () for more details.</p>
-<p>Note that <cite>server</cite> will close <cite>fd</cite> when you free it or call
-<a class="reference internal" href="#Soup.Server.disconnect" title="Soup.Server.disconnect"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.disconnect</span></code></a> ().</p>
+<p>See <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>() for more details.</p>
+<p>Note that <cite>self</cite> will close <cite>fd</cite> when you free it or call
+<a class="reference internal" href="#Soup.Server.disconnect" title="Soup.Server.disconnect"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.disconnect</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.48.</span></p>
 </div>
@@ -947,7 +945,7 @@ which case <cite>error</cite> will be set).</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if <cite>port</cite> could not be bound
@@ -959,15 +957,15 @@ or any other error occurred (in which case <cite>error</cite> will be set).</p>
 </tr>
 </tbody>
 </table>
-<p>This attempts to set up <cite>server</cite> to listen for connections on
+<p>This attempts to set up <cite>self</cite> to listen for connections on
 &#8220;localhost&#8221; (that is, <code class="docutils literal"><span class="pre">127.0.0.1</span></code> and/or
 <code class="docutils literal"><span class="pre">::1</span></code>, depending on whether <cite>options</cite> includes
 <a class="reference internal" href="../flags.html#Soup.ServerListenOptions.IPV4_ONLY" title="Soup.ServerListenOptions.IPV4_ONLY"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerListenOptions.IPV4_ONLY</span></code></a>, <a class="reference internal" href="../flags.html#Soup.ServerListenOptions.IPV6_ONLY" title="Soup.ServerListenOptions.IPV6_ONLY"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerListenOptions.IPV6_ONLY</span></code></a>, or
-neither). If <cite>port</cite> is specified, <cite>server</cite> will listen on that port.
-If it is 0, <cite>server</cite> will find an unused port to listen on. (In that
-case, you can use <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a> () to find out what port it
+neither). If <cite>port</cite> is specified, <cite>self</cite> will listen on that port.
+If it is 0, <cite>self</cite> will find an unused port to listen on. (In that
+case, you can use <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a>() to find out what port it
 ended up choosing.)</p>
-<p>See <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> () for more details.</p>
+<p>See <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>() for more details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.48.</span></p>
 </div>
@@ -986,7 +984,7 @@ ended up choosing.)</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if an error occurred (in
@@ -998,9 +996,9 @@ which case <cite>error</cite> will be set).</p>
 </tr>
 </tbody>
 </table>
-<p>This attempts to set up <cite>server</cite> to listen for connections on
+<p>This attempts to set up <cite>self</cite> to listen for connections on
 <cite>socket</cite>.</p>
-<p>See <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> () for more details.</p>
+<p>See <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>() for more details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.48.</span></p>
 </div>
@@ -1013,13 +1011,13 @@ which case <cite>error</cite> will be set).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> associated with <cite>server</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> associated with <cite>self</cite>.</td>
 </tr>
 </tbody>
 </table>
 <p>Pauses I/O on <cite>msg</cite>. This can be used when you need to return from
 the server handler without having the full response ready yet. Use
-<a class="reference internal" href="#Soup.Server.unpause_message" title="Soup.Server.unpause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.unpause_message</span></code></a> () to resume I/O.</p>
+<a class="reference internal" href="#Soup.Server.unpause_message" title="Soup.Server.unpause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.unpause_message</span></code></a>() to resume I/O.</p>
 <p>This must only be called on <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Messages</span></code></a> which were created by the
 <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> and are currently doing I/O, such as those passed into a
 <a class="reference internal" href="../callbacks.html#Soup.ServerCallback" title="Soup.ServerCallback"><code class="xref py py-obj docutils literal"><span class="pre">Soup.ServerCallback</span></code></a> or emitted in a <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_read" title="Soup.Server.signals.request_read"><code class="xref py py-func docutils literal"><span class="pre">::request-read</span></code></a> signal.</p>
@@ -1028,16 +1026,16 @@ the server handler without having the full response ready yet. Use
 <dl class="method">
 <dt id="Soup.Server.quit">
 <code class="descname">quit</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Stops processing for <cite>server</cite>, if you are using the old API. Call
-this to clean up after <a class="reference internal" href="#Soup.Server.run_async" title="Soup.Server.run_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.run_async</span></code></a> (), or to terminate a
-call to <a class="reference internal" href="#Soup.Server.run" title="Soup.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.run</span></code></a> ().</p>
+<dd><p>Stops processing for <cite>self</cite>, if you are using the old API. Call
+this to clean up after <a class="reference internal" href="#Soup.Server.run_async" title="Soup.Server.run_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.run_async</span></code></a>(), or to terminate a
+call to <a class="reference internal" href="#Soup.Server.run" title="Soup.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.run</span></code></a>().</p>
 <p>Note that messages currently in progress will continue to be
 handled, if the main loop associated with the server is resumed or
 kept running.</p>
-<p><cite>server</cite> is still in a working state after this call; you can start
+<p><cite>self</cite> is still in a working state after this call; you can start
 and stop a server as many times as you want.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>When using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, the server will always listen for connections, and will process them whenever the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is running.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>When using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, the server will always listen for connections, and will process them whenever the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is running.</p>
 </div>
 </dd></dl>
 
@@ -1052,7 +1050,7 @@ and stop a server as many times as you want.</p>
 </tr>
 </tbody>
 </table>
-<p>Removes <cite>auth_domain</cite> from <cite>server</cite>.</p>
+<p>Removes <cite>auth_domain</cite> from <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1072,28 +1070,28 @@ and stop a server as many times as you want.</p>
 <dl class="method">
 <dt id="Soup.Server.run">
 <code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Starts <cite>server</cite>, if you are using the old API, causing it to listen
+<dd><p>Starts <cite>self</cite>, if you are using the old API, causing it to listen
 for and process incoming connections. Unlike
-<a class="reference internal" href="#Soup.Server.run_async" title="Soup.Server.run_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.run_async</span></code></a> (), this creates a <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainLoop.html#GLib.MainLoop" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainLoop</span></code></a> and runs it, and
-it will not return until someone calls <a class="reference internal" href="#Soup.Server.quit" title="Soup.Server.quit"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.quit</span></code></a> () to stop
+<a class="reference internal" href="#Soup.Server.run_async" title="Soup.Server.run_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.run_async</span></code></a>(), this creates a <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainLoop.html#GLib.MainLoop" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainLoop</span></code></a> and runs it, and
+it will not return until someone calls <a class="reference internal" href="#Soup.Server.quit" title="Soup.Server.quit"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.quit</span></code></a>() to stop
 the server.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>When using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, the server will always listen for connections, and will process them whenever the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is running.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>When using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, the server will always listen for connections, and will process them whenever the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is running.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Soup.Server.run_async">
 <code class="descname">run_async</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Starts <cite>server</cite>, if you are using the old API, causing it to listen
+<dd><p>Starts <cite>self</cite>, if you are using the old API, causing it to listen
 for and process incoming connections.</p>
-<p>The server runs in <cite>server</cite> &#8216;s <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>. It will not actually
+<p>The server runs in <cite>self</cite>&#8216;s <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>. It will not actually
 perform any processing unless the appropriate main loop is running.
 In the simple case where you did not set the server&#8217;s
 <a class="reference internal" href="../constants.html#Soup.SERVER_ASYNC_CONTEXT" title="Soup.SERVER_ASYNC_CONTEXT"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SERVER_ASYNC_CONTEXT</span></code></a> property, this means the server will run
 whenever the glib main loop is running.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>When using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, the server will always listen for connections, and will process them whenever the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is running.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>When using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, the server will always listen for connections, and will process them whenever the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is running.</p>
 </div>
 </dd></dl>
 
@@ -1111,7 +1109,7 @@ certificate.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">success or failure.</p>
@@ -1122,7 +1120,7 @@ certificate.</li>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>server</cite> up to do https, using the SSL/TLS certificate
+<p>Sets <cite>self</cite> up to do https, using the SSL/TLS certificate
 specified by <cite>ssl_cert_file</cite> and <cite>ssl_key_file</cite> (which may point to
 the same file).</p>
 <p>Alternatively, you can set the <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.props.tls_certificate" title="Soup.Server.props.tls_certificate"><code class="xref py py-data docutils literal"><span class="pre">:tls-certificate</span></code></a> property
@@ -1139,12 +1137,12 @@ at construction time, if you already have a <a class="reference external" href="
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> associated with <cite>server</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> associated with <cite>self</cite>.</td>
 </tr>
 </tbody>
 </table>
 <p>Resumes I/O on <cite>msg</cite>. Use this to resume after calling
-<a class="reference internal" href="#Soup.Server.pause_message" title="Soup.Server.pause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.pause_message</span></code></a> (), or after adding a new chunk to a
+<a class="reference internal" href="#Soup.Server.pause_message" title="Soup.Server.pause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.pause_message</span></code></a>(), or after adding a new chunk to a
 chunked response.</p>
 <p>I/O won&#8217;t actually resume until you return to the main loop.</p>
 <p>This must only be called on <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Messages</span></code></a> which were created by the
@@ -1249,14 +1247,14 @@ chunked response.</p>
 </table>
 <p>Emitted when processing has failed for a message; this
 could mean either that it could not be read (if
-<a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_read" title="Soup.Server.signals.request_read"><code class="xref py py-func docutils literal"><span class="pre">::request-read</span></code></a> has not been emitted for it yet),
+#SoupServer::request_read has not been emitted for it yet),
 or that the response could not be written back (if
-<a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_read" title="Soup.Server.signals.request_read"><code class="xref py py-func docutils literal"><span class="pre">::request-read</span></code></a> has been emitted but
-<a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_finished" title="Soup.Server.signals.request_finished"><code class="xref py py-func docutils literal"><span class="pre">::request-finished</span></code></a> has not been).</p>
+#SoupServer::request_read has been emitted but
+#SoupServer::request_finished has not been).</p>
 <p><cite>message</cite> is in an undefined state when this signal is
 emitted; the signal exists primarily to allow the server to
 free any state that it may have allocated in
-<a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_started" title="Soup.Server.signals.request_started"><code class="xref py py-func docutils literal"><span class="pre">::request-started</span></code></a>.</p>
+#SoupServer::request_started.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1343,11 +1341,11 @@ handler processing will be skipped.</p>
 Request-Line will have been read yet. About the only thing
 you can usefully do with it is connect to its signals.</p>
 <p>If the request is read successfully, this will eventually
-be followed by a <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_read" title="Soup.Server.signals.request_read"><code class="xref py py-func docutils literal"><span class="pre">::request-read</span></code></a> signal. If a
+be followed by a #SoupServer::request_read signal. If a
 response is then sent, the request processing will end with
-a <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_finished" title="Soup.Server.signals.request_finished"><code class="xref py py-func docutils literal"><span class="pre">::request-finished</span></code></a> signal. If a network error
+a #SoupServer::request_finished signal. If a network error
 occurs, the processing will instead end with
-<a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.signals.request_aborted" title="Soup.Server.signals.request_aborted"><code class="xref py py-func docutils literal"><span class="pre">::request-aborted</span></code></a>.</p>
+#SoupServer::request_aborted.</p>
 </dd></dl>
 
 </div>
@@ -1371,11 +1369,11 @@ occurs, the processing will instead end with
 </tbody>
 </table>
 <p>The server&#8217;s <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>, if you are using the old API.
-Servers created using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> () will listen on
+Servers created using <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>() will listen on
 the <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> that was the thread-default context at
-the time <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> () was called.</p>
+the time <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>() was called.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>The new API uses the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>  rather than having an explicitly-specified one.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>The new API uses the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> rather than having an explicitly-specified one.</p>
 </div>
 </dd></dl>
 
@@ -1460,10 +1458,10 @@ are considered aliases for &#8220;https&#8221;.</p>
 </table>
 <p>The address of the network interface the server is
 listening on, if you are using the old <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> API.
-(This will not be set if you use <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (),
+(This will not be set if you use <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(),
 etc.)</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span><a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Servers</span></code></a> can listen on multiple interfaces at once now. Use <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, to listen on an interface, and <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a> () to see what addresses are being listened on.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span><a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Servers</span></code></a> can listen on multiple interfaces at once now. Use <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, to listen on an interface, and <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a>() to see what addresses are being listened on.</p>
 </div>
 </dd></dl>
 
@@ -1486,9 +1484,9 @@ etc.)</p>
 </table>
 <p>The port the server is listening on, if you are using the
 old <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> API. (This will not be set if you use
-<a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc.)</p>
+<a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc.)</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span><a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Servers</span></code></a> can listen on multiple interfaces at once now. Use <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a> (), etc, to listen on a port, and <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a> () to see what ports are being listened on.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span><a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Servers</span></code></a> can listen on multiple interfaces at once now. Use <a class="reference internal" href="#Soup.Server.listen" title="Soup.Server.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.listen</span></code></a>(), etc, to listen on a port, and <a class="reference internal" href="#Soup.Server.get_uris" title="Soup.Server.get_uris"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.get_uris</span></code></a>() to see what ports are being listened on.</p>
 </div>
 </dd></dl>
 
@@ -1545,8 +1543,8 @@ version numbers in their Server header, so that
 installations running older versions of the server don&#8217;t
 end up advertising their vulnerability to specific security
 holes.</p>
-<p>As with <a class="reference internal" href="Session.html#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="Session.html#Soup.Session.props.user_agent" title="Soup.Session.props.user_agent"><code class="xref py py-data docutils literal"><span class="pre">:user-agent</span></code></a>, if you set a
-<a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.props.server_header" title="Soup.Server.props.server_header"><code class="xref py py-data docutils literal"><span class="pre">:server-header</span></code></a> property that has trailing whitespace,
+<p>As with #SoupSession:user_agent, if you set a
+#SoupServer:server_header property that has trailing whitespace,
 <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> will append its own product token (eg,
 &#8220;<code class="docutils literal"><span class="pre">libsoup/2.3.2</span></code>&#8221;) to the end of the
 header for you.</p>
@@ -1571,7 +1569,7 @@ header for you.</p>
 </table>
 <p>Path to a file containing a PEM-encoded certificate.</p>
 <p>If you set this property and <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> <a class="reference internal" href="#Soup.Server.props.ssl_key_file" title="Soup.Server.props.ssl_key_file"><code class="xref py py-data docutils literal"><span class="pre">:ssl-key-file</span></code></a> at
-construct time, then <code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.new</span></code> () will try to read the
+construct time, then soup_server_new() will try to read the
 files; if it cannot, it will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, with no explicit
 indication of what went wrong (and logging a warning with
 newer versions of glib, since returning <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> from a
@@ -1626,7 +1624,7 @@ is used.</p>
 <p>A <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a> that has a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a> <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate.props.private_key" title="(in Gio 2.0 v2.0)"><code class="xref py py-data docutils literal"><span class="pre">:private-key</span></code></a>
 set. If this is set, then the server will be able to speak
 https in addition to (or instead of) plain http.</p>
-<p>Alternatively, you can call <a class="reference internal" href="#Soup.Server.set_ssl_cert_file" title="Soup.Server.set_ssl_cert_file"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.set_ssl_cert_file</span></code></a> ()
+<p>Alternatively, you can call <a class="reference internal" href="#Soup.Server.set_ssl_cert_file" title="Soup.Server.set_ssl_cert_file"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server.set_ssl_cert_file</span></code></a>()
 to have <a class="reference internal" href="#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> read in a a certificate from a file.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.38.</span></p>
@@ -1647,7 +1645,4 @@ to have <a class="reference internal" href="#Soup.Server" title="Soup.Server"><c
   </div> 
 
 </body>
-
-  
-
 </html>

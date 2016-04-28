@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gda 5.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Hierarchy" href="../hierarchy.html"/>
         <link rel="prev" title="Gda.UShort" href="UShort.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -380,7 +378,7 @@ performing a distributed transaction across several connections.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if no error occurred</td>
 </tr>
@@ -388,10 +386,10 @@ performing a distributed transaction across several connections.</p>
 </tr>
 </tbody>
 </table>
-<p>Begins a distributed transaction (managed by <cite>xa_trans</cite> ). Please note that this phase may fail
+<p>Begins a distributed transaction (managed by <cite>self</cite>). Please note that this phase may fail
 for some connections if a (normal) transaction is already started (this depends on the database
 provider being used), so it&#8217;s better to avoid starting any (normal) transaction on any of the
-connections registered with <cite>xa_trans</cite>.</p>
+connections registered with <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -401,7 +399,7 @@ connections registered with <cite>xa_trans</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if no error occurred (there may be some connections to recover, though)<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -417,13 +415,13 @@ connections registered with <cite>xa_trans</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Commits a distributed transaction (managed by <cite>xa_trans</cite> ). The commit is composed of two phases:</p>
+<p>Commits a distributed transaction (managed by <cite>self</cite>). The commit is composed of two phases:</p>
 <ul class="simple">
 <li>a PREPARE phase where all the connections are required to store their transaction data to a
 permanent place (to be able to complete the commit should a problem occur afterwards)</li>
 <li>a COMMIT phase where the transaction data is actually written to the database</li>
 </ul>
-<p>If the PREPARE phase fails for any of the connection registered with <cite>xa_trans</cite>, then the distributed commit
+<p>If the PREPARE phase fails for any of the connection registered with <cite>self</cite>, then the distributed commit
 fails and <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned. During the COMMIT phase, some commit may actually fail but the transaction can
 still be completed because the PREPARE phase succeeded (through the recover method).</p>
 </dd></dl>
@@ -435,7 +433,7 @@ still be completed because the PREPARE phase succeeded (through the recover meth
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if all the data which was still uncommitted has been committed<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -451,7 +449,7 @@ still be completed because the PREPARE phase succeeded (through the recover meth
 </tr>
 </tbody>
 </table>
-<p>Tries to commit the data prepared but which failed to commit (see <a class="reference internal" href="#Gda.XaTransaction.commit" title="Gda.XaTransaction.commit"><code class="xref py py-obj docutils literal"><span class="pre">Gda.XaTransaction.commit</span></code></a> ()). This
+<p>Tries to commit the data prepared but which failed to commit (see <a class="reference internal" href="#Gda.XaTransaction.commit" title="Gda.XaTransaction.commit"><code class="xref py py-obj docutils literal"><span class="pre">Gda.XaTransaction.commit</span></code></a>()). This
 method allows one to terminate a distributed transaction which succeeded but for which some
 connections needed to be recovered.</p>
 </dd></dl>
@@ -464,12 +462,12 @@ connections needed to be recovered.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>cnc</strong> (<a class="reference internal" href="Connection.html#Gda.Connection" title="Gda.Connection"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Connection</span></code></a>) &#8211; the connection to add to <cite>xa_trans</cite></li>
+<li><strong>cnc</strong> (<a class="reference internal" href="Connection.html#Gda.Connection" title="Gda.Connection"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Connection</span></code></a>) &#8211; the connection to add to <cite>self</cite></li>
 <li><strong>branch</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the branch qualifier</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if no error occurred</p>
@@ -480,7 +478,7 @@ connections needed to be recovered.</p>
 </tr>
 </tbody>
 </table>
-<p>Registers <cite>cnc</cite> to be used by <cite>xa_trans</cite> to create a distributed transaction.</p>
+<p>Registers <cite>cnc</cite> to be used by <cite>self</cite> to create a distributed transaction.</p>
 <p>Note: any <a class="reference internal" href="Connection.html#Gda.Connection" title="Gda.Connection"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Connection</span></code></a> object can only be registered with at most one <a class="reference internal" href="#Gda.XaTransaction" title="Gda.XaTransaction"><code class="xref py py-obj docutils literal"><span class="pre">Gda.XaTransaction</span></code></a> object; also
 some connections may not be registered at all with a <a class="reference internal" href="#Gda.XaTransaction" title="Gda.XaTransaction"><code class="xref py py-obj docutils literal"><span class="pre">Gda.XaTransaction</span></code></a> object because the database
 provider being used does not support it.</p>
@@ -493,7 +491,7 @@ provider being used does not support it.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if no error occurred</td>
 </tr>
@@ -501,7 +499,7 @@ provider being used does not support it.</p>
 </tr>
 </tbody>
 </table>
-<p>Cancels a distributed transaction (managed by <cite>xa_trans</cite> ).</p>
+<p>Cancels a distributed transaction (managed by <cite>self</cite>).</p>
 </dd></dl>
 
 <dl class="method">
@@ -511,12 +509,12 @@ provider being used does not support it.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cnc</strong> (<a class="reference internal" href="Connection.html#Gda.Connection" title="Gda.Connection"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Connection</span></code></a>) &#8211; the connection to add to <cite>xa_trans</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cnc</strong> (<a class="reference internal" href="Connection.html#Gda.Connection" title="Gda.Connection"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Connection</span></code></a>) &#8211; the connection to add to <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
-<p>Unregisters <cite>cnc</cite> to be used by <cite>xa_trans</cite> to create a distributed transaction. This is
-the opposite of <a class="reference internal" href="#Gda.XaTransaction.register_connection" title="Gda.XaTransaction.register_connection"><code class="xref py py-obj docutils literal"><span class="pre">Gda.XaTransaction.register_connection</span></code></a> ().</p>
+<p>Unregisters <cite>cnc</cite> to be used by <cite>self</cite> to create a distributed transaction. This is
+the opposite of <a class="reference internal" href="#Gda.XaTransaction.register_connection" title="Gda.XaTransaction.register_connection"><code class="xref py py-obj docutils literal"><span class="pre">Gda.XaTransaction.register_connection</span></code></a>().</p>
 </dd></dl>
 
 </dd></dl>
@@ -576,7 +574,4 @@ the opposite of <a class="reference internal" href="#Gda.XaTransaction.register_
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GObject 2.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Enums" href="enums.html"/>
         <link rel="prev" title="GObject.TypeCValue" href="unions/TypeCValue.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -149,8 +147,8 @@
 <dt id="GObject.BindingFlags">
 <em class="property">class </em><code class="descclassname">GObject.</code><code class="descname">BindingFlags</code></dt>
 <dd><p>Bases: <a class="reference internal" href="#GObject.GFlags" title="GObject.GFlags"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
-<p>Flags to be passed to <a class="reference internal" href="classes/Object.html#GObject.Object.bind_property" title="GObject.Object.bind_property"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.bind_property</span></code></a> () or
-g_object_bind_property_full().</p>
+<p>Flags to be passed to <a class="reference internal" href="classes/Object.html#GObject.Object.bind_property" title="GObject.Object.bind_property"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.bind_property</span></code></a>() or
+<a class="reference internal" href="classes/Object.html#GObject.Object.bind_property_full" title="GObject.Object.bind_property_full"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.bind_property_full</span></code></a>().</p>
 <p>This enumeration can be extended at later date.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.26.</span></p>
@@ -185,7 +183,7 @@ the synchronization is always from the source to the target.</p>
 booleans, setting one to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> will result in the other being
 set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> and vice versa. This flag will only work for
 boolean properties, and cannot be used when passing custom
-transformation functions to g_object_bind_property_full().</p>
+transformation functions to <a class="reference internal" href="classes/Object.html#GObject.Object.bind_property_full" title="GObject.Object.bind_property_full"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.bind_property_full</span></code></a>().</p>
 </dd></dl>
 
 </dd></dl>
@@ -193,7 +191,7 @@ transformation functions to g_object_bind_property_full().</p>
 <dl class="class">
 <dt id="GObject.ConnectFlags">
 <em class="property">class </em><code class="descclassname">GObject.</code><code class="descname">ConnectFlags</code></dt>
-<dd><p>Bases: <a class="reference internal" href="#GObject.GFlags" title="GObject.GFlags"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/GObject-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>The connection flags are used to specify the behaviour of a signal&#8217;s
 connection.</p>
 <dl class="attribute">
@@ -215,13 +213,13 @@ calling the handler; see g_signal_connect_swapped() for an example.</p>
 <dl class="class">
 <dt id="GObject.GFlags">
 <em class="property">class </em><code class="descclassname">GObject.</code><code class="descname">GFlags</code></dt>
-<dd><p>Bases: <a class="reference internal" href="#GObject.GFlags" title="GObject.GFlags"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/GObject-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="GObject.ParamFlags">
 <em class="property">class </em><code class="descclassname">GObject.</code><code class="descname">ParamFlags</code></dt>
-<dd><p>Bases: <a class="reference internal" href="#GObject.GFlags" title="GObject.GFlags"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/GObject-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>Through the <a class="reference internal" href="#GObject.ParamFlags" title="GObject.ParamFlags"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamFlags</span></code></a> flag values, certain aspects of parameters
 can be configured. See also <a class="reference internal" href="constants.html#GObject.PARAM_STATIC_STRINGS" title="GObject.PARAM_STATIC_STRINGS"><code class="xref py py-obj docutils literal"><span class="pre">GObject.PARAM_STATIC_STRINGS</span></code></a>.</p>
 <dl class="attribute">
@@ -242,6 +240,36 @@ while running with G_ENABLE_DIAGNOSTIC=1.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="GObject.ParamFlags.EXPLICIT_NOTIFY">
+<code class="descname">EXPLICIT_NOTIFY</code><em class="property"> = 1073741824</em></dt>
+<dd><p>calls to <a class="reference internal" href="classes/Object.html#GObject.Object.set_property" title="GObject.Object.set_property"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.set_property</span></code></a>() for this
+property will not automatically result in a &#8220;notify&#8221; signal being
+emitted: the implementation must call <a class="reference internal" href="classes/Object.html#GObject.Object.notify" title="GObject.Object.notify"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.notify</span></code></a>() themselves
+in case the property actually changes.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.42.</span></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GObject.ParamFlags.STATIC_BLURB">
+<code class="descname">STATIC_BLURB</code><em class="property"> = 128</em></dt>
+<dd><p>the string used as blurb when constructing the
+parameter is guaranteed to remain valid and
+unmodified for the lifetime of the parameter.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GObject.ParamFlags.LAX_VALIDATION">
+<code class="descname">LAX_VALIDATION</code><em class="property"> = 16</em></dt>
+<dd><p>upon parameter conversion (see <a class="reference internal" href="functions.html#GObject.param_value_convert" title="GObject.param_value_convert"><code class="xref py py-obj docutils literal"><span class="pre">GObject.param_value_convert</span></code></a>())
+strict validation is not required</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="GObject.ParamFlags.WRITABLE">
 <code class="descname">WRITABLE</code><em class="property"> = 2</em></dt>
 <dd><p>the parameter is writable</p>
@@ -251,25 +279,6 @@ while running with G_ENABLE_DIAGNOSTIC=1.</p>
 <dt id="GObject.ParamFlags.READWRITE">
 <code class="descname">READWRITE</code><em class="property"> = 3</em></dt>
 <dd><p>alias for <a class="reference internal" href="#GObject.ParamFlags.READABLE" title="GObject.ParamFlags.READABLE"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamFlags.READABLE</span></code></a> | <a class="reference internal" href="#GObject.ParamFlags.WRITABLE" title="GObject.ParamFlags.WRITABLE"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamFlags.WRITABLE</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GObject.ParamFlags.CONSTRUCT">
-<code class="descname">CONSTRUCT</code><em class="property"> = 4</em></dt>
-<dd><p>the parameter will be set upon object construction</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GObject.ParamFlags.CONSTRUCT_ONLY">
-<code class="descname">CONSTRUCT_ONLY</code><em class="property"> = 8</em></dt>
-<dd><p>the parameter can only be set upon object construction</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GObject.ParamFlags.LAX_VALIDATION">
-<code class="descname">LAX_VALIDATION</code><em class="property"> = 16</em></dt>
-<dd><p>upon parameter conversion (see <a class="reference internal" href="functions.html#GObject.param_value_convert" title="GObject.param_value_convert"><code class="xref py py-obj docutils literal"><span class="pre">GObject.param_value_convert</span></code></a> ())
-strict validation is not required</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -290,6 +299,12 @@ unmodified for the lifetime of the parameter.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="GObject.ParamFlags.CONSTRUCT">
+<code class="descname">CONSTRUCT</code><em class="property"> = 4</em></dt>
+<dd><p>the parameter will be set upon object construction</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="GObject.ParamFlags.STATIC_NICK">
 <code class="descname">STATIC_NICK</code><em class="property"> = 64</em></dt>
 <dd><p>the string used as nick when constructing the
@@ -301,26 +316,9 @@ unmmodified for the lifetime of the parameter.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="GObject.ParamFlags.STATIC_BLURB">
-<code class="descname">STATIC_BLURB</code><em class="property"> = 128</em></dt>
-<dd><p>the string used as blurb when constructing the
-parameter is guaranteed to remain valid and
-unmodified for the lifetime of the parameter.</p>
-<div class="versionadded">
-<p><span class="versionmodified">New in version 2.8.</span></p>
-</div>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GObject.ParamFlags.EXPLICIT_NOTIFY">
-<code class="descname">EXPLICIT_NOTIFY</code><em class="property"> = 1073741824</em></dt>
-<dd><p>calls to <a class="reference internal" href="classes/Object.html#GObject.Object.set_property" title="GObject.Object.set_property"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.set_property</span></code></a> () for this
-property will not automatically result in a &#8220;notify&#8221; signal being
-emitted: the implementation must call <a class="reference internal" href="classes/Object.html#GObject.Object.notify" title="GObject.Object.notify"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.notify</span></code></a> () themselves
-in case the property actually changes.</p>
-<div class="versionadded">
-<p><span class="versionmodified">New in version 2.42..</span></p>
-</div>
+<dt id="GObject.ParamFlags.CONSTRUCT_ONLY">
+<code class="descname">CONSTRUCT_ONLY</code><em class="property"> = 8</em></dt>
+<dd><p>the parameter can only be set upon object construction</p>
 </dd></dl>
 
 </dd></dl>
@@ -328,7 +326,7 @@ in case the property actually changes.</p>
 <dl class="class">
 <dt id="GObject.SignalFlags">
 <em class="property">class </em><code class="descclassname">GObject.</code><code class="descname">SignalFlags</code></dt>
-<dd><p>Bases: <a class="reference internal" href="#GObject.GFlags" title="GObject.GFlags"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/GObject-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>The signal flags are used to specify a signal&#8217;s behaviour, the overall
 signal description outlines how especially the RUN flags control the
 stages of a signal emission.</p>
@@ -339,23 +337,13 @@ stages of a signal emission.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="GObject.SignalFlags.RUN_LAST">
-<code class="descname">RUN_LAST</code><em class="property"> = 2</em></dt>
-<dd><p>Invoke the object method handler in the third emission stage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GObject.SignalFlags.RUN_CLEANUP">
-<code class="descname">RUN_CLEANUP</code><em class="property"> = 4</em></dt>
-<dd><p>Invoke the object method handler in the last emission stage.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GObject.SignalFlags.NO_RECURSE">
-<code class="descname">NO_RECURSE</code><em class="property"> = 8</em></dt>
-<dd><p>Signals being emitted for an object while currently being in
-emission for this very object will not be emitted recursively,
-but instead cause the first emission to be restarted.</p>
+<dt id="GObject.SignalFlags.MUST_COLLECT">
+<code class="descname">MUST_COLLECT</code><em class="property"> = 128</em></dt>
+<dd><p>Varargs signal emission will always collect the
+arguments, even if there are no signal handlers connected.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.30.</span></p>
+</div>
 </dd></dl>
 
 <dl class="attribute">
@@ -366,30 +354,9 @@ upon handler connections and emissions.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="GObject.SignalFlags.ACTION">
-<code class="descname">ACTION</code><em class="property"> = 32</em></dt>
-<dd><p>Action signals are signals that may freely be emitted on alive
-objects from user code via <code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_emit</span></code> () and friends, without
-the need of being embedded into extra code that performs pre or
-post emission adjustments on the object. They can also be thought
-of as object methods which can be called generically by
-third-party code.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GObject.SignalFlags.NO_HOOKS">
-<code class="descname">NO_HOOKS</code><em class="property"> = 64</em></dt>
-<dd><p>No emissions hooks are supported for this signal.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GObject.SignalFlags.MUST_COLLECT">
-<code class="descname">MUST_COLLECT</code><em class="property"> = 128</em></dt>
-<dd><p>Varargs signal emission will always collect the
-arguments, even if there are no signal handlers connected.</p>
-<div class="versionadded">
-<p><span class="versionmodified">New in version 2.30..</span></p>
-</div>
+<dt id="GObject.SignalFlags.RUN_LAST">
+<code class="descname">RUN_LAST</code><em class="property"> = 2</em></dt>
+<dd><p>Invoke the object method handler in the third emission stage.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -399,8 +366,39 @@ arguments, even if there are no signal handlers connected.</p>
 in a future version. A warning will be generated if it is connected while
 running with G_ENABLE_DIAGNOSTIC=1.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 2.32..</span></p>
+<p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GObject.SignalFlags.ACTION">
+<code class="descname">ACTION</code><em class="property"> = 32</em></dt>
+<dd><p>Action signals are signals that may freely be emitted on alive
+objects from user code via g_signal_emit() and friends, without
+the need of being embedded into extra code that performs pre or
+post emission adjustments on the object. They can also be thought
+of as object methods which can be called generically by
+third-party code.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GObject.SignalFlags.RUN_CLEANUP">
+<code class="descname">RUN_CLEANUP</code><em class="property"> = 4</em></dt>
+<dd><p>Invoke the object method handler in the last emission stage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GObject.SignalFlags.NO_HOOKS">
+<code class="descname">NO_HOOKS</code><em class="property"> = 64</em></dt>
+<dd><p>No emissions hooks are supported for this signal.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GObject.SignalFlags.NO_RECURSE">
+<code class="descname">NO_RECURSE</code><em class="property"> = 8</em></dt>
+<dd><p>Signals being emitted for an object while currently being in
+emission for this very object will not be emitted recursively,
+but instead cause the first emission to be restarted.</p>
 </dd></dl>
 
 </dd></dl>
@@ -408,9 +406,9 @@ running with G_ENABLE_DIAGNOSTIC=1.</p>
 <dl class="class">
 <dt id="GObject.SignalMatchType">
 <em class="property">class </em><code class="descclassname">GObject.</code><code class="descname">SignalMatchType</code></dt>
-<dd><p>Bases: <a class="reference internal" href="#GObject.GFlags" title="GObject.GFlags"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
-<p>The match types specify what <a class="reference internal" href="functions.html#GObject.signal_handlers_block_matched" title="GObject.signal_handlers_block_matched"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handlers_block_matched</span></code></a> (),
-<a class="reference internal" href="functions.html#GObject.signal_handlers_unblock_matched" title="GObject.signal_handlers_unblock_matched"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handlers_unblock_matched</span></code></a> () and <a class="reference internal" href="functions.html#GObject.signal_handlers_disconnect_matched" title="GObject.signal_handlers_disconnect_matched"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handlers_disconnect_matched</span></code></a> ()
+<dd><p>Bases: <a class="reference external" href="_docs/GObject-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
+<p>The match types specify what <a class="reference internal" href="functions.html#GObject.signal_handlers_block_matched" title="GObject.signal_handlers_block_matched"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handlers_block_matched</span></code></a>(),
+<a class="reference internal" href="functions.html#GObject.signal_handlers_unblock_matched" title="GObject.signal_handlers_unblock_matched"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handlers_unblock_matched</span></code></a>() and <a class="reference internal" href="functions.html#GObject.signal_handlers_disconnect_matched" title="GObject.signal_handlers_disconnect_matched"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handlers_disconnect_matched</span></code></a>()
 match signals by.</p>
 <dl class="attribute">
 <dt id="GObject.SignalMatchType.ID">
@@ -419,9 +417,21 @@ match signals by.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="GObject.SignalMatchType.DATA">
+<code class="descname">DATA</code><em class="property"> = 16</em></dt>
+<dd><p>The closure data must be the same.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="GObject.SignalMatchType.DETAIL">
 <code class="descname">DETAIL</code><em class="property"> = 2</em></dt>
 <dd><p>The signal detail be equal.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GObject.SignalMatchType.UNBLOCKED">
+<code class="descname">UNBLOCKED</code><em class="property"> = 32</em></dt>
+<dd><p>Only unblocked signals may matched.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -436,30 +446,18 @@ match signals by.</p>
 <dd><p>The C closure callback must be the same.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="GObject.SignalMatchType.DATA">
-<code class="descname">DATA</code><em class="property"> = 16</em></dt>
-<dd><p>The closure data must be the same.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GObject.SignalMatchType.UNBLOCKED">
-<code class="descname">UNBLOCKED</code><em class="property"> = 32</em></dt>
-<dd><p>Only unblocked signals may matched.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
 <dt id="GObject.TypeDebugFlags">
 <em class="property">class </em><code class="descclassname">GObject.</code><code class="descname">TypeDebugFlags</code></dt>
-<dd><p>Bases: <a class="reference internal" href="#GObject.GFlags" title="GObject.GFlags"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
-<p>These flags used to be passed to <a class="reference internal" href="functions.html#GObject.type_init_with_debug_flags" title="GObject.type_init_with_debug_flags"><code class="xref py py-obj docutils literal"><span class="pre">GObject.type_init_with_debug_flags</span></code></a> () which
+<dd><p>Bases: <a class="reference external" href="_docs/GObject-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
+<p>These flags used to be passed to <a class="reference internal" href="functions.html#GObject.type_init_with_debug_flags" title="GObject.type_init_with_debug_flags"><code class="xref py py-obj docutils literal"><span class="pre">GObject.type_init_with_debug_flags</span></code></a>() which
 is now deprecated.</p>
 <p>If you need to enable debugging features, use the GOBJECT_DEBUG
 environment variable.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 2.36: </span><a class="reference internal" href="functions.html#GObject.type_init" title="GObject.type_init"><code class="xref py py-obj docutils literal"><span class="pre">GObject.type_init</span></code></a> () is now done automatically</p>
+<p><span class="versionmodified">Deprecated since version 2.36: </span><a class="reference internal" href="functions.html#GObject.type_init" title="GObject.type_init"><code class="xref py py-obj docutils literal"><span class="pre">GObject.type_init</span></code></a>() is now done automatically</p>
 </div>
 <dl class="attribute">
 <dt id="GObject.TypeDebugFlags.NONE">
@@ -496,7 +494,7 @@ environment variable.</p>
 <dl class="class">
 <dt id="GObject.TypeFlags">
 <em class="property">class </em><code class="descclassname">GObject.</code><code class="descname">TypeFlags</code></dt>
-<dd><p>Bases: <a class="reference internal" href="#GObject.GFlags" title="GObject.GFlags"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/GObject-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>Bit masks used to check or determine characteristics of a type.</p>
 <dl class="attribute">
 <dt id="GObject.TypeFlags.ABSTRACT">
@@ -510,7 +508,7 @@ created for an abstract type</p>
 <code class="descname">VALUE_ABSTRACT</code><em class="property"> = 32</em></dt>
 <dd><p>Indicates an abstract value type, i.e. a type
 that introduces a value table, but can&#8217;t be used for
-<a class="reference internal" href="structs/Value.html#GObject.Value.init" title="GObject.Value.init"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value.init</span></code></a> ()</p>
+<a class="reference internal" href="structs/Value.html#GObject.Value.init" title="GObject.Value.init"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value.init</span></code></a>()</p>
 </dd></dl>
 
 </dd></dl>
@@ -518,7 +516,7 @@ that introduces a value table, but can&#8217;t be used for
 <dl class="class">
 <dt id="GObject.TypeFundamentalFlags">
 <em class="property">class </em><code class="descclassname">GObject.</code><code class="descname">TypeFundamentalFlags</code></dt>
-<dd><p>Bases: <a class="reference internal" href="#GObject.GFlags" title="GObject.GFlags"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/GObject-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>Bit masks used to check or determine specific characteristics of a
 fundamental type.</p>
 <dl class="attribute">
@@ -561,7 +559,4 @@ fundamental type.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gio.InetAddressMask" href="InetAddressMask.html"/>
         <link rel="prev" title="Gio.IOStream" href="IOStream.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -427,17 +425,17 @@
 </tbody>
 </table>
 <p><a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a> represents an IPv4 or IPv6 internet address. Use
-<a class="reference internal" href="Resolver.html#Gio.Resolver.lookup_by_name" title="Gio.Resolver.lookup_by_name"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver.lookup_by_name</span></code></a> () or <a class="reference internal" href="Resolver.html#Gio.Resolver.lookup_by_name_async" title="Gio.Resolver.lookup_by_name_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver.lookup_by_name_async</span></code></a> () to
+<a class="reference internal" href="Resolver.html#Gio.Resolver.lookup_by_name" title="Gio.Resolver.lookup_by_name"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver.lookup_by_name</span></code></a>() or <a class="reference internal" href="Resolver.html#Gio.Resolver.lookup_by_name_async" title="Gio.Resolver.lookup_by_name_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver.lookup_by_name_async</span></code></a>() to
 look up the <a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a> for a hostname. Use
-<a class="reference internal" href="Resolver.html#Gio.Resolver.lookup_by_address" title="Gio.Resolver.lookup_by_address"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver.lookup_by_address</span></code></a> () or
-<a class="reference internal" href="Resolver.html#Gio.Resolver.lookup_by_address_async" title="Gio.Resolver.lookup_by_address_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver.lookup_by_address_async</span></code></a> () to look up the hostname for a
+<a class="reference internal" href="Resolver.html#Gio.Resolver.lookup_by_address" title="Gio.Resolver.lookup_by_address"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver.lookup_by_address</span></code></a>() or
+<a class="reference internal" href="Resolver.html#Gio.Resolver.lookup_by_address_async" title="Gio.Resolver.lookup_by_address_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver.lookup_by_address_async</span></code></a>() to look up the hostname for a
 <a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a>.</p>
 <p>To actually connect to a remote host, you will need a
 <a class="reference internal" href="InetSocketAddress.html#Gio.InetSocketAddress" title="Gio.InetSocketAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetSocketAddress</span></code></a> (which includes a <a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a> as well as a
 port number).</p>
 <dl class="staticmethod">
 <dt id="Gio.InetAddress.new_any">
-<em class="property">static </em><code class="descname">new_any</code><span class="sig-paren">(</span><em>family</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n570"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_any</code><span class="sig-paren">(</span><em>family</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n574"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -445,7 +443,8 @@ port number).</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>family</strong> (<a class="reference internal" href="../enums.html#Gio.SocketFamily" title="Gio.SocketFamily"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketFamily</span></code></a>) &#8211; the address family</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a> corresponding to the &#8220;any&#8221; address
-for <cite>family</cite>.</td>
+for <cite>family</cite>.
+Free the returned object with <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a></td>
 </tr>
@@ -460,7 +459,7 @@ care&#8221;) for <cite>family</cite>.</p>
 
 <dl class="staticmethod">
 <dt id="Gio.InetAddress.new_from_bytes">
-<em class="property">static </em><code class="descname">new_from_bytes</code><span class="sig-paren">(</span><em>bytes</em>, <em>family</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n521"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_from_bytes</code><span class="sig-paren">(</span><em>bytes</em>, <em>family</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n523"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -471,7 +470,8 @@ care&#8221;) for <cite>family</cite>.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a> corresponding to <cite>family</cite> and <cite>bytes</cite>.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a> corresponding to <cite>family</cite> and <cite>bytes</cite>.
+Free the returned object with <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a></p>
@@ -489,7 +489,7 @@ care&#8221;) for <cite>family</cite>.</p>
 
 <dl class="staticmethod">
 <dt id="Gio.InetAddress.new_from_string">
-<em class="property">static </em><code class="descname">new_from_string</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n483"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_from_string</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n484"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -497,7 +497,8 @@ care&#8221;) for <cite>family</cite>.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a string representation of an IP address</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a> corresponding to <cite>string</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if
-<cite>string</cite> could not be parsed.</td>
+<cite>string</cite> could not be parsed.
+Free the returned object with <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a></td>
 </tr>
@@ -511,7 +512,7 @@ care&#8221;) for <cite>family</cite>.</p>
 
 <dl class="staticmethod">
 <dt id="Gio.InetAddress.new_loopback">
-<em class="property">static </em><code class="descname">new_loopback</code><span class="sig-paren">(</span><em>family</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n543"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_loopback</code><span class="sig-paren">(</span><em>family</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n546"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -519,7 +520,8 @@ care&#8221;) for <cite>family</cite>.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>family</strong> (<a class="reference internal" href="../enums.html#Gio.SocketFamily" title="Gio.SocketFamily"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketFamily</span></code></a>) &#8211; the address family</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a> corresponding to the loopback address
-for <cite>family</cite>.</td>
+for <cite>family</cite>.
+Free the returned object with <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a></td>
 </tr>
@@ -533,14 +535,14 @@ for <cite>family</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.InetAddress.equal">
-<code class="descname">equal</code><span class="sig-paren">(</span><em>other_address</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n921"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">equal</code><span class="sig-paren">(</span><em>other_address</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n925"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other_address</strong> (<a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a>) &#8211; Another <a class="reference internal" href="#Gio.InetAddress" title="Gio.InetAddress"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> and <cite>other_address</cite> are equal, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> and <cite>other_address</cite> are equal, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -554,18 +556,18 @@ for <cite>family</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_family">
-<code class="descname">get_family</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n661"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_family</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n665"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>address</cite> &#8216;s family</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s family</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../enums.html#Gio.SocketFamily" title="Gio.SocketFamily"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketFamily</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>address</cite> &#8216;s family</p>
+<p>Gets <cite>self</cite>&#8216;s family</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -573,18 +575,18 @@ for <cite>family</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_any">
-<code class="descname">get_is_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n679"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n683"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is the &#8220;any&#8221; address for its family.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is the &#8220;any&#8221; address for its family.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is the &#8220;any&#8221; address for its family.</p>
+<p>Tests whether <cite>self</cite> is the &#8220;any&#8221; address for its family.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -592,18 +594,18 @@ for <cite>family</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_link_local">
-<code class="descname">get_is_link_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n732"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_link_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n736"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is a link-local address.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a link-local address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is a link-local address (that is, if it
+<p>Tests whether <cite>self</cite> is a link-local address (that is, if it
 identifies a host on a local network that is not connected to the
 Internet).</p>
 <div class="versionadded">
@@ -613,18 +615,18 @@ Internet).</p>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_loopback">
-<code class="descname">get_is_loopback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n704"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_loopback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n708"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is the loopback address for its family.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is the loopback address for its family.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is the loopback address for its family.</p>
+<p>Tests whether <cite>self</cite> is the loopback address for its family.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -632,18 +634,18 @@ Internet).</p>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_mc_global">
-<code class="descname">get_is_mc_global</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n814"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_mc_global</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n818"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is a global multicast address.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a global multicast address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is a global multicast address.</p>
+<p>Tests whether <cite>self</cite> is a global multicast address.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -651,18 +653,18 @@ Internet).</p>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_mc_link_local">
-<code class="descname">get_is_mc_link_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n835"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_mc_link_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n839"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is a link-local multicast address.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a link-local multicast address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is a link-local multicast address.</p>
+<p>Tests whether <cite>self</cite> is a link-local multicast address.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -670,18 +672,18 @@ Internet).</p>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_mc_node_local">
-<code class="descname">get_is_mc_node_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n856"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_mc_node_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n860"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is a node-local multicast address.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a node-local multicast address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is a node-local multicast address.</p>
+<p>Tests whether <cite>self</cite> is a node-local multicast address.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -689,18 +691,18 @@ Internet).</p>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_mc_org_local">
-<code class="descname">get_is_mc_org_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n877"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_mc_org_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n881"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is an organization-local multicast address.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is an organization-local multicast address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is an organization-local multicast address.</p>
+<p>Tests whether <cite>self</cite> is an organization-local multicast address.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -708,18 +710,18 @@ Internet).</p>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_mc_site_local">
-<code class="descname">get_is_mc_site_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n898"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_mc_site_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n902"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is a site-local multicast address.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a site-local multicast address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is a site-local multicast address.</p>
+<p>Tests whether <cite>self</cite> is a site-local multicast address.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -727,18 +729,18 @@ Internet).</p>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_multicast">
-<code class="descname">get_is_multicast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n789"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_multicast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n793"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is a multicast address.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a multicast address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is a multicast address.</p>
+<p>Tests whether <cite>self</cite> is a multicast address.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -746,18 +748,18 @@ Internet).</p>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_is_site_local">
-<code class="descname">get_is_site_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n761"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_is_site_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n765"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>address</cite> is a site-local address.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a site-local address.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests whether <cite>address</cite> is a site-local address such as 10.0.0.1
+<p>Tests whether <cite>self</cite> is a site-local address such as 10.0.0.1
 (that is, the address identifies a host on a local network that can
 not be reached directly from the Internet, but which may have
 outgoing Internet connectivity via a NAT or firewall).</p>
@@ -768,19 +770,19 @@ outgoing Internet connectivity via a NAT or firewall).</p>
 
 <dl class="method">
 <dt id="Gio.InetAddress.get_native_size">
-<code class="descname">get_native_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n644"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_native_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n648"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of bytes used for the native version of <cite>address</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of bytes used for the native version of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the size of the native raw binary address for <cite>address</cite>. This
-is the size of the data that you get from <code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.to_bytes</span></code> ().</p>
+<p>Gets the size of the native raw binary address for <cite>self</cite>. This
+is the size of the data that you get from g_inet_address_to_bytes().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -788,19 +790,19 @@ is the size of the data that you get from <code class="xref py py-obj docutils l
 
 <dl class="method">
 <dt id="Gio.InetAddress.to_string">
-<code class="descname">to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.46.2#n597"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/ginetaddress.c?h=2.48.0#n601"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a representation of <cite>address</cite> as a string, which should be
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a representation of <cite>self</cite> as a string, which should be
 freed after use.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Converts <cite>address</cite> to string form.</p>
+<p>Converts <cite>self</cite> to string form.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -889,7 +891,7 @@ freed after use.</td>
 </tbody>
 </table>
 <p>Whether this is the &#8220;any&#8221; address for its family.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_any" title="Gio.InetAddress.get_is_any"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_any</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_any" title="Gio.InetAddress.get_is_any"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_any</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -913,7 +915,7 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_any" title="Gio.
 </tbody>
 </table>
 <p>Whether this is a link-local address.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_link_local" title="Gio.InetAddress.get_is_link_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_link_local</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_link_local" title="Gio.InetAddress.get_is_link_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_link_local</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -937,7 +939,7 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_link_local" titl
 </tbody>
 </table>
 <p>Whether this is the loopback address for its family.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_loopback" title="Gio.InetAddress.get_is_loopback"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_loopback</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_loopback" title="Gio.InetAddress.get_is_loopback"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_loopback</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -961,7 +963,7 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_loopback" title=
 </tbody>
 </table>
 <p>Whether this is a global multicast address.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_global" title="Gio.InetAddress.get_is_mc_global"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_global</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_global" title="Gio.InetAddress.get_is_mc_global"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_global</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -985,7 +987,7 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_global" title
 </tbody>
 </table>
 <p>Whether this is a link-local multicast address.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_link_local" title="Gio.InetAddress.get_is_mc_link_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_link_local</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_link_local" title="Gio.InetAddress.get_is_mc_link_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_link_local</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -1009,7 +1011,7 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_link_local" t
 </tbody>
 </table>
 <p>Whether this is a node-local multicast address.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_node_local" title="Gio.InetAddress.get_is_mc_node_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_node_local</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_node_local" title="Gio.InetAddress.get_is_mc_node_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_node_local</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -1033,7 +1035,7 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_node_local" t
 </tbody>
 </table>
 <p>Whether this is an organization-local multicast address.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_org_local" title="Gio.InetAddress.get_is_mc_org_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_org_local</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_org_local" title="Gio.InetAddress.get_is_mc_org_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_org_local</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -1057,7 +1059,7 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_org_local" ti
 </tbody>
 </table>
 <p>Whether this is a site-local multicast address.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_site_local" title="Gio.InetAddress.get_is_mc_site_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_site_local</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_site_local" title="Gio.InetAddress.get_is_mc_site_local"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_mc_site_local</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -1081,7 +1083,7 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_mc_site_local" t
 </tbody>
 </table>
 <p>Whether this is a multicast address.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_multicast" title="Gio.InetAddress.get_is_multicast"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_multicast</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_multicast" title="Gio.InetAddress.get_is_multicast"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_multicast</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -1105,7 +1107,7 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_multicast" title
 </tbody>
 </table>
 <p>Whether this is a site-local address.
-See <a class="reference internal" href="#Gio.InetAddress.get_is_loopback" title="Gio.InetAddress.get_is_loopback"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_loopback</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.InetAddress.get_is_loopback" title="Gio.InetAddress.get_is_loopback"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InetAddress.get_is_loopback</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -1125,7 +1127,4 @@ See <a class="reference internal" href="#Gio.InetAddress.get_is_loopback" title=
   </div> 
 
 </body>
-
-  
-
 </html>

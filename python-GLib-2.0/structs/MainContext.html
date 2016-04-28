@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.MainLoop" href="MainLoop.html"/>
         <link rel="prev" title="GLib.List" href="List.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -242,7 +240,7 @@
 type representing a set of sources to be handled in a main loop.</p>
 <dl class="staticmethod">
 <dt id="GLib.MainContext.default">
-<em class="property">static </em><code class="descname">default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n684"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n684"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -256,12 +254,12 @@ type representing a set of sources to be handled in a main loop.</p>
 <p>Returns the global default main context. This is the main context
 used for main loop functions when a main loop is not explicitly
 specified, and corresponds to the &#8220;main&#8221; main loop. See also
-<a class="reference internal" href="#GLib.MainContext.get_thread_default" title="GLib.MainContext.get_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a> ().</p>
+<a class="reference internal" href="#GLib.MainContext.get_thread_default" title="GLib.MainContext.get_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a>().</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="GLib.MainContext.get_thread_default">
-<em class="property">static </em><code class="descname">get_thread_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n830"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_thread_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n830"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -276,13 +274,13 @@ specified, and corresponds to the &#8220;main&#8221; main loop. See also
 <p>Gets the thread-default <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> for this thread. Asynchronous
 operations that want to be able to be run in contexts other than
 the default one should call this method or
-<a class="reference internal" href="#GLib.MainContext.ref_thread_default" title="GLib.MainContext.ref_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.ref_thread_default</span></code></a> () to get a <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> to add
+<a class="reference internal" href="#GLib.MainContext.ref_thread_default" title="GLib.MainContext.ref_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.ref_thread_default</span></code></a>() to get a <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> to add
 their <a class="reference internal" href="Source.html#GLib.Source" title="GLib.Source"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Sources</span></code></a> to. (Note that even in single-threaded
 programs applications may sometimes want to temporarily push a
 non-default context, so it is not safe to assume that this will
 always return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if you are running in the default thread.)</p>
 <p>If you need to hold a reference on the context, use
-<a class="reference internal" href="#GLib.MainContext.ref_thread_default" title="GLib.MainContext.ref_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.ref_thread_default</span></code></a> () instead.</p>
+<a class="reference internal" href="#GLib.MainContext.ref_thread_default" title="GLib.MainContext.ref_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.ref_thread_default</span></code></a>() instead.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -290,7 +288,7 @@ always return <a class="reference external" href="http://docs.python.org/2.7/lib
 
 <dl class="staticmethod">
 <dt id="GLib.MainContext.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n614"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n614"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -306,22 +304,22 @@ always return <a class="reference external" href="http://docs.python.org/2.7/lib
 
 <dl class="staticmethod">
 <dt id="GLib.MainContext.ref_thread_default">
-<em class="property">static </em><code class="descname">ref_thread_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n854"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">ref_thread_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n854"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the thread-default <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>. Unref
-with <a class="reference internal" href="#GLib.MainContext.unref" title="GLib.MainContext.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.unref</span></code></a> () when you are done with it.</td>
+with <a class="reference internal" href="#GLib.MainContext.unref" title="GLib.MainContext.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.unref</span></code></a>() when you are done with it.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets the thread-default <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> for this thread, as with
-<a class="reference internal" href="#GLib.MainContext.get_thread_default" title="GLib.MainContext.get_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a> (), but also adds a reference to
-it with <a class="reference internal" href="#GLib.MainContext.ref" title="GLib.MainContext.ref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.ref</span></code></a> (). In addition, unlike
-<a class="reference internal" href="#GLib.MainContext.get_thread_default" title="GLib.MainContext.get_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a> (), if the thread-default context
+<a class="reference internal" href="#GLib.MainContext.get_thread_default" title="GLib.MainContext.get_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a>(), but also adds a reference to
+it with <a class="reference internal" href="#GLib.MainContext.ref" title="GLib.MainContext.ref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.ref</span></code></a>(). In addition, unlike
+<a class="reference internal" href="#GLib.MainContext.get_thread_default" title="GLib.MainContext.get_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a>(), if the thread-default context
 is the global default context, this will return that <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>
 (with a ref added to it) rather than returning <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 <div class="versionadded">
@@ -331,13 +329,13 @@ is the global default context, this will return that <a class="reference interna
 
 <dl class="method">
 <dt id="GLib.MainContext.acquire">
-<code class="descname">acquire</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n3206"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">acquire</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n3206"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the operation succeeded, and
-this thread is now the owner of <cite>context</cite>.</td>
+this thread is now the owner of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -347,16 +345,16 @@ this thread is now the owner of <cite>context</cite>.</td>
 If some other thread is the owner of the context,
 returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> immediately. Ownership is properly
 recursive: the owner can require ownership again
-and will release ownership when <a class="reference internal" href="#GLib.MainContext.release" title="GLib.MainContext.release"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.release</span></code></a> ()
-is called as many times as <a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a> ().</p>
+and will release ownership when <a class="reference internal" href="#GLib.MainContext.release" title="GLib.MainContext.release"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.release</span></code></a>()
+is called as many times as <a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a>().</p>
 <p>You must be the owner of a context before you
-can call <a class="reference internal" href="#GLib.MainContext.prepare" title="GLib.MainContext.prepare"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.prepare</span></code></a> (), <a class="reference internal" href="#GLib.MainContext.query" title="GLib.MainContext.query"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.query</span></code></a> (),
-<a class="reference internal" href="#GLib.MainContext.check" title="GLib.MainContext.check"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.check</span></code></a> (), <a class="reference internal" href="#GLib.MainContext.dispatch" title="GLib.MainContext.dispatch"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.dispatch</span></code></a> ().</p>
+can call <a class="reference internal" href="#GLib.MainContext.prepare" title="GLib.MainContext.prepare"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.prepare</span></code></a>(), <a class="reference internal" href="#GLib.MainContext.query" title="GLib.MainContext.query"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.query</span></code></a>(),
+<a class="reference internal" href="#GLib.MainContext.check" title="GLib.MainContext.check"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.check</span></code></a>(), <a class="reference internal" href="#GLib.MainContext.dispatch" title="GLib.MainContext.dispatch"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.dispatch</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MainContext.add_poll">
-<code class="descname">add_poll</code><span class="sig-paren">(</span><em>fd</em>, <em>priority</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n4210"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_poll</code><span class="sig-paren">(</span><em>fd</em>, <em>priority</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n4210"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -365,7 +363,7 @@ can call <a class="reference internal" href="#GLib.MainContext.prepare" title="G
 <li><strong>fd</strong> (<a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a>) &#8211; a <a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a> structure holding information about a file
 descriptor to watch.</li>
 <li><strong>priority</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the priority for this file descriptor which should be
-the same as the priority used for <a class="reference internal" href="Source.html#GLib.Source.attach" title="GLib.Source.attach"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source.attach</span></code></a> () to ensure that the
+the same as the priority used for <a class="reference internal" href="Source.html#GLib.Source.attach" title="GLib.Source.attach"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source.attach</span></code></a>() to ensure that the
 file descriptor is polled whenever the results may be needed.</li>
 </ul>
 </td>
@@ -374,20 +372,20 @@ file descriptor is polled whenever the results may be needed.</li>
 </table>
 <p>Adds a file descriptor to the set of file descriptors polled for
 this context. This will very seldom be used directly. Instead
-a typical event source will use <code class="xref py py-obj docutils literal"><span class="pre">GLib.Source.add_unix_fd</span></code> () instead.</p>
+a typical event source will use <a class="reference internal" href="Source.html#GLib.Source.add_unix_fd" title="GLib.Source.add_unix_fd"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source.add_unix_fd</span></code></a>() instead.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MainContext.check">
-<code class="descname">check</code><span class="sig-paren">(</span><em>max_priority</em>, <em>fds</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n3613"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">check</code><span class="sig-paren">(</span><em>max_priority</em>, <em>fds</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n3613"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>max_priority</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the maximum numerical priority of sources to check</li>
-<li><strong>fds</strong> ([<a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a>]) &#8211; array of <a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a> &#8216;s that was passed to
-the last call to <a class="reference internal" href="#GLib.MainContext.query" title="GLib.MainContext.query"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.query</span></code></a> ()</li>
+<li><strong>fds</strong> ([<a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a>]) &#8211; array of <a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a>&#8216;s that was passed to
+the last call to <a class="reference internal" href="#GLib.MainContext.query" title="GLib.MainContext.query"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.query</span></code></a>()</li>
 </ul>
 </td>
 </tr>
@@ -401,27 +399,27 @@ the last call to <a class="reference internal" href="#GLib.MainContext.query" ti
 </table>
 <p>Passes the results of polling back to the main loop.</p>
 <p>You must have successfully acquired the context with
-<a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a> () before you may call this function.</p>
+<a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a>() before you may call this function.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MainContext.dispatch">
-<code class="descname">dispatch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n3763"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">dispatch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n3763"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Dispatches all pending sources.</p>
 <p>You must have successfully acquired the context with
-<a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a> () before you may call this function.</p>
+<a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a>() before you may call this function.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MainContext.find_source_by_funcs_user_data">
-<code class="descname">find_source_by_funcs_user_data</code><span class="sig-paren">(</span><em>funcs</em>, <em>user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n2165"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">find_source_by_funcs_user_data</code><span class="sig-paren">(</span><em>funcs</em>, <em>user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n2165"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>funcs</strong> (<a class="reference internal" href="SourceFuncs.html#GLib.SourceFuncs" title="GLib.SourceFuncs"><code class="xref py py-obj docutils literal"><span class="pre">GLib.SourceFuncs</span></code></a>) &#8211; the <cite>source_funcs</cite> passed to <a class="reference internal" href="Source.html#GLib.Source.new" title="GLib.Source.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source.new</span></code></a> ().</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the user data from the callback.</li>
+<li><strong>funcs</strong> (<a class="reference internal" href="SourceFuncs.html#GLib.SourceFuncs" title="GLib.SourceFuncs"><code class="xref py py-obj docutils literal"><span class="pre">GLib.SourceFuncs</span></code></a>) &#8211; the <cite>source_funcs</cite> passed to <a class="reference internal" href="Source.html#GLib.Source.new" title="GLib.Source.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source.new</span></code></a>().</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the user data from the callback.</li>
 </ul>
 </td>
 </tr>
@@ -440,12 +438,12 @@ the first one found will be returned.</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.find_source_by_id">
-<code class="descname">find_source_by_id</code><span class="sig-paren">(</span><em>source_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n2131"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">find_source_by_id</code><span class="sig-paren">(</span><em>source_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n2131"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the source ID, as returned by <a class="reference internal" href="Source.html#GLib.Source.get_id" title="GLib.Source.get_id"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source.get_id</span></code></a> ().</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the source ID, as returned by <a class="reference internal" href="Source.html#GLib.Source.get_id" title="GLib.Source.get_id"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source.get_id</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="Source.html#GLib.Source" title="GLib.Source"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source</span></code></a></td>
 </tr>
@@ -458,7 +456,7 @@ the first one found will be returned.</p>
 <p>More specifically: source IDs can be reissued after a source has been
 destroyed and therefore it is never valid to use this function with a
 source ID which may have already been removed.  An example is when
-scheduling an idle to run in another thread with g_idle_add(): the
+scheduling an idle to run in another thread with <a class="reference internal" href="../functions.html#GLib.idle_add" title="GLib.idle_add"><code class="xref py py-obj docutils literal"><span class="pre">GLib.idle_add</span></code></a>(): the
 idle may already have run and been removed by the time this function
 is called on its (now invalid) source ID.  This source ID may have
 been reissued, leading to the operation being performed against the
@@ -467,12 +465,12 @@ wrong source.</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.find_source_by_user_data">
-<code class="descname">find_source_by_user_data</code><span class="sig-paren">(</span><em>user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n2213"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">find_source_by_user_data</code><span class="sig-paren">(</span><em>user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n2213"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the user_data for the callback.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the user_data for the callback.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the source, if one was found, otherwise <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
@@ -487,7 +485,7 @@ one found will be returned.</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.invoke_full">
-<code class="descname">invoke_full</code><span class="sig-paren">(</span><em>priority</em>, <em>function</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n5623"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">invoke_full</code><span class="sig-paren">(</span><em>priority</em>, <em>function</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n5623"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -495,15 +493,15 @@ one found will be returned.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>priority</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the priority at which to run <cite>function</cite></li>
 <li><strong>function</strong> (<a class="reference internal" href="../callbacks.html#GLib.SourceFunc" title="GLib.SourceFunc"><code class="xref py py-obj docutils literal"><span class="pre">GLib.SourceFunc</span></code></a>) &#8211; function to call</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data to pass to <cite>function</cite></li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data to pass to <cite>function</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Invokes a function in such a way that <cite>context</cite> is owned during the
+<p>Invokes a function in such a way that <cite>self</cite> is owned during the
 invocation of <cite>function</cite>.</p>
-<p>This function is the same as <code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.invoke</span></code> () except that it
+<p>This function is the same as g_main_context_invoke() except that it
 lets you specify the priority incase <cite>function</cite> ends up being
 scheduled as an idle and also lets you give a <a class="reference internal" href="../callbacks.html#GLib.DestroyNotify" title="GLib.DestroyNotify"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a> for <cite>data</cite>.</p>
 <p><cite>notify</cite> should not assume that it is called from any particular
@@ -515,12 +513,12 @@ thread or with any particular context acquired.</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.is_owner">
-<code class="descname">is_owner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n4501"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_owner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n4501"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if current thread is owner of <cite>context</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if current thread is owner of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -529,7 +527,7 @@ thread or with any particular context acquired.</p>
 <p>Determines whether this thread holds the (recursive)
 ownership of this <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>. This is useful to
 know before waiting on another thread that may be
-blocking to get ownership of <cite>context</cite>.</p>
+blocking to get ownership of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
@@ -537,7 +535,7 @@ blocking to get ownership of <cite>context</cite>.</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.iteration">
-<code class="descname">iteration</code><span class="sig-paren">(</span><em>may_block</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n3893"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iteration</code><span class="sig-paren">(</span><em>may_block</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n3893"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -559,13 +557,13 @@ sources are not waited to become ready, only those highest priority
 events sources will be dispatched (if any), that are ready at this
 given moment without further waiting.</p>
 <p>Note that even when <cite>may_block</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, it is still possible for
-<a class="reference internal" href="#GLib.MainContext.iteration" title="GLib.MainContext.iteration"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.iteration</span></code></a> () to return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, since the wait may
+<a class="reference internal" href="#GLib.MainContext.iteration" title="GLib.MainContext.iteration"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.iteration</span></code></a>() to return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, since the wait may
 be interrupted for other reasons than an event source becoming ready.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MainContext.pending">
-<code class="descname">pending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n3858"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">pending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n3858"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -581,8 +579,8 @@ be interrupted for other reasons than an event source becoming ready.</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.pop_thread_default">
-<code class="descname">pop_thread_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n787"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Pops <cite>context</cite> off the thread-default context stack (verifying that
+<code class="descname">pop_thread_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n787"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Pops <cite>self</cite> off the thread-default context stack (verifying that
 it was on the top of the stack).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
@@ -591,7 +589,7 @@ it was on the top of the stack).</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.prepare">
-<code class="descname">prepare</code><span class="sig-paren">(</span><em>priority</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n3371"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">prepare</code><span class="sig-paren">(</span><em>priority</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n3371"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -609,32 +607,32 @@ prior to polling.</td>
 <p>Prepares to poll sources within a main loop. The resulting information
 for polling is determined by calling <a class="reference internal" href="#GLib.MainContext.query" title="GLib.MainContext.query"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.query</span></code></a> ().</p>
 <p>You must have successfully acquired the context with
-<a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a> () before you may call this function.</p>
+<a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a>() before you may call this function.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MainContext.push_thread_default">
-<code class="descname">push_thread_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n754"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Acquires <cite>context</cite> and sets it as the thread-default context for the
+<code class="descname">push_thread_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n754"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Acquires <cite>self</cite> and sets it as the thread-default context for the
 current thread. This will cause certain asynchronous operations
 (such as most &#8216;gio [gio]&#8217;-based I/O) which are
-started in this thread to run under <cite>context</cite> and deliver their
+started in this thread to run under <cite>self</cite> and deliver their
 results to its main loop, rather than running under the global
 default context in the main thread. Note that calling this function
-changes the context returned by <a class="reference internal" href="#GLib.MainContext.get_thread_default" title="GLib.MainContext.get_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a> (),
-not the one returned by <a class="reference internal" href="#GLib.MainContext.default" title="GLib.MainContext.default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.default</span></code></a> (), so it does not affect
-the context used by functions like g_idle_add().</p>
+changes the context returned by <a class="reference internal" href="#GLib.MainContext.get_thread_default" title="GLib.MainContext.get_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a>(),
+not the one returned by <a class="reference internal" href="#GLib.MainContext.default" title="GLib.MainContext.default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.default</span></code></a>(), so it does not affect
+the context used by functions like <a class="reference internal" href="../functions.html#GLib.idle_add" title="GLib.idle_add"><code class="xref py py-obj docutils literal"><span class="pre">GLib.idle_add</span></code></a>().</p>
 <p>Normally you would call this function shortly after creating a new
 thread, passing it a <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> which will be run by a
 <a class="reference internal" href="MainLoop.html#GLib.MainLoop" title="GLib.MainLoop"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainLoop</span></code></a> in that thread, to set a new default context for all
 async operations in that thread. (In this case, you don&#8217;t need to
-ever call <a class="reference internal" href="#GLib.MainContext.pop_thread_default" title="GLib.MainContext.pop_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.pop_thread_default</span></code></a> ().) In some cases
+ever call <a class="reference internal" href="#GLib.MainContext.pop_thread_default" title="GLib.MainContext.pop_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.pop_thread_default</span></code></a>().) In some cases
 however, you may want to schedule a single operation in a
 non-default context, or temporarily use a non-default context in
 the main thread. In that case, you can wrap the call to the
 asynchronous operation inside a
-<a class="reference internal" href="#GLib.MainContext.push_thread_default" title="GLib.MainContext.push_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.push_thread_default</span></code></a> () /
-<a class="reference internal" href="#GLib.MainContext.pop_thread_default" title="GLib.MainContext.pop_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.pop_thread_default</span></code></a> () pair, but it is up to you to
+<a class="reference internal" href="#GLib.MainContext.push_thread_default" title="GLib.MainContext.push_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.push_thread_default</span></code></a>() /
+<a class="reference internal" href="#GLib.MainContext.pop_thread_default" title="GLib.MainContext.pop_thread_default"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.pop_thread_default</span></code></a>() pair, but it is up to you to
 ensure that no other asynchronous operations accidentally get
 started while the non-default context is active.</p>
 <p>Beware that libraries that predate this function may not correctly
@@ -647,7 +645,7 @@ see g_file_supports_thread_contexts().</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.query">
-<code class="descname">query</code><span class="sig-paren">(</span><em>max_priority</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n3538"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">query</code><span class="sig-paren">(</span><em>max_priority</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n3538"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -660,7 +658,7 @@ of records that need to be stored.<table class="docutils field-list" frame="void
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">timeout_:</th><td class="field-body">location to store timeout to be used in polling</td>
+<tr class="field-odd field"><th class="field-name"><a href="#id1"><span class="problematic" id="id2">timeout_</span></a>:</th><td class="field-body">location to store timeout to be used in polling</td>
 </tr>
 <tr class="field-even field"><th class="field-name">fds:</th><td class="field-body">location to
 store <a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a> records that need to be polled.</td>
@@ -675,17 +673,17 @@ store <a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.P
 </table>
 <p>Determines information necessary to poll this main loop.</p>
 <p>You must have successfully acquired the context with
-<a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a> () before you may call this function.</p>
+<a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a>() before you may call this function.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MainContext.ref">
-<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n515"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n515"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <cite>context</cite> that was passed in (since 2.6)</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <cite>self</cite> that was passed in (since 2.6)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a></td>
 </tr>
@@ -696,21 +694,21 @@ store <a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.P
 
 <dl class="method">
 <dt id="GLib.MainContext.release">
-<code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n3244"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n3244"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Releases ownership of a context previously acquired by this thread
-with <a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a> (). If the context was acquired multiple
-times, the ownership will be released only when <a class="reference internal" href="#GLib.MainContext.release" title="GLib.MainContext.release"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.release</span></code></a> ()
+with <a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a>(). If the context was acquired multiple
+times, the ownership will be released only when <a class="reference internal" href="#GLib.MainContext.release" title="GLib.MainContext.release"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.release</span></code></a>()
 is called as many times as it was acquired.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MainContext.remove_poll">
-<code class="descname">remove_poll</code><span class="sig-paren">(</span><em>fd</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n4275"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_poll</code><span class="sig-paren">(</span><em>fd</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n4275"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fd</strong> (<a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a>) &#8211; a <a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a> descriptor previously added with <a class="reference internal" href="#GLib.MainContext.add_poll" title="GLib.MainContext.add_poll"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.add_poll</span></code></a> ()</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fd</strong> (<a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a>) &#8211; a <a class="reference internal" href="PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a> descriptor previously added with <a class="reference internal" href="#GLib.MainContext.add_poll" title="GLib.MainContext.add_poll"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.add_poll</span></code></a>()</td>
 </tr>
 </tbody>
 </table>
@@ -720,14 +718,14 @@ polled for a particular context.</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.unref">
-<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n540"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n540"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Decreases the reference count on a <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> object by one. If
 the result is zero, free the context and free all associated memory.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MainContext.wait">
-<code class="descname">wait</code><span class="sig-paren">(</span><em>cond</em>, <em>mutex</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n3292"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait</code><span class="sig-paren">(</span><em>cond</em>, <em>mutex</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n3292"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -739,7 +737,7 @@ the result is zero, free the context and free all associated memory.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the operation succeeded, and
-this thread is now the owner of <cite>context</cite>.</p>
+this thread is now the owner of <cite>self</cite>.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
@@ -748,7 +746,7 @@ this thread is now the owner of <cite>context</cite>.</p>
 </tbody>
 </table>
 <p>Tries to become the owner of the specified context,
-as with <a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a> (). But if another thread
+as with <a class="reference internal" href="#GLib.MainContext.acquire" title="GLib.MainContext.acquire"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.acquire</span></code></a>(). But if another thread
 is the owner, atomically drop <cite>mutex</cite> and wait on <cite>cond</cite> until
 that owner releases ownership or until <cite>cond</cite> is signaled, then
 try again (once) to become the owner.</p>
@@ -756,12 +754,12 @@ try again (once) to become the owner.</p>
 
 <dl class="method">
 <dt id="GLib.MainContext.wakeup">
-<code class="descname">wakeup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.46.2#n4474"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>If <cite>context</cite> is currently blocking in <a class="reference internal" href="#GLib.MainContext.iteration" title="GLib.MainContext.iteration"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.iteration</span></code></a> ()
+<code class="descname">wakeup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmain.c?h=2.48.0#n4474"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>If <cite>self</cite> is currently blocking in <a class="reference internal" href="#GLib.MainContext.iteration" title="GLib.MainContext.iteration"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.iteration</span></code></a>()
 waiting for a source to become ready, cause it to stop blocking
 and return.  Otherwise, cause the next invocation of
-<a class="reference internal" href="#GLib.MainContext.iteration" title="GLib.MainContext.iteration"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.iteration</span></code></a> () to return without blocking.</p>
-<p>This API is useful for low-level control over <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> ; for
+<a class="reference internal" href="#GLib.MainContext.iteration" title="GLib.MainContext.iteration"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.iteration</span></code></a>() to return without blocking.</p>
+<p>This API is useful for low-level control over <a class="reference internal" href="#GLib.MainContext" title="GLib.MainContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>; for
 example, integrating it with main loop implementations such as
 <a class="reference internal" href="MainLoop.html#GLib.MainLoop" title="GLib.MainLoop"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainLoop</span></code></a>.</p>
 <p>Another related use for this function is when implementing a main
@@ -799,7 +797,4 @@ loop with a termination condition, computed from multiple threads:</p>
   </div> 
 
 </body>
-
-  
-
 </html>

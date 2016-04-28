@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Class Structures" href="index.html"/>
         <link rel="next" title="Gtk.CssProviderClass" href="CssProviderClass.html"/>
         <link rel="prev" title="Gtk.ContainerCellAccessibleClass" href="ContainerCellAccessibleClass.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -198,7 +196,7 @@
 <tr class="row-odd"><td>parent_class</td>
 <td><a class="reference internal" href="WidgetClass.html#Gtk.WidgetClass" title="Gtk.WidgetClass"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.WidgetClass</span></code></a></td>
 <td>r</td>
-<td>&nbsp;</td>
+<td>The parent class.</td>
 </tr>
 <tr class="row-even"><td>remove</td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
@@ -249,67 +247,92 @@
 <dl class="class">
 <dt id="Gtk.ContainerClass">
 <em class="property">class </em><code class="descclassname">Gtk.</code><code class="descname">ContainerClass</code></dt>
-<dd><dl class="method">
+<dd><p>Base class for containers.</p>
+<dl class="method">
 <dt id="Gtk.ContainerClass.find_child_property">
-<code class="descname">find_child_property</code><span class="sig-paren">(</span><em>property_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.18.6#n1598"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">find_child_property</code><span class="sig-paren">(</span><em>property_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.20.3#n1614"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>property_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>property_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the name of the child property to find</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a> of the child
+property or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>class</cite> has no child property with that
+name.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>Finds a child property of a container class by name.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.ContainerClass.handle_border_width">
-<code class="descname">handle_border_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.18.6#n2420"><span class="viewcode-link">[source]</span></a></dt>
-<dd></dd></dl>
+<code class="descname">handle_border_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.20.3#n2405"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Modifies a subclass of <a class="reference internal" href="#Gtk.ContainerClass" title="Gtk.ContainerClass"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ContainerClass</span></code></a> to automatically add and
+remove the border-width setting on <a class="reference internal" href="../classes/Container.html#Gtk.Container" title="Gtk.Container"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Container</span></code></a>.  This allows the
+subclass to ignore the border width in its size request and
+allocate methods. The intent is for a subclass to invoke this
+in its class_init function.</p>
+<p><a class="reference internal" href="#Gtk.ContainerClass.handle_border_width" title="Gtk.ContainerClass.handle_border_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ContainerClass.handle_border_width</span></code></a>() is necessary because it
+would break API too badly to make this behavior the default. So
+subclasses must “opt in” to the parent class handling border_width
+for them.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="Gtk.ContainerClass.install_child_properties">
-<code class="descname">install_child_properties</code><span class="sig-paren">(</span><em>pspecs</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.18.6#n1559"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">install_child_properties</code><span class="sig-paren">(</span><em>pspecs</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.20.3#n1575"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pspecs</strong> ([<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a>]) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pspecs</strong> ([<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a>]) &#8211; the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a> array defining the new
+child properties</td>
 </tr>
 </tbody>
 </table>
+<p>Installs child properties on a container class.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.18.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.ContainerClass.install_child_property">
-<code class="descname">install_child_property</code><span class="sig-paren">(</span><em>property_id</em>, <em>pspec</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.18.6#n1529"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">install_child_property</code><span class="sig-paren">(</span><em>property_id</em>, <em>pspec</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.20.3#n1545"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>property_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
-<li><strong>pspec</strong> (<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a>) &#8211; </li>
+<li><strong>property_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the id for the property</li>
+<li><strong>pspec</strong> (<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a> for the property</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Installs a child property on a container class.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.ContainerClass.list_child_properties">
-<code class="descname">list_child_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.18.6#n1622"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">list_child_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcontainer.c?h=3.20.3#n1638"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a>]</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly allocated <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>-terminated array of <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a>.
+The array must be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/ParamSpec.html#GObject.ParamSpec" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpec</span></code></a>]</td>
 </tr>
 </tbody>
 </table>
+<p>Returns all child properties of a container class.</p>
 </dd></dl>
 
 </dd></dl>
@@ -328,7 +351,4 @@
   </div> 
 
 </body>
-
-  
-
 </html>

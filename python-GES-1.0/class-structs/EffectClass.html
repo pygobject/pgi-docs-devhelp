@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GES 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Class Structures" href="index.html"/>
         <link rel="next" title="GES.EffectClipClass" href="EffectClipClass.html"/>
         <link rel="prev" title="GES.EffectAssetClass" href="EffectAssetClass.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -165,19 +163,67 @@
 <td>r</td>
 <td>parent class</td>
 </tr>
+<tr class="row-odd"><td>rate_properties</td>
+<td>[<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>]</td>
+<td>r</td>
+<td>&nbsp;</td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="methods">
 <span id="ges-effectclass-methods"></span><h2>Methods</h2>
-<p>None</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GES.EffectClass.register_rate_property" title="GES.EffectClass.register_rate_property"><code class="xref py py-obj docutils literal"><span class="pre">register_rate_property</span></code></a> (element, property_name)</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="details">
 <h2>Details</h2>
 <dl class="class">
 <dt id="GES.EffectClass">
 <em class="property">class </em><code class="descclassname">GES.</code><code class="descname">EffectClass</code></dt>
-<dd></dd></dl>
+<dd><dl class="method">
+<dt id="GES.EffectClass.register_rate_property">
+<code class="descname">register_rate_property</code><span class="sig-paren">(</span><em>element</em>, <em>property_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-editing-services/tree/ges/ges-effect.c?h=1.8.1#n307"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>element</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
+<li><strong>property_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Name of the property that changes the rate</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">whether the rate property was succesfully registered. When this
+method returns false, a warning is emitted with more information.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Register an element that can change the rate at which media is playing. The
+property type must be float or double, and must be a factor of the rate,
+i.e. a value of 2.0 must mean that the media plays twice as fast. For
+example, this is true for the properties &#8216;rate&#8217; and &#8216;tempo&#8217; of the element
+&#8216;pitch&#8217;, which is already registered by default. By registering the element,
+timeline duration can be correctly converted into media duration, allowing
+the right segment seeks to be sent to the sources.</p>
+<p>A reference to the <a class="reference internal" href="#GES.EffectClass" title="GES.EffectClass"><code class="xref py py-obj docutils literal"><span class="pre">GES.EffectClass</span></code></a> can be obtained as follows:
+GES_EFFECT_CLASS (<a class="reference external" href="../_docs/GES-1.0/../../../python-GObject-2.0/structs/TypeClass.html#GObject.TypeClass.ref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TypeClass.ref</span></code></a> (GES_TYPE_EFFECT));</p>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 </div>
@@ -193,7 +239,4 @@
   </div> 
 
 </body>
-
-  
-
 </html>

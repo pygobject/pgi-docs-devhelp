@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Limba 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -150,7 +148,7 @@
 <dl class="class">
 <dt id="Limba.BuilderError">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">BuilderError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The error type.</p>
 <dl class="attribute">
 <dt id="Limba.BuilderError.FAILED">
@@ -181,7 +179,7 @@
 <dl class="class">
 <dt id="Limba.InstallerError">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">InstallerError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The error type.</p>
 <dl class="attribute">
 <dt id="Limba.InstallerError.FAILED">
@@ -212,7 +210,7 @@
 <dl class="class">
 <dt id="Limba.KeyringError">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">KeyringError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The error type.</p>
 <dl class="attribute">
 <dt id="Limba.KeyringError.FAILED">
@@ -221,27 +219,39 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Limba.KeyringError.SCAN">
+<code class="descname">SCAN</code><em class="property"> = 1</em></dt>
+<dd><p>Looking for keys has failed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Limba.KeyringError.IMPORT">
+<code class="descname">IMPORT</code><em class="property"> = 2</em></dt>
+<dd><p>Importing of a key failed</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Limba.KeyringError.LOOKUP">
-<code class="descname">LOOKUP</code><em class="property"> = 1</em></dt>
+<code class="descname">LOOKUP</code><em class="property"> = 3</em></dt>
 <dd><p>An error occured while looking up a key</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="Limba.KeyringError.KEY_UNKNOWN">
-<code class="descname">KEY_UNKNOWN</code><em class="property"> = 2</em></dt>
+<code class="descname">KEY_UNKNOWN</code><em class="property"> = 4</em></dt>
 <dd><p>The key we are dealing with is unknown</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Limba.KeyringError.IMPORT">
-<code class="descname">IMPORT</code><em class="property"> = 3</em></dt>
-<dd><p>Importing of a key failed</p>
+<dt id="Limba.KeyringError.VERIFY">
+<code class="descname">VERIFY</code><em class="property"> = 5</em></dt>
+<dd><p>Verification failed</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Limba.KeyringError.VERIFY">
-<code class="descname">VERIFY</code><em class="property"> = 4</em></dt>
-<dd><p>Verification failed</p>
+<dt id="Limba.KeyringError.KEY_MISSING">
+<code class="descname">KEY_MISSING</code><em class="property"> = 6</em></dt>
+<dd><p>A (public) key is missing to complete the validation.</p>
 </dd></dl>
 
 </dd></dl>
@@ -249,30 +259,30 @@
 <dl class="class">
 <dt id="Limba.KeyringKind">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">KeyringKind</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Type of the keyring to validate against.</p>
 <dl class="attribute">
 <dt id="Limba.KeyringKind.KIND_NONE">
 <code class="descname">KIND_NONE</code><em class="property"> = 0</em></dt>
-<dd><p>No specific keyring should be used</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Limba.KeyringKind.KIND_USER">
-<code class="descname">KIND_USER</code><em class="property"> = 1</em></dt>
-<dd><p>Use the manual keyring, containing explicitly trusted keys</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Limba.KeyringKind.KIND_AUTOMATIC">
-<code class="descname">KIND_AUTOMATIC</code><em class="property"> = 2</em></dt>
-<dd><p>Use the automatic keyring, containing automatically added keys</p>
+<dd><p>No specific keyring should be used.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="Limba.KeyringKind.KIND_ALL">
-<code class="descname">KIND_ALL</code><em class="property"> = 3</em></dt>
-<dd><p>Peek all keyrings</p>
+<code class="descname">KIND_ALL</code><em class="property"> = 1</em></dt>
+<dd><p>Use all keyrings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Limba.KeyringKind.KIND_VENDOR">
+<code class="descname">KIND_VENDOR</code><em class="property"> = 2</em></dt>
+<dd><p>Use the vendor keyring, containing explicitly trusted keys by the distribution vendor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Limba.KeyringKind.KIND_EXTRA">
+<code class="descname">KIND_EXTRA</code><em class="property"> = 3</em></dt>
+<dd><p>Use the extra keyring, containing manually trusted keys by the user.</p>
 </dd></dl>
 
 </dd></dl>
@@ -280,7 +290,7 @@
 <dl class="class">
 <dt id="Limba.ManagerError">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">ManagerError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The error type.</p>
 <dl class="attribute">
 <dt id="Limba.ManagerError.FAILED">
@@ -311,7 +321,7 @@
 <dl class="class">
 <dt id="Limba.PackageError">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">PackageError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The error type.</p>
 <dl class="attribute">
 <dt id="Limba.PackageError.FAILED">
@@ -378,7 +388,7 @@
 <dl class="class">
 <dt id="Limba.PackageKind">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">PackageKind</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Type of the Limba package</p>
 <dl class="attribute">
 <dt id="Limba.PackageKind.UNKNOWN">
@@ -403,7 +413,7 @@
 <dl class="class">
 <dt id="Limba.PackageStage">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">PackageStage</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Stages emitted when performing actions on a <a class="reference internal" href="classes/Package.html#Limba.Package" title="Limba.Package"><code class="xref py py-obj docutils literal"><span class="pre">Limba.Package</span></code></a> which consist of several
 smaller steps, like installing the package.</p>
 <dl class="attribute">
@@ -441,7 +451,7 @@ smaller steps, like installing the package.</p>
 <dl class="class">
 <dt id="Limba.PkgCacheError">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">PkgCacheError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The error type.</p>
 <dl class="attribute">
 <dt id="Limba.PkgCacheError.FAILED">
@@ -490,7 +500,7 @@ smaller steps, like installing the package.</p>
 <dl class="class">
 <dt id="Limba.RepositoryError">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">RepositoryError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The error type.</p>
 <dl class="attribute">
 <dt id="Limba.RepositoryError.FAILED">
@@ -527,7 +537,7 @@ smaller steps, like installing the package.</p>
 <dl class="class">
 <dt id="Limba.TrustLevel">
 <em class="property">class </em><code class="descclassname">Limba.</code><code class="descname">TrustLevel</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/Limba-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>A simple indicator on how much we trust a software package.</p>
 <dl class="attribute">
 <dt id="Limba.TrustLevel.NONE">
@@ -575,7 +585,4 @@ smaller steps, like installing the package.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

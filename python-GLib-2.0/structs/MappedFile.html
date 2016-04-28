@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.MarkupParseContext" href="MarkupParseContext.html"/>
         <link rel="prev" title="GLib.MainLoop" href="MainLoop.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -188,11 +186,11 @@
 <dt id="GLib.MappedFile">
 <em class="property">class </em><code class="descclassname">GLib.</code><code class="descname">MappedFile</code></dt>
 <dd><p>The <a class="reference internal" href="#GLib.MappedFile" title="GLib.MappedFile"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile</span></code></a> represents a file mapping created with
-<a class="reference internal" href="#GLib.MappedFile.new" title="GLib.MappedFile.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.new</span></code></a> (). It has only private members and should
+<a class="reference internal" href="#GLib.MappedFile.new" title="GLib.MappedFile.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.new</span></code></a>(). It has only private members and should
 not be accessed directly.</p>
 <dl class="staticmethod">
 <dt id="GLib.MappedFile.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>filename</em>, <em>writable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.46.2#n248"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>filename</em>, <em>writable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.48.0#n248"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -203,11 +201,11 @@ not be accessed directly.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="../classes/GError.html#GLib.GError" title="GLib.GError"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="../classes/Error.html#GLib.Error" title="GLib.Error"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a newly allocated <a class="reference internal" href="#GLib.MappedFile" title="GLib.MappedFile"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile</span></code></a> which must be unref&#8217;d
-with <a class="reference internal" href="#GLib.MappedFile.unref" title="GLib.MappedFile.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.unref</span></code></a> (), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if the mapping failed.</p>
+with <a class="reference internal" href="#GLib.MappedFile.unref" title="GLib.MappedFile.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.unref</span></code></a>(), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if the mapping failed.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#GLib.MappedFile" title="GLib.MappedFile"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile</span></code></a></p>
@@ -223,7 +221,7 @@ written back to the file.</p>
 <p>Note that modifications of the underlying file might affect the contents
 of the <a class="reference internal" href="#GLib.MappedFile" title="GLib.MappedFile"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile</span></code></a>. Therefore, mapping should only be used if the file
 will not be modified, or if all modifications of the file are done
-atomically (e.g. using <a class="reference internal" href="../functions.html#GLib.file_set_contents" title="GLib.file_set_contents"><code class="xref py py-obj docutils literal"><span class="pre">GLib.file_set_contents</span></code></a> ()).</p>
+atomically (e.g. using <a class="reference internal" href="../functions.html#GLib.file_set_contents" title="GLib.file_set_contents"><code class="xref py py-obj docutils literal"><span class="pre">GLib.file_set_contents</span></code></a>()).</p>
 <p>If <cite>filename</cite> is the name of an empty, regular file, the function
 will successfully return an empty <a class="reference internal" href="#GLib.MappedFile" title="GLib.MappedFile"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile</span></code></a>. In other cases of
 size 0 (e.g. device files such as /dev/null), <cite>error</cite> will be set
@@ -235,7 +233,7 @@ to the <a class="reference internal" href="../enums.html#GLib.FileError" title="
 
 <dl class="staticmethod">
 <dt id="GLib.MappedFile.new_from_fd">
-<em class="property">static </em><code class="descname">new_from_fd</code><span class="sig-paren">(</span><em>fd</em>, <em>writable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.46.2#n303"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_from_fd</code><span class="sig-paren">(</span><em>fd</em>, <em>writable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.48.0#n303"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -246,11 +244,11 @@ to the <a class="reference internal" href="../enums.html#GLib.FileError" title="
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="../classes/GError.html#GLib.GError" title="GLib.GError"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="../classes/Error.html#GLib.Error" title="GLib.Error"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a newly allocated <a class="reference internal" href="#GLib.MappedFile" title="GLib.MappedFile"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile</span></code></a> which must be unref&#8217;d
-with <a class="reference internal" href="#GLib.MappedFile.unref" title="GLib.MappedFile.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.unref</span></code></a> (), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if the mapping failed.</p>
+with <a class="reference internal" href="#GLib.MappedFile.unref" title="GLib.MappedFile.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.unref</span></code></a>(), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if the mapping failed.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#GLib.MappedFile" title="GLib.MappedFile"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile</span></code></a></p>
@@ -266,7 +264,7 @@ written back to the file.</p>
 <p>Note that modifications of the underlying file might affect the contents
 of the <a class="reference internal" href="#GLib.MappedFile" title="GLib.MappedFile"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile</span></code></a>. Therefore, mapping should only be used if the file
 will not be modified, or if all modifications of the file are done
-atomically (e.g. using <a class="reference internal" href="../functions.html#GLib.file_set_contents" title="GLib.file_set_contents"><code class="xref py py-obj docutils literal"><span class="pre">GLib.file_set_contents</span></code></a> ()).</p>
+atomically (e.g. using <a class="reference internal" href="../functions.html#GLib.file_set_contents" title="GLib.file_set_contents"><code class="xref py py-obj docutils literal"><span class="pre">GLib.file_set_contents</span></code></a>()).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -274,32 +272,32 @@ atomically (e.g. using <a class="reference internal" href="../functions.html#GLi
 
 <dl class="method">
 <dt id="GLib.MappedFile.free">
-<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.46.2#n360"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.48.0#n360"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>This call existed before <a class="reference internal" href="#GLib.MappedFile" title="GLib.MappedFile"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile</span></code></a> had refcounting and is currently
-exactly the same as <a class="reference internal" href="#GLib.MappedFile.unref" title="GLib.MappedFile.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.unref</span></code></a> ().</p>
+exactly the same as <a class="reference internal" href="#GLib.MappedFile.unref" title="GLib.MappedFile.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.unref</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.8.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 2.22: </span>Use <a class="reference internal" href="#GLib.MappedFile.unref" title="GLib.MappedFile.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.unref</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 2.22: </span>Use <a class="reference internal" href="#GLib.MappedFile.unref" title="GLib.MappedFile.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MappedFile.unref</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.MappedFile.get_bytes">
-<code class="descname">get_bytes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.46.2#n420"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_bytes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.48.0#n420"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="Bytes.html#GLib.Bytes" title="GLib.Bytes"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> referencing data
-from <cite>file</cite></td>
+from <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Bytes.html#GLib.Bytes" title="GLib.Bytes"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Creates a new <a class="reference internal" href="Bytes.html#GLib.Bytes" title="GLib.Bytes"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> which references the data mapped from <cite>file</cite>.
+<p>Creates a new <a class="reference internal" href="Bytes.html#GLib.Bytes" title="GLib.Bytes"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> which references the data mapped from <cite>self</cite>.
 The mapped contents of the file must not be modified after creating this
 bytes object, because a <a class="reference internal" href="Bytes.html#GLib.Bytes" title="GLib.Bytes"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> should be immutable.</p>
 <div class="versionadded">
@@ -309,12 +307,12 @@ bytes object, because a <a class="reference internal" href="Bytes.html#GLib.Byte
 
 <dl class="method">
 <dt id="GLib.MappedFile.get_contents">
-<code class="descname">get_contents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.46.2#n342"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_contents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.48.0#n342"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the contents of <cite>file</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the contents of <cite>self</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -331,12 +329,12 @@ even if the <a class="reference internal" href="#GLib.MappedFile" title="GLib.Ma
 
 <dl class="method">
 <dt id="GLib.MappedFile.get_length">
-<code class="descname">get_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.46.2#n319"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.48.0#n319"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the length of the contents of <cite>file</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the length of the contents of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -350,7 +348,7 @@ even if the <a class="reference internal" href="#GLib.MappedFile" title="GLib.Ma
 
 <dl class="method">
 <dt id="GLib.MappedFile.ref">
-<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.46.2#n377"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.48.0#n377"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -361,7 +359,7 @@ even if the <a class="reference internal" href="#GLib.MappedFile" title="GLib.Ma
 </tr>
 </tbody>
 </table>
-<p>Increments the reference count of <cite>file</cite> by one.  It is safe to call
+<p>Increments the reference count of <cite>self</cite> by one.  It is safe to call
 this function from any thread.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
@@ -370,9 +368,9 @@ this function from any thread.</p>
 
 <dl class="method">
 <dt id="GLib.MappedFile.unref">
-<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.46.2#n398"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Decrements the reference count of <cite>file</cite> by one.  If the reference count
-drops to 0, unmaps the buffer of <cite>file</cite> and frees it.</p>
+<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gmappedfile.c?h=2.48.0#n398"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Decrements the reference count of <cite>self</cite> by one.  If the reference count
+drops to 0, unmaps the buffer of <cite>self</cite> and frees it.</p>
 <p>It is safe to call this function from any thread.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
@@ -395,7 +393,4 @@ drops to 0, unmaps the buffer of <cite>file</cite> and frees it.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="RB 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="RB.FadingImage" href="FadingImage.html"/>
         <link rel="prev" title="RB.EntryView" href="EntryView.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -597,7 +595,7 @@ lookups matching <cite>key</cite> will return it.</p>
 <h2>Signal Details</h2>
 <dl class="function">
 <dt id="RB.ExtDB.signals.added">
-<code class="descclassname">RB.ExtDB.signals.</code><code class="descname">added</code><span class="sig-paren">(</span><em>ext_d_b</em>, <em>object</em>, <em>p0</em>, <em>p1</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">RB.ExtDB.signals.</code><code class="descname">added</code><span class="sig-paren">(</span><em>ext_d_b</em>, <em>key</em>, <em>filename</em>, <em>data</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -610,9 +608,9 @@ lookups matching <cite>key</cite> will return it.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>ext_d_b</strong> (<a class="reference internal" href="#RB.ExtDB" title="RB.ExtDB"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDB</span></code></a>) &#8211; The object which received the signal</li>
-<li><strong>object</strong> (<a class="reference internal" href="../structs/ExtDBKey.html#RB.ExtDBKey" title="RB.ExtDBKey"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDBKey</span></code></a>) &#8211; </li>
-<li><strong>p0</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
-<li><strong>p1</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; </li>
+<li><strong>key</strong> (<a class="reference internal" href="../structs/ExtDBKey.html#RB.ExtDBKey" title="RB.ExtDBKey"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDBKey</span></code></a>) &#8211; the <a class="reference internal" href="../structs/ExtDBKey.html#RB.ExtDBKey" title="RB.ExtDBKey"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDBKey</span></code></a> that was added</li>
+<li><strong>filename</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the filename for the item that was added</li>
+<li><strong>data</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; the value that was stored</li>
 </ul>
 </td>
 </tr>
@@ -626,7 +624,7 @@ media player.</p>
 
 <dl class="function">
 <dt id="RB.ExtDB.signals.load">
-<code class="descclassname">RB.ExtDB.signals.</code><code class="descname">load</code><span class="sig-paren">(</span><em>ext_d_b</em>, <em>object</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">RB.ExtDB.signals.</code><code class="descname">load</code><span class="sig-paren">(</span><em>ext_d_b</em>, <em>data</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -639,7 +637,7 @@ media player.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>ext_d_b</strong> (<a class="reference internal" href="#RB.ExtDB" title="RB.ExtDB"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDB</span></code></a>) &#8211; The object which received the signal</li>
-<li><strong>object</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; </li>
+<li><strong>data</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; the data being loaded</li>
 </ul>
 </td>
 </tr>
@@ -657,7 +655,7 @@ URI.</p>
 
 <dl class="function">
 <dt id="RB.ExtDB.signals.request">
-<code class="descclassname">RB.ExtDB.signals.</code><code class="descname">request</code><span class="sig-paren">(</span><em>ext_d_b</em>, <em>object</em>, <em>p0</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">RB.ExtDB.signals.</code><code class="descname">request</code><span class="sig-paren">(</span><em>ext_d_b</em>, <em>key</em>, <em>last_time</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -670,8 +668,8 @@ URI.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>ext_d_b</strong> (<a class="reference internal" href="#RB.ExtDB" title="RB.ExtDB"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDB</span></code></a>) &#8211; The object which received the signal</li>
-<li><strong>object</strong> (<a class="reference internal" href="../structs/ExtDBKey.html#RB.ExtDBKey" title="RB.ExtDBKey"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDBKey</span></code></a>) &#8211; </li>
-<li><strong>p0</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+<li><strong>key</strong> (<a class="reference internal" href="../structs/ExtDBKey.html#RB.ExtDBKey" title="RB.ExtDBKey"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDBKey</span></code></a>) &#8211; the <a class="reference internal" href="../structs/ExtDBKey.html#RB.ExtDBKey" title="RB.ExtDBKey"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDBKey</span></code></a> that was requested</li>
+<li><strong>last_time</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the last time this item was requested</li>
 </ul>
 </td>
 </tr>
@@ -687,7 +685,7 @@ signal.</p>
 
 <dl class="function">
 <dt id="RB.ExtDB.signals.store">
-<code class="descclassname">RB.ExtDB.signals.</code><code class="descname">store</code><span class="sig-paren">(</span><em>ext_d_b</em>, <em>object</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">RB.ExtDB.signals.</code><code class="descname">store</code><span class="sig-paren">(</span><em>ext_d_b</em>, <em>data</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -700,7 +698,7 @@ signal.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>ext_d_b</strong> (<a class="reference internal" href="#RB.ExtDB" title="RB.ExtDB"><code class="xref py py-obj docutils literal"><span class="pre">RB.ExtDB</span></code></a>) &#8211; The object which received the signal</li>
-<li><strong>object</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; </li>
+<li><strong>data</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; the data being stored</li>
 </ul>
 </td>
 </tr>
@@ -754,7 +752,4 @@ or compressed, such as images.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

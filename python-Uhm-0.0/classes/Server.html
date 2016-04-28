@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Uhm 0.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Hierarchy" href="../hierarchy.html"/>
         <link rel="prev" title="Uhm.Resolver" href="Resolver.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -482,7 +480,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> ; unref with <a class="reference external" href="../_docs/Uhm-0.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ()</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a>; unref with <a class="reference external" href="../_docs/Uhm-0.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>()</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a></td>
 </tr>
@@ -512,22 +510,22 @@
 </tr>
 </tbody>
 </table>
-<p>Convenience version of <a class="reference internal" href="#Uhm.Server.received_message_chunk" title="Uhm.Server.received_message_chunk"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.received_message_chunk</span></code></a> () which can be passed directly to <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Soup-2.4/classes/Logger.html#Soup.Logger.set_printer" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_printer</span></code></a> ()
-to forward all libsoup traffic logging to a <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a>. The <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> must be passed to <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Soup-2.4/classes/Logger.html#Soup.Logger.set_printer" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_printer</span></code></a> () as
+<p>Convenience version of <a class="reference internal" href="#Uhm.Server.received_message_chunk" title="Uhm.Server.received_message_chunk"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.received_message_chunk</span></code></a>() which can be passed directly to <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Soup-2.4/classes/Logger.html#Soup.Logger.set_printer" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_printer</span></code></a>()
+to forward all libsoup traffic logging to a <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a>. The <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> must be passed to <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Soup-2.4/classes/Logger.html#Soup.Logger.set_printer" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_printer</span></code></a>() as
 its user data.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">UhmServer</span> <span class="o">*</span><span class="n">mock_server</span><span class="p">;</span>
-<span class="n">SoupSession</span> <span class="o">*</span><span class="n">session</span><span class="p">;</span>
-<span class="n">SoupLogger</span> <span class="o">*</span><span class="n">logger</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>UhmServer *mock_server;
+SoupSession *session;
+SoupLogger *logger;
 
-<span class="n">mock_server</span> <span class="o">=</span> <span class="n">uhm_server_new</span> <span class="p">();</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">soup_session_new</span> <span class="p">();</span>
+mock_server = uhm_server_new ();
+session = soup_session_new ();
 
-<span class="n">logger</span> <span class="o">=</span> <span class="n">soup_logger_new</span> <span class="p">(</span><span class="n">SOUP_LOGGER_LOG_BODY</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">soup_logger_set_printer</span> <span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">uhm_server_received_message_chunk_from_soup</span><span class="p">,</span> <span class="n">g_object_ref</span> <span class="p">(</span><span class="n">mock_server</span><span class="p">),</span> <span class="n">g_object_unref</span><span class="p">);</span>
-<span class="n">soup_session_add_feature</span> <span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">SOUP_SESSION_FEATURE</span> <span class="p">(</span><span class="n">logger</span><span class="p">));</span>
-<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">logger</span><span class="p">);</span>
+logger = soup_logger_new (SOUP_LOGGER_LOG_BODY, -1);
+soup_logger_set_printer (logger, uhm_server_received_message_chunk_from_soup, g_object_ref (mock_server), g_object_unref);
+soup_session_add_feature (session, SOUP_SESSION_FEATURE (logger));
+g_object_unref (logger);
 
-<span class="cm">/* Do something with mock_server here. */</span>
+/* Do something with mock_server here. */
 </pre></div>
 </div>
 <div class="versionadded">
@@ -547,7 +545,7 @@ its user data.</p>
 </tbody>
 </table>
 <p>Remove a <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <code class="xref py py-data docutils literal"><span class="pre">:compare-messages</span></code> filter function installed previously by
-calling something like <a class="reference internal" href="#Uhm.Server.filter_ignore_parameter_values" title="Uhm.Server.filter_ignore_parameter_values"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.filter_ignore_parameter_values</span></code></a> ().</p>
+calling something like <a class="reference internal" href="#Uhm.Server.filter_ignore_parameter_values" title="Uhm.Server.filter_ignore_parameter_values"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.filter_ignore_parameter_values</span></code></a>().</p>
 <p>It is an error to call this function with an invalid <cite>filter_id</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.5.0.</span></p>
@@ -557,9 +555,9 @@ calling something like <a class="reference internal" href="#Uhm.Server.filter_ig
 <dl class="method">
 <dt id="Uhm.Server.end_trace">
 <code class="descname">end_trace</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Convenience function to finish logging to or reading from a trace file previously passed to <a class="reference internal" href="#Uhm.Server.start_trace" title="Uhm.Server.start_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace</span></code></a> () or
-<a class="reference internal" href="#Uhm.Server.start_trace_full" title="Uhm.Server.start_trace_full"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace_full</span></code></a> ().</p>
-<p>If <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_online" title="Uhm.Server.props.enable_online"><code class="xref py py-data docutils literal"><span class="pre">:enable-online</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, this will shut down the mock server (as if <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a> () had been called).</p>
+<dd><p>Convenience function to finish logging to or reading from a trace file previously passed to <a class="reference internal" href="#Uhm.Server.start_trace" title="Uhm.Server.start_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace</span></code></a>() or
+<a class="reference internal" href="#Uhm.Server.start_trace_full" title="Uhm.Server.start_trace_full"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace_full</span></code></a>().</p>
+<p>If <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_online" title="Uhm.Server.props.enable_online"><code class="xref py py-data docutils literal"><span class="pre">:enable-online</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, this will shut down the mock server (as if <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a>() had been called).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
 </div>
@@ -576,7 +574,7 @@ calling something like <a class="reference internal" href="#Uhm.Server.filter_ig
 parameter names to ignore</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">opaque filter ID used with
-<a class="reference internal" href="#Uhm.Server.compare_messages_remove_filter" title="Uhm.Server.compare_messages_remove_filter"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.compare_messages_remove_filter</span></code></a> () to remove the filter later</td>
+<a class="reference internal" href="#Uhm.Server.compare_messages_remove_filter" title="Uhm.Server.compare_messages_remove_filter"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.compare_messages_remove_filter</span></code></a>() to remove the filter later</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -587,7 +585,7 @@ default comparison function to one which ignores differences in the values of
 the given query <cite>parameter_names</cite>. The named parameters must still be present
 in the query, however.</p>
 <p>The filter will remain in place for the lifetime of the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a>, until
-<cite>uhm_server_compare_messages_remove_filter</cite> () is called with the returned
+<cite>uhm_server_compare_messages_remove_filter</cite>() is called with the returned
 filter ID.</p>
 <p>Note that currently only one of the installed comparison functions will be
 used. This may change in future.</p>
@@ -742,13 +740,13 @@ used. This may change in future.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Synchronously loads the given <cite>trace_file</cite> of network messages, ready to simulate a network conversation by matching
-requests against the file and returning the associated responses. Call <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a> () to start the mock
+requests against the file and returning the associated responses. Call <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a>() to start the mock
 server afterwards.</p>
 <p>Loading the trace file may be cancelled from another thread using <cite>cancellable</cite>.</p>
 <p>On error, <cite>error</cite> will be set and the state of the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> will not change. A <a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/enums.html#GLib.IOError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.IOError</span></code></a> will be set if there is
@@ -775,7 +773,7 @@ a problem reading the trace file.</p>
 </tr>
 </tbody>
 </table>
-<p>Asynchronous version of <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a> (). In <cite>callback</cite>, call <a class="reference internal" href="#Uhm.Server.load_trace_finish" title="Uhm.Server.load_trace_finish"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace_finish</span></code></a> () to complete the operation.</p>
+<p>Asynchronous version of <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a>(). In <cite>callback</cite>, call <a class="reference internal" href="#Uhm.Server.load_trace_finish" title="Uhm.Server.load_trace_finish"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace_finish</span></code></a>() to complete the operation.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
 </div>
@@ -790,13 +788,13 @@ a problem reading the trace file.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; asynchronous operation result passed to the callback</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Finishes an asynchronous operation started by <a class="reference internal" href="#Uhm.Server.load_trace_async" title="Uhm.Server.load_trace_async"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace_async</span></code></a> ().</p>
+<p>Finishes an asynchronous operation started by <a class="reference internal" href="#Uhm.Server.load_trace_async" title="Uhm.Server.load_trace_async"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace_async</span></code></a>().</p>
 <p>On error, <cite>error</cite> will be set and the state of the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> will not change.
-See <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a> () for details on the error domains used.</p>
+See <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a>() for details on the error domains used.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
 </div>
@@ -815,22 +813,22 @@ See <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Serve
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Indicates to the mock server that a single new line of a message was received from the real server. The message line may be
-appended to the current trace file if logging is enabled (<a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_logging" title="Uhm.Server.props.enable_logging"><code class="xref py py-data docutils literal"><span class="pre">:enable-logging</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> ), adding a newline character
-at the end. If logging is disabled but online mode is enabled (<a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_online" title="Uhm.Server.props.enable_online"><code class="xref py py-data docutils literal"><span class="pre">:enable-online</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> ), the message line will
+appended to the current trace file if logging is enabled (<a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_logging" title="Uhm.Server.props.enable_logging"><code class="xref py py-data docutils literal"><span class="pre">:enable-logging</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>), adding a newline character
+at the end. If logging is disabled but online mode is enabled (<a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_online" title="Uhm.Server.props.enable_online"><code class="xref py py-data docutils literal"><span class="pre">:enable-online</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>), the message line will
 be compared to the next expected line in the existing trace file. Otherwise, this function is a no-op.</p>
 <p>On failure, <cite>error</cite> will be set and the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> state will remain unchanged apart from the parse state machine, which will remain
 in the state reached after parsing <cite>message_chunk</cite>. A %G_IO_ERROR will be returned if writing to the trace file failed. If in
 comparison mode and the received message chunk corresponds to an unexpected message in the trace file, a %UHM_SERVER_ERROR will
 be returned.</p>
 <p>In common cases where message log data only needs to be passed to a <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> and not (for example) logged to an
-application-specific file or the command line as  well, it is simpler to use <a class="reference internal" href="#Uhm.Server.received_message_chunk_from_soup" title="Uhm.Server.received_message_chunk_from_soup"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.received_message_chunk_from_soup</span></code></a> (), passing
-it directly to <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Soup-2.4/classes/Logger.html#Soup.Logger.set_printer" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_printer</span></code></a> (). See the documentation for <a class="reference internal" href="#Uhm.Server.received_message_chunk_from_soup" title="Uhm.Server.received_message_chunk_from_soup"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.received_message_chunk_from_soup</span></code></a> () for details.</p>
+application-specific file or the command line as  well, it is simpler to use <a class="reference internal" href="#Uhm.Server.received_message_chunk_from_soup" title="Uhm.Server.received_message_chunk_from_soup"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.received_message_chunk_from_soup</span></code></a>(), passing
+it directly to <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Soup-2.4/classes/Logger.html#Soup.Logger.set_printer" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_printer</span></code></a>(). See the documentation for <a class="reference internal" href="#Uhm.Server.received_message_chunk_from_soup" title="Uhm.Server.received_message_chunk_from_soup"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.received_message_chunk_from_soup</span></code></a>() for details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
 </div>
@@ -850,35 +848,35 @@ it directly to <a class="reference external" href="../_docs/Uhm-0.0/../../../pyt
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Convenience version of <a class="reference internal" href="#Uhm.Server.received_message_chunk" title="Uhm.Server.received_message_chunk"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.received_message_chunk</span></code></a> () which takes the
+<p>Convenience version of <a class="reference internal" href="#Uhm.Server.received_message_chunk" title="Uhm.Server.received_message_chunk"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.received_message_chunk</span></code></a>() which takes the
 message <cite>direction</cite> and <cite>data</cite> separately, as provided by libsoup in a
 <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Soup-2.4/callbacks.html#Soup.LoggerPrinter" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.LoggerPrinter</span></code></a> callback.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">UhmServer</span> <span class="o">*</span><span class="n">mock_server</span><span class="p">;</span>
-<span class="n">SoupSession</span> <span class="o">*</span><span class="n">session</span><span class="p">;</span>
-<span class="n">SoupLogger</span> <span class="o">*</span><span class="n">logger</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>UhmServer *mock_server;
+SoupSession *session;
+SoupLogger *logger;
 
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">soup_log_printer</span> <span class="p">(</span><span class="n">SoupLogger</span> <span class="o">*</span><span class="n">logger</span><span class="p">,</span> <span class="n">SoupLoggerLogLevel</span> <span class="n">level</span><span class="p">,</span> <span class="kt">char</span> <span class="n">direction</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">user_data</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="cm">/* Pass the data to libuhttpmock. */</span>
-<span class="n">UhmServer</span> <span class="o">*</span><span class="n">mock_server</span> <span class="o">=</span> <span class="n">UHM_SERVER</span> <span class="p">(</span><span class="n">user_data</span><span class="p">);</span>
-    <span class="n">uhm_server_received_message_chunk_with_direction</span> <span class="p">(</span><span class="n">mock_server</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">strlen</span> <span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="p">}</span>
+static void
+soup_log_printer (SoupLogger *logger, SoupLoggerLogLevel level, char direction, const char *data, gpointer user_data)
+{
+    /* Pass the data to libuhttpmock. */
+UhmServer *mock_server = UHM_SERVER (user_data);
+    uhm_server_received_message_chunk_with_direction (mock_server, direction, data, strlen (data), NULL);
+}
 
-<span class="n">mock_server</span> <span class="o">=</span> <span class="n">uhm_server_new</span> <span class="p">();</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">soup_session_new</span> <span class="p">();</span>
+mock_server = uhm_server_new ();
+session = soup_session_new ();
 
-<span class="n">logger</span> <span class="o">=</span> <span class="n">soup_logger_new</span> <span class="p">(</span><span class="n">SOUP_LOGGER_LOG_BODY</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">soup_logger_set_printer</span> <span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="p">(</span><span class="n">SoupLoggerPrinter</span><span class="p">)</span> <span class="n">soup_log_printer</span><span class="p">,</span> <span class="n">g_object_ref</span> <span class="p">(</span><span class="n">mock_server</span><span class="p">),</span> <span class="n">g_object_unref</span><span class="p">);</span>
-<span class="n">soup_session_add_feature</span> <span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">SOUP_SESSION_FEATURE</span> <span class="p">(</span><span class="n">logger</span><span class="p">));</span>
-<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">logger</span><span class="p">);</span>
+logger = soup_logger_new (SOUP_LOGGER_LOG_BODY, -1);
+soup_logger_set_printer (logger, (SoupLoggerPrinter) soup_log_printer, g_object_ref (mock_server), g_object_unref);
+soup_session_add_feature (session, SOUP_SESSION_FEATURE (logger));
+g_object_unref (logger);
 
-<span class="cm">/* Do something with mock_server here. */</span>
+/* Do something with mock_server here. */
 </pre></div>
 </div>
 <div class="versionadded">
@@ -891,8 +889,8 @@ message <cite>direction</cite> and <cite>data</cite> separately, as provided by 
 <code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Runs the mock server, binding to a loopback TCP/IP interface and preparing a HTTPS server which is ready to accept requests.
 The TCP/IP address and port number are chosen randomly out of the loopback addresses, and are exposed as <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.address" title="Uhm.Server.props.address"><code class="xref py py-data docutils literal"><span class="pre">:address</span></code></a> and <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.port" title="Uhm.Server.props.port"><code class="xref py py-data docutils literal"><span class="pre">:port</span></code></a>
-once this function has returned. A <a class="reference internal" href="Resolver.html#Uhm.Resolver" title="Uhm.Resolver"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Resolver</span></code></a> (exposed as <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.resolver" title="Uhm.Server.props.resolver"><code class="xref py py-data docutils literal"><span class="pre">:resolver</span></code></a> ) is set as the default <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/classes/Resolver.html#Gio.Resolver" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver</span></code></a> while the server is running.</p>
-<p>The server is started in a worker thread, so this function returns immediately and the server continues to run in the background. Use <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a> ()
+once this function has returned. A <a class="reference internal" href="Resolver.html#Uhm.Resolver" title="Uhm.Resolver"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Resolver</span></code></a> (exposed as <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.resolver" title="Uhm.Server.props.resolver"><code class="xref py py-data docutils literal"><span class="pre">:resolver</span></code></a>) is set as the default <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/classes/Resolver.html#Gio.Resolver" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resolver</span></code></a> while the server is running.</p>
+<p>The server is started in a worker thread, so this function returns immediately and the server continues to run in the background. Use <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a>()
 to shut it down.</p>
 <p>This function always succeeds.</p>
 <div class="versionadded">
@@ -916,7 +914,7 @@ to shut it down.</p>
 <p>Sets the value of the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.tls_certificate" title="Uhm.Server.props.tls_certificate"><code class="xref py py-data docutils literal"><span class="pre">:tls-certificate</span></code></a> property to the default TLS certificate built in to libuhttpmock.
 This default certificate is not signed by any certificate authority, and contains minimal metadata details. It may
 be used by clients which have no special certificate requirements; clients which have special requirements should
-construct a custom <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a> and pass it to <a class="reference internal" href="#Uhm.Server.set_tls_certificate" title="Uhm.Server.set_tls_certificate"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.set_tls_certificate</span></code></a> ().</p>
+construct a custom <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a> and pass it to <a class="reference internal" href="#Uhm.Server.set_tls_certificate" title="Uhm.Server.set_tls_certificate"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.set_tls_certificate</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
 </div>
@@ -968,11 +966,11 @@ construct a custom <a class="reference external" href="../_docs/Uhm-0.0/../../..
 </tbody>
 </table>
 <p>Set the domain names which are expected to have requests made of them by the client code interacting with this <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a>.
-This is a convenience method which calls <a class="reference internal" href="Resolver.html#Uhm.Resolver.add_A" title="Uhm.Resolver.add_A"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Resolver.add_A</span></code></a> () on the server’s <a class="reference internal" href="Resolver.html#Uhm.Resolver" title="Uhm.Resolver"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Resolver</span></code></a> for each of the domain names
+This is a convenience method which calls <a class="reference internal" href="Resolver.html#Uhm.Resolver.add_A" title="Uhm.Resolver.add_A"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Resolver.add_A</span></code></a>() on the server’s <a class="reference internal" href="Resolver.html#Uhm.Resolver" title="Uhm.Resolver"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Resolver</span></code></a> for each of the domain names
 listed in <cite>domain_names</cite>. It associates them with the server’s current IP address, and automatically updates the mappings
 if the IP address or resolver change.</p>
 <p>Note that this will reset all records on the server’s <a class="reference internal" href="Resolver.html#Uhm.Resolver" title="Uhm.Resolver"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Resolver</span></code></a>, replacing all of them with the provided <cite>domain_names</cite>.</p>
-<p>It is safe to add further domain names to the <a class="reference internal" href="Resolver.html#Uhm.Resolver" title="Uhm.Resolver"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Resolver</span></code></a> in a callback for the <a class="reference external" href="../_docs/Uhm-0.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> <a class="reference external" href="../_docs/Uhm-0.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.signals.notify" title="(in GObject 2.0 v2.0)"><code class="xref py py-func docutils literal"><span class="pre">::notify</span></code></a> signal for <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.resolver" title="Uhm.Server.props.resolver"><code class="xref py py-data docutils literal"><span class="pre">:resolver</span></code></a> ;
+<p>It is safe to add further domain names to the <a class="reference internal" href="Resolver.html#Uhm.Resolver" title="Uhm.Resolver"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Resolver</span></code></a> in a callback for the <a class="reference external" href="../_docs/Uhm-0.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> <a class="reference external" href="../_docs/Uhm-0.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.signals.notify" title="(in GObject 2.0 v2.0)"><code class="xref py py-func docutils literal"><span class="pre">::notify</span></code></a> signal for <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.resolver" title="Uhm.Server.props.resolver"><code class="xref py py-data docutils literal"><span class="pre">:resolver</span></code></a>;
 that signal is emitted after the resolver is cleared and these <cite>domain_names</cite> are added.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.3.0.</span></p>
@@ -1022,14 +1020,14 @@ that signal is emitted after the resolver is cleared and these <cite>domain_name
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trace_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; name of the trace</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Starts a mock server which follows the trace file of filename <cite>trace_name</cite> in the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.trace_directory" title="Uhm.Server.props.trace_directory"><code class="xref py py-data docutils literal"><span class="pre">:trace-directory</span></code></a> directory.
-See <a class="reference internal" href="#Uhm.Server.start_trace_full" title="Uhm.Server.start_trace_full"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace_full</span></code></a> () for further documentation.</p>
+See <a class="reference internal" href="#Uhm.Server.start_trace_full" title="Uhm.Server.start_trace_full"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace_full</span></code></a>() for further documentation.</p>
 <p>This function has undefined behaviour if <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.trace_directory" title="Uhm.Server.props.trace_directory"><code class="xref py py-data docutils literal"><span class="pre">:trace-directory</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
-<p>On failure, <cite>error</cite> will be set and the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> state will remain unchanged. See <a class="reference internal" href="#Uhm.Server.start_trace_full" title="Uhm.Server.start_trace_full"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace_full</span></code></a> () for
+<p>On failure, <cite>error</cite> will be set and the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> state will remain unchanged. See <a class="reference internal" href="#Uhm.Server.start_trace_full" title="Uhm.Server.start_trace_full"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace_full</span></code></a>() for
 details of the error domains used.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
@@ -1045,7 +1043,7 @@ details of the error domains used.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trace_file</strong> (<a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; a trace file to load</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1053,10 +1051,10 @@ details of the error domains used.</p>
 <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_online" title="Uhm.Server.props.enable_online"><code class="xref py py-data docutils literal"><span class="pre">:enable-online</span></code></a>.</p>
 <p>If <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_logging" title="Uhm.Server.props.enable_logging"><code class="xref py py-data docutils literal"><span class="pre">:enable-logging</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, a log handler will be set up to redirect all client network activity into the given <cite>trace_file</cite>.
 If <cite>trace_file</cite> already exists, it will be overwritten.</p>
-<p>If <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_online" title="Uhm.Server.props.enable_online"><code class="xref py py-data docutils literal"><span class="pre">:enable-online</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, the given <cite>trace_file</cite> is loaded using <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a> () and then a mock server is
-started using <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a> ().</p>
+<p>If <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_online" title="Uhm.Server.props.enable_online"><code class="xref py py-data docutils literal"><span class="pre">:enable-online</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, the given <cite>trace_file</cite> is loaded using <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a>() and then a mock server is
+started using <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a>().</p>
 <p>On failure, <cite>error</cite> will be set and the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> state will remain unchanged. A <a class="reference external" href="../_docs/Uhm-0.0/../../../python-GLib-2.0/enums.html#GLib.IOError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.IOError</span></code></a> will be set if logging is enabled
-(<a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_logging" title="Uhm.Server.props.enable_logging"><code class="xref py py-data docutils literal"><span class="pre">:enable-logging</span></code></a> ) and there is a problem writing to the trace file; or if a trace needs to be loaded and there is a problem
+(<a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_logging" title="Uhm.Server.props.enable_logging"><code class="xref py py-data docutils literal"><span class="pre">:enable-logging</span></code></a>) and there is a problem writing to the trace file; or if a trace needs to be loaded and there is a problem
 reading from the trace file.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
@@ -1066,8 +1064,8 @@ reading from the trace file.</p>
 <dl class="method">
 <dt id="Uhm.Server.stop">
 <code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Stops a mock server started by calling <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a> (). This shuts down the server&#8217;s worker thread and unbinds it from its TCP/IP socket.</p>
-<p>This unloads any trace file loaded by calling <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a> () (or its asynchronous counterpart). It also resets the set of domain
+<dd><p>Stops a mock server started by calling <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a>(). This shuts down the server&#8217;s worker thread and unbinds it from its TCP/IP socket.</p>
+<p>This unloads any trace file loaded by calling <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a>() (or its asynchronous counterpart). It also resets the set of domain
 names loaded into the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.resolver" title="Uhm.Server.props.resolver"><code class="xref py py-data docutils literal"><span class="pre">:resolver</span></code></a>.</p>
 <p>This function always succeeds.</p>
 <div class="versionadded">
@@ -1078,7 +1076,7 @@ names loaded into the <a class="reference internal" href="#Uhm.Server" title="Uh
 <dl class="method">
 <dt id="Uhm.Server.unload_trace">
 <code class="descname">unload_trace</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Unloads the current trace file of network messages, as loaded by <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a> () or <a class="reference internal" href="#Uhm.Server.load_trace_async" title="Uhm.Server.load_trace_async"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace_async</span></code></a> ().</p>
+<dd><p>Unloads the current trace file of network messages, as loaded by <a class="reference internal" href="#Uhm.Server.load_trace" title="Uhm.Server.load_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace</span></code></a>() or <a class="reference internal" href="#Uhm.Server.load_trace_async" title="Uhm.Server.load_trace_async"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.load_trace_async</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
 </div>
@@ -1220,10 +1218,10 @@ matches the requests and then returns the given response. If the requests don&#8
 </tr>
 </tbody>
 </table>
-<p>Address of the local mock server if it&#8217;s running, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> otherwise. This will be non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> between calls to <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a> () and
-<a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a> (). The address is a physical IP address, e.g. 127.0.0.1.</p>
+<p>Address of the local mock server if it&#8217;s running, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> otherwise. This will be non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> between calls to <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a>() and
+<a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a>(). The address is a physical IP address, e.g. 127.0.0.1.</p>
 <p>This should not normally need to be passed into client code under test, unless the code references IP addresses specifically. The mock server
-runs a DNS resolver which automatically redirects client requests for known domain names to this address (<a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.resolver" title="Uhm.Server.props.resolver"><code class="xref py py-data docutils literal"><span class="pre">:resolver</span></code></a> ).</p>
+runs a DNS resolver which automatically redirects client requests for known domain names to this address (<a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.resolver" title="Uhm.Server.props.resolver"><code class="xref py py-data docutils literal"><span class="pre">:resolver</span></code></a>).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
 </div>
@@ -1246,7 +1244,7 @@ runs a DNS resolver which automatically redirects client requests for known doma
 </tr>
 </tbody>
 </table>
-<p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if network traffic should be logged to a trace file (specified by calling <a class="reference internal" href="#Uhm.Server.start_trace" title="Uhm.Server.start_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace</span></code></a> ()). This operates independently
+<p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if network traffic should be logged to a trace file (specified by calling <a class="reference internal" href="#Uhm.Server.start_trace" title="Uhm.Server.start_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace</span></code></a>()). This operates independently
 of whether traffic is online or being handled locally by the mock server.
 Use this in conjunction with <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.enable_online" title="Uhm.Server.props.enable_online"><code class="xref py py-data docutils literal"><span class="pre">:enable-online</span></code></a> to either log online traffic, or replay logged traffic locally.</p>
 <div class="versionadded">
@@ -1296,7 +1294,7 @@ Use this in conjunction with <a class="reference internal" href="#Uhm.Server" ti
 </tbody>
 </table>
 <p>Port of the local mock server if it&#8217;s running, or 0 otherwise. This will be non-0 between
-calls to <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a> () and <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a> ().</p>
+calls to <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a>() and <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a>().</p>
 <p>It is intended that this port be passed into the client code under test, to substitute for the default HTTPS port (443) which it would otherwise
 use.</p>
 <div class="versionadded">
@@ -1322,9 +1320,9 @@ use.</p>
 </tbody>
 </table>
 <p>Mock resolver used to redirect HTTP requests from specified domain names to the local mock server instance. This will always be set while the
-server is running (between calls to <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a> () and <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a> ()), and is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> otherwise.</p>
+server is running (between calls to <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a>() and <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a>()), and is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> otherwise.</p>
 <p>Use the resolver specified in this property to add domain names which are expected to be requested by the current trace. Domain names not added
-to the resolver will be rejected by the mock server. The set of domain names in the resolver will be reset when <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a> () is
+to the resolver will be rejected by the mock server. The set of domain names in the resolver will be reset when <a class="reference internal" href="#Uhm.Server.stop" title="Uhm.Server.stop"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.stop</span></code></a>() is
 called.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
@@ -1350,12 +1348,12 @@ called.</p>
 </table>
 <p>TLS certificate for the mock server to use when serving HTTPS pages. If this is non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, the server will always use HTTPS. If it is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>,
 the server will always use HTTP. The TLS certificate may be changed after constructing the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a>, but changes to the property will not
-take effect until the next call to <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a> ().</p>
+take effect until the next call to <a class="reference internal" href="#Uhm.Server.run" title="Uhm.Server.run"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.run</span></code></a>().</p>
 <p>A certificate and private key may be generated by executing:</p>
-<p>openssl req -x509 -newkey rsa <code class="xref py py-data docutils literal"><span class="pre">:2048</span></code> -keyout key.pem -out cert.pem -nodes. These files may then be used to construct a
-<a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a> by calling <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate.new_from_files" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate.new_from_files</span></code></a> ().</p>
+<p>openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -nodes. These files may then be used to construct a
+<a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a> by calling <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate.new_from_files" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate.new_from_files</span></code></a>().</p>
 <p>Alternatively, a default <a class="reference external" href="../_docs/Uhm-0.0/../../../python-Gio-2.0/classes/TlsCertificate.html#Gio.TlsCertificate" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a> which wraps a dummy certificate (not signed by any certificate authority) may be set by
-calling <a class="reference internal" href="#Uhm.Server.set_default_tls_certificate" title="Uhm.Server.set_default_tls_certificate"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.set_default_tls_certificate</span></code></a> (). This may be used as the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.tls_certificate" title="Uhm.Server.props.tls_certificate"><code class="xref py py-data docutils literal"><span class="pre">:tls-certificate</span></code></a> if the code under test has no specific
+calling <a class="reference internal" href="#Uhm.Server.set_default_tls_certificate" title="Uhm.Server.set_default_tls_certificate"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.set_default_tls_certificate</span></code></a>(). This may be used as the <a class="reference internal" href="#Uhm.Server" title="Uhm.Server"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server</span></code></a> <a class="reference internal" href="#Uhm.Server.props.tls_certificate" title="Uhm.Server.props.tls_certificate"><code class="xref py py-data docutils literal"><span class="pre">:tls-certificate</span></code></a> if the code under test has no specific
 requirements of the certificate used by the mock server it&#8217;s tested against.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
@@ -1379,8 +1377,8 @@ requirements of the certificate used by the mock server it&#8217;s tested agains
 </tr>
 </tbody>
 </table>
-<p>Directory relative to which all trace files specified in calls to <a class="reference internal" href="#Uhm.Server.start_trace" title="Uhm.Server.start_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace</span></code></a> () will be resolved.
-This is not used for any other methods, but must be non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <a class="reference internal" href="#Uhm.Server.start_trace" title="Uhm.Server.start_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace</span></code></a> () is called.</p>
+<p>Directory relative to which all trace files specified in calls to <a class="reference internal" href="#Uhm.Server.start_trace" title="Uhm.Server.start_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace</span></code></a>() will be resolved.
+This is not used for any other methods, but must be non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <a class="reference internal" href="#Uhm.Server.start_trace" title="Uhm.Server.start_trace"><code class="xref py py-obj docutils literal"><span class="pre">Uhm.Server.start_trace</span></code></a>() is called.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.0.</span></p>
 </div>
@@ -1400,7 +1398,4 @@ This is not used for any other methods, but must be non-<a class="reference exte
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GData 0.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="GData.Batchable" href="Batchable.html"/>
         <link rel="prev" title="GData.AccessHandler" href="AccessHandler.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -156,7 +154,7 @@
 <title>g</title>
 <!-- GObject.GInterface -->
 <g id="node1" class="node"><title>GObject.GInterface</title>
-<g id="a_node1"><a xlink:href="#GData.Authorizer" xlink:title="GObject.GInterface">
+<g id="a_node1"><a xlink:href="../_docs/GData-0.0/../../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" xlink:title="GObject.GInterface">
 <path fill="none" stroke="#3091d1" d="M92,-72C92,-72 6,-72 6,-72 3,-72 0,-69 0,-66 0,-66 0,-60 0,-60 0,-57 3,-54 6,-54 6,-54 92,-54 92,-54 95,-54 98,-57 98,-60 98,-60 98,-66 98,-66 98,-69 95,-72 92,-72"/>
 <text text-anchor="middle" x="49" y="-60.7" font-family="inherit" font-size="8.50">GObject.GInterface</text>
 </a>
@@ -164,7 +162,7 @@
 </g>
 <!-- GData.Authorizer -->
 <g id="node2" class="node"><title>GData.Authorizer</title>
-<g id="a_node2"><a xlink:href="../_docs/GData-0.0/../../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" xlink:title="GData.Authorizer">
+<g id="a_node2"><a xlink:href="#GData.Authorizer" xlink:title="GData.Authorizer">
 <path fill="none" stroke="#3091d1" d="M87.5,-18C87.5,-18 10.5,-18 10.5,-18 7.5,-18 4.5,-15 4.5,-12 4.5,-12 4.5,-6 4.5,-6 4.5,-3 7.5,-0 10.5,-0 10.5,-0 87.5,-0 87.5,-0 90.5,-0 93.5,-3 93.5,-6 93.5,-6 93.5,-12 93.5,-12 93.5,-15 90.5,-18 87.5,-18"/>
 <text text-anchor="middle" x="49" y="-6.7" font-family="inherit" font-size="8.50">GData.Authorizer</text>
 </a>
@@ -286,14 +284,14 @@
 </tbody>
 </table>
 <p>Returns whether the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> instance believes it&#8217;s currently authorized to access the given <cite>domain</cite>. Note that this will not perform any
-network requests, and will just look up the result in the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> &#8216;s local cache of authorizations. This means that the result may be out
+network requests, and will just look up the result in the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a>&#8216;s local cache of authorizations. This means that the result may be out
 of date, as the server may have since invalidated the authorization. If the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> class supports timeouts and TTLs on authorizations,
 they will not be taken into account; this method effectively returns whether the last successful authorization operation performed on the
 <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> included <cite>domain</cite> in the list of requested authorization domains.</p>
 <p>Note that <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> may be passed as the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a>, in which case <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> will always be returned, regardless of the <cite>domain</cite>. This is for
-convenience of checking whether a domain is authorized by the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> returned by <a class="reference internal" href="../classes/Service.html#GData.Service.get_authorizer" title="GData.Service.get_authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.get_authorizer</span></code></a> (), which may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.
+convenience of checking whether a domain is authorized by the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> returned by <a class="reference internal" href="../classes/Service.html#GData.Service.get_authorizer" title="GData.Service.get_authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.get_authorizer</span></code></a>(), which may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.
 For example:</p>
-<div class="highlight-c"><div class="highlight"><pre>if (gdata_authorizer_is_authorized_for_domain (gdata_service_get_authorizer (my_service), my_domain) == TRUE) {
+<div class="highlight-none"><div class="highlight"><pre>if (gdata_authorizer_is_authorized_for_domain (gdata_service_get_authorizer (my_service), my_domain) == TRUE) {
     /&lt;!-- --&gt;* Code to execute only if we&#39;re authorized for the given domain *&lt;!-- --&gt;/
 }
 </pre></div>
@@ -321,7 +319,7 @@ For example:</p>
 </table>
 <p>Processes <cite>message</cite>, adding all the necessary extra headers and parameters to ensure that it&#8217;s correctly authenticated and authorized under the
 given <cite>domain</cite> for the online service. Basically, if a query is not processed by calling this method on it, it will be sent to the online service as
-if it&#8217;s a query from a non-logged-in user. Similarly, if the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> isn&#8217;t authenticated or authorized (for <cite>domain</cite> ), no changes will
+if it&#8217;s a query from a non-logged-in user. Similarly, if the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> isn&#8217;t authenticated or authorized (for <cite>domain</cite>), no changes will
 be made to the <cite>message</cite>.</p>
 <p><cite>domain</cite> may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if the request doesn&#8217;t require authorization.</p>
 <p>This modifies <cite>message</cite> in place.</p>
@@ -340,7 +338,7 @@ be made to the <cite>message</cite>.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cancellable</strong> (<a class="reference external" href="../_docs/GData-0.0/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; optional <a class="reference external" href="../_docs/GData-0.0/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> object, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GData-0.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GData-0.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if an authorization refresh was attempted and was successful, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if a refresh wasn&#8217;t attempted or was unsuccessful</td>
 </tr>
@@ -350,7 +348,7 @@ be made to the <cite>message</cite>.</p>
 </table>
 <p>Forces the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> to refresh any authorization tokens it holds with the online service. This should typically be called when a
 <a class="reference internal" href="../classes/Service.html#GData.Service" title="GData.Service"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service</span></code></a> query returns <a class="reference internal" href="../enums.html#GData.ServiceError.AUTHENTICATION_REQUIRED" title="GData.ServiceError.AUTHENTICATION_REQUIRED"><code class="xref py py-obj docutils literal"><span class="pre">GData.ServiceError.AUTHENTICATION_REQUIRED</span></code></a>, and is already called transparently by methods such as
-<a class="reference internal" href="../classes/Service.html#GData.Service.query" title="GData.Service.query"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.query</span></code></a> () and <a class="reference internal" href="../classes/Service.html#GData.Service.insert_entry" title="GData.Service.insert_entry"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.insert_entry</span></code></a> () (see their documentation for more details).</p>
+<a class="reference internal" href="../classes/Service.html#GData.Service.query" title="GData.Service.query"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.query</span></code></a>() and <a class="reference internal" href="../classes/Service.html#GData.Service.insert_entry" title="GData.Service.insert_entry"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.insert_entry</span></code></a>() (see their documentation for more details).</p>
 <p>If re-authorization is successful, it&#8217;s guaranteed that by the time this method returns, the properties containing the relevant authorization
 tokens on the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> instance will have been updated.</p>
 <p>If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned, <cite>error</cite> will be set if (and only if) it&#8217;s due to a refresh being attempted and failing. If a refresh is not attempted, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
@@ -383,10 +381,10 @@ attempted, <a class="reference external" href="http://docs.python.org/2.7/librar
 </table>
 <p>Forces the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> to refresh any authorization tokens it holds with the online service. <cite>self</cite> and <cite>cancellable</cite> are reffed when this
 method is called, so can safely be freed after this method returns.</p>
-<p>For more details, see <a class="reference internal" href="#GData.Authorizer.refresh_authorization" title="GData.Authorizer.refresh_authorization"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization</span></code></a> (), which is the synchronous version of this method. If the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> class
-doesn&#8217;t implement <a class="reference internal" href="../iface-structs/AuthorizerInterface.html#GData.AuthorizerInterface" title="GData.AuthorizerInterface"><code class="xref py py-obj docutils literal"><span class="pre">GData.AuthorizerInterface</span></code></a>.refresh_authorization_async but does implement <a class="reference internal" href="../iface-structs/AuthorizerInterface.html#GData.AuthorizerInterface" title="GData.AuthorizerInterface"><code class="xref py py-obj docutils literal"><span class="pre">GData.AuthorizerInterface</span></code></a>.refresh_authorization, the
+<p>For more details, see <a class="reference internal" href="#GData.Authorizer.refresh_authorization" title="GData.Authorizer.refresh_authorization"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization</span></code></a>(), which is the synchronous version of this method. If the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> class
+doesn&#8217;t implement <a class="reference internal" href="../iface-structs/AuthorizerInterface.html#gdata-authorizerinterface-fields"><span>GData.AuthorizerInterface.refresh_authorization_async</span></a> but does implement <a class="reference internal" href="../iface-structs/AuthorizerInterface.html#gdata-authorizerinterface-fields"><span>GData.AuthorizerInterface.refresh_authorization</span></a>, the
 latter will be called from a new thread to make it asynchronous.</p>
-<p>When the authorization refresh operation is finished, <cite>callback</cite> will be called. You can then call <a class="reference internal" href="#GData.Authorizer.refresh_authorization_finish" title="GData.Authorizer.refresh_authorization_finish"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization_finish</span></code></a> ()
+<p>When the authorization refresh operation is finished, <cite>callback</cite> will be called. You can then call <a class="reference internal" href="#GData.Authorizer.refresh_authorization_finish" title="GData.Authorizer.refresh_authorization_finish"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization_finish</span></code></a>()
 to get the results of the operation.</p>
 <p>This method is thread safe.</p>
 <div class="versionadded">
@@ -403,7 +401,7 @@ to get the results of the operation.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>async_result</strong> (<a class="reference external" href="../_docs/GData-0.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GData-0.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GData-0.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GData-0.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if an authorization refresh was attempted and was successful, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if a refresh wasn&#8217;t attempted or was unsuccessful</td>
 </tr>
@@ -411,7 +409,7 @@ to get the results of the operation.</p>
 </tr>
 </tbody>
 </table>
-<p>Finishes an asynchronous authorization refresh operation for the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a>, as started with <a class="reference internal" href="#GData.Authorizer.refresh_authorization_async" title="GData.Authorizer.refresh_authorization_async"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization_async</span></code></a> ().</p>
+<p>Finishes an asynchronous authorization refresh operation for the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a>, as started with <a class="reference internal" href="#GData.Authorizer.refresh_authorization_async" title="GData.Authorizer.refresh_authorization_async"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization_async</span></code></a>().</p>
 <p>This method is thread safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.9.0.</span></p>
@@ -434,14 +432,14 @@ to get the results of the operation.</p>
 </tbody>
 </table>
 <p>Returns whether the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> instance believes it&#8217;s currently authorized to access the given <cite>domain</cite>. Note that this will not perform any
-network requests, and will just look up the result in the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> &#8216;s local cache of authorizations. This means that the result may be out
+network requests, and will just look up the result in the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a>&#8216;s local cache of authorizations. This means that the result may be out
 of date, as the server may have since invalidated the authorization. If the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> class supports timeouts and TTLs on authorizations,
 they will not be taken into account; this method effectively returns whether the last successful authorization operation performed on the
 <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> included <cite>domain</cite> in the list of requested authorization domains.</p>
 <p>Note that <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> may be passed as the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a>, in which case <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> will always be returned, regardless of the <cite>domain</cite>. This is for
-convenience of checking whether a domain is authorized by the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> returned by <a class="reference internal" href="../classes/Service.html#GData.Service.get_authorizer" title="GData.Service.get_authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.get_authorizer</span></code></a> (), which may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.
+convenience of checking whether a domain is authorized by the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> returned by <a class="reference internal" href="../classes/Service.html#GData.Service.get_authorizer" title="GData.Service.get_authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.get_authorizer</span></code></a>(), which may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.
 For example:</p>
-<div class="highlight-c"><div class="highlight"><pre>if (gdata_authorizer_is_authorized_for_domain (gdata_service_get_authorizer (my_service), my_domain) == TRUE) {
+<div class="highlight-none"><div class="highlight"><pre>if (gdata_authorizer_is_authorized_for_domain (gdata_service_get_authorizer (my_service), my_domain) == TRUE) {
     /&lt;!-- --&gt;* Code to execute only if we&#39;re authorized for the given domain *&lt;!-- --&gt;/
 }
 </pre></div>
@@ -469,7 +467,7 @@ For example:</p>
 </table>
 <p>Processes <cite>message</cite>, adding all the necessary extra headers and parameters to ensure that it&#8217;s correctly authenticated and authorized under the
 given <cite>domain</cite> for the online service. Basically, if a query is not processed by calling this method on it, it will be sent to the online service as
-if it&#8217;s a query from a non-logged-in user. Similarly, if the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> isn&#8217;t authenticated or authorized (for <cite>domain</cite> ), no changes will
+if it&#8217;s a query from a non-logged-in user. Similarly, if the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> isn&#8217;t authenticated or authorized (for <cite>domain</cite>), no changes will
 be made to the <cite>message</cite>.</p>
 <p><cite>domain</cite> may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if the request doesn&#8217;t require authorization.</p>
 <p>This modifies <cite>message</cite> in place.</p>
@@ -496,7 +494,7 @@ be made to the <cite>message</cite>.</p>
 </table>
 <p>Forces the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> to refresh any authorization tokens it holds with the online service. This should typically be called when a
 <a class="reference internal" href="../classes/Service.html#GData.Service" title="GData.Service"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service</span></code></a> query returns <a class="reference internal" href="../enums.html#GData.ServiceError.AUTHENTICATION_REQUIRED" title="GData.ServiceError.AUTHENTICATION_REQUIRED"><code class="xref py py-obj docutils literal"><span class="pre">GData.ServiceError.AUTHENTICATION_REQUIRED</span></code></a>, and is already called transparently by methods such as
-<a class="reference internal" href="../classes/Service.html#GData.Service.query" title="GData.Service.query"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.query</span></code></a> () and <a class="reference internal" href="../classes/Service.html#GData.Service.insert_entry" title="GData.Service.insert_entry"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.insert_entry</span></code></a> () (see their documentation for more details).</p>
+<a class="reference internal" href="../classes/Service.html#GData.Service.query" title="GData.Service.query"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.query</span></code></a>() and <a class="reference internal" href="../classes/Service.html#GData.Service.insert_entry" title="GData.Service.insert_entry"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.insert_entry</span></code></a>() (see their documentation for more details).</p>
 <p>If re-authorization is successful, it&#8217;s guaranteed that by the time this method returns, the properties containing the relevant authorization
 tokens on the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> instance will have been updated.</p>
 <p>If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned, <cite>error</cite> will be set if (and only if) it&#8217;s due to a refresh being attempted and failing. If a refresh is not attempted, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
@@ -529,10 +527,10 @@ attempted, <a class="reference external" href="http://docs.python.org/2.7/librar
 </table>
 <p>Forces the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> to refresh any authorization tokens it holds with the online service. <cite>self</cite> and <cite>cancellable</cite> are reffed when this
 method is called, so can safely be freed after this method returns.</p>
-<p>For more details, see <a class="reference internal" href="#GData.Authorizer.refresh_authorization" title="GData.Authorizer.refresh_authorization"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization</span></code></a> (), which is the synchronous version of this method. If the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> class
-doesn&#8217;t implement <a class="reference internal" href="../iface-structs/AuthorizerInterface.html#GData.AuthorizerInterface" title="GData.AuthorizerInterface"><code class="xref py py-obj docutils literal"><span class="pre">GData.AuthorizerInterface</span></code></a>.refresh_authorization_async but does implement <a class="reference internal" href="../iface-structs/AuthorizerInterface.html#GData.AuthorizerInterface" title="GData.AuthorizerInterface"><code class="xref py py-obj docutils literal"><span class="pre">GData.AuthorizerInterface</span></code></a>.refresh_authorization, the
+<p>For more details, see <a class="reference internal" href="#GData.Authorizer.refresh_authorization" title="GData.Authorizer.refresh_authorization"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization</span></code></a>(), which is the synchronous version of this method. If the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a> class
+doesn&#8217;t implement <a class="reference internal" href="../iface-structs/AuthorizerInterface.html#gdata-authorizerinterface-fields"><span>GData.AuthorizerInterface.refresh_authorization_async</span></a> but does implement <a class="reference internal" href="../iface-structs/AuthorizerInterface.html#gdata-authorizerinterface-fields"><span>GData.AuthorizerInterface.refresh_authorization</span></a>, the
 latter will be called from a new thread to make it asynchronous.</p>
-<p>When the authorization refresh operation is finished, <cite>callback</cite> will be called. You can then call <a class="reference internal" href="#GData.Authorizer.refresh_authorization_finish" title="GData.Authorizer.refresh_authorization_finish"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization_finish</span></code></a> ()
+<p>When the authorization refresh operation is finished, <cite>callback</cite> will be called. You can then call <a class="reference internal" href="#GData.Authorizer.refresh_authorization_finish" title="GData.Authorizer.refresh_authorization_finish"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization_finish</span></code></a>()
 to get the results of the operation.</p>
 <p>This method is thread safe.</p>
 <div class="versionadded">
@@ -555,7 +553,7 @@ to get the results of the operation.</p>
 </tr>
 </tbody>
 </table>
-<p>Finishes an asynchronous authorization refresh operation for the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a>, as started with <a class="reference internal" href="#GData.Authorizer.refresh_authorization_async" title="GData.Authorizer.refresh_authorization_async"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization_async</span></code></a> ().</p>
+<p>Finishes an asynchronous authorization refresh operation for the <a class="reference internal" href="#GData.Authorizer" title="GData.Authorizer"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer</span></code></a>, as started with <a class="reference internal" href="#GData.Authorizer.refresh_authorization_async" title="GData.Authorizer.refresh_authorization_async"><code class="xref py py-obj docutils literal"><span class="pre">GData.Authorizer.refresh_authorization_async</span></code></a>().</p>
 <p>This method is thread safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.9.0.</span></p>
@@ -578,7 +576,4 @@ to get the results of the operation.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GWeather 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GWeather.LocationEntry" href="LocationEntry.html"/>
         <link rel="prev" title="Classes" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -435,7 +433,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#GWeather.Info.signals.updated" title="GWeather.Info.signals.updated"><code class="xref py py-func docutils literal"><span class="pre">updated</span></code></a></td>
-<td>This signal is emitted after the initial fetch of the weather data from upstream services, and after every successful call to <cite>gweather_info_update</cite> ().</td>
+<td>This signal is emitted after the initial fetch of the weather data from upstream services, and after every successful call to <cite>gweather_info_update</cite>().</td>
 </tr>
 </tbody>
 </table>
@@ -528,7 +526,7 @@ Calling this is not necessary, as the cache will be saved when
 the last reference to a <a class="reference internal" href="#GWeather.Info" title="GWeather.Info"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info</span></code></a> will be dropped.
 On the other hand, it must be called if there is any chance that
 the application will be closed without unreffing all objects, such
-as when using a language binding that employs a <code class="xref py py-obj docutils literal"><span class="pre">xlib.GC</span></code>.</p>
+as when using a language binding that employs a GC.</p>
 </dd></dl>
 
 <dl class="method">
@@ -620,7 +618,7 @@ This must be shown prominently toghether with the data.</p>
 </tbody>
 </table>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.10: </span>Use <a class="reference internal" href="#GWeather.Info.get_forecast_list" title="GWeather.Info.get_forecast_list"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info.get_forecast_list</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 3.10: </span>Use <a class="reference internal" href="#GWeather.Info.get_forecast_list" title="GWeather.Info.get_forecast_list"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info.get_forecast_list</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
@@ -1150,7 +1148,7 @@ three-quarter moons.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body">the time <cite>info</cite> was last updated</td>
+<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body">the time <cite>self</cite> was last updated</td>
 </tr>
 </tbody>
 </table>
@@ -1263,10 +1261,10 @@ three-quarter moons.</td>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Whether it is daytime (that is, if the sun is visible)
-or not at the location and the point of time referred by <cite>info</cite>.
+or not at the location and the point of time referred by <cite>self</cite>.
 This is mostly equivalent to comparing the return value
-of <a class="reference internal" href="#GWeather.Info.get_value_sunrise" title="GWeather.Info.get_value_sunrise"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info.get_value_sunrise</span></code></a> () and
-<a class="reference internal" href="#GWeather.Info.get_value_sunset" title="GWeather.Info.get_value_sunset"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info.get_value_sunset</span></code></a> (), but it accounts also
+of <a class="reference internal" href="#GWeather.Info.get_value_sunrise" title="GWeather.Info.get_value_sunrise"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info.get_value_sunrise</span></code></a>() and
+<a class="reference internal" href="#GWeather.Info.get_value_sunset" title="GWeather.Info.get_value_sunset"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info.get_value_sunset</span></code></a>(), but it accounts also
 for midnight sun and polar night, for locations within
 the Artic and Antartic circles.</td>
 </tr>
@@ -1339,9 +1337,9 @@ the Artic and Antartic circles.</td>
 </tr>
 </tbody>
 </table>
-<p>Changes <cite>info</cite> to report weather for <cite>location</cite>.
+<p>Changes <cite>self</cite> to report weather for <cite>location</cite>.
 Note that this will clear any forecast or current conditions from
-<cite>info</cite>, you must call <a class="reference internal" href="#GWeather.Info.update" title="GWeather.Info.update"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info.update</span></code></a> () to obtain the new data.</p>
+<cite>self</cite>, you must call <a class="reference internal" href="#GWeather.Info.update" title="GWeather.Info.update"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info.update</span></code></a>() to obtain the new data.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1382,7 +1380,7 @@ be emitted. See <a class="reference internal" href="#GWeather.Info" title="GWeat
 </table>
 <p>This signal is emitted after the initial fetch of the weather
 data from upstream services, and after every successful call
-to <cite>gweather_info_update</cite> ().</p>
+to <cite>gweather_info_update</cite>().</p>
 </dd></dl>
 
 </div>
@@ -1442,7 +1440,4 @@ to <cite>gweather_info_update</cite> ().</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gst 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Symbol Mapping" href="mapping.html"/>
         <link rel="prev" title="Enums" href="enums.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -234,6 +232,7 @@
 <li><a class="reference internal" href="#Gst.TAG_COMMENT" title="Gst.TAG_COMMENT"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_COMMENT</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_COMPOSER" title="Gst.TAG_COMPOSER"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_COMPOSER</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_COMPOSER_SORTNAME" title="Gst.TAG_COMPOSER_SORTNAME"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_COMPOSER_SORTNAME</span></code></a></li>
+<li><a class="reference internal" href="#Gst.TAG_CONDUCTOR" title="Gst.TAG_CONDUCTOR"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_CONDUCTOR</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_CONTACT" title="Gst.TAG_CONTACT"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_CONTACT</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_CONTAINER_FORMAT" title="Gst.TAG_CONTAINER_FORMAT"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_CONTAINER_FORMAT</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_COPYRIGHT" title="Gst.TAG_COPYRIGHT"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_COPYRIGHT</span></code></a></li>
@@ -280,6 +279,7 @@
 <li><a class="reference internal" href="#Gst.TAG_ORGANIZATION" title="Gst.TAG_ORGANIZATION"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_ORGANIZATION</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_PERFORMER" title="Gst.TAG_PERFORMER"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_PERFORMER</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_PREVIEW_IMAGE" title="Gst.TAG_PREVIEW_IMAGE"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_PREVIEW_IMAGE</span></code></a></li>
+<li><a class="reference internal" href="#Gst.TAG_PRIVATE_DATA" title="Gst.TAG_PRIVATE_DATA"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_PRIVATE_DATA</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_PUBLISHER" title="Gst.TAG_PUBLISHER"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_PUBLISHER</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_REFERENCE_LEVEL" title="Gst.TAG_REFERENCE_LEVEL"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_REFERENCE_LEVEL</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TAG_SERIAL" title="Gst.TAG_SERIAL"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_SERIAL</span></code></a></li>
@@ -322,7 +322,7 @@
 <dt id="Gst.BUFFER_COPY_METADATA">
 <code class="descclassname">Gst.</code><code class="descname">BUFFER_COPY_METADATA</code><em class="property"> = 0</em></dt>
 <dd><p>Combination of all possible metadata fields that can be copied with
-<a class="reference internal" href="structs/Buffer.html#Gst.Buffer.copy_into" title="Gst.Buffer.copy_into"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer.copy_into</span></code></a> ().</p>
+<a class="reference internal" href="structs/Buffer.html#Gst.Buffer.copy_into" title="Gst.Buffer.copy_into"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer.copy_into</span></code></a>().</p>
 </dd></dl>
 
 <dl class="data">
@@ -753,7 +753,7 @@ system.</p>
 <dt id="Gst.PTR_FORMAT">
 <code class="descclassname">Gst.</code><code class="descname">PTR_FORMAT</code><em class="property"> = 'paA'</em></dt>
 <dd><p>printf format type used to debug GStreamer types.
-This can only be used on types whose size is &gt;= sizeof(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> ).</p>
+This can only be used on types whose size is &gt;= sizeof(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>).</p>
 </dd></dl>
 
 <dl class="data">
@@ -784,7 +784,7 @@ This can only be used on pointers to <a class="reference internal" href="structs
 <dt id="Gst.STIME_FORMAT">
 <code class="descclassname">Gst.</code><code class="descname">STIME_FORMAT</code><em class="property"> = 'c%'</em></dt>
 <dd><p>A string that can be used in printf-like format strings to display a signed
-<code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockTimeDiff</span></code> or #gint64 value in h <code class="xref py py-data docutils literal"><span class="pre">:m:s</span></code> format.  Use GST_TIME_ARGS() to
+#GstClockTimeDiff or #gint64 value in h:m:s format.  Use GST_TIME_ARGS() to
 construct the matching arguments.</p>
 <p>Example:</p>
 <p><code class="docutils literal"><span class="pre">printf(&quot;%&quot;</span> <span class="pre">GST_STIME_FORMAT</span> <span class="pre">&quot;\n&quot;,</span> <span class="pre">GST_STIME_ARGS(ts));</span></code></p>
@@ -921,6 +921,15 @@ attachment)</p>
 <dt id="Gst.TAG_COMPOSER_SORTNAME">
 <code class="descclassname">Gst.</code><code class="descname">TAG_COMPOSER_SORTNAME</code><em class="property"> = 'composer-sortname'</em></dt>
 <dd><p>The composer&#8217;s name, used for sorting (string)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Gst.TAG_CONDUCTOR">
+<code class="descclassname">Gst.</code><code class="descname">TAG_CONDUCTOR</code><em class="property"> = 'conductor'</em></dt>
+<dd><p>conductor/performer refinement (string)</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
 </dd></dl>
 
 <dl class="data">
@@ -1261,6 +1270,22 @@ different from this target bitrate.</p>
 </dd></dl>
 
 <dl class="data">
+<dt id="Gst.TAG_PRIVATE_DATA">
+<code class="descclassname">Gst.</code><code class="descname">TAG_PRIVATE_DATA</code><em class="property"> = 'private-data'</em></dt>
+<dd><p>Any private data that may be contained in tags (sample).</p>
+<p>It is represented by <a class="reference internal" href="structs/Sample.html#Gst.Sample" title="Gst.Sample"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Sample</span></code></a> in which <a class="reference internal" href="structs/Buffer.html#Gst.Buffer" title="Gst.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> contains the
+binary data and the sample&#8217;s info <a class="reference internal" href="structs/Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> may contain any
+extra information that identifies the origin or meaning of the data.</p>
+<p>Private frames in ID3v2 tags (&#8216;PRIV&#8217; frames) will be represented
+using this tag, in which case the <a class="reference internal" href="structs/Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> will be named
+&#8220;ID3PrivateFrame&#8221; and contain a field named &#8220;owner&#8221; of type string
+which contains the owner-identification string from the tag.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="data">
 <dt id="Gst.TAG_PUBLISHER">
 <code class="descclassname">Gst.</code><code class="descname">TAG_PUBLISHER</code><em class="property"> = 'publisher'</em></dt>
 <dd><p>Name of the label or publisher (string)</p>
@@ -1373,7 +1398,7 @@ The higher the value, the more the user likes this media
 <dt id="Gst.TIME_FORMAT">
 <code class="descclassname">Gst.</code><code class="descname">TIME_FORMAT</code><em class="property"> = 'u:%02u:%02u.%09u'</em></dt>
 <dd><p>A string that can be used in printf-like format strings to display a
-<code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockTime</span></code> value in h <code class="xref py py-data docutils literal"><span class="pre">:m:s</span></code> format.  Use GST_TIME_ARGS() to construct
+#GstClockTime value in h:m:s format.  Use GST_TIME_ARGS() to construct
 the matching arguments.</p>
 <p>Example:</p>
 <p><code class="docutils literal"><span class="pre">printf(&quot;%&quot;</span> <span class="pre">GST_TIME_FORMAT</span> <span class="pre">&quot;\n&quot;,</span> <span class="pre">GST_TIME_ARGS(ts));</span></code></p>
@@ -1382,8 +1407,8 @@ the matching arguments.</p>
 <dl class="data">
 <dt id="Gst.TOC_REPEAT_COUNT_INFINITE">
 <code class="descclassname">Gst.</code><code class="descname">TOC_REPEAT_COUNT_INFINITE</code><em class="property"> = -1</em></dt>
-<dd><p>Special value for the repeat_count set in <a class="reference internal" href="structs/TocEntry.html#Gst.TocEntry.set_loop" title="Gst.TocEntry.set_loop"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TocEntry.set_loop</span></code></a> () or
-returned by <a class="reference internal" href="structs/TocEntry.html#Gst.TocEntry.set_loop" title="Gst.TocEntry.set_loop"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TocEntry.set_loop</span></code></a> () to indicate infinite looping.</p>
+<dd><p>Special value for the repeat_count set in <a class="reference internal" href="structs/TocEntry.html#Gst.TocEntry.set_loop" title="Gst.TocEntry.set_loop"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TocEntry.set_loop</span></code></a>() or
+returned by <a class="reference internal" href="structs/TocEntry.html#Gst.TocEntry.set_loop" title="Gst.TocEntry.set_loop"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TocEntry.set_loop</span></code></a>() to indicate infinite looping.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -1405,27 +1430,27 @@ returned by <a class="reference internal" href="structs/TocEntry.html#Gst.TocEnt
 <dt id="Gst.VALUE_EQUAL">
 <code class="descclassname">Gst.</code><code class="descname">VALUE_EQUAL</code><em class="property"> = 0</em></dt>
 <dd><p>Indicates that the first value provided to a comparison function
-(<a class="reference internal" href="functions.html#Gst.value_compare" title="Gst.value_compare"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_compare</span></code></a> ()) is equal to the second one.</p>
+(<a class="reference internal" href="functions.html#Gst.value_compare" title="Gst.value_compare"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_compare</span></code></a>()) is equal to the second one.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="Gst.VALUE_GREATER_THAN">
 <code class="descclassname">Gst.</code><code class="descname">VALUE_GREATER_THAN</code><em class="property"> = 1</em></dt>
 <dd><p>Indicates that the first value provided to a comparison function
-(<a class="reference internal" href="functions.html#Gst.value_compare" title="Gst.value_compare"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_compare</span></code></a> ()) is greater than the second one.</p>
+(<a class="reference internal" href="functions.html#Gst.value_compare" title="Gst.value_compare"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_compare</span></code></a>()) is greater than the second one.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="Gst.VALUE_LESS_THAN">
 <code class="descclassname">Gst.</code><code class="descname">VALUE_LESS_THAN</code><em class="property"> = -1</em></dt>
 <dd><p>Indicates that the first value provided to a comparison function
-(<a class="reference internal" href="functions.html#Gst.value_compare" title="Gst.value_compare"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_compare</span></code></a> ()) is lesser than the second one.</p>
+(<a class="reference internal" href="functions.html#Gst.value_compare" title="Gst.value_compare"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_compare</span></code></a>()) is lesser than the second one.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="Gst.VALUE_UNORDERED">
 <code class="descclassname">Gst.</code><code class="descname">VALUE_UNORDERED</code><em class="property"> = 2</em></dt>
-<dd><p>Indicates that the comparison function (<a class="reference internal" href="functions.html#Gst.value_compare" title="Gst.value_compare"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_compare</span></code></a> ()) can not
+<dd><p>Indicates that the comparison function (<a class="reference internal" href="functions.html#Gst.value_compare" title="Gst.value_compare"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_compare</span></code></a>()) can not
 determine a order for the two provided values.</p>
 </dd></dl>
 
@@ -1437,13 +1462,13 @@ determine a order for the two provided values.</p>
 
 <dl class="data">
 <dt id="Gst.VERSION_MICRO">
-<code class="descclassname">Gst.</code><code class="descname">VERSION_MICRO</code><em class="property"> = 2</em></dt>
+<code class="descclassname">Gst.</code><code class="descname">VERSION_MICRO</code><em class="property"> = 1</em></dt>
 <dd><p>The micro version of GStreamer at compile time:</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="Gst.VERSION_MINOR">
-<code class="descclassname">Gst.</code><code class="descname">VERSION_MINOR</code><em class="property"> = 6</em></dt>
+<code class="descclassname">Gst.</code><code class="descname">VERSION_MINOR</code><em class="property"> = 8</em></dt>
 <dd><p>The minor version of GStreamer at compile time:</p>
 </dd></dl>
 
@@ -1468,7 +1493,4 @@ Actual releases have 0, GIT versions have 1, prerelease versions have 2-...</p>
   </div> 
 
 </body>
-
-  
-
 </html>

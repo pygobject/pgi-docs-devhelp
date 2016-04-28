@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
-    <link rel="top" title="Fwupd 1.0 Python API Docs" href="index.html"/>
-        <link rel="next" title="Flags" href="flags.html"/>
-        <link rel="prev" title="Fwupd 1.0 (0.6.0)" href="index.html"/> 
 
   
-  <script src="_static/js/modernizr.min.js"></script>
-
+    <link rel="top" title="Fwupd 1.0 Python API Docs" href="index.html"/>
+        <link rel="next" title="Classes" href="classes/index.html"/>
+        <link rel="prev" title="Fwupd 1.0 (0.7.0)" href="index.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -64,7 +62,7 @@
 
 
 
-<td><a accesskey="n" href="flags.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="classes/index.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -102,7 +100,7 @@
 
 
 
-<td><a accesskey="n" href="flags.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="classes/index.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -139,7 +137,19 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Fwupd.device_flag_from_string" title="Fwupd.device_flag_from_string"><code class="xref py py-func docutils literal"><span class="pre">device_flag_from_string</span></code></a> (device_flag)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Fwupd.device_flag_to_string" title="Fwupd.device_flag_to_string"><code class="xref py py-func docutils literal"><span class="pre">device_flag_to_string</span></code></a> (device_flag)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Fwupd.error_from_string" title="Fwupd.error_from_string"><code class="xref py py-func docutils literal"><span class="pre">error_from_string</span></code></a> (error)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Fwupd.error_quark" title="Fwupd.error_quark"><code class="xref py py-func docutils literal"><span class="pre">error_quark</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Fwupd.error_to_string" title="Fwupd.error_to_string"><code class="xref py py-func docutils literal"><span class="pre">error_to_string</span></code></a> (error)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Fwupd.status_from_string" title="Fwupd.status_from_string"><code class="xref py py-func docutils literal"><span class="pre">status_from_string</span></code></a> (status)</td>
@@ -147,10 +157,85 @@
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Fwupd.status_to_string" title="Fwupd.status_to_string"><code class="xref py py-func docutils literal"><span class="pre">status_to_string</span></code></a> (status)</td>
 </tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Fwupd.trust_flag_from_string" title="Fwupd.trust_flag_from_string"><code class="xref py py-func docutils literal"><span class="pre">trust_flag_from_string</span></code></a> (trust_flag)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Fwupd.trust_flag_to_string" title="Fwupd.trust_flag_to_string"><code class="xref py py-func docutils literal"><span class="pre">trust_flag_to_string</span></code></a> (trust_flag)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Fwupd.update_state_from_string" title="Fwupd.update_state_from_string"><code class="xref py py-func docutils literal"><span class="pre">update_state_from_string</span></code></a> (update_state)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Fwupd.update_state_to_string" title="Fwupd.update_state_to_string"><code class="xref py py-func docutils literal"><span class="pre">update_state_to_string</span></code></a> (update_state)</td>
+</tr>
 </tbody>
 </table>
 <div class="section" id="details">
 <h2>Details</h2>
+<dl class="function">
+<dt id="Fwupd.device_flag_from_string">
+<code class="descclassname">Fwupd.</code><code class="descname">device_flag_from_string</code><span class="sig-paren">(</span><em>device_flag</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device_flag</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; A string, e.g. &#8220;require-ac&#8221;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">enumerated value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="flags.html#Fwupd.DeviceFlags" title="Fwupd.DeviceFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.DeviceFlags</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Converts a string to a <a class="reference internal" href="flags.html#Fwupd.DeviceFlags" title="Fwupd.DeviceFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.DeviceFlags</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Fwupd.device_flag_to_string">
+<code class="descclassname">Fwupd.</code><code class="descname">device_flag_to_string</code><span class="sig-paren">(</span><em>device_flag</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device_flag</strong> (<a class="reference internal" href="flags.html#Fwupd.DeviceFlags" title="Fwupd.DeviceFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.DeviceFlags</span></code></a>) &#8211; A <a class="reference internal" href="flags.html#Fwupd.DeviceFlags" title="Fwupd.DeviceFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.DeviceFlags</span></code></a>, e.g. <a class="reference internal" href="flags.html#Fwupd.DeviceFlags.REQUIRE_AC" title="Fwupd.DeviceFlags.REQUIRE_AC"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.DeviceFlags.REQUIRE_AC</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">identifier string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Converts a <a class="reference internal" href="flags.html#Fwupd.DeviceFlags" title="Fwupd.DeviceFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.DeviceFlags</span></code></a> to a string.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Fwupd.error_from_string">
+<code class="descclassname">Fwupd.</code><code class="descname">error_from_string</code><span class="sig-paren">(</span><em>error</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>error</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; A string, e.g. &#8220;org.freedesktop.fwupd.VersionNewer&#8221;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">enumerated value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="enums.html#Fwupd.Error" title="Fwupd.Error"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Error</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Converts a string to a <a class="reference internal" href="enums.html#Fwupd.Error" title="Fwupd.Error"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Error</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.0.</span></p>
+</div>
+</dd></dl>
+
 <dl class="function">
 <dt id="Fwupd.error_quark">
 <code class="descclassname">Fwupd.</code><code class="descname">error_quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
@@ -170,18 +255,42 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="Fwupd.error_to_string">
+<code class="descclassname">Fwupd.</code><code class="descname">error_to_string</code><span class="sig-paren">(</span><em>error</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>error</strong> (<a class="reference internal" href="enums.html#Fwupd.Error" title="Fwupd.Error"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Error</span></code></a>) &#8211; A <a class="reference internal" href="enums.html#Fwupd.Error" title="Fwupd.Error"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Error</span></code></a>, e.g. <a class="reference internal" href="enums.html#Fwupd.Error.VERSION_NEWER" title="Fwupd.Error.VERSION_NEWER"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Error.VERSION_NEWER</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">identifier string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Converts a <a class="reference internal" href="enums.html#Fwupd.Error" title="Fwupd.Error"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Error</span></code></a> to a string.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="Fwupd.status_from_string">
 <code class="descclassname">Fwupd.</code><code class="descname">status_from_string</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; A string, e.g. &#8220;decompressing&#8221;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="enums.html#Fwupd.Status" title="Fwupd.Status"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Status</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">enumerated value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="enums.html#Fwupd.Status" title="Fwupd.Status"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Status</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>Converts a string to a <a class="reference internal" href="enums.html#Fwupd.Status" title="Fwupd.Status"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Status</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.1.</span></p>
 </div>
@@ -194,14 +303,101 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> (<a class="reference internal" href="enums.html#Fwupd.Status" title="Fwupd.Status"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Status</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> (<a class="reference internal" href="enums.html#Fwupd.Status" title="Fwupd.Status"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Status</span></code></a>) &#8211; A <a class="reference internal" href="enums.html#Fwupd.Status" title="Fwupd.Status"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Status</span></code></a>, e.g. <a class="reference internal" href="enums.html#Fwupd.Status.DECOMPRESSING" title="Fwupd.Status.DECOMPRESSING"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Status.DECOMPRESSING</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">identifier string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>Converts a <a class="reference internal" href="enums.html#Fwupd.Status" title="Fwupd.Status"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.Status</span></code></a> to a string.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.1.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Fwupd.trust_flag_from_string">
+<code class="descclassname">Fwupd.</code><code class="descname">trust_flag_from_string</code><span class="sig-paren">(</span><em>trust_flag</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trust_flag</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; A string, e.g. &#8220;payload&#8221;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">enumerated value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="flags.html#Fwupd.TrustFlags" title="Fwupd.TrustFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.TrustFlags</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Converts a string to a <a class="reference internal" href="flags.html#Fwupd.TrustFlags" title="Fwupd.TrustFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.TrustFlags</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Fwupd.trust_flag_to_string">
+<code class="descclassname">Fwupd.</code><code class="descname">trust_flag_to_string</code><span class="sig-paren">(</span><em>trust_flag</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trust_flag</strong> (<a class="reference internal" href="flags.html#Fwupd.TrustFlags" title="Fwupd.TrustFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.TrustFlags</span></code></a>) &#8211; A <a class="reference internal" href="flags.html#Fwupd.TrustFlags" title="Fwupd.TrustFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.TrustFlags</span></code></a>, e.g. <a class="reference internal" href="flags.html#Fwupd.TrustFlags.PAYLOAD" title="Fwupd.TrustFlags.PAYLOAD"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.TrustFlags.PAYLOAD</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">identifier string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Converts a <a class="reference internal" href="flags.html#Fwupd.TrustFlags" title="Fwupd.TrustFlags"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.TrustFlags</span></code></a> to a string.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Fwupd.update_state_from_string">
+<code class="descclassname">Fwupd.</code><code class="descname">update_state_from_string</code><span class="sig-paren">(</span><em>update_state</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_state</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; A string, e.g. &#8220;pending&#8221;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">enumerated value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="enums.html#Fwupd.UpdateState" title="Fwupd.UpdateState"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.UpdateState</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Converts a string to a <a class="reference internal" href="enums.html#Fwupd.UpdateState" title="Fwupd.UpdateState"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.UpdateState</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Fwupd.update_state_to_string">
+<code class="descclassname">Fwupd.</code><code class="descname">update_state_to_string</code><span class="sig-paren">(</span><em>update_state</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_state</strong> (<a class="reference internal" href="enums.html#Fwupd.UpdateState" title="Fwupd.UpdateState"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.UpdateState</span></code></a>) &#8211; A <a class="reference internal" href="enums.html#Fwupd.UpdateState" title="Fwupd.UpdateState"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.UpdateState</span></code></a>, e.g. <a class="reference internal" href="enums.html#Fwupd.UpdateState.PENDING" title="Fwupd.UpdateState.PENDING"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.UpdateState.PENDING</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">identifier string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Converts a <a class="reference internal" href="enums.html#Fwupd.UpdateState" title="Fwupd.UpdateState"><code class="xref py py-obj docutils literal"><span class="pre">Fwupd.UpdateState</span></code></a> to a string.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.0.</span></p>
 </div>
 </dd></dl>
 
@@ -219,7 +415,4 @@
   </div> 
 
 </body>
-
-  
-
 </html>

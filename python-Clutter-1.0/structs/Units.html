@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Clutter 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Clutter.Vertex" href="Vertex.html"/>
         <link rel="prev" title="Clutter.TouchpadSwipeEvent" href="TouchpadSwipeEvent.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -285,7 +283,7 @@ values along with their unit.</p>
 </tbody>
 </table>
 <p>Stores a value in em inside <cite>units</cite>, using the default font
-name as returned by <a class="reference internal" href="../classes/Backend.html#Clutter.Backend.get_font_name" title="Clutter.Backend.get_font_name"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Backend.get_font_name</span></code></a> ()</p>
+name as returned by <a class="reference internal" href="../classes/Backend.html#Clutter.Backend.get_font_name" title="Clutter.Backend.get_font_name"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Backend.get_font_name</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -407,7 +405,7 @@ and <a class="reference external" href="http://docs.python.org/2.7/library/const
 </table>
 <p>Parses a value and updates <cite>units</cite> with it</p>
 <p>A <a class="reference internal" href="#Clutter.Units" title="Clutter.Units"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units</span></code></a> expressed in string should match:</p>
-<div class="highlight-c"><div class="highlight"><pre>units: wsp* unit-value wsp* unit-name? wsp*
+<div class="highlight-none"><div class="highlight"><pre>units: wsp* unit-value wsp* unit-name? wsp*
 unit-value: number
 unit-name: &#39;px&#39; | &#39;pt&#39; | &#39;mm&#39; | &#39;em&#39; | &#39;cm&#39;
 number: digit+
@@ -418,16 +416,16 @@ wsp: (#0x20 | #0x9 | #0xA | #0xB | #0xC | #0xD)+
 </pre></div>
 </div>
 <p>For instance, these are valid strings:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="mi">10</span> <span class="n">px</span>
-<span class="mf">5.1</span> <span class="n">em</span>
-<span class="mi">24</span> <span class="n">pt</span>
-<span class="mf">12.6</span> <span class="n">mm</span>
-<span class="mf">.3</span> <span class="n">cm</span>
+<div class="highlight-none"><div class="highlight"><pre>10 px
+5.1 em
+24 pt
+12.6 mm
+.3 cm
 </pre></div>
 </div>
 <p>While these are not:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="mi">42</span> <span class="n">cats</span>
-<span class="n">omg</span><span class="o">!</span><span class="mi">1</span><span class="o">!</span><span class="n">ponies</span>
+<div class="highlight-none"><div class="highlight"><pre>42 cats
+omg!1!ponies
 </pre></div>
 </div>
 <p>If no unit is specified, pixels are assumed.</p>
@@ -444,14 +442,14 @@ wsp: (#0x20 | #0x9 | #0xA | #0xB | #0xC | #0xD)+
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the newly created copy of a
-<a class="reference internal" href="#Clutter.Units" title="Clutter.Units"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units</span></code></a> structure. Use <a class="reference internal" href="#Clutter.Units.free" title="Clutter.Units.free"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units.free</span></code></a> () to free
+<a class="reference internal" href="#Clutter.Units" title="Clutter.Units"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units</span></code></a> structure. Use <a class="reference internal" href="#Clutter.Units.free" title="Clutter.Units.free"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units.free</span></code></a>() to free
 the allocated resources</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Clutter.Units" title="Clutter.Units"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Copies <cite>units</cite></p>
+<p>Copies <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -460,9 +458,9 @@ the allocated resources</td>
 <dl class="method">
 <dt id="Clutter.Units.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Frees the resources allocated by <cite>units</cite></p>
+<dd><p>Frees the resources allocated by <cite>self</cite></p>
 <p>You should only call this function on a <a class="reference internal" href="#Clutter.Units" title="Clutter.Units"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units</span></code></a>
-created using <a class="reference internal" href="#Clutter.Units.copy" title="Clutter.Units.copy"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units.copy</span></code></a> ()</p>
+created using <a class="reference internal" href="#Clutter.Units.copy" title="Clutter.Units.copy"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units.copy</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -481,7 +479,7 @@ created using <a class="reference internal" href="#Clutter.Units.copy" title="Cl
 </tr>
 </tbody>
 </table>
-<p>Retrieves the unit type of the value stored inside <cite>units</cite></p>
+<p>Retrieves the unit type of the value stored inside <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -500,7 +498,7 @@ created using <a class="reference internal" href="#Clutter.Units.copy" title="Cl
 </tr>
 </tbody>
 </table>
-<p>Retrieves the value stored inside <cite>units</cite></p>
+<p>Retrieves the value stored inside <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -533,14 +531,14 @@ created using <a class="reference internal" href="#Clutter.Units.copy" title="Cl
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly allocated string containing the encoded
-<a class="reference internal" href="#Clutter.Units" title="Clutter.Units"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units</span></code></a> value. Use <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> () to free the string</td>
+<a class="reference internal" href="#Clutter.Units" title="Clutter.Units"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units</span></code></a> value. Use <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() to free the string</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Converts <cite>units</cite> into a string</p>
-<p>See <a class="reference internal" href="#Clutter.Units.from_string" title="Clutter.Units.from_string"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units.from_string</span></code></a> () for the units syntax and for
+<p>Converts <cite>self</cite> into a string</p>
+<p>See <a class="reference internal" href="#Clutter.Units.from_string" title="Clutter.Units.from_string"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Units.from_string</span></code></a>() for the units syntax and for
 examples of output</p>
 <p>Fractional values are truncated to the second decimal
 position for em, mm and cm, and to the first decimal position for
@@ -566,7 +564,4 @@ typographic points. Pixels are integers.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

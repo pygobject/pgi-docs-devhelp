@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.TreeModelRow" href="TreeModelRow.html"/>
         <link rel="prev" title="Gtk.ToplevelAccessible" href="ToplevelAccessible.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -156,19 +154,19 @@
  viewBox="0.00 0.00 303.50 134.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 130)">
 <title>g</title>
-<!-- Gtk.TreeModel -->
-<g id="node1" class="node"><title>Gtk.TreeModel</title>
-<g id="a_node1"><a xlink:href="#Gtk.TreeModelFilter" xlink:title="Gtk.TreeModel">
-<path fill="none" stroke="#3091d1" d="M71,-72C71,-72 6,-72 6,-72 3,-72 0,-69 0,-66 0,-66 0,-60 0,-60 0,-57 3,-54 6,-54 6,-54 71,-54 71,-54 74,-54 77,-57 77,-60 77,-60 77,-66 77,-66 77,-69 74,-72 71,-72"/>
-<text text-anchor="middle" x="38.5" y="-60.7" font-family="inherit" font-size="8.50">Gtk.TreeModel</text>
+<!-- Gtk.TreeModelFilter -->
+<g id="node1" class="node"><title>Gtk.TreeModelFilter</title>
+<g id="a_node1"><a xlink:href="#Gtk.TreeModelFilter" xlink:title="Gtk.TreeModelFilter">
+<path fill="none" stroke="#75507b" d="M189,-18C189,-18 104,-18 104,-18 101,-18 98,-15 98,-12 98,-12 98,-6 98,-6 98,-3 101,-0 104,-0 104,-0 189,-0 189,-0 192,-0 195,-3 195,-6 195,-6 195,-12 195,-12 195,-15 192,-18 189,-18"/>
+<text text-anchor="middle" x="146.5" y="-6.7" font-family="inherit" font-size="8.50">Gtk.TreeModelFilter</text>
 </a>
 </g>
 </g>
-<!-- Gtk.TreeModelFilter -->
-<g id="node2" class="node"><title>Gtk.TreeModelFilter</title>
-<g id="a_node2"><a xlink:href="../interfaces/TreeModel.html#Gtk.TreeModel" xlink:title="Gtk.TreeModelFilter">
-<path fill="none" stroke="#75507b" d="M189,-18C189,-18 104,-18 104,-18 101,-18 98,-15 98,-12 98,-12 98,-6 98,-6 98,-3 101,-0 104,-0 104,-0 189,-0 189,-0 192,-0 195,-3 195,-6 195,-6 195,-12 195,-12 195,-15 192,-18 189,-18"/>
-<text text-anchor="middle" x="146.5" y="-6.7" font-family="inherit" font-size="8.50">Gtk.TreeModelFilter</text>
+<!-- Gtk.TreeModel -->
+<g id="node2" class="node"><title>Gtk.TreeModel</title>
+<g id="a_node2"><a xlink:href="../interfaces/TreeModel.html#Gtk.TreeModel" xlink:title="Gtk.TreeModel">
+<path fill="none" stroke="#3091d1" d="M71,-72C71,-72 6,-72 6,-72 3,-72 0,-69 0,-66 0,-66 0,-60 0,-60 0,-57 3,-54 6,-54 6,-54 71,-54 71,-54 74,-54 77,-57 77,-60 77,-60 77,-66 77,-66 77,-69 74,-72 71,-72"/>
+<text text-anchor="middle" x="38.5" y="-60.7" font-family="inherit" font-size="8.50">Gtk.TreeModel</text>
 </a>
 </g>
 </g>
@@ -447,7 +445,7 @@ last row removed), the node’s visibility should be updated.</p>
 <p>This introduces a dependency from the node on its child nodes. In order
 to accommodate this, <a class="reference internal" href="#Gtk.TreeModelFilter" title="Gtk.TreeModelFilter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter</span></code></a> must make sure the necessary
 signals are received from the child model. This is achieved by building,
-for all nodes which are exposed as visible nodes to <a class="reference internal" href="#Gtk.TreeModelFilter" title="Gtk.TreeModelFilter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter</span></code></a> &#8216;s
+for all nodes which are exposed as visible nodes to <a class="reference internal" href="#Gtk.TreeModelFilter" title="Gtk.TreeModelFilter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter</span></code></a>&#8216;s
 clients, the child level (if any) and take a reference on the first node
 in this level. Furthermore, for every row-inserted, row-changed or
 row-deleted signal (also these which were not handled because the node
@@ -462,10 +460,10 @@ do implement reference counting, obtain references on these child levels
 yourself.</p>
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.clear_cache">
-<code class="descname">clear_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n4286"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>This function should almost never be called. It clears the <cite>filter</cite>
+<code class="descname">clear_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n4286"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function should almost never be called. It clears the <cite>self</cite>
 of any cached iterators that haven’t been reffed with
-<a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a> (). This might be useful if the child model
+<a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a>(). This might be useful if the child model
 being filtered is static (and doesn’t change often) and there has been
 a lot of unreffed access to nodes. As a side effect of this function,
 all unreffed iters will be invalid.</p>
@@ -476,7 +474,7 @@ all unreffed iters will be invalid.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.convert_child_iter_to_iter">
-<code class="descname">convert_child_iter_to_iter</code><span class="sig-paren">(</span><em>child_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n3957"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_child_iter_to_iter</code><span class="sig-paren">(</span><em>child_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n3957"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -498,7 +496,7 @@ valid iterator pointing to a visible row in child model.<table class="docutils f
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>filter_iter</cite> to point to the row in <cite>filter</cite> that corresponds to the
+<p>Sets <cite>filter_iter</cite> to point to the row in <cite>self</cite> that corresponds to the
 row pointed at by <cite>child_iter</cite>.  If <cite>filter_iter</cite> was not set, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is
 returned.</p>
 <div class="versionadded">
@@ -508,7 +506,7 @@ returned.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.convert_child_path_to_path">
-<code class="descname">convert_child_path_to_path</code><span class="sig-paren">(</span><em>child_path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n4137"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_child_path_to_path</code><span class="sig-paren">(</span><em>child_path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n4137"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -517,14 +515,14 @@ returned.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Converts <cite>child_path</cite> to a path relative to <cite>filter</cite>. That is, <cite>child_path</cite>
+<p>Converts <cite>child_path</cite> to a path relative to <cite>self</cite>. That is, <cite>child_path</cite>
 points to a path in the child model. The rerturned path will point to the
 same row in the filtered model. If <cite>child_path</cite> isn’t a valid path on the
-child model or points to a row which is not visible in <cite>filter</cite>, then <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
+child model or points to a row which is not visible in <cite>self</cite>, then <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
 is returned.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
@@ -533,12 +531,12 @@ is returned.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.convert_iter_to_child_iter">
-<code class="descname">convert_iter_to_child_iter</code><span class="sig-paren">(</span><em>filter_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n3999"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_iter_to_child_iter</code><span class="sig-paren">(</span><em>filter_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n3999"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filter_iter</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; A valid <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> pointing to a row on <cite>filter</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filter_iter</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; A valid <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> pointing to a row on <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An uninitialized <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>.</td>
 </tr>
@@ -554,7 +552,7 @@ is returned.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.convert_path_to_child_path">
-<code class="descname">convert_path_to_child_path</code><span class="sig-paren">(</span><em>filter_path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n4180"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_path_to_child_path</code><span class="sig-paren">(</span><em>filter_path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n4180"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -563,12 +561,12 @@ is returned.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Converts <cite>filter_path</cite> to a path on the child model of <cite>filter</cite>. That is,
-<cite>filter_path</cite> points to a location in <cite>filter</cite>. The returned path will
+<p>Converts <cite>filter_path</cite> to a path on the child model of <cite>self</cite>. That is,
+<cite>filter_path</cite> points to a location in <cite>self</cite>. The returned path will
 point to the same location in the model not being filtered. If <cite>filter_path</cite>
 does not point to a location in the child model, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.</p>
 <div class="versionadded">
@@ -578,7 +576,7 @@ does not point to a location in the child model, <a class="reference external" h
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.get_model">
-<code class="descname">get_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n3795"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n3795"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -589,7 +587,7 @@ does not point to a location in the child model, <a class="reference external" h
 </tr>
 </tbody>
 </table>
-<p>Returns a pointer to the child model of <cite>filter</cite>.</p>
+<p>Returns a pointer to the child model of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
 </div>
@@ -597,8 +595,8 @@ does not point to a location in the child model, <a class="reference external" h
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.refilter">
-<code class="descname">refilter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n4262"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Emits <code class="xref py py-func docutils literal"><span class="pre">::row-changed</span></code> for each row in the child model, which causes
+<code class="descname">refilter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n4262"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Emits ::row_changed for each row in the child model, which causes
 the filter to re-evaluate whether a row is visible or not.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
@@ -607,13 +605,13 @@ the filter to re-evaluate whether a row is visible or not.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.set_modify_func">
-<code class="descname">set_modify_func</code><span class="sig-paren">(</span><em>types</em>, <em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n3892"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_modify_func</code><span class="sig-paren">(</span><em>types</em>, <em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n3892"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>types</strong> ([<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; The <code class="xref py py-obj docutils literal"><span class="pre">GLib.Types</span></code> of the columns.</li>
+<li><strong>types</strong> ([<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; The <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GTypes</span></code></a> of the columns.</li>
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gtk.TreeModelFilterModifyFunc" title="Gtk.TreeModelFilterModifyFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilterModifyFunc</span></code></a>) &#8211; A <a class="reference internal" href="../callbacks.html#Gtk.TreeModelFilterModifyFunc" title="Gtk.TreeModelFilterModifyFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilterModifyFunc</span></code></a></li>
 <li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; User data to pass to the modify function, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</li>
 </ul>
@@ -628,7 +626,7 @@ function. The modify function will get called for each
 data access, the goal of the modify function is to return the data which
 should be displayed at the location specified using the parameters of the
 modify function.</p>
-<p>Note that <a class="reference internal" href="#Gtk.TreeModelFilter.set_modify_func" title="Gtk.TreeModelFilter.set_modify_func"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_modify_func</span></code></a> ()
+<p>Note that <a class="reference internal" href="#Gtk.TreeModelFilter.set_modify_func" title="Gtk.TreeModelFilter.set_modify_func"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_modify_func</span></code></a>()
 can only be called once for a given filter model.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
@@ -638,11 +636,12 @@ can only be called once for a given filter model.</p>
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.set_value">
 <code class="descname">set_value</code><span class="sig-paren">(</span><em>iter</em>, <em>column</em>, <em>value</em><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
+<dd><p>Set the value of the child model</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.set_visible_column">
-<code class="descname">set_visible_column</code><span class="sig-paren">(</span><em>column</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n3926"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_visible_column</code><span class="sig-paren">(</span><em>column</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n3926"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -651,12 +650,12 @@ can only be called once for a given filter model.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>column</cite> of the child_model to be the column where <cite>filter</cite> should
+<p>Sets <cite>column</cite> of the child_model to be the column where <cite>self</cite> should
 look for visibility information. <cite>columns</cite> should be a column of type
 <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_BOOLEAN" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_BOOLEAN</span></code></a>, where <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> means that a row is visible, and <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
 if not.</p>
-<p>Note that <a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_func" title="Gtk.TreeModelFilter.set_visible_func"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_visible_func</span></code></a> () or
-<a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_column" title="Gtk.TreeModelFilter.set_visible_column"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_visible_column</span></code></a> () can only be called
+<p>Note that <a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_func" title="Gtk.TreeModelFilter.set_visible_func"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_visible_func</span></code></a>() or
+<a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_column" title="Gtk.TreeModelFilter.set_visible_column"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_visible_column</span></code></a>() can only be called
 once for a given filter model.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
@@ -665,7 +664,7 @@ once for a given filter model.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.set_visible_func">
-<code class="descname">set_visible_func</code><span class="sig-paren">(</span><em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n3851"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_visible_func</code><span class="sig-paren">(</span><em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n3851"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -678,12 +677,12 @@ once for a given filter model.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the visible function used when filtering the <cite>filter</cite> to be <cite>func</cite>.
+<p>Sets the visible function used when filtering the <cite>self</cite> to be <cite>func</cite>.
 The function should return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the given row should be visible and
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</p>
 <p>If the condition calculated by the function changes over time (e.g.
 because it depends on some global parameters), you must call
-<a class="reference internal" href="#Gtk.TreeModelFilter.refilter" title="Gtk.TreeModelFilter.refilter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.refilter</span></code></a> () to keep the visibility information
+<a class="reference internal" href="#Gtk.TreeModelFilter.refilter" title="Gtk.TreeModelFilter.refilter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.refilter</span></code></a>() to keep the visibility information
 of the model up-to-date.</p>
 <p>Note that <cite>func</cite> is called whenever a row is inserted, when it may still
 be empty. The visible function should therefore take special care of empty
@@ -706,8 +705,8 @@ rows, like in the example below.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Note that <a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_func" title="Gtk.TreeModelFilter.set_visible_func"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_visible_func</span></code></a> () or
-<a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_column" title="Gtk.TreeModelFilter.set_visible_column"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_visible_column</span></code></a> () can only be called
+<p>Note that <a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_func" title="Gtk.TreeModelFilter.set_visible_func"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_visible_func</span></code></a>() or
+<a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_column" title="Gtk.TreeModelFilter.set_visible_column"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFilter.set_visible_column</span></code></a>() can only be called
 once for a given filter model.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
@@ -812,7 +811,4 @@ once for a given filter model.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

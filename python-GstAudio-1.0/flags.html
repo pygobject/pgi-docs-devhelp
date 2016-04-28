@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstAudio 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Enums" href="enums.html"/>
         <link rel="prev" title="GstAudio.StreamVolumeInterface" href="iface-structs/StreamVolumeInterface.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -133,11 +131,79 @@
   <div class="section" id="flags">
 <h1>Flags</h1>
 <ul class="simple">
+<li><a class="reference internal" href="#GstAudio.AudioChannelMixerFlags" title="GstAudio.AudioChannelMixerFlags"><code class="xref py py-class docutils literal"><span class="pre">GstAudio.AudioChannelMixerFlags</span></code></a></li>
+<li><a class="reference internal" href="#GstAudio.AudioConverterFlags" title="GstAudio.AudioConverterFlags"><code class="xref py py-class docutils literal"><span class="pre">GstAudio.AudioConverterFlags</span></code></a></li>
 <li><a class="reference internal" href="#GstAudio.AudioFlags" title="GstAudio.AudioFlags"><code class="xref py py-class docutils literal"><span class="pre">GstAudio.AudioFlags</span></code></a></li>
 <li><a class="reference internal" href="#GstAudio.AudioFormatFlags" title="GstAudio.AudioFormatFlags"><code class="xref py py-class docutils literal"><span class="pre">GstAudio.AudioFormatFlags</span></code></a></li>
+<li><a class="reference internal" href="#GstAudio.AudioPackFlags" title="GstAudio.AudioPackFlags"><code class="xref py py-class docutils literal"><span class="pre">GstAudio.AudioPackFlags</span></code></a></li>
+<li><a class="reference internal" href="#GstAudio.AudioQuantizeFlags" title="GstAudio.AudioQuantizeFlags"><code class="xref py py-class docutils literal"><span class="pre">GstAudio.AudioQuantizeFlags</span></code></a></li>
 </ul>
 <div class="section" id="details">
 <h2>Details</h2>
+<dl class="class">
+<dt id="GstAudio.AudioChannelMixerFlags">
+<em class="property">class </em><code class="descclassname">GstAudio.</code><code class="descname">AudioChannelMixerFlags</code></dt>
+<dd><p>Bases: <a class="reference external" href="_docs/GstAudio-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<p>Flags passed to gst_audio_channel_mixer_new()</p>
+<dl class="attribute">
+<dt id="GstAudio.AudioChannelMixerFlags.NONE">
+<code class="descname">NONE</code><em class="property"> = 0</em></dt>
+<dd><p>no flag</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstAudio.AudioChannelMixerFlags.NON_INTERLEAVED_IN">
+<code class="descname">NON_INTERLEAVED_IN</code><em class="property"> = 1</em></dt>
+<dd><p>input channels are not interleaved</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstAudio.AudioChannelMixerFlags.NON_INTERLEAVED_OUT">
+<code class="descname">NON_INTERLEAVED_OUT</code><em class="property"> = 2</em></dt>
+<dd><p>output channels are not interleaved</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstAudio.AudioChannelMixerFlags.UNPOSITIONED_IN">
+<code class="descname">UNPOSITIONED_IN</code><em class="property"> = 4</em></dt>
+<dd><p>input channels are explicitly unpositioned</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstAudio.AudioChannelMixerFlags.UNPOSITIONED_OUT">
+<code class="descname">UNPOSITIONED_OUT</code><em class="property"> = 8</em></dt>
+<dd><p>output channels are explicitly unpositioned</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="GstAudio.AudioConverterFlags">
+<em class="property">class </em><code class="descclassname">GstAudio.</code><code class="descname">AudioConverterFlags</code></dt>
+<dd><p>Bases: <a class="reference external" href="_docs/GstAudio-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<p>Extra flags passed to gst_audio_converter_new() and <a class="reference internal" href="structs/AudioConverter.html#GstAudio.AudioConverter.samples" title="GstAudio.AudioConverter.samples"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioConverter.samples</span></code></a>().</p>
+<dl class="attribute">
+<dt id="GstAudio.AudioConverterFlags.NONE">
+<code class="descname">NONE</code><em class="property"> = 0</em></dt>
+<dd><p>no flag</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstAudio.AudioConverterFlags.IN_WRITABLE">
+<code class="descname">IN_WRITABLE</code><em class="property"> = 1</em></dt>
+<dd><p>the input sample arrays are writable and can be
+used as temporary storage during conversion.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstAudio.AudioConverterFlags.VARIABLE_RATE">
+<code class="descname">VARIABLE_RATE</code><em class="property"> = 2</em></dt>
+<dd><p>allow arbitrary rate updates with
+<a class="reference internal" href="structs/AudioConverter.html#GstAudio.AudioConverter.update_config" title="GstAudio.AudioConverter.update_config"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioConverter.update_config</span></code></a>().</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="class">
 <dt id="GstAudio.AudioFlags">
 <em class="property">class </em><code class="descclassname">GstAudio.</code><code class="descname">AudioFlags</code></dt>
@@ -170,9 +236,22 @@ contains unpositioned channels.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="GstAudio.AudioFormatFlags.COMPLEX">
+<code class="descname">COMPLEX</code><em class="property"> = 16</em></dt>
+<dd><p>complex layout</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="GstAudio.AudioFormatFlags.FLOAT">
 <code class="descname">FLOAT</code><em class="property"> = 2</em></dt>
 <dd><p>float samples</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstAudio.AudioFormatFlags.UNPACK">
+<code class="descname">UNPACK</code><em class="property"> = 32</em></dt>
+<dd><p>the format can be used in
+<a class="reference internal" href="callbacks.html#GstAudio.AudioFormatUnpack" title="GstAudio.AudioFormatUnpack"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioFormatUnpack</span></code></a> and <a class="reference internal" href="callbacks.html#GstAudio.AudioFormatPack" title="GstAudio.AudioFormatPack"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioFormatPack</span></code></a> functions</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -181,17 +260,46 @@ contains unpositioned channels.</p>
 <dd><p>signed samples</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="GstAudio.AudioPackFlags">
+<em class="property">class </em><code class="descclassname">GstAudio.</code><code class="descname">AudioPackFlags</code></dt>
+<dd><p>Bases: <a class="reference external" href="_docs/GstAudio-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<p>The different flags that can be used when packing and unpacking.</p>
 <dl class="attribute">
-<dt id="GstAudio.AudioFormatFlags.COMPLEX">
-<code class="descname">COMPLEX</code><em class="property"> = 16</em></dt>
-<dd><p>complex layout</p>
+<dt id="GstAudio.AudioPackFlags.NONE">
+<code class="descname">NONE</code><em class="property"> = 0</em></dt>
+<dd><p>No flag</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="GstAudio.AudioFormatFlags.UNPACK">
-<code class="descname">UNPACK</code><em class="property"> = 32</em></dt>
-<dd><p>the format can be used in
-<a class="reference internal" href="callbacks.html#GstAudio.AudioFormatUnpack" title="GstAudio.AudioFormatUnpack"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioFormatUnpack</span></code></a> and <a class="reference internal" href="callbacks.html#GstAudio.AudioFormatPack" title="GstAudio.AudioFormatPack"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioFormatPack</span></code></a> functions</p>
+<dt id="GstAudio.AudioPackFlags.TRUNCATE_RANGE">
+<code class="descname">TRUNCATE_RANGE</code><em class="property"> = 1</em></dt>
+<dd><p>When the source has a smaller depth
+than the target format, set the least significant bits of the target
+to 0. This is likely sightly faster but less accurate. When this flag
+is not specified, the most significant bits of the source are duplicated
+in the least significant bits of the destination.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="GstAudio.AudioQuantizeFlags">
+<em class="property">class </em><code class="descclassname">GstAudio.</code><code class="descname">AudioQuantizeFlags</code></dt>
+<dd><p>Bases: <a class="reference external" href="_docs/GstAudio-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<p>Extra flags that can be passed to gst_audio_quantize_new()</p>
+<dl class="attribute">
+<dt id="GstAudio.AudioQuantizeFlags.NONE">
+<code class="descname">NONE</code><em class="property"> = 0</em></dt>
+<dd><p>no flags</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstAudio.AudioQuantizeFlags.NON_INTERLEAVED">
+<code class="descname">NON_INTERLEAVED</code><em class="property"> = 1</em></dt>
+<dd><p>samples are non-interleaved</p>
 </dd></dl>
 
 </dd></dl>
@@ -210,7 +318,4 @@ contains unpositioned channels.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

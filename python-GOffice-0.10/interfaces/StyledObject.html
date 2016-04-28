@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GOffice 0.10 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="GOffice.gDataAllocator" href="gDataAllocator.html"/>
         <link rel="prev" title="GOffice.PluginLoader" href="PluginLoader.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -298,7 +296,7 @@ item style and canvas scale.</p>
 </tr>
 </tbody>
 </table>
-<p>This function returns a new style that is initialized with the auto values for <cite>gso</cite>.
+<p>This function returns a new style that is initialized with the auto values for <cite>self</cite>.
 Caller is responsible for the result.</p>
 </dd></dl>
 
@@ -332,7 +330,7 @@ object, image filling will not be supported.</p>
 </tr>
 </tbody>
 </table>
-<p>Simply an accessor function that returns <cite>gso</cite> -&gt;style, without referencing it.</p>
+<p>Simply an accessor function that returns <cite>self</cite>-&gt;style, without referencing it.</p>
 </dd></dl>
 
 <dl class="method">
@@ -370,34 +368,34 @@ happens when changing <code class="xref py py-obj docutils literal"><span class=
 </tr>
 </tbody>
 </table>
-<p>Sets a new style for <cite>gso</cite>, and emits &#8220;style-changed&#8221; signal. This function
+<p>Sets a new style for <cite>self</cite>, and emits &#8220;style-changed&#8221; signal. This function
 does not take ownership of <cite>style</cite>.</p>
 <p>The best way to change the style is to set the &#8220;style&#8221; property.</p>
 <p>This function will fail if the new style and the previous style are the same.
 In that case, the function will always return false:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">style</span> <span class="o">=</span> <span class="n">go_styled_object_get_style</span> <span class="p">(</span><span class="n">gso</span><span class="p">);</span>
-<span class="n">style</span><span class="o">-&gt;</span><span class="n">line</span><span class="p">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">size_changed</span> <span class="o">=</span> <span class="n">go_styled_object_set_style</span> <span class="p">(</span><span class="n">gso</span><span class="p">,</span> <span class="n">style</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>style = go_styled_object_get_style (gso);
+style-&gt;line.width = 2;
+size_changed = go_styled_object_set_style (gso, style);
 </pre></div>
 </div>
-<p>In this sample, the call to <a class="reference internal" href="#GOffice.StyledObject.set_style" title="GOffice.StyledObject.set_style"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.StyledObject.set_style</span></code></a> () is just useless. You
+<p>In this sample, the call to <a class="reference internal" href="#GOffice.StyledObject.set_style" title="GOffice.StyledObject.set_style"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.StyledObject.set_style</span></code></a>() is just useless. You
 need to check yourself if you really change the size, call
-<a class="reference internal" href="#GOffice.StyledObject.style_changed" title="GOffice.StyledObject.style_changed"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.StyledObject.style_changed</span></code></a> () to trigger the &#8220;style-changed&#8221; event.
+<a class="reference internal" href="#GOffice.StyledObject.style_changed" title="GOffice.StyledObject.style_changed"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.StyledObject.style_changed</span></code></a>() to trigger the &#8220;style-changed&#8221; event.
 So the following code is much better:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">style</span> <span class="o">=</span> <span class="n">go_styled_object_get_style</span> <span class="p">(</span><span class="n">gso</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">style</span><span class="o">-&gt;</span><span class="n">line</span><span class="p">.</span><span class="n">width</span> <span class="o">!=</span> <span class="mf">2.</span><span class="p">)</span> <span class="p">{</span>
- <span class="n">style</span><span class="o">-&gt;</span><span class="n">line</span><span class="p">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
- <span class="n">go_styled_object_style_changed</span> <span class="p">(</span><span class="n">gso</span><span class="p">);</span>
- <span class="n">size_changed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span>
- <span class="n">size_changed</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>style = go_styled_object_get_style (gso);
+if (style-&gt;line.width != 2.) {
+ style-&gt;line.width = 2;
+ go_styled_object_style_changed (gso);
+ size_changed = true;
+} else
+ size_changed = FALSE;
 </pre></div>
 </div>
 <p>or even better:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">style</span> <span class="o">=</span> <span class="n">go_style_dup</span> <span class="p">(</span><span class="n">go_styled_object_get_style</span> <span class="p">(</span><span class="n">gso</span><span class="p">));</span>
-<span class="n">style</span><span class="o">-&gt;</span><span class="n">line</span><span class="p">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">size_changed</span> <span class="o">=</span> <span class="n">go_styled_object_set_style</span> <span class="p">(</span><span class="n">gso</span><span class="p">,</span> <span class="n">style</span><span class="p">);</span>
-<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">style</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>style = go_style_dup (go_styled_object_get_style (gso));
+style-&gt;line.width = 2;
+size_changed = go_styled_object_set_style (gso, style);
+g_object_unref (style);
 </pre></div>
 </div>
 </dd></dl>
@@ -424,7 +422,4 @@ So the following code is much better:</p>
   </div> 
 
 </body>
-
-  
-
 </html>

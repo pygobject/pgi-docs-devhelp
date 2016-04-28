@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gda 5.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gda.MetaDbObject" href="MetaDbObject.html"/>
         <link rel="prev" title="Gda.GeometricPoint" href="GeometricPoint.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -183,7 +181,7 @@
 <tr class="row-even"><td>table_name</td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
-<td>the name of the table in the <a class="reference internal" href="../classes/MetaStore.html#Gda.MetaStore" title="Gda.MetaStore"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaStore</span></code></a> &#8216;s internal database</td>
+<td>the name of the table in the <a class="reference internal" href="../classes/MetaStore.html#Gda.MetaStore" title="Gda.MetaStore"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaStore</span></code></a>&#8216;s internal database</td>
 </tr>
 </tbody>
 </table>
@@ -226,8 +224,8 @@
 <dt id="Gda.MetaContext">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">MetaContext</code></dt>
 <dd><p>The <a class="reference internal" href="#Gda.MetaContext" title="Gda.MetaContext"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaContext</span></code></a> represents a meta data modification
-context: the how when used with <a class="reference internal" href="../classes/MetaStore.html#Gda.MetaStore.modify_with_context" title="Gda.MetaStore.modify_with_context"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaStore.modify_with_context</span></code></a> (),
-and the what when used with <a class="reference internal" href="../classes/Connection.html#Gda.Connection.update_meta_store" title="Gda.Connection.update_meta_store"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Connection.update_meta_store</span></code></a> ().</p>
+context: the how when used with <a class="reference internal" href="../classes/MetaStore.html#Gda.MetaStore.modify_with_context" title="Gda.MetaStore.modify_with_context"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaStore.modify_with_context</span></code></a>(),
+and the what when used with <a class="reference internal" href="../classes/Connection.html#Gda.Connection.update_meta_store" title="Gda.Connection.update_meta_store"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Connection.update_meta_store</span></code></a>().</p>
 <p>To create a new <a class="reference internal" href="#Gda.MetaContext" title="Gda.MetaContext"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaContext</span></code></a> use <a class="reference internal" href="#Gda.MetaContext.new" title="Gda.MetaContext.new"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaContext.new</span></code></a>.</p>
 <p>To add a new column/value pair use #gda_meta_context_add_column.</p>
 <p>To free a <a class="reference internal" href="#Gda.MetaContext" title="Gda.MetaContext"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaContext</span></code></a>, created by <a class="reference internal" href="#Gda.MetaContext.new" title="Gda.MetaContext.new"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaContext.new</span></code></a>, use <code class="xref py py-obj docutils literal"><span class="pre">Gda.AttributesManager.free</span></code>.</p>
@@ -275,7 +273,7 @@ store column name/value pairs.</td>
 <dl class="method">
 <dt id="Gda.MetaContext.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Frees any resources taken by <cite>ctx</cite> struct. If <cite>ctx</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, then nothing happens.</p>
+<dd><p>Frees any resources taken by <cite>self</cite> struct. If <cite>self</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, then nothing happens.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 5.2.</span></p>
 </div>
@@ -316,7 +314,7 @@ store column name/value pairs.</td>
 </tr>
 </tbody>
 </table>
-<p>Sets a new column/value pair to the given context <cite>ctx</cite>. Column, must be a column in the given table&#8217;s
+<p>Sets a new column/value pair to the given context <cite>self</cite>. Column, must be a column in the given table&#8217;s
 name setted by <a class="reference internal" href="#Gda.MetaContext.set_table" title="Gda.MetaContext.set_table"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaContext.set_table</span></code></a> () (a table in the &#8216;database
 schema [information_schema]&#8217;). If the given <cite>column</cite> already exists it&#8217;s value is overwrited.</p>
 <p>Column&#8217;s name and value is copied and destroyed when <a class="reference internal" href="#Gda.MetaContext.free" title="Gda.MetaContext.free"><code class="xref py py-obj docutils literal"><span class="pre">Gda.MetaContext.free</span></code></a> is called.</p>
@@ -384,7 +382,4 @@ about database&#8217;s tables.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

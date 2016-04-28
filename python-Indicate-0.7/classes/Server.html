@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Indicate 0.7 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Hierarchy" href="../hierarchy.html"/>
         <link rel="prev" title="Indicate.Listener" href="Listener.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -543,7 +541,7 @@ is only one per application.</p>
 </tbody>
 </table>
 <p>This function adds an indicator <cite>indicator</cite> to the list that are
-watched by the server <cite>server</cite>.  This means that signals that are
+watched by the server <cite>self</cite>.  This means that signals that are
 emitted by the indicator will be picked up and passed via DBus onto
 listeners of the application.</p>
 </dd></dl>
@@ -636,7 +634,7 @@ interests that were currently set for this server.</p>
 </tr>
 </tbody>
 </table>
-<p>Removes an indicator <cite>indicator</cite> from being watched by the server <cite>server</cite>
+<p>Removes an indicator <cite>indicator</cite> from being watched by the server <cite>self</cite>
 so it&#8217;s signals are no longer watched and set over DBus.</p>
 </dd></dl>
 
@@ -647,7 +645,8 @@ so it&#8217;s signals are no longer watched and set over DBus.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of items that the server believes the user would be interested in.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of items that the server believes the user
+would be interested in.</td>
 </tr>
 </tbody>
 </table>
@@ -663,7 +662,7 @@ sound be used independently.</p>
 <code class="descname">set_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>This function is used to set the default <a class="reference internal" href="#Indicate.Server" title="Indicate.Server"><code class="xref py py-obj docutils literal"><span class="pre">Indicate.Server</span></code></a> that will
 be used when creating <a class="reference internal" href="Indicator.html#Indicate.Indicator" title="Indicate.Indicator"><code class="xref py py-obj docutils literal"><span class="pre">Indicate.Indicators</span></code></a> or for anyone else that
-calls <a class="reference internal" href="#Indicate.Server.ref_default" title="Indicate.Server.ref_default"><code class="xref py py-obj docutils literal"><span class="pre">Indicate.Server.ref_default</span></code></a> ().  Typically this is just an
+calls <a class="reference internal" href="#Indicate.Server.ref_default" title="Indicate.Server.ref_default"><code class="xref py py-obj docutils literal"><span class="pre">Indicate.Server.ref_default</span></code></a>().  Typically this is just an
 instance of <a class="reference internal" href="#Indicate.Server" title="Indicate.Server"><code class="xref py py-obj docutils literal"><span class="pre">Indicate.Server</span></code></a> but applications that create a subclass
 of <a class="reference internal" href="#Indicate.Server" title="Indicate.Server"><code class="xref py py-obj docutils literal"><span class="pre">Indicate.Server</span></code></a> should set this as well.</p>
 </dd></dl>
@@ -680,7 +679,7 @@ of <a class="reference internal" href="#Indicate.Server" title="Indicate.Server"
 </tbody>
 </table>
 <p>This is a convience function to set the <a class="reference internal" href="#Indicate.Server" title="Indicate.Server"><code class="xref py py-obj docutils literal"><span class="pre">Indicate.Server</span></code></a> <a class="reference internal" href="#Indicate.Server.props.desktop" title="Indicate.Server.props.desktop"><code class="xref py py-data docutils literal"><span class="pre">:desktop</span></code></a>
-property of the <cite>server</cite> object.  The property can also be set
+property of the <cite>self</cite> object.  The property can also be set
 via traditional means, but this one is easier to read.</p>
 </dd></dl>
 
@@ -691,12 +690,13 @@ via traditional means, but this one is easier to read.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The name of an Icon Theme (according to the Icon Naming Specification) to request renderers of the server to use.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The name of an Icon Theme (according to the Icon Naming
+Specification) to request renderers of the server to use.</td>
 </tr>
 </tbody>
 </table>
 <p>This is a convience function to set the <a class="reference internal" href="#Indicate.Server" title="Indicate.Server"><code class="xref py py-obj docutils literal"><span class="pre">Indicate.Server</span></code></a> <a class="reference internal" href="#Indicate.Server.props.icon_theme" title="Indicate.Server.props.icon_theme"><code class="xref py py-data docutils literal"><span class="pre">:icon-theme</span></code></a>
-property of the <cite>server</cite> object.  The property can also be set
+property of the <cite>self</cite> object.  The property can also be set
 via traditional means, but this one is easier to read.</p>
 </dd></dl>
 
@@ -732,7 +732,7 @@ likely to have the wrong menu (or no menu).</p>
 </tbody>
 </table>
 <p>This is a convience function to set the <a class="reference internal" href="#Indicate.Server" title="Indicate.Server"><code class="xref py py-obj docutils literal"><span class="pre">Indicate.Server</span></code></a> <a class="reference internal" href="#Indicate.Server.props.type" title="Indicate.Server.props.type"><code class="xref py py-data docutils literal"><span class="pre">:type</span></code></a>
-property of the <cite>server</cite> object.  The property can also be set
+property of the <cite>self</cite> object.  The property can also be set
 via traditional means, but this one is easier to read.</p>
 </dd></dl>
 
@@ -1462,7 +1462,4 @@ indicators.  This results in a signal on DBus.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

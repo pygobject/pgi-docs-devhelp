@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.IMMulticontext" href="IMMulticontext.html"/>
         <link rel="prev" title="Gtk.IMContext" href="IMContext.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -220,6 +218,9 @@
 <tr class="row-odd"><td><em>static</em></td>
 <td><a class="reference internal" href="#Gtk.IMContextSimple.new" title="Gtk.IMContextSimple.new"><code class="xref py py-func docutils literal"><span class="pre">new</span></code></a> ()</td>
 </tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gtk.IMContextSimple.add_compose_file" title="Gtk.IMContextSimple.add_compose_file"><code class="xref py py-func docutils literal"><span class="pre">add_compose_file</span></code></a> (compose_file)</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -306,9 +307,21 @@
 </tr>
 </tbody>
 </table>
+<p><a class="reference internal" href="#Gtk.IMContextSimple" title="Gtk.IMContextSimple"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContextSimple</span></code></a> is a simple input method context supporting table-based
+input methods. It has a built-in table of compose sequences that is derived
+from the X11 Compose files.</p>
+<p><a class="reference internal" href="#Gtk.IMContextSimple" title="Gtk.IMContextSimple"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContextSimple</span></code></a> reads additional compose sequences from the first of the
+following files that is found: ~/.config/gtk-3.0/Compose, ~/.XCompose,
+/usr/share/X11/locale/$locale/Compose (for locales that have a nontrivial
+Compose file). The syntax of these files is described in the Compose(5)
+manual page.</p>
+<p><a class="reference internal" href="#Gtk.IMContextSimple" title="Gtk.IMContextSimple"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContextSimple</span></code></a> also supports numeric entry of Unicode characters
+by typing Ctrl-Shift-u, followed by a hexadecimal Unicode codepoint.
+For example, Ctrl-Shift-u 1 2 3 Enter yields U+0123 LATIN SMALL LETTER
+G WITH CEDILLA, i.e. ģ.</p>
 <dl class="staticmethod">
 <dt id="Gtk.IMContextSimple.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontextsimple.c?h=3.18.6#n154"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontextsimple.c?h=3.20.3#n276"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -320,6 +333,19 @@
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#Gtk.IMContextSimple" title="Gtk.IMContextSimple"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContextSimple</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gtk.IMContextSimple.add_compose_file">
+<code class="descname">add_compose_file</code><span class="sig-paren">(</span><em>compose_file</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontextsimple.c?h=3.20.3#n1430"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>compose_file</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -338,7 +364,4 @@
   </div> 
 
 </body>
-
-  
-
 </html>

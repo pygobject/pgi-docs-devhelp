@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="WebKit 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="WebKit.WebHistoryItem" href="WebHistoryItem.html"/>
         <link rel="prev" title="WebKit.WebDatabase" href="WebDatabase.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -463,9 +461,9 @@ be retrieved, the load status and progress can be observed using the
 signals and can be controlled using the methods of the <a class="reference internal" href="#WebKit.WebFrame" title="WebKit.WebFrame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame</span></code></a>.
 A <a class="reference internal" href="#WebKit.WebFrame" title="WebKit.WebFrame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame</span></code></a> can have any number of children and one child can
 be found by using <a class="reference internal" href="#WebKit.WebFrame.find_frame" title="WebKit.WebFrame.find_frame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame.find_frame</span></code></a>.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="cm">/* Get the frame from the #WebKitWebView */</span>
-<span class="n">WebKitWebFrame</span> <span class="o">*</span><span class="n">frame</span> <span class="o">=</span> <span class="n">webkit_web_view_get_main_frame</span> <span class="p">(</span><span class="n">WEBKIT_WEB_VIEW</span><span class="p">(</span><span class="n">my_view</span><span class="p">));</span>
-<span class="n">g_print</span> <span class="p">(</span><span class="s">&quot;The URI of this frame is &#39;%s&#39;&quot;</span><span class="p">,</span> <span class="n">webkit_web_frame_get_uri</span> <span class="p">(</span><span class="n">frame</span><span class="p">));</span>
+<div class="highlight-none"><div class="highlight"><pre>/* Get the frame from the #WebKitWebView */
+WebKitWebFrame *frame = webkit_web_view_get_main_frame (WEBKIT_WEB_VIEW(my_view));
+g_print (&quot;The URI of this frame is &#39;%s&#39;&quot;, webkit_web_frame_get_uri (frame));
 </pre></div>
 </div>
 <dl class="staticmethod">
@@ -504,13 +502,13 @@ be found by using <a class="reference internal" href="#WebKit.WebFrame.find_fram
 </tr>
 </tbody>
 </table>
-<p>For pre-defined names, returns <cite>frame</cite> if <cite>name</cite> is &#8220;_self&#8221; or &#8220;_current&#8221;,
-returns <cite>frame</cite> &#8216;s parent frame if <cite>name</cite> is &#8220;_parent&#8221;, and returns the main
-frame if <cite>name</cite> is &#8220;_top&#8221;. Also returns <cite>frame</cite> if it is the main frame and
+<p>For pre-defined names, returns <cite>self</cite> if <cite>name</cite> is &#8220;_self&#8221; or &#8220;_current&#8221;,
+returns <cite>self</cite>&#8216;s parent frame if <cite>name</cite> is &#8220;_parent&#8221;, and returns the main
+frame if <cite>name</cite> is &#8220;_top&#8221;. Also returns <cite>self</cite> if it is the main frame and
 <cite>name</cite> is either &#8220;_parent&#8221; or &#8220;_top&#8221;. For other names, this function returns
-the first frame that matches <cite>name</cite>. This function searches <cite>frame</cite> and its
-descendents first, then <cite>frame</cite> &#8216;s parent and its children moving up the
-hierarchy until a match is found. If no match is found in <cite>frame</cite> &#8216;s
+the first frame that matches <cite>name</cite>. This function searches <cite>self</cite> and its
+descendents first, then <cite>self</cite>&#8216;s parent and its children moving up the
+hierarchy until a match is found. If no match is found in <cite>self</cite>&#8216;s
 hierarchy, this function will search for a matching frame in other main
 frame hierarchies. Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no match is found.</p>
 </dd></dl>
@@ -542,7 +540,7 @@ frame hierarchies. Returns <a class="reference external" href="http://docs.pytho
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="DOMDocument.html#WebKit.DOMDocument" title="WebKit.DOMDocument"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.DOMDocument</span></code></a> currently loaded
-in the <cite>frame</cite> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no document is loaded</td>
+in the <cite>self</cite> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no document is loaded</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="DOMDocument.html#WebKit.DOMDocument" title="WebKit.DOMDocument"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.DOMDocument</span></code></a></td>
 </tr>
@@ -609,7 +607,7 @@ between the WebKit and JavaScriptCore APIs.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of <cite>frame</cite>. This method will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of <cite>self</cite>. This method will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if
 the <a class="reference internal" href="#WebKit.WebFrame" title="WebKit.WebFrame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame</span></code></a> is invalid or an empty string if it is not backed
 by a live WebCore frame.</td>
 </tr>
@@ -617,7 +615,7 @@ by a live WebCore frame.</td>
 </tr>
 </tbody>
 </table>
-<p>Returns the <cite>frame</cite> &#8216;s name</p>
+<p>Returns the <cite>self</cite>&#8216;s name</p>
 </dd></dl>
 
 <dl class="method">
@@ -655,7 +653,7 @@ are done with it.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the <cite>frame</cite> &#8216;s parent frame, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if it has none.</p>
+<p>Returns the <cite>self</cite>&#8216;s parent frame, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if it has none.</p>
 </dd></dl>
 
 <dl class="method">
@@ -710,13 +708,13 @@ positioned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the security origin of <cite>frame</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the security origin of <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="SecurityOrigin.html#WebKit.SecurityOrigin" title="WebKit.SecurityOrigin"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.SecurityOrigin</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the <cite>frame</cite> &#8216;s security origin.</p>
+<p>Returns the <cite>self</cite>&#8216;s security origin.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.1.14.</span></p>
 </div>
@@ -729,13 +727,13 @@ positioned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the title of <cite>frame</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the title of <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the <cite>frame</cite> &#8216;s document title</p>
+<p>Returns the <cite>self</cite>&#8216;s document title</p>
 </dd></dl>
 
 <dl class="method">
@@ -745,13 +743,13 @@ positioned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the URI of <cite>frame</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the URI of <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the current URI of the contents displayed by the <cite>frame</cite></p>
+<p>Returns the current URI of the contents displayed by the <cite>self</cite></p>
 </dd></dl>
 
 <dl class="method">
@@ -774,7 +772,7 @@ positioned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a> that manages <cite>frame</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a> that manages <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a></td>
 </tr>
@@ -782,7 +780,7 @@ positioned.</p>
 </table>
 <p>Returns the <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a> that manages this <a class="reference internal" href="#WebKit.WebFrame" title="WebKit.WebFrame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame</span></code></a>.</p>
 <p>The <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a> returned manages the entire hierarchy of <a class="reference internal" href="#WebKit.WebFrame" title="WebKit.WebFrame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame</span></code></a>
-objects that contains <cite>frame</cite>.</p>
+objects that contains <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -793,7 +791,7 @@ objects that contains <cite>frame</cite>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>content</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the alternate content to display as the main page of the <cite>frame</cite></li>
+<li><strong>content</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the alternate content to display as the main page of the <cite>self</cite></li>
 <li><strong>base_url</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the base URI for relative locations</li>
 <li><strong>unreachable_url</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the URL for the alternate page content</li>
 </ul>
@@ -822,7 +820,7 @@ Using this method will preserve the back-forward list. The URI passed in
 </table>
 <p>Connects to a given URI by initiating an asynchronous client request.</p>
 <p>Creates a provisional data source that will transition to a committed data
-source once any data has been received. Use <a class="reference internal" href="#WebKit.WebFrame.stop_loading" title="WebKit.WebFrame.stop_loading"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame.stop_loading</span></code></a> () to
+source once any data has been received. Use <a class="reference internal" href="#WebKit.WebFrame.stop_loading" title="WebKit.WebFrame.stop_loading"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame.stop_loading</span></code></a>() to
 stop the load. This function is typically invoked on the main frame.</p>
 </dd></dl>
 
@@ -874,7 +872,7 @@ stop the load. This function is typically invoked on the main frame.</p>
 <code class="descname">print_</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Prints the given <a class="reference internal" href="#WebKit.WebFrame" title="WebKit.WebFrame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame</span></code></a>, by presenting a print dialog to the
 user. If you need more control over the printing process, see
-<a class="reference internal" href="#WebKit.WebFrame.print_full" title="WebKit.WebFrame.print_full"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame.print_full</span></code></a> ().</p>
+<a class="reference internal" href="#WebKit.WebFrame.print_full" title="WebKit.WebFrame.print_full"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame.print_full</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.1.5.</span></p>
 </div>
@@ -893,7 +891,7 @@ user. If you need more control over the printing process, see
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/WebKit-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/WebKit-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gtk-3.0/enums.html#Gtk.PrintOperationResult" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintOperationResult</span></code></a> specifying the result of this operation.</p>
@@ -906,7 +904,7 @@ user. If you need more control over the printing process, see
 </table>
 <p>Prints the given <a class="reference internal" href="#WebKit.WebFrame" title="WebKit.WebFrame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame</span></code></a>, using the given <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gtk-3.0/classes/PrintOperation.html#Gtk.PrintOperation" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintOperation</span></code></a>
 and <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gtk-3.0/enums.html#Gtk.PrintOperationAction" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintOperationAction</span></code></a>. This function wraps a call to
-<a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gtk-3.0/classes/PrintOperation.html#Gtk.PrintOperation.run" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintOperation.run</span></code></a> () for printing the contents of the
+<a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gtk-3.0/classes/PrintOperation.html#Gtk.PrintOperation.run" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintOperation.run</span></code></a>() for printing the contents of the
 <a class="reference internal" href="#WebKit.WebFrame" title="WebKit.WebFrame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.1.5.</span></p>
@@ -930,7 +928,7 @@ and <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gtk-
 </tr>
 </tbody>
 </table>
-<p>Replaces the current selection in <cite>frame</cite>, if any, with <cite>text</cite>.</p>
+<p>Replaces the current selection in <cite>self</cite>, if any, with <cite>text</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.5.1.</span></p>
 </div>
@@ -939,7 +937,7 @@ and <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gtk-
 <dl class="method">
 <dt id="WebKit.WebFrame.stop_loading">
 <code class="descname">stop_loading</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Stops any pending loads on <cite>frame</cite> &#8216;s data source, and those of its children.</p>
+<dd><p>Stops any pending loads on <cite>self</cite>&#8216;s data source, and those of its children.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1086,7 +1084,7 @@ provide progress information about the resource load operation.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>web_frame</strong> (<a class="reference internal" href="#WebKit.WebFrame" title="WebKit.WebFrame"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebFrame</span></code></a>) &#8211; The object which received the signal</li>
 <li><strong>web_resource</strong> (<a class="reference internal" href="WebResource.html#WebKit.WebResource" title="WebKit.WebResource"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebResource</span></code></a>) &#8211; the <a class="reference internal" href="WebResource.html#WebKit.WebResource" title="WebKit.WebResource"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebResource</span></code></a> that was loaded</li>
-<li><strong>error</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code> that was triggered</li>
+<li><strong>error</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the <a class="reference external" href="../_docs/WebKit-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> that was triggered</li>
 </ul>
 </td>
 </tr>
@@ -1153,12 +1151,12 @@ response, if any</li>
 request while handling this signal. You can set the URI in the
 <a class="reference internal" href="NetworkRequest.html#WebKit.NetworkRequest" title="WebKit.NetworkRequest"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.NetworkRequest</span></code></a> object itself, and add/remove/replace
 headers using the <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Soup-2.4/classes/Message.html#Soup.Message" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> object it carries, if it is
-present. See <a class="reference internal" href="NetworkRequest.html#WebKit.NetworkRequest.get_message" title="WebKit.NetworkRequest.get_message"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.NetworkRequest.get_message</span></code></a> (). Setting the
+present. See <a class="reference internal" href="NetworkRequest.html#WebKit.NetworkRequest.get_message" title="WebKit.NetworkRequest.get_message"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.NetworkRequest.get_message</span></code></a>(). Setting the
 request URI to &#8220;about:blank&#8221; will effectively cause the request
 to load nothing, and can be used to disable the loading of
 specific resources.</p>
 <p>Notice that information about an eventual redirect is available
-in <cite>response</cite> &#8216;s <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Soup-2.4/classes/Message.html#Soup.Message" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>, not in the <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Soup-2.4/classes/Message.html#Soup.Message" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> carried by
+in <cite>response</cite>&#8216;s <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Soup-2.4/classes/Message.html#Soup.Message" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>, not in the <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Soup-2.4/classes/Message.html#Soup.Message" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> carried by
 the <cite>request</cite>. If <cite>response</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, then this is not a
 redirected request.</p>
 <p>The <a class="reference internal" href="WebResource.html#WebKit.WebResource" title="WebKit.WebResource"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebResource</span></code></a> object will be the same throughout all
@@ -1414,7 +1412,4 @@ you know what you are doing.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GES 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GES.EffectAsset" href="EffectAsset.html"/>
         <link rel="prev" title="GES.Container" href="Container.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -305,7 +303,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="TrackElement.html#ges-trackelement-methods"><span>GES.TrackElement (20)</span></a>,     <a class="reference internal" href="TimelineElement.html#ges-timelineelement-methods"><span>GES.TimelineElement (33)</span></a>,     <a class="reference external" href="../_docs/GES-1.0/../../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (33)</span></a>,     <a class="reference internal" href="../interfaces/Extractable.html#ges-extractable-methods"><span>GES.Extractable (3)</span></a>,     <a class="reference internal" href="../interfaces/MetaContainer.html#ges-metacontainer-methods"><span>GES.MetaContainer (37)</span></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference external" href="../_docs/GES-1.0/../../../python-GObject-2.0/class-structs/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
+<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference internal" href="../class-structs/EffectClass.html#ges-effectclass-methods"><span>GES.EffectClass (1)</span></a>,     <a class="reference external" href="../_docs/GES-1.0/../../../python-GObject-2.0/class-structs/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -327,7 +325,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="TrackElement.html#ges-trackelement-vfuncs"><span>GES.TrackElement (3)</span></a>,     <a class="reference internal" href="TimelineElement.html#ges-timelineelement-vfuncs"><span>GES.TimelineElement (15)</span></a>,     <a class="reference external" href="../_docs/GES-1.0/../../../python-GObject-2.0/classes/Object.html#gobject-object-vfuncs" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (7)</span></a>,     <a class="reference internal" href="../interfaces/Extractable.html#ges-extractable-vfuncs"><span>GES.Extractable (3)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="TrackElement.html#ges-trackelement-vfuncs"><span>GES.TrackElement (3)</span></a>,     <a class="reference internal" href="TimelineElement.html#ges-timelineelement-vfuncs"><span>GES.TimelineElement (14)</span></a>,     <a class="reference external" href="../_docs/GES-1.0/../../../python-GObject-2.0/classes/Object.html#gobject-object-vfuncs" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (7)</span></a>,     <a class="reference internal" href="../interfaces/Extractable.html#ges-extractable-vfuncs"><span>GES.Extractable (3)</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -428,7 +426,7 @@
 </table>
 <dl class="staticmethod">
 <dt id="GES.Effect.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>bin_description</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-editing-services/tree/ges/ges-effect.c?h=1.6.2#n243"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>bin_description</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-editing-services/tree/ges/ges-effect.c?h=1.8.1#n264"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -442,7 +440,12 @@ wrong.</td>
 </tr>
 </tbody>
 </table>
-<p>Creates a new <a class="reference internal" href="#GES.Effect" title="GES.Effect"><code class="xref py py-obj docutils literal"><span class="pre">GES.Effect</span></code></a> from the description of the bin.</p>
+<p>Creates a new <a class="reference internal" href="#GES.Effect" title="GES.Effect"><code class="xref py py-obj docutils literal"><span class="pre">GES.Effect</span></code></a> from the description of the bin. It should be
+possible to determine the type of the effect through the element
+&#8216;klass&#8217; metadata of the GstElements that will be created.
+In that corner case, you should use:
+<a class="reference internal" href="Asset.html#GES.Asset.request" title="GES.Asset.request"><code class="xref py py-obj docutils literal"><span class="pre">GES.Asset.request</span></code></a> (GES_TYPE_EFFECT, &#8220;audio your ! bin ! description&#8221;, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>);
+and extract that asset to be in full control.</p>
 </dd></dl>
 
 </dd></dl>
@@ -486,7 +489,4 @@ pipeline description.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

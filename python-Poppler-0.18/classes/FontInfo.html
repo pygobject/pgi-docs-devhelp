@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Poppler 0.18 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Poppler.FormField" href="FormField.html"/>
         <link rel="prev" title="Poppler.Document" href="Document.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -314,20 +312,20 @@
 </tr>
 </tbody>
 </table>
-<p>Scans the document associated with <cite>font_info</cite> for fonts. At most
+<p>Scans the document associated with <cite>self</cite> for fonts. At most
 <cite>n_pages</cite> will be scanned starting from the current iterator. <cite>iter</cite> will
 point to the first font scanned.</p>
 <p>Here is a simple example of code to scan fonts in a document</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">font_info</span> <span class="o">=</span> <span class="n">poppler_font_info_new</span> <span class="p">(</span><span class="n">document</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">poppler_font_info_scan</span> <span class="p">(</span><span class="n">font_info</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">fonts_iter</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fonts_iter</span><span class="p">)</span>
-                <span class="k">continue</span><span class="p">;</span> <span class="cm">/* No fonts found in these 20 pages */</span>
-        <span class="k">do</span> <span class="p">{</span>
-                <span class="cm">/* Do something with font iter */</span>
-                <span class="n">g_print</span> <span class="p">(</span><span class="s">&quot;Font Name: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">poppler_fonts_iter_get_name</span> <span class="p">(</span><span class="n">fonts_iter</span><span class="p">));</span>
-        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">poppler_fonts_iter_next</span> <span class="p">(</span><span class="n">fonts_iter</span><span class="p">));</span>
-        <span class="n">poppler_fonts_iter_free</span> <span class="p">(</span><span class="n">fonts_iter</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-none"><div class="highlight"><pre>font_info = poppler_font_info_new (document);
+while (poppler_font_info_scan (font_info, 20, &amp;amp;fonts_iter)) {
+        if (!fonts_iter)
+                continue; /* No fonts found in these 20 pages */
+        do {
+                /* Do something with font iter */
+                g_print (&quot;Font Name: %s\n&quot;, poppler_fonts_iter_get_name (fonts_iter));
+        } while (poppler_fonts_iter_next (fonts_iter));
+        poppler_fonts_iter_free (fonts_iter);
+}
 </pre></div>
 </div>
 </dd></dl>
@@ -348,7 +346,4 @@ point to the first font scanned.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

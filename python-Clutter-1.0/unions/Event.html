@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Clutter 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Unions" href="index.html"/>
         <link rel="next" title="Flags" href="../flags.html"/>
         <link rel="prev" title="Unions" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -317,6 +315,12 @@
 <td><a class="reference internal" href="#Clutter.Event.get_scroll_direction" title="Clutter.Event.get_scroll_direction"><code class="xref py py-func docutils literal"><span class="pre">get_scroll_direction</span></code></a> ()</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Clutter.Event.get_scroll_finish_flags" title="Clutter.Event.get_scroll_finish_flags"><code class="xref py py-func docutils literal"><span class="pre">get_scroll_finish_flags</span></code></a> ()</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Clutter.Event.get_scroll_source" title="Clutter.Event.get_scroll_source"><code class="xref py py-func docutils literal"><span class="pre">get_scroll_source</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Clutter.Event.get_source" title="Clutter.Event.get_source"><code class="xref py py-func docutils literal"><span class="pre">get_source</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
@@ -414,7 +418,7 @@
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an identifier for the event filter, to be used
-with <a class="reference internal" href="#Clutter.Event.remove_filter" title="Clutter.Event.remove_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.remove_filter</span></code></a> ().</p>
+with <a class="reference internal" href="#Clutter.Event.remove_filter" title="Clutter.Event.remove_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.remove_filter</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
@@ -495,12 +499,12 @@ does not remove it.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The ID of the event filter, as returned from <a class="reference internal" href="#Clutter.Event.add_filter" title="Clutter.Event.add_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.add_filter</span></code></a> ()</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The ID of the event filter, as returned from <a class="reference internal" href="#Clutter.Event.add_filter" title="Clutter.Event.add_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.add_filter</span></code></a>()</td>
 </tr>
 </tbody>
 </table>
 <p>Removes an event filter that was previously added with
-<a class="reference internal" href="#Clutter.Event.add_filter" title="Clutter.Event.add_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.add_filter</span></code></a> ().</p>
+<a class="reference internal" href="#Clutter.Event.add_filter" title="Clutter.Event.add_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.add_filter</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.18.</span></p>
 </div>
@@ -519,13 +523,13 @@ does not remove it.</p>
 </tr>
 </tbody>
 </table>
-<p>Copies <cite>event</cite>.</p>
+<p>Copies <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Clutter.Event.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Frees all resources used by <cite>event</cite>.</p>
+<dd><p>Frees all resources used by <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -543,7 +547,7 @@ does not remove it.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the angle relative from <cite>source</cite> to <cite>target</cite>.</p>
+<p>Retrieves the angle relative from <cite>self</cite> to <cite>target</cite>.</p>
 <p>The direction of the angle is from the position X axis towards
 the positive Y axis.</p>
 <div class="versionadded">
@@ -591,7 +595,7 @@ the positive Y axis.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the button number of <cite>event</cite></p>
+<p>Retrieves the button number of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -610,7 +614,7 @@ the positive Y axis.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the number of clicks of <cite>event</cite></p>
+<p>Retrieves the number of clicks of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -639,7 +643,7 @@ the positive Y axis.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the coordinates of <cite>event</cite> and puts them into <cite>x</cite> and <cite>y</cite>.</p>
+<p>Retrieves the coordinates of <cite>self</cite> and puts them into <cite>x</cite> and <cite>y</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.4.</span></p>
 </div>
@@ -662,7 +666,7 @@ be unreferenced</td>
 </table>
 <p>Retrieves the <a class="reference internal" href="../classes/InputDevice.html#Clutter.InputDevice" title="Clutter.InputDevice"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.InputDevice</span></code></a> for the event.
 If you want the physical device the event originated from, use
-<a class="reference internal" href="#Clutter.Event.get_source_device" title="Clutter.Event.get_source_device"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.get_source_device</span></code></a> ().</p>
+<a class="reference internal" href="#Clutter.Event.get_source_device" title="Clutter.Event.get_source_device"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.get_source_device</span></code></a>().</p>
 <p>The <a class="reference internal" href="../classes/InputDevice.html#Clutter.InputDevice" title="Clutter.InputDevice"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.InputDevice</span></code></a> structure is completely opaque and should
 be cast to the platform-specific implementation.</p>
 <div class="versionadded">
@@ -701,7 +705,7 @@ any is set</td>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the type of the device for <cite>event</cite></p>
+<p>Retrieves the type of the device for <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -722,7 +726,7 @@ any is set</td>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the distance between two events, a <cite>source</cite> and a <cite>target</cite>.</p>
+<p>Retrieves the distance between two events, a <cite>self</cite> and a <cite>target</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -741,7 +745,7 @@ any is set</td>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the <a class="reference internal" href="../structs/EventSequence.html#Clutter.EventSequence" title="Clutter.EventSequence"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.EventSequence</span></code></a> of <cite>event</cite>.</p>
+<p>Retrieves the <a class="reference internal" href="../structs/EventSequence.html#Clutter.EventSequence" title="Clutter.EventSequence"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.EventSequence</span></code></a> of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -760,7 +764,7 @@ any is set</td>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the <a class="reference internal" href="../flags.html#Clutter.EventFlags" title="Clutter.EventFlags"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.EventFlags</span></code></a> of <cite>event</cite></p>
+<p>Retrieves the <a class="reference internal" href="../flags.html#Clutter.EventFlags" title="Clutter.EventFlags"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.EventFlags</span></code></a> of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -846,7 +850,7 @@ position.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the current scale as reported by <cite>event</cite>, 1.0 being the original
+<p>Returns the current scale as reported by <cite>self</cite>, 1.0 being the original
 distance at the time the corresponding event with phase
 <a class="reference internal" href="../enums.html#Clutter.TouchpadGesturePhase.BEGIN" title="Clutter.TouchpadGesturePhase.BEGIN"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.TouchpadGesturePhase.BEGIN</span></code></a> is received.
 is received.</p>
@@ -887,7 +891,7 @@ is received.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the keycode of the key that caused <cite>event</cite></p>
+<p>Retrieves the keycode of the key that caused <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -906,7 +910,7 @@ is received.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the key symbol of <cite>event</cite></p>
+<p>Retrieves the key symbol of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -987,8 +991,8 @@ is received.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the precise scrolling information of <cite>event</cite>.</p>
-<p>The <cite>event</cite> has to have a <a class="reference internal" href="../structs/ScrollEvent.html#Clutter.ScrollEvent" title="Clutter.ScrollEvent"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ScrollEvent</span></code></a>.direction value
+<p>Retrieves the precise scrolling information of <cite>self</cite>.</p>
+<p>The <cite>self</cite> has to have a <a class="reference internal" href="../structs/ScrollEvent.html#clutter-scrollevent-fields"><span>Clutter.ScrollEvent.direction</span></a> value
 of <a class="reference internal" href="../enums.html#Clutter.ScrollDirection.SMOOTH" title="Clutter.ScrollDirection.SMOOTH"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ScrollDirection.SMOOTH</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
@@ -1008,9 +1012,49 @@ of <a class="reference internal" href="../enums.html#Clutter.ScrollDirection.SMO
 </tr>
 </tbody>
 </table>
-<p>Retrieves the direction of the scrolling of <cite>event</cite></p>
+<p>Retrieves the direction of the scrolling of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Clutter.Event.get_scroll_finish_flags">
+<code class="descname">get_scroll_finish_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The scroll finish flags</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../flags.html#Clutter.ScrollFinishFlags" title="Clutter.ScrollFinishFlags"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ScrollFinishFlags</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Returns the <a class="reference internal" href="../flags.html#Clutter.ScrollFinishFlags" title="Clutter.ScrollFinishFlags"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ScrollFinishFlags</span></code></a> of an scroll event. Those
+can be used to determine whether post-scroll effects like kinetic
+scrolling should be applied.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.26.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Clutter.Event.get_scroll_source">
+<code class="descname">get_scroll_source</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The source of scroll events</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../enums.html#Clutter.ScrollSource" title="Clutter.ScrollSource"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ScrollSource</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Returns the <a class="reference internal" href="../enums.html#Clutter.ScrollSource" title="Clutter.ScrollSource"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ScrollSource</span></code></a> that applies to an scroll event.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.26.</span></p>
 </div>
 </dd></dl>
 
@@ -1049,9 +1093,9 @@ or <a class="reference external" href="http://docs.python.org/2.7/library/consta
 </tbody>
 </table>
 <p>Retrieves the hardware device that originated the event.</p>
-<p>If you need the virtual device, use <a class="reference internal" href="#Clutter.Event.get_device" title="Clutter.Event.get_device"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.get_device</span></code></a> ().</p>
+<p>If you need the virtual device, use <a class="reference internal" href="#Clutter.Event.get_device" title="Clutter.Event.get_device"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.get_device</span></code></a>().</p>
 <p>If no hardware device originated this event, this function will
-return the same device as <a class="reference internal" href="#Clutter.Event.get_device" title="Clutter.Event.get_device"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.get_device</span></code></a> ().</p>
+return the same device as <a class="reference internal" href="#Clutter.Event.get_device" title="Clutter.Event.get_device"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.get_device</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -1168,7 +1212,7 @@ applications, for example when implementing a wayland compositor.</p>
 </tr>
 </tbody>
 </table>
-<p>Checks whether <cite>event</cite> has the Control modifier mask set.</p>
+<p>Checks whether <cite>self</cite> has the Control modifier mask set.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -1187,7 +1231,7 @@ applications, for example when implementing a wayland compositor.</p>
 </tr>
 </tbody>
 </table>
-<p>Checks whether <cite>event</cite> has the Shift modifier mask set.</p>
+<p>Checks whether <cite>self</cite> has the Shift modifier mask set.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -1206,7 +1250,7 @@ applications, for example when implementing a wayland compositor.</p>
 </tr>
 </tbody>
 </table>
-<p>Checks whether a pointer <cite>event</cite> has been generated by the windowing
+<p>Checks whether a pointer <cite>self</cite> has been generated by the windowing
 system. The returned value can be used to distinguish between events
 synthesized by the windowing system itself (as opposed by Clutter).</p>
 <div class="versionadded">
@@ -1238,7 +1282,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the button number of <cite>event</cite></p>
+<p>Sets the button number of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1259,7 +1303,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the coordinates of the <cite>event</cite>.</p>
+<p>Sets the coordinates of the <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1276,7 +1320,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the device for <cite>event</cite>.</p>
+<p>Sets the device for <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -1293,7 +1337,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the <a class="reference internal" href="../flags.html#Clutter.EventFlags" title="Clutter.EventFlags"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.EventFlags</span></code></a> of <cite>event</cite></p>
+<p>Sets the <a class="reference internal" href="../flags.html#Clutter.EventFlags" title="Clutter.EventFlags"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.EventFlags</span></code></a> of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1310,7 +1354,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the keycode of the <cite>event</cite>.</p>
+<p>Sets the keycode of the <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1327,7 +1371,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the key symbol of <cite>event</cite>.</p>
+<p>Sets the key symbol of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1344,7 +1388,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the Unicode value of <cite>event</cite>.</p>
+<p>Sets the Unicode value of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1382,7 +1426,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the precise scrolling information of <cite>event</cite>.</p>
+<p>Sets the precise scrolling information of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -1399,7 +1443,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the direction of the scrolling of <cite>event</cite></p>
+<p>Sets the direction of the scrolling of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1416,7 +1460,7 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the source <a class="reference internal" href="../classes/Actor.html#Clutter.Actor" title="Clutter.Actor"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor</span></code></a> of <cite>event</cite>.</p>
+<p>Sets the source <a class="reference internal" href="../classes/Actor.html#Clutter.Actor" title="Clutter.Actor"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Actor</span></code></a> of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1433,8 +1477,8 @@ or use the actor that currently has keyboard focus</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the source <a class="reference internal" href="../classes/InputDevice.html#Clutter.InputDevice" title="Clutter.InputDevice"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.InputDevice</span></code></a> for <cite>event</cite>.</p>
-<p>The <a class="reference internal" href="#Clutter.Event" title="Clutter.Event"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event</span></code></a> must have been created using <a class="reference internal" href="#Clutter.Event.new" title="Clutter.Event.new"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.new</span></code></a> ().</p>
+<p>Sets the source <a class="reference internal" href="../classes/InputDevice.html#Clutter.InputDevice" title="Clutter.InputDevice"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.InputDevice</span></code></a> for <cite>self</cite>.</p>
+<p>The <a class="reference internal" href="#Clutter.Event" title="Clutter.Event"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event</span></code></a> must have been created using <a class="reference internal" href="#Clutter.Event.new" title="Clutter.Event.new"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Event.new</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1481,7 +1525,7 @@ or use the actor that currently has keyboard focus</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time_</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the time of the event</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the time of the event</td>
 </tr>
 </tbody>
 </table>
@@ -1507,7 +1551,4 @@ or use the actor that currently has keyboard focus</p>
   </div> 
 
 </body>
-
-  
-
 </html>

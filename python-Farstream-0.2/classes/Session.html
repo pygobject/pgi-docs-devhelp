@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Farstream 0.2 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Farstream.Stream" href="Stream.html"/>
         <link rel="prev" title="Farstream.Plugin" href="Plugin.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -239,7 +237,13 @@
 <td><a class="reference internal" href="#Farstream.Session.parse_telephony_event_stopped" title="Farstream.Session.parse_telephony_event_stopped"><code class="xref py py-func docutils literal"><span class="pre">parse_telephony_event_stopped</span></code></a> (message)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Farstream.Session.set_allowed_caps" title="Farstream.Session.set_allowed_caps"><code class="xref py py-func docutils literal"><span class="pre">set_allowed_caps</span></code></a> (sink_caps, src_caps)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Farstream.Session.set_codec_preferences" title="Farstream.Session.set_codec_preferences"><code class="xref py py-func docutils literal"><span class="pre">set_codec_preferences</span></code></a> (codec_preferences)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Farstream.Session.set_encryption_parameters" title="Farstream.Session.set_encryption_parameters"><code class="xref py py-func docutils literal"><span class="pre">set_encryption_parameters</span></code></a> (parameters)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Farstream.Session.set_send_codec" title="Farstream.Session.set_send_codec"><code class="xref py py-func docutils literal"><span class="pre">set_send_codec</span></code></a> (send_codec)</td>
@@ -282,7 +286,13 @@
 <td><a class="reference internal" href="#Farstream.Session.do_new_stream" title="Farstream.Session.do_new_stream"><code class="xref py py-func docutils literal"><span class="pre">do_new_stream</span></code></a> (participant, direction)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Farstream.Session.do_set_allowed_caps" title="Farstream.Session.do_set_allowed_caps"><code class="xref py py-func docutils literal"><span class="pre">do_set_allowed_caps</span></code></a> (sink_caps, src_caps)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Farstream.Session.do_set_codec_preferences" title="Farstream.Session.do_set_codec_preferences"><code class="xref py py-func docutils literal"><span class="pre">do_set_codec_preferences</span></code></a> (codec_preferences)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Farstream.Session.do_set_encryption_parameters" title="Farstream.Session.do_set_encryption_parameters"><code class="xref py py-func docutils literal"><span class="pre">do_set_encryption_parameters</span></code></a> (parameters)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Farstream.Session.do_set_send_codec" title="Farstream.Session.do_set_send_codec"><code class="xref py py-func docutils literal"><span class="pre">do_set_send_codec</span></code></a> (send_codec)</td>
@@ -313,6 +323,16 @@
 </tr>
 </thead>
 <tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#Farstream.Session.props.allowed_sink_caps" title="Farstream.Session.props.allowed_sink_caps"><code class="xref py py-data docutils literal"><span class="pre">allowed-sink-caps</span></code></a></td>
+<td><a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></td>
+<td>r</td>
+<td><a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> that can be fed into the session</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#Farstream.Session.props.allowed_src_caps" title="Farstream.Session.props.allowed_src_caps"><code class="xref py py-data docutils literal"><span class="pre">allowed-src-caps</span></code></a></td>
+<td><a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></td>
+<td>r</td>
+<td><a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> that the session can produce</td>
+</tr>
 <tr class="row-even"><td><a class="reference internal" href="#Farstream.Session.props.codec_preferences" title="Farstream.Session.props.codec_preferences"><code class="xref py py-data docutils literal"><span class="pre">codec-preferences</span></code></a></td>
 <td>&nbsp;</td>
 <td>r</td>
@@ -338,22 +358,27 @@
 <td>r</td>
 <td>An <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a> indicating the currently active send codec</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Farstream.Session.props.id" title="Farstream.Session.props.id"><code class="xref py py-data docutils literal"><span class="pre">id</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Farstream.Session.props.encryption_parameters" title="Farstream.Session.props.encryption_parameters"><code class="xref py py-data docutils literal"><span class="pre">encryption-parameters</span></code></a></td>
+<td><a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Structure.html#Gst.Structure" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a></td>
+<td>r</td>
+<td>Parameters used to encrypt the stream</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#Farstream.Session.props.id" title="Farstream.Session.props.id"><code class="xref py py-data docutils literal"><span class="pre">id</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>r/w/co</td>
 <td>This ID is used on pad related to this session</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Farstream.Session.props.media_type" title="Farstream.Session.props.media_type"><code class="xref py py-data docutils literal"><span class="pre">media-type</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Farstream.Session.props.media_type" title="Farstream.Session.props.media_type"><code class="xref py py-data docutils literal"><span class="pre">media-type</span></code></a></td>
 <td><a class="reference internal" href="../enums.html#Farstream.MediaType" title="Farstream.MediaType"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.MediaType</span></code></a></td>
 <td>r/w/co</td>
 <td>An enum that specifies the media type of the session</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Farstream.Session.props.sink_pad" title="Farstream.Session.props.sink_pad"><code class="xref py py-data docutils literal"><span class="pre">sink-pad</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Farstream.Session.props.sink_pad" title="Farstream.Session.props.sink_pad"><code class="xref py py-data docutils literal"><span class="pre">sink-pad</span></code></a></td>
 <td><a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad</span></code></a></td>
 <td>r</td>
 <td>A pad used for sending data on this session</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Farstream.Session.props.tos" title="Farstream.Session.props.tos"><code class="xref py py-data docutils literal"><span class="pre">tos</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Farstream.Session.props.tos" title="Farstream.Session.props.tos"><code class="xref py py-data docutils literal"><span class="pre">tos</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>r/w</td>
 <td>The IP Type of Service to set on sent packets</td>
@@ -454,7 +479,7 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of
 <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a> that need to be resent or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if there are none. This
-list must be freed with <code class="xref py py-obj docutils literal"><span class="pre">Farstream.codec_list_destroy</span></code> ().</p>
+list must be freed with fs_codec_list_destroy().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[<a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a>]</p>
@@ -506,14 +531,14 @@ called by subclasses.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>transmitter</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The name of the transmitter</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the stream transmitter</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the stream transmitter</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the stream transmitter, bindings can use it
-to validate/convert the parameters passed to <a class="reference internal" href="#Farstream.Session.new_stream" title="Farstream.Session.new_stream"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.new_stream</span></code></a> ().</p>
+<p>Returns the <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the stream transmitter, bindings can use it
+to validate/convert the parameters passed to <a class="reference internal" href="#Farstream.Session.new_stream" title="Farstream.Session.new_stream"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.new_stream</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -525,7 +550,7 @@ to validate/convert the parameters passed to <a class="reference internal" href=
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocagted <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> terminated array of
 named of transmitters or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no transmitter is needed for this type of
-session. It should be freed with <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a> ().</td>
+session. It should be freed with <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]</td>
 </tr>
@@ -548,7 +573,7 @@ be created for this participant</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the new <a class="reference internal" href="Stream.html#Farstream.Stream" title="Farstream.Stream"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Stream</span></code></a> that has been created.
@@ -580,7 +605,7 @@ returns <a class="reference external" href="http://docs.python.org/2.7/library/c
 </tbody>
 </table>
 <p>Parses a &#8220;farstream-codecs-changed&#8221; message and checks if it matches
-the <cite>session</cite> parameters.</p>
+the <cite>self</cite> parameters.</p>
 </dd></dl>
 
 <dl class="method">
@@ -611,7 +636,7 @@ the <cite>session</cite> parameters.</p>
 </tbody>
 </table>
 <p>Parses a &#8220;farstream-send-codec-changed&#8221; message and checks if it matches
-the <cite>session</cite> parameters.</p>
+the <cite>self</cite> parameters.</p>
 </dd></dl>
 
 <dl class="method">
@@ -642,7 +667,7 @@ the <cite>session</cite> parameters.</p>
 </tbody>
 </table>
 <p>Parses a &#8220;farstream-telephony-event-started&#8221; message and checks if it matches
-the <cite>session</cite> parameters.</p>
+the <cite>self</cite> parameters.</p>
 </dd></dl>
 
 <dl class="method">
@@ -669,7 +694,42 @@ the <cite>session</cite> parameters.</p>
 </tbody>
 </table>
 <p>Parses a &#8220;farstream-telephony-event-stopped&#8221; message and checks if it matches
-the <cite>session</cite> parameters.</p>
+the <cite>self</cite> parameters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Farstream.Session.set_allowed_caps">
+<code class="descname">set_allowed_caps</code><span class="sig-paren">(</span><em>sink_caps</em>, <em>src_caps</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sink_caps</strong> (<a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Caps for the sink pad or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
+<li><strong>src_caps</strong> (<a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Caps for the src pad or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the new filter caps were acceptable.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Sets the allowed caps for the sink and source pads for this <a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a>.
+Only codecs that can take the input specified by the <cite>sink_caps</cite> and
+can produce output as specified by the <cite>src_caps</cite> will be produced
+in the <a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a> <a class="reference internal" href="#Farstream.Session.props.codecs" title="Farstream.Session.props.codecs"><code class="xref py py-data docutils literal"><span class="pre">:codecs</span></code></a> property and so only those will be negotiated.</p>
+<p>If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is passed to either <cite>src_caps</cite> or <cite>sink_caps</cite>, it is not changed.</p>
+<p>The default is &#8220;video/x-raw&#8221; for a video stream, &#8220;audio/x-raw&#8221; for an audio
+stream and &#8220;ANY&#8221; for an application stream.</p>
+<p>The values can be retrived using the <a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a> <a class="reference internal" href="#Farstream.Session.props.allowed_src_caps" title="Farstream.Session.props.allowed_src_caps"><code class="xref py py-data docutils literal"><span class="pre">:allowed-src-caps</span></code></a> and
+<a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a> <a class="reference internal" href="#Farstream.Session.props.allowed_sink_caps" title="Farstream.Session.props.allowed_sink_caps"><code class="xref py py-data docutils literal"><span class="pre">:allowed-sink-caps</span></code></a> properties.</p>
 </dd></dl>
 
 <dl class="method">
@@ -682,7 +742,7 @@ the <cite>session</cite> parameters.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>codec_preferences</strong> ([<a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a>] or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a> with the
 desired configuration</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on error.</td>
 </tr>
@@ -705,6 +765,28 @@ be returned.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="Farstream.Session.set_encryption_parameters">
+<code class="descname">set_encryption_parameters</code><span class="sig-paren">(</span><em>parameters</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parameters</strong> (<a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Structure.html#Gst.Structure" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Structure.html#Gst.Structure" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> containing the
+encryption  parameters or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to disable encryption</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the encryption parameters could be set, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Sets encryption parameters. The exact parameters depend on the type of
+plugin being used.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="Farstream.Session.set_send_codec">
 <code class="descname">set_send_codec</code><span class="sig-paren">(</span><em>send_codec</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -713,7 +795,7 @@ be returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>send_codec</strong> (<a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a>) &#8211; a <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a> representing the codec to send</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the send codec couldn&#8217;t be set.</td>
 </tr>
@@ -725,7 +807,7 @@ be returned.</p>
 session. The given <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a> must be taken directly from the #codecs
 property of the session. If the given codec is not in the codecs
 list, <cite>error</cite> will be set and <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> will be returned. The <cite>send_codec</cite> will be
-copied so it must be free&#8217;d using <code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec.destroy</span></code> () when done.</p>
+copied so it must be free&#8217;d using fs_codec_destroy() when done.</p>
 </dd></dl>
 
 <dl class="method">
@@ -754,7 +836,7 @@ does not support this telephony event.</p>
 </table>
 <p>This function will start sending a telephony event (such as a DTMF
 tone) on the <a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a>. You have to call the function
-<a class="reference internal" href="#Farstream.Session.stop_telephony_event" title="Farstream.Session.stop_telephony_event"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.stop_telephony_event</span></code></a> () to stop it.</p>
+<a class="reference internal" href="#Farstream.Session.stop_telephony_event" title="Farstream.Session.stop_telephony_event"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.stop_telephony_event</span></code></a>() to stop it.</p>
 <p>If this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, a &#8220;farstream-telephony-event-started&#8221; will
 always be emitted when the event is actually played out.</p>
 </dd></dl>
@@ -774,7 +856,7 @@ does not support telephony events or if no telephony event is being sent</td>
 </tbody>
 </table>
 <p>This function will stop sending a telephony event started by
-<a class="reference internal" href="#Farstream.Session.start_telephony_event" title="Farstream.Session.start_telephony_event"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.start_telephony_event</span></code></a> (). If the event was being sent
+<a class="reference internal" href="#Farstream.Session.start_telephony_event" title="Farstream.Session.start_telephony_event"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.start_telephony_event</span></code></a>(). If the event was being sent
 for less than 50ms, it will be sent for 50ms minimum. If the
 duration was a positive and the event is not over, it will cut it
 short.</p>
@@ -797,7 +879,7 @@ always be emitted when the event is actually stopped.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of
 <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a> that need to be resent or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if there are none. This
-list must be freed with <code class="xref py py-obj docutils literal"><span class="pre">Farstream.codec_list_destroy</span></code> ().</p>
+list must be freed with fs_codec_list_destroy().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[<a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a>]</p>
@@ -819,14 +901,14 @@ Other codec updates, caused by user action, don&#8217;t.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>transmitter</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The name of the transmitter</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the stream transmitter</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the stream transmitter</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the stream transmitter, bindings can use it
-to validate/convert the parameters passed to <a class="reference internal" href="#Farstream.Session.new_stream" title="Farstream.Session.new_stream"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.new_stream</span></code></a> ().</p>
+<p>Returns the <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the stream transmitter, bindings can use it
+to validate/convert the parameters passed to <a class="reference internal" href="#Farstream.Session.new_stream" title="Farstream.Session.new_stream"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.new_stream</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -838,7 +920,7 @@ to validate/convert the parameters passed to <a class="reference internal" href=
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocagted <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> terminated array of
 named of transmitters or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no transmitter is needed for this type of
-session. It should be freed with <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a> ().</td>
+session. It should be freed with <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]</td>
 </tr>
@@ -875,6 +957,38 @@ returns <a class="reference external" href="http://docs.python.org/2.7/library/c
 </dd></dl>
 
 <dl class="method">
+<dt id="Farstream.Session.do_set_allowed_caps">
+<code class="descname">do_set_allowed_caps</code><span class="sig-paren">(</span><em>sink_caps</em>, <em>src_caps</em><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sink_caps</strong> (<a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Caps for the sink pad or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
+<li><strong>src_caps</strong> (<a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Caps for the src pad or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the new filter caps were acceptable.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Sets the allowed caps for the sink and source pads for this <a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a>.
+Only codecs that can take the input specified by the <cite>sink_caps</cite> and
+can produce output as specified by the <cite>src_caps</cite> will be produced
+in the <a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a> <a class="reference internal" href="#Farstream.Session.props.codecs" title="Farstream.Session.props.codecs"><code class="xref py py-data docutils literal"><span class="pre">:codecs</span></code></a> property and so only those will be negotiated.</p>
+<p>If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is passed to either <cite>src_caps</cite> or <cite>sink_caps</cite>, it is not changed.</p>
+<p>The default is &#8220;video/x-raw&#8221; for a video stream, &#8220;audio/x-raw&#8221; for an audio
+stream and &#8220;ANY&#8221; for an application stream.</p>
+<p>The values can be retrived using the <a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a> <a class="reference internal" href="#Farstream.Session.props.allowed_src_caps" title="Farstream.Session.props.allowed_src_caps"><code class="xref py py-data docutils literal"><span class="pre">:allowed-src-caps</span></code></a> and
+<a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a> <a class="reference internal" href="#Farstream.Session.props.allowed_sink_caps" title="Farstream.Session.props.allowed_sink_caps"><code class="xref py py-data docutils literal"><span class="pre">:allowed-sink-caps</span></code></a> properties.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="Farstream.Session.do_set_codec_preferences">
 <code class="descname">do_set_codec_preferences</code><span class="sig-paren">(</span><em>codec_preferences</em><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -905,6 +1019,26 @@ be returned.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="Farstream.Session.do_set_encryption_parameters">
+<code class="descname">do_set_encryption_parameters</code><span class="sig-paren">(</span><em>parameters</em><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parameters</strong> (<a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Structure.html#Gst.Structure" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Structure.html#Gst.Structure" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> containing the
+encryption  parameters or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to disable encryption</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the encryption parameters could be set, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Sets encryption parameters. The exact parameters depend on the type of
+plugin being used.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="Farstream.Session.do_set_send_codec">
 <code class="descname">do_set_send_codec</code><span class="sig-paren">(</span><em>send_codec</em><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -923,7 +1057,7 @@ be returned.</p>
 session. The given <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a> must be taken directly from the #codecs
 property of the session. If the given codec is not in the codecs
 list, <cite>error</cite> will be set and <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> will be returned. The <cite>send_codec</cite> will be
-copied so it must be free&#8217;d using <code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec.destroy</span></code> () when done.</p>
+copied so it must be free&#8217;d using fs_codec_destroy() when done.</p>
 </dd></dl>
 
 <dl class="method">
@@ -952,7 +1086,7 @@ does not support this telephony event.</p>
 </table>
 <p>This function will start sending a telephony event (such as a DTMF
 tone) on the <a class="reference internal" href="#Farstream.Session" title="Farstream.Session"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session</span></code></a>. You have to call the function
-<a class="reference internal" href="#Farstream.Session.stop_telephony_event" title="Farstream.Session.stop_telephony_event"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.stop_telephony_event</span></code></a> () to stop it.</p>
+<a class="reference internal" href="#Farstream.Session.stop_telephony_event" title="Farstream.Session.stop_telephony_event"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.stop_telephony_event</span></code></a>() to stop it.</p>
 <p>If this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, a &#8220;farstream-telephony-event-started&#8221; will
 always be emitted when the event is actually played out.</p>
 </dd></dl>
@@ -972,7 +1106,7 @@ does not support telephony events or if no telephony event is being sent</td>
 </tbody>
 </table>
 <p>This function will stop sending a telephony event started by
-<a class="reference internal" href="#Farstream.Session.start_telephony_event" title="Farstream.Session.start_telephony_event"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.start_telephony_event</span></code></a> (). If the event was being sent
+<a class="reference internal" href="#Farstream.Session.start_telephony_event" title="Farstream.Session.start_telephony_event"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.start_telephony_event</span></code></a>(). If the event was being sent
 for less than 50ms, it will be sent for 50ms minimum. If the
 duration was a positive and the event is not over, it will cut it
 short.</p>
@@ -1016,6 +1150,50 @@ thread. Applications should listen to the <a class="reference external" href="..
 <div class="section" id="property-details">
 <h2>Property Details</h2>
 <dl class="data">
+<dt id="Farstream.Session.props.allowed_sink_caps">
+<code class="descclassname">Farstream.Session.props.</code><code class="descname">allowed_sink_caps</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal"><span class="pre">allowed-sink-caps</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">READABLE</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>These are the <a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> that can be fed into the session,
+they are used to filter the codecs to only those that can
+accepted those caps as input.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Farstream.Session.props.allowed_src_caps">
+<code class="descclassname">Farstream.Session.props.</code><code class="descname">allowed_src_caps</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal"><span class="pre">allowed-src-caps</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">READABLE</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>These are the <a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> that the session can produce,
+they are used to filter the codecs to only those that can
+accepted those caps as output.</p>
+</dd></dl>
+
+<dl class="data">
 <dt id="Farstream.Session.props.codec_preferences">
 <code class="descclassname">Farstream.Session.props.</code><code class="descname">codec_preferences</code></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -1034,9 +1212,9 @@ thread. Applications should listen to the <a class="reference external" href="..
 </table>
 <p>This is the current preferences list for the local codecs. It is
 set by the user to specify the codec options and priorities. The user may
-change its value with <a class="reference internal" href="#Farstream.Session.set_codec_preferences" title="Farstream.Session.set_codec_preferences"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.set_codec_preferences</span></code></a> () at any time
+change its value with <a class="reference internal" href="#Farstream.Session.set_codec_preferences" title="Farstream.Session.set_codec_preferences"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.set_codec_preferences</span></code></a>() at any time
 during a session. It is a <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a>.
-The user must free this codec list using <code class="xref py py-obj docutils literal"><span class="pre">Farstream.codec_list_destroy</span></code> () when done.</p>
+The user must free this codec list using fs_codec_list_destroy() when done.</p>
 <p>The payload type may be a valid dynamic PT (96-127), <a class="reference internal" href="../constants.html#Farstream.CODEC_ID_DISABLE" title="Farstream.CODEC_ID_DISABLE"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.CODEC_ID_DISABLE</span></code></a>
 or <a class="reference internal" href="../constants.html#Farstream.CODEC_ID_ANY" title="Farstream.CODEC_ID_ANY"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.CODEC_ID_ANY</span></code></a>. If the encoding name is &#8220;reserve-pt&#8221;, then the
 payload type of the codec will be &#8220;reserved&#8221; and not be used by any
@@ -1073,7 +1251,7 @@ the codecs from <a class="reference internal" href="#Farstream.Session" title="F
 The &#8220;farstream-codecs-changed&#8221; message will be emitted whenever the value
 of this property changes.</p>
 <p>It is a <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a>. User must free this codec list using
-<code class="xref py py-obj docutils literal"><span class="pre">Farstream.codec_list_destroy</span></code> () when done.</p>
+fs_codec_list_destroy() when done.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1105,7 +1283,7 @@ asynchronously when new config data is discovered.</p>
 <p>The &#8220;farstream-codecs-changed&#8221; message will be emitted whenever the value
 of this property changes.</p>
 <p>It is a <a class="reference external" href="../_docs/Farstream-0.2/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a>. User must free this codec list using
-<code class="xref py py-obj docutils literal"><span class="pre">Farstream.codec_list_destroy</span></code> () when done.</p>
+fs_codec_list_destroy() when done.</p>
 </dd></dl>
 
 <dl class="data">
@@ -1147,11 +1325,31 @@ construct param and is read-only.</p>
 </tbody>
 </table>
 <p>Indicates the currently active send codec. A user can change the active
-send codec by calling <a class="reference internal" href="#Farstream.Session.set_send_codec" title="Farstream.Session.set_send_codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.set_send_codec</span></code></a> (). The send codec could
+send codec by calling <a class="reference internal" href="#Farstream.Session.set_send_codec" title="Farstream.Session.set_send_codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Session.set_send_codec</span></code></a>(). The send codec could
 also be automatically changed by Farstream. This property is an
-<a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a>. User must free the codec using <code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec.destroy</span></code> () when done.
+<a class="reference internal" href="../structs/Codec.html#Farstream.Codec" title="Farstream.Codec"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.Codec</span></code></a>. User must free the codec using fs_codec_destroy() when done.
 The &#8220;farstream-send-codec-changed&#8221; message is emitted on the bus when
 the value of this property changes.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Farstream.Session.props.encryption_parameters">
+<code class="descclassname">Farstream.Session.props.</code><code class="descname">encryption_parameters</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal"><span class="pre">encryption-parameters</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-Gst-1.0/structs/Structure.html#Gst.Structure" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../_docs/Farstream-0.2/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">READABLE</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Retrieves previously set encryption parameters</p>
 </dd></dl>
 
 <dl class="data">
@@ -1251,7 +1449,4 @@ session. User must unref this <a class="reference external" href="../_docs/Farst
   </div> 
 
 </body>
-
-  
-
 </html>

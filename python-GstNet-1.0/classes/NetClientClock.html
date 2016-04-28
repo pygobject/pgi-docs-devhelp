@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstNet 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GstNet.NetTimeProvider" href="NetTimeProvider.html"/>
         <link rel="prev" title="Classes" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -246,7 +244,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/SystemClock.html#gst-systemclock-methods" title="(in Gst 1.0 v1.0)"><span class="xref std std-ref">Gst.SystemClock (2)</span></a>,     <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Clock.html#gst-clock-methods" title="(in Gst 1.0 v1.0)"><span class="xref std std-ref">Gst.Clock (29)</span></a>,     <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Object.html#gst-object-methods" title="(in Gst 1.0 v1.0)"><span class="xref std std-ref">Gst.Object (28)</span></a>,     <a class="reference external" href="../_docs/GstNet-1.0/../../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (33)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/SystemClock.html#gst-systemclock-methods" title="(in Gst 1.0 v1.0)"><span class="xref std std-ref">Gst.SystemClock (2)</span></a>,     <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Clock.html#gst-clock-methods" title="(in Gst 1.0 v1.0)"><span class="xref std std-ref">Gst.Clock (30)</span></a>,     <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Object.html#gst-object-methods" title="(in Gst 1.0 v1.0)"><span class="xref std std-ref">Gst.Object (28)</span></a>,     <a class="reference external" href="../_docs/GstNet-1.0/../../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (33)</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference external" href="../_docs/GstNet-1.0/../../../python-GObject-2.0/class-structs/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
 </tr>
@@ -402,8 +400,8 @@
 <p><a class="reference internal" href="#GstNet.NetClientClock" title="GstNet.NetClientClock"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetClientClock</span></code></a> implements a custom <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Clock.html#Gst.Clock" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Clock</span></code></a> that synchronizes its time
 to a remote time provider such as <a class="reference internal" href="NetTimeProvider.html#GstNet.NetTimeProvider" title="GstNet.NetTimeProvider"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetTimeProvider</span></code></a>. <a class="reference internal" href="NtpClock.html#GstNet.NtpClock" title="GstNet.NtpClock"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NtpClock</span></code></a>
 implements a <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Clock.html#Gst.Clock" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Clock</span></code></a> that synchronizes its time to a remote NTPv4 server.</p>
-<p>A new clock is created with <a class="reference internal" href="#GstNet.NetClientClock.new" title="GstNet.NetClientClock.new"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetClientClock.new</span></code></a> () or
-<a class="reference internal" href="NtpClock.html#GstNet.NtpClock.new" title="GstNet.NtpClock.new"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NtpClock.new</span></code></a> (), which takes the address and port of the remote time
+<p>A new clock is created with <a class="reference internal" href="#GstNet.NetClientClock.new" title="GstNet.NetClientClock.new"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetClientClock.new</span></code></a>() or
+<a class="reference internal" href="NtpClock.html#GstNet.NtpClock.new" title="GstNet.NtpClock.new"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NtpClock.new</span></code></a>(), which takes the address and port of the remote time
 provider along with a name and an initial time.</p>
 <p>This clock will poll the time provider and will update its calibration
 parameters based on the local and remote observations.</p>
@@ -411,20 +409,20 @@ parameters based on the local and remote observations.</p>
 <p>Various parameters of the clock can be configured with the parent <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Clock.html#Gst.Clock" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Clock</span></code></a>
 &#8220;timeout&#8221;, &#8220;window-size&#8221; and &#8220;window-threshold&#8221; object properties.</p>
 <p>A <a class="reference internal" href="#GstNet.NetClientClock" title="GstNet.NetClientClock"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetClientClock</span></code></a> and <a class="reference internal" href="NtpClock.html#GstNet.NtpClock" title="GstNet.NtpClock"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NtpClock</span></code></a> is typically set on a <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Pipeline.html#Gst.Pipeline" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pipeline</span></code></a> with
-<a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Pipeline.html#Gst.Pipeline.use_clock" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pipeline.use_clock</span></code></a> ().</p>
+<a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Pipeline.html#Gst.Pipeline.use_clock" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pipeline.use_clock</span></code></a>().</p>
 <p>If you set a <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/classes/Bus.html#Gst.Bus" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Bus</span></code></a> on the clock via the &#8220;bus&#8221; object property, it will
 send <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/flags.html#Gst.MessageType.ELEMENT" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.MessageType.ELEMENT</span></code></a> messages with an attached <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/structs/Structure.html#Gst.Structure" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> containing
 statistics about clock accuracy and network traffic.</p>
 <dl class="staticmethod">
 <dt id="GstNet.NetClientClock.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>name</em>, <em>remote_address</em>, <em>remote_port</em>, <em>base_time</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnetclientclock.c?h=1.6.2#n1047"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>name</em>, <em>remote_address</em>, <em>remote_port</em>, <em>base_time</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnetclientclock.c?h=1.8.1#n1384"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a name for the clock</li>
-<li><strong>remote_address</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the address of the remote clock provider</li>
+<li><strong>remote_address</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the address or hostname of the remote clock provider</li>
 <li><strong>remote_port</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the port of the remote clock provider</li>
 <li><strong>base_time</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; initial time of the clock</li>
 </ul>
@@ -439,7 +437,7 @@ clock.</p>
 </tr>
 </tbody>
 </table>
-<p>Create a new <a class="reference internal" href="#GstNet.NetClientClock" title="GstNet.NetClientClock"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetClientClock</span></code></a> that will report the time
+<p>Create a new #GstNetClientInternalClock that will report the time
 provided by the <a class="reference internal" href="NetTimeProvider.html#GstNet.NetTimeProvider" title="GstNet.NetTimeProvider"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetTimeProvider</span></code></a> on <cite>remote_address</cite> and
 <cite>remote_port</cite>.</p>
 </dd></dl>
@@ -603,7 +601,4 @@ provided by the <a class="reference internal" href="NetTimeProvider.html#GstNet.
   </div> 
 
 </body>
-
-  
-
 </html>

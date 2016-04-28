@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstRtspServer 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GstRtspServer.RTSPStream" href="RTSPStream.html"/>
         <link rel="prev" title="GstRtspServer.RTSPSessionMedia" href="RTSPSessionMedia.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -377,7 +375,7 @@ attached to a <a class="reference internal" href="RTSPServer.html#GstRtspServer.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A new <a class="reference internal" href="#GstRtspServer.RTSPSessionPool" title="GstRtspServer.RTSPSessionPool"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSessionPool</span></code></a>. <a class="reference external" href="../_docs/GstRtspServer-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> () after
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A new <a class="reference internal" href="#GstRtspServer.RTSPSessionPool" title="GstRtspServer.RTSPSessionPool"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSessionPool</span></code></a>. <a class="reference external" href="../_docs/GstRtspServer-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>() after
 usage.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GstRtspServer.RTSPSessionPool" title="GstRtspServer.RTSPSessionPool"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSessionPool</span></code></a></td>
@@ -400,7 +398,7 @@ usage.</td>
 </tr>
 </tbody>
 </table>
-<p>Inspect all the sessions in <cite>pool</cite> and remove the sessions that are inactive
+<p>Inspect all the sessions in <cite>self</cite> and remove the sessions that are inactive
 for more than their timeout.</p>
 </dd></dl>
 
@@ -417,7 +415,7 @@ for more than their timeout.</p>
 </tr>
 </tbody>
 </table>
-<p>Create a new <a class="reference internal" href="RTSPSession.html#GstRtspServer.RTSPSession" title="GstRtspServer.RTSPSession"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSession</span></code></a> object in <cite>pool</cite>.</p>
+<p>Create a new <a class="reference internal" href="RTSPSession.html#GstRtspServer.RTSPSession" title="GstRtspServer.RTSPSession"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSession</span></code></a> object in <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -446,7 +444,7 @@ up.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#GstRtspServer.RTSPSessionPoolFilterFunc" title="GstRtspServer.RTSPSessionPoolFilterFunc"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSessionPoolFilterFunc</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a callback</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user <code class="xref py py-obj docutils literal"><span class="pre">GstRtsp.data</span></code> passed to <cite>func</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user <code class="xref py py-obj docutils literal"><span class="pre">GstRtsp.data</span></code> passed to <cite>func</cite></li>
 </ul>
 </td>
 </tr>
@@ -460,14 +458,14 @@ element in the <a class="reference external" href="../_docs/GstRtspServer-1.0/..
 </tr>
 </tbody>
 </table>
-<p>Call <cite>func</cite> for each session in <cite>pool</cite>. The result value of <cite>func</cite> determines
+<p>Call <cite>func</cite> for each session in <cite>self</cite>. The result value of <cite>func</cite> determines
 what happens to the session. <cite>func</cite> will be called with the session pool
-locked so no further actions on <cite>pool</cite> can be performed from <cite>func</cite>.</p>
+locked so no further actions on <cite>self</cite> can be performed from <cite>func</cite>.</p>
 <p>If <cite>func</cite> returns <a class="reference internal" href="../enums.html#GstRtspServer.RTSPFilterResult.REMOVE" title="GstRtspServer.RTSPFilterResult.REMOVE"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPFilterResult.REMOVE</span></code></a>, the session will be set to the
 expired state with gst_rtsp_session_set_expired() and removed from
-<cite>pool</cite>.</p>
-<p>If <cite>func</cite> returns <a class="reference internal" href="../enums.html#GstRtspServer.RTSPFilterResult.KEEP" title="GstRtspServer.RTSPFilterResult.KEEP"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPFilterResult.KEEP</span></code></a>, the session will remain in <cite>pool</cite>.</p>
-<p>If <cite>func</cite> returns <a class="reference internal" href="../enums.html#GstRtspServer.RTSPFilterResult.REF" title="GstRtspServer.RTSPFilterResult.REF"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPFilterResult.REF</span></code></a>, the session will remain in <cite>pool</cite> but
+<cite>self</cite>.</p>
+<p>If <cite>func</cite> returns <a class="reference internal" href="../enums.html#GstRtspServer.RTSPFilterResult.KEEP" title="GstRtspServer.RTSPFilterResult.KEEP"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPFilterResult.KEEP</span></code></a>, the session will remain in <cite>self</cite>.</p>
+<p>If <cite>func</cite> returns <a class="reference internal" href="../enums.html#GstRtspServer.RTSPFilterResult.REF" title="GstRtspServer.RTSPFilterResult.REF"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPFilterResult.REF</span></code></a>, the session will remain in <cite>self</cite> but
 will also be added with an additional ref to the result <a class="reference external" href="../_docs/GstRtspServer-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of this
 function..</p>
 <p>When <cite>func</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, <a class="reference internal" href="../enums.html#GstRtspServer.RTSPFilterResult.REF" title="GstRtspServer.RTSPFilterResult.REF"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPFilterResult.REF</span></code></a> will be assumed for all sessions.</p>
@@ -483,14 +481,14 @@ function..</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sessionid</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the session id</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="RTSPSession.html#GstRtspServer.RTSPSession" title="GstRtspServer.RTSPSession"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSession</span></code></a> with <cite>sessionid</cite>
-or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> when the session did not exist. <a class="reference external" href="../_docs/GstRtspServer-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> () after usage.</td>
+or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> when the session did not exist. <a class="reference external" href="../_docs/GstRtspServer-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>() after usage.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="RTSPSession.html#GstRtspServer.RTSPSession" title="GstRtspServer.RTSPSession"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSession</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Find the session with <cite>sessionid</cite> in <cite>pool</cite>. The access time of the session
-will be updated with <a class="reference internal" href="RTSPSession.html#GstRtspServer.RTSPSession.touch" title="GstRtspServer.RTSPSession.touch"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSession.touch</span></code></a> ().</p>
+<p>Find the session with <cite>sessionid</cite> in <cite>self</cite>. The access time of the session
+will be updated with <a class="reference internal" href="RTSPSession.html#GstRtspServer.RTSPSession.touch" title="GstRtspServer.RTSPSession.touch"><code class="xref py py-obj docutils literal"><span class="pre">GstRtspServer.RTSPSession.touch</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -506,7 +504,7 @@ will be updated with <a class="reference internal" href="RTSPSession.html#GstRts
 </tr>
 </tbody>
 </table>
-<p>Get the maximum allowed number of sessions in <cite>pool</cite>. 0 means an unlimited
+<p>Get the maximum allowed number of sessions in <cite>self</cite>. 0 means an unlimited
 amount of sessions.</p>
 </dd></dl>
 
@@ -517,13 +515,13 @@ amount of sessions.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the amount of active sessions in <cite>pool</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the amount of active sessions in <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Get the amount of active sessions in <cite>pool</cite>.</p>
+<p>Get the amount of active sessions in <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -541,7 +539,7 @@ amount of sessions.</p>
 </tr>
 </tbody>
 </table>
-<p>Remove <cite>sess</cite> from <cite>pool</cite>, releasing the ref that the pool has on <cite>sess</cite>.</p>
+<p>Remove <cite>sess</cite> from <cite>self</cite>, releasing the ref that the pool has on <cite>sess</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -555,7 +553,7 @@ amount of sessions.</p>
 </tr>
 </tbody>
 </table>
-<p>Configure the maximum allowed number of sessions in <cite>pool</cite> to <cite>max</cite>.
+<p>Configure the maximum allowed number of sessions in <cite>self</cite> to <cite>max</cite>.
 A value of 0 means an unlimited amount of sessions.</p>
 </dd></dl>
 
@@ -650,7 +648,4 @@ A value of 0 means an unlimited amount of sessions.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

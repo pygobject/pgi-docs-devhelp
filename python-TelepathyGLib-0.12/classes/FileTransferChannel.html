@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="TelepathyGLib 0.12 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="TelepathyGLib.HandleChannelsContext" href="HandleChannelsContext.html"/>
         <link rel="prev" title="TelepathyGLib.DebugMessage" href="DebugMessage.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -455,7 +453,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>conn</strong> (<a class="reference internal" href="Connection.html#TelepathyGLib.Connection" title="TelepathyGLib.Connection"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.Connection</span></code></a>) &#8211; a <a class="reference internal" href="Connection.html#TelepathyGLib.Connection" title="TelepathyGLib.Connection"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.Connection</span></code></a> ; may not be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
+<li><strong>conn</strong> (<a class="reference internal" href="Connection.html#TelepathyGLib.Connection" title="TelepathyGLib.Connection"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.Connection</span></code></a>) &#8211; a <a class="reference internal" href="Connection.html#TelepathyGLib.Connection" title="TelepathyGLib.Connection"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.Connection</span></code></a>; may not be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>object_path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the object path of the channel; may not be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>immutable_properties</strong> ({<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>: <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>}) &#8211; the immutable properties of the channel,
 as signalled by the NewChannel D-Bus signal or returned by the
@@ -464,7 +462,7 @@ strings (D-Bus interface name + &#8221;.&#8221; + property name) to <a class="re
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a newly created <a class="reference internal" href="#TelepathyGLib.FileTransferChannel" title="TelepathyGLib.FileTransferChannel"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel</span></code></a></p>
@@ -480,7 +478,7 @@ strings (D-Bus interface name + &#8221;.&#8221; + property name) to <a class="re
 <p><span class="versionmodified">New in version 0.15.5.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Use <a class="reference internal" href="SimpleClientFactory.html#TelepathyGLib.SimpleClientFactory.ensure_channel" title="TelepathyGLib.SimpleClientFactory.ensure_channel"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.SimpleClientFactory.ensure_channel</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>Use <a class="reference internal" href="SimpleClientFactory.html#TelepathyGLib.SimpleClientFactory.ensure_channel" title="TelepathyGLib.SimpleClientFactory.ensure_channel"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.SimpleClientFactory.ensure_channel</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
@@ -504,7 +502,7 @@ strings (D-Bus interface name + &#8221;.&#8221; + property name) to <a class="re
 <p>Accept an incoming file transfer in the
 <a class="reference internal" href="../enums.html#TelepathyGLib.FileTransferState.PENDING" title="TelepathyGLib.FileTransferState.PENDING"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferState.PENDING</span></code></a> state. Once the accept has been
 processed, <cite>callback</cite> will be called. You can then call
-<a class="reference internal" href="#TelepathyGLib.FileTransferChannel.accept_file_finish" title="TelepathyGLib.FileTransferChannel.accept_file_finish"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.accept_file_finish</span></code></a> () to get the result of
+<a class="reference internal" href="#TelepathyGLib.FileTransferChannel.accept_file_finish" title="TelepathyGLib.FileTransferChannel.accept_file_finish"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.accept_file_finish</span></code></a>() to get the result of
 the operation.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.17.1.</span></p>
@@ -520,7 +518,7 @@ the operation.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; a <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the accept operation was a success, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a></td>
 </tr>
@@ -528,7 +526,7 @@ the operation.</p>
 </tr>
 </tbody>
 </table>
-<p>Finishes a call to <a class="reference internal" href="#TelepathyGLib.FileTransferChannel.accept_file_async" title="TelepathyGLib.FileTransferChannel.accept_file_async"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.accept_file_async</span></code></a> ().</p>
+<p>Finishes a call to <a class="reference internal" href="#TelepathyGLib.FileTransferChannel.accept_file_async" title="TelepathyGLib.FileTransferChannel.accept_file_async"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.accept_file_async</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.17.1.</span></p>
 </div>
@@ -737,14 +735,14 @@ value of the <a class="reference internal" href="#TelepathyGLib.FileTransferChan
 </tbody>
 </table>
 <p>Provide a file transfer. This should be called when the file
-transfer state changes (<a class="reference internal" href="#TelepathyGLib.FileTransferChannel.get_state" title="TelepathyGLib.FileTransferChannel.get_state"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.get_state</span></code></a> () and
+transfer state changes (<a class="reference internal" href="#TelepathyGLib.FileTransferChannel.get_state" title="TelepathyGLib.FileTransferChannel.get_state"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.get_state</span></code></a>() and
 the &#8220;notify::state&#8221; signal) to
 <a class="reference internal" href="../enums.html#TelepathyGLib.FileTransferState.ACCEPTED" title="TelepathyGLib.FileTransferState.ACCEPTED"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferState.ACCEPTED</span></code></a> or
 <a class="reference internal" href="../enums.html#TelepathyGLib.FileTransferState.PENDING" title="TelepathyGLib.FileTransferState.PENDING"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferState.PENDING</span></code></a>. Once the file has been provided,
 the channel <a class="reference internal" href="#TelepathyGLib.FileTransferChannel" title="TelepathyGLib.FileTransferChannel"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel</span></code></a> <a class="reference internal" href="#TelepathyGLib.FileTransferChannel.props.state" title="TelepathyGLib.FileTransferChannel.props.state"><code class="xref py py-data docutils literal"><span class="pre">:state</span></code></a> will change to
 <a class="reference internal" href="../enums.html#TelepathyGLib.FileTransferState.OPEN" title="TelepathyGLib.FileTransferState.OPEN"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferState.OPEN</span></code></a>.</p>
 <p>Once the file has been provided, <cite>callback</cite> will be called. You
-should then call <a class="reference internal" href="#TelepathyGLib.FileTransferChannel.provide_file_finish" title="TelepathyGLib.FileTransferChannel.provide_file_finish"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.provide_file_finish</span></code></a> () to
+should then call <a class="reference internal" href="#TelepathyGLib.FileTransferChannel.provide_file_finish" title="TelepathyGLib.FileTransferChannel.provide_file_finish"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.provide_file_finish</span></code></a>() to
 get the result of the operation.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.17.1.</span></p>
@@ -760,7 +758,7 @@ get the result of the operation.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; a <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the file has been successfully provided, or
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</td>
@@ -769,7 +767,7 @@ get the result of the operation.</p>
 </tr>
 </tbody>
 </table>
-<p>Finishes a call to <a class="reference internal" href="#TelepathyGLib.FileTransferChannel.provide_file_async" title="TelepathyGLib.FileTransferChannel.provide_file_async"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.provide_file_async</span></code></a> ().</p>
+<p>Finishes a call to <a class="reference internal" href="#TelepathyGLib.FileTransferChannel.provide_file_async" title="TelepathyGLib.FileTransferChannel.provide_file_async"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.provide_file_async</span></code></a>().</p>
 <p>Successful return from this function does not mean that the file
 transfer has completed or has even started at all. The state of the
 file transfer should be monitored with the &#8220;notify::state&#8221; signal.</p>
@@ -850,14 +848,14 @@ sending the file transfer offer.</p>
 </table>
 <p>For incoming file transfers, this property will be set to a
 <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> for the location where the file will be saved (given by
-<a class="reference internal" href="#TelepathyGLib.FileTransferChannel.accept_file_async" title="TelepathyGLib.FileTransferChannel.accept_file_async"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.accept_file_async</span></code></a> ()) when the transfer
+<a class="reference internal" href="#TelepathyGLib.FileTransferChannel.accept_file_async" title="TelepathyGLib.FileTransferChannel.accept_file_async"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.accept_file_async</span></code></a>()) when the transfer
 starts. The feature %TP_FILE_TRANSFER_CHANNEL_FEATURE_CORE must
 already be prepared for this property to have a meaningful
 value, and to receive change notification.  Once the initial
 value is set, this property will not be changed.</p>
 <p>For outgoing file transfers, this property is a <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> for the
 location of the file being sent (given by
-<a class="reference internal" href="#TelepathyGLib.FileTransferChannel.provide_file_async" title="TelepathyGLib.FileTransferChannel.provide_file_async"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.provide_file_async</span></code></a> ()). The feature
+<a class="reference internal" href="#TelepathyGLib.FileTransferChannel.provide_file_async" title="TelepathyGLib.FileTransferChannel.provide_file_async"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.FileTransferChannel.provide_file_async</span></code></a>()). The feature
 %TP_FILE_TRANSFER_CHANNEL_FEATURE_CORE does not have to be
 prepared and there is no change notification.</p>
 <div class="versionadded">
@@ -965,12 +963,12 @@ requestable channel classes for said contact), this property will
 be set to the same value on the remote incoming channel and
 handlers can match on this in their handler filter. For example,
 a remote handler could call the following:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">tp_base_client_take_handler_filter</span> <span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">tp_asv_new</span> <span class="p">(</span>
-<span class="n">TP_PROP_CHANNEL_CHANNEL_TYPE</span><span class="p">,</span> <span class="n">G_TYPE_STRING</span><span class="p">,</span> <span class="n">TP_IFACE_CHANNEL_TYPE_FILE_TRANSFER</span><span class="p">,</span>
-<span class="n">TP_PROP_CHANNEL_TARGET_HANDLE_TYPE</span><span class="p">,</span> <span class="n">G_TYPE_UINT</span><span class="p">,</span> <span class="n">TP_HANDLE_TYPE_CONTACT</span><span class="p">,</span>
-<span class="n">TP_PROP_CHANNEL_REQUESTED</span><span class="p">,</span> <span class="n">G_TYPE_BOOLEAN</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span>
-<span class="n">TP_PROP_CHANNEL_INTERFACE_FILE_TRANSFER_METADATA_SERVICE_NAME</span><span class="p">,</span> <span class="n">G_TYPE_STRING</span><span class="p">,</span> <span class="s">&quot;service.name&quot;</span><span class="p">,</span>
-<span class="nb">NULL</span><span class="p">));</span>
+<div class="highlight-none"><div class="highlight"><pre>tp_base_client_take_handler_filter (handler, tp_asv_new (
+TP_PROP_CHANNEL_CHANNEL_TYPE, G_TYPE_STRING, TP_IFACE_CHANNEL_TYPE_FILE_TRANSFER,
+TP_PROP_CHANNEL_TARGET_HANDLE_TYPE, G_TYPE_UINT, TP_HANDLE_TYPE_CONTACT,
+TP_PROP_CHANNEL_REQUESTED, G_TYPE_BOOLEAN, FALSE,
+TP_PROP_CHANNEL_INTERFACE_FILE_TRANSFER_METADATA_SERVICE_NAME, G_TYPE_STRING, &quot;service.name&quot;,
+NULL));
 </pre></div>
 </div>
 <p>The %TP_FILE_TRANSFER_CHANNEL_FEATURE_CORE feature has to be
@@ -998,7 +996,7 @@ prepared for this property to be meaningful.</p>
 </tbody>
 </table>
 <p>The size of the file to be transferred,
-or <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/constants.html#GLib.MAXUINT64" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MAXUINT64</span></code></a> if not known.</p>
+or <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GObject-2.0/constants.html#GObject.G_MAXUINT64" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.G_MAXUINT64</span></code></a> if not known.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.15.5.</span></p>
 </div>
@@ -1069,7 +1067,4 @@ prepared for this property to be meaningful and kept up to date.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

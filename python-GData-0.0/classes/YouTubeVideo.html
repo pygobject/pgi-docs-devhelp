@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GData 0.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Hierarchy" href="../hierarchy.html"/>
         <link rel="prev" title="GData.YouTubeState" href="YouTubeState.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -586,21 +584,21 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>video_uri</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a YouTube video player URI</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the video ID, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> ; free with <a class="reference external" href="../_docs/GData-0.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ()</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the video ID, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>; free with <a class="reference external" href="../_docs/GData-0.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>()</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Extracts a video ID from a YouTube video player URI. The video ID is in the same form as returned by
-<a class="reference internal" href="#GData.YouTubeVideo.get_video_id" title="GData.YouTubeVideo.get_video_id"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.get_video_id</span></code></a> (), and the <cite>video_uri</cite> should be in the same form as returned by
-<a class="reference internal" href="#GData.YouTubeVideo.get_player_uri" title="GData.YouTubeVideo.get_player_uri"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.get_player_uri</span></code></a> ().</p>
+<a class="reference internal" href="#GData.YouTubeVideo.get_video_id" title="GData.YouTubeVideo.get_video_id"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.get_video_id</span></code></a>(), and the <cite>video_uri</cite> should be in the same form as returned by
+<a class="reference internal" href="#GData.YouTubeVideo.get_player_uri" title="GData.YouTubeVideo.get_player_uri"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.get_player_uri</span></code></a>().</p>
 <p>The function will validate whether the URI actually points to a hostname containing <code class="docutils literal"><span class="pre">youtube</span></code>
 (e.g. <code class="docutils literal"><span class="pre">youtube.com</span></code>), and will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if it doesn&#8217;t.</p>
 <p>For example:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">video_id</span> <span class="o">=</span> <span class="n">gdata_youtube_video_get_video_id_from_uri</span> <span class="p">(</span><span class="s">&quot;http://www.youtube.com/watch?v=BH_vwsyCrTc&amp;amp;feature=featured&quot;</span><span class="p">);</span>
-<span class="n">g_message</span> <span class="p">(</span><span class="s">&quot;Video ID: %s&quot;</span><span class="p">,</span> <span class="n">video_id</span><span class="p">);</span> <span class="cm">/* Should print: BH_vwsyCrTc */</span>
-<span class="n">g_free</span> <span class="p">(</span><span class="n">video_id</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>video_id = gdata_youtube_video_get_video_id_from_uri (&quot;http://www.youtube.com/watch?v=BH_vwsyCrTc&amp;amp;feature=featured&quot;);
+g_message (&quot;Video ID: %s&quot;, video_id); /* Should print: BH_vwsyCrTc */
+g_free (video_id);
 </pre></div>
 </div>
 <div class="versionadded">
@@ -617,7 +615,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the video&#8217;s ID, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#GData.YouTubeVideo" title="GData.YouTubeVideo"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo</span></code></a> ; unref with <a class="reference external" href="../_docs/GData-0.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ()</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#GData.YouTubeVideo" title="GData.YouTubeVideo"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo</span></code></a>; unref with <a class="reference external" href="../_docs/GData-0.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>()</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GData.YouTubeVideo" title="GData.YouTubeVideo"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo</span></code></a></td>
 </tr>
@@ -884,7 +882,7 @@ rating types.</p>
 <p>Gets various properties of the ratings on the video.</p>
 <p>Note that this property may not be retrieved when querying for multiple
 videos at once, but is guaranteed to be retrieved when querying with
-<a class="reference internal" href="Service.html#GData.Service.query_single_entry_async" title="GData.Service.query_single_entry_async"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.query_single_entry_async</span></code></a> ().</p>
+<a class="reference internal" href="Service.html#GData.Service.query_single_entry_async" title="GData.Service.query_single_entry_async"><code class="xref py py-obj docutils literal"><span class="pre">GData.Service.query_single_entry_async</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1005,7 +1003,7 @@ videos at once, but is guaranteed to be retrieved when querying with
 </table>
 <p>Gets the <a class="reference internal" href="#GData.YouTubeVideo" title="GData.YouTubeVideo"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo</span></code></a> <a class="reference internal" href="#GData.YouTubeVideo.props.is_draft" title="GData.YouTubeVideo.props.is_draft"><code class="xref py py-data docutils literal"><span class="pre">:is-draft</span></code></a> property.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 0.17.0: </span>This is now equal to <a class="reference internal" href="#GData.YouTubeVideo.is_private" title="GData.YouTubeVideo.is_private"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.is_private</span></code></a> ().</p>
+<p><span class="versionmodified">Deprecated since version 0.17.0: </span>This is now equal to <a class="reference internal" href="#GData.YouTubeVideo.is_private" title="GData.YouTubeVideo.is_private"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.is_private</span></code></a>().</p>
 </div>
 </dd></dl>
 
@@ -1065,7 +1063,7 @@ The return value from this function is purely informational, and no obligation i
 <p>Looks up a <a class="reference internal" href="YouTubeContent.html#GData.YouTubeContent" title="GData.YouTubeContent"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeContent</span></code></a> from the video with the given MIME type. The video&#8217;s list of contents is
 a list of URIs to various formats of the video itself, such as its SWF URI or RTSP stream.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 0.17.0: </span>This is no longer supported by Google, and will always return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. To view a video, open the URI returned by <a class="reference internal" href="#GData.YouTubeVideo.get_player_uri" title="GData.YouTubeVideo.get_player_uri"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.get_player_uri</span></code></a> () in a web browser.</p>
+<p><span class="versionmodified">Deprecated since version 0.17.0: </span>This is no longer supported by Google, and will always return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. To view a video, open the URI returned by <a class="reference internal" href="#GData.YouTubeVideo.get_player_uri" title="GData.YouTubeVideo.get_player_uri"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.get_player_uri</span></code></a>() in a web browser.</p>
 </div>
 </dd></dl>
 
@@ -1174,7 +1172,7 @@ If <cite>aspect_ratio</cite> is <a class="reference external" href="http://docs.
 </table>
 <p>Sets the <a class="reference internal" href="#GData.YouTubeVideo" title="GData.YouTubeVideo"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo</span></code></a> <a class="reference internal" href="#GData.YouTubeVideo.props.is_draft" title="GData.YouTubeVideo.props.is_draft"><code class="xref py py-data docutils literal"><span class="pre">:is-draft</span></code></a> property to decide whether the video is a draft.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 0.17.0: </span>This is now equivalent to <a class="reference internal" href="#GData.YouTubeVideo.set_is_private" title="GData.YouTubeVideo.set_is_private"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.set_is_private</span></code></a> ().</p>
+<p><span class="versionmodified">Deprecated since version 0.17.0: </span>This is now equivalent to <a class="reference internal" href="#GData.YouTubeVideo.set_is_private" title="GData.YouTubeVideo.set_is_private"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.set_is_private</span></code></a>().</p>
 </div>
 </dd></dl>
 
@@ -1745,7 +1743,4 @@ It points to a <a class="reference internal" href="YouTubeState.html#GData.YouTu
   </div> 
 
 </body>
-
-  
-
 </html>

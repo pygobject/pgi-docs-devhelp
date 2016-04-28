@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gio.FileOutputStream" href="FileOutputStream.html"/>
         <link rel="prev" title="Gio.FileInputStream" href="FileInputStream.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -357,19 +355,19 @@
 </table>
 <p>Monitors a file or directory for changes.</p>
 <p>To obtain a <a class="reference internal" href="#Gio.FileMonitor" title="Gio.FileMonitor"><code class="xref py py-obj docutils literal"><span class="pre">Gio.FileMonitor</span></code></a> for a file or directory, use
-<a class="reference internal" href="../interfaces/File.html#Gio.File.monitor" title="Gio.File.monitor"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.monitor</span></code></a> (), <a class="reference internal" href="../interfaces/File.html#Gio.File.monitor_file" title="Gio.File.monitor_file"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.monitor_file</span></code></a> (), or
-<a class="reference internal" href="../interfaces/File.html#Gio.File.monitor_directory" title="Gio.File.monitor_directory"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.monitor_directory</span></code></a> ().</p>
+<a class="reference internal" href="../interfaces/File.html#Gio.File.monitor" title="Gio.File.monitor"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.monitor</span></code></a>(), <a class="reference internal" href="../interfaces/File.html#Gio.File.monitor_file" title="Gio.File.monitor_file"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.monitor_file</span></code></a>(), or
+<a class="reference internal" href="../interfaces/File.html#Gio.File.monitor_directory" title="Gio.File.monitor_directory"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.monitor_directory</span></code></a>().</p>
 <p>To get informed about changes to the file or directory you are
 monitoring, connect to the <a class="reference internal" href="#Gio.FileMonitor" title="Gio.FileMonitor"><code class="xref py py-obj docutils literal"><span class="pre">Gio.FileMonitor</span></code></a> <a class="reference internal" href="#Gio.FileMonitor.signals.changed" title="Gio.FileMonitor.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal. The
 signal will be emitted in the
-<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.push_thread_default</span></code></a>
+<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">thread-default</span> <span class="pre">main</span> <span class="pre">context</span></code></a>
 of the thread that the monitor was created in
 (though if the global default main context is blocked, this may
 cause notifications to be blocked even if the thread-default
 context is still running).</p>
 <dl class="method">
 <dt id="Gio.FileMonitor.cancel">
-<code class="descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gfilemonitor.c?h=2.46.2#n231"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gfilemonitor.c?h=2.48.0#n231"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -385,25 +383,31 @@ context is still running).</p>
 
 <dl class="method">
 <dt id="Gio.FileMonitor.emit_event">
-<code class="descname">emit_event</code><span class="sig-paren">(</span><em>child</em>, <em>other_file</em>, <em>event_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gfilemonitor.c?h=2.46.2#n266"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">emit_event</code><span class="sig-paren">(</span><em>child</em>, <em>other_file</em>, <em>event_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gfilemonitor.c?h=2.48.0#n281"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>child</strong> (<a class="reference internal" href="../interfaces/File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; </li>
-<li><strong>other_file</strong> (<a class="reference internal" href="../interfaces/File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; </li>
-<li><strong>event_type</strong> (<a class="reference internal" href="../enums.html#Gio.FileMonitorEvent" title="Gio.FileMonitorEvent"><code class="xref py py-obj docutils literal"><span class="pre">Gio.FileMonitorEvent</span></code></a>) &#8211; </li>
+<li><strong>child</strong> (<a class="reference internal" href="../interfaces/File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; a <a class="reference internal" href="../interfaces/File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>.</li>
+<li><strong>other_file</strong> (<a class="reference internal" href="../interfaces/File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; a <a class="reference internal" href="../interfaces/File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>.</li>
+<li><strong>event_type</strong> (<a class="reference internal" href="../enums.html#Gio.FileMonitorEvent" title="Gio.FileMonitorEvent"><code class="xref py py-obj docutils literal"><span class="pre">Gio.FileMonitorEvent</span></code></a>) &#8211; a set of <a class="reference internal" href="../enums.html#Gio.FileMonitorEvent" title="Gio.FileMonitorEvent"><code class="xref py py-obj docutils literal"><span class="pre">Gio.FileMonitorEvent</span></code></a> flags.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Emits the <a class="reference internal" href="#Gio.FileMonitor" title="Gio.FileMonitor"><code class="xref py py-obj docutils literal"><span class="pre">Gio.FileMonitor</span></code></a> <a class="reference internal" href="#Gio.FileMonitor.signals.changed" title="Gio.FileMonitor.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal if a change
+has taken place. Should be called from file monitor
+implementations only.</p>
+<p>Implementations are responsible to call this method from the
+<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">thread-default</span> <span class="pre">main</span> <span class="pre">context</span></code></a> of the
+thread that the monitor was created in.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.FileMonitor.is_cancelled">
-<code class="descname">is_cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gfilemonitor.c?h=2.46.2#n211"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gfilemonitor.c?h=2.48.0#n211"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -419,7 +423,7 @@ context is still running).</p>
 
 <dl class="method">
 <dt id="Gio.FileMonitor.set_rate_limit">
-<code class="descname">set_rate_limit</code><span class="sig-paren">(</span><em>limit_msecs</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gfilemonitor.c?h=2.46.2#n257"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_rate_limit</code><span class="sig-paren">(</span><em>limit_msecs</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gfilemonitor.c?h=2.48.0#n257"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -429,7 +433,7 @@ to poll for changes</td>
 </tr>
 </tbody>
 </table>
-<p>Sets the rate limit to which the <cite>monitor</cite> will report
+<p>Sets the rate limit to which the <cite>self</cite> will report
 consecutive change events to the same file.</p>
 </dd></dl>
 
@@ -577,7 +581,4 @@ old path, and <cite>other_file</cite> will be set to a <a class="reference inter
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GtkSource 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GtkSource.Gutter" href="Gutter.html"/>
         <link rel="prev" title="GtkSource.FileLoader" href="FileLoader.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -403,7 +401,7 @@
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#GtkSource.FileSaver" title="GtkSource.FileSaver"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.FileSaver</span></code></a> object. The <cite>buffer</cite> will be saved to the
-<a class="reference internal" href="File.html#GtkSource.File" title="GtkSource.File"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.File</span></code></a> &#8216;s location.</p>
+<a class="reference internal" href="File.html#GtkSource.File" title="GtkSource.File"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.File</span></code></a>&#8216;s location.</p>
 <p>This constructor is suitable for a simple &#8220;save&#8221; operation, when the <cite>file</cite>
 already contains a non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> <a class="reference internal" href="File.html#GtkSource.File" title="GtkSource.File"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.File</span></code></a> <a class="reference internal" href="File.html#GtkSource.File.props.location" title="GtkSource.File.props.location"><code class="xref py py-data docutils literal"><span class="pre">:location</span></code></a>.</p>
 <div class="versionadded">
@@ -434,7 +432,7 @@ already contains a non-<a class="reference external" href="http://docs.python.or
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#GtkSource.FileSaver" title="GtkSource.FileSaver"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.FileSaver</span></code></a> object with a target location. When the
-file saving is finished successfully, <cite>target_location</cite> is set to the <cite>file</cite> &#8216;s
+file saving is finished successfully, <cite>target_location</cite> is set to the <cite>file</cite>&#8216;s
 <a class="reference internal" href="File.html#GtkSource.File" title="GtkSource.File"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.File</span></code></a> <a class="reference internal" href="File.html#GtkSource.File.props.location" title="GtkSource.File.props.location"><code class="xref py py-data docutils literal"><span class="pre">:location</span></code></a> property. If an error occurs, the previous valid
 location is still available in <a class="reference internal" href="File.html#GtkSource.File" title="GtkSource.File"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.File</span></code></a>.</p>
 <p>This constructor is suitable for a &#8220;save as&#8221; operation, or for saving a new
@@ -608,7 +606,7 @@ documentation to know how to use this function.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether the file was saved successfully.</td>
 </tr>
@@ -616,10 +614,12 @@ documentation to know how to use this function.</p>
 </tr>
 </tbody>
 </table>
-<p>Finishes a file saving started with <a class="reference internal" href="#GtkSource.FileSaver.save_async" title="GtkSource.FileSaver.save_async"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.FileSaver.save_async</span></code></a> ().</p>
+<p>Finishes a file saving started with <a class="reference internal" href="#GtkSource.FileSaver.save_async" title="GtkSource.FileSaver.save_async"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.FileSaver.save_async</span></code></a>().</p>
 <p>If the file has been saved successfully, the following <a class="reference internal" href="File.html#GtkSource.File" title="GtkSource.File"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.File</span></code></a>
 properties will be updated: the location, the encoding, the newline type and
 the compression type.</p>
+<p>Since the 3.20 version, <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/TextBuffer.html#Gtk.TextBuffer.set_modified" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer.set_modified</span></code></a>() is called with <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
+if the file has been saved successfully.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.14.</span></p>
 </div>
@@ -878,7 +878,4 @@ from the <a class="reference internal" href="File.html#GtkSource.File" title="Gt
   </div> 
 
 </body>
-
-  
-
 </html>

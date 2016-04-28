@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gdk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gdk.GLContext" href="GLContext.html"/>
         <link rel="prev" title="Gdk.DragContext" href="DragContext.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -320,7 +318,7 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Abstract:</th><td class="field-body">Yes</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Structure:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Gdk.FrameClockClass</span></code></td>
+<tr class="field-odd field"><th class="field-name">Structure:</th><td class="field-body"><a class="reference internal" href="../class-structs/FrameClockClass.html#Gdk.FrameClockClass" title="Gdk.FrameClockClass"><code class="xref py py-class docutils literal"><span class="pre">Gdk.FrameClockClass</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -336,32 +334,32 @@ scale back animation framerates.</p>
 implementation or with mozRequestAnimationFrame in Firefox,
 for example.</p>
 <p>A frame clock is idle until someone requests a frame with
-<a class="reference internal" href="#Gdk.FrameClock.request_phase" title="Gdk.FrameClock.request_phase"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.request_phase</span></code></a> (). At some later point that makes
+<a class="reference internal" href="#Gdk.FrameClock.request_phase" title="Gdk.FrameClock.request_phase"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.request_phase</span></code></a>(). At some later point that makes
 sense for the synchronization being implemented, the clock will
 process a frame and emit signals for each phase that has been
 requested. (See the signals of the <a class="reference internal" href="#Gdk.FrameClock" title="Gdk.FrameClock"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock</span></code></a> class for
 documentation of the phases. <a class="reference internal" href="../flags.html#Gdk.FrameClockPhase.UPDATE" title="Gdk.FrameClockPhase.UPDATE"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClockPhase.UPDATE</span></code></a> and the
 <a class="reference internal" href="#Gdk.FrameClock" title="Gdk.FrameClock"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock</span></code></a> <a class="reference internal" href="#Gdk.FrameClock.signals.update" title="Gdk.FrameClock.signals.update"><code class="xref py py-func docutils literal"><span class="pre">::update</span></code></a> signal are most interesting for application
 writers, and are used to update the animations, using the frame time
-given by <a class="reference internal" href="#Gdk.FrameClock.get_frame_time" title="Gdk.FrameClock.get_frame_time"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_time</span></code></a> ().</p>
+given by <a class="reference internal" href="#Gdk.FrameClock.get_frame_time" title="Gdk.FrameClock.get_frame_time"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_time</span></code></a>().</p>
 <p>The frame time is reported in microseconds and generally in the same
-timescale as <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/functions.html#GLib.get_monotonic_time" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_monotonic_time</span></code></a> (), however, it is not the same
-as <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/functions.html#GLib.get_monotonic_time" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_monotonic_time</span></code></a> (). The frame time does not advance during
+timescale as <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/functions.html#GLib.get_monotonic_time" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_monotonic_time</span></code></a>(), however, it is not the same
+as <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/functions.html#GLib.get_monotonic_time" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_monotonic_time</span></code></a>(). The frame time does not advance during
 the time a frame is being painted, and outside of a frame, an attempt
-is made so that all calls to <a class="reference internal" href="#Gdk.FrameClock.get_frame_time" title="Gdk.FrameClock.get_frame_time"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_time</span></code></a> () that
+is made so that all calls to <a class="reference internal" href="#Gdk.FrameClock.get_frame_time" title="Gdk.FrameClock.get_frame_time"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_time</span></code></a>() that
 are called at a “similar” time get the same value. This means that
 if different animations are timed by looking at the difference in
-time between an initial value from <a class="reference internal" href="#Gdk.FrameClock.get_frame_time" title="Gdk.FrameClock.get_frame_time"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_time</span></code></a> ()
+time between an initial value from <a class="reference internal" href="#Gdk.FrameClock.get_frame_time" title="Gdk.FrameClock.get_frame_time"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_time</span></code></a>()
 and the value inside the <a class="reference internal" href="#Gdk.FrameClock" title="Gdk.FrameClock"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock</span></code></a> <a class="reference internal" href="#Gdk.FrameClock.signals.update" title="Gdk.FrameClock.signals.update"><code class="xref py py-func docutils literal"><span class="pre">::update</span></code></a> signal of the clock,
 they will stay exactly synchronized.</p>
 <dl class="method">
 <dt id="Gdk.FrameClock.begin_updating">
-<code class="descname">begin_updating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.18.6#n314"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">begin_updating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.20.3#n314"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Starts updates for an animation. Until a matching call to
-<a class="reference internal" href="#Gdk.FrameClock.end_updating" title="Gdk.FrameClock.end_updating"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.end_updating</span></code></a> () is made, the frame clock will continually
+<a class="reference internal" href="#Gdk.FrameClock.end_updating" title="Gdk.FrameClock.end_updating"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.end_updating</span></code></a>() is made, the frame clock will continually
 request a new frame with the <a class="reference internal" href="../flags.html#Gdk.FrameClockPhase.UPDATE" title="Gdk.FrameClockPhase.UPDATE"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClockPhase.UPDATE</span></code></a> phase.
 This function may be called multiple times and frames will be
-requested until <a class="reference internal" href="#Gdk.FrameClock.end_updating" title="Gdk.FrameClock.end_updating"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.end_updating</span></code></a> () is called the same
+requested until <a class="reference internal" href="#Gdk.FrameClock.end_updating" title="Gdk.FrameClock.end_updating"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.end_updating</span></code></a>() is called the same
 number of times.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.8.</span></p>
@@ -370,9 +368,9 @@ number of times.</p>
 
 <dl class="method">
 <dt id="Gdk.FrameClock.end_updating">
-<code class="descname">end_updating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.18.6#n331"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">end_updating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.20.3#n331"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Stops updates for an animation. See the documentation for
-<a class="reference internal" href="#Gdk.FrameClock.begin_updating" title="Gdk.FrameClock.begin_updating"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.begin_updating</span></code></a> ().</p>
+<a class="reference internal" href="#Gdk.FrameClock.begin_updating" title="Gdk.FrameClock.begin_updating"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.begin_updating</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.8.</span></p>
 </div>
@@ -380,7 +378,7 @@ number of times.</p>
 
 <dl class="method">
 <dt id="Gdk.FrameClock.get_current_timings">
-<code class="descname">get_current_timings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.18.6#n479"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_current_timings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.20.3#n479"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -402,7 +400,7 @@ previous frame. Before any frames have been procesed, returns
 
 <dl class="method">
 <dt id="Gdk.FrameClock.get_frame_counter">
-<code class="descname">get_frame_counter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.18.6#n368"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_frame_counter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.20.3#n368"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -424,13 +422,13 @@ each frame drawn.</p>
 
 <dl class="method">
 <dt id="Gdk.FrameClock.get_frame_time">
-<code class="descname">get_frame_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.18.6#n266"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_frame_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.20.3#n266"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a timestamp in microseconds, in the timescale of
-of <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/functions.html#GLib.get_monotonic_time" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_monotonic_time</span></code></a> ().</td>
+of <a class="reference external" href="../_docs/Gdk-3.0/../../../python-GLib-2.0/functions.html#GLib.get_monotonic_time" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_monotonic_time</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -449,7 +447,7 @@ time.</p>
 
 <dl class="method">
 <dt id="Gdk.FrameClock.get_history_start">
-<code class="descname">get_history_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.18.6#n396"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_history_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.20.3#n396"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -464,10 +462,10 @@ that is available in the internal frame history of the
 </table>
 <p><a class="reference internal" href="#Gdk.FrameClock" title="Gdk.FrameClock"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock</span></code></a> internally keeps a history of <a class="reference internal" href="../structs/FrameTimings.html#Gdk.FrameTimings" title="Gdk.FrameTimings"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameTimings</span></code></a>
 objects for recent frames that can be retrieved with
-<a class="reference internal" href="#Gdk.FrameClock.get_timings" title="Gdk.FrameClock.get_timings"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_timings</span></code></a> (). The set of stored frames
+<a class="reference internal" href="#Gdk.FrameClock.get_timings" title="Gdk.FrameClock.get_timings"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_timings</span></code></a>(). The set of stored frames
 is the set from the counter values given by
-<a class="reference internal" href="#Gdk.FrameClock.get_history_start" title="Gdk.FrameClock.get_history_start"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_history_start</span></code></a> () and
-<a class="reference internal" href="#Gdk.FrameClock.get_frame_counter" title="Gdk.FrameClock.get_frame_counter"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_counter</span></code></a> (), inclusive.</p>
+<a class="reference internal" href="#Gdk.FrameClock.get_history_start" title="Gdk.FrameClock.get_history_start"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_history_start</span></code></a>() and
+<a class="reference internal" href="#Gdk.FrameClock.get_frame_counter" title="Gdk.FrameClock.get_frame_counter"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_counter</span></code></a>(), inclusive.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.8.</span></p>
 </div>
@@ -475,7 +473,7 @@ is the set from the counter values given by
 
 <dl class="method">
 <dt id="Gdk.FrameClock.get_refresh_info">
-<code class="descname">get_refresh_info</code><span class="sig-paren">(</span><em>base_time</em>, <em>refresh_interval_return</em>, <em>presentation_time_return</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.18.6#n551"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_refresh_info</code><span class="sig-paren">(</span><em>base_time</em>, <em>refresh_interval_return</em>, <em>presentation_time_return</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.20.3#n557"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -505,7 +503,7 @@ interval after the last presentation time, and later than <cite>base_time</cite>
 
 <dl class="method">
 <dt id="Gdk.FrameClock.get_timings">
-<code class="descname">get_timings</code><span class="sig-paren">(</span><em>frame_counter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.18.6#n446"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_timings</code><span class="sig-paren">(</span><em>frame_counter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.20.3#n446"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -515,7 +513,7 @@ be received.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="../structs/FrameTimings.html#Gdk.FrameTimings" title="Gdk.FrameTimings"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameTimings</span></code></a> object for the specified
 frame, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if it is not available. See
-<a class="reference internal" href="#Gdk.FrameClock.get_history_start" title="Gdk.FrameClock.get_history_start"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_history_start</span></code></a> ().</td>
+<a class="reference internal" href="#Gdk.FrameClock.get_history_start" title="Gdk.FrameClock.get_history_start"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_history_start</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/FrameTimings.html#Gdk.FrameTimings" title="Gdk.FrameTimings"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameTimings</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
@@ -523,7 +521,7 @@ frame, or <a class="reference external" href="http://docs.python.org/2.7/library
 </table>
 <p>Retrieves a <a class="reference internal" href="../structs/FrameTimings.html#Gdk.FrameTimings" title="Gdk.FrameTimings"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameTimings</span></code></a> object holding timing information
 for the current frame or a recent frame. The <a class="reference internal" href="../structs/FrameTimings.html#Gdk.FrameTimings" title="Gdk.FrameTimings"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameTimings</span></code></a>
-object may not yet be complete: see <a class="reference internal" href="../structs/FrameTimings.html#Gdk.FrameTimings.get_complete" title="Gdk.FrameTimings.get_complete"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameTimings.get_complete</span></code></a> ().</p>
+object may not yet be complete: see <a class="reference internal" href="../structs/FrameTimings.html#Gdk.FrameTimings.get_complete" title="Gdk.FrameTimings.get_complete"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameTimings.get_complete</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.8.</span></p>
 </div>
@@ -531,7 +529,7 @@ object may not yet be complete: see <a class="reference internal" href="../struc
 
 <dl class="method">
 <dt id="Gdk.FrameClock.request_phase">
-<code class="descname">request_phase</code><span class="sig-paren">(</span><em>phase</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.18.6#n293"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">request_phase</code><span class="sig-paren">(</span><em>phase</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkframeclock.c?h=3.20.3#n293"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -543,11 +541,11 @@ object may not yet be complete: see <a class="reference internal" href="../struc
 <p>Asks the frame clock to run a particular phase. The signal
 corresponding the requested phase will be emitted the next
 time the frame clock processes. Multiple calls to
-<a class="reference internal" href="#Gdk.FrameClock.request_phase" title="Gdk.FrameClock.request_phase"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.request_phase</span></code></a> () will be combined together
+<a class="reference internal" href="#Gdk.FrameClock.request_phase" title="Gdk.FrameClock.request_phase"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.request_phase</span></code></a>() will be combined together
 and only one frame processed. If you are displaying animated
 content and want to continually request the
 <a class="reference internal" href="../flags.html#Gdk.FrameClockPhase.UPDATE" title="Gdk.FrameClockPhase.UPDATE"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClockPhase.UPDATE</span></code></a> phase for a period of time,
-you should use <a class="reference internal" href="#Gdk.FrameClock.begin_updating" title="Gdk.FrameClock.begin_updating"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.begin_updating</span></code></a> () instead, since
+you should use <a class="reference internal" href="#Gdk.FrameClock.begin_updating" title="Gdk.FrameClock.begin_updating"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.begin_updating</span></code></a>() instead, since
 this allows GTK+ to adjust system parameters to get maximally
 smooth animations.</p>
 <div class="versionadded">
@@ -658,7 +656,7 @@ performed. GTK+ normally handles this internally.</p>
 application processing of the frame. The frame is
 repainted. GDK normally handles this internally and
 produces expose events, which are turned into GTK+
-#GtkWidget <code class="xref py py-func docutils literal"><span class="pre">::draw</span></code> signals.</p>
+#GtkWidget::draw signals.</p>
 </dd></dl>
 
 <dl class="function">
@@ -698,7 +696,7 @@ event processing. Applications should not handle this signal.</p>
 </table>
 <p>This signal is emitted as the first step of toolkit and
 application processing of the frame. Animations should
-be updated using <a class="reference internal" href="#Gdk.FrameClock.get_frame_time" title="Gdk.FrameClock.get_frame_time"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_time</span></code></a> ().
+be updated using <a class="reference internal" href="#Gdk.FrameClock.get_frame_time" title="Gdk.FrameClock.get_frame_time"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.FrameClock.get_frame_time</span></code></a>().
 Applications can connect directly to this signal, or
 use gtk_widget_add_tick_callback() as a more convenient
 interface.</p>
@@ -718,7 +716,4 @@ interface.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

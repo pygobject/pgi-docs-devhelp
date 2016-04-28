@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Cogl.Fixed" href="Fixed.html"/>
         <link rel="prev" title="Cogl.Context" href="Context.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -80,8 +78,6 @@
 <li><a class="reference internal" href="#">Cogl.Display</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -125,8 +121,6 @@
 <li><a class="reference internal" href="#">Cogl.Display</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -221,14 +215,6 @@
 <span id="cogl-display-vfuncs"></span><h2>Virtual Methods</h2>
 <p>None</p>
 </div>
-<div class="section" id="properties">
-<span id="cogl-display-props"></span><h2>Properties</h2>
-<p>None</p>
-</div>
-<div class="section" id="signals">
-<span id="cogl-display-signals"></span><h2>Signals</h2>
-<p>None</p>
-</div>
 <div class="section" id="fields">
 <span id="cogl-display-fields"></span><h2>Fields</h2>
 <p>None</p>
@@ -274,7 +260,7 @@ object in a mutable configuration mode.</p>
 common state of the display pipeline that applies to the whole
 application.</p>
 <p>Many applications don&#8217;t need to explicitly use
-<a class="reference internal" href="#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a> () and can just jump straight to <a class="reference internal" href="Context.html#Cogl.Context.new" title="Cogl.Context.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context.new</span></code></a> ()
+<a class="reference internal" href="#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a>() and can just jump straight to <a class="reference internal" href="Context.html#Cogl.Context.new" title="Cogl.Context.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context.new</span></code></a>()
 and pass a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> display argument so Cogl will automatically
 connect and setup a renderer and display.
 A <cite>display</cite> can only be made for a specific choice of renderer which
@@ -282,15 +268,15 @@ is why this takes the <cite>renderer</cite> argument.</p>
 <p>A common use for explicitly allocating a display object is to
 define a template for allocating onscreen framebuffers which is
 what the <cite>onscreen_template</cite> argument is for, or alternatively
-you can use <a class="reference internal" href="#Cogl.Display.set_onscreen_template" title="Cogl.Display.set_onscreen_template"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.set_onscreen_template</span></code></a> ().</p>
-<p>When a display is first allocated via <a class="reference internal" href="#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a> () it is in a
+you can use <a class="reference internal" href="#Cogl.Display.set_onscreen_template" title="Cogl.Display.set_onscreen_template"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.set_onscreen_template</span></code></a>().</p>
+<p>When a display is first allocated via <a class="reference internal" href="#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a>() it is in a
 mutable configuration mode. It&#8217;s designed this way so we can
 extend the apis available for configuring a display without
 requiring huge numbers of constructor arguments.</p>
 <p>When you have finished configuring a display object you can
-optionally call <a class="reference internal" href="#Cogl.Display.setup" title="Cogl.Display.setup"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.setup</span></code></a> () to explicitly apply the
+optionally call <a class="reference internal" href="#Cogl.Display.setup" title="Cogl.Display.setup"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.setup</span></code></a>() to explicitly apply the
 configuration and check for errors. Alternaitvely you can pass the
-display to <a class="reference internal" href="Context.html#Cogl.Context.new" title="Cogl.Context.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context.new</span></code></a> () and Cogl will implicitly apply your
+display to <a class="reference internal" href="Context.html#Cogl.Context.new" title="Cogl.Context.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context.new</span></code></a>() and Cogl will implicitly apply your
 configuration but if there are errors then the application will
 abort with a message. For simple applications with no fallback
 options then relying on the implicit setup can be fine.</p>
@@ -312,7 +298,7 @@ options then relying on the implicit setup can be fine.</p>
 </tr>
 </tbody>
 </table>
-<p>Queries the <a class="reference internal" href="Renderer.html#Cogl.Renderer" title="Cogl.Renderer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer</span></code></a> associated with the given <cite>display</cite>.</p>
+<p>Queries the <a class="reference internal" href="Renderer.html#Cogl.Renderer" title="Cogl.Renderer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer</span></code></a> associated with the given <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -347,7 +333,7 @@ framebuffers then it can try to make sure to setup the display accordingly.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if there was no error, else it returns
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> and returns an exception via <cite>error</cite>.</td>
@@ -356,10 +342,10 @@ framebuffers then it can try to make sure to setup the display accordingly.</p>
 </tr>
 </tbody>
 </table>
-<p>Explicitly sets up the given <cite>display</cite> object. Use of this api is
+<p>Explicitly sets up the given <cite>self</cite> object. Use of this api is
 optional since Cogl will internally setup the display if not done
 explicitly.</p>
-<p>When a display is first allocated via <a class="reference internal" href="#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a> () it is in a
+<p>When a display is first allocated via <a class="reference internal" href="#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a>() it is in a
 mutable configuration mode. This allows us to extend the apis
 available for configuring a display without requiring huge numbers
 of constructor arguments.</p>
@@ -368,7 +354,7 @@ supportable on the current system and so this api provides a means
 to apply the configuration explicitly but if it fails then an
 exception will be returned so you can handle the error gracefully
 and perhaps fall back to an alternative configuration.</p>
-<p>If you instead rely on Cogl implicitly calling <a class="reference internal" href="#Cogl.Display.setup" title="Cogl.Display.setup"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.setup</span></code></a> ()
+<p>If you instead rely on Cogl implicitly calling <a class="reference internal" href="#Cogl.Display.setup" title="Cogl.Display.setup"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.setup</span></code></a>()
 for you then if there is an error with the configuration you won&#8217;t
 get an opportunity to handle that and the application may abort
 with a message.  For simple applications that don&#8217;t have any
@@ -394,7 +380,4 @@ fallback options this behaviour may be fine.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

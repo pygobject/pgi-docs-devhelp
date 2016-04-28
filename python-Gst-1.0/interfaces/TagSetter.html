@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gst.TocSetter" href="TocSetter.html"/>
         <link rel="prev" title="Gst.Preset" href="Preset.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -255,7 +253,7 @@ interface. Examples of such elements are &#8216;vorbisenc&#8217;, &#8216;theorae
 need to do is watch for tag messages on your pipeline&#8217;s bus. This
 interface is only for setting metadata, not for extracting it. To set tags
 from the application, find tagsetter elements and set tags using e.g.
-<a class="reference internal" href="#Gst.TagSetter.merge_tags" title="Gst.TagSetter.merge_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagSetter.merge_tags</span></code></a> () or <code class="xref py py-obj docutils literal"><span class="pre">Gst.TagSetter.add_tags</span></code> (). Also consider
+<a class="reference internal" href="#Gst.TagSetter.merge_tags" title="Gst.TagSetter.merge_tags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagSetter.merge_tags</span></code></a>() or gst_tag_setter_add_tags(). Also consider
 setting the <a class="reference internal" href="../enums.html#Gst.TagMergeMode" title="Gst.TagMergeMode"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagMergeMode</span></code></a> that is used for tag events that arrive at the
 tagsetter element (default mode is to keep existing tags).
 The application should do that before the element goes to <a class="reference internal" href="../enums.html#Gst.State.PAUSED" title="Gst.State.PAUSED"><code class="xref py py-obj docutils literal"><span class="pre">Gst.State.PAUSED</span></code></a>.</p>
@@ -285,7 +283,7 @@ the interface. This can be done like this:</p>
 </div>
 <dl class="method">
 <dt id="Gst.TagSetter.add_tag_value">
-<code class="descname">add_tag_value</code><span class="sig-paren">(</span><em>mode</em>, <em>tag</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.6.2#n315"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_tag_value</code><span class="sig-paren">(</span><em>mode</em>, <em>tag</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n315"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -304,7 +302,7 @@ the interface. This can be done like this:</p>
 
 <dl class="method">
 <dt id="Gst.TagSetter.get_tag_list">
-<code class="descname">get_tag_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.6.2#n347"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_tag_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n347"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -323,7 +321,7 @@ modified or freed.</p>
 
 <dl class="method">
 <dt id="Gst.TagSetter.get_tag_merge_mode">
-<code class="descname">get_tag_merge_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.6.2#n388"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_tag_merge_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n388"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -340,7 +338,7 @@ from events</p>
 
 <dl class="method">
 <dt id="Gst.TagSetter.merge_tags">
-<code class="descname">merge_tags</code><span class="sig-paren">(</span><em>list</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.6.2#n175"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">merge_tags</code><span class="sig-paren">(</span><em>list</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n175"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -358,14 +356,14 @@ from events</p>
 
 <dl class="method">
 <dt id="Gst.TagSetter.reset_tags">
-<code class="descname">reset_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.6.2#n149"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">reset_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n149"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Reset the internal taglist. Elements should call this from within the
 state-change handler.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.TagSetter.set_tag_merge_mode">
-<code class="descname">set_tag_merge_mode</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.6.2#n364"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_tag_merge_mode</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n364"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -395,7 +393,4 @@ the tags set with this interface and discards tags from events.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

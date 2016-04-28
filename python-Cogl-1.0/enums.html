@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -363,8 +361,8 @@ value greater than or equal to the value currently in the depth buffer.</p>
 <dl class="class">
 <dt id="Cogl.FilterReturn">
 <em class="property">class </em><code class="descclassname">Cogl.</code><code class="descname">FilterReturn</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Cogl-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>Return values for the <code class="xref py py-obj docutils literal"><span class="pre">Cogl.XlibFilterFunc</span></code> and #CoglWin32FilterFunc functions.</p>
+<dd><p>Bases: <a class="reference external" href="_docs/Cogl-1.0/../../../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
+<p>Return values for the #CoglXlibFilterFunc and #CoglWin32FilterFunc functions.</p>
 <dl class="attribute">
 <dt id="Cogl.FilterReturn.CONTINUE">
 <code class="descname">CONTINUE</code><em class="property"> = 0</em></dt>
@@ -605,19 +603,6 @@ merged in if the wrap mode is set to repeat.</p>
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
 <dl class="attribute">
-<dt id="Cogl.MaterialWrapMode.AUTOMATIC">
-<code class="descname">AUTOMATIC</code><em class="property"> = 519</em></dt>
-<dd><p>Cogl will try to automatically
-decide which of the above two to use. For <a class="reference internal" href="functions.html#Cogl.rectangle" title="Cogl.rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.rectangle</span></code></a> (), it
-will use repeat mode if any of the texture coordinates are
-outside the range 0→1, otherwise it will use clamp to edge. For
-<a class="reference internal" href="functions.html#Cogl.polygon" title="Cogl.polygon"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.polygon</span></code></a> () it will always use repeat mode. For
-<a class="reference internal" href="functions.html#Cogl.vertex_buffer_draw" title="Cogl.vertex_buffer_draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.vertex_buffer_draw</span></code></a> () it will use repeat mode except for
-layers that have point sprite coordinate generation enabled. This
-is the default value.</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="Cogl.MaterialWrapMode.REPEAT">
 <code class="descname">REPEAT</code><em class="property"> = 10497</em></dt>
 <dd><p>The texture will be repeated. This
@@ -631,6 +616,19 @@ is useful for example to draw a tiled background.</p>
 range 0→1 will sample copies of the edge pixels of the
 texture. This is useful to avoid artifacts if only one copy of
 the texture is being rendered.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.MaterialWrapMode.AUTOMATIC">
+<code class="descname">AUTOMATIC</code><em class="property"> = 519</em></dt>
+<dd><p>Cogl will try to automatically
+decide which of the above two to use. For <a class="reference internal" href="functions.html#Cogl.rectangle" title="Cogl.rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.rectangle</span></code></a>(), it
+will use repeat mode if any of the texture coordinates are
+outside the range 0→1, otherwise it will use clamp to edge. For
+<a class="reference internal" href="functions.html#Cogl.polygon" title="Cogl.polygon"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.polygon</span></code></a>() it will always use repeat mode. For
+<a class="reference internal" href="functions.html#Cogl.vertex_buffer_draw" title="Cogl.vertex_buffer_draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.vertex_buffer_draw</span></code></a>() it will use repeat mode except for
+layers that have point sprite coordinate generation enabled. This
+is the default value.</p>
 </dd></dl>
 
 </dd></dl>
@@ -662,98 +660,6 @@ internally and convert the texture data if necessary.</p>
 <dt id="Cogl.PixelFormat.ANY">
 <code class="descname">ANY</code><em class="property"> = 0</em></dt>
 <dd><p>Any format</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.RGB_888">
-<code class="descname">RGB_888</code><em class="property"> = 2</em></dt>
-<dd><p>RGB, 24 bits</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.RGB_565">
-<code class="descname">RGB_565</code><em class="property"> = 4</em></dt>
-<dd><p>RGB, 16 bits</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.YUV">
-<code class="descname">YUV</code><em class="property"> = 7</em></dt>
-<dd><p>Not currently supported</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.G_8">
-<code class="descname">G_8</code><em class="property"> = 8</em></dt>
-<dd><p>Single luminance component</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.RG_88">
-<code class="descname">RG_88</code><em class="property"> = 9</em></dt>
-<dd><p>RG, 16 bits. Note that red-green textures
-are only available if %COGL_FEATURE_ID_TEXTURE_RG is advertised.
-See <a class="reference internal" href="interfaces/Texture.html#Cogl.Texture.set_components" title="Cogl.Texture.set_components"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture.set_components</span></code></a> () for details.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.A_8">
-<code class="descname">A_8</code><em class="property"> = 17</em></dt>
-<dd><p>8 bits alpha mask</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.RGBA_8888">
-<code class="descname">RGBA_8888</code><em class="property"> = 19</em></dt>
-<dd><p>RGBA, 32 bits</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.RGBA_4444">
-<code class="descname">RGBA_4444</code><em class="property"> = 21</em></dt>
-<dd><p>RGBA, 16 bits</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.RGBA_5551">
-<code class="descname">RGBA_5551</code><em class="property"> = 22</em></dt>
-<dd><p>RGBA, 16 bits</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.RGBA_1010102">
-<code class="descname">RGBA_1010102</code><em class="property"> = 29</em></dt>
-<dd><p>RGBA, 32 bits, 10 bpc</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.BGR_888">
-<code class="descname">BGR_888</code><em class="property"> = 34</em></dt>
-<dd><p>BGR, 24 bits</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.BGRA_8888">
-<code class="descname">BGRA_8888</code><em class="property"> = 51</em></dt>
-<dd><p>BGRA, 32 bits</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.BGRA_1010102">
-<code class="descname">BGRA_1010102</code><em class="property"> = 61</em></dt>
-<dd><p>BGRA, 32 bits, 10 bpc</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.ARGB_8888">
-<code class="descname">ARGB_8888</code><em class="property"> = 83</em></dt>
-<dd><p>ARGB, 32 bits</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.PixelFormat.ARGB_2101010">
-<code class="descname">ARGB_2101010</code><em class="property"> = 93</em></dt>
-<dd><p>ARGB, 32 bits, 10 bpc</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -793,6 +699,12 @@ See <a class="reference internal" href="interfaces/Texture.html#Cogl.Texture.set
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Cogl.PixelFormat.A_8">
+<code class="descname">A_8</code><em class="property"> = 17</em></dt>
+<dd><p>8 bits alpha mask</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Cogl.PixelFormat.BGRA_8888_PRE">
 <code class="descname">BGRA_8888_PRE</code><em class="property"> = 179</em></dt>
 <dd><p>Premultiplied BGRA, 32 bits</p>
@@ -805,9 +717,33 @@ See <a class="reference internal" href="interfaces/Texture.html#Cogl.Texture.set
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Cogl.PixelFormat.RGBA_8888">
+<code class="descname">RGBA_8888</code><em class="property"> = 19</em></dt>
+<dd><p>RGBA, 32 bits</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.RGB_888">
+<code class="descname">RGB_888</code><em class="property"> = 2</em></dt>
+<dd><p>RGB, 24 bits</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.RGBA_4444">
+<code class="descname">RGBA_4444</code><em class="property"> = 21</em></dt>
+<dd><p>RGBA, 16 bits</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Cogl.PixelFormat.ARGB_8888_PRE">
 <code class="descname">ARGB_8888_PRE</code><em class="property"> = 211</em></dt>
 <dd><p>Premultiplied ARGB, 32 bits</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.RGBA_5551">
+<code class="descname">RGBA_5551</code><em class="property"> = 22</em></dt>
+<dd><p>RGBA, 16 bits</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -839,9 +775,71 @@ See <a class="reference internal" href="interfaces/Texture.html#Cogl.Texture.set
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Cogl.PixelFormat.RGBA_1010102">
+<code class="descname">RGBA_1010102</code><em class="property"> = 29</em></dt>
+<dd><p>RGBA, 32 bits, 10 bpc</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.BGR_888">
+<code class="descname">BGR_888</code><em class="property"> = 34</em></dt>
+<dd><p>BGR, 24 bits</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.RGB_565">
+<code class="descname">RGB_565</code><em class="property"> = 4</em></dt>
+<dd><p>RGB, 16 bits</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.BGRA_8888">
+<code class="descname">BGRA_8888</code><em class="property"> = 51</em></dt>
+<dd><p>BGRA, 32 bits</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.BGRA_1010102">
+<code class="descname">BGRA_1010102</code><em class="property"> = 61</em></dt>
+<dd><p>BGRA, 32 bits, 10 bpc</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.YUV">
+<code class="descname">YUV</code><em class="property"> = 7</em></dt>
+<dd><p>Not currently supported</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Cogl.PixelFormat.DEPTH_24_STENCIL_8">
 <code class="descname">DEPTH_24_STENCIL_8</code><em class="property"> = 771</em></dt>
 <dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.G_8">
+<code class="descname">G_8</code><em class="property"> = 8</em></dt>
+<dd><p>Single luminance component</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.ARGB_8888">
+<code class="descname">ARGB_8888</code><em class="property"> = 83</em></dt>
+<dd><p>ARGB, 32 bits</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.RG_88">
+<code class="descname">RG_88</code><em class="property"> = 9</em></dt>
+<dd><p>RG, 16 bits. Note that red-green textures
+are only available if %COGL_FEATURE_ID_TEXTURE_RG is advertised.
+See <a class="reference internal" href="interfaces/Texture.html#Cogl.Texture.set_components" title="Cogl.Texture.set_components"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture.set_components</span></code></a>() for details.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.PixelFormat.ARGB_2101010">
+<code class="descname">ARGB_2101010</code><em class="property"> = 93</em></dt>
+<dd><p>ARGB, 32 bits, 10 bpc</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -925,7 +923,8 @@ a 2d texture with a non-power-of-two size when
 requested. An example might be if you try to use too many texture
 layers in a single #CoglPipeline</li>
 <li>The driver does not support some
-configuration.</li>
+configuration.
+&lt;/listiem&gt;</li>
 </ul>
 <p>Currently this is only used by Cogl API marked as experimental so
 this enum should also be considered experimental.</p>
@@ -952,7 +951,7 @@ such as a texture and there wasn&#8217;t enough memory.</p>
 <dt id="Cogl.TextureComponents">
 <em class="property">class </em><code class="descclassname">Cogl.</code><code class="descname">TextureComponents</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Cogl-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See <a class="reference internal" href="interfaces/Texture.html#Cogl.Texture.set_components" title="Cogl.Texture.set_components"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture.set_components</span></code></a> ().</p>
+<p>See <a class="reference internal" href="interfaces/Texture.html#Cogl.Texture.set_components" title="Cogl.Texture.set_components"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture.set_components</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.18.</span></p>
 </div>
@@ -1047,14 +1046,19 @@ unsupported by the driver was used</p>
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
 <dl class="attribute">
+<dt id="Cogl.TextureType.2D">
+<code class="descname">2D</code><em class="property"> = 0</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Cogl.TextureType._2D">
 <code class="descname">_2D</code><em class="property"> = 0</em></dt>
 <dd><p>A #CoglTexture2D</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Cogl.TextureType.2D">
-<code class="descname">2D</code><em class="property"> = 0</em></dt>
+<dt id="Cogl.TextureType.3D">
+<code class="descname">3D</code><em class="property"> = 1</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1062,11 +1066,6 @@ unsupported by the driver was used</p>
 <code class="descname">_3D</code><em class="property"> = 1</em></dt>
 <dd><p>A #CoglTexture3D</p>
 </dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.TextureType.3D">
-<code class="descname">3D</code><em class="property"> = 1</em></dt>
-<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="Cogl.TextureType.RECTANGLE">
@@ -1169,6 +1168,16 @@ cogl_pipeline_set_front_face_winding().</p>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Cogl.WinsysFeature.SYNC_AND_COMPLETE_EVENT">
+<code class="descname">SYNC_AND_COMPLETE_EVENT</code><em class="property"> = 10</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Cogl.WinsysFeature.N_FEATURES">
+<code class="descname">N_FEATURES</code><em class="property"> = 11</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Cogl.WinsysFeature.VBLANK_COUNTER">
 <code class="descname">VBLANK_COUNTER</code><em class="property"> = 2</em></dt>
 <dd></dd></dl>
@@ -1208,16 +1217,6 @@ cogl_pipeline_set_front_face_winding().</p>
 <code class="descname">BUFFER_AGE</code><em class="property"> = 9</em></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="Cogl.WinsysFeature.SYNC_AND_COMPLETE_EVENT">
-<code class="descname">SYNC_AND_COMPLETE_EVENT</code><em class="property"> = 10</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Cogl.WinsysFeature.N_FEATURES">
-<code class="descname">N_FEATURES</code><em class="property"> = 11</em></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </div>
@@ -1234,7 +1233,4 @@ cogl_pipeline_set_front_face_winding().</p>
   </div> 
 
 </body>
-
-  
-
 </html>

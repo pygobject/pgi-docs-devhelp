@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstBase 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GstBase.DataQueue" href="DataQueue.html"/>
         <link rel="prev" title="GstBase.BaseTransform" href="BaseTransform.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -401,36 +399,36 @@
 <p>Manages a set of pads that operate in collect mode. This means that control
 is given to the manager of this object when all pads have data.</p>
 <ul class="simple">
-<li>Collectpads are created with <a class="reference internal" href="#GstBase.CollectPads.new" title="GstBase.CollectPads.new"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.new</span></code></a> (). A callback should then
+<li>Collectpads are created with <a class="reference internal" href="#GstBase.CollectPads.new" title="GstBase.CollectPads.new"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.new</span></code></a>(). A callback should then
 be installed with <a class="reference internal" href="#GstBase.CollectPads.set_function" title="GstBase.CollectPads.set_function"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.set_function</span></code></a> ().</li>
-<li>Pads are added to the collection with <a class="reference internal" href="#GstBase.CollectPads.add_pad" title="GstBase.CollectPads.add_pad"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.add_pad</span></code></a> ()/
-<a class="reference internal" href="#GstBase.CollectPads.remove_pad" title="GstBase.CollectPads.remove_pad"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.remove_pad</span></code></a> (). The pad
+<li>Pads are added to the collection with <a class="reference internal" href="#GstBase.CollectPads.add_pad" title="GstBase.CollectPads.add_pad"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.add_pad</span></code></a>()/
+<a class="reference internal" href="#GstBase.CollectPads.remove_pad" title="GstBase.CollectPads.remove_pad"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.remove_pad</span></code></a>(). The pad
 has to be a sinkpad. The chain and event functions of the pad are
 overridden. The element_private of the pad is used to store
 private information for the collectpads.</li>
 <li>For each pad, data is queued in the _chain function or by
 performing a pull_range.</li>
 <li>When data is queued on all pads in waiting mode, the callback function is called.</li>
-<li>Data can be dequeued from the pad with the <a class="reference internal" href="#GstBase.CollectPads.pop" title="GstBase.CollectPads.pop"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.pop</span></code></a> () method.
-One can peek at the data with the <a class="reference internal" href="#GstBase.CollectPads.peek" title="GstBase.CollectPads.peek"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.peek</span></code></a> () function.
+<li>Data can be dequeued from the pad with the <a class="reference internal" href="#GstBase.CollectPads.pop" title="GstBase.CollectPads.pop"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.pop</span></code></a>() method.
+One can peek at the data with the <a class="reference internal" href="#GstBase.CollectPads.peek" title="GstBase.CollectPads.peek"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.peek</span></code></a>() function.
 These functions will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if the pad received an EOS event. When all
-pads return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> from a <a class="reference internal" href="#GstBase.CollectPads.peek" title="GstBase.CollectPads.peek"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.peek</span></code></a> (), the element can emit an EOS
+pads return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> from a <a class="reference internal" href="#GstBase.CollectPads.peek" title="GstBase.CollectPads.peek"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.peek</span></code></a>(), the element can emit an EOS
 event itself.</li>
-<li>Data can also be dequeued in byte units using the <a class="reference internal" href="#GstBase.CollectPads.available" title="GstBase.CollectPads.available"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.available</span></code></a> (),
-<a class="reference internal" href="#GstBase.CollectPads.read_buffer" title="GstBase.CollectPads.read_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.read_buffer</span></code></a> () and <a class="reference internal" href="#GstBase.CollectPads.flush" title="GstBase.CollectPads.flush"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.flush</span></code></a> () calls.</li>
-<li>Elements should call <a class="reference internal" href="#GstBase.CollectPads.start" title="GstBase.CollectPads.start"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.start</span></code></a> () and <a class="reference internal" href="#GstBase.CollectPads.stop" title="GstBase.CollectPads.stop"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.stop</span></code></a> () in
+<li>Data can also be dequeued in byte units using the <a class="reference internal" href="#GstBase.CollectPads.available" title="GstBase.CollectPads.available"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.available</span></code></a>(),
+<a class="reference internal" href="#GstBase.CollectPads.read_buffer" title="GstBase.CollectPads.read_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.read_buffer</span></code></a>() and <a class="reference internal" href="#GstBase.CollectPads.flush" title="GstBase.CollectPads.flush"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.flush</span></code></a>() calls.</li>
+<li>Elements should call <a class="reference internal" href="#GstBase.CollectPads.start" title="GstBase.CollectPads.start"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.start</span></code></a>() and <a class="reference internal" href="#GstBase.CollectPads.stop" title="GstBase.CollectPads.stop"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.stop</span></code></a>() in
 their state change functions to start and stop the processing of the collectpads.
-The <a class="reference internal" href="#GstBase.CollectPads.stop" title="GstBase.CollectPads.stop"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.stop</span></code></a> () call should be called before calling the parent
+The <a class="reference internal" href="#GstBase.CollectPads.stop" title="GstBase.CollectPads.stop"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.stop</span></code></a>() call should be called before calling the parent
 element state change function in the PAUSED_TO_READY state change to ensure
 no pad is blocked and the element can finish streaming.</li>
-<li><a class="reference internal" href="#GstBase.CollectPads.set_waiting" title="GstBase.CollectPads.set_waiting"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.set_waiting</span></code></a> () sets a pad to waiting or non-waiting mode.
+<li><a class="reference internal" href="#GstBase.CollectPads.set_waiting" title="GstBase.CollectPads.set_waiting"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.set_waiting</span></code></a>() sets a pad to waiting or non-waiting mode.
 CollectPads element is not waiting for data to be collected on non-waiting pads.
 Thus these pads may but need not have data when the callback is called.
 All pads are in waiting mode by default.</li>
 </ul>
 <dl class="staticmethod">
 <dt id="GstBase.CollectPads.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n302"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n302"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -447,7 +445,7 @@ All pads are in waiting mode by default.</li>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.add_pad">
-<code class="descname">add_pad</code><span class="sig-paren">(</span><em>pad</em>, <em>size</em>, <em>destroy_notify</em>, <em>lock</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n645"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_pad</code><span class="sig-paren">(</span><em>pad</em>, <em>size</em>, <em>destroy_notify</em>, <em>lock</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n644"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -472,7 +470,7 @@ new pad. Or <a class="reference external" href="http://docs.python.org/2.7/libra
 </table>
 <p>Add a pad to the collection of collect pads. The pad has to be
 a sinkpad. The refcount of the pad is incremented. Use
-<a class="reference internal" href="#GstBase.CollectPads.remove_pad" title="GstBase.CollectPads.remove_pad"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.remove_pad</span></code></a> () to remove the pad from the collection
+<a class="reference internal" href="#GstBase.CollectPads.remove_pad" title="GstBase.CollectPads.remove_pad"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.remove_pad</span></code></a>() to remove the pad from the collection
 again.</p>
 <p>You specify a size for the returned <a class="reference internal" href="../structs/CollectData.html#GstBase.CollectData" title="GstBase.CollectData"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectData</span></code></a> structure
 so that you can use it to store additional information.</p>
@@ -487,14 +485,14 @@ to take place.  This is of typical use to a muxer element where
 non-subtitle streams should always be in waiting state,
 e.g. to assure that caps information is available on all these streams
 when initial headers have to be written.</p>
-<p>The pad will be automatically activated in push mode when <cite>pads</cite> is
+<p>The pad will be automatically activated in push mode when <cite>self</cite> is
 started.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.available">
-<code class="descname">available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n1047"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n1046"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -509,14 +507,14 @@ returns 0 if a pad has no queued buffer.</td>
 <p>Query how much bytes can be read from each queued buffer. This means
 that the result of this call is the maximum number of bytes that can
 be read from each of the pads.</p>
-<p>This function should be called with <cite>pads</cite> STREAM_LOCK held, such as
+<p>This function should be called with <cite>self</cite> STREAM_LOCK held, such as
 in the callback.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.clip_running_time">
-<code class="descname">clip_running_time</code><span class="sig-paren">(</span><em>cdata</em>, <em>buf</em>, <em>outbuf</em>, <em>user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n506"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">clip_running_time</code><span class="sig-paren">(</span><em>cdata</em>, <em>buf</em>, <em>outbuf</em>, <em>user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n506"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -525,7 +523,7 @@ in the callback.</p>
 <li><strong>cdata</strong> (<a class="reference internal" href="../structs/CollectData.html#GstBase.CollectData" title="GstBase.CollectData"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectData</span></code></a>) &#8211; collect data of corresponding pad</li>
 <li><strong>buf</strong> (<a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>) &#8211; buffer being clipped</li>
 <li><strong>outbuf</strong> (<a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; output buffer with running time, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if clipped</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data (unused)</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data (unused)</li>
 </ul>
 </td>
 </tr>
@@ -538,12 +536,12 @@ in the callback.</p>
 to running time, or clips the buffer if outside configured segment.</p>
 <p>Since 1.6, this clipping function also sets the DTS parameter of the
 <a class="reference internal" href="../structs/CollectData.html#GstBase.CollectData" title="GstBase.CollectData"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectData</span></code></a> structure. This version of the running time DTS can be
-negative. <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GLib-2.0/constants.html#GLib.MININT64" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MININT64</span></code></a> is used to indicate invalid value.</p>
+negative. <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GObject-2.0/constants.html#GObject.G_MININT64" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.G_MININT64</span></code></a> is used to indicate invalid value.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.event_default">
-<code class="descname">event_default</code><span class="sig-paren">(</span><em>data</em>, <em>event</em>, <em>discard</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n1678"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">event_default</code><span class="sig-paren">(</span><em>data</em>, <em>event</em>, <em>discard</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n1674"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -567,7 +565,7 @@ event should not be forwarded downstream.</p>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.flush">
-<code class="descname">flush</code><span class="sig-paren">(</span><em>data</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n1114"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">flush</code><span class="sig-paren">(</span><em>data</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n1113"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -588,14 +586,14 @@ is 0 if the pad was end-of-stream.</p>
 </tbody>
 </table>
 <p>Flush <cite>size</cite> bytes from the pad <cite>data</cite>.</p>
-<p>This function should be called with <cite>pads</cite> STREAM_LOCK held, such as
+<p>This function should be called with <cite>self</cite> STREAM_LOCK held, such as
 in the callback.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.peek">
-<code class="descname">peek</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n963"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">peek</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n962"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -610,14 +608,14 @@ should unref the buffer after usage.</td>
 </tbody>
 </table>
 <p>Peek at the buffer currently queued in <cite>data</cite>. This function
-should be called with the <cite>pads</cite> STREAM_LOCK held, such as in the callback
+should be called with the <cite>self</cite> STREAM_LOCK held, such as in the callback
 handler.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.pop">
-<code class="descname">pop</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n995"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">pop</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n994"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -632,14 +630,14 @@ queued. You should unref the buffer after usage.</td>
 </tbody>
 </table>
 <p>Pop the buffer currently queued in <cite>data</cite>. This function
-should be called with the <cite>pads</cite> STREAM_LOCK held, such as in the callback
+should be called with the <cite>self</cite> STREAM_LOCK held, such as in the callback
 handler.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.query_default">
-<code class="descname">query_default</code><span class="sig-paren">(</span><em>data</em>, <em>query</em>, <em>discard</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n2049"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">query_default</code><span class="sig-paren">(</span><em>data</em>, <em>query</em>, <em>discard</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n2045"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -663,7 +661,7 @@ query should not be forwarded downstream.</p>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.read_buffer">
-<code class="descname">read_buffer</code><span class="sig-paren">(</span><em>data</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n1165"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">read_buffer</code><span class="sig-paren">(</span><em>data</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n1164"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -685,14 +683,14 @@ Unref the buffer after use.</p>
 </tbody>
 </table>
 <p>Get a subbuffer of <cite>size</cite> bytes from the given pad <cite>data</cite>.</p>
-<p>This function should be called with <cite>pads</cite> STREAM_LOCK held, such as in the
+<p>This function should be called with <cite>self</cite> STREAM_LOCK held, such as in the
 callback.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.remove_pad">
-<code class="descname">remove_pad</code><span class="sig-paren">(</span><em>pad</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n716"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_pad</code><span class="sig-paren">(</span><em>pad</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n715"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -707,21 +705,21 @@ callback.</p>
 </table>
 <p>Remove a pad from the collection of collect pads. This function will also
 free the <a class="reference internal" href="../structs/CollectData.html#GstBase.CollectData" title="GstBase.CollectData"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectData</span></code></a> and all the resources that were allocated with
-<a class="reference internal" href="#GstBase.CollectPads.add_pad" title="GstBase.CollectPads.add_pad"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.add_pad</span></code></a> ().</p>
-<p>The pad will be deactivated automatically when <cite>pads</cite> is stopped.</p>
+<a class="reference internal" href="#GstBase.CollectPads.add_pad" title="GstBase.CollectPads.add_pad"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.add_pad</span></code></a>().</p>
+<p>The pad will be deactivated automatically when <cite>self</cite> is stopped.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.set_buffer_function">
-<code class="descname">set_buffer_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n336"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_buffer_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n336"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#GstBase.CollectPadsBufferFunction" title="GstBase.CollectPadsBufferFunction"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPadsBufferFunction</span></code></a>) &#8211; the function to set</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to the function</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to the function</li>
 </ul>
 </td>
 </tr>
@@ -736,33 +734,33 @@ it.</p>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.set_clip_function">
-<code class="descname">set_clip_function</code><span class="sig-paren">(</span><em>clipfunc</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n571"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_clip_function</code><span class="sig-paren">(</span><em>clipfunc</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n570"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>clipfunc</strong> (<a class="reference internal" href="../callbacks.html#GstBase.CollectPadsClipFunction" title="GstBase.CollectPadsClipFunction"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPadsClipFunction</span></code></a>) &#8211; clip function to install</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data to pass to <cite>clip_func</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data to pass to <cite>clip_func</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Install a clipping function that is called right after a buffer is received
-on a pad managed by <cite>pads</cite>. See <a class="reference internal" href="../callbacks.html#GstBase.CollectPadsClipFunction" title="GstBase.CollectPadsClipFunction"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPadsClipFunction</span></code></a> for more info.</p>
+on a pad managed by <cite>self</cite>. See <a class="reference internal" href="../callbacks.html#GstBase.CollectPadsClipFunction" title="GstBase.CollectPadsClipFunction"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPadsClipFunction</span></code></a> for more info.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.set_compare_function">
-<code class="descname">set_compare_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n362"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_compare_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n362"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#GstBase.CollectPadsCompareFunction" title="GstBase.CollectPadsCompareFunction"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPadsCompareFunction</span></code></a>) &#8211; the function to set</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to the function</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to the function</li>
 </ul>
 </td>
 </tr>
@@ -774,14 +772,14 @@ on a pad managed by <cite>pads</cite>. See <a class="reference internal" href=".
 
 <dl class="method">
 <dt id="GstBase.CollectPads.set_event_function">
-<code class="descname">set_event_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n450"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_event_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n450"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#GstBase.CollectPadsEventFunction" title="GstBase.CollectPadsEventFunction"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPadsEventFunction</span></code></a>) &#8211; the function to set</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to the function</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to the function</li>
 </ul>
 </td>
 </tr>
@@ -790,7 +788,7 @@ on a pad managed by <cite>pads</cite>. See <a class="reference internal" href=".
 <p>Set the event callback function and user data that will be called when
 collectpads has received an event originating from one of the collected
 pads.  If the event being processed is a serialized one, this callback is
-called with <cite>pads</cite> STREAM_LOCK held, otherwise not.  As this lock should be
+called with <cite>self</cite> STREAM_LOCK held, otherwise not.  As this lock should be
 held when calling a number of CollectPads functions, it should be acquired
 if so (unusually) needed.</p>
 <p>MT safe.</p>
@@ -798,14 +796,14 @@ if so (unusually) needed.</p>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.set_flush_function">
-<code class="descname">set_flush_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n594"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_flush_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n593"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#GstBase.CollectPadsFlushFunction" title="GstBase.CollectPadsFlushFunction"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPadsFlushFunction</span></code></a>) &#8211; flush function to install</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data to pass to <cite>func</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data to pass to <cite>func</cite></li>
 </ul>
 </td>
 </tr>
@@ -821,7 +819,7 @@ handling. See <a class="reference internal" href="../callbacks.html#GstBase.Coll
 
 <dl class="method">
 <dt id="GstBase.CollectPads.set_flushing">
-<code class="descname">set_flushing</code><span class="sig-paren">(</span><em>flushing</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n834"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_flushing</code><span class="sig-paren">(</span><em>flushing</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n833"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -832,7 +830,7 @@ handling. See <a class="reference internal" href="../callbacks.html#GstBase.Coll
 </table>
 <p>Change the flushing state of all the pads in the collection. No pad
 is able to accept anymore data when <cite>flushing</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>. Calling this
-function with <cite>flushing</cite> <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> makes <cite>pads</cite> accept data again.
+function with <cite>flushing</cite> <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> makes <cite>self</cite> accept data again.
 Caller must ensure that downstream streaming (thread) is not blocked,
 e.g. by sending a FLUSH_START downstream.</p>
 <p>MT safe.</p>
@@ -840,14 +838,14 @@ e.g. by sending a FLUSH_START downstream.</p>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.set_function">
-<code class="descname">set_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n393"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n393"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#GstBase.CollectPadsFunction" title="GstBase.CollectPadsFunction"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPadsFunction</span></code></a>) &#8211; the function to set</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to the function</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to the function</li>
 </ul>
 </td>
 </tr>
@@ -860,21 +858,21 @@ However, if circumstances are more complicated and/or more control
 is desired, this sets a callback that will be invoked instead when
 all the pads added to the collection have buffers queued.
 Evidently, this callback is not compatible with
-<a class="reference internal" href="#GstBase.CollectPads.set_buffer_function" title="GstBase.CollectPads.set_buffer_function"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.set_buffer_function</span></code></a> () callback.
+<a class="reference internal" href="#GstBase.CollectPads.set_buffer_function" title="GstBase.CollectPads.set_buffer_function"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPads.set_buffer_function</span></code></a>() callback.
 If this callback is set, the former will be unset.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.set_query_function">
-<code class="descname">set_query_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n478"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_query_function</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n478"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#GstBase.CollectPadsQueryFunction" title="GstBase.CollectPadsQueryFunction"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.CollectPadsQueryFunction</span></code></a>) &#8211; the function to set</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to the function</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to the function</li>
 </ul>
 </td>
 </tr>
@@ -883,7 +881,7 @@ If this callback is set, the former will be unset.</p>
 <p>Set the query callback function and user data that will be called after
 collectpads has received a query originating from one of the collected
 pads.  If the query being processed is a serialized one, this callback is
-called with <cite>pads</cite> STREAM_LOCK held, otherwise not.  As this lock should be
+called with <cite>self</cite> STREAM_LOCK held, otherwise not.  As this lock should be
 held when calling a number of CollectPads functions, it should be acquired
 if so (unusually) needed.</p>
 <p>MT safe.</p>
@@ -891,7 +889,7 @@ if so (unusually) needed.</p>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.set_waiting">
-<code class="descname">set_waiting</code><span class="sig-paren">(</span><em>data</em>, <em>waiting</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n1230"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_waiting</code><span class="sig-paren">(</span><em>data</em>, <em>waiting</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n1229"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -908,14 +906,14 @@ in waiting or non-waiting mode</li>
 <p>Sets a pad to waiting or non-waiting mode, if at least this pad
 has not been created with locked waiting state,
 in which case nothing happens.</p>
-<p>This function should be called with <cite>pads</cite> STREAM_LOCK held, such as
+<p>This function should be called with <cite>self</cite> STREAM_LOCK held, such as
 in the callback.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.src_event_default">
-<code class="descname">src_event_default</code><span class="sig-paren">(</span><em>pad</em>, <em>event</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n1934"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">src_event_default</code><span class="sig-paren">(</span><em>pad</em>, <em>event</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n1930"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -941,14 +939,14 @@ be done by <a class="reference internal" href="#GstBase.CollectPads" title="GstB
 
 <dl class="method">
 <dt id="GstBase.CollectPads.start">
-<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n858"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n857"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Starts the processing of data in the collect_pads.</p>
 <p>MT safe.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.stop">
-<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n900"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n899"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Stops the processing of data in the collect_pads. this function
 will also unblock any blocking operations.</p>
 <p>MT safe.</p>
@@ -956,7 +954,7 @@ will also unblock any blocking operations.</p>
 
 <dl class="method">
 <dt id="GstBase.CollectPads.take_buffer">
-<code class="descname">take_buffer</code><span class="sig-paren">(</span><em>data</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.6.2#n1201"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">take_buffer</code><span class="sig-paren">(</span><em>data</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstcollectpads.c?h=1.8.1#n1200"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -979,7 +977,7 @@ Unref the buffer after use.</p>
 </table>
 <p>Get a subbuffer of <cite>size</cite> bytes from the given pad <cite>data</cite>. Flushes the amount
 of read bytes.</p>
-<p>This function should be called with <cite>pads</cite> STREAM_LOCK held, such as in the
+<p>This function should be called with <cite>self</cite> STREAM_LOCK held, such as in the
 callback.</p>
 <p>MT safe.</p>
 </dd></dl>
@@ -1000,7 +998,4 @@ callback.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

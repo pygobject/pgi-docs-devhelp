@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.Data" href="Data.html"/>
         <link rel="prev" title="GLib.Checksum" href="Checksum.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -258,30 +256,30 @@ pop_data() and waiting. Specifically, another thread could set
 waiting on it) before the first thread goes to sleep. <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> is
 specifically useful for its ability to release the mutex and go
 to sleep atomically.</p>
-<p>It is also important to use the <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a> () and <a class="reference internal" href="#GLib.Cond.wait_until" title="GLib.Cond.wait_until"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait_until</span></code></a> ()
+<p>It is also important to use the <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a>() and <a class="reference internal" href="#GLib.Cond.wait_until" title="GLib.Cond.wait_until"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait_until</span></code></a>()
 functions only inside a loop which checks for the condition to be
-true.  See <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a> () for an explanation of why the condition may
+true.  See <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a>() for an explanation of why the condition may
 not be true even after it returns.</p>
 <p>If a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> is allocated in static storage then it can be used
-without initialisation.  Otherwise, you should call <a class="reference internal" href="#GLib.Cond.init" title="GLib.Cond.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.init</span></code></a> ()
-on it and <a class="reference internal" href="#GLib.Cond.clear" title="GLib.Cond.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.clear</span></code></a> () when done.</p>
+without initialisation.  Otherwise, you should call <a class="reference internal" href="#GLib.Cond.init" title="GLib.Cond.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.init</span></code></a>()
+on it and <a class="reference internal" href="#GLib.Cond.clear" title="GLib.Cond.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.clear</span></code></a>() when done.</p>
 <p>A <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> should only be accessed via the g_cond_ functions.</p>
 <dl class="method">
 <dt id="GLib.Cond.broadcast">
-<code class="descname">broadcast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.46.2#n1411"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>If threads are waiting for <cite>cond</cite>, all of them are unblocked.
-If no threads are waiting for <cite>cond</cite>, this function has no effect.
+<code class="descname">broadcast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1411"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>If threads are waiting for <cite>self</cite>, all of them are unblocked.
+If no threads are waiting for <cite>self</cite>, this function has no effect.
 It is good practice to lock the same mutex as the waiting threads
 while calling this function, though not required.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.Cond.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.46.2#n1386"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Frees the resources allocated to a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> with <a class="reference internal" href="#GLib.Cond.init" title="GLib.Cond.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.init</span></code></a> ().</p>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1386"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Frees the resources allocated to a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> with <a class="reference internal" href="#GLib.Cond.init" title="GLib.Cond.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.init</span></code></a>().</p>
 <p>This function should not be used with a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> that has been
 statically allocated.</p>
-<p>Calling <a class="reference internal" href="#GLib.Cond.clear" title="GLib.Cond.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.clear</span></code></a> () for a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> on which threads are
+<p>Calling <a class="reference internal" href="#GLib.Cond.clear" title="GLib.Cond.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.clear</span></code></a>() for a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> on which threads are
 blocking leads to undefined behaviour.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
@@ -290,14 +288,14 @@ blocking leads to undefined behaviour.</p>
 
 <dl class="method">
 <dt id="GLib.Cond.init">
-<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.46.2#n1381"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1381"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Initialises a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> so that it can be used.</p>
 <p>This function is useful to initialise a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> that has been
 allocated as part of a larger structure.  It is not necessary to
 initialise a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> that has been statically allocated.</p>
-<p>To undo the effect of <a class="reference internal" href="#GLib.Cond.init" title="GLib.Cond.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.init</span></code></a> () when a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> is no longer
-needed, use <a class="reference internal" href="#GLib.Cond.clear" title="GLib.Cond.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.clear</span></code></a> ().</p>
-<p>Calling <a class="reference internal" href="#GLib.Cond.init" title="GLib.Cond.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.init</span></code></a> () on an already-initialised <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> leads
+<p>To undo the effect of <a class="reference internal" href="#GLib.Cond.init" title="GLib.Cond.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.init</span></code></a>() when a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> is no longer
+needed, use <a class="reference internal" href="#GLib.Cond.clear" title="GLib.Cond.clear"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.clear</span></code></a>().</p>
+<p>Calling <a class="reference internal" href="#GLib.Cond.init" title="GLib.Cond.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.init</span></code></a>() on an already-initialised <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> leads
 to undefined behaviour.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
@@ -306,16 +304,16 @@ to undefined behaviour.</p>
 
 <dl class="method">
 <dt id="GLib.Cond.signal">
-<code class="descname">signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.46.2#n1403"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>If threads are waiting for <cite>cond</cite>, at least one of them is unblocked.
-If no threads are waiting for <cite>cond</cite>, this function has no effect.
+<code class="descname">signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1403"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>If threads are waiting for <cite>self</cite>, at least one of them is unblocked.
+If no threads are waiting for <cite>self</cite>, this function has no effect.
 It is good practice to hold the same lock as the waiting thread
 while calling this function, though not required.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.Cond.wait">
-<code class="descname">wait</code><span class="sig-paren">(</span><em>mutex</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.46.2#n1392"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait</code><span class="sig-paren">(</span><em>mutex</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1392"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -324,23 +322,23 @@ while calling this function, though not required.</p>
 </tr>
 </tbody>
 </table>
-<p>Atomically releases <cite>mutex</cite> and waits until <cite>cond</cite> is signalled.
+<p>Atomically releases <cite>mutex</cite> and waits until <cite>self</cite> is signalled.
 When this function returns, <cite>mutex</cite> is locked again and owned by the
 calling thread.</p>
 <p>When using condition variables, it is possible that a spurious wakeup
-may occur (ie: <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a> () returns even though <a class="reference internal" href="#GLib.Cond.signal" title="GLib.Cond.signal"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.signal</span></code></a> () was
+may occur (ie: <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a>() returns even though <a class="reference internal" href="#GLib.Cond.signal" title="GLib.Cond.signal"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.signal</span></code></a>() was
 not called).  It&#8217;s also possible that a stolen wakeup may occur.
-This is when <a class="reference internal" href="#GLib.Cond.signal" title="GLib.Cond.signal"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.signal</span></code></a> () is called, but another thread acquires
+This is when <a class="reference internal" href="#GLib.Cond.signal" title="GLib.Cond.signal"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.signal</span></code></a>() is called, but another thread acquires
 <cite>mutex</cite> before this thread and modifies the state of the program in
-such a way that when <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a> () is able to return, the expected
+such a way that when <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a>() is able to return, the expected
 condition is no longer met.</p>
-<p>For this reason, <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a> () must always be used in a loop.  See
+<p>For this reason, <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a>() must always be used in a loop.  See
 the documentation for <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> for a complete example.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.Cond.wait_until">
-<code class="descname">wait_until</code><span class="sig-paren">(</span><em>mutex</em>, <em>end_time</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.46.2#n1420"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_until</code><span class="sig-paren">(</span><em>mutex</em>, <em>end_time</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1420"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -359,8 +357,8 @@ the documentation for <a class="reference internal" href="#GLib.Cond" title="GLi
 </tr>
 </tbody>
 </table>
-<p>Waits until either <cite>cond</cite> is signalled or <cite>end_time</cite> has passed.</p>
-<p>As with <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a> () it is possible that a spurious or stolen wakeup
+<p>Waits until either <cite>self</cite> is signalled or <cite>end_time</cite> has passed.</p>
+<p>As with <a class="reference internal" href="#GLib.Cond.wait" title="GLib.Cond.wait"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.wait</span></code></a>() it is possible that a spurious or stolen wakeup
 could occur.  For that reason, waiting on a condition variable should
 always be in a loop, based on an explicitly-checked predicate.</p>
 <p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> is returned if the condition variable was signalled (or in the
@@ -368,7 +366,7 @@ case of a spurious wakeup).  <a class="reference external" href="http://docs.pyt
 passed.</p>
 <p>The following code shows how to correctly perform a timed wait on a
 condition variable (extending the example presented in the
-documentation for <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> ):</p>
+documentation for <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a>):</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="n">gpointer</span>
 <span class="nf">pop_data_timed</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -423,7 +421,4 @@ time of more than 5 seconds).</p>
   </div> 
 
 </body>
-
-  
-
 </html>

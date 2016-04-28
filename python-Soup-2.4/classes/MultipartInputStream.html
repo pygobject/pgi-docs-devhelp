@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Soup 2.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Soup.ProxyResolverDefault" href="ProxyResolverDefault.html"/>
         <link rel="prev" title="Soup.Message" href="Message.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -405,7 +403,7 @@
 <p>Creates a new <a class="reference internal" href="#Soup.MultipartInputStream" title="Soup.MultipartInputStream"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream</span></code></a> that wraps the
 <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> obtained by sending the <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a>. Reads should
 not be done directly through this object, use the input streams
-returned by <a class="reference internal" href="#Soup.MultipartInputStream.next_part" title="Soup.MultipartInputStream.next_part"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream.next_part</span></code></a> () or its async
+returned by <a class="reference internal" href="#Soup.MultipartInputStream.next_part" title="Soup.MultipartInputStream.next_part"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream.next_part</span></code></a>() or its async
 counterpart instead.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.40.</span></p>
@@ -430,7 +428,7 @@ containing the headers for the part currently being processed or
 <p>Obtains the headers for the part currently being processed. Note
 that the <a class="reference internal" href="../structs/MessageHeaders.html#Soup.MessageHeaders" title="Soup.MessageHeaders"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageHeaders</span></code></a> that are returned are owned by the
 <a class="reference internal" href="#Soup.MultipartInputStream" title="Soup.MultipartInputStream"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream</span></code></a> and will be replaced when a call is made
-to <a class="reference internal" href="#Soup.MultipartInputStream.next_part" title="Soup.MultipartInputStream.next_part"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream.next_part</span></code></a> () or its async
+to <a class="reference internal" href="#Soup.MultipartInputStream.next_part" title="Soup.MultipartInputStream.next_part"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream.next_part</span></code></a>() or its async
 counterpart, so if keeping the headers is required, a copy must be
 made.</p>
 <p>Note that if a part had no headers at all an empty <a class="reference internal" href="../structs/MessageHeaders.html#Soup.MessageHeaders" title="Soup.MessageHeaders"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageHeaders</span></code></a>
@@ -449,7 +447,7 @@ will be returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cancellable</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a>, or
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if there are no more parts</td>
@@ -464,7 +462,7 @@ multipart response the input stream needs to be wrapped in a
 counterpart need to be called to obtain the first part for
 reading.</p>
 <p>After calling this function,
-<a class="reference internal" href="#Soup.MultipartInputStream.get_headers" title="Soup.MultipartInputStream.get_headers"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream.get_headers</span></code></a> () can be used to obtain the
+<a class="reference internal" href="#Soup.MultipartInputStream.get_headers" title="Soup.MultipartInputStream.get_headers"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream.get_headers</span></code></a>() can be used to obtain the
 headers for the first part. A read of 0 bytes indicates the end of
 the part; a new call to this function should be done at that point,
 to obtain the next part.</p>
@@ -484,14 +482,14 @@ to obtain the next part.</p>
 <li><strong>io_priority</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the I/O priority for the request.</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a>.</li>
 <li><strong>callback</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; callback to call when request is satisfied.</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data for <cite>callback</cite></li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data for <cite>callback</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Obtains a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> for the next request. See
-<a class="reference internal" href="#Soup.MultipartInputStream.next_part" title="Soup.MultipartInputStream.next_part"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream.next_part</span></code></a> () for details on the
+<a class="reference internal" href="#Soup.MultipartInputStream.next_part" title="Soup.MultipartInputStream.next_part"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MultipartInputStream.next_part</span></code></a>() for details on the
 workflow.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.40.</span></p>
@@ -507,7 +505,7 @@ workflow.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly created
 <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> for reading the next part or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if there are no
@@ -562,7 +560,4 @@ more parts.</td>
   </div> 
 
 </body>
-
-  
-
 </html>

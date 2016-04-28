@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Classes" href="classes/index.html"/>
         <link rel="prev" title="Functions" href="functions.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -148,10 +146,16 @@
 <td><a class="reference internal" href="#GLib.CompareFunc" title="GLib.CompareFunc"><code class="xref py py-func docutils literal"><span class="pre">CompareFunc</span></code></a> (a, b)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GLib.DataForeachFunc" title="GLib.DataForeachFunc"><code class="xref py py-func docutils literal"><span class="pre">DataForeachFunc</span></code></a> (key_id, data, user_data)</td>
+<td><a class="reference internal" href="#GLib.CopyFunc" title="GLib.CopyFunc"><code class="xref py py-func docutils literal"><span class="pre">CopyFunc</span></code></a> (src, data)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GLib.DataForeachFunc" title="GLib.DataForeachFunc"><code class="xref py py-func docutils literal"><span class="pre">DataForeachFunc</span></code></a> (key_id, data, user_data)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.DestroyNotify" title="GLib.DestroyNotify"><code class="xref py py-func docutils literal"><span class="pre">DestroyNotify</span></code></a> (data)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GLib.DuplicateFunc" title="GLib.DuplicateFunc"><code class="xref py py-func docutils literal"><span class="pre">DuplicateFunc</span></code></a> (data, user_data)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.EqualFunc" title="GLib.EqualFunc"><code class="xref py py-func docutils literal"><span class="pre">EqualFunc</span></code></a> (a, b)</td>
@@ -250,15 +254,18 @@
 <td><a class="reference internal" href="#GLib.TestLogFatalFunc" title="GLib.TestLogFatalFunc"><code class="xref py py-func docutils literal"><span class="pre">TestLogFatalFunc</span></code></a> (log_domain, log_level, message, user_data)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GLib.ThreadFunc" title="GLib.ThreadFunc"><code class="xref py py-func docutils literal"><span class="pre">ThreadFunc</span></code></a> (data)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.TranslateFunc" title="GLib.TranslateFunc"><code class="xref py py-func docutils literal"><span class="pre">TranslateFunc</span></code></a> (str, data)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.TraverseFunc" title="GLib.TraverseFunc"><code class="xref py py-func docutils literal"><span class="pre">TraverseFunc</span></code></a> (key, value, data)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.UnixFDSourceFunc" title="GLib.UnixFDSourceFunc"><code class="xref py py-func docutils literal"><span class="pre">UnixFDSourceFunc</span></code></a> (fd, condition, user_data)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.VoidFunc" title="GLib.VoidFunc"><code class="xref py py-func docutils literal"><span class="pre">VoidFunc</span></code></a> ()</td>
 </tr>
 </tbody>
@@ -276,7 +283,7 @@
 <li><strong>pid</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the process id of the child process</li>
 <li><strong>status</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Status information about the child process, encoded
 in a platform-specific manner</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to g_child_watch_add()</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to <a class="reference internal" href="functions.html#GLib.child_watch_add" title="GLib.child_watch_add"><code class="xref py py-obj docutils literal"><span class="pre">GLib.child_watch_add</span></code></a>()</li>
 </ul>
 </td>
 </tr>
@@ -284,7 +291,7 @@ in a platform-specific manner</li>
 </table>
 <p>Prototype of a #GChildWatchSource callback, called when a child
 process has exited.  To interpret <cite>status</cite>, see the documentation
-for <a class="reference internal" href="functions.html#GLib.spawn_check_exit_status" title="GLib.spawn_check_exit_status"><code class="xref py py-obj docutils literal"><span class="pre">GLib.spawn_check_exit_status</span></code></a> ().</p>
+for <a class="reference internal" href="functions.html#GLib.spawn_check_exit_status" title="GLib.spawn_check_exit_status"><code class="xref py py-obj docutils literal"><span class="pre">GLib.spawn_check_exit_status</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -295,13 +302,13 @@ for <a class="reference internal" href="functions.html#GLib.spawn_check_exit_sta
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>a</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a value</li>
-<li><strong>b</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a value to compare with</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data</li>
+<li><strong>a</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a value</li>
+<li><strong>b</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a value to compare with</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">negative value if <cite>a</cite> &lt; <cite>b</cite> ; zero if <cite>a</cite> = <cite>b</cite> ; positive
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">negative value if <cite>a</cite> &lt; <cite>b</cite>; zero if <cite>a</cite> = <cite>b</cite>; positive
 value if <cite>a</cite> &gt; <cite>b</cite></p>
 </td>
 </tr>
@@ -324,12 +331,12 @@ integer if the first value comes after the second.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>a</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a value</li>
-<li><strong>b</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a value to compare with</li>
+<li><strong>a</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a value</li>
+<li><strong>b</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a value to compare with</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">negative value if <cite>a</cite> &lt; <cite>b</cite> ; zero if <cite>a</cite> = <cite>b</cite> ; positive
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">negative value if <cite>a</cite> &lt; <cite>b</cite>; zero if <cite>a</cite> = <cite>b</cite>; positive
 value if <cite>a</cite> &gt; <cite>b</cite></p>
 </td>
 </tr>
@@ -345,6 +352,34 @@ integer if the first value comes after the second.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="GLib.CopyFunc">
+<code class="descclassname">GLib.</code><code class="descname">CopyFunc</code><span class="sig-paren">(</span><em>src</em>, <em>data</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>src</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A pointer to the data which should be copied</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Additional data</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A pointer to the copy</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A function of this signature is used to copy the node data
+when doing a deep-copy of a tree.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="GLib.DataForeachFunc">
 <code class="descclassname">GLib.</code><code class="descname">DataForeachFunc</code><span class="sig-paren">(</span><em>key_id</em>, <em>data</em>, <em>user_data</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -352,17 +387,17 @@ integer if the first value comes after the second.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>key_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Quark</span></code> id to identifying the data element.</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the data element.</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.dataset_foreach</span></code> ().</li>
+<li><strong>key_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the #GQuark id to identifying the data element.</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the data element.</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to g_dataset_foreach().</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of function passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.dataset_foreach</span></code> (). It is
-called with each <code class="xref py py-obj docutils literal"><span class="pre">GLib.Quark</span></code> id and associated data element, together
-with the <cite>user_data</cite> parameter supplied to <code class="xref py py-obj docutils literal"><span class="pre">GLib.dataset_foreach</span></code> ().</p>
+<p>Specifies the type of function passed to g_dataset_foreach(). It is
+called with each #GQuark id and associated data element, together
+with the <cite>user_data</cite> parameter supplied to g_dataset_foreach().</p>
 </dd></dl>
 
 <dl class="function">
@@ -372,13 +407,40 @@ with the <cite>user_data</cite> parameter supplied to <code class="xref py py-ob
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the data element.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the data element.</td>
 </tr>
 </tbody>
 </table>
 <p>Specifies the type of function which is called when a data element
 is destroyed. It is passed the pointer to the data element and
 should free any memory and resources allocated for it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="GLib.DuplicateFunc">
+<code class="descclassname">GLib.</code><code class="descname">DuplicateFunc</code><span class="sig-paren">(</span><em>data</em>, <em>user_data</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the data to duplicate</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data that was specified in g_datalist_id_dup_data()</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a duplicate of data</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The type of functions that are used to &#8216;duplicate&#8217; an object.
+What this means depends on the context, it could just be
+incrementing the reference count, if <cite>data</cite> is a ref-counted
+object.</p>
 </dd></dl>
 
 <dl class="function">
@@ -389,12 +451,12 @@ should free any memory and resources allocated for it.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>a</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a value</li>
-<li><strong>b</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a value to compare with</li>
+<li><strong>a</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a value</li>
+<li><strong>b</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a value to compare with</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>a</cite> = <cite>b</cite> ; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>a</cite> = <cite>b</cite>; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
@@ -414,7 +476,7 @@ and <a class="reference external" href="http://docs.python.org/2.7/library/const
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a data pointer</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a data pointer</td>
 </tr>
 </tbody>
 </table>
@@ -431,15 +493,15 @@ not currently used in GLib or GTK+.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the element&#8217;s data</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.foreach</span></code> () or <code class="xref py py-obj docutils literal"><span class="pre">GLib.SList.foreach</span></code> ()</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the element&#8217;s data</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to g_list_foreach() or g_slist_foreach()</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of functions passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.foreach</span></code> () and
-<code class="xref py py-obj docutils literal"><span class="pre">GLib.SList.foreach</span></code> ().</p>
+<p>Specifies the type of functions passed to g_list_foreach() and
+g_slist_foreach().</p>
 </dd></dl>
 
 <dl class="function">
@@ -450,17 +512,17 @@ not currently used in GLib or GTK+.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a key</li>
-<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the value corresponding to the key</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.foreach</span></code> ()</li>
+<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a key</li>
+<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the value corresponding to the key</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to g_hash_table_foreach()</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of the function passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.foreach</span></code> ().
+<p>Specifies the type of the function passed to g_hash_table_foreach().
 It is called with each key/value pair, together with the <cite>user_data</cite>
-parameter which is passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.foreach</span></code> ().</p>
+parameter which is passed to g_hash_table_foreach().</p>
 </dd></dl>
 
 <dl class="function">
@@ -471,9 +533,9 @@ parameter which is passed to <code class="xref py py-obj docutils literal"><span
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a key</li>
-<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the value associated with the key</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <a class="reference internal" href="structs/HashTable.html#GLib.HashTable.remove" title="GLib.HashTable.remove"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.remove</span></code></a> ()</li>
+<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a key</li>
+<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the value associated with the key</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to <a class="reference internal" href="structs/HashTable.html#GLib.HashTable.remove" title="GLib.HashTable.remove"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.remove</span></code></a>()</li>
 </ul>
 </td>
 </tr>
@@ -487,9 +549,9 @@ parameter which is passed to <code class="xref py py-obj docutils literal"><span
 </tbody>
 </table>
 <p>Specifies the type of the function passed to
-<code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.foreach_remove</span></code> (). It is called with each key/value
+g_hash_table_foreach_remove(). It is called with each key/value
 pair, together with the <cite>user_data</cite> parameter passed to
-<code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.foreach_remove</span></code> (). It should return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the
+g_hash_table_foreach_remove(). It should return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the
 key/value pair should be removed from the <a class="reference internal" href="structs/HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>.</p>
 </dd></dl>
 
@@ -500,7 +562,7 @@ key/value pair should be removed from the <a class="reference internal" href="st
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a key</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a key</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the hash value corresponding to the key</td>
 </tr>
@@ -509,12 +571,12 @@ key/value pair should be removed from the <a class="reference internal" href="st
 </tbody>
 </table>
 <p>Specifies the type of the hash function which is passed to
-<code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.new</span></code> () when a <a class="reference internal" href="structs/HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> is created.</p>
+g_hash_table_new() when a <a class="reference internal" href="structs/HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> is created.</p>
 <p>The function is passed a key and should return a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> hash value.
-The functions <a class="reference internal" href="functions.html#GLib.direct_hash" title="GLib.direct_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.direct_hash</span></code></a> (), <a class="reference internal" href="functions.html#GLib.int_hash" title="GLib.int_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.int_hash</span></code></a> () and <a class="reference internal" href="functions.html#GLib.str_hash" title="GLib.str_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.str_hash</span></code></a> () provide
+The functions <a class="reference internal" href="functions.html#GLib.direct_hash" title="GLib.direct_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.direct_hash</span></code></a>(), <a class="reference internal" href="functions.html#GLib.int_hash" title="GLib.int_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.int_hash</span></code></a>() and <a class="reference internal" href="functions.html#GLib.str_hash" title="GLib.str_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.str_hash</span></code></a>() provide
 hash functions which can be used when the key is a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>, <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>,
 and <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> respectively.</p>
-<p><a class="reference internal" href="functions.html#GLib.direct_hash" title="GLib.direct_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.direct_hash</span></code></a> () is also the appropriate hash function for keys
+<p><a class="reference internal" href="functions.html#GLib.direct_hash" title="GLib.direct_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.direct_hash</span></code></a>() is also the appropriate hash function for keys
 of the form <code class="docutils literal"><span class="pre">GINT_TO_POINTER</span> <span class="pre">(n)</span></code> (or similar macros).</p>
 <p>FIXME: Need more here.  A good hash functions should produce
 hash values that are evenly distributed over a fairly large range.
@@ -526,7 +588,7 @@ but are not particularly robust against manufactured keys that
 cause hash collisions. Therefore, you should consider choosing
 a more secure hash function when using a <a class="reference internal" href="structs/HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> with keys
 that originate in untrusted data (such as HTTP requests).
-Using <a class="reference internal" href="functions.html#GLib.str_hash" title="GLib.str_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.str_hash</span></code></a> () in that situation might make your application
+Using <a class="reference internal" href="functions.html#GLib.str_hash" title="GLib.str_hash"><code class="xref py py-obj docutils literal"><span class="pre">GLib.str_hash</span></code></a>() in that situation might make your application
 vulerable to
 <a class="reference external" href="https://lwn.net/Articles/474912/">Algorithmic Complexity Attacks</a>.</p>
 <p>The key to choosing a good hash is unpredictability.  Even
@@ -542,7 +604,7 @@ must be an element of randomness that an attacker is unable to guess.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the data field of the <a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a> is passed to the hook function here</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the data field of the <a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a> is passed to the hook function here</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the <a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a> should be destroyed</td>
 </tr>
@@ -551,7 +613,7 @@ must be an element of randomness that an attacker is unable to guess.</p>
 </tbody>
 </table>
 <p>Defines the type of a hook function that can be invoked
-by <a class="reference internal" href="structs/HookList.html#GLib.HookList.invoke_check" title="GLib.HookList.invoke_check"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HookList.invoke_check</span></code></a> ().</p>
+by <a class="reference internal" href="structs/HookList.html#GLib.HookList.invoke_check" title="GLib.HookList.invoke_check"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HookList.invoke_check</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -563,7 +625,7 @@ by <a class="reference internal" href="structs/HookList.html#GLib.HookList.invok
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>hook</strong> (<a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a>) &#8211; a <a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a></li>
-<li><strong>marshal_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data</li>
+<li><strong>marshal_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data</li>
 </ul>
 </td>
 </tr>
@@ -575,7 +637,7 @@ by <a class="reference internal" href="structs/HookList.html#GLib.HookList.invok
 </tr>
 </tbody>
 </table>
-<p>Defines the type of function used by <code class="xref py py-obj docutils literal"><span class="pre">GLib.HookList.marshal_check</span></code> ().</p>
+<p>Defines the type of function used by g_hook_list_marshal_check().</p>
 </dd></dl>
 
 <dl class="function">
@@ -600,7 +662,7 @@ by <a class="reference internal" href="structs/HookList.html#GLib.HookList.invok
 </tbody>
 </table>
 <p>Defines the type of function used to compare <a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a> elements in
-<code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook.insert_sorted</span></code> ().</p>
+g_hook_insert_sorted().</p>
 </dd></dl>
 
 <dl class="function">
@@ -631,7 +693,7 @@ list of hooks gets finalized.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>hook</strong> (<a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a>) &#8211; a <a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a></li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook.find_func</span></code> ()</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to g_hook_find_func()</li>
 </ul>
 </td>
 </tr>
@@ -643,7 +705,7 @@ list of hooks gets finalized.</p>
 </tr>
 </tbody>
 </table>
-<p>Defines the type of the function passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook.find</span></code> ().</p>
+<p>Defines the type of the function passed to g_hook_find().</p>
 </dd></dl>
 
 <dl class="function">
@@ -653,12 +715,12 @@ list of hooks gets finalized.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the data field of the <a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a> is passed to the hook function here</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the data field of the <a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a> is passed to the hook function here</td>
 </tr>
 </tbody>
 </table>
 <p>Defines the type of a hook function that can be invoked
-by <a class="reference internal" href="structs/HookList.html#GLib.HookList.invoke" title="GLib.HookList.invoke"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HookList.invoke</span></code></a> ().</p>
+by <a class="reference internal" href="structs/HookList.html#GLib.HookList.invoke" title="GLib.HookList.invoke"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HookList.invoke</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -670,13 +732,13 @@ by <a class="reference internal" href="structs/HookList.html#GLib.HookList.invok
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>hook</strong> (<a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a>) &#8211; a <a class="reference internal" href="structs/Hook.html#GLib.Hook" title="GLib.Hook"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hook</span></code></a></li>
-<li><strong>marshal_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data</li>
+<li><strong>marshal_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Defines the type of function used by <code class="xref py py-obj docutils literal"><span class="pre">GLib.HookList.marshal</span></code> ().</p>
+<p>Defines the type of function used by g_hook_list_marshal().</p>
 </dd></dl>
 
 <dl class="function">
@@ -689,7 +751,7 @@ by <a class="reference internal" href="structs/HookList.html#GLib.HookList.invok
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>source</strong> (<a class="reference internal" href="structs/IOChannel.html#GLib.IOChannel" title="GLib.IOChannel"><code class="xref py py-obj docutils literal"><span class="pre">GLib.IOChannel</span></code></a>) &#8211; the <a class="reference internal" href="structs/IOChannel.html#GLib.IOChannel" title="GLib.IOChannel"><code class="xref py py-obj docutils literal"><span class="pre">GLib.IOChannel</span></code></a> event source</li>
 <li><strong>condition</strong> (<a class="reference internal" href="flags.html#GLib.IOCondition" title="GLib.IOCondition"><code class="xref py py-obj docutils literal"><span class="pre">GLib.IOCondition</span></code></a>) &#8211; the condition which has been satisfied</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data set in g_io_add_watch() or <a class="reference internal" href="functions.html#GLib.io_add_watch" title="GLib.io_add_watch"><code class="xref py py-obj docutils literal"><span class="pre">GLib.io_add_watch</span></code></a> ()</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data set in <a class="reference internal" href="functions.html#GLib.io_add_watch" title="GLib.io_add_watch"><code class="xref py py-obj docutils literal"><span class="pre">GLib.io_add_watch</span></code></a>() or <a class="reference internal" href="functions.html#GLib.io_add_watch" title="GLib.io_add_watch"><code class="xref py py-obj docutils literal"><span class="pre">GLib.io_add_watch</span></code></a>()</li>
 </ul>
 </td>
 </tr>
@@ -702,8 +764,8 @@ should be removed</p>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of function passed to g_io_add_watch() or
-<a class="reference internal" href="functions.html#GLib.io_add_watch" title="GLib.io_add_watch"><code class="xref py py-obj docutils literal"><span class="pre">GLib.io_add_watch</span></code></a> (), which is called when the requested condition
+<p>Specifies the type of function passed to <a class="reference internal" href="functions.html#GLib.io_add_watch" title="GLib.io_add_watch"><code class="xref py py-obj docutils literal"><span class="pre">GLib.io_add_watch</span></code></a>() or
+<a class="reference internal" href="functions.html#GLib.io_add_watch" title="GLib.io_add_watch"><code class="xref py py-obj docutils literal"><span class="pre">GLib.io_add_watch</span></code></a>(), which is called when the requested condition
 on a <a class="reference internal" href="structs/IOChannel.html#GLib.IOChannel" title="GLib.IOChannel"><code class="xref py py-obj docutils literal"><span class="pre">GLib.IOChannel</span></code></a> is satisfied.</p>
 </dd></dl>
 
@@ -719,14 +781,14 @@ on a <a class="reference internal" href="structs/IOChannel.html#GLib.IOChannel" 
 <li><strong>log_level</strong> (<a class="reference internal" href="flags.html#GLib.LogLevelFlags" title="GLib.LogLevelFlags"><code class="xref py py-obj docutils literal"><span class="pre">GLib.LogLevelFlags</span></code></a>) &#8211; the log level of the message (including the
 fatal and recursion flags)</li>
 <li><strong>message</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the message to process</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data, set in g_log_set_handler()</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data, set in <a class="reference internal" href="functions.html#GLib.log_set_handler" title="GLib.log_set_handler"><code class="xref py py-obj docutils literal"><span class="pre">GLib.log_set_handler</span></code></a>()</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Specifies the prototype of log handler functions.</p>
-<p>The default log handler, <a class="reference internal" href="functions.html#GLib.log_default_handler" title="GLib.log_default_handler"><code class="xref py py-obj docutils literal"><span class="pre">GLib.log_default_handler</span></code></a> (), automatically appends a
+<p>The default log handler, <a class="reference internal" href="functions.html#GLib.log_default_handler" title="GLib.log_default_handler"><code class="xref py py-obj docutils literal"><span class="pre">GLib.log_default_handler</span></code></a>(), automatically appends a
 new-line character to <cite>message</cite> when printing it. It is advised that any
 custom log handler functions behave similarly, so that logging calls in user
 code do not need modifying to add a new-line character to the message if the
@@ -742,15 +804,15 @@ log handler is changed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>node</strong> (<a class="reference internal" href="structs/Node.html#GLib.Node" title="GLib.Node"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Node</span></code></a>) &#8211; a <a class="reference internal" href="structs/Node.html#GLib.Node" title="GLib.Node"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Node</span></code></a>.</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Node.children_foreach</span></code> ().</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to g_node_children_foreach().</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of function passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Node.children_foreach</span></code> ().
+<p>Specifies the type of function passed to g_node_children_foreach().
 The function is called with each child node, together with the user
-data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Node.children_foreach</span></code> ().</p>
+data passed to g_node_children_foreach().</p>
 </dd></dl>
 
 <dl class="function">
@@ -762,7 +824,7 @@ data passed to <code class="xref py py-obj docutils literal"><span class="pre">G
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>node</strong> (<a class="reference internal" href="structs/Node.html#GLib.Node" title="GLib.Node"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Node</span></code></a>) &#8211; a <a class="reference internal" href="structs/Node.html#GLib.Node" title="GLib.Node"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Node</span></code></a>.</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Node.traverse</span></code> ().</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to g_node_traverse().</li>
 </ul>
 </td>
 </tr>
@@ -774,9 +836,9 @@ data passed to <code class="xref py py-obj docutils literal"><span class="pre">G
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of function passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Node.traverse</span></code> (). The
+<p>Specifies the type of function passed to g_node_traverse(). The
 function is called with each of the nodes visited, together with the
-user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Node.traverse</span></code> (). If the function returns
+user data passed to g_node_traverse(). If the function returns
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, then the traversal is stopped.</p>
 </dd></dl>
 
@@ -792,13 +854,13 @@ user data passed to <code class="xref py py-obj docutils literal"><span class="p
 single dash followed by a single letter (for a short name) or two dashes
 followed by a long option name.</li>
 <li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The value to be parsed.</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; User data added to the <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup" title="GLib.OptionGroup"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a> containing the option when it
-was created with <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup.new" title="GLib.OptionGroup.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup.new</span></code></a> ()</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; User data added to the <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup" title="GLib.OptionGroup"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a> containing the option when it
+was created with <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup.new" title="GLib.OptionGroup.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup.new</span></code></a>()</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the option was successfully parsed, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if an error
-occurred, in which case <cite>error</cite> should be set with <code class="xref py py-obj docutils literal"><span class="pre">GLib.set_error</span></code> ()</p>
+occurred, in which case <cite>error</cite> should be set with g_set_error()</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
@@ -820,8 +882,8 @@ options.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>context</strong> (<a class="reference internal" href="structs/OptionContext.html#GLib.OptionContext" title="GLib.OptionContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionContext</span></code></a>) &#8211; The active <a class="reference internal" href="structs/OptionContext.html#GLib.OptionContext" title="GLib.OptionContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionContext</span></code></a></li>
 <li><strong>group</strong> (<a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup" title="GLib.OptionGroup"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a>) &#8211; The group to which the function belongs</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; User data added to the <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup" title="GLib.OptionGroup"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a> containing the option when it
-was created with <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup.new" title="GLib.OptionGroup.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup.new</span></code></a> ()</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; User data added to the <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup" title="GLib.OptionGroup"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a> containing the option when it
+was created with <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup.new" title="GLib.OptionGroup.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup.new</span></code></a>()</li>
 </ul>
 </td>
 </tr>
@@ -840,13 +902,13 @@ was created with <a class="reference internal" href="structs/OptionGroup.html#GL
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>context</strong> (<a class="reference internal" href="structs/OptionContext.html#GLib.OptionContext" title="GLib.OptionContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionContext</span></code></a>) &#8211; The active <a class="reference internal" href="structs/OptionContext.html#GLib.OptionContext" title="GLib.OptionContext"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionContext</span></code></a></li>
 <li><strong>group</strong> (<a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup" title="GLib.OptionGroup"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a>) &#8211; The group to which the function belongs</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; User data added to the <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup" title="GLib.OptionGroup"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a> containing the option when it
-was created with <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup.new" title="GLib.OptionGroup.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup.new</span></code></a> ()</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; User data added to the <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup" title="GLib.OptionGroup"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a> containing the option when it
+was created with <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup.new" title="GLib.OptionGroup.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup.new</span></code></a>()</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the function completed successfully, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if an error
-occurred, in which case <cite>error</cite> should be set with <code class="xref py py-obj docutils literal"><span class="pre">GLib.set_error</span></code> ()</p>
+occurred, in which case <cite>error</cite> should be set with g_set_error()</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
@@ -867,7 +929,7 @@ occurred, in which case <cite>error</cite> should be set with <code class="xref 
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>ufds</strong> (<a class="reference internal" href="structs/PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a>) &#8211; an array of <a class="reference internal" href="structs/PollFD.html#GLib.PollFD" title="GLib.PollFD"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a> elements</li>
 <li><strong>nfsd</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the number of elements in <cite>ufds</cite></li>
-<li><strong>timeout_</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the maximum time to wait for an event of the file descriptors.
+<li><strong>timeout</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the maximum time to wait for an event of the file descriptors.
 A negative value indicates an infinite timeout.</li>
 </ul>
 </td>
@@ -881,7 +943,7 @@ reported, or -1 if an error occurred.</p>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of function passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.set_poll_func</span></code> ().
+<p>Specifies the type of function passed to g_main_context_set_poll_func().
 The semantics of the function should match those of the poll() system call.</p>
 </dd></dl>
 
@@ -909,10 +971,10 @@ These are called with the complete formatted string to output.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>match_info</strong> (<a class="reference internal" href="structs/MatchInfo.html#GLib.MatchInfo" title="GLib.MatchInfo"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MatchInfo</span></code></a>) &#8211; the <a class="reference internal" href="structs/MatchInfo.html#GLib.MatchInfo" title="GLib.MatchInfo"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MatchInfo</span></code></a> generated by the match.
-Use <a class="reference internal" href="structs/MatchInfo.html#GLib.MatchInfo.get_regex" title="GLib.MatchInfo.get_regex"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MatchInfo.get_regex</span></code></a> () and <a class="reference internal" href="structs/MatchInfo.html#GLib.MatchInfo.get_string" title="GLib.MatchInfo.get_string"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MatchInfo.get_string</span></code></a> () if you
+Use <a class="reference internal" href="structs/MatchInfo.html#GLib.MatchInfo.get_regex" title="GLib.MatchInfo.get_regex"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MatchInfo.get_regex</span></code></a>() and <a class="reference internal" href="structs/MatchInfo.html#GLib.MatchInfo.get_string" title="GLib.MatchInfo.get_string"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MatchInfo.get_string</span></code></a>() if you
 need the <a class="reference internal" href="structs/Regex.html#GLib.Regex" title="GLib.Regex"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Regex</span></code></a> or the matched string.</li>
 <li><strong>result</strong> (<a class="reference internal" href="structs/String.html#GLib.String" title="GLib.String"><code class="xref py py-obj docutils literal"><span class="pre">GLib.String</span></code></a>) &#8211; a <a class="reference internal" href="structs/String.html#GLib.String" title="GLib.String"><code class="xref py py-obj docutils literal"><span class="pre">GLib.String</span></code></a> containing the new string</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Regex.replace_eval</span></code> ()</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to g_regex_replace_eval()</li>
 </ul>
 </td>
 </tr>
@@ -924,9 +986,9 @@ need the <a class="reference internal" href="structs/Regex.html#GLib.Regex" titl
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of the function passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Regex.replace_eval</span></code> ().
+<p>Specifies the type of the function passed to g_regex_replace_eval().
 It is called for each occurrence of the pattern in the string passed
-to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Regex.replace_eval</span></code> (), and it should append the replacement to
+to g_regex_replace_eval(), and it should append the replacement to
 <cite>result</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.14.</span></p>
@@ -963,7 +1025,7 @@ to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Regex.re
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>a</strong> (<a class="reference internal" href="structs/SequenceIter.html#GLib.SequenceIter" title="GLib.SequenceIter"><code class="xref py py-obj docutils literal"><span class="pre">GLib.SequenceIter</span></code></a>) &#8211; a <a class="reference internal" href="structs/SequenceIter.html#GLib.SequenceIter" title="GLib.SequenceIter"><code class="xref py py-obj docutils literal"><span class="pre">GLib.SequenceIter</span></code></a></li>
 <li><strong>b</strong> (<a class="reference internal" href="structs/SequenceIter.html#GLib.SequenceIter" title="GLib.SequenceIter"><code class="xref py py-obj docutils literal"><span class="pre">GLib.SequenceIter</span></code></a>) &#8211; a <a class="reference internal" href="structs/SequenceIter.html#GLib.SequenceIter" title="GLib.SequenceIter"><code class="xref py py-obj docutils literal"><span class="pre">GLib.SequenceIter</span></code></a></li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data</li>
 </ul>
 </td>
 </tr>
@@ -995,7 +1057,7 @@ which cannot be used here for dependency reasons.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data passed to the function, set when the source was
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data passed to the function, set when the source was
 created with one of the above functions</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the source should be removed. <a class="reference internal" href="constants.html#GLib.SOURCE_CONTINUE" title="GLib.SOURCE_CONTINUE"><code class="xref py py-obj docutils literal"><span class="pre">GLib.SOURCE_CONTINUE</span></code></a> and
@@ -1005,8 +1067,8 @@ created with one of the above functions</td>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of function passed to g_timeout_add(),
-<a class="reference internal" href="functions.html#GLib.timeout_add" title="GLib.timeout_add"><code class="xref py py-obj docutils literal"><span class="pre">GLib.timeout_add</span></code></a> (), g_idle_add(), and <a class="reference internal" href="functions.html#GLib.idle_add" title="GLib.idle_add"><code class="xref py py-obj docutils literal"><span class="pre">GLib.idle_add</span></code></a> ().</p>
+<p>Specifies the type of function passed to <a class="reference internal" href="functions.html#GLib.timeout_add" title="GLib.timeout_add"><code class="xref py py-obj docutils literal"><span class="pre">GLib.timeout_add</span></code></a>(),
+<a class="reference internal" href="functions.html#GLib.timeout_add" title="GLib.timeout_add"><code class="xref py py-obj docutils literal"><span class="pre">GLib.timeout_add</span></code></a>(), <a class="reference internal" href="functions.html#GLib.idle_add" title="GLib.idle_add"><code class="xref py py-obj docutils literal"><span class="pre">GLib.idle_add</span></code></a>(), and <a class="reference internal" href="functions.html#GLib.idle_add" title="GLib.idle_add"><code class="xref py py-obj docutils literal"><span class="pre">GLib.idle_add</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -1016,12 +1078,12 @@ created with one of the above functions</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data to pass to the function.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data to pass to the function.</td>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of the setup function passed to <a class="reference internal" href="functions.html#GLib.spawn_async" title="GLib.spawn_async"><code class="xref py py-obj docutils literal"><span class="pre">GLib.spawn_async</span></code></a> (),
-<a class="reference internal" href="functions.html#GLib.spawn_sync" title="GLib.spawn_sync"><code class="xref py py-obj docutils literal"><span class="pre">GLib.spawn_sync</span></code></a> () and <a class="reference internal" href="functions.html#GLib.spawn_async_with_pipes" title="GLib.spawn_async_with_pipes"><code class="xref py py-obj docutils literal"><span class="pre">GLib.spawn_async_with_pipes</span></code></a> (), which can, in very
+<p>Specifies the type of the setup function passed to <a class="reference internal" href="functions.html#GLib.spawn_async" title="GLib.spawn_async"><code class="xref py py-obj docutils literal"><span class="pre">GLib.spawn_async</span></code></a>(),
+<a class="reference internal" href="functions.html#GLib.spawn_sync" title="GLib.spawn_sync"><code class="xref py py-obj docutils literal"><span class="pre">GLib.spawn_sync</span></code></a>() and <a class="reference internal" href="functions.html#GLib.spawn_async_with_pipes" title="GLib.spawn_async_with_pipes"><code class="xref py py-obj docutils literal"><span class="pre">GLib.spawn_async_with_pipes</span></code></a>(), which can, in very
 limited ways, be used to affect the child&#8217;s execution.</p>
 <p>On POSIX platforms, the function is called in the child after GLib
 has performed all the setup it plans to perform, but before calling
@@ -1043,8 +1105,8 @@ the usefulness of child setup functions.</p>
 <p>In particular, it is not safe to call any function which may
 call malloc(), which includes POSIX functions such as setenv().
 If you need to set up the child environment differently from
-the parent, you should use <a class="reference internal" href="functions.html#GLib.get_environ" title="GLib.get_environ"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_environ</span></code></a> (), <a class="reference internal" href="functions.html#GLib.environ_setenv" title="GLib.environ_setenv"><code class="xref py py-obj docutils literal"><span class="pre">GLib.environ_setenv</span></code></a> (),
-and <a class="reference internal" href="functions.html#GLib.environ_unsetenv" title="GLib.environ_unsetenv"><code class="xref py py-obj docutils literal"><span class="pre">GLib.environ_unsetenv</span></code></a> (), and then pass the complete environment
+the parent, you should use <a class="reference internal" href="functions.html#GLib.get_environ" title="GLib.get_environ"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_environ</span></code></a>(), <a class="reference internal" href="functions.html#GLib.environ_setenv" title="GLib.environ_setenv"><code class="xref py py-obj docutils literal"><span class="pre">GLib.environ_setenv</span></code></a>(),
+and <a class="reference internal" href="functions.html#GLib.environ_unsetenv" title="GLib.environ_unsetenv"><code class="xref py py-obj docutils literal"><span class="pre">GLib.environ_unsetenv</span></code></a>(), and then pass the complete environment
 list to the <code class="docutils literal"><span class="pre">g_spawn...</span></code> function.</p>
 </dd></dl>
 
@@ -1055,7 +1117,7 @@ list to the <code class="docutils literal"><span class="pre">g_spawn...</span></
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the data provided when registering the test</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the data provided when registering the test</td>
 </tr>
 </tbody>
 </table>
@@ -1075,7 +1137,7 @@ argument.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fixture</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the test fixture</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the data provided when registering the test</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the data provided when registering the test</li>
 </ul>
 </td>
 </tr>
@@ -1114,7 +1176,7 @@ zero then <cite>fixture</cite> will be equal to <cite>user_data</cite>.</p>
 <li><strong>log_domain</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the log domain of the message</li>
 <li><strong>log_level</strong> (<a class="reference internal" href="flags.html#GLib.LogLevelFlags" title="GLib.LogLevelFlags"><code class="xref py py-obj docutils literal"><span class="pre">GLib.LogLevelFlags</span></code></a>) &#8211; the log level of the message (including the fatal and recursion flags)</li>
 <li><strong>message</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the message to process</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data, set in <code class="xref py py-obj docutils literal"><span class="pre">GLib.test_log_set_fatal_handler</span></code> ()</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data, set in g_test_log_set_fatal_handler()</li>
 </ul>
 </td>
 </tr>
@@ -1133,6 +1195,25 @@ zero then <cite>fixture</cite> will be equal to <cite>user_data</cite>.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="GLib.ThreadFunc">
+<code class="descclassname">GLib.</code><code class="descname">ThreadFunc</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data passed to the thread</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the return value of the thread</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Specifies the type of the <cite>func</cite> functions passed to g_thread_new()
+or g_thread_try_new().</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="GLib.TranslateFunc">
 <code class="descclassname">GLib.</code><code class="descname">TranslateFunc</code><span class="sig-paren">(</span><em>str</em>, <em>data</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -1141,8 +1222,8 @@ zero then <cite>fixture</cite> will be equal to <cite>user_data</cite>.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>str</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the untranslated string</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data specified when installing the function, e.g.
-in <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup.set_translate_func" title="GLib.OptionGroup.set_translate_func"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup.set_translate_func</span></code></a> ()</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data specified when installing the function, e.g.
+in <a class="reference internal" href="structs/OptionGroup.html#GLib.OptionGroup.set_translate_func" title="GLib.OptionGroup.set_translate_func"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup.set_translate_func</span></code></a>()</li>
 </ul>
 </td>
 </tr>
@@ -1167,9 +1248,9 @@ strings, for &#8211;help output.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a key of a <a class="reference internal" href="structs/Tree.html#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a> node</li>
-<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the value corresponding to the key</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree.traverse</span></code> ()</li>
+<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a key of a <a class="reference internal" href="structs/Tree.html#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a> node</li>
+<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the value corresponding to the key</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to g_tree_traverse()</li>
 </ul>
 </td>
 </tr>
@@ -1181,9 +1262,9 @@ strings, for &#8211;help output.</p>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of function passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree.traverse</span></code> (). It is
+<p>Specifies the type of function passed to g_tree_traverse(). It is
 passed the key and value of each node, together with the <cite>user_data</cite>
-parameter passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree.traverse</span></code> (). If the function returns
+parameter passed to g_tree_traverse(). If the function returns
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, the traversal is stopped.</p>
 </dd></dl>
 
@@ -1197,7 +1278,7 @@ parameter passed to <code class="xref py py-obj docutils literal"><span class="p
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>fd</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the fd that triggered the event</li>
 <li><strong>condition</strong> (<a class="reference internal" href="flags.html#GLib.IOCondition" title="GLib.IOCondition"><code class="xref py py-obj docutils literal"><span class="pre">GLib.IOCondition</span></code></a>) &#8211; the IO conditions reported on <cite>fd</cite></li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed to <code class="xref py py-obj docutils literal"><span class="pre">GLib.unix_fd_add</span></code> ()</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to g_unix_fd_add()</li>
 </ul>
 </td>
 </tr>
@@ -1218,7 +1299,7 @@ triggers.</p>
 <code class="descclassname">GLib.</code><code class="descname">VoidFunc</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Declares a type of function which takes no arguments
 and has no return value. It is used to specify the type
-function passed to <a class="reference internal" href="functions.html#GLib.atexit" title="GLib.atexit"><code class="xref py py-obj docutils literal"><span class="pre">GLib.atexit</span></code></a> ().</p>
+function passed to <a class="reference internal" href="functions.html#GLib.atexit" title="GLib.atexit"><code class="xref py py-obj docutils literal"><span class="pre">GLib.atexit</span></code></a>().</p>
 </dd></dl>
 
 </div>
@@ -1235,7 +1316,4 @@ function passed to <a class="reference internal" href="functions.html#GLib.atexi
   </div> 
 
 </body>
-
-  
-
 </html>

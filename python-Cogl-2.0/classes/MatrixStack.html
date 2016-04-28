@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Cogl.Object" href="Object.html"/>
         <link rel="prev" title="Cogl.Indices" href="Indices.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -80,8 +78,6 @@
 <li><a class="reference internal" href="#">Cogl.MatrixStack</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -125,8 +121,6 @@
 <li><a class="reference internal" href="#">Cogl.MatrixStack</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -260,14 +254,6 @@
 <span id="cogl-matrixstack-vfuncs"></span><h2>Virtual Methods</h2>
 <p>None</p>
 </div>
-<div class="section" id="properties">
-<span id="cogl-matrixstack-props"></span><h2>Properties</h2>
-<p>None</p>
-</div>
-<div class="section" id="signals">
-<span id="cogl-matrixstack-signals"></span><h2>Signals</h2>
-<p>None</p>
-</div>
 <div class="section" id="fields">
 <span id="cogl-matrixstack-fields"></span><h2>Fields</h2>
 <p>None</p>
@@ -294,22 +280,22 @@ such as a scenegraph.</p>
 transformation at any point in time, representing the
 transformation at the current position in the hierarchy. You can
 get a reference to the current transformation by calling
-<a class="reference internal" href="#Cogl.MatrixStack.get_entry" title="Cogl.MatrixStack.get_entry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.get_entry</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.MatrixStack.get_entry" title="Cogl.MatrixStack.get_entry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.get_entry</span></code></a>().</p>
 <p>When a <a class="reference internal" href="#Cogl.MatrixStack" title="Cogl.MatrixStack"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack</span></code></a> is first created with
-<a class="reference internal" href="#Cogl.MatrixStack.new" title="Cogl.MatrixStack.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.new</span></code></a> () then it is conceptually positioned at the
+<a class="reference internal" href="#Cogl.MatrixStack.new" title="Cogl.MatrixStack.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.new</span></code></a>() then it is conceptually positioned at the
 root of your hierarchy and the current transformation simply
 represents an identity transformation.</p>
 <p>As you traverse your object hierarchy (your scenegraph) then you
-should call <a class="reference internal" href="#Cogl.MatrixStack.push" title="Cogl.MatrixStack.push"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.push</span></code></a> () whenever you move down one
-level and call <a class="reference internal" href="#Cogl.MatrixStack.pop" title="Cogl.MatrixStack.pop"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.pop</span></code></a> () whenever you move back up
+should call <a class="reference internal" href="#Cogl.MatrixStack.push" title="Cogl.MatrixStack.push"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.push</span></code></a>() whenever you move down one
+level and call <a class="reference internal" href="#Cogl.MatrixStack.pop" title="Cogl.MatrixStack.pop"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.pop</span></code></a>() whenever you move back up
 one level towards the root.</p>
 <p>At any time you can apply a set of operations, such as &#8220;rotate&#8221;,
 &#8220;scale&#8221;, &#8220;translate&#8221; on top of the current transformation of a
 <a class="reference internal" href="#Cogl.MatrixStack" title="Cogl.MatrixStack"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack</span></code></a> using functions such as
-<a class="reference internal" href="#Cogl.MatrixStack.rotate" title="Cogl.MatrixStack.rotate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.rotate</span></code></a> (), <a class="reference internal" href="#Cogl.MatrixStack.scale" title="Cogl.MatrixStack.scale"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.scale</span></code></a> () and
-<a class="reference internal" href="#Cogl.MatrixStack.translate" title="Cogl.MatrixStack.translate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.translate</span></code></a> (). These operations will derive a new
+<a class="reference internal" href="#Cogl.MatrixStack.rotate" title="Cogl.MatrixStack.rotate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.rotate</span></code></a>(), <a class="reference internal" href="#Cogl.MatrixStack.scale" title="Cogl.MatrixStack.scale"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.scale</span></code></a>() and
+<a class="reference internal" href="#Cogl.MatrixStack.translate" title="Cogl.MatrixStack.translate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.translate</span></code></a>(). These operations will derive a new
 current transformation and will never affect a transformation
-that you have referenced using <a class="reference internal" href="#Cogl.MatrixStack.get_entry" title="Cogl.MatrixStack.get_entry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.get_entry</span></code></a> ().</p>
+that you have referenced using <a class="reference internal" href="#Cogl.MatrixStack.get_entry" title="Cogl.MatrixStack.get_entry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.get_entry</span></code></a>().</p>
 <p>Internally applying operations to a <a class="reference internal" href="#Cogl.MatrixStack" title="Cogl.MatrixStack"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack</span></code></a> builds up a
 graph of <a class="reference internal" href="../structs/MatrixEntry.html#Cogl.MatrixEntry" title="Cogl.MatrixEntry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixEntry</span></code></a> structures which each represent a single
 immutable transform.</p>
@@ -335,17 +321,17 @@ more details of what a matrix stack is best suited for)</p>
 <p>When a <a class="reference internal" href="#Cogl.MatrixStack" title="Cogl.MatrixStack"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack</span></code></a> is first allocated it is conceptually
 positioned at the root of your scenegraph hierarchy. As you
 traverse your scenegraph then you should call
-<a class="reference internal" href="#Cogl.MatrixStack.push" title="Cogl.MatrixStack.push"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.push</span></code></a> () whenever you move down a level and
-<a class="reference internal" href="#Cogl.MatrixStack.pop" title="Cogl.MatrixStack.pop"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.pop</span></code></a> () whenever you move back up a level towards
+<a class="reference internal" href="#Cogl.MatrixStack.push" title="Cogl.MatrixStack.push"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.push</span></code></a>() whenever you move down a level and
+<a class="reference internal" href="#Cogl.MatrixStack.pop" title="Cogl.MatrixStack.pop"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.pop</span></code></a>() whenever you move back up a level towards
 the root.</p>
 <p>Once you have allocated a <a class="reference internal" href="#Cogl.MatrixStack" title="Cogl.MatrixStack"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack</span></code></a> you can get a reference
 to the current transformation for the current position in the
-hierarchy by calling <a class="reference internal" href="#Cogl.MatrixStack.get_entry" title="Cogl.MatrixStack.get_entry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.get_entry</span></code></a> ().</p>
+hierarchy by calling <a class="reference internal" href="#Cogl.MatrixStack.get_entry" title="Cogl.MatrixStack.get_entry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.get_entry</span></code></a>().</p>
 <p>Once you have allocated a <a class="reference internal" href="#Cogl.MatrixStack" title="Cogl.MatrixStack"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack</span></code></a> you can apply operations
 such as rotate, scale and translate to modify the current transform
 for the current position in the hierarchy by calling
-<a class="reference internal" href="#Cogl.MatrixStack.rotate" title="Cogl.MatrixStack.rotate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.rotate</span></code></a> (), <a class="reference internal" href="#Cogl.MatrixStack.scale" title="Cogl.MatrixStack.scale"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.scale</span></code></a> () and
-<a class="reference internal" href="#Cogl.MatrixStack.translate" title="Cogl.MatrixStack.translate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.translate</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.MatrixStack.rotate" title="Cogl.MatrixStack.rotate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.rotate</span></code></a>(), <a class="reference internal" href="#Cogl.MatrixStack.scale" title="Cogl.MatrixStack.scale"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.scale</span></code></a>() and
+<a class="reference internal" href="#Cogl.MatrixStack.translate" title="Cogl.MatrixStack.translate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.translate</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -399,7 +385,7 @@ the value of the current transform.<table class="docutils field-list" frame="voi
 </tr>
 </tbody>
 </table>
-<p>Resolves the current <cite>stack</cite> transform into a <a class="reference internal" href="../structs/Matrix.html#Cogl.Matrix" title="Cogl.Matrix"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Matrix</span></code></a> by
+<p>Resolves the current <cite>self</cite> transform into a <a class="reference internal" href="../structs/Matrix.html#Cogl.Matrix" title="Cogl.Matrix"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Matrix</span></code></a> by
 combining the operations that have been applied to build up the
 current transform.</p>
 <p>There are two possible ways that this function may return its
@@ -409,7 +395,7 @@ composed of multiple operations.</p>
 <p>If an internal matrix contains the required result then this
 function will directly return a pointer to that matrix, otherwise
 if the function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> then <cite>matrix</cite> will be initialized
-to match the current transform of <cite>stack</cite>.</p>
+to match the current transform of <cite>self</cite>.</p>
 <p><cite>matrix</cite> will be left untouched if a direct pointer is
 returned.</p>
 </dd></dl>
@@ -433,9 +419,9 @@ representing the current matrix stack transform.</td>
 <p>The transform represented by a <a class="reference internal" href="../structs/MatrixEntry.html#Cogl.MatrixEntry" title="Cogl.MatrixEntry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixEntry</span></code></a> is
 immutable.
 <a class="reference internal" href="../structs/MatrixEntry.html#Cogl.MatrixEntry" title="Cogl.MatrixEntry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixEntry</span></code></a> s are reference counted using
-<a class="reference internal" href="../structs/MatrixEntry.html#Cogl.MatrixEntry.ref" title="Cogl.MatrixEntry.ref"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixEntry.ref</span></code></a> () and <a class="reference internal" href="../structs/MatrixEntry.html#Cogl.MatrixEntry.unref" title="Cogl.MatrixEntry.unref"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixEntry.unref</span></code></a> () and you
-should call <a class="reference internal" href="../structs/MatrixEntry.html#Cogl.MatrixEntry.unref" title="Cogl.MatrixEntry.unref"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixEntry.unref</span></code></a> () when you are finished with
-and entry you get via <a class="reference internal" href="#Cogl.MatrixStack.get_entry" title="Cogl.MatrixStack.get_entry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.get_entry</span></code></a> ().</p>
+<a class="reference internal" href="../structs/MatrixEntry.html#Cogl.MatrixEntry.ref" title="Cogl.MatrixEntry.ref"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixEntry.ref</span></code></a>() and <a class="reference internal" href="../structs/MatrixEntry.html#Cogl.MatrixEntry.unref" title="Cogl.MatrixEntry.unref"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixEntry.unref</span></code></a>() and you
+should call <a class="reference internal" href="../structs/MatrixEntry.html#Cogl.MatrixEntry.unref" title="Cogl.MatrixEntry.unref"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixEntry.unref</span></code></a>() when you are finished with
+and entry you get via <a class="reference internal" href="#Cogl.MatrixStack.get_entry" title="Cogl.MatrixStack.get_entry"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.get_entry</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -541,7 +527,7 @@ objects near to each other.</p>
 <dt id="Cogl.MatrixStack.pop">
 <code class="descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Restores the previous transform that was last saved by calling
-<a class="reference internal" href="#Cogl.MatrixStack.push" title="Cogl.MatrixStack.push"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.push</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.MatrixStack.push" title="Cogl.MatrixStack.push"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.push</span></code></a>().</p>
 <p>This is usually called while traversing a scenegraph whenever you
 return up one level in the graph towards the root node.</p>
 </dd></dl>
@@ -552,7 +538,7 @@ return up one level in the graph towards the root node.</p>
 <dd><p>Saves the current transform and starts a new transform that derives
 from the current transform.</p>
 <p>This is usually called while traversing a scenegraph whenever you
-traverse one level deeper. <a class="reference internal" href="#Cogl.MatrixStack.pop" title="Cogl.MatrixStack.pop"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.pop</span></code></a> () can then be
+traverse one level deeper. <a class="reference internal" href="#Cogl.MatrixStack.pop" title="Cogl.MatrixStack.pop"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.pop</span></code></a>() can then be
 called when going back up one layer to restore the previous
 transform of an ancestor.</p>
 </dd></dl>
@@ -642,9 +628,9 @@ axes by the given values.</p>
 </tr>
 </tbody>
 </table>
-<p>Replaces the current <cite>stack</cite> matrix value with the value of <cite>matrix</cite>.
+<p>Replaces the current <cite>self</cite> matrix value with the value of <cite>matrix</cite>.
 This effectively discards any other operations that were applied
-since the last time <a class="reference internal" href="#Cogl.MatrixStack.push" title="Cogl.MatrixStack.push"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.push</span></code></a> () was called or since
+since the last time <a class="reference internal" href="#Cogl.MatrixStack.push" title="Cogl.MatrixStack.push"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.MatrixStack.push</span></code></a>() was called or since
 the stack was initialized.</p>
 </dd></dl>
 
@@ -684,7 +670,4 @@ three axes according to the given values.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

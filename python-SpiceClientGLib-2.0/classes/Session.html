@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="SpiceClientGLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="SpiceClientGLib.SmartcardChannel" href="SmartcardChannel.html"/>
         <link rel="prev" title="SpiceClientGLib.RecordChannel" href="RecordChannel.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -558,8 +556,8 @@
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the session state is invalid for connection
 request. <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the connection is initiated. To know whether the
 connection is established, you must watch for channels creation
-(<a class="reference internal" href="#SpiceClientGLib.Session" title="SpiceClientGLib.Session"><code class="xref py py-obj docutils literal"><span class="pre">SpiceClientGLib.Session</span></code></a> <a class="reference internal" href="#SpiceClientGLib.Session.signals.channel_new" title="SpiceClientGLib.Session.signals.channel_new"><code class="xref py py-func docutils literal"><span class="pre">::channel-new</span></code></a> ) and the channels state
-(<a class="reference internal" href="Channel.html#SpiceClientGLib.Channel" title="SpiceClientGLib.Channel"><code class="xref py py-obj docutils literal"><span class="pre">SpiceClientGLib.Channel</span></code></a> <a class="reference internal" href="Channel.html#SpiceClientGLib.Channel.signals.channel_event" title="SpiceClientGLib.Channel.signals.channel_event"><code class="xref py py-func docutils literal"><span class="pre">::channel-event</span></code></a> ).</td>
+(<a class="reference internal" href="#SpiceClientGLib.Session" title="SpiceClientGLib.Session"><code class="xref py py-obj docutils literal"><span class="pre">SpiceClientGLib.Session</span></code></a> <a class="reference internal" href="#SpiceClientGLib.Session.signals.channel_new" title="SpiceClientGLib.Session.signals.channel_new"><code class="xref py py-func docutils literal"><span class="pre">::channel-new</span></code></a>) and the channels state
+(<a class="reference internal" href="Channel.html#SpiceClientGLib.Channel" title="SpiceClientGLib.Channel"><code class="xref py py-obj docutils literal"><span class="pre">SpiceClientGLib.Channel</span></code></a> <a class="reference internal" href="Channel.html#SpiceClientGLib.Channel.signals.channel_event" title="SpiceClientGLib.Channel.signals.channel_event"><code class="xref py py-func docutils literal"><span class="pre">::channel-event</span></code></a>).</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -572,7 +570,7 @@ connection is established, you must watch for channels creation
 <dl class="method">
 <dt id="SpiceClientGLib.Session.disconnect">
 <code class="descname">disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Disconnect the <cite>session</cite>, and destroy all channels.</p>
+<dd><p>Disconnect the <cite>self</cite>, and destroy all channels.</p>
 </dd></dl>
 
 <dl class="method">
@@ -589,7 +587,7 @@ of unowned <a class="reference internal" href="Channel.html#SpiceClientGLib.Chan
 </tr>
 </tbody>
 </table>
-<p>Get the list of current channels associated with this <cite>session</cite>.</p>
+<p>Get the list of current channels associated with this <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -605,7 +603,7 @@ of unowned <a class="reference internal" href="Channel.html#SpiceClientGLib.Chan
 </tr>
 </tbody>
 </table>
-<p>Gets the <cite>session</cite> proxy uri.</p>
+<p>Gets the <cite>self</cite> proxy uri.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.24.</span></p>
 </div>
@@ -618,13 +616,13 @@ of unowned <a class="reference internal" href="Channel.html#SpiceClientGLib.Chan
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether the <cite>session</cite> is in read-only mode.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether the <cite>self</cite> is in read-only mode.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks whether the <cite>session</cite> is read-only.</p>
+<p>Checks whether the <cite>self</cite> is read-only.</p>
 </dd></dl>
 
 <dl class="method">
@@ -643,7 +641,7 @@ of unowned <a class="reference internal" href="Channel.html#SpiceClientGLib.Chan
 </tbody>
 </table>
 <p>See if there is a <cite>type</cite> channel in the channels associated with this
-<cite>session</cite>.</p>
+<cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -687,7 +685,7 @@ the client, channels should check this value.</p>
 descriptor. This is useful if you create the fd yourself, for
 example to setup a SSH tunnel.</p>
 <p>Note however that additional sockets will be needed by all the channels
-created for <cite>session</cite> so users of this API should hook into
+created for <cite>self</cite> so users of this API should hook into
 <a class="reference internal" href="Channel.html#SpiceClientGLib.Channel" title="SpiceClientGLib.Channel"><code class="xref py py-obj docutils literal"><span class="pre">SpiceClientGLib.Channel</span></code></a> <a class="reference internal" href="Channel.html#SpiceClientGLib.Channel.signals.open_fd" title="SpiceClientGLib.Channel.signals.open_fd"><code class="xref py py-func docutils literal"><span class="pre">::open-fd</span></code></a> signal for each channel they are interested in, and
 create and pass a new socket to the channel using <a class="reference internal" href="Channel.html#SpiceClientGLib.Channel.open_fd" title="SpiceClientGLib.Channel.open_fd"><code class="xref py py-obj docutils literal"><span class="pre">SpiceClientGLib.Channel.open_fd</span></code></a>, in
 the signal callback.</p>
@@ -1237,7 +1235,7 @@ progress</p>
 </tbody>
 </table>
 <p>URI to the proxy server to use when doing network connection.
-of the form  [protocol://]&lt;host&gt;[:port]</p>
+of the form  [protocol://]&amp;lt;host&amp;gt;[<a class="reference internal" href="#SpiceClientGLib.Session.props.port" title="SpiceClientGLib.Session.props.port"><code class="xref py py-data docutils literal"><span class="pre">:port</span></code></a>]</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.17.</span></p>
 </div>
@@ -1376,7 +1374,7 @@ of the form  [protocol://]&lt;host&gt;[:port]</p>
 hardware smartcard reader. If it&#8217;s set to a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>-terminated string
 array containing the names of 3 valid certificates, these will be
 used to simulate a smartcard in the guest
-See also <a class="reference internal" href="SmartcardManager.html#SpiceClientGLib.SmartcardManager.insert_card" title="SpiceClientGLib.SmartcardManager.insert_card"><code class="xref py py-obj docutils literal"><span class="pre">SpiceClientGLib.SmartcardManager.insert_card</span></code></a> ()</p>
+See also <a class="reference internal" href="SmartcardManager.html#SpiceClientGLib.SmartcardManager.insert_card" title="SpiceClientGLib.SmartcardManager.insert_card"><code class="xref py py-obj docutils literal"><span class="pre">SpiceClientGLib.SmartcardManager.insert_card</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.7.</span></p>
 </div>
@@ -1548,7 +1546,4 @@ certificate should be checked</p>
   </div> 
 
 </body>
-
-  
-
 </html>

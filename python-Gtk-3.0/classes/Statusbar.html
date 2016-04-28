@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.StatusbarAccessible" href="StatusbarAccessible.html"/>
         <link rel="prev" title="Gtk.StatusIcon" href="StatusIcon.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -318,9 +316,9 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Box.html#gtk-box-methods"><span>Gtk.Box (14)</span></a>,     <a class="reference internal" href="Container.html#gtk-container-methods"><span>Gtk.Container (30)</span></a>,     <a class="reference internal" href="Widget.html#gtk-widget-methods"><span>Gtk.Widget (262)</span></a>,     <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (33)</span></a>,     <a class="reference internal" href="../interfaces/Buildable.html#gtk-buildable-methods"><span>Gtk.Buildable (10)</span></a>,     <a class="reference internal" href="../interfaces/Orientable.html#gtk-orientable-methods"><span>Gtk.Orientable (2)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Box.html#gtk-box-methods"><span>Gtk.Box (14)</span></a>,     <a class="reference internal" href="Container.html#gtk-container-methods"><span>Gtk.Container (30)</span></a>,     <a class="reference internal" href="Widget.html#gtk-widget-methods"><span>Gtk.Widget (266)</span></a>,     <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (33)</span></a>,     <a class="reference internal" href="../interfaces/Buildable.html#gtk-buildable-methods"><span>Gtk.Buildable (10)</span></a>,     <a class="reference internal" href="../interfaces/Orientable.html#gtk-orientable-methods"><span>Gtk.Orientable (2)</span></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference internal" href="../class-structs/ContainerClass.html#gtk-containerclass-methods"><span>Gtk.ContainerClass (5)</span></a>,     <a class="reference internal" href="../class-structs/WidgetClass.html#gtk-widgetclass-methods"><span>Gtk.WidgetClass (10)</span></a>,     <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/class-structs/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
+<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference internal" href="../class-structs/ContainerClass.html#gtk-containerclass-methods"><span>Gtk.ContainerClass (5)</span></a>,     <a class="reference internal" href="../class-structs/WidgetClass.html#gtk-widgetclass-methods"><span>Gtk.WidgetClass (12)</span></a>,     <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/class-structs/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -385,7 +383,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Box.html#gtk-box-props"><span>Gtk.Box (3)</span></a>,     <a class="reference internal" href="Container.html#gtk-container-props"><span>Gtk.Container (3)</span></a>,     <a class="reference internal" href="Widget.html#gtk-widget-props"><span>Gtk.Widget (38)</span></a>,     <a class="reference internal" href="../interfaces/Orientable.html#gtk-orientable-props"><span>Gtk.Orientable (1)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Box.html#gtk-box-props"><span>Gtk.Box (3)</span></a>,     <a class="reference internal" href="Container.html#gtk-container-props"><span>Gtk.Container (3)</span></a>,     <a class="reference internal" href="Widget.html#gtk-widget-props"><span>Gtk.Widget (39)</span></a>,     <a class="reference internal" href="../interfaces/Orientable.html#gtk-orientable-props"><span>Gtk.Orientable (1)</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -431,8 +429,8 @@
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">shadow-type</span></code></td>
 <td><a class="reference internal" href="../enums.html#Gtk.ShadowType" title="Gtk.ShadowType"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ShadowType</span></code></a></td>
 <td><a class="reference internal" href="../enums.html#Gtk.ShadowType.IN" title="Gtk.ShadowType.IN"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ShadowType.IN</span></code></a></td>
-<td>r</td>
-<td>Style of bevel around the statusbar text</td>
+<td>d/r</td>
+<td>Style of bevel around the statusbar text <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -527,22 +525,27 @@ the top of the each bar’s stack is the one that will currently be displayed.</
 <p>Any messages added to a statusbar’s stack must specify a
 context id that is used to uniquely identify
 the source of a message. This context id can be generated by
-<a class="reference internal" href="#Gtk.Statusbar.get_context_id" title="Gtk.Statusbar.get_context_id"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.get_context_id</span></code></a> (), given a message and the statusbar that
+<a class="reference internal" href="#Gtk.Statusbar.get_context_id" title="Gtk.Statusbar.get_context_id"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.get_context_id</span></code></a>(), given a message and the statusbar that
 it will be added to. Note that messages are stored in a stack, and when
 choosing which message to display, the stack structure is adhered to,
 regardless of the context identifier of a message.</p>
 <p>One could say that a statusbar maintains one stack of messages for
 display purposes, but allows multiple message producers to maintain
 sub-stacks of the messages they produced (via context ids).</p>
-<p>Status bars are created using <a class="reference internal" href="#Gtk.Statusbar.new" title="Gtk.Statusbar.new"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.new</span></code></a> ().</p>
-<p>Messages are added to the bar’s stack with <a class="reference internal" href="#Gtk.Statusbar.push" title="Gtk.Statusbar.push"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.push</span></code></a> ().</p>
+<p>Status bars are created using <a class="reference internal" href="#Gtk.Statusbar.new" title="Gtk.Statusbar.new"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.new</span></code></a>().</p>
+<p>Messages are added to the bar’s stack with <a class="reference internal" href="#Gtk.Statusbar.push" title="Gtk.Statusbar.push"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.push</span></code></a>().</p>
 <p>The message at the top of the stack can be removed using
-<a class="reference internal" href="#Gtk.Statusbar.pop" title="Gtk.Statusbar.pop"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.pop</span></code></a> (). A message can be removed from anywhere in the
+<a class="reference internal" href="#Gtk.Statusbar.pop" title="Gtk.Statusbar.pop"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.pop</span></code></a>(). A message can be removed from anywhere in the
 stack if its message id was recorded at the time it was added. This
-is done using <a class="reference internal" href="#Gtk.Statusbar.remove" title="Gtk.Statusbar.remove"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.remove</span></code></a> ().</p>
+is done using <a class="reference internal" href="#Gtk.Statusbar.remove" title="Gtk.Statusbar.remove"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.remove</span></code></a>().</p>
+<dl class="docutils">
+<dt>CSS node</dt>
+<dd></dd>
+</dl>
+<p><a class="reference internal" href="#Gtk.Statusbar" title="Gtk.Statusbar"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar</span></code></a> has a single CSS node with name statusbar.</p>
 <dl class="staticmethod">
 <dt id="Gtk.Statusbar.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.18.6#n214"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.20.3#n219"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -558,7 +561,7 @@ is done using <a class="reference internal" href="#Gtk.Statusbar.remove" title="
 
 <dl class="method">
 <dt id="Gtk.Statusbar.get_context_id">
-<code class="descname">get_context_id</code><span class="sig-paren">(</span><em>context_description</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.18.6#n250"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_context_id</code><span class="sig-paren">(</span><em>context_description</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.20.3#n255"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -579,7 +582,7 @@ not shown in the UI.</p>
 
 <dl class="method">
 <dt id="Gtk.Statusbar.get_message_area">
-<code class="descname">get_message_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.18.6#n510"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_message_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.20.3#n515"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -598,7 +601,7 @@ not shown in the UI.</p>
 
 <dl class="method">
 <dt id="Gtk.Statusbar.pop">
-<code class="descname">pop</code><span class="sig-paren">(</span><em>context_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.18.6#n350"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">pop</code><span class="sig-paren">(</span><em>context_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.20.3#n355"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -607,7 +610,7 @@ not shown in the UI.</p>
 </tr>
 </tbody>
 </table>
-<p>Removes the first message in the <a class="reference internal" href="#Gtk.Statusbar" title="Gtk.Statusbar"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar</span></code></a> ’s stack
+<p>Removes the first message in the <a class="reference internal" href="#Gtk.Statusbar" title="Gtk.Statusbar"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar</span></code></a>’s stack
 with the given context id.</p>
 <p>Note that this may not change the displayed message, if
 the message at the top of the stack has a different
@@ -616,20 +619,20 @@ context id.</p>
 
 <dl class="method">
 <dt id="Gtk.Statusbar.push">
-<code class="descname">push</code><span class="sig-paren">(</span><em>context_id</em>, <em>text</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.18.6#n314"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push</code><span class="sig-paren">(</span><em>context_id</em>, <em>text</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.20.3#n319"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>context_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the message’s context id, as returned by
-<a class="reference internal" href="#Gtk.Statusbar.get_context_id" title="Gtk.Statusbar.get_context_id"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.get_context_id</span></code></a> ()</li>
+<a class="reference internal" href="#Gtk.Statusbar.get_context_id" title="Gtk.Statusbar.get_context_id"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.get_context_id</span></code></a>()</li>
 <li><strong>text</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the message to add to the statusbar</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a message id that can be used with
-<a class="reference internal" href="#Gtk.Statusbar.remove" title="Gtk.Statusbar.remove"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.remove</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.Statusbar.remove" title="Gtk.Statusbar.remove"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.remove</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
@@ -642,14 +645,14 @@ context id.</p>
 
 <dl class="method">
 <dt id="Gtk.Statusbar.remove">
-<code class="descname">remove</code><span class="sig-paren">(</span><em>context_id</em>, <em>message_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.18.6#n398"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove</code><span class="sig-paren">(</span><em>context_id</em>, <em>message_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.20.3#n403"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>context_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a context identifier</li>
-<li><strong>message_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a message identifier, as returned by <a class="reference internal" href="#Gtk.Statusbar.push" title="Gtk.Statusbar.push"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.push</span></code></a> ()</li>
+<li><strong>message_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a message identifier, as returned by <a class="reference internal" href="#Gtk.Statusbar.push" title="Gtk.Statusbar.push"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Statusbar.push</span></code></a>()</li>
 </ul>
 </td>
 </tr>
@@ -661,7 +664,7 @@ The exact <cite>context_id</cite> and <cite>message_id</cite> must be specified.
 
 <dl class="method">
 <dt id="Gtk.Statusbar.remove_all">
-<code class="descname">remove_all</code><span class="sig-paren">(</span><em>context_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.18.6#n450"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_all</code><span class="sig-paren">(</span><em>context_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkstatusbar.c?h=3.20.3#n455"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -780,7 +783,4 @@ stack with the exact <cite>context_id</cite>.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

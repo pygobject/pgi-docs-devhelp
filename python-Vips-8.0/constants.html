@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Vips 8.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Symbol Mapping" href="mapping.html"/>
         <link rel="prev" title="Enums" href="enums.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -171,10 +169,13 @@
 <li><a class="reference internal" href="#Vips.INTERPOLATE_SHIFT" title="Vips.INTERPOLATE_SHIFT"><code class="xref py py-obj docutils literal"><span class="pre">Vips.INTERPOLATE_SHIFT</span></code></a></li>
 <li><a class="reference internal" href="#Vips.MAGIC_INTEL" title="Vips.MAGIC_INTEL"><code class="xref py py-obj docutils literal"><span class="pre">Vips.MAGIC_INTEL</span></code></a></li>
 <li><a class="reference internal" href="#Vips.MAGIC_SPARC" title="Vips.MAGIC_SPARC"><code class="xref py py-obj docutils literal"><span class="pre">Vips.MAGIC_SPARC</span></code></a></li>
+<li><a class="reference internal" href="#Vips.MAX_COORD" title="Vips.MAX_COORD"><code class="xref py py-obj docutils literal"><span class="pre">Vips.MAX_COORD</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_EXIF_NAME" title="Vips.META_EXIF_NAME"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_EXIF_NAME</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_ICC_NAME" title="Vips.META_ICC_NAME"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_ICC_NAME</span></code></a></li>
+<li><a class="reference internal" href="#Vips.META_IMAGEDESCRIPTION" title="Vips.META_IMAGEDESCRIPTION"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_IMAGEDESCRIPTION</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_IPCT_NAME" title="Vips.META_IPCT_NAME"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_IPCT_NAME</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_LOADER" title="Vips.META_LOADER"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_LOADER</span></code></a></li>
+<li><a class="reference internal" href="#Vips.META_PHOTOSHOP_NAME" title="Vips.META_PHOTOSHOP_NAME"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_PHOTOSHOP_NAME</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_RESOLUTION_UNIT" title="Vips.META_RESOLUTION_UNIT"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_RESOLUTION_UNIT</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_XML" title="Vips.META_XML"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_XML</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_XMP_NAME" title="Vips.META_XMP_NAME"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_XMP_NAME</span></code></a></li>
@@ -389,6 +390,11 @@ calcualtion. This is how many bits of precision they use.</p>
 </dd></dl>
 
 <dl class="data">
+<dt id="Vips.MAX_COORD">
+<code class="descclassname">Vips.</code><code class="descname">MAX_COORD</code><em class="property"> = 10000000</em></dt>
+<dd></dd></dl>
+
+<dl class="data">
 <dt id="Vips.META_EXIF_NAME">
 <code class="descclassname">Vips.</code><code class="descname">META_EXIF_NAME</code><em class="property"> = 'exif-data'</em></dt>
 <dd><p>The name that JPEG read and write operations use for the image&#8217;s EXIF data.</p>
@@ -400,13 +406,19 @@ calcualtion. This is how many bits of precision they use.</p>
 <dd><p>The name we use to attach an ICC profile. The file read and write
 operations for TIFF, JPEG, PNG and others use this item of metadata to
 attach and save ICC profiles. The profile is updated by the
-<code class="xref py py-obj docutils literal"><span class="pre">Vips.icc_transform</span></code> () operations.</p>
+vips_icc_transform() operations.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Vips.META_IMAGEDESCRIPTION">
+<code class="descclassname">Vips.</code><code class="descname">META_IMAGEDESCRIPTION</code><em class="property"> = 'image-description'</em></dt>
+<dd><p>The IMAGEDESCRIPTION tag. Often has useful metadata.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="Vips.META_IPCT_NAME">
 <code class="descclassname">Vips.</code><code class="descname">META_IPCT_NAME</code><em class="property"> = 'ipct-data'</em></dt>
-<dd><p>The name that JPEG read and write operations use for the image&#8217;s IPCT data.</p>
+<dd><p>The name that read and write operations use for the image&#8217;s IPCT data.</p>
 </dd></dl>
 
 <dl class="data">
@@ -414,6 +426,13 @@ attach and save ICC profiles. The profile is updated by the
 <code class="descclassname">Vips.</code><code class="descname">META_LOADER</code><em class="property"> = 'vips-loader'</em></dt>
 <dd><p>Record the name of the original loader here. Handy for hinting file formats
 and for debugging.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Vips.META_PHOTOSHOP_NAME">
+<code class="descclassname">Vips.</code><code class="descname">META_PHOTOSHOP_NAME</code><em class="property"> = 'photoshop-data'</em></dt>
+<dd><p>The name that TIFF read and write operations use for the image&#8217;s
+TIFFTAG_PHOTOSHOP data.</p>
 </dd></dl>
 
 <dl class="data">
@@ -433,7 +452,7 @@ format file.</p>
 <dl class="data">
 <dt id="Vips.META_XMP_NAME">
 <code class="descclassname">Vips.</code><code class="descname">META_XMP_NAME</code><em class="property"> = 'xmp-data'</em></dt>
-<dd><p>The name that JPEG read and write operations use for the image&#8217;s XMP data.</p>
+<dd><p>The name that read and write operations use for the image&#8217;s XMP data.</p>
 </dd></dl>
 
 <dl class="data">
@@ -463,7 +482,4 @@ calculation. This is how many bits of precision they use.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

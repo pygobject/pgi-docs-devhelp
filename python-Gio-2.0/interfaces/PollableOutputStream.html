@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gio.Proxy" href="Proxy.html"/>
         <link rel="prev" title="Gio.PollableInputStream" href="PollableInputStream.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -269,18 +267,18 @@ UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.</p>
 </div>
 <dl class="method">
 <dt id="Gio.PollableOutputStream.can_poll">
-<code class="descname">can_poll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gpollableoutputstream.c?h=2.46.2#n80"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">can_poll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gpollableoutputstream.c?h=2.48.0#n80"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>stream</cite> is pollable, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is pollable, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>stream</cite> is actually pollable. Some classes may implement
+<p>Checks if <cite>self</cite> is actually pollable. Some classes may implement
 <a class="reference internal" href="#Gio.PollableOutputStream" title="Gio.PollableOutputStream"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream</span></code></a> but have only certain instances of that
 class be pollable. If this method returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, then the behavior
 of other <a class="reference internal" href="#Gio.PollableOutputStream" title="Gio.PollableOutputStream"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream</span></code></a> methods is undefined.</p>
@@ -293,7 +291,7 @@ a stream cannot switch from pollable to non-pollable or vice versa.</p>
 
 <dl class="method">
 <dt id="Gio.PollableOutputStream.create_source">
-<code class="descname">create_source</code><span class="sig-paren">(</span><em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gpollableoutputstream.c?h=2.46.2#n135"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">create_source</code><span class="sig-paren">(</span><em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gpollableoutputstream.c?h=2.48.0#n135"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -306,13 +304,13 @@ a stream cannot switch from pollable to non-pollable or vice versa.</p>
 </tr>
 </tbody>
 </table>
-<p>Creates a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Source.html#GLib.Source" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source</span></code></a> that triggers when <cite>stream</cite> can be written, or
+<p>Creates a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Source.html#GLib.Source" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source</span></code></a> that triggers when <cite>self</cite> can be written, or
 <cite>cancellable</cite> is triggered or an error occurs. The callback on the
 source is of the <a class="reference internal" href="../callbacks.html#Gio.PollableSourceFunc" title="Gio.PollableSourceFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableSourceFunc</span></code></a> type.</p>
-<p>As with <a class="reference internal" href="#Gio.PollableOutputStream.is_writable" title="Gio.PollableOutputStream.is_writable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.is_writable</span></code></a> (), it is possible that
+<p>As with <a class="reference internal" href="#Gio.PollableOutputStream.is_writable" title="Gio.PollableOutputStream.is_writable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.is_writable</span></code></a>(), it is possible that
 the stream may not actually be writable even after the source
-triggers, so you should use <a class="reference internal" href="#Gio.PollableOutputStream.write_nonblocking" title="Gio.PollableOutputStream.write_nonblocking"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.write_nonblocking</span></code></a> ()
-rather than <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a> () from the callback.</p>
+triggers, so you should use <a class="reference internal" href="#Gio.PollableOutputStream.write_nonblocking" title="Gio.PollableOutputStream.write_nonblocking"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.write_nonblocking</span></code></a>()
+rather than <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a>() from the callback.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -320,26 +318,26 @@ rather than <a class="reference internal" href="../classes/OutputStream.html#Gio
 
 <dl class="method">
 <dt id="Gio.PollableOutputStream.is_writable">
-<code class="descname">is_writable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gpollableoutputstream.c?h=2.46.2#n108"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_writable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gpollableoutputstream.c?h=2.48.0#n108"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>stream</cite> is writable, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not. If an error
-has occurred on <cite>stream</cite>, this will result in
-<a class="reference internal" href="#Gio.PollableOutputStream.is_writable" title="Gio.PollableOutputStream.is_writable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.is_writable</span></code></a> () returning <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, and the
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is writable, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not. If an error
+has occurred on <cite>self</cite>, this will result in
+<a class="reference internal" href="#Gio.PollableOutputStream.is_writable" title="Gio.PollableOutputStream.is_writable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.is_writable</span></code></a>() returning <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, and the
 next attempt to write will return the error.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>stream</cite> can be written.</p>
+<p>Checks if <cite>self</cite> can be written.</p>
 <p>Note that some stream types may not be able to implement this 100%
-reliably, and it is possible that a call to <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a> ()
+reliably, and it is possible that a call to <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a>()
 after this returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> would still block. To guarantee
 non-blocking behavior, you should always use
-<a class="reference internal" href="#Gio.PollableOutputStream.write_nonblocking" title="Gio.PollableOutputStream.write_nonblocking"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.write_nonblocking</span></code></a> (), which will return a
+<a class="reference internal" href="#Gio.PollableOutputStream.write_nonblocking" title="Gio.PollableOutputStream.write_nonblocking"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.write_nonblocking</span></code></a>(), which will return a
 <a class="reference internal" href="../enums.html#Gio.IOErrorEnum.WOULD_BLOCK" title="Gio.IOErrorEnum.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.WOULD_BLOCK</span></code></a> error rather than blocking.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
@@ -348,7 +346,7 @@ non-blocking behavior, you should always use
 
 <dl class="method">
 <dt id="Gio.PollableOutputStream.write_nonblocking">
-<code class="descname">write_nonblocking</code><span class="sig-paren">(</span><em>buffer</em>, <em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gpollableoutputstream.c?h=2.46.2#n190"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">write_nonblocking</code><span class="sig-paren">(</span><em>buffer</em>, <em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gpollableoutputstream.c?h=2.48.0#n190"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -360,11 +358,11 @@ data from</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the number of bytes written, or -1 on error (including
-<a class="reference internal" href="../enums.html#Gio.IOErrorEnum.WOULD_BLOCK" title="Gio.IOErrorEnum.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.WOULD_BLOCK</span></code></a> ).</p>
+<a class="reference internal" href="../enums.html#Gio.IOErrorEnum.WOULD_BLOCK" title="Gio.IOErrorEnum.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.WOULD_BLOCK</span></code></a>).</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
@@ -372,11 +370,11 @@ data from</li>
 </tr>
 </tbody>
 </table>
-<p>Attempts to write up to <cite>count</cite> bytes from <cite>buffer</cite> to <cite>stream</cite>, as
-with <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a> (). If <cite>stream</cite> is not currently writable,
+<p>Attempts to write up to <cite>count</cite> bytes from <cite>buffer</cite> to <cite>self</cite>, as
+with <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a>(). If <cite>self</cite> is not currently writable,
 this will immediately return <a class="reference internal" href="../enums.html#Gio.IOErrorEnum.WOULD_BLOCK" title="Gio.IOErrorEnum.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.WOULD_BLOCK</span></code></a>, and you can
-use <a class="reference internal" href="#Gio.PollableOutputStream.create_source" title="Gio.PollableOutputStream.create_source"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.create_source</span></code></a> () to create a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Source.html#GLib.Source" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source</span></code></a>
-that will be triggered when <cite>stream</cite> is writable.</p>
+use <a class="reference internal" href="#Gio.PollableOutputStream.create_source" title="Gio.PollableOutputStream.create_source"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.create_source</span></code></a>() to create a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Source.html#GLib.Source" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source</span></code></a>
+that will be triggered when <cite>self</cite> is writable.</p>
 <p>Note that since this method never blocks, you cannot actually
 use <cite>cancellable</cite> to cancel it. However, it will return an error
 if <cite>cancellable</cite> has already been cancelled when you call, which
@@ -426,10 +424,10 @@ a stream cannot switch from pollable to non-pollable or vice versa.</p>
 <p>Creates a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Source.html#GLib.Source" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source</span></code></a> that triggers when <cite>stream</cite> can be written, or
 <cite>cancellable</cite> is triggered or an error occurs. The callback on the
 source is of the <a class="reference internal" href="../callbacks.html#Gio.PollableSourceFunc" title="Gio.PollableSourceFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableSourceFunc</span></code></a> type.</p>
-<p>As with <a class="reference internal" href="#Gio.PollableOutputStream.is_writable" title="Gio.PollableOutputStream.is_writable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.is_writable</span></code></a> (), it is possible that
+<p>As with <a class="reference internal" href="#Gio.PollableOutputStream.is_writable" title="Gio.PollableOutputStream.is_writable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.is_writable</span></code></a>(), it is possible that
 the stream may not actually be writable even after the source
-triggers, so you should use <a class="reference internal" href="#Gio.PollableOutputStream.write_nonblocking" title="Gio.PollableOutputStream.write_nonblocking"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.write_nonblocking</span></code></a> ()
-rather than <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a> () from the callback.</p>
+triggers, so you should use <a class="reference internal" href="#Gio.PollableOutputStream.write_nonblocking" title="Gio.PollableOutputStream.write_nonblocking"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.write_nonblocking</span></code></a>()
+rather than <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a>() from the callback.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -444,7 +442,7 @@ rather than <a class="reference internal" href="../classes/OutputStream.html#Gio
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>stream</cite> is writable, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not. If an error
 has occurred on <cite>stream</cite>, this will result in
-<a class="reference internal" href="#Gio.PollableOutputStream.is_writable" title="Gio.PollableOutputStream.is_writable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.is_writable</span></code></a> () returning <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, and the
+<a class="reference internal" href="#Gio.PollableOutputStream.is_writable" title="Gio.PollableOutputStream.is_writable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.is_writable</span></code></a>() returning <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, and the
 next attempt to write will return the error.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
@@ -453,10 +451,10 @@ next attempt to write will return the error.</td>
 </table>
 <p>Checks if <cite>stream</cite> can be written.</p>
 <p>Note that some stream types may not be able to implement this 100%
-reliably, and it is possible that a call to <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a> ()
+reliably, and it is possible that a call to <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a>()
 after this returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> would still block. To guarantee
 non-blocking behavior, you should always use
-<a class="reference internal" href="#Gio.PollableOutputStream.write_nonblocking" title="Gio.PollableOutputStream.write_nonblocking"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.write_nonblocking</span></code></a> (), which will return a
+<a class="reference internal" href="#Gio.PollableOutputStream.write_nonblocking" title="Gio.PollableOutputStream.write_nonblocking"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.write_nonblocking</span></code></a>(), which will return a
 <a class="reference internal" href="../enums.html#Gio.IOErrorEnum.WOULD_BLOCK" title="Gio.IOErrorEnum.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.WOULD_BLOCK</span></code></a> error rather than blocking.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
@@ -470,20 +468,20 @@ non-blocking behavior, you should always use
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>buffer</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bytes</span></code></a>) &#8211; a buffer to write
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>buffer</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bytes</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a buffer to write
 data from</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the number of bytes written, or -1 on error (including
-<a class="reference internal" href="../enums.html#Gio.IOErrorEnum.WOULD_BLOCK" title="Gio.IOErrorEnum.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.WOULD_BLOCK</span></code></a> ).</td>
+<a class="reference internal" href="../enums.html#Gio.IOErrorEnum.WOULD_BLOCK" title="Gio.IOErrorEnum.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.WOULD_BLOCK</span></code></a>).</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Attempts to write up to <cite>count</cite> bytes from <cite>buffer</cite> to <cite>stream</cite>, as
-with <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a> (). If <cite>stream</cite> is not currently writable,
+with <a class="reference internal" href="../classes/OutputStream.html#Gio.OutputStream.write" title="Gio.OutputStream.write"><code class="xref py py-obj docutils literal"><span class="pre">Gio.OutputStream.write</span></code></a>(). If <cite>stream</cite> is not currently writable,
 this will immediately return <a class="reference internal" href="../enums.html#Gio.IOErrorEnum.WOULD_BLOCK" title="Gio.IOErrorEnum.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.WOULD_BLOCK</span></code></a>, and you can
-use <a class="reference internal" href="#Gio.PollableOutputStream.create_source" title="Gio.PollableOutputStream.create_source"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.create_source</span></code></a> () to create a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Source.html#GLib.Source" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source</span></code></a>
+use <a class="reference internal" href="#Gio.PollableOutputStream.create_source" title="Gio.PollableOutputStream.create_source"><code class="xref py py-obj docutils literal"><span class="pre">Gio.PollableOutputStream.create_source</span></code></a>() to create a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Source.html#GLib.Source" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Source</span></code></a>
 that will be triggered when <cite>stream</cite> is writable.</p>
 <p>Note that since this method never blocks, you cannot actually
 use <cite>cancellable</cite> to cancel it. However, it will return an error
@@ -508,7 +506,4 @@ to having been cancelled.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="WebKit 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="WebKit.WebNavigationAction" href="WebNavigationAction.html"/>
         <link rel="prev" title="WebKit.WebHistoryItem" href="WebHistoryItem.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -379,18 +377,18 @@ can be embedded into an application to show the inspector.</p>
 <p>The inspector is available when the <a class="reference internal" href="WebSettings.html#WebKit.WebSettings" title="WebKit.WebSettings"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebSettings</span></code></a> of the
 <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a> has set the <a class="reference internal" href="WebSettings.html#WebKit.WebSettings" title="WebKit.WebSettings"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebSettings</span></code></a> <a class="reference internal" href="WebSettings.html#WebKit.WebSettings.props.enable_developer_extras" title="WebKit.WebSettings.props.enable_developer_extras"><code class="xref py py-data docutils literal"><span class="pre">:enable-developer-extras</span></code></a>
 to true otherwise no inspector is available.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="cm">/* Enable the developer extras */</span>
-<span class="n">WebKitWebSettings</span> <span class="o">*</span><span class="n">setting</span> <span class="o">=</span> <span class="n">webkit_web_view_get_settings</span> <span class="p">(</span><span class="n">WEBKIT_WEB_VIEW</span><span class="p">(</span><span class="n">my_webview</span><span class="p">));</span>
-<span class="n">g_object_set</span> <span class="p">(</span><span class="n">G_OBJECT</span><span class="p">(</span><span class="n">settings</span><span class="p">),</span> <span class="s">&quot;enable-developer-extras&quot;</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>/* Enable the developer extras */
+WebKitWebSettings *setting = webkit_web_view_get_settings (WEBKIT_WEB_VIEW(my_webview));
+g_object_set (G_OBJECT(settings), &quot;enable-developer-extras&quot;, TRUE, NULL);
 
-<span class="cm">/* load some data or reload to be able to inspect the page*/</span>
-<span class="n">webkit_web_view_open</span> <span class="p">(</span><span class="n">WEBKIT_WEB_VIEW</span><span class="p">(</span><span class="n">my_webview</span><span class="p">),</span> <span class="s">&quot;http://www.gnome.org&quot;</span><span class="p">);</span>
+/* load some data or reload to be able to inspect the page*/
+webkit_web_view_open (WEBKIT_WEB_VIEW(my_webview), &quot;http://www.gnome.org&quot;);
 
-<span class="cm">/* Embed the inspector somewhere */</span>
-<span class="n">WebKitWebInspector</span> <span class="o">*</span><span class="n">inspector</span> <span class="o">=</span> <span class="n">webkit_web_view_get_inspector</span> <span class="p">(</span><span class="n">WEBKIT_WEB_VIEW</span><span class="p">(</span><span class="n">my_webview</span><span class="p">));</span>
-<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">G_OBJECT</span> <span class="p">(</span><span class="n">inspector</span><span class="p">),</span> <span class="s">&quot;inspect-web-view&quot;</span><span class="p">,</span> <span class="n">G_CALLBACK</span><span class="p">(</span><span class="n">create_gtk_window_around_it</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">G_OBJECT</span> <span class="p">(</span><span class="n">inspector</span><span class="p">),</span> <span class="s">&quot;show-window&quot;</span><span class="p">,</span> <span class="n">G_CALLBACK</span><span class="p">(</span><span class="n">show_inpector_window</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">));</span>
-<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">G_OBJECT</span> <span class="p">(</span><span class="n">inspector</span><span class="p">),</span> <span class="s">&quot;notify::inspected-uri&quot;</span><span class="p">,</span> <span class="n">G_CALLBACK</span><span class="p">(</span><span class="n">inspected_uri_changed_do_stuff</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
+/* Embed the inspector somewhere */
+WebKitWebInspector *inspector = webkit_web_view_get_inspector (WEBKIT_WEB_VIEW(my_webview));
+g_signal_connect (G_OBJECT (inspector), &quot;inspect-web-view&quot;, G_CALLBACK(create_gtk_window_around_it), NULL);
+g_signal_connect (G_OBJECT (inspector), &quot;show-window&quot;, G_CALLBACK(show_inpector_window), NULL));
+g_signal_connect (G_OBJECT (inspector), &quot;notify::inspected-uri&quot;, G_CALLBACK(inspected_uri_changed_do_stuff), NULL);
 </pre></div>
 </div>
 <dl class="method">
@@ -778,7 +776,4 @@ that Console.profiles will return the profiles.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

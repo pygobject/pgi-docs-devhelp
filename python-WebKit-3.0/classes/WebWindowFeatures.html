@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="WebKit 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Hierarchy" href="../hierarchy.html"/>
         <link rel="prev" title="WebKit.WebView" href="WebView.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -366,15 +364,15 @@ the request to show the <a class="reference internal" href="WebView.html#WebKit.
 to get the <a class="reference internal" href="#WebKit.WebWindowFeatures" title="WebKit.WebWindowFeatures"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebWindowFeatures</span></code></a> and then monitor the property
 changes. Be aware that the <a class="reference internal" href="#WebKit.WebWindowFeatures" title="WebKit.WebWindowFeatures"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebWindowFeatures</span></code></a> might change
 before <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a> <a class="reference internal" href="WebView.html#WebKit.WebView.signals.web_view_ready" title="WebKit.WebView.signals.web_view_ready"><code class="xref py py-func docutils literal"><span class="pre">::web-view-ready</span></code></a> signal is emitted.
-To be safe listen to the notify <code class="xref py py-func docutils literal"><span class="pre">::window-features</span></code> signal of the <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a>
+To be safe listen to the notify::window-features signal of the <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a>
 and reconnect the signals whenever the <a class="reference internal" href="#WebKit.WebWindowFeatures" title="WebKit.WebWindowFeatures"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebWindowFeatures</span></code></a> of
 a <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a> changes.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="cm">/* Get the current WebKitWebWindowFeatures */</span>
-<span class="n">WebKitWebWindowFeatures</span> <span class="o">*</span><span class="n">features</span> <span class="o">=</span> <span class="n">webkit_web_view_get_window_features</span> <span class="p">(</span><span class="n">my_webview</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>/* Get the current WebKitWebWindowFeatures */
+WebKitWebWindowFeatures *features = webkit_web_view_get_window_features (my_webview);
 
-<span class="cm">/* Connect to the property changes */</span>
-<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">G_OBJECT</span><span class="p">(</span><span class="n">features</span><span class="p">),</span> <span class="s">&quot;notify::menubar-visible&quot;</span><span class="p">,</span> <span class="n">G_CALLBACK</span><span class="p">(</span><span class="n">make_menu_bar_visible</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">G_OBJECT</span><span class="p">(</span><span class="n">features</span><span class="p">),</span> <span class="s">&quot;notify::statusbar-visible&quot;</span><span class="p">,</span> <span class="n">G_CALLBACK</span><span class="p">(</span><span class="n">make_status_bar_visible</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
+/* Connect to the property changes */
+g_signal_connect (G_OBJECT(features), &quot;notify::menubar-visible&quot;, G_CALLBACK(make_menu_bar_visible), NULL);
+g_signal_connect (G_OBJECT(features), &quot;notify::statusbar-visible&quot;, G_CALLBACK(make_status_bar_visible), NULL);
 </pre></div>
 </div>
 <dl class="staticmethod">
@@ -669,7 +667,4 @@ in has the same values.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

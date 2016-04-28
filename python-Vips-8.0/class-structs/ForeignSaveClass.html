@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Vips 8.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Class Structures" href="index.html"/>
         <link rel="next" title="Vips.ImageClass" href="ImageClass.html"/>
         <link rel="prev" title="Vips.ForeignLoadClass" href="ForeignLoadClass.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -192,79 +190,79 @@
 <dl class="class">
 <dt id="Vips.ForeignSaveClass">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">ForeignSaveClass</code></dt>
-<dd><p>Call your saver in the class&#8217; <cite>build</cite> () method after chaining up. The
+<dd><p>Call your saver in the class&#8217; <cite>build</cite>() method after chaining up. The
 prepared image should be ready for you to save in <cite>ready</cite>.</p>
 <p>As a complete example, here&#8217;s the code for the CSV saver, minus the calls
 to the actual save routines.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_VipsForeignSaveCsv</span> <span class="p">{</span>
-  <span class="n">VipsForeignSave</span> <span class="n">parent_object</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>typedef struct _VipsForeignSaveCsv {
+  VipsForeignSave parent_object;
 
-  <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">;</span>
-  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">separator</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">VipsForeignSaveCsv</span><span class="p">;</span>
+  char *filename;
+  const char *separator;
+} VipsForeignSaveCsv;
 
-<span class="k">typedef</span> <span class="n">VipsForeignSaveClass</span> <span class="n">VipsForeignSaveCsvClass</span><span class="p">;</span>
+typedef VipsForeignSaveClass VipsForeignSaveCsvClass;
 
-<span class="n">G_DEFINE_TYPE</span><span class="p">(</span> <span class="n">VipsForeignSaveCsv</span><span class="p">,</span> <span class="n">vips_foreign_save_csv</span><span class="p">,</span>
-  <span class="n">VIPS_TYPE_FOREIGN_SAVE</span> <span class="p">);</span>
+G_DEFINE_TYPE( VipsForeignSaveCsv, vips_foreign_save_csv,
+  VIPS_TYPE_FOREIGN_SAVE );
 
-<span class="k">static</span> <span class="kt">int</span>
-<span class="nf">vips_foreign_save_csv_build</span><span class="p">(</span> <span class="n">VipsObject</span> <span class="o">*</span><span class="n">object</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">VipsForeignSave</span> <span class="o">*</span><span class="n">save</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsForeignSave</span> <span class="o">*</span><span class="p">)</span> <span class="n">object</span><span class="p">;</span>
-  <span class="n">VipsForeignSaveCsv</span> <span class="o">*</span><span class="n">csv</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsForeignSaveCsv</span> <span class="o">*</span><span class="p">)</span> <span class="n">object</span><span class="p">;</span>
+static int
+vips_foreign_save_csv_build( VipsObject *object )
+{
+  VipsForeignSave *save = (VipsForeignSave *) object;
+  VipsForeignSaveCsv *csv = (VipsForeignSaveCsv *) object;
 
-  <span class="k">if</span><span class="p">(</span> <span class="n">VIPS_OBJECT_CLASS</span><span class="p">(</span> <span class="n">vips_foreign_save_csv_parent_class</span> <span class="p">)</span><span class="o">-&gt;</span>
-        <span class="n">build</span><span class="p">(</span> <span class="n">object</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">return</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="p">);</span>
+  if( VIPS_OBJECT_CLASS( vips_foreign_save_csv_parent_class )-&gt;
+        build( object ) )
+        return( -1 );
 
-  <span class="k">if</span><span class="p">(</span> <span class="n">vips__csv_write</span><span class="p">(</span> <span class="n">save</span><span class="o">-&gt;</span><span class="n">ready</span><span class="p">,</span> <span class="n">csv</span><span class="o">-&gt;</span><span class="n">filename</span><span class="p">,</span> <span class="n">csv</span><span class="o">-&gt;</span><span class="n">separator</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">return</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="p">);</span>
+  if( vips__csv_write( save-&gt;ready, csv-&gt;filename, csv-&gt;separator ) )
+        return( -1 );
 
-  <span class="k">return</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
-<span class="p">}</span>
+  return( 0 );
+}
 
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">vips_foreign_save_csv_class_init</span><span class="p">(</span> <span class="n">VipsForeignSaveCsvClass</span> <span class="o">*</span><span class="n">class</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">GObjectClass</span> <span class="o">*</span><span class="n">gobject_class</span> <span class="o">=</span> <span class="n">G_OBJECT_CLASS</span><span class="p">(</span> <span class="n">class</span> <span class="p">);</span>
-  <span class="n">VipsObjectClass</span> <span class="o">*</span><span class="n">object_class</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsObjectClass</span> <span class="o">*</span><span class="p">)</span> <span class="n">class</span><span class="p">;</span>
-  <span class="n">VipsForeignClass</span> <span class="o">*</span><span class="n">foreign_class</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsForeignClass</span> <span class="o">*</span><span class="p">)</span> <span class="n">class</span><span class="p">;</span>
-  <span class="n">VipsForeignSaveClass</span> <span class="o">*</span><span class="n">save_class</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsForeignSaveClass</span> <span class="o">*</span><span class="p">)</span> <span class="n">class</span><span class="p">;</span>
+static void
+vips_foreign_save_csv_class_init( VipsForeignSaveCsvClass *class )
+{
+  GObjectClass *gobject_class = G_OBJECT_CLASS( class );
+  VipsObjectClass *object_class = (VipsObjectClass *) class;
+  VipsForeignClass *foreign_class = (VipsForeignClass *) class;
+  VipsForeignSaveClass *save_class = (VipsForeignSaveClass *) class;
 
-  <span class="n">gobject_class</span><span class="o">-&gt;</span><span class="n">set_property</span> <span class="o">=</span> <span class="n">vips_object_set_property</span><span class="p">;</span>
-  <span class="n">gobject_class</span><span class="o">-&gt;</span><span class="n">get_property</span> <span class="o">=</span> <span class="n">vips_object_get_property</span><span class="p">;</span>
+  gobject_class-&gt;set_property = vips_object_set_property;
+  gobject_class-&gt;get_property = vips_object_get_property;
 
-  <span class="n">object_class</span><span class="o">-&gt;</span><span class="n">nickname</span> <span class="o">=</span> <span class="s">&quot;csvsave&quot;</span><span class="p">;</span>
-  <span class="n">object_class</span><span class="o">-&gt;</span><span class="n">description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span> <span class="s">&quot;save image to csv file&quot;</span> <span class="p">);</span>
-  <span class="n">object_class</span><span class="o">-&gt;</span><span class="n">build</span> <span class="o">=</span> <span class="n">vips_foreign_save_csv_build</span><span class="p">;</span>
+  object_class-&gt;nickname = &quot;csvsave&quot;;
+  object_class-&gt;description = _( &quot;save image to csv file&quot; );
+  object_class-&gt;build = vips_foreign_save_csv_build;
 
-  <span class="n">foreign_class</span><span class="o">-&gt;</span><span class="n">suffs</span> <span class="o">=</span> <span class="n">vips__foreign_csv_suffs</span><span class="p">;</span>
+  foreign_class-&gt;suffs = vips__foreign_csv_suffs;
 
-  <span class="n">save_class</span><span class="o">-&gt;</span><span class="n">saveable</span> <span class="o">=</span> <span class="n">VIPS_SAVEABLE_MONO</span><span class="p">;</span>
-  <span class="c1">// no need to define -&gt;format_table, we don&#39;t want the input</span>
-  <span class="c1">// cast for us</span>
+  save_class-&gt;saveable = VIPS_SAVEABLE_MONO;
+  // no need to define -&gt;format_table, we don&#39;t want the input
+  // cast for us
 
-  <span class="n">VIPS_ARG_STRING</span><span class="p">(</span> <span class="n">class</span><span class="p">,</span> <span class="s">&quot;filename&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="n">_</span><span class="p">(</span> <span class="s">&quot;Filename&quot;</span> <span class="p">),</span>
-        <span class="n">_</span><span class="p">(</span> <span class="s">&quot;Filename to save to&quot;</span> <span class="p">),</span>
-        <span class="n">VIPS_ARGUMENT_REQUIRED_INPUT</span><span class="p">,</span>
-        <span class="n">G_STRUCT_OFFSET</span><span class="p">(</span> <span class="n">VipsForeignSaveCsv</span><span class="p">,</span> <span class="n">filename</span> <span class="p">),</span>
-        <span class="nb">NULL</span> <span class="p">);</span>
+  VIPS_ARG_STRING( class, &quot;filename&quot;, 1,
+        _( &quot;Filename&quot; ),
+        _( &quot;Filename to save to&quot; ),
+        VIPS_ARGUMENT_REQUIRED_INPUT,
+        G_STRUCT_OFFSET( VipsForeignSaveCsv, filename ),
+        NULL );
 
-  <span class="n">VIPS_ARG_STRING</span><span class="p">(</span> <span class="n">class</span><span class="p">,</span> <span class="s">&quot;separator&quot;</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span>
-        <span class="n">_</span><span class="p">(</span> <span class="s">&quot;Separator&quot;</span> <span class="p">),</span>
-        <span class="n">_</span><span class="p">(</span> <span class="s">&quot;Separator characters&quot;</span> <span class="p">),</span>
-        <span class="n">VIPS_ARGUMENT_OPTIONAL_INPUT</span><span class="p">,</span>
-        <span class="n">G_STRUCT_OFFSET</span><span class="p">(</span> <span class="n">VipsForeignSaveCsv</span><span class="p">,</span> <span class="n">separator</span> <span class="p">),</span>
-        <span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span> <span class="p">);</span>
-<span class="p">}</span>
+  VIPS_ARG_STRING( class, &quot;separator&quot;, 13,
+        _( &quot;Separator&quot; ),
+        _( &quot;Separator characters&quot; ),
+        VIPS_ARGUMENT_OPTIONAL_INPUT,
+        G_STRUCT_OFFSET( VipsForeignSaveCsv, separator ),
+        &quot;\t&quot; );
+}
 
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">vips_foreign_save_csv_init</span><span class="p">(</span> <span class="n">VipsForeignSaveCsv</span> <span class="o">*</span><span class="n">csv</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">csv</span><span class="o">-&gt;</span><span class="n">separator</span> <span class="o">=</span> <span class="n">g_strdup</span><span class="p">(</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span> <span class="p">);</span>
-<span class="p">}</span>
+static void
+vips_foreign_save_csv_init( VipsForeignSaveCsv *csv )
+{
+  csv-&gt;separator = g_strdup( &quot;\t&quot; );
+}
 </pre></div>
 </div>
 </dd></dl>
@@ -283,7 +281,4 @@ to the actual save routines.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Ggit 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Enums" href="enums.html"/>
         <link rel="prev" title="Ggit.TreeClass" href="class-structs/TreeClass.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -145,7 +143,7 @@
 <li><a class="reference internal" href="#Ggit.DiffOption" title="Ggit.DiffOption"><code class="xref py py-class docutils literal"><span class="pre">Ggit.DiffOption</span></code></a></li>
 <li><a class="reference internal" href="#Ggit.FeatureFlags" title="Ggit.FeatureFlags"><code class="xref py py-class docutils literal"><span class="pre">Ggit.FeatureFlags</span></code></a></li>
 <li><a class="reference internal" href="#Ggit.MergeFileFlags" title="Ggit.MergeFileFlags"><code class="xref py py-class docutils literal"><span class="pre">Ggit.MergeFileFlags</span></code></a></li>
-<li><a class="reference internal" href="#Ggit.MergeTreeFlags" title="Ggit.MergeTreeFlags"><code class="xref py py-class docutils literal"><span class="pre">Ggit.MergeTreeFlags</span></code></a></li>
+<li><a class="reference internal" href="#Ggit.MergeFlags" title="Ggit.MergeFlags"><code class="xref py py-class docutils literal"><span class="pre">Ggit.MergeFlags</span></code></a></li>
 <li><a class="reference internal" href="#Ggit.SortMode" title="Ggit.SortMode"><code class="xref py py-class docutils literal"><span class="pre">Ggit.SortMode</span></code></a></li>
 <li><a class="reference internal" href="#Ggit.StashFlags" title="Ggit.StashFlags"><code class="xref py py-class docutils literal"><span class="pre">Ggit.StashFlags</span></code></a></li>
 <li><a class="reference internal" href="#Ggit.StatusFlags" title="Ggit.StatusFlags"><code class="xref py py-class docutils literal"><span class="pre">Ggit.StatusFlags</span></code></a></li>
@@ -221,6 +219,11 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.CheckoutNotifyFlags.IGNORED">
+<code class="descname">IGNORED</code><em class="property"> = 16</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.CheckoutNotifyFlags.DIRTY">
 <code class="descname">DIRTY</code><em class="property"> = 2</em></dt>
 <dd></dd></dl>
@@ -231,18 +234,13 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.CheckoutNotifyFlags.UNTRACKED">
-<code class="descname">UNTRACKED</code><em class="property"> = 8</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutNotifyFlags.IGNORED">
-<code class="descname">IGNORED</code><em class="property"> = 16</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="Ggit.CheckoutNotifyFlags.ALL">
 <code class="descname">ALL</code><em class="property"> = 65535</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutNotifyFlags.UNTRACKED">
+<code class="descname">UNTRACKED</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -262,83 +260,8 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.FORCE">
-<code class="descname">FORCE</code><em class="property"> = 2</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.RECREATE_MISSING">
-<code class="descname">RECREATE_MISSING</code><em class="property"> = 4</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.ALLOW_CONFLICTS">
-<code class="descname">ALLOW_CONFLICTS</code><em class="property"> = 16</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.REMOVE_UNTRACKED">
-<code class="descname">REMOVE_UNTRACKED</code><em class="property"> = 32</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.REMOVE_IGNORED">
-<code class="descname">REMOVE_IGNORED</code><em class="property"> = 64</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.UPDATE_ONLY">
-<code class="descname">UPDATE_ONLY</code><em class="property"> = 128</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.DONT_UPDATE_INDEX">
-<code class="descname">DONT_UPDATE_INDEX</code><em class="property"> = 256</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.NO_REFRESH">
-<code class="descname">NO_REFRESH</code><em class="property"> = 512</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="Ggit.CheckoutStrategy.SKIP_UNMERGED">
 <code class="descname">SKIP_UNMERGED</code><em class="property"> = 1024</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.USE_OURS">
-<code class="descname">USE_OURS</code><em class="property"> = 2048</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.USE_THEIRS">
-<code class="descname">USE_THEIRS</code><em class="property"> = 4096</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.DISABLE_PATHSPEC_MATCH">
-<code class="descname">DISABLE_PATHSPEC_MATCH</code><em class="property"> = 8192</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.UPDATE_SUBMODULES">
-<code class="descname">UPDATE_SUBMODULES</code><em class="property"> = 65536</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.UPDATE_SUBMODULES_IF_CHANGED">
-<code class="descname">UPDATE_SUBMODULES_IF_CHANGED</code><em class="property"> = 131072</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.SKIP_LOCKED_DIRECTORIES">
-<code class="descname">SKIP_LOCKED_DIRECTORIES</code><em class="property"> = 262144</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.CheckoutStrategy.DONT_OVERWRITE_IGNORED">
-<code class="descname">DONT_OVERWRITE_IGNORED</code><em class="property"> = 524288</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -347,13 +270,88 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.UPDATE_ONLY">
+<code class="descname">UPDATE_ONLY</code><em class="property"> = 128</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.UPDATE_SUBMODULES_IF_CHANGED">
+<code class="descname">UPDATE_SUBMODULES_IF_CHANGED</code><em class="property"> = 131072</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.ALLOW_CONFLICTS">
+<code class="descname">ALLOW_CONFLICTS</code><em class="property"> = 16</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.FORCE">
+<code class="descname">FORCE</code><em class="property"> = 2</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.USE_OURS">
+<code class="descname">USE_OURS</code><em class="property"> = 2048</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.CheckoutStrategy.CONFLICT_STYLE_DIFF3">
 <code class="descname">CONFLICT_STYLE_DIFF3</code><em class="property"> = 2097152</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.DONT_UPDATE_INDEX">
+<code class="descname">DONT_UPDATE_INDEX</code><em class="property"> = 256</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.SKIP_LOCKED_DIRECTORIES">
+<code class="descname">SKIP_LOCKED_DIRECTORIES</code><em class="property"> = 262144</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.REMOVE_UNTRACKED">
+<code class="descname">REMOVE_UNTRACKED</code><em class="property"> = 32</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.RECREATE_MISSING">
+<code class="descname">RECREATE_MISSING</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.USE_THEIRS">
+<code class="descname">USE_THEIRS</code><em class="property"> = 4096</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.CheckoutStrategy.DONT_REMOVE_EXISTING">
 <code class="descname">DONT_REMOVE_EXISTING</code><em class="property"> = 4194304</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.NO_REFRESH">
+<code class="descname">NO_REFRESH</code><em class="property"> = 512</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.DONT_OVERWRITE_IGNORED">
+<code class="descname">DONT_OVERWRITE_IGNORED</code><em class="property"> = 524288</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.REMOVE_IGNORED">
+<code class="descname">REMOVE_IGNORED</code><em class="property"> = 64</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.UPDATE_SUBMODULES">
+<code class="descname">UPDATE_SUBMODULES</code><em class="property"> = 65536</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.CheckoutStrategy.DISABLE_PATHSPEC_MATCH">
+<code class="descname">DISABLE_PATHSPEC_MATCH</code><em class="property"> = 8192</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -392,6 +390,11 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.Credtype.SSH_INTERACTIVE">
+<code class="descname">SSH_INTERACTIVE</code><em class="property"> = 16</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.Credtype.SSH_KEY">
 <code class="descname">SSH_KEY</code><em class="property"> = 2</em></dt>
 <dd></dd></dl>
@@ -404,11 +407,6 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 <dl class="attribute">
 <dt id="Ggit.Credtype.DEFAULT">
 <code class="descname">DEFAULT</code><em class="property"> = 8</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.Credtype.SSH_INTERACTIVE">
-<code class="descname">SSH_INTERACTIVE</code><em class="property"> = 16</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -433,8 +431,33 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.DiffFindFlags.FIND_REWRITES">
+<code class="descname">FIND_REWRITES</code><em class="property"> = 16</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffFindFlags.FIND_EXACT_MATCH_ONLY">
+<code class="descname">FIND_EXACT_MATCH_ONLY</code><em class="property"> = 16384</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.DiffFindFlags.FIND_RENAMES_FROM_REWRITES">
 <code class="descname">FIND_RENAMES_FROM_REWRITES</code><em class="property"> = 2</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffFindFlags.FIND_ALL">
+<code class="descname">FIND_ALL</code><em class="property"> = 255</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffFindFlags.BREAK_REWRITES">
+<code class="descname">BREAK_REWRITES</code><em class="property"> = 32</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffFindFlags.BREAK_REWRITES_FOR_RENAMES_ONLY">
+<code class="descname">BREAK_REWRITES_FOR_RENAMES_ONLY</code><em class="property"> = 32768</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -443,18 +466,8 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffFindFlags.FIND_COPIES_FROM_UNMODIFIED">
-<code class="descname">FIND_COPIES_FROM_UNMODIFIED</code><em class="property"> = 8</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffFindFlags.FIND_REWRITES">
-<code class="descname">FIND_REWRITES</code><em class="property"> = 16</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffFindFlags.BREAK_REWRITES">
-<code class="descname">BREAK_REWRITES</code><em class="property"> = 32</em></dt>
+<dt id="Ggit.DiffFindFlags.FIND_IGNORE_WHITESPACE">
+<code class="descname">FIND_IGNORE_WHITESPACE</code><em class="property"> = 4096</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -468,33 +481,18 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffFindFlags.FIND_ALL">
-<code class="descname">FIND_ALL</code><em class="property"> = 255</em></dt>
+<dt id="Ggit.DiffFindFlags.FIND_REMOVE_UNMODIFIED">
+<code class="descname">FIND_REMOVE_UNMODIFIED</code><em class="property"> = 65536</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffFindFlags.FIND_IGNORE_WHITESPACE">
-<code class="descname">FIND_IGNORE_WHITESPACE</code><em class="property"> = 4096</em></dt>
+<dt id="Ggit.DiffFindFlags.FIND_COPIES_FROM_UNMODIFIED">
+<code class="descname">FIND_COPIES_FROM_UNMODIFIED</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="Ggit.DiffFindFlags.FIND_DONT_IGNORE_WHITESPACE">
 <code class="descname">FIND_DONT_IGNORE_WHITESPACE</code><em class="property"> = 8192</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffFindFlags.FIND_EXACT_MATCH_ONLY">
-<code class="descname">FIND_EXACT_MATCH_ONLY</code><em class="property"> = 16384</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffFindFlags.BREAK_REWRITES_FOR_RENAMES_ONLY">
-<code class="descname">BREAK_REWRITES_FOR_RENAMES_ONLY</code><em class="property"> = 32768</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffFindFlags.FIND_REMOVE_UNMODIFIED">
-<code class="descname">FIND_REMOVE_UNMODIFIED</code><em class="property"> = 65536</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -558,39 +556,21 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.INCLUDE_IGNORED">
-<code class="descname">INCLUDE_IGNORED</code><em class="property"> = 2</em></dt>
-<dd><p>include ignored files.</p>
+<dt id="Ggit.DiffOption.IGNORE_CASE">
+<code class="descname">IGNORE_CASE</code><em class="property"> = 1024</em></dt>
+<dd><p>use case insensitive filename comparison.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.RECURSE_IGNORED_DIRS">
-<code class="descname">RECURSE_IGNORED_DIRS</code><em class="property"> = 4</em></dt>
-<dd><p>also add all files under ignored dirs.</p>
+<dt id="Ggit.DiffOption.FORCE_TEXT">
+<code class="descname">FORCE_TEXT</code><em class="property"> = 1048576</em></dt>
+<dd><p>force text.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.INCLUDE_UNTRACKED">
-<code class="descname">INCLUDE_UNTRACKED</code><em class="property"> = 8</em></dt>
-<dd><p>include untracked files.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffOption.RECURSE_UNTRACKED_DIRS">
-<code class="descname">RECURSE_UNTRACKED_DIRS</code><em class="property"> = 16</em></dt>
-<dd><p>recurse to untracked directories.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffOption.INCLUDE_UNMODIFIED">
-<code class="descname">INCLUDE_UNMODIFIED</code><em class="property"> = 32</em></dt>
-<dd><p>include unmodified files.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffOption.INCLUDE_TYPECHANGE">
-<code class="descname">INCLUDE_TYPECHANGE</code><em class="property"> = 64</em></dt>
-<dd><p>enable generation of typechange detal records.</p>
+<dt id="Ggit.DiffOption.SHOW_BINARY">
+<code class="descname">SHOW_BINARY</code><em class="property"> = 1073741824</em></dt>
+<dd><p>include deflate/delta information for binary files.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -600,33 +580,9 @@ except on checkout, where it uses <a class="reference internal" href="#Ggit.Attr
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.IGNORE_FILE_MODE">
-<code class="descname">IGNORE_FILE_MODE</code><em class="property"> = 256</em></dt>
-<dd><p>ignore file mode changes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffOption.IGNORE_SUBMODULES">
-<code class="descname">IGNORE_SUBMODULES</code><em class="property"> = 512</em></dt>
-<dd><p>ignore submodules.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffOption.IGNORE_CASE">
-<code class="descname">IGNORE_CASE</code><em class="property"> = 1024</em></dt>
-<dd><p>use case insensitive filename comparison.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffOption.DISABLE_PATHSPEC_MATCH">
-<code class="descname">DISABLE_PATHSPEC_MATCH</code><em class="property"> = 4096</em></dt>
-<dd><p>use exact path matching.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.DiffOption.SKIP_BINARY_CHECK">
-<code class="descname">SKIP_BINARY_CHECK</code><em class="property"> = 8192</em></dt>
-<dd><p>disable updating the binary flag in delta records.</p>
+<dt id="Ggit.DiffOption.RECURSE_UNTRACKED_DIRS">
+<code class="descname">RECURSE_UNTRACKED_DIRS</code><em class="property"> = 16</em></dt>
+<dd><p>recurse to untracked directories.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -637,9 +593,15 @@ untracked, without checking inside.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.FORCE_TEXT">
-<code class="descname">FORCE_TEXT</code><em class="property"> = 1048576</em></dt>
-<dd><p>force text.</p>
+<dt id="Ggit.DiffOption.IGNORE_WHITESPACE_EOL">
+<code class="descname">IGNORE_WHITESPACE_EOL</code><em class="property"> = 16777216</em></dt>
+<dd><p>ignore whitespace at end-of-line.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffOption.INCLUDE_IGNORED">
+<code class="descname">INCLUDE_IGNORED</code><em class="property"> = 2</em></dt>
+<dd><p>include ignored files.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -649,21 +611,21 @@ untracked, without checking inside.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.IGNORE_WHITESPACE">
-<code class="descname">IGNORE_WHITESPACE</code><em class="property"> = 4194304</em></dt>
-<dd><p>ignore whitespace.</p>
+<dt id="Ggit.DiffOption.IGNORE_FILE_MODE">
+<code class="descname">IGNORE_FILE_MODE</code><em class="property"> = 256</em></dt>
+<dd><p>ignore file mode changes.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.IGNORE_WHITESPACE_CHANGE">
-<code class="descname">IGNORE_WHITESPACE_CHANGE</code><em class="property"> = 8388608</em></dt>
-<dd><p>ignore whitespace change.</p>
+<dt id="Ggit.DiffOption.PATIENCE">
+<code class="descname">PATIENCE</code><em class="property"> = 268435456</em></dt>
+<dd><p>generate using the &#8220;patience diff&#8221; algorithm.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.IGNORE_WHITESPACE_EOL">
-<code class="descname">IGNORE_WHITESPACE_EOL</code><em class="property"> = 16777216</em></dt>
-<dd><p>ignore whitespace at end-of-line.</p>
+<dt id="Ggit.DiffOption.INCLUDE_UNMODIFIED">
+<code class="descname">INCLUDE_UNMODIFIED</code><em class="property"> = 32</em></dt>
+<dd><p>include unmodified files.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -674,15 +636,27 @@ this implies <a class="reference internal" href="#Ggit.DiffOption.INCLUDE_UNTRAC
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.SHOW_UNMODIFIED">
-<code class="descname">SHOW_UNMODIFIED</code><em class="property"> = 67108864</em></dt>
-<dd><p>show unmodified files.</p>
+<dt id="Ggit.DiffOption.RECURSE_IGNORED_DIRS">
+<code class="descname">RECURSE_IGNORED_DIRS</code><em class="property"> = 4</em></dt>
+<dd><p>also add all files under ignored dirs.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.PATIENCE">
-<code class="descname">PATIENCE</code><em class="property"> = 268435456</em></dt>
-<dd><p>generate using the &#8220;patience diff&#8221; algorithm.</p>
+<dt id="Ggit.DiffOption.DISABLE_PATHSPEC_MATCH">
+<code class="descname">DISABLE_PATHSPEC_MATCH</code><em class="property"> = 4096</em></dt>
+<dd><p>use exact path matching.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffOption.IGNORE_WHITESPACE">
+<code class="descname">IGNORE_WHITESPACE</code><em class="property"> = 4194304</em></dt>
+<dd><p>ignore whitespace.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffOption.IGNORE_SUBMODULES">
+<code class="descname">IGNORE_SUBMODULES</code><em class="property"> = 512</em></dt>
+<dd><p>ignore submodules.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -692,9 +666,33 @@ this implies <a class="reference internal" href="#Ggit.DiffOption.INCLUDE_UNTRAC
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.DiffOption.SHOW_BINARY">
-<code class="descname">SHOW_BINARY</code><em class="property"> = 1073741824</em></dt>
-<dd><p>include deflate/delta information for binary files.</p>
+<dt id="Ggit.DiffOption.INCLUDE_TYPECHANGE">
+<code class="descname">INCLUDE_TYPECHANGE</code><em class="property"> = 64</em></dt>
+<dd><p>enable generation of typechange detal records.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffOption.SHOW_UNMODIFIED">
+<code class="descname">SHOW_UNMODIFIED</code><em class="property"> = 67108864</em></dt>
+<dd><p>show unmodified files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffOption.INCLUDE_UNTRACKED">
+<code class="descname">INCLUDE_UNTRACKED</code><em class="property"> = 8</em></dt>
+<dd><p>include untracked files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffOption.SKIP_BINARY_CHECK">
+<code class="descname">SKIP_BINARY_CHECK</code><em class="property"> = 8192</em></dt>
+<dd><p>disable updating the binary flag in delta records.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.DiffOption.IGNORE_WHITESPACE_CHANGE">
+<code class="descname">IGNORE_WHITESPACE_CHANGE</code><em class="property"> = 8388608</em></dt>
+<dd><p>ignore whitespace change.</p>
 </dd></dl>
 
 </dd></dl>
@@ -744,18 +742,8 @@ this implies <a class="reference internal" href="#Ggit.DiffOption.INCLUDE_UNTRAC
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.MergeFileFlags.STYLE_DIFF3">
-<code class="descname">STYLE_DIFF3</code><em class="property"> = 2</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.MergeFileFlags.SIMPLIFY_ALNUM">
-<code class="descname">SIMPLIFY_ALNUM</code><em class="property"> = 4</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.MergeFileFlags.IGNORE_WHITESPACE">
-<code class="descname">IGNORE_WHITESPACE</code><em class="property"> = 8</em></dt>
+<dt id="Ggit.MergeFileFlags.DIFF_MINIMAL">
+<code class="descname">DIFF_MINIMAL</code><em class="property"> = 128</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -764,8 +752,18 @@ this implies <a class="reference internal" href="#Ggit.DiffOption.INCLUDE_UNTRAC
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.MergeFileFlags.STYLE_DIFF3">
+<code class="descname">STYLE_DIFF3</code><em class="property"> = 2</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.MergeFileFlags.IGNORE_WHITESPACE_EOL">
 <code class="descname">IGNORE_WHITESPACE_EOL</code><em class="property"> = 32</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.MergeFileFlags.SIMPLIFY_ALNUM">
+<code class="descname">SIMPLIFY_ALNUM</code><em class="property"> = 4</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -774,20 +772,45 @@ this implies <a class="reference internal" href="#Ggit.DiffOption.INCLUDE_UNTRAC
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.MergeFileFlags.DIFF_MINIMAL">
-<code class="descname">DIFF_MINIMAL</code><em class="property"> = 128</em></dt>
+<dt id="Ggit.MergeFileFlags.IGNORE_WHITESPACE">
+<code class="descname">IGNORE_WHITESPACE</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="Ggit.MergeTreeFlags">
-<em class="property">class </em><code class="descclassname">Ggit.</code><code class="descname">MergeTreeFlags</code></dt>
+<dt id="Ggit.MergeFlags">
+<em class="property">class </em><code class="descclassname">Ggit.</code><code class="descname">MergeFlags</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Ggit-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <dl class="attribute">
-<dt id="Ggit.MergeTreeFlags.RENAMES">
-<code class="descname">RENAMES</code><em class="property"> = 1</em></dt>
-<dd><p>detect renames.</p>
+<dt id="Ggit.MergeFlags.FIND_RENAMES">
+<code class="descname">FIND_RENAMES</code><em class="property"> = 1</em></dt>
+<dd><p>detect renames that occur between the common
+ancestor and the &#8220;ours&#8221; side or the common ancestor and the &#8220;theirs&#8221; side.
+This will enable the ability to merge between a modified and renamed file.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.MergeFlags.FAIL_ON_CONFLICT">
+<code class="descname">FAIL_ON_CONFLICT</code><em class="property"> = 2</em></dt>
+<dd><p>If a conflict occurs, exit immediately instead
+of attempting to continue resolving conflicts.  The merge operation will
+fail with GGIT_EMERGECONFLICT and no index will be returned.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.MergeFlags.SKIP_REUC">
+<code class="descname">SKIP_REUC</code><em class="property"> = 4</em></dt>
+<dd><p>do not write the REUC extension on the generated index.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.MergeFlags.NO_RECURSIVE">
+<code class="descname">NO_RECURSIVE</code><em class="property"> = 8</em></dt>
+<dd><p>If the commits being merged have multiple merge bases,
+do not build a recursive merge base (by merging the multiple merge bases),
+instead simply use the first base.  This flag provides a similar
+merge base to <code class="docutils literal"><span class="pre">git-merge-resolve</span></code>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -883,25 +906,8 @@ cleaned up from the working directory.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.StatusFlags.INDEX_MODIFIED">
-<code class="descname">INDEX_MODIFIED</code><em class="property"> = 2</em></dt>
-<dd><p>file in index is modified.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.StatusFlags.INDEX_DELETED">
-<code class="descname">INDEX_DELETED</code><em class="property"> = 4</em></dt>
-<dd><p>file in index is deleted.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.StatusFlags.INDEX_RENAMED">
-<code class="descname">INDEX_RENAMED</code><em class="property"> = 8</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.StatusFlags.INDEX_TYPECHANGE">
-<code class="descname">INDEX_TYPECHANGE</code><em class="property"> = 16</em></dt>
+<dt id="Ggit.StatusFlags.WORKING_TREE_TYPECHANGE">
+<code class="descname">WORKING_TREE_TYPECHANGE</code><em class="property"> = 1024</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -911,9 +917,32 @@ cleaned up from the working directory.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.StatusFlags.INDEX_TYPECHANGE">
+<code class="descname">INDEX_TYPECHANGE</code><em class="property"> = 16</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.StatusFlags.IGNORED">
+<code class="descname">IGNORED</code><em class="property"> = 16384</em></dt>
+<dd><p>file is ignored.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.StatusFlags.INDEX_MODIFIED">
+<code class="descname">INDEX_MODIFIED</code><em class="property"> = 2</em></dt>
+<dd><p>file in index is modified.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.StatusFlags.WORKING_TREE_MODIFIED">
 <code class="descname">WORKING_TREE_MODIFIED</code><em class="property"> = 256</em></dt>
 <dd><p>file in working tree is modified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.StatusFlags.INDEX_DELETED">
+<code class="descname">INDEX_DELETED</code><em class="property"> = 4</em></dt>
+<dd><p>file in index is deleted.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -923,15 +952,9 @@ cleaned up from the working directory.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.StatusFlags.WORKING_TREE_TYPECHANGE">
-<code class="descname">WORKING_TREE_TYPECHANGE</code><em class="property"> = 1024</em></dt>
+<dt id="Ggit.StatusFlags.INDEX_RENAMED">
+<code class="descname">INDEX_RENAMED</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.StatusFlags.IGNORED">
-<code class="descname">IGNORED</code><em class="property"> = 16384</em></dt>
-<dd><p>file is ignored.</p>
-</dd></dl>
 
 </dd></dl>
 
@@ -962,18 +985,13 @@ Status options specified when using <a class="reference internal" href="classes/
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.StatusOption.INCLUDE_IGNORED">
-<code class="descname">INCLUDE_IGNORED</code><em class="property"> = 2</em></dt>
+<dt id="Ggit.StatusOption.SORT_CASE_INSENSITIVELY">
+<code class="descname">SORT_CASE_INSENSITIVELY</code><em class="property"> = 1024</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.StatusOption.INCLUDE_UNMODIFIED">
-<code class="descname">INCLUDE_UNMODIFIED</code><em class="property"> = 4</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.StatusOption.EXCLUDE_SUBMODULES">
-<code class="descname">EXCLUDE_SUBMODULES</code><em class="property"> = 8</em></dt>
+<dt id="Ggit.StatusOption.RENAMES_HEAD_TO_INDEX">
+<code class="descname">RENAMES_HEAD_TO_INDEX</code><em class="property"> = 128</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -987,18 +1005,8 @@ Status options specified when using <a class="reference internal" href="classes/
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.StatusOption.DISABLE_PATHSPEC_MATCH">
-<code class="descname">DISABLE_PATHSPEC_MATCH</code><em class="property"> = 32</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.StatusOption.RECURSE_IGNORED_DIRS">
-<code class="descname">RECURSE_IGNORED_DIRS</code><em class="property"> = 64</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.StatusOption.RENAMES_HEAD_TO_INDEX">
-<code class="descname">RENAMES_HEAD_TO_INDEX</code><em class="property"> = 128</em></dt>
+<dt id="Ggit.StatusOption.INCLUDE_IGNORED">
+<code class="descname">INCLUDE_IGNORED</code><em class="property"> = 2</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1007,13 +1015,28 @@ Status options specified when using <a class="reference internal" href="classes/
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.StatusOption.DISABLE_PATHSPEC_MATCH">
+<code class="descname">DISABLE_PATHSPEC_MATCH</code><em class="property"> = 32</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.StatusOption.INCLUDE_UNMODIFIED">
+<code class="descname">INCLUDE_UNMODIFIED</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.StatusOption.SORT_CASE_SENSITIVELY">
 <code class="descname">SORT_CASE_SENSITIVELY</code><em class="property"> = 512</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.StatusOption.SORT_CASE_INSENSITIVELY">
-<code class="descname">SORT_CASE_INSENSITIVELY</code><em class="property"> = 1024</em></dt>
+<dt id="Ggit.StatusOption.RECURSE_IGNORED_DIRS">
+<code class="descname">RECURSE_IGNORED_DIRS</code><em class="property"> = 64</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.StatusOption.EXCLUDE_SUBMODULES">
+<code class="descname">EXCLUDE_SUBMODULES</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1029,33 +1052,8 @@ Status options specified when using <a class="reference internal" href="classes/
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.SubmoduleStatus.IN_INDEX">
-<code class="descname">IN_INDEX</code><em class="property"> = 2</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.SubmoduleStatus.IN_CONFIG">
-<code class="descname">IN_CONFIG</code><em class="property"> = 4</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.SubmoduleStatus.IN_WD">
-<code class="descname">IN_WD</code><em class="property"> = 8</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.SubmoduleStatus.INDEX_ADDED">
-<code class="descname">INDEX_ADDED</code><em class="property"> = 16</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.SubmoduleStatus.INDEX_DELETED">
-<code class="descname">INDEX_DELETED</code><em class="property"> = 32</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.SubmoduleStatus.INDEX_MODIFIED">
-<code class="descname">INDEX_MODIFIED</code><em class="property"> = 64</em></dt>
+<dt id="Ggit.SubmoduleStatus.WD_MODIFIED">
+<code class="descname">WD_MODIFIED</code><em class="property"> = 1024</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1064,18 +1062,13 @@ Status options specified when using <a class="reference internal" href="classes/
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.SubmoduleStatus.WD_ADDED">
-<code class="descname">WD_ADDED</code><em class="property"> = 256</em></dt>
+<dt id="Ggit.SubmoduleStatus.INDEX_ADDED">
+<code class="descname">INDEX_ADDED</code><em class="property"> = 16</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.SubmoduleStatus.WD_DELETED">
-<code class="descname">WD_DELETED</code><em class="property"> = 512</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.SubmoduleStatus.WD_MODIFIED">
-<code class="descname">WD_MODIFIED</code><em class="property"> = 1024</em></dt>
+<dt id="Ggit.SubmoduleStatus.IN_INDEX">
+<code class="descname">IN_INDEX</code><em class="property"> = 2</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1084,8 +1077,38 @@ Status options specified when using <a class="reference internal" href="classes/
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.SubmoduleStatus.WD_ADDED">
+<code class="descname">WD_ADDED</code><em class="property"> = 256</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.SubmoduleStatus.INDEX_DELETED">
+<code class="descname">INDEX_DELETED</code><em class="property"> = 32</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.SubmoduleStatus.IN_CONFIG">
+<code class="descname">IN_CONFIG</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.SubmoduleStatus.WD_WD_MODIFIED">
 <code class="descname">WD_WD_MODIFIED</code><em class="property"> = 4096</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.SubmoduleStatus.WD_DELETED">
+<code class="descname">WD_DELETED</code><em class="property"> = 512</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.SubmoduleStatus.INDEX_MODIFIED">
+<code class="descname">INDEX_MODIFIED</code><em class="property"> = 64</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.SubmoduleStatus.IN_WD">
+<code class="descname">IN_WD</code><em class="property"> = 8</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1109,7 +1132,4 @@ Status options specified when using <a class="reference internal" href="classes/
   </div> 
 
 </body>
-
-  
-
 </html>

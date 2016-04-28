@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Cogl.VertexP2" href="VertexP2.html"/>
         <link rel="prev" title="Cogl.TextureVertex" href="TextureVertex.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -178,27 +176,27 @@
 <dt id="Cogl.UserDataKey">
 <em class="property">class </em><code class="descclassname">Cogl.</code><code class="descname">UserDataKey</code></dt>
 <dd><p>A <a class="reference internal" href="#Cogl.UserDataKey" title="Cogl.UserDataKey"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.UserDataKey</span></code></a> is used to declare a key for attaching data to a
-<a class="reference internal" href="../classes/Object.html#Cogl.Object" title="Cogl.Object"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object</span></code></a> using <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object.set_user_data</span></code>. The typedef only exists as a
+<a class="reference internal" href="../classes/Object.html#Cogl.Object" title="Cogl.Object"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object</span></code></a> using cogl_object_set_user_data. The typedef only exists as a
 formality to make code self documenting since only the unique address of a
 <a class="reference internal" href="#Cogl.UserDataKey" title="Cogl.UserDataKey"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.UserDataKey</span></code></a> is used.</p>
 <p>Typically you would declare a static <a class="reference internal" href="#Cogl.UserDataKey" title="Cogl.UserDataKey"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.UserDataKey</span></code></a> and set private data
 on an object something like this:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="n">CoglUserDataKey</span> <span class="n">path_private_key</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>static CoglUserDataKey path_private_key;
 
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">destroy_path_private_cb</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">g_free</span> <span class="p">(</span><span class="n">data</span><span class="p">);</span>
-<span class="p">}</span>
+static void
+destroy_path_private_cb (void *data)
+{
+  g_free (data);
+}
 
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">my_path_set_data</span> <span class="p">(</span><span class="n">CoglPath</span> <span class="o">*</span><span class="n">path</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">cogl_object_set_user_data</span> <span class="p">(</span><span class="n">COGL_OBJECT</span> <span class="p">(</span><span class="n">path</span><span class="p">),</span>
-                             <span class="o">&amp;</span><span class="n">private_key</span><span class="p">,</span>
-                             <span class="n">data</span><span class="p">,</span>
-                             <span class="n">destroy_path_private_cb</span><span class="p">);</span>
-<span class="p">}</span>
+static void
+my_path_set_data (CoglPath *path, void *data)
+{
+  cogl_object_set_user_data (COGL_OBJECT (path),
+                             &amp;private_key,
+                             data,
+                             destroy_path_private_cb);
+}
 </pre></div>
 </div>
 <div class="versionadded">
@@ -220,7 +218,4 @@ on an object something like this:</p>
   </div> 
 
 </body>
-
-  
-
 </html>

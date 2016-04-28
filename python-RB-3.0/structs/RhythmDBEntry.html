@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="RB 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="RB.RhythmDBEntryChange" href="RhythmDBEntryChange.html"/>
         <link rel="prev" title="RB.RefString" href="RefString.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -162,6 +160,12 @@
 <td><a class="reference internal" href="#RB.RhythmDBEntry.new" title="RB.RhythmDBEntry.new"><code class="xref py py-obj docutils literal"><span class="pre">new</span></code></a> (db, type, uri)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#RB.RhythmDBEntry.apply_cached_metadata" title="RB.RhythmDBEntry.apply_cached_metadata"><code class="xref py py-obj docutils literal"><span class="pre">apply_cached_metadata</span></code></a> (metadata)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#RB.RhythmDBEntry.cache_metadata" title="RB.RhythmDBEntry.cache_metadata"><code class="xref py py-obj docutils literal"><span class="pre">cache_metadata</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#RB.RhythmDBEntry.can_sync_metadata" title="RB.RhythmDBEntry.can_sync_metadata"><code class="xref py py-obj docutils literal"><span class="pre">can_sync_metadata</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
@@ -279,10 +283,31 @@ it into the database.  This is indended for use as a example entry.</p>
 </tbody>
 </table>
 <p>Creates a new entry of type <cite>type</cite> and location <cite>uri</cite>, and inserts
-it into the database. You must call <a class="reference internal" href="../classes/RhythmDB.html#RB.RhythmDB.commit" title="RB.RhythmDB.commit"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.commit</span></code></a> () at some  point
+it into the database. You must call <a class="reference internal" href="../classes/RhythmDB.html#RB.RhythmDB.commit" title="RB.RhythmDB.commit"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.commit</span></code></a>() at some  point
 after invoking this function.</p>
 <p>This may return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if entry creation fails. This can occur if there is
 already an entry with the given uri.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RB.RhythmDBEntry.apply_cached_metadata">
+<code class="descname">apply_cached_metadata</code><span class="sig-paren">(</span><em>metadata</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>metadata</strong> ([<a class="reference internal" href="RhythmDBEntryChange.html#RB.RhythmDBEntryChange" title="RB.RhythmDBEntryChange"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryChange</span></code></a>]) &#8211; cached metadata to apply</td>
+</tr>
+</tbody>
+</table>
+<p>Applies a set of metadata properties to <cite>self</cite>.  The metadata should be in the
+form returned by <cite>rhythmdb_entry_type_fetch_metadata</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RB.RhythmDBEntry.cache_metadata">
+<code class="descname">cache_metadata</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Stores metadata for <cite>self</cite> in the metadata cache (if any) for its entry type.</p>
 </dd></dl>
 
 <dl class="method">
@@ -298,7 +323,7 @@ already an entry with the given uri.</p>
 </tr>
 </tbody>
 </table>
-<p>Calls the entry type&#8217;s method to check if it can sync metadata for <cite>entry</cite>.
+<p>Calls the entry type&#8217;s method to check if it can sync metadata for <cite>self</cite>.
 Usually this is only true for entries backed by files, where tag-writing is
 enabled, and the appropriate tag-writing facilities are available.</p>
 </dd></dl>
@@ -326,7 +351,7 @@ track related data.</p>
 <dl class="method">
 <dt id="RB.RhythmDBEntry.created">
 <code class="descname">created</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Calls the entry type&#8217;s post-creation method for <cite>entry</cite>.</p>
+<dd><p>Calls the entry type&#8217;s post-creation method for <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -359,7 +384,7 @@ track related data.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the value of a boolean property of <cite>entry</cite>.</p>
+<p>Returns the value of a boolean property of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -387,13 +412,13 @@ track related data.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="../classes/RhythmDBEntryType.html#RB.RhythmDBEntryType" title="RB.RhythmDBEntryType"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryType</span></code></a> for <cite>entry</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="../classes/RhythmDBEntryType.html#RB.RhythmDBEntryType" title="RB.RhythmDBEntryType"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryType</span></code></a> for <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../classes/RhythmDBEntryType.html#RB.RhythmDBEntryType" title="RB.RhythmDBEntryType"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the <a class="reference internal" href="../classes/RhythmDBEntryType.html#RB.RhythmDBEntryType" title="RB.RhythmDBEntryType"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryType</span></code></a> for <cite>entry</cite>.  This is used to access
+<p>Returns the <a class="reference internal" href="../classes/RhythmDBEntryType.html#RB.RhythmDBEntryType" title="RB.RhythmDBEntryType"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryType</span></code></a> for <cite>self</cite>.  This is used to access
 entry type properties, to check that entries are of the same type,
 and to call entry type methods.</p>
 </dd></dl>
@@ -413,7 +438,7 @@ and to call entry type methods.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the value of an object property of <cite>entry</cite>.</p>
+<p>Returns the value of an object property of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -429,7 +454,7 @@ and to call entry type methods.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns an allocated string containing the playback URI for <cite>entry</cite>,
+<p>Returns an allocated string containing the playback URI for <cite>self</cite>,
 or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if the entry cannot be played.</p>
 </dd></dl>
 
@@ -448,7 +473,7 @@ or <a class="reference external" href="http://docs.python.org/2.7/library/consta
 </tr>
 </tbody>
 </table>
-<p>Returns an <a class="reference internal" href="RefString.html#RB.RefString" title="RB.RefString"><code class="xref py py-obj docutils literal"><span class="pre">RB.RefString</span></code></a> containing a string property of <cite>entry</cite>.</p>
+<p>Returns an <a class="reference internal" href="RefString.html#RB.RefString" title="RB.RefString"><code class="xref py py-obj docutils literal"><span class="pre">RB.RefString</span></code></a> containing a string property of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -523,7 +548,7 @@ a slightly more friendly interface to this functionality.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the value of an unsigned long integer property of <cite>entry</cite>.</p>
+<p>Returns the value of an unsigned long integer property of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -533,13 +558,13 @@ a slightly more friendly interface to this functionality.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>entry</cite> is lossless</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is lossless</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>entry</cite> represents a file that is losslessly encoded.
+<p>Checks if <cite>self</cite> represents a file that is losslessly encoded.
 An entry is considered lossless if it has no bitrate value and
 its media type is &#8220;audio/x-flac&#8221;.  Other lossless encoding types
 may be added in the future.</p>
@@ -548,7 +573,7 @@ may be added in the future.</p>
 <dl class="method">
 <dt id="RB.RhythmDBEntry.pre_destroy">
 <code class="descname">pre_destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Calls the entry type&#8217;s pre-deletion method for <cite>entry</cite>.</p>
+<dd><p>Calls the entry type&#8217;s pre-deletion method for <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -576,11 +601,11 @@ may be added in the future.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>changes</strong> ([<a class="reference internal" href="RhythmDBEntryChange.html#RB.RhythmDBEntryChange" title="RB.RhythmDBEntryChange"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryChange</span></code></a>]) &#8211; a list of <a class="reference internal" href="RhythmDBEntryChange.html#RB.RhythmDBEntryChange" title="RB.RhythmDBEntryChange"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryChange</span></code></a> structures</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Calls the entry type&#8217;s method to sync metadata changes for <cite>entry</cite>.</p>
+<p>Calls the entry type&#8217;s method to sync metadata changes for <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -601,7 +626,7 @@ no references left.</p>
 </tr>
 </tbody>
 </table>
-<p>Updates <cite>entry</cite> to reflect its new availability.</p>
+<p>Updates <cite>self</cite> to reflect its new availability.</p>
 </dd></dl>
 
 </dd></dl>
@@ -620,7 +645,4 @@ no references left.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.GestureSwipe" href="GestureSwipe.html"/>
         <link rel="prev" title="Gtk.GestureRotate" href="GestureRotate.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -348,24 +346,24 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Abstract:</th><td class="field-body">No</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Structure:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Gtk.GestureSingleClass</span></code></td>
+<tr class="field-odd field"><th class="field-name">Structure:</th><td class="field-body"><a class="reference internal" href="../class-structs/GestureSingleClass.html#Gtk.GestureSingleClass" title="Gtk.GestureSingleClass"><code class="xref py py-class docutils literal"><span class="pre">Gtk.GestureSingleClass</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p><a class="reference internal" href="#Gtk.GestureSingle" title="Gtk.GestureSingle"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle</span></code></a> is a subclass of <a class="reference internal" href="Gesture.html#Gtk.Gesture" title="Gtk.Gesture"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Gesture</span></code></a>, optimized (although
 not restricted) for dealing with mouse and single-touch gestures. Under
 interaction, these gestures stick to the first interacting sequence, which
-is accessible through <a class="reference internal" href="#Gtk.GestureSingle.get_current_sequence" title="Gtk.GestureSingle.get_current_sequence"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.get_current_sequence</span></code></a> () while the
+is accessible through <a class="reference internal" href="#Gtk.GestureSingle.get_current_sequence" title="Gtk.GestureSingle.get_current_sequence"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.get_current_sequence</span></code></a>() while the
 gesture is being interacted with.</p>
 <p>By default gestures react to both <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/constants.html#Gdk.BUTTON_PRIMARY" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.BUTTON_PRIMARY</span></code></a> and touch
-events, <a class="reference internal" href="#Gtk.GestureSingle.set_touch_only" title="Gtk.GestureSingle.set_touch_only"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.set_touch_only</span></code></a> () can be used to change the
+events, <a class="reference internal" href="#Gtk.GestureSingle.set_touch_only" title="Gtk.GestureSingle.set_touch_only"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.set_touch_only</span></code></a>() can be used to change the
 touch behavior. Callers may also specify a different mouse button number
-to interact with through <a class="reference internal" href="#Gtk.GestureSingle.set_button" title="Gtk.GestureSingle.set_button"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.set_button</span></code></a> (), or react to any
+to interact with through <a class="reference internal" href="#Gtk.GestureSingle.set_button" title="Gtk.GestureSingle.set_button"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.set_button</span></code></a>(), or react to any
 mouse button by setting 0. While the gesture is active, the button being
-currently pressed can be known through <a class="reference internal" href="#Gtk.GestureSingle.get_current_button" title="Gtk.GestureSingle.get_current_button"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.get_current_button</span></code></a> ().</p>
+currently pressed can be known through <a class="reference internal" href="#Gtk.GestureSingle.get_current_button" title="Gtk.GestureSingle.get_current_button"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.get_current_button</span></code></a>().</p>
 <dl class="method">
 <dt id="Gtk.GestureSingle.get_button">
-<code class="descname">get_button</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.18.6#n444"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_button</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.20.3#n444"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -376,7 +374,7 @@ currently pressed can be known through <a class="reference internal" href="#Gtk.
 </tr>
 </tbody>
 </table>
-<p>Returns the button number <cite>gesture</cite> listens for, or 0 if <cite>gesture</cite>
+<p>Returns the button number <cite>self</cite> listens for, or 0 if <cite>self</cite>
 reacts to any button press.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.14.</span></p>
@@ -385,7 +383,7 @@ reacts to any button press.</p>
 
 <dl class="method">
 <dt id="Gtk.GestureSingle.get_current_button">
-<code class="descname">get_current_button</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.18.6#n495"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_current_button</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.20.3#n495"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -396,7 +394,7 @@ reacts to any button press.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the button number currently interacting with <cite>gesture</cite>, or 0 if there
+<p>Returns the button number currently interacting with <cite>self</cite>, or 0 if there
 is none.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.14.</span></p>
@@ -405,19 +403,19 @@ is none.</p>
 
 <dl class="method">
 <dt id="Gtk.GestureSingle.get_current_sequence">
-<code class="descname">get_current_sequence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.18.6#n518"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_current_sequence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.20.3#n518"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the current sequence</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/EventSequence.html#Gdk.EventSequence" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventSequence</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/EventSequence.html#Gdk.EventSequence" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventSequence</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns the event sequence currently interacting with <cite>gesture</cite>.
-This is only meaningful if <a class="reference internal" href="Gesture.html#Gtk.Gesture.is_active" title="Gtk.Gesture.is_active"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Gesture.is_active</span></code></a> () returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
+<p>Returns the event sequence currently interacting with <cite>self</cite>.
+This is only meaningful if <a class="reference internal" href="Gesture.html#Gtk.Gesture.is_active" title="Gtk.Gesture.is_active"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Gesture.is_active</span></code></a>() returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.14.</span></p>
 </div>
@@ -425,7 +423,7 @@ This is only meaningful if <a class="reference internal" href="Gesture.html#Gtk.
 
 <dl class="method">
 <dt id="Gtk.GestureSingle.get_exclusive">
-<code class="descname">get_exclusive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.18.6#n390"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_exclusive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.20.3#n390"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -437,7 +435,7 @@ This is only meaningful if <a class="reference internal" href="Gesture.html#Gtk.
 </tbody>
 </table>
 <p>Gets whether a gesture is exclusive. For more information, see
-<a class="reference internal" href="#Gtk.GestureSingle.set_exclusive" title="Gtk.GestureSingle.set_exclusive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.set_exclusive</span></code></a> ().</p>
+<a class="reference internal" href="#Gtk.GestureSingle.set_exclusive" title="Gtk.GestureSingle.set_exclusive"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.GestureSingle.set_exclusive</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.14.</span></p>
 </div>
@@ -445,7 +443,7 @@ This is only meaningful if <a class="reference internal" href="Gesture.html#Gtk.
 
 <dl class="method">
 <dt id="Gtk.GestureSingle.get_touch_only">
-<code class="descname">get_touch_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.18.6#n337"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_touch_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.20.3#n337"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -464,7 +462,7 @@ This is only meaningful if <a class="reference internal" href="Gesture.html#Gtk.
 
 <dl class="method">
 <dt id="Gtk.GestureSingle.set_button">
-<code class="descname">set_button</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.18.6#n468"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_button</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.20.3#n468"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -473,7 +471,7 @@ This is only meaningful if <a class="reference internal" href="Gesture.html#Gtk.
 </tr>
 </tbody>
 </table>
-<p>Sets the button number <cite>gesture</cite> listens to. If non-0, every
+<p>Sets the button number <cite>self</cite> listens to. If non-0, every
 button press from a different button number will be ignored.
 Touch events implicitly match with button 1.</p>
 <div class="versionadded">
@@ -483,16 +481,16 @@ Touch events implicitly match with button 1.</p>
 
 <dl class="method">
 <dt id="Gtk.GestureSingle.set_exclusive">
-<code class="descname">set_exclusive</code><span class="sig-paren">(</span><em>exclusive</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.18.6#n415"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_exclusive</code><span class="sig-paren">(</span><em>exclusive</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.20.3#n415"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>exclusive</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> to make <cite>gesture</cite> exclusive</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>exclusive</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> to make <cite>self</cite> exclusive</td>
 </tr>
 </tbody>
 </table>
-<p>Sets whether <cite>gesture</cite> is exclusive. An exclusive gesture will
+<p>Sets whether <cite>self</cite> is exclusive. An exclusive gesture will
 only handle pointer and &#8220;pointer emulated&#8221; touch events, so at
 any given time, there is only one sequence able to interact with
 those.</p>
@@ -503,16 +501,16 @@ those.</p>
 
 <dl class="method">
 <dt id="Gtk.GestureSingle.set_touch_only">
-<code class="descname">set_touch_only</code><span class="sig-paren">(</span><em>touch_only</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.18.6#n361"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_touch_only</code><span class="sig-paren">(</span><em>touch_only</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkgesturesingle.c?h=3.20.3#n361"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>touch_only</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether <cite>gesture</cite> handles only touch events</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>touch_only</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether <cite>self</cite> handles only touch events</td>
 </tr>
 </tbody>
 </table>
-<p>If <cite>touch_only</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, <cite>gesture</cite> will only handle events of type
+<p>If <cite>touch_only</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, <cite>self</cite> will only handle events of type
 <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/enums.html#Gdk.EventType.TOUCH_BEGIN" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType.TOUCH_BEGIN</span></code></a>, <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/enums.html#Gdk.EventType.TOUCH_UPDATE" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType.TOUCH_UPDATE</span></code></a> or <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/enums.html#Gdk.EventType.TOUCH_END" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType.TOUCH_END</span></code></a>. If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>,
 mouse events will be handled too.</p>
 <div class="versionadded">
@@ -609,7 +607,4 @@ and pointer emulated events.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

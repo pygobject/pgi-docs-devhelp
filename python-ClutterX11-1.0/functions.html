@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
-    <link rel="top" title="ClutterX11 1.0 Python API Docs" href="index.html"/>
-        <link rel="next" title="Callbacks" href="callbacks.html"/>
-        <link rel="prev" title="ClutterX11 1.0 (1.24.2)" href="index.html"/> 
 
   
-  <script src="_static/js/modernizr.min.js"></script>
-
+    <link rel="top" title="ClutterX11 1.0 Python API Docs" href="index.html"/>
+        <link rel="next" title="Callbacks" href="callbacks.html"/>
+        <link rel="prev" title="ClutterX11 1.0 (1.26.0)" href="index.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -208,12 +206,12 @@
 <dd><p>Disables the internal polling of X11 events in the main loop.</p>
 <p>Libraries or applications calling this function will be responsible of
 polling all X11 events.</p>
-<p>You also must call <a class="reference internal" href="#ClutterX11.handle_event" title="ClutterX11.handle_event"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.handle_event</span></code></a> () to let Clutter process
+<p>You also must call <a class="reference internal" href="#ClutterX11.handle_event" title="ClutterX11.handle_event"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.handle_event</span></code></a>() to let Clutter process
 events and maintain its internal state.</p>
-<p>This function can only be called before calling <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a> ().</p>
+<p>This function can only be called before calling <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a>().</p>
 <p>Even with event handling disabled, Clutter will still select
 all the events required to maintain its internal state on the stage
-<code class="xref py py-obj docutils literal"><span class="pre">xlib.Window</span></code> ; compositors using Clutter and input regions to pass events
+Window; compositors using Clutter and input regions to pass events
 through to application windows should not rely on an empty input
 region, and should instead clear it themselves explicitly using the
 XFixes extension.</p>
@@ -229,9 +227,9 @@ XFixes extension.</p>
 <dd><p>Enables the use of the XInput extension if present on connected
 XServer and support built into Clutter. XInput allows for multiple
 pointing devices to be used.</p>
-<p>This function must be called before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a> ().</p>
+<p>This function must be called before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a>().</p>
 <p>Since XInput might not be supported by the X server, you might
-want to use <a class="reference internal" href="#ClutterX11.has_xinput" title="ClutterX11.has_xinput"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.has_xinput</span></code></a> () to see if support was enabled.</p>
+want to use <a class="reference internal" href="#ClutterX11.has_xinput" title="ClutterX11.has_xinput"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.has_xinput</span></code></a>() to see if support was enabled.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.8.</span></p>
 </div>
@@ -340,7 +338,7 @@ owned by Clutter and should not be modified or freed</td>
 <p><span class="versionmodified">New in version 0.8.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.2: </span>Use <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/classes/DeviceManager.html#Clutter.DeviceManager.peek_devices" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.DeviceManager.peek_devices</span></code></a> () instead</p>
+<p><span class="versionmodified">Deprecated since version 1.2: </span>Use <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/classes/DeviceManager.html#Clutter.DeviceManager.peek_devices" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.DeviceManager.peek_devices</span></code></a>() instead</p>
 </div>
 </dd></dl>
 
@@ -351,7 +349,7 @@ owned by Clutter and should not be modified or freed</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>win</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; an X <code class="xref py py-obj docutils literal"><span class="pre">xlib.Window</span></code> ID</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>win</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; an X Window ID</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/classes/Stage.html#Clutter.Stage" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Stage</span></code></a>, or% <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if a stage
 does not exist for the window</td>
@@ -429,7 +427,7 @@ occur.</td>
 <p>This function processes a single X event; it can be used to hook
 into external X11 event processing (for example, a GDK filter
 function).</p>
-<p>If <a class="reference internal" href="#ClutterX11.disable_event_retrieval" title="ClutterX11.disable_event_retrieval"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.disable_event_retrieval</span></code></a> () has been called, you must
+<p>If <a class="reference internal" href="#ClutterX11.disable_event_retrieval" title="ClutterX11.disable_event_retrieval"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.disable_event_retrieval</span></code></a>() has been called, you must
 let this function process events to update Clutter&#8217;s internal state.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.8.</span></p>
@@ -504,12 +502,12 @@ and XInput support is available at run time.</td>
 </tbody>
 </table>
 <p>Sets the display connection Clutter should use; must be called
-before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a> (), <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init_with_args" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init_with_args</span></code></a> () or other functions
+before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a>(), <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init_with_args" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init_with_args</span></code></a>() or other functions
 pertaining Clutter&#8217;s initialization process.</p>
 <p>If you are parsing the command line arguments by retrieving Clutter&#8217;s
-<a class="reference external" href="_docs/ClutterX11-1.0/../../../python-GLib-2.0/structs/OptionGroup.html#GLib.OptionGroup" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a> with <code class="xref py py-obj docutils literal"><span class="pre">Clutter.get_option_group</span></code> () and calling
-<a class="reference external" href="_docs/ClutterX11-1.0/../../../python-GLib-2.0/structs/OptionContext.html#GLib.OptionContext.parse" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionContext.parse</span></code></a> () yourself, you should also call
-<a class="reference internal" href="#ClutterX11.set_display" title="ClutterX11.set_display"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.set_display</span></code></a> () before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-GLib-2.0/structs/OptionContext.html#GLib.OptionContext.parse" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionContext.parse</span></code></a> ().</p>
+<a class="reference external" href="_docs/ClutterX11-1.0/../../../python-GLib-2.0/structs/OptionGroup.html#GLib.OptionGroup" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionGroup</span></code></a> with clutter_get_option_group() and calling
+<a class="reference external" href="_docs/ClutterX11-1.0/../../../python-GLib-2.0/structs/OptionContext.html#GLib.OptionContext.parse" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionContext.parse</span></code></a>() yourself, you should also call
+<a class="reference internal" href="#ClutterX11.set_display" title="ClutterX11.set_display"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.set_display</span></code></a>() before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-GLib-2.0/structs/OptionContext.html#GLib.OptionContext.parse" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.OptionContext.parse</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.8.</span></p>
 </div>
@@ -524,7 +522,7 @@ pertaining Clutter&#8217;s initialization process.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>stage</strong> (<a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/classes/Stage.html#Clutter.Stage" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Stage</span></code></a>) &#8211; a <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/classes/Stage.html#Clutter.Stage" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Stage</span></code></a></li>
-<li><strong>xwindow</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; an existing X <code class="xref py py-obj docutils literal"><span class="pre">xlib.Window</span></code> id</li>
+<li><strong>xwindow</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; an existing X Window id</li>
 </ul>
 </td>
 </tr>
@@ -536,7 +534,7 @@ pertaining Clutter&#8217;s initialization process.</p>
 </tr>
 </tbody>
 </table>
-<p>Target the <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/classes/Stage.html#Clutter.Stage" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Stage</span></code></a> to use an existing external X <code class="xref py py-obj docutils literal"><span class="pre">xlib.Window</span></code></p>
+<p>Target the <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/classes/Stage.html#Clutter.Stage" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Stage</span></code></a> to use an existing external X Window</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.4.</span></p>
 </div>
@@ -559,7 +557,7 @@ or not.</p>
 <p>If no ARGB visuals are found, the X11 backend will fall back to
 requesting a RGB visual instead.</p>
 <p>ARGB visuals are required for the <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/classes/Stage.html#Clutter.Stage" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Stage</span></code></a> <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/classes/Stage.html#Clutter.Stage.props.use_alpha" title="(in Clutter 1.0 v1.0)"><code class="xref py py-data docutils literal"><span class="pre">:use-alpha</span></code></a> property to work.</p>
-<p>This function can only be called once, and before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a> () is
+<p>This function can only be called once, and before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a>() is
 called.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
@@ -580,7 +578,7 @@ called.</p>
 <p>Sets whether the backend object for Clutter stages, will,
 if possible, be created with the ability to support stereo drawing
 (drawing separate images for the left and right eyes).</p>
-<p>This function must be called before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a> () is called.
+<p>This function must be called before <a class="reference external" href="_docs/ClutterX11-1.0/../../../python-Clutter-1.0/functions.html#Clutter.init" title="(in Clutter 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.init</span></code></a>() is called.
 During paint callbacks, cogl_framebuffer_is_stereo() can be called
 on the framebuffer retrieved by cogl_get_draw_framebuffer() to
 determine if stereo support was successfully enabled, and
@@ -598,7 +596,7 @@ different images for the left and and right eye.</p>
 <dl class="function">
 <dt id="ClutterX11.trap_x_errors">
 <code class="descclassname">ClutterX11.</code><code class="descname">trap_x_errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Traps every X error until <a class="reference internal" href="#ClutterX11.untrap_x_errors" title="ClutterX11.untrap_x_errors"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.untrap_x_errors</span></code></a> () is called.</p>
+<dd><p>Traps every X error until <a class="reference internal" href="#ClutterX11.untrap_x_errors" title="ClutterX11.untrap_x_errors"><code class="xref py py-obj docutils literal"><span class="pre">ClutterX11.untrap_x_errors</span></code></a>() is called.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
 </div>
@@ -637,7 +635,4 @@ different images for the left and and right eye.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

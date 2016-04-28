@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Atk 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Atk.EditableText" href="EditableText.html"/>
         <link rel="prev" title="Atk.Component" href="Component.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -311,12 +309,12 @@
 content is a representation or view of a document.  The <a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a>
 interface should appear on the toplevel container for the document
 content; however <a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a> instances may be nested (i.e. an
-<a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a> may be a descendant of another <a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a> ) in those
+<a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a> may be a descendant of another <a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a>) in those
 cases where one document contains &#8220;embedded content&#8221; which can
 reasonably be considered a document in its own right.</p>
 <dl class="method">
 <dt id="Atk.Document.get_attribute_value">
-<code class="descname">get_attribute_value</code><span class="sig-paren">(</span><em>attribute_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_18_0#n309"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_attribute_value</code><span class="sig-paren">(</span><em>attribute_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_20_0#n309"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -339,12 +337,12 @@ attribute for this document, or <a class="reference external" href="http://docs.
 
 <dl class="method">
 <dt id="Atk.Document.get_attributes">
-<code class="descname">get_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_18_0#n277"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_20_0#n277"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An <code class="xref py py-obj docutils literal"><span class="pre">Atk.AttributeSet</span></code> containing the explicitly
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An AtkAttributeSet containing the explicitly
 set name-value-pair attributes associated with this document
 as a whole.</td>
 </tr>
@@ -352,7 +350,7 @@ as a whole.</td>
 </tr>
 </tbody>
 </table>
-<p>Gets an <code class="xref py py-obj docutils literal"><span class="pre">Atk.AttributeSet</span></code> which describes document-wide
+<p>Gets an AtkAttributeSet which describes document-wide
 attributes as name-value pairs.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
@@ -361,12 +359,12 @@ attributes as name-value pairs.</p>
 
 <dl class="method">
 <dt id="Atk.Document.get_current_page_number">
-<code class="descname">get_current_page_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_18_0#n371"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_current_page_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_20_0#n371"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">current page number inside <cite>document</cite>. -1 if not
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">current page number inside <cite>self</cite>. -1 if not
 implemented, not know by the implementor or irrelevant.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
@@ -380,7 +378,7 @@ implemented, not know by the implementor or irrelevant.</td>
 
 <dl class="method">
 <dt id="Atk.Document.get_document">
-<code class="descname">get_document</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_18_0#n209"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_document</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_20_0#n209"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -395,13 +393,13 @@ implemented, not know by the implementor or irrelevant.</td>
 up to the caller to check atk_document_get_type to determine
 how to cast this pointer.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Since 2.12. <cite>document</cite> is already a representation of the document. Use it directly, or one of its children, as an instance of the DOM.</p>
+<p><span class="versionmodified">Deprecated since version 2.12: </span><cite>document</cite> is already a representation of the document. Use it directly, or one of its children, as an instance of the DOM.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Atk.Document.get_document_type">
-<code class="descname">get_document_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_18_0#n176"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_document_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_20_0#n176"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -414,13 +412,13 @@ how to cast this pointer.</p>
 </table>
 <p>Gets a string indicating the document type.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Since 2.12. Please use <a class="reference internal" href="#Atk.Document.get_attributes" title="Atk.Document.get_attributes"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document.get_attributes</span></code></a> () to ask for the document type if it applies.</p>
+<p><span class="versionmodified">Deprecated since version 2.12: </span>Please use <a class="reference internal" href="#Atk.Document.get_attributes" title="Atk.Document.get_attributes"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document.get_attributes</span></code></a>() to ask for the document type if it applies.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Atk.Document.get_locale">
-<code class="descname">get_locale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_18_0#n244"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_locale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_20_0#n244"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -439,18 +437,18 @@ text substrings or images within this document may have
 a different locale, see atk_text_get_attributes and
 <a class="reference internal" href="Image.html#Atk.Image.get_image_locale" title="Atk.Image.get_image_locale"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Image.get_image_locale</span></code></a>.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 2.7.90: </span>Please use <a class="reference internal" href="../classes/Object.html#Atk.Object.get_object_locale" title="Atk.Object.get_object_locale"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Object.get_object_locale</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 2.7.90: </span>Please use <a class="reference internal" href="../classes/Object.html#Atk.Object.get_object_locale" title="Atk.Object.get_object_locale"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Object.get_object_locale</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Atk.Document.get_page_count">
-<code class="descname">get_page_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_18_0#n399"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_page_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_20_0#n399"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">total page count of <cite>document</cite>. -1 if not implemented, not
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">total page count of <cite>self</cite>. -1 if not implemented, not
 know by the implementor or irrelevant.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
@@ -464,7 +462,7 @@ know by the implementor or irrelevant.</td>
 
 <dl class="method">
 <dt id="Atk.Document.set_attribute_value">
-<code class="descname">set_attribute_value</code><span class="sig-paren">(</span><em>attribute_name</em>, <em>attribute_value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_18_0#n343"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_attribute_value</code><span class="sig-paren">(</span><em>attribute_name</em>, <em>attribute_value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkdocument.c?h=ATK_2_20_0#n343"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -527,7 +525,7 @@ implemented, not know by the implementor or irrelevant.</td>
 up to the caller to check atk_document_get_type to determine
 how to cast this pointer.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Since 2.12. <cite>document</cite> is already a representation of the document. Use it directly, or one of its children, as an instance of the DOM.</p>
+<p><span class="versionmodified">Deprecated since version 2.12: </span><cite>document</cite> is already a representation of the document. Use it directly, or one of its children, as an instance of the DOM.</p>
 </div>
 </dd></dl>
 
@@ -574,7 +572,7 @@ how to cast this pointer.</p>
 </table>
 <p>Gets a string indicating the document type.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Since 2.12. Please use <a class="reference internal" href="#Atk.Document.get_attributes" title="Atk.Document.get_attributes"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document.get_attributes</span></code></a> () to ask for the document type if it applies.</p>
+<p><span class="versionmodified">Deprecated since version 2.12: </span>Please use <a class="reference internal" href="#Atk.Document.get_attributes" title="Atk.Document.get_attributes"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document.get_attributes</span></code></a>() to ask for the document type if it applies.</p>
 </div>
 </dd></dl>
 
@@ -642,7 +640,7 @@ a static document has completed.  This signal is to be
 expected by ATK clients if and when <a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a> implementors
 expose <a class="reference internal" href="../enums.html#Atk.StateType.BUSY" title="Atk.StateType.BUSY"><code class="xref py py-obj docutils literal"><span class="pre">Atk.StateType.BUSY</span></code></a>.  If the state of an <a class="reference internal" href="../classes/Object.html#Atk.Object" title="Atk.Object"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Object</span></code></a> which
 implements <a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a> does not include <a class="reference internal" href="../enums.html#Atk.StateType.BUSY" title="Atk.StateType.BUSY"><code class="xref py py-obj docutils literal"><span class="pre">Atk.StateType.BUSY</span></code></a>, it
-should be safe for clients to assume that the <a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a> &#8216;s
+should be safe for clients to assume that the <a class="reference internal" href="#Atk.Document" title="Atk.Document"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Document</span></code></a>&#8216;s
 static contents are fully loaded into the container.
 (Dynamic document contents should be exposed via other
 signals.)</p>
@@ -737,7 +735,4 @@ interrogating ATK for the latest document content.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

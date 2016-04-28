@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.ColorButton" href="ColorButton.html"/>
         <link rel="prev" title="Gtk.CheckMenuItemAccessible" href="CheckMenuItemAccessible.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -362,7 +360,7 @@
 between different processes or between different widgets in
 the same process. Each clipboard is identified by a name encoded as a
 <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/Atom.html#Gdk.Atom" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Atom</span></code></a>. (Conversion to and from strings can be done with
-<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/Atom.html#Gdk.Atom.intern" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Atom.intern</span></code></a> () and <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/Atom.html#Gdk.Atom.name" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Atom.name</span></code></a> ().) The default clipboard
+<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/Atom.html#Gdk.Atom.intern" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Atom.intern</span></code></a>() and <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/Atom.html#Gdk.Atom.name" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Atom.name</span></code></a>().) The default clipboard
 corresponds to the “CLIPBOARD” atom; another commonly used clipboard
 is the “PRIMARY” clipboard, which, in X, traditionally contains
 the currently selected text.</p>
@@ -370,12 +368,12 @@ the currently selected text.</p>
 at the same time, the clipboard mechanism allows providing
 callbacks instead of the actual data.  When you set the contents
 of the clipboard, you can either supply the data directly (via
-functions like <a class="reference internal" href="#Gtk.Clipboard.set_text" title="Gtk.Clipboard.set_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_text</span></code></a> ()), or you can supply a
+functions like <a class="reference internal" href="#Gtk.Clipboard.set_text" title="Gtk.Clipboard.set_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_text</span></code></a>()), or you can supply a
 callback to be called at a later time when the data is needed (via
-<code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_data</span></code> () or <code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_owner</span></code> ().)
+gtk_clipboard_set_with_data() or gtk_clipboard_set_with_owner().)
 Providing a callback also avoids having to make copies of the data
 when it is not needed.</p>
-<p><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_data</span></code> () and <code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_owner</span></code> ()
+<p>gtk_clipboard_set_with_data() and gtk_clipboard_set_with_owner()
 are quite similar; the choice between the two depends mostly on
 which is more convenient in a particular situation.
 The former is most useful when you want to have a blob of data
@@ -386,7 +384,7 @@ contents of clipboard reflect the internal state of a <a class="reference extern
 (As an example, for the PRIMARY clipboard, when an entry widget
 provides the clipboard’s contents the contents are simply the
 text within the selected region.) If the contents change, the
-entry widget can call <code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_owner</span></code> () to update
+entry widget can call gtk_clipboard_set_with_owner() to update
 the timestamp for clipboard ownership, without having to worry
 about <cite>clear_func</cite> being called.</p>
 <p>Requesting the data from the clipboard is essentially
@@ -395,25 +393,25 @@ the same process, then a direct function call will be made to
 retrieve the data, but if they are provided by another process,
 then the data needs to be retrieved from the other process, which
 may take some time. To avoid blocking the user interface, the call
-to request the selection, <a class="reference internal" href="#Gtk.Clipboard.request_contents" title="Gtk.Clipboard.request_contents"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.request_contents</span></code></a> () takes a
+to request the selection, <a class="reference internal" href="#Gtk.Clipboard.request_contents" title="Gtk.Clipboard.request_contents"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.request_contents</span></code></a>() takes a
 callback that will be called when the contents are received (or
 when the request fails.) If you don’t want to deal with providing
-a separate callback, you can also use <a class="reference internal" href="#Gtk.Clipboard.wait_for_contents" title="Gtk.Clipboard.wait_for_contents"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_contents</span></code></a> ().
+a separate callback, you can also use <a class="reference internal" href="#Gtk.Clipboard.wait_for_contents" title="Gtk.Clipboard.wait_for_contents"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_contents</span></code></a>().
 What this does is run the GLib main loop recursively waiting for
 the contents. This can simplify the code flow, but you still have
 to be aware that other callbacks in your program can be called
 while this recursive mainloop is running.</p>
 <p>Along with the functions to get the clipboard contents as an
 arbitrary data chunk, there are also functions to retrieve
-it as text, <a class="reference internal" href="#Gtk.Clipboard.request_text" title="Gtk.Clipboard.request_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.request_text</span></code></a> () and
-<a class="reference internal" href="#Gtk.Clipboard.wait_for_text" title="Gtk.Clipboard.wait_for_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_text</span></code></a> (). These functions take care of
+it as text, <a class="reference internal" href="#Gtk.Clipboard.request_text" title="Gtk.Clipboard.request_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.request_text</span></code></a>() and
+<a class="reference internal" href="#Gtk.Clipboard.wait_for_text" title="Gtk.Clipboard.wait_for_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_text</span></code></a>(). These functions take care of
 determining which formats are advertised by the clipboard
 provider, asking for the clipboard in the best available format
 and converting the results into the UTF-8 encoding. (The standard
 form for representing strings in GTK+.)</p>
 <dl class="staticmethod">
 <dt id="Gtk.Clipboard.get">
-<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n376"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n376"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -430,12 +428,12 @@ owned by GTK+, must not be freed or unreffed.</td>
 </tbody>
 </table>
 <p>Returns the clipboard object for the given selection.
-See <a class="reference internal" href="#Gtk.Clipboard.get_for_display" title="Gtk.Clipboard.get_for_display"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.get_for_display</span></code></a> () for complete details.</p>
+See <a class="reference internal" href="#Gtk.Clipboard.get_for_display" title="Gtk.Clipboard.get_for_display"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.get_for_display</span></code></a>() for complete details.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Gtk.Clipboard.get_default">
-<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><em>display</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n394"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><em>display</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n394"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -457,7 +455,7 @@ and keyboard shortcuts.</p>
 
 <dl class="staticmethod">
 <dt id="Gtk.Clipboard.get_for_display">
-<em class="property">static </em><code class="descname">get_for_display</code><span class="sig-paren">(</span><em>display</em>, <em>selection</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n353"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_for_display</code><span class="sig-paren">(</span><em>display</em>, <em>selection</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n353"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -509,28 +507,28 @@ clipboard, you might call it “_FOO_SPECIAL_CLIPBOARD”.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n804"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n804"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Clears the contents of the clipboard. Generally this should only
-be called between the time you call <code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_owner</span></code> ()
-or <code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_data</span></code> (),
+be called between the time you call gtk_clipboard_set_with_owner()
+or gtk_clipboard_set_with_data(),
 and when the <cite>clear_func</cite> you supplied is called. Otherwise, the
 clipboard may be owned by someone else.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.get_display">
-<code class="descname">get_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1685"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1685"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/Display.html#Gdk.Display" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display</span></code></a> associated with <cite>clipboard</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/Display.html#Gdk.Display" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display</span></code></a> associated with <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/Display.html#Gdk.Display" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/Display.html#Gdk.Display" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display</span></code></a> associated with <cite>clipboard</cite></p>
+<p>Gets the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/Display.html#Gdk.Display" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Display</span></code></a> associated with <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -538,7 +536,7 @@ clipboard may be owned by someone else.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.get_owner">
-<code class="descname">get_owner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n745"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_owner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n745"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -546,19 +544,19 @@ clipboard may be owned by someone else.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the owner of the clipboard, if any;
 otherwise <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>If the clipboard contents callbacks were set with
-<code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_owner</span></code> (), and the <code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_data</span></code> () or
-<a class="reference internal" href="#Gtk.Clipboard.clear" title="Gtk.Clipboard.clear"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.clear</span></code></a> () has not subsequently called, returns the owner set
-by <code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.set_with_owner</span></code> ().</p>
+gtk_clipboard_set_with_owner(), and the gtk_clipboard_set_with_data() or
+<a class="reference internal" href="#Gtk.Clipboard.clear" title="Gtk.Clipboard.clear"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.clear</span></code></a>() has not subsequently called, returns the owner set
+by gtk_clipboard_set_with_owner().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.request_contents">
-<code class="descname">request_contents</code><span class="sig-paren">(</span><em>target</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n989"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">request_contents</code><span class="sig-paren">(</span><em>target</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n989"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -582,7 +580,7 @@ will be called.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.request_image">
-<code class="descname">request_image</code><span class="sig-paren">(</span><em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1249"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">request_image</code><span class="sig-paren">(</span><em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1249"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -611,7 +609,7 @@ converted into an image.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.request_rich_text">
-<code class="descname">request_rich_text</code><span class="sig-paren">(</span><em>buffer</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1156"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">request_rich_text</code><span class="sig-paren">(</span><em>buffer</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1156"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -630,7 +628,7 @@ or the retrieval fails. (It will always be called one way or the other.)</li>
 text is later received, <cite>callback</cite> will be called.</p>
 <p>The <cite>text</cite> parameter to <cite>callback</cite> will contain the resulting rich
 text if the request succeeded, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if it failed. The <cite>length</cite>
-parameter will contain <cite>text</cite> ’s length. This function can fail for
+parameter will contain <cite>text</cite>’s length. This function can fail for
 various reasons, in particular if the clipboard was empty or if the
 contents of the clipboard could not be converted into rich text form.</p>
 <div class="versionadded">
@@ -640,7 +638,7 @@ contents of the clipboard could not be converted into rich text form.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.request_targets">
-<code class="descname">request_targets</code><span class="sig-paren">(</span><em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1353"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">request_targets</code><span class="sig-paren">(</span><em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1353"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -666,7 +664,7 @@ the request succeeded, or <a class="reference external" href="http://docs.python
 
 <dl class="method">
 <dt id="Gtk.Clipboard.request_text">
-<code class="descname">request_text</code><span class="sig-paren">(</span><em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1088"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">request_text</code><span class="sig-paren">(</span><em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1088"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -691,7 +689,7 @@ contents of the clipboard could not be converted into text form.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.request_uris">
-<code class="descname">request_uris</code><span class="sig-paren">(</span><em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1301"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">request_uris</code><span class="sig-paren">(</span><em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1301"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -718,7 +716,7 @@ contents of the clipboard could not be converted into URI form.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.set_can_store">
-<code class="descname">set_can_store</code><span class="sig-paren">(</span><em>targets</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n2056"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_can_store</code><span class="sig-paren">(</span><em>targets</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n2056"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -741,7 +739,7 @@ see <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0
 
 <dl class="method">
 <dt id="Gtk.Clipboard.set_image">
-<code class="descname">set_image</code><span class="sig-paren">(</span><em>pixbuf</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n909"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_image</code><span class="sig-paren">(</span><em>pixbuf</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n909"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -761,7 +759,7 @@ requested format.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.set_text">
-<code class="descname">set_text</code><span class="sig-paren">(</span><em>text</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n852"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_text</code><span class="sig-paren">(</span><em>text</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n852"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -783,7 +781,7 @@ the requested format.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.store">
-<code class="descname">store</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n2127"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">store</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n2127"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Stores the current clipboard data somewhere so that it will stay
 around after the application has quit.</p>
 <div class="versionadded">
@@ -793,7 +791,7 @@ around after the application has quit.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_for_contents">
-<code class="descname">wait_for_contents</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1412"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_for_contents</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1412"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -803,7 +801,7 @@ owner should convert the selection.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated <a class="reference internal" href="../structs/SelectionData.html#Gtk.SelectionData" title="Gtk.SelectionData"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.SelectionData</span></code></a> object or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
 if retrieving the given target failed. If non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>,
-this value must be freed with <a class="reference internal" href="../structs/SelectionData.html#Gtk.SelectionData.free" title="Gtk.SelectionData.free"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.SelectionData.free</span></code></a> ()
+this value must be freed with <a class="reference internal" href="../structs/SelectionData.html#Gtk.SelectionData.free" title="Gtk.SelectionData.free"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.SelectionData.free</span></code></a>()
 when you are finished with it.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/SelectionData.html#Gtk.SelectionData" title="Gtk.SelectionData"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.SelectionData</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
@@ -817,13 +815,13 @@ loop, so events, timeouts, etc, may be dispatched during the wait.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_for_image">
-<code class="descname">wait_for_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1594"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_for_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1594"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GdkPixbuf-2.0/classes/Pixbuf.html#GdkPixbuf.Pixbuf" title="(in GdkPixbuf 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GdkPixbuf.Pixbuf</span></code></a>
-object which must be disposed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> (), or
+object which must be disposed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>(), or
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if retrieving the selection data failed. (This could
 happen for various reasons, in particular if the clipboard
 was empty or if the contents of the clipboard could not be
@@ -844,7 +842,7 @@ timeouts, etc, may be dispatched during the wait.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_for_rich_text">
-<code class="descname">wait_for_rich_text</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1531"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_for_rich_text</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1531"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -853,7 +851,7 @@ timeouts, etc, may be dispatched during the wait.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a
 newly-allocated binary block of data which must be
-freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> (), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if retrieving the
+freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>(), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if retrieving the
 selection data failed. (This could happen for various
 reasons, in particular if the clipboard was empty or
 if the contents of the clipboard could not be
@@ -881,7 +879,7 @@ timeouts, etc, may be dispatched during the wait.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_for_targets">
-<code class="descname">wait_for_targets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1854"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_for_targets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1854"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -893,7 +891,7 @@ otherwise <a class="reference external" href="http://docs.python.org/2.7/library
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">targets:</th><td class="field-body">location
 to store an array of targets. The result stored here must
-be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</td>
+be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</td>
 </tr>
 </tbody>
 </table>
@@ -905,7 +903,7 @@ be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../pyth
 </table>
 <p>Returns a list of targets that are present on the clipboard, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
 if there aren’t any targets available. The returned list must be
-freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().
+freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().
 This function waits for the data to be received using the main
 loop, so events, timeouts, etc, may be dispatched during the wait.</p>
 <div class="versionadded">
@@ -915,13 +913,13 @@ loop, so events, timeouts, etc, may be dispatched during the wait.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_for_text">
-<code class="descname">wait_for_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1466"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_for_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1466"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated UTF-8 string which must
-be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> (), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if retrieving
+be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>(), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if retrieving
 the selection data failed. (This could happen
 for various reasons, in particular if the
 clipboard was empty or if the contents of the
@@ -939,13 +937,13 @@ timeouts, etc, may be dispatched during the wait.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_for_uris">
-<code class="descname">wait_for_uris</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1648"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_for_uris</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1648"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>-terminated array of strings which must
-be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a> (), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if retrieving the
+be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a>(), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if retrieving the
 selection data failed. (This could happen for various reasons,
 in particular if the clipboard was empty or if the contents of
 the clipboard could not be converted into URI form.)</td>
@@ -964,7 +962,7 @@ timeouts, etc, may be dispatched during the wait.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_is_image_available">
-<code class="descname">wait_is_image_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1781"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_is_image_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1781"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -981,7 +979,7 @@ if it contains any of the supported image targets. This function
 waits for the data to be received using the main loop, so events,
 timeouts, etc, may be dispatched during the wait.</p>
 <p>This function is a little faster than calling
-<a class="reference internal" href="#Gtk.Clipboard.wait_for_image" title="Gtk.Clipboard.wait_for_image"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_image</span></code></a> () since it doesn’t need to retrieve
+<a class="reference internal" href="#Gtk.Clipboard.wait_for_image" title="Gtk.Clipboard.wait_for_image"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_image</span></code></a>() since it doesn’t need to retrieve
 the actual image data.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.6.</span></p>
@@ -990,7 +988,7 @@ the actual image data.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_is_rich_text_available">
-<code class="descname">wait_is_rich_text_available</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1744"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_is_rich_text_available</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1744"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1009,7 +1007,7 @@ if it contains any of the supported rich text targets. This function
 waits for the data to be received using the main loop, so events,
 timeouts, etc, may be dispatched during the wait.</p>
 <p>This function is a little faster than calling
-<a class="reference internal" href="#Gtk.Clipboard.wait_for_rich_text" title="Gtk.Clipboard.wait_for_rich_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_rich_text</span></code></a> () since it doesn’t need to retrieve
+<a class="reference internal" href="#Gtk.Clipboard.wait_for_rich_text" title="Gtk.Clipboard.wait_for_rich_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_rich_text</span></code></a>() since it doesn’t need to retrieve
 the actual text.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.10.</span></p>
@@ -1018,7 +1016,7 @@ the actual text.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_is_target_available">
-<code class="descname">wait_is_target_available</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1983"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_is_target_available</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1983"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1043,7 +1041,7 @@ insensitive or not.</p>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_is_text_available">
-<code class="descname">wait_is_text_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1708"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_is_text_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1708"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1060,13 +1058,13 @@ if it contains any of the supported text targets. This function
 waits for the data to be received using the main loop, so events,
 timeouts, etc, may be dispatched during the wait.</p>
 <p>This function is a little faster than calling
-<a class="reference internal" href="#Gtk.Clipboard.wait_for_text" title="Gtk.Clipboard.wait_for_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_text</span></code></a> () since it doesn’t need to retrieve
+<a class="reference internal" href="#Gtk.Clipboard.wait_for_text" title="Gtk.Clipboard.wait_for_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_text</span></code></a>() since it doesn’t need to retrieve
 the actual text.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Clipboard.wait_is_uris_available">
-<code class="descname">wait_is_uris_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.18.6#n1816"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_is_uris_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkclipboard.c?h=3.20.3#n1816"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1083,7 +1081,7 @@ if it contains the URI targets. This function
 waits for the data to be received using the main loop, so events,
 timeouts, etc, may be dispatched during the wait.</p>
 <p>This function is a little faster than calling
-<a class="reference internal" href="#Gtk.Clipboard.wait_for_uris" title="Gtk.Clipboard.wait_for_uris"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_uris</span></code></a> () since it doesn’t need to retrieve
+<a class="reference internal" href="#Gtk.Clipboard.wait_for_uris" title="Gtk.Clipboard.wait_for_uris"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard.wait_for_uris</span></code></a>() since it doesn’t need to retrieve
 the actual URI data.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.14.</span></p>
@@ -1110,7 +1108,7 @@ the actual URI data.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>clipboard</strong> (<a class="reference internal" href="#Gtk.Clipboard" title="Gtk.Clipboard"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Clipboard</span></code></a>) &#8211; The object which received the signal</li>
-<li><strong>event</strong> (<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/EventOwnerChange.html#Gdk.EventOwnerChange" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventOwnerChange</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/EventOwnerChange.html#Gdk.EventOwnerChange" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventOwnerChange</span></code></a> event</li>
+<li><strong>event</strong> (<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/EventOwnerChange.html#Gdk.EventOwnerChange" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventOwnerChange</span></code></a>) &#8211; the <cite>GdkEventOwnerChange</cite> event</li>
 </ul>
 </td>
 </tr>
@@ -1138,7 +1136,4 @@ associated with <cite>clipboard</cite> has changed.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Cogl.Context" href="Context.html"/>
         <link rel="prev" title="Cogl.AttributeBuffer" href="AttributeBuffer.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -80,8 +78,6 @@
 <li><a class="reference internal" href="#">Cogl.Bitmap</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -125,8 +121,6 @@
 <li><a class="reference internal" href="#">Cogl.Bitmap</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -239,14 +233,6 @@
 <span id="cogl-bitmap-vfuncs"></span><h2>Virtual Methods</h2>
 <p>None</p>
 </div>
-<div class="section" id="properties">
-<span id="cogl-bitmap-props"></span><h2>Properties</h2>
-<p>None</p>
-</div>
-<div class="section" id="signals">
-<span id="cogl-bitmap-signals"></span><h2>Signals</h2>
-<p>None</p>
-</div>
 <div class="section" id="fields">
 <span id="cogl-bitmap-fields"></span><h2>Fields</h2>
 <p>None</p>
@@ -327,7 +313,7 @@ the start of one row of the bitmap to the next).</li>
 <p>Creates a bitmap using some existing data. The data is not copied
 so the application must keep the buffer alive for the lifetime of
 the <a class="reference internal" href="#Cogl.Bitmap" title="Cogl.Bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap</span></code></a>. This can be used for example with
-<a class="reference internal" href="../interfaces/Framebuffer.html#Cogl.Framebuffer.read_pixels_into_bitmap" title="Cogl.Framebuffer.read_pixels_into_bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.read_pixels_into_bitmap</span></code></a> () to read data directly
+<a class="reference internal" href="../interfaces/Framebuffer.html#Cogl.Framebuffer.read_pixels_into_bitmap" title="Cogl.Framebuffer.read_pixels_into_bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.read_pixels_into_bitmap</span></code></a>() to read data directly
 into an application buffer with the specified rowstride.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
@@ -342,7 +328,7 @@ into an application buffer with the specified rowstride.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>buffer</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Buffer</span></code> containing image data</li>
+<li><strong>buffer</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A #CoglBuffer containing image data</li>
 <li><strong>format</strong> (<a class="reference internal" href="../enums.html#Cogl.PixelFormat" title="Cogl.PixelFormat"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PixelFormat</span></code></a>) &#8211; The <a class="reference internal" href="../enums.html#Cogl.PixelFormat" title="Cogl.PixelFormat"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PixelFormat</span></code></a> defining the format of the image data
 in the given <cite>buffer</cite>.</li>
 <li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The width of the image data in the given <cite>buffer</cite>.</li>
@@ -361,7 +347,7 @@ should be considered part of the <a class="reference internal" href="#Cogl.Bitma
 </tr>
 </tbody>
 </table>
-<p>Wraps some image data that has been uploaded into a <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Buffer</span></code> as
+<p>Wraps some image data that has been uploaded into a #CoglBuffer as
 a <a class="reference internal" href="#Cogl.Bitmap" title="Cogl.Bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap</span></code></a>. The data is not copied in this process.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
@@ -377,7 +363,7 @@ a <a class="reference internal" href="#Cogl.Bitmap" title="Cogl.Bitmap"><code cl
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the file to load.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="#Cogl.Bitmap" title="Cogl.Bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap</span></code></a> to the new loaded
 image data, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if loading the image failed.</td>
@@ -421,7 +407,7 @@ newly created array or <a class="reference external" href="http://docs.python.or
 The initial contents of the bitmap are undefined.</p>
 <p>The data for the bitmap will be stored in a newly created
 <a class="reference internal" href="PixelBuffer.html#Cogl.PixelBuffer" title="Cogl.PixelBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PixelBuffer</span></code></a>. You can get a pointer to the pixel buffer using
-<a class="reference internal" href="#Cogl.Bitmap.get_buffer" title="Cogl.Bitmap.get_buffer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap.get_buffer</span></code></a> (). The <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Buffer</span></code> API can then be
+<a class="reference internal" href="#Cogl.Bitmap.get_buffer" title="Cogl.Bitmap.get_buffer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap.get_buffer</span></code></a>(). The #CoglBuffer API can then be
 used to fill the bitmap with data.</p>
 <p>Cogl will try its best to provide a hardware array you can
 map, write into and effectively do a zero copy upload when creating
@@ -429,7 +415,7 @@ a texture from it with cogl_texture_new_from_bitmap(). For various
 reasons, such arrays are likely to have a stride larger than width
 * bytes_per_pixel. The user must take the stride into account when
 writing into it. The stride can be retrieved with
-<a class="reference internal" href="#Cogl.Bitmap.get_rowstride" title="Cogl.Bitmap.get_rowstride"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap.get_rowstride</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.Bitmap.get_rowstride" title="Cogl.Bitmap.get_rowstride"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap.get_rowstride</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -444,7 +430,7 @@ writing into it. The stride can be retrieved with
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="PixelBuffer.html#Cogl.PixelBuffer" title="Cogl.PixelBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PixelBuffer</span></code></a> that this
 buffer uses for storage. Note that if the bitmap was created with
-<a class="reference internal" href="#Cogl.Bitmap.new_from_file" title="Cogl.Bitmap.new_from_file"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap.new_from_file</span></code></a> () then it will not actually be using a
+<a class="reference internal" href="#Cogl.Bitmap.new_from_file" title="Cogl.Bitmap.new_from_file"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap.new_from_file</span></code></a>() then it will not actually be using a
 pixel buffer and this function will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="PixelBuffer.html#Cogl.PixelBuffer" title="Cogl.PixelBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PixelBuffer</span></code></a></td>
@@ -546,7 +532,4 @@ next row in the image.</td>
   </div> 
 
 </body>
-
-  
-
 </html>

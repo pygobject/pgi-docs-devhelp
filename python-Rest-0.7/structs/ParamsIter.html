@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Rest 0.7 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Rest.XmlNode" href="XmlNode.html"/>
         <link rel="prev" title="Rest.Params" href="Params.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -182,14 +180,14 @@
 </table>
 <p>Initialize a parameter iterator over <cite>params</cite>. Modifying <cite>params</cite> after calling
 this function invalidates the returned iterator.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">RestParamsIter</span> <span class="n">iter</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
-<span class="n">RestParam</span> <span class="o">*</span><span class="n">param</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>RestParamsIter iter;
+const char *name;
+RestParam *param;
 
-<span class="n">rest_params_iter_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">,</span> <span class="n">params</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">rest_params_iter_next</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">param</span><span class="p">))</span> <span class="p">{</span>
-  <span class="cm">/* do something with name and param */</span>
-<span class="p">}</span>
+rest_params_iter_init (&amp;iter, params);
+while (rest_params_iter_next (&amp;iter, &amp;name, &amp;param)) {
+  /* do something with name and param */
+}
 </pre></div>
 </div>
 </dd></dl>
@@ -215,7 +213,7 @@ this function invalidates the returned iterator.</p>
 </tr>
 </tbody>
 </table>
-<p>Advances <cite>iter</cite> and retrieves the name and/or parameter that are now pointed
+<p>Advances <cite>self</cite> and retrieves the name and/or parameter that are now pointed
 at as a result of this advancement.  If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned, <cite>name</cite> and <cite>param</cite>
 are not set and the iterator becomes invalid.</p>
 </dd></dl>
@@ -236,7 +234,4 @@ are not set and the iterator becomes invalid.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

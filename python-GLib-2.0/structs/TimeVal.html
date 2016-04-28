@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.TimeZone" href="TimeZone.html"/>
         <link rel="prev" title="GLib.ThreadPool" href="ThreadPool.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -206,7 +204,7 @@ represent microsecond-precision time. As such, this type will be
 removed from a future version of GLib.</p>
 <dl class="staticmethod">
 <dt id="GLib.TimeVal.from_iso8601">
-<em class="property">static </em><code class="descname">from_iso8601</code><span class="sig-paren">(</span><em>iso_date</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtimer.c?h=2.46.2#n353"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">from_iso8601</code><span class="sig-paren">(</span><em>iso_date</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtimer.c?h=2.48.0#n353"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -217,7 +215,7 @@ removed from a future version of GLib.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">time_:</th><td class="field-body">a <a class="reference internal" href="#GLib.TimeVal" title="GLib.TimeVal"><code class="xref py py-obj docutils literal"><span class="pre">GLib.TimeVal</span></code></a></td>
+<tr class="field-odd field"><th class="field-name"><a href="#id1"><span class="problematic" id="id2">time_</span></a>:</th><td class="field-body">a <a class="reference internal" href="#GLib.TimeVal" title="GLib.TimeVal"><code class="xref py py-obj docutils literal"><span class="pre">GLib.TimeVal</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -240,7 +238,7 @@ timestamp is assumed to be in local time.)</p>
 
 <dl class="method">
 <dt id="GLib.TimeVal.add">
-<code class="descname">add</code><span class="sig-paren">(</span><em>microseconds</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtimer.c?h=2.46.2#n274"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add</code><span class="sig-paren">(</span><em>microseconds</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtimer.c?h=2.48.0#n274"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -249,13 +247,13 @@ timestamp is assumed to be in local time.)</p>
 </tr>
 </tbody>
 </table>
-<p>Adds the given number of microseconds to <cite>time_</cite>. <cite>microseconds</cite> can
-also be negative to decrease the value of <cite>time_</cite>.</p>
+<p>Adds the given number of microseconds to <cite>self</cite>. <cite>microseconds</cite> can
+also be negative to decrease the value of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.TimeVal.to_iso8601">
-<code class="descname">to_iso8601</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtimer.c?h=2.46.2#n499"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">to_iso8601</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtimer.c?h=2.48.0#n499"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -266,7 +264,7 @@ also be negative to decrease the value of <cite>time_</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Converts <cite>time_</cite> into an RFC 3339 encoded string, relative to the
+<p>Converts <cite>self</cite> into an RFC 3339 encoded string, relative to the
 Coordinated Universal Time (UTC). This is one of the many formats
 allowed by ISO 8601.</p>
 <p>ISO 8601 allows a large number of date/time formats, with or without
@@ -274,14 +272,14 @@ punctuation and optional elements. The format returned by this function
 is a complete date and time, with optional punctuation included, the
 UTC time zone represented as &#8220;Z&#8221;, and the <cite>tv_usec</cite> part included if
 and only if it is nonzero, i.e. either
-&#8220;YYYY-MM-DDTHH:MM:SSZ&#8221; or &#8220;YYYY-MM-DDTHH:MM:SS.fffffZ&#8221;.</p>
+&#8220;YYYY-MM-DDTHH:MM:py:data:<cite>:SSZ&lt;GLib.TimeVal.props.SSZ&gt;</cite>&#8221; or &#8220;YYYY-MM-DDTHH:MM:SS.fffffZ&#8221;.</p>
 <p>This corresponds to the Internet date/time format defined by
 <a class="reference external" href="https://www.ietf.org/rfc/rfc3339.txt">RFC 3339</a>,
 and to either of the two most-precise formats defined by
 the W3C Note
 <a class="reference external" href="http://www.w3.org/TR/NOTE-datetime-19980827">Date and Time Formats</a>.
 Both of these documents are profiles of ISO 8601.</p>
-<p>Use <a class="reference internal" href="DateTime.html#GLib.DateTime.format" title="GLib.DateTime.format"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DateTime.format</span></code></a> () or <code class="xref py py-obj docutils literal"><span class="pre">GLib.strdup_printf</span></code> () if a different
+<p>Use <a class="reference internal" href="DateTime.html#GLib.DateTime.format" title="GLib.DateTime.format"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DateTime.format</span></code></a>() or g_strdup_printf() if a different
 variation of ISO 8601 format is required.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.12.</span></p>
@@ -304,7 +302,4 @@ variation of ISO 8601 format is required.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

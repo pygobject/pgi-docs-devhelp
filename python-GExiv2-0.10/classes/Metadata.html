@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GExiv2 0.10 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GExiv2.PreviewImage" href="PreviewImage.html"/>
         <link rel="prev" title="Classes" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -490,7 +488,7 @@ the full scope of what it offers: http://www.exiv2.org/</p>
 <p>In particular, rather than providing a getter/setter method pair for every metadata value
 available for images (of which there are thousands), Exiv2 uses a dotted addressing scheme.
 For example, to access a photo&#8217;s EXIF Orientation field, the caller passes to Exiv2
-&#8220;Exif.Photo.Orientation&#8221;.  These tags (in Exiv2 parlance) are key to using Exiv2 (and
+&#8220;Exif.Photo.Orientation&#8221;.  These &lt;em&gt;tags&lt;/em&gt; (in Exiv2 parlance) are key to using Exiv2 (and
 therefore gexiv2) to its fullest.</p>
 <p>A full reference for all supported Exiv2 tags can be found at http://www.exiv2.org/metadata.html</p>
 <dl class="staticmethod">
@@ -544,7 +542,7 @@ therefore gexiv2) to its fullest.</p>
 </tr>
 </tbody>
 </table>
-<p>The names of the various Exiv2 tag types can be found at Exiv2 <code class="xref py py-func docutils literal"><span class="pre">::TypeId</span></code>,
+<p>The names of the various Exiv2 tag types can be found at Exiv2::TypeId,
 http://exiv2.org/doc/namespaceExiv2.html#5153319711f35fe81cbc13f4b852450c</p>
 <p>The Exiv2 Tag Reference can be found at http://exiv2.org/metadata.html</p>
 </dd></dl>
@@ -740,7 +738,7 @@ http://exiv2.org/doc/namespaceExiv2.html#5153319711f35fe81cbc13f4b852450c</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bytes</span></code></a>) &#8211; A buffer containing the data to be read</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Boolean success indicator.</td>
 </tr>
@@ -793,7 +791,7 @@ locations to find the photo&#8217;s comment (or description).  These fields are:
 Exif.Photo.UserComment
 Exif.Image.XPComment
 Iptc.Application2.Caption</p>
-<p>Note that Exif.Image.ImageDescription is not technically a description field and is
+<p>Note that Exif.Image.ImageDescription is &lt;em&gt;not&lt;/em&gt; technically a description field and is
 described in the EXIF specification as &#8220;the title of the image&#8221;.  Also, it does not support
 two-byte character codes for encoding.  However, it&#8217;s still used here for legacy reasons.</p>
 <p>For fine-grained control, it&#8217;s recommened to use Exiv2 tags directly rather than this method,
@@ -889,7 +887,7 @@ loaded image</td>
 </tr>
 </tbody>
 </table>
-<p>Returns the exposure time in seconds (shutter speed, not date-time of exposure) as a
+<p>Returns the exposure time in seconds (shutter speed, &lt;em&gt;not&lt;/em&gt; date-time of exposure) as a
 rational.  See https://en.wikipedia.org/wiki/Shutter_speed for more information.</p>
 </dd></dl>
 
@@ -1087,7 +1085,7 @@ rational.  See https://en.wikipedia.org/wiki/Shutter_speed for more information.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The actual unoriented display height in pixels of the loaded image.  This may
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The &lt;em&gt;actual&lt;/em&gt; unoriented display height in pixels of the loaded image.  This may
 be different than the height reported by various metadata tags, i.e. &#8220;Exif.Photo.PixelYDimension&#8221;.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
@@ -1103,7 +1101,7 @@ be different than the height reported by various metadata tags, i.e. &#8220;Exif
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The actual unoriented display width in pixels of the loaded image.  This may be
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The &lt;em&gt;actual&lt;/em&gt; unoriented display width in pixels of the loaded image.  This may be
 different than the width reported by various metadata tags, i.e. &#8220;Exif.Photo.PixelXDimension&#8221;.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
@@ -1295,7 +1293,7 @@ the tag</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The currently-encoded XMP packet (see <a class="reference internal" href="#GExiv2.Metadata.generate_xmp_packet" title="GExiv2.Metadata.generate_xmp_packet"><code class="xref py py-obj docutils literal"><span class="pre">GExiv2.Metadata.generate_xmp_packet</span></code></a> ).</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The currently-encoded XMP packet (see <a class="reference internal" href="#GExiv2.Metadata.generate_xmp_packet" title="GExiv2.Metadata.generate_xmp_packet"><code class="xref py py-obj docutils literal"><span class="pre">GExiv2.Metadata.generate_xmp_packet</span></code></a>).</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1390,7 +1388,7 @@ the tag</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bytes</span></code></a>) &#8211; A buffer containing the data to be read</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Boolean success indicator</td>
 </tr>
@@ -1410,7 +1408,7 @@ the tag</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Path to the file you want to open</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Boolean success indicator</td>
 </tr>
@@ -1430,7 +1428,7 @@ the tag</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Path to the file you want to save to.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Boolean success indicator.</td>
 </tr>
@@ -1503,7 +1501,7 @@ metadata into the image, then writing the image back out.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Path of image file</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GExiv2-0.10/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Boolean success value</td>
 </tr>
@@ -1660,7 +1658,4 @@ metadata into the image, then writing the image back out.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

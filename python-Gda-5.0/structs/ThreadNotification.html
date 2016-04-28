@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gda 5.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gda.Time" href="Time.html"/>
         <link rel="prev" title="Gda.SqlStatement" href="SqlStatement.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -182,51 +180,51 @@
 <dl class="class">
 <dt id="Gda.ThreadNotification">
 <em class="property">class </em><code class="descclassname">Gda.</code><code class="descname">ThreadNotification</code></dt>
-<dd><p>A notification to be read through the <a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/structs/IOChannel.html#GLib.IOChannel" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.IOChannel</span></code></a> which is returned by <a class="reference internal" href="../classes/ThreadWrapper.html#Gda.ThreadWrapper.get_io_channel" title="Gda.ThreadWrapper.get_io_channel"><code class="xref py py-obj docutils literal"><span class="pre">Gda.ThreadWrapper.get_io_channel</span></code></a> (),
+<dd><p>A notification to be read through the <a class="reference external" href="../_docs/Gda-5.0/../../../python-GLib-2.0/structs/IOChannel.html#GLib.IOChannel" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.IOChannel</span></code></a> which is returned by <a class="reference internal" href="../classes/ThreadWrapper.html#Gda.ThreadWrapper.get_io_channel" title="Gda.ThreadWrapper.get_io_channel"><code class="xref py py-obj docutils literal"><span class="pre">Gda.ThreadWrapper.get_io_channel</span></code></a>(),
 for example:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">gboolean</span>
-<span class="nf">wrapper_ioc_cb</span> <span class="p">(</span><span class="n">GIOChannel</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">GIOCondition</span> <span class="n">condition</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">data</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">GIOStatus</span> <span class="n">status</span><span class="p">;</span>
-    <span class="n">gsize</span> <span class="n">nread</span><span class="p">;</span>
-    <span class="n">GdaThreadNotification</span> <span class="n">notif</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">condition</span> <span class="o">&amp;</span> <span class="n">G_IO_IN</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">status</span> <span class="o">=</span> <span class="n">g_io_channel_read_chars</span> <span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="p">(</span><span class="n">gchar</span><span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">notif</span><span class="p">,</span> <span class="k">sizeof</span> <span class="p">(</span><span class="n">notif</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">nread</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">status</span> <span class="o">!=</span> <span class="n">G_IO_STATUS_NORMAL</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">nread</span> <span class="o">!=</span> <span class="k">sizeof</span> <span class="p">(</span><span class="n">notif</span><span class="p">)))</span>
-            <span class="k">goto</span> <span class="n">onerror</span><span class="p">;</span>
-   <span class="k">switch</span> <span class="p">(</span><span class="n">notif</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
-   <span class="k">case</span> <span class="nl">GDA_THREAD_NOTIFICATION_JOB</span><span class="p">:</span>
-            <span class="n">check_for_wrapper_result</span> <span class="p">(</span><span class="n">bcnc</span><span class="p">);</span>
-            <span class="k">break</span><span class="p">;</span>
-        <span class="k">case</span> <span class="nl">GDA_THREAD_NOTIFICATION_SIGNAL</span><span class="p">:</span>
-            <span class="n">gda_thread_wrapper_iterate</span> <span class="p">(</span><span class="n">bcnc</span><span class="o">-&gt;</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">wrapper</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">);</span>
-            <span class="k">break</span><span class="p">;</span>
-        <span class="k">default</span><span class="o">:</span>
-            <span class="k">goto</span> <span class="n">onerror</span><span class="p">;</span>
-            <span class="k">break</span><span class="p">;</span>
-   <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">condition</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">G_IO_ERR</span> <span class="o">|</span> <span class="n">G_IO_HUP</span> <span class="o">|</span> <span class="n">G_IO_NVAL</span><span class="p">))</span>
-            <span class="k">goto</span> <span class="n">onerror</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span> <span class="c1">// keep callback</span>
+<div class="highlight-none"><div class="highlight"><pre>gboolean
+wrapper_ioc_cb (GIOChannel *source, GIOCondition condition, gpointer data)
+{
+    GIOStatus status;
+    gsize nread;
+    GdaThreadNotification notif;
+    if (condition &amp; G_IO_IN) {
+   status = g_io_channel_read_chars (source, (gchar*) &amp;notif, sizeof (notif), &amp;nread, NULL);
+        if ((status != G_IO_STATUS_NORMAL) || (nread != sizeof (notif)))
+            goto onerror;
+   switch (notif.type) {
+   case GDA_THREAD_NOTIFICATION_JOB:
+            check_for_wrapper_result (bcnc);
+            break;
+        case GDA_THREAD_NOTIFICATION_SIGNAL:
+            gda_thread_wrapper_iterate (bcnc-&gt;priv-&gt;wrapper, FALSE);
+            break;
+        default:
+            goto onerror;
+            break;
+   }
+  }
+  if (condition &amp; (G_IO_ERR | G_IO_HUP | G_IO_NVAL))
+            goto onerror;
+  return TRUE; // keep callback
 
-<span class="nl">onerror</span><span class="p">:</span>
-  <span class="n">g_io_channel_shutdown</span> <span class="p">(</span><span class="n">bcnc</span><span class="o">-&gt;</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">ioc</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">FALSE</span><span class="p">;</span> <span class="c1">// removed callback</span>
-<span class="p">}</span>
+onerror:
+  g_io_channel_shutdown (bcnc-&gt;priv-&gt;ioc, FALSE, NULL);
+  return FALSE; // removed callback
+}
 
-<span class="p">{</span>
-<span class="p">[...]</span>
-    <span class="n">GIOChannel</span> <span class="o">*</span><span class="n">ioc</span><span class="p">;</span>
-    <span class="n">ioc</span> <span class="o">=</span> <span class="n">gda_thread_wrapper_get_io_channel</span> <span class="p">(</span><span class="n">wrapper</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ioc</span><span class="p">)</span>
-        <span class="p">[</span><span class="n">handle</span> <span class="n">error</span><span class="p">]</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="n">guint</span> <span class="n">watch_id</span><span class="p">;</span>
-        <span class="n">watch_id</span> <span class="o">=</span> <span class="n">g_io_add_watch</span> <span class="p">(</span><span class="n">ioc</span><span class="p">,</span> <span class="n">G_IO_IN</span> <span class="o">|</span> <span class="n">G_IO_HUP</span> <span class="o">|</span> <span class="n">G_IO_ERR</span> <span class="o">|</span> <span class="n">G_IO_NVAL</span><span class="p">,</span>
-                                   <span class="p">(</span><span class="n">GIOFunc</span><span class="p">)</span> <span class="n">wrapper_ioc_cb</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+{
+[...]
+    GIOChannel *ioc;
+    ioc = gda_thread_wrapper_get_io_channel (wrapper);
+    if (!ioc)
+        [handle error]
+    else {
+        guint watch_id;
+        watch_id = g_io_add_watch (ioc, G_IO_IN | G_IO_HUP | G_IO_ERR | G_IO_NVAL,
+                                   (GIOFunc) wrapper_ioc_cb, NULL);
+    }
+}
 </pre></div>
 </div>
 </dd></dl>
@@ -245,7 +243,4 @@ for example:</p>
   </div> 
 
 </body>
-
-  
-
 </html>

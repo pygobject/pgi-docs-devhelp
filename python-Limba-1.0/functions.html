@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Limba 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Classes" href="classes/index.html"/>
         <link rel="prev" title="Limba 1.0" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -151,13 +149,13 @@
 <td><a class="reference internal" href="#Limba.get_current_arch_h" title="Limba.get_current_arch_h"><code class="xref py py-func docutils literal"><span class="pre">get_current_arch_h</span></code></a> ()</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Limba.get_software_root" title="Limba.get_software_root"><code class="xref py py-func docutils literal"><span class="pre">get_software_root</span></code></a> ()</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.parse_dependencies_string" title="Limba.parse_dependencies_string"><code class="xref py py-func docutils literal"><span class="pre">parse_dependencies_string</span></code></a> (depstr)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.parse_dependency_string" title="Limba.parse_dependency_string"><code class="xref py py-func docutils literal"><span class="pre">parse_dependency_string</span></code></a> (depstr)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Limba.reset_umask" title="Limba.reset_umask"><code class="xref py py-func docutils literal"><span class="pre">reset_umask</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.set_verbose_mode" title="Limba.set_verbose_mode"><code class="xref py py-func docutils literal"><span class="pre">set_verbose_mode</span></code></a> (verbose)</td>
@@ -246,19 +244,6 @@ license.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="Limba.get_software_root">
-<code class="descclassname">Limba.</code><code class="descname">get_software_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
 <dt id="Limba.parse_dependencies_string">
 <code class="descclassname">Limba.</code><code class="descname">parse_dependencies_string</code><span class="sig-paren">(</span><em>depstr</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -294,6 +279,13 @@ objects reflecting the relations and packages specified in the dependency string
 </table>
 <p>Parse a dependency string (e.g. &#8220;foo (&gt;= 4.0)&#8221;) and return a <a class="reference internal" href="classes/PkgInfo.html#Limba.PkgInfo" title="Limba.PkgInfo"><code class="xref py py-obj docutils literal"><span class="pre">Limba.PkgInfo</span></code></a>
 object reflecting the required package name and dependency relation.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Limba.reset_umask">
+<code class="descclassname">Limba.</code><code class="descname">reset_umask</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Reset umask potentially set by the user to a default value,
+so we can create files with the correct permissions.</p>
 </dd></dl>
 
 <dl class="function">
@@ -341,7 +333,4 @@ object reflecting the required package name and dependency relation.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

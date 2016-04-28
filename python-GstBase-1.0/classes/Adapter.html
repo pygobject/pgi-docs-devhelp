@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstBase 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GstBase.BaseParse" href="BaseParse.html"/>
         <link rel="prev" title="Classes" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -329,7 +327,7 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Abstract:</th><td class="field-body">No</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Structure:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">GstBase.AdapterClass</span></code></td>
+<tr class="field-odd field"><th class="field-name">Structure:</th><td class="field-body"><a class="reference internal" href="../class-structs/AdapterClass.html#GstBase.AdapterClass" title="GstBase.AdapterClass"><code class="xref py py-class docutils literal"><span class="pre">GstBase.AdapterClass</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -338,15 +336,15 @@ While for example raw video contains one image per buffer, the same is not
 true for a lot of other formats, especially those that come directly from
 a file. So if you have undefined buffer sizes and require a specific size,
 this object is for you.</p>
-<p>An adapter is created with <a class="reference internal" href="#GstBase.Adapter.new" title="GstBase.Adapter.new"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.new</span></code></a> (). It can be freed again with
-<a class="reference external" href="../_docs/GstBase-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ().</p>
+<p>An adapter is created with <a class="reference internal" href="#GstBase.Adapter.new" title="GstBase.Adapter.new"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.new</span></code></a>(). It can be freed again with
+<a class="reference external" href="../_docs/GstBase-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</p>
 <p>The theory of operation is like this: All buffers received are put
-into the adapter using <a class="reference internal" href="#GstBase.Adapter.push" title="GstBase.Adapter.push"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.push</span></code></a> () and the data is then read back
-in chunks of the desired size using <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a> ()/gst_adapter_unmap()
-and/or gst_adapter_copy(). After the data has been processed, it is freed
-using <a class="reference internal" href="#GstBase.Adapter.unmap" title="GstBase.Adapter.unmap"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.unmap</span></code></a> ().</p>
-<p>Other methods such as <a class="reference internal" href="#GstBase.Adapter.take" title="GstBase.Adapter.take"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take</span></code></a> () and <a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a> ()
-combine <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a> () and <a class="reference internal" href="#GstBase.Adapter.unmap" title="GstBase.Adapter.unmap"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.unmap</span></code></a> () in one method and are
+into the adapter using <a class="reference internal" href="#GstBase.Adapter.push" title="GstBase.Adapter.push"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.push</span></code></a>() and the data is then read back
+in chunks of the desired size using <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a>()/<a class="reference internal" href="#GstBase.Adapter.unmap" title="GstBase.Adapter.unmap"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.unmap</span></code></a>()
+and/or <a class="reference internal" href="#GstBase.Adapter.copy" title="GstBase.Adapter.copy"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.copy</span></code></a>(). After the data has been processed, it is freed
+using <a class="reference internal" href="#GstBase.Adapter.unmap" title="GstBase.Adapter.unmap"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.unmap</span></code></a>().</p>
+<p>Other methods such as <a class="reference internal" href="#GstBase.Adapter.take" title="GstBase.Adapter.take"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take</span></code></a>() and <a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a>()
+combine <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a>() and <a class="reference internal" href="#GstBase.Adapter.unmap" title="GstBase.Adapter.unmap"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.unmap</span></code></a>() in one method and are
 potentially more convenient for some use cases.</p>
 <p>For example, a sink pad&#8217;s chain function that needs to pass data to a library
 in 512-byte chunks could be implemented like this:</p>
@@ -380,38 +378,38 @@ in 512-byte chunks could be implemented like this:</p>
 is the libvisual element.</p>
 <p>An element using <a class="reference internal" href="#GstBase.Adapter" title="GstBase.Adapter"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter</span></code></a> in its sink pad chain function should ensure that
 when the FLUSH_STOP event is received, that any queued data is cleared using
-<a class="reference internal" href="#GstBase.Adapter.clear" title="GstBase.Adapter.clear"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.clear</span></code></a> (). Data should also be cleared or processed on EOS and
+<a class="reference internal" href="#GstBase.Adapter.clear" title="GstBase.Adapter.clear"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.clear</span></code></a>(). Data should also be cleared or processed on EOS and
 when changing state from <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/enums.html#Gst.State.PAUSED" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.State.PAUSED</span></code></a> to <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/enums.html#Gst.State.READY" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.State.READY</span></code></a>.</p>
 <p>Also check the <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/flags.html#Gst.BufferFlags.DISCONT" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferFlags.DISCONT</span></code></a> flag on the buffer. Some elements might
 need to clear the adapter after a discontinuity.</p>
 <p>The adapter will keep track of the timestamps of the buffers
 that were pushed. The last seen timestamp before the current position
-can be queried with <a class="reference internal" href="#GstBase.Adapter.prev_pts" title="GstBase.Adapter.prev_pts"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.prev_pts</span></code></a> (). This function can
+can be queried with <a class="reference internal" href="#GstBase.Adapter.prev_pts" title="GstBase.Adapter.prev_pts"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.prev_pts</span></code></a>(). This function can
 optionally return the number of bytes between the start of the buffer that
 carried the timestamp and the current adapter position. The distance is
 useful when dealing with, for example, raw audio samples because it allows
 you to calculate the timestamp of the current adapter position by using the
 last seen timestamp and the amount of bytes since.  Additionally, the
-<a class="reference internal" href="#GstBase.Adapter.prev_pts_at_offset" title="GstBase.Adapter.prev_pts_at_offset"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.prev_pts_at_offset</span></code></a> () can be used to determine the last
+<a class="reference internal" href="#GstBase.Adapter.prev_pts_at_offset" title="GstBase.Adapter.prev_pts_at_offset"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.prev_pts_at_offset</span></code></a>() can be used to determine the last
 seen timestamp at a particular offset in the adapter.</p>
 <p>A last thing to note is that while <a class="reference internal" href="#GstBase.Adapter" title="GstBase.Adapter"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter</span></code></a> is pretty optimized,
 merging buffers still might be an operation that requires a malloc() and
 memcpy() operation, and these operations are not the fastest. Because of
-this, some functions like <a class="reference internal" href="#GstBase.Adapter.available_fast" title="GstBase.Adapter.available_fast"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.available_fast</span></code></a> () are provided to help
+this, some functions like <a class="reference internal" href="#GstBase.Adapter.available_fast" title="GstBase.Adapter.available_fast"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.available_fast</span></code></a>() are provided to help
 speed up such cases should you want to. To avoid repeated memory allocations,
-gst_adapter_copy() can be used to copy data into a (statically allocated)
+<a class="reference internal" href="#GstBase.Adapter.copy" title="GstBase.Adapter.copy"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.copy</span></code></a>() can be used to copy data into a (statically allocated)
 user provided buffer.</p>
 <p><a class="reference internal" href="#GstBase.Adapter" title="GstBase.Adapter"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter</span></code></a> is not MT safe. All operations on an adapter must be serialized by
 the caller. This is not normally a problem, however, as the normal use case
 of <a class="reference internal" href="#GstBase.Adapter" title="GstBase.Adapter"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter</span></code></a> is inside one pad&#8217;s chain function, in which case access is
 serialized via the pad&#8217;s STREAM_LOCK.</p>
-<p>Note that <a class="reference internal" href="#GstBase.Adapter.push" title="GstBase.Adapter.push"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.push</span></code></a> () takes ownership of the buffer passed. Use
+<p>Note that <a class="reference internal" href="#GstBase.Adapter.push" title="GstBase.Adapter.push"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.push</span></code></a>() takes ownership of the buffer passed. Use
 gst_buffer_ref() before pushing it into the adapter if you still want to
 access the buffer later. The adapter will never modify the data in the
 buffer pushed in it.</p>
 <dl class="staticmethod">
 <dt id="GstBase.Adapter.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n214"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n214"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -422,35 +420,35 @@ buffer pushed in it.</p>
 </tr>
 </tbody>
 </table>
-<p>Creates a new <a class="reference internal" href="#GstBase.Adapter" title="GstBase.Adapter"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter</span></code></a>. Free with <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ().</p>
+<p>Creates a new <a class="reference internal" href="#GstBase.Adapter" title="GstBase.Adapter"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter</span></code></a>. Free with <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.Adapter.available">
-<code class="descname">available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1265"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1265"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of bytes available in <cite>adapter</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of bytes available in <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets the maximum amount of bytes available, that is it returns the maximum
-value that can be supplied to <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a> () without that function
+value that can be supplied to <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a>() without that function
 returning <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.Adapter.available_fast">
-<code class="descname">available_fast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1284"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">available_fast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1284"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of bytes that are available in <cite>adapter</cite> without expensive
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of bytes that are available in <cite>self</cite> without expensive
 operations</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
@@ -464,13 +462,13 @@ temporary buffer).</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n226"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Removes all buffers from <cite>adapter</cite>.</p>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n226"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Removes all buffers from <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.Adapter.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n570"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n570"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -489,9 +487,9 @@ temporary buffer).</p>
 </tr>
 </tbody>
 </table>
-<p>Similar to gst_adapter_copy, but more suitable for language bindings. <cite>size</cite>
+<p>Similar to <a class="reference internal" href="#GstBase.Adapter.copy" title="GstBase.Adapter.copy"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.copy</span></code></a>, but more suitable for language bindings. <cite>size</cite>
 bytes of data starting at <cite>offset</cite> will be copied out of the buffers contained
-in <cite>adapter</cite> and into a new <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> structure which is returned. Depending on
+in <cite>self</cite> and into a new <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> structure which is returned. Depending on
 the value of the <cite>size</cite> argument an empty <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> structure may be returned.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
@@ -500,7 +498,7 @@ the value of the <cite>size</cite> argument an empty <a class="reference externa
 
 <dl class="method">
 <dt id="GstBase.Adapter.flush">
-<code class="descname">flush</code><span class="sig-paren">(</span><em>flush</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n646"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">flush</code><span class="sig-paren">(</span><em>flush</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n646"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -509,14 +507,14 @@ the value of the <cite>size</cite> argument an empty <a class="reference externa
 </tr>
 </tbody>
 </table>
-<p>Flushes the first <cite>flush</cite> bytes in the <cite>adapter</cite>. The caller must ensure that
+<p>Flushes the first <cite>flush</cite> bytes in the <cite>self</cite>. The caller must ensure that
 at least this many bytes are available.</p>
-<p>See also: <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a> (), <a class="reference internal" href="#GstBase.Adapter.unmap" title="GstBase.Adapter.unmap"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.unmap</span></code></a> ()</p>
+<p>See also: <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a>(), <a class="reference internal" href="#GstBase.Adapter.unmap" title="GstBase.Adapter.unmap"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.unmap</span></code></a>()</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.Adapter.get_buffer">
-<code class="descname">get_buffer</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n909"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_buffer</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n909"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -531,8 +529,8 @@ gst_buffer_unref() when no longer needed.</td>
 </tr>
 </tbody>
 </table>
-<p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> containing the first <cite>nbytes</cite> of the <cite>adapter</cite>, but
-does not flush them from the adapter. See <a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a> ()
+<p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> containing the first <cite>nbytes</cite> of the <cite>self</cite>, but
+does not flush them from the adapter. See <a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a>()
 for details.</p>
 <p>Caller owns a reference to the returned buffer. gst_buffer_unref() after
 usage.</p>
@@ -544,7 +542,7 @@ usage.</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.get_buffer_fast">
-<code class="descname">get_buffer_fast</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n758"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_buffer_fast</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n758"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -559,8 +557,8 @@ gst_buffer_unref() when no longer needed.</td>
 </tr>
 </tbody>
 </table>
-<p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> containing the first <cite>nbytes</cite> of the <cite>adapter</cite>, but
-does not flush them from the adapter. See <a class="reference internal" href="#GstBase.Adapter.take_buffer_fast" title="GstBase.Adapter.take_buffer_fast"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer_fast</span></code></a> ()
+<p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> containing the first <cite>nbytes</cite> of the <cite>self</cite>, but
+does not flush them from the adapter. See <a class="reference internal" href="#GstBase.Adapter.take_buffer_fast" title="GstBase.Adapter.take_buffer_fast"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer_fast</span></code></a>()
 for details.</p>
 <p>Caller owns a reference to the returned buffer. gst_buffer_unref() after
 usage.</p>
@@ -572,7 +570,7 @@ usage.</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.get_buffer_list">
-<code class="descname">get_buffer_list</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1203"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_buffer_list</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1203"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -588,8 +586,8 @@ available</td>
 </tbody>
 </table>
 <p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/BufferList.html#Gst.BufferList" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferList</span></code></a> of buffers containing the first <cite>nbytes</cite> bytes of
-the <cite>adapter</cite> but does not flush them from the adapter. See
-<a class="reference internal" href="#GstBase.Adapter.take_buffer_list" title="GstBase.Adapter.take_buffer_list"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer_list</span></code></a> () for details.</p>
+the <cite>self</cite> but does not flush them from the adapter. See
+<a class="reference internal" href="#GstBase.Adapter.take_buffer_list" title="GstBase.Adapter.take_buffer_list"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer_list</span></code></a>() for details.</p>
 <p>Caller owns the returned list. Call gst_buffer_list_unref() to free
 the list after usage.</p>
 <div class="versionadded">
@@ -599,7 +597,7 @@ the list after usage.</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.get_list">
-<code class="descname">get_list</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1090"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_list</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1090"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -615,8 +613,8 @@ bytes are not available</td>
 </tbody>
 </table>
 <p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of buffers containing the first <cite>nbytes</cite> bytes of the
-<cite>adapter</cite>, but does not flush them from the adapter. See
-<a class="reference internal" href="#GstBase.Adapter.take_list" title="GstBase.Adapter.take_list"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_list</span></code></a> () for details.</p>
+<cite>self</cite>, but does not flush them from the adapter. See
+<a class="reference internal" href="#GstBase.Adapter.take_list" title="GstBase.Adapter.take_list"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_list</span></code></a>() for details.</p>
 <p>Caller owns returned list and contained buffers. gst_buffer_unref() each
 buffer in the list before freeing the list after usage.</p>
 <div class="versionadded">
@@ -626,7 +624,7 @@ buffer in the list before freeing the list after usage.</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.map">
-<code class="descname">map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n435"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n435"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -637,22 +635,22 @@ buffer in the list before freeing the list after usage.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets the first <cite>size</cite> bytes stored in the <cite>adapter</cite>. The returned pointer is
+<p>Gets the first <cite>size</cite> bytes stored in the <cite>self</cite>. The returned pointer is
 valid until the next function is called on the adapter.</p>
 <p>Note that setting the returned pointer as the data of a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> is
 incorrect for general-purpose plugins. The reason is that if a downstream
 element stores the buffer so that it has access to it outside of the bounds
 of its chain function, the buffer will have an invalid data pointer after
 your element flushes the bytes. In that case you should use
-<a class="reference internal" href="#GstBase.Adapter.take" title="GstBase.Adapter.take"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take</span></code></a> (), which returns a freshly-allocated buffer that you can set
+<a class="reference internal" href="#GstBase.Adapter.take" title="GstBase.Adapter.take"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take</span></code></a>(), which returns a freshly-allocated buffer that you can set
 as <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> memory or the potentially more performant
-<a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a> ().</p>
+<a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a>().</p>
 <p>Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>size</cite> bytes are not available.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.Adapter.masked_scan_uint32">
-<code class="descname">masked_scan_uint32</code><span class="sig-paren">(</span><em>mask</em>, <em>pattern</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1627"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">masked_scan_uint32</code><span class="sig-paren">(</span><em>mask</em>, <em>pattern</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1627"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -668,22 +666,22 @@ the last scanned position.</li>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>offset of the first match, or -1 if no match was found.</p>
 <p>Example:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="c1">// Assume the adapter contains 0x00 0x01 0x02 ... 0xfe 0xff</span>
+<div class="highlight-none"><div class="highlight"><pre>// Assume the adapter contains 0x00 0x01 0x02 ... 0xfe 0xff
 
-<span class="n">gst_adapter_masked_scan_uint32</span> <span class="p">(</span><span class="n">adapter</span><span class="p">,</span> <span class="mh">0xffffffff</span><span class="p">,</span> <span class="mh">0x00010203</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">);</span>
-<span class="c1">// -&gt; returns 0</span>
-<span class="n">gst_adapter_masked_scan_uint32</span> <span class="p">(</span><span class="n">adapter</span><span class="p">,</span> <span class="mh">0xffffffff</span><span class="p">,</span> <span class="mh">0x00010203</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
-<span class="c1">// -&gt; returns -1</span>
-<span class="n">gst_adapter_masked_scan_uint32</span> <span class="p">(</span><span class="n">adapter</span><span class="p">,</span> <span class="mh">0xffffffff</span><span class="p">,</span> <span class="mh">0x01020304</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
-<span class="c1">// -&gt; returns 1</span>
-<span class="n">gst_adapter_masked_scan_uint32</span> <span class="p">(</span><span class="n">adapter</span><span class="p">,</span> <span class="mh">0xffff</span><span class="p">,</span> <span class="mh">0x0001</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">);</span>
-<span class="c1">// -&gt; returns -1</span>
-<span class="n">gst_adapter_masked_scan_uint32</span> <span class="p">(</span><span class="n">adapter</span><span class="p">,</span> <span class="mh">0xffff</span><span class="p">,</span> <span class="mh">0x0203</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">);</span>
-<span class="c1">// -&gt; returns 0</span>
-<span class="n">gst_adapter_masked_scan_uint32</span> <span class="p">(</span><span class="n">adapter</span><span class="p">,</span> <span class="mh">0xffff0000</span><span class="p">,</span> <span class="mh">0x02030000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">);</span>
-<span class="c1">// -&gt; returns 2</span>
-<span class="n">gst_adapter_masked_scan_uint32</span> <span class="p">(</span><span class="n">adapter</span><span class="p">,</span> <span class="mh">0xffff0000</span><span class="p">,</span> <span class="mh">0x02030000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-<span class="c1">// -&gt; returns -1</span>
+gst_adapter_masked_scan_uint32 (adapter, 0xffffffff, 0x00010203, 0, 256);
+// -&gt; returns 0
+gst_adapter_masked_scan_uint32 (adapter, 0xffffffff, 0x00010203, 1, 255);
+// -&gt; returns -1
+gst_adapter_masked_scan_uint32 (adapter, 0xffffffff, 0x01020304, 1, 255);
+// -&gt; returns 1
+gst_adapter_masked_scan_uint32 (adapter, 0xffff, 0x0001, 0, 256);
+// -&gt; returns -1
+gst_adapter_masked_scan_uint32 (adapter, 0xffff, 0x0203, 0, 256);
+// -&gt; returns 0
+gst_adapter_masked_scan_uint32 (adapter, 0xffff0000, 0x02030000, 0, 256);
+// -&gt; returns 2
+gst_adapter_masked_scan_uint32 (adapter, 0xffff0000, 0x02030000, 0, 4);
+// -&gt; returns -1
 </pre></div>
 </div>
 </p>
@@ -701,13 +699,13 @@ of endianness.  All four bytes of the pattern must be present in the
 adapter for it to match, even if the first or last bytes are masked out.</p>
 <p>It is an error to call this function without making sure that there is
 enough data (offset+size bytes) in the adapter.</p>
-<p>This function calls <a class="reference internal" href="#GstBase.Adapter.masked_scan_uint32_peek" title="GstBase.Adapter.masked_scan_uint32_peek"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.masked_scan_uint32_peek</span></code></a> () passing <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
+<p>This function calls <a class="reference internal" href="#GstBase.Adapter.masked_scan_uint32_peek" title="GstBase.Adapter.masked_scan_uint32_peek"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.masked_scan_uint32_peek</span></code></a>() passing <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
 for value.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.Adapter.masked_scan_uint32_peek">
-<code class="descname">masked_scan_uint32_peek</code><span class="sig-paren">(</span><em>mask</em>, <em>pattern</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1489"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">masked_scan_uint32_peek</code><span class="sig-paren">(</span><em>mask</em>, <em>pattern</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1489"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -750,7 +748,7 @@ enough data (offset+size bytes) in the adapter.</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.prev_dts">
-<code class="descname">prev_dts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1358"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">prev_dts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1358"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -780,7 +778,7 @@ and distance returned are <a class="reference external" href="../_docs/GstBase-1
 
 <dl class="method">
 <dt id="GstBase.Adapter.prev_dts_at_offset">
-<code class="descname">prev_dts_at_offset</code><span class="sig-paren">(</span><em>offset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1436"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">prev_dts_at_offset</code><span class="sig-paren">(</span><em>offset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1436"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -815,7 +813,7 @@ and distance returned are <a class="reference external" href="../_docs/GstBase-1
 
 <dl class="method">
 <dt id="GstBase.Adapter.prev_pts">
-<code class="descname">prev_pts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1331"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">prev_pts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1331"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -845,7 +843,7 @@ and distance returned are <a class="reference external" href="../_docs/GstBase-1
 
 <dl class="method">
 <dt id="GstBase.Adapter.prev_pts_at_offset">
-<code class="descname">prev_pts_at_offset</code><span class="sig-paren">(</span><em>offset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1388"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">prev_pts_at_offset</code><span class="sig-paren">(</span><em>offset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1388"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -880,7 +878,7 @@ and distance returned are <a class="reference external" href="../_docs/GstBase-1
 
 <dl class="method">
 <dt id="GstBase.Adapter.push">
-<code class="descname">push</code><span class="sig-paren">(</span><em>buf</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n328"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push</code><span class="sig-paren">(</span><em>buf</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n328"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -889,13 +887,13 @@ and distance returned are <a class="reference external" href="../_docs/GstBase-1
 </tr>
 </tbody>
 </table>
-<p>Adds the data from <cite>buf</cite> to the data stored inside <cite>adapter</cite> and takes
+<p>Adds the data from <cite>buf</cite> to the data stored inside <cite>self</cite> and takes
 ownership of the buffer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.Adapter.take">
-<code class="descname">take</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n717"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">take</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n717"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -907,14 +905,14 @@ ownership of the buffer.</p>
 </tbody>
 </table>
 <p>Returns a freshly allocated buffer containing the first <cite>nbytes</cite> bytes of the
-<cite>adapter</cite>. The returned bytes will be flushed from the adapter.</p>
+<cite>self</cite>. The returned bytes will be flushed from the adapter.</p>
 <p>Caller owns returned value. <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> after usage.</p>
 <p>Free-function: <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.Adapter.take_buffer">
-<code class="descname">take_buffer</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1013"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">take_buffer</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1013"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -930,9 +928,9 @@ gst_buffer_unref() when no longer needed.</td>
 </tbody>
 </table>
 <p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> containing the first <cite>nbytes</cite> bytes of the
-<cite>adapter</cite>. The returned bytes will be flushed from the adapter.
+<cite>self</cite>. The returned bytes will be flushed from the adapter.
 This function is potentially more performant than
-<a class="reference internal" href="#GstBase.Adapter.take" title="GstBase.Adapter.take"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take</span></code></a> () since it can reuse the memory in pushed buffers
+<a class="reference internal" href="#GstBase.Adapter.take" title="GstBase.Adapter.take"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take</span></code></a>() since it can reuse the memory in pushed buffers
 by subbuffering or merging. This function will always return a
 buffer with a single memory region.</p>
 <p>Note that no assumptions should be made as to whether certain buffer
@@ -948,7 +946,7 @@ usage.</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.take_buffer_fast">
-<code class="descname">take_buffer_fast</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n847"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">take_buffer_fast</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n847"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -963,11 +961,11 @@ gst_buffer_unref() when no longer needed.</td>
 </tr>
 </tbody>
 </table>
-<p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> containing the first <cite>nbytes</cite> of the <cite>adapter</cite>.
+<p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> containing the first <cite>nbytes</cite> of the <cite>self</cite>.
 The returned bytes will be flushed from the adapter.  This function
-is potentially more performant than <a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a> () since
+is potentially more performant than <a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a>() since
 it can reuse the memory in pushed buffers by subbuffering or
-merging. Unlike <a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a> (), the returned buffer may
+merging. Unlike <a class="reference internal" href="#GstBase.Adapter.take_buffer" title="GstBase.Adapter.take_buffer"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.take_buffer</span></code></a>(), the returned buffer may
 be composed of multiple non-contiguous <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Memory.html#Gst.Memory" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Memory</span></code></a> objects, no
 copies are made.</p>
 <p>Note that no assumptions should be made as to whether certain buffer
@@ -977,7 +975,7 @@ unset.</p>
 <p>This will also copy over all <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/Meta.html#Gst.Meta" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta</span></code></a> of the input buffers except
 for meta with the <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/flags.html#Gst.MetaFlags.POOLED" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.MetaFlags.POOLED</span></code></a> flag or with the &#8220;memory&#8221; tag.</p>
 <p>This function can return buffer up to the return value of
-<a class="reference internal" href="#GstBase.Adapter.available" title="GstBase.Adapter.available"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.available</span></code></a> () without making copies if possible.</p>
+<a class="reference internal" href="#GstBase.Adapter.available" title="GstBase.Adapter.available"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.available</span></code></a>() without making copies if possible.</p>
 <p>Caller owns a reference to the returned buffer. gst_buffer_unref() after
 usage.</p>
 <p>Free-function: gst_buffer_unref</p>
@@ -988,7 +986,7 @@ usage.</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.take_buffer_list">
-<code class="descname">take_buffer_list</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1150"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">take_buffer_list</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1150"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1004,7 +1002,7 @@ available</td>
 </tbody>
 </table>
 <p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-Gst-1.0/structs/BufferList.html#Gst.BufferList" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferList</span></code></a> of buffers containing the first <cite>nbytes</cite> bytes of
-the <cite>adapter</cite>. The returned bytes will be flushed from the adapter.
+the <cite>self</cite>. The returned bytes will be flushed from the adapter.
 When the caller can deal with individual buffers, this function is more
 performant because no memory should be copied.</p>
 <p>Caller owns the returned list. Call gst_buffer_list_unref() to free
@@ -1016,7 +1014,7 @@ the list after usage.</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.take_list">
-<code class="descname">take_list</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n1045"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">take_list</code><span class="sig-paren">(</span><em>nbytes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n1045"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1032,7 +1030,7 @@ bytes are not available</td>
 </tbody>
 </table>
 <p>Returns a <a class="reference external" href="../_docs/GstBase-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of buffers containing the first <cite>nbytes</cite> bytes of the
-<cite>adapter</cite>. The returned bytes will be flushed from the adapter.
+<cite>self</cite>. The returned bytes will be flushed from the adapter.
 When the caller can deal with individual buffers, this function is more
 performant because no memory should be copied.</p>
 <p>Caller owns returned list and contained buffers. gst_buffer_unref() each
@@ -1041,8 +1039,8 @@ buffer in the list before freeing the list after usage.</p>
 
 <dl class="method">
 <dt id="GstBase.Adapter.unmap">
-<code class="descname">unmap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.6.2#n517"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Releases the memory obtained with the last <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a> ().</p>
+<code class="descname">unmap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstadapter.c?h=1.8.1#n517"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Releases the memory obtained with the last <a class="reference internal" href="#GstBase.Adapter.map" title="GstBase.Adapter.map"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.Adapter.map</span></code></a>().</p>
 </dd></dl>
 
 </dd></dl>
@@ -1061,7 +1059,4 @@ buffer in the list before freeing the list after usage.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Peas 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Interfaces" href="interfaces/index.html"/>
         <link rel="prev" title="Functions" href="functions.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -158,14 +156,14 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>set</strong> (<a class="reference internal" href="classes/ExtensionSet.html#Peas.ExtensionSet" title="Peas.ExtensionSet"><code class="xref py py-obj docutils literal"><span class="pre">Peas.ExtensionSet</span></code></a>) &#8211; A <a class="reference internal" href="classes/ExtensionSet.html#Peas.ExtensionSet" title="Peas.ExtensionSet"><code class="xref py py-obj docutils literal"><span class="pre">Peas.ExtensionSet</span></code></a>.</li>
 <li><strong>info</strong> (<a class="reference internal" href="structs/PluginInfo.html#Peas.PluginInfo" title="Peas.PluginInfo"><code class="xref py py-obj docutils literal"><span class="pre">Peas.PluginInfo</span></code></a>) &#8211; A <a class="reference internal" href="structs/PluginInfo.html#Peas.PluginInfo" title="Peas.PluginInfo"><code class="xref py py-obj docutils literal"><span class="pre">Peas.PluginInfo</span></code></a>.</li>
-<li><strong>exten</strong> (<a class="reference external" href="_docs/Peas-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a>) &#8211; A <code class="xref py py-obj docutils literal"><span class="pre">Peas.Extension</span></code>.</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; Optional data passed to the function.</li>
+<li><strong>exten</strong> (<a class="reference external" href="_docs/Peas-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a>) &#8211; A #PeasExtension.</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional data passed to the function.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>This function is passed to <a class="reference internal" href="classes/ExtensionSet.html#Peas.ExtensionSet.foreach" title="Peas.ExtensionSet.foreach"><code class="xref py py-obj docutils literal"><span class="pre">Peas.ExtensionSet.foreach</span></code></a> () and
+<p>This function is passed to <a class="reference internal" href="classes/ExtensionSet.html#Peas.ExtensionSet.foreach" title="Peas.ExtensionSet.foreach"><code class="xref py py-obj docutils literal"><span class="pre">Peas.ExtensionSet.foreach</span></code></a>() and
 will be called for each extension in <cite>set</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
@@ -181,7 +179,7 @@ will be called for each extension in <cite>set</cite>.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>parameters</strong> ([<a class="reference external" href="_docs/Peas-1.0/../../../python-GObject-2.0/structs/Parameter.html#GObject.Parameter" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Parameter</span></code></a>]) &#8211; The parameters.</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; Optional data to be passed to the function, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional data to be passed to the function, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</li>
 </ul>
 </td>
 </tr>
@@ -194,8 +192,8 @@ will be called for each extension in <cite>set</cite>.</p>
 </tbody>
 </table>
 <p>A <a class="reference internal" href="#Peas.FactoryFunc" title="Peas.FactoryFunc"><code class="xref py py-obj docutils literal"><span class="pre">Peas.FactoryFunc</span></code></a> is a factory function which will instanciate a new
-extension of a given type. <a class="reference external" href="_docs/Peas-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.new" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.new</span></code></a> () is such a function.</p>
-<p>It is used with <a class="reference internal" href="classes/ObjectModule.html#Peas.ObjectModule.register_extension_factory" title="Peas.ObjectModule.register_extension_factory"><code class="xref py py-obj docutils literal"><span class="pre">Peas.ObjectModule.register_extension_factory</span></code></a> ().</p>
+extension of a given type. <a class="reference external" href="_docs/Peas-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.new" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.new</span></code></a>() is such a function.</p>
+<p>It is used with <a class="reference internal" href="classes/ObjectModule.html#Peas.ObjectModule.register_extension_factory" title="Peas.ObjectModule.register_extension_factory"><code class="xref py py-obj docutils literal"><span class="pre">Peas.ObjectModule.register_extension_factory</span></code></a>().</p>
 </dd></dl>
 
 </div>
@@ -212,7 +210,4 @@ extension of a given type. <a class="reference external" href="_docs/Peas-1.0/..
   </div> 
 
 </body>
-
-  
-
 </html>

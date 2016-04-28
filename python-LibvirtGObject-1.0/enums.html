@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="LibvirtGObject 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Symbol Mapping" href="mapping.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -240,21 +238,9 @@ remove any snapshot metadata.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotCreateFlags.CURRENT">
-<code class="descname">CURRENT</code><em class="property"> = 2</em></dt>
-<dd><p>With redefine, make snapshot current</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotCreateFlags.NO_METADATA">
-<code class="descname">NO_METADATA</code><em class="property"> = 4</em></dt>
-<dd><p>Make snapshot without remembering it</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotCreateFlags.HALT">
-<code class="descname">HALT</code><em class="property"> = 8</em></dt>
-<dd><p>Stop running guest after snapshot</p>
+<dt id="LibvirtGObject.DomainSnapshotCreateFlags.ATOMIC">
+<code class="descname">ATOMIC</code><em class="property"> = 128</em></dt>
+<dd><p>Atomically avoid partial changes</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -264,9 +250,21 @@ remove any snapshot metadata.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="LibvirtGObject.DomainSnapshotCreateFlags.CURRENT">
+<code class="descname">CURRENT</code><em class="property"> = 2</em></dt>
+<dd><p>With redefine, make snapshot current</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="LibvirtGObject.DomainSnapshotCreateFlags.REUSE_EXT">
 <code class="descname">REUSE_EXT</code><em class="property"> = 32</em></dt>
 <dd><p>Reuse any existing external files</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="LibvirtGObject.DomainSnapshotCreateFlags.NO_METADATA">
+<code class="descname">NO_METADATA</code><em class="property"> = 4</em></dt>
+<dd><p>Make snapshot without remembering it</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -277,9 +275,9 @@ file systems within the domain</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotCreateFlags.ATOMIC">
-<code class="descname">ATOMIC</code><em class="property"> = 128</em></dt>
-<dd><p>Atomically avoid partial changes</p>
+<dt id="LibvirtGObject.DomainSnapshotCreateFlags.HALT">
+<code class="descname">HALT</code><em class="property"> = 8</em></dt>
+<dd><p>Stop running guest after snapshot</p>
 </dd></dl>
 
 </dd></dl>
@@ -333,21 +331,9 @@ For historical reasons, groups do not use contiguous bits.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotListFlags.METADATA">
-<code class="descname">METADATA</code><em class="property"> = 2</em></dt>
-<dd><p>Filter by snapshots which have metadata</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotListFlags.LEAVES">
-<code class="descname">LEAVES</code><em class="property"> = 4</em></dt>
-<dd><p>Filter by snapshots with no children</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotListFlags.NO_LEAVES">
-<code class="descname">NO_LEAVES</code><em class="property"> = 8</em></dt>
-<dd><p>Filter by snapshots that have children</p>
+<dt id="LibvirtGObject.DomainSnapshotListFlags.DISK_ONLY">
+<code class="descname">DISK_ONLY</code><em class="property"> = 128</em></dt>
+<dd><p>Filter by snapshots taken while guest was active, but without memory state</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -357,21 +343,9 @@ For historical reasons, groups do not use contiguous bits.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotListFlags.INACTIVE">
-<code class="descname">INACTIVE</code><em class="property"> = 32</em></dt>
-<dd><p>Filter by snapshots taken while guest was shut off</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotListFlags.ACTIVE">
-<code class="descname">ACTIVE</code><em class="property"> = 64</em></dt>
-<dd><p>Filter by snapshots taken while guest was active, and with memory state</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="LibvirtGObject.DomainSnapshotListFlags.DISK_ONLY">
-<code class="descname">DISK_ONLY</code><em class="property"> = 128</em></dt>
-<dd><p>Filter by snapshots taken while guest was active, but without memory state</p>
+<dt id="LibvirtGObject.DomainSnapshotListFlags.METADATA">
+<code class="descname">METADATA</code><em class="property"> = 2</em></dt>
+<dd><p>Filter by snapshots which have metadata</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -381,9 +355,33 @@ For historical reasons, groups do not use contiguous bits.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="LibvirtGObject.DomainSnapshotListFlags.INACTIVE">
+<code class="descname">INACTIVE</code><em class="property"> = 32</em></dt>
+<dd><p>Filter by snapshots taken while guest was shut off</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="LibvirtGObject.DomainSnapshotListFlags.LEAVES">
+<code class="descname">LEAVES</code><em class="property"> = 4</em></dt>
+<dd><p>Filter by snapshots with no children</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="LibvirtGObject.DomainSnapshotListFlags.EXTERNAL">
 <code class="descname">EXTERNAL</code><em class="property"> = 512</em></dt>
 <dd><p>Filter by snapshots that use files external to disk images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="LibvirtGObject.DomainSnapshotListFlags.ACTIVE">
+<code class="descname">ACTIVE</code><em class="property"> = 64</em></dt>
+<dd><p>Filter by snapshots taken while guest was active, and with memory state</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="LibvirtGObject.DomainSnapshotListFlags.NO_LEAVES">
+<code class="descname">NO_LEAVES</code><em class="property"> = 8</em></dt>
+<dd><p>Filter by snapshots that have children</p>
 </dd></dl>
 
 </dd></dl>
@@ -627,7 +625,4 @@ with <a class="reference internal" href="#LibvirtGObject.StorageVolResizeFlags.D
   </div> 
 
 </body>
-
-  
-
 </html>

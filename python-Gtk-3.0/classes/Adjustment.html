@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.Alignment" href="Alignment.html"/>
         <link rel="prev" title="Gtk.ActionGroup" href="ActionGroup.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -436,12 +434,12 @@
 <p>The <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> object represents a value which has an associated lower
 and upper bound, together with step and page increments, and a page size.
 It is used within several GTK+ widgets, including <a class="reference internal" href="SpinButton.html#Gtk.SpinButton" title="Gtk.SpinButton"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.SpinButton</span></code></a>, <a class="reference internal" href="Viewport.html#Gtk.Viewport" title="Gtk.Viewport"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Viewport</span></code></a>,
-and <a class="reference internal" href="Range.html#Gtk.Range" title="Gtk.Range"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Range</span></code></a> (which is a base class for <a class="reference internal" href="Scrollbar.html#Gtk.Scrollbar" title="Gtk.Scrollbar"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Scrollbar</span></code></a> and <a class="reference internal" href="Scale.html#Gtk.Scale" title="Gtk.Scale"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Scale</span></code></a> ).</p>
+and <a class="reference internal" href="Range.html#Gtk.Range" title="Gtk.Range"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Range</span></code></a> (which is a base class for <a class="reference internal" href="Scrollbar.html#Gtk.Scrollbar" title="Gtk.Scrollbar"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Scrollbar</span></code></a> and <a class="reference internal" href="Scale.html#Gtk.Scale" title="Gtk.Scale"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Scale</span></code></a>).</p>
 <p>The <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> object does not update the value itself. Instead
 it is left up to the owner of the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> to control the value.</p>
 <dl class="staticmethod">
 <dt id="Gtk.Adjustment.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>value</em>, <em>lower</em>, <em>upper</em>, <em>step_increment</em>, <em>page_increment</em>, <em>page_size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n403"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>value</em>, <em>lower</em>, <em>upper</em>, <em>step_increment</em>, <em>page_increment</em>, <em>page_size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n403"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -469,7 +467,7 @@ it is left up to the owner of the <a class="reference internal" href="#Gtk.Adjus
 
 <dl class="method">
 <dt id="Gtk.Adjustment.changed">
-<code class="descname">changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n877"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n877"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Emits a <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal from the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a>.
 This is typically called by the owner of the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> after it has
 changed any of the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> properties other than the value.</p>
@@ -480,7 +478,7 @@ changed any of the <a class="reference internal" href="#Gtk.Adjustment" title="G
 
 <dl class="method">
 <dt id="Gtk.Adjustment.clamp_page">
-<code class="descname">clamp_page</code><span class="sig-paren">(</span><em>lower</em>, <em>upper</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n918"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">clamp_page</code><span class="sig-paren">(</span><em>lower</em>, <em>upper</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n918"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -495,7 +493,7 @@ changed any of the <a class="reference internal" href="#Gtk.Adjustment" title="G
 </table>
 <p>Updates the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.props.value" title="Gtk.Adjustment.props.value"><code class="xref py py-data docutils literal"><span class="pre">:value</span></code></a> property to ensure that the range
 between <cite>lower</cite> and <cite>upper</cite> is in the current page (i.e. between
-<a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.props.value" title="Gtk.Adjustment.props.value"><code class="xref py py-data docutils literal"><span class="pre">:value</span></code></a> and <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.props.value" title="Gtk.Adjustment.props.value"><code class="xref py py-data docutils literal"><span class="pre">:value</span></code></a> + <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.props.page_size" title="Gtk.Adjustment.props.page_size"><code class="xref py py-data docutils literal"><span class="pre">:page-size</span></code></a> ).
+<a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.props.value" title="Gtk.Adjustment.props.value"><code class="xref py py-data docutils literal"><span class="pre">:value</span></code></a> and <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.props.value" title="Gtk.Adjustment.props.value"><code class="xref py py-data docutils literal"><span class="pre">:value</span></code></a> + <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.props.page_size" title="Gtk.Adjustment.props.page_size"><code class="xref py py-data docutils literal"><span class="pre">:page-size</span></code></a>).
 If the range is larger than the page size, then only the start of it will
 be in the current page.</p>
 <p>A <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.value_changed" title="Gtk.Adjustment.signals.value_changed"><code class="xref py py-func docutils literal"><span class="pre">::value-changed</span></code></a> signal will be emitted if the value is changed.</p>
@@ -503,7 +501,7 @@ be in the current page.</p>
 
 <dl class="method">
 <dt id="Gtk.Adjustment.configure">
-<code class="descname">configure</code><span class="sig-paren">(</span><em>value</em>, <em>lower</em>, <em>upper</em>, <em>step_increment</em>, <em>page_increment</em>, <em>page_size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n821"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">configure</code><span class="sig-paren">(</span><em>value</em>, <em>lower</em>, <em>upper</em>, <em>step_increment</em>, <em>page_increment</em>, <em>page_size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n821"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -522,7 +520,7 @@ be in the current page.</p>
 </table>
 <p>Sets all properties of the adjustment at once.</p>
 <p>Use this function to avoid multiple emissions of the
-<a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal. See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a> ()
+<a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal. See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a>()
 for an alternative way of compressing multiple emissions of
 <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> into one.</p>
 <div class="versionadded">
@@ -532,7 +530,7 @@ for an alternative way of compressing multiple emissions of
 
 <dl class="method">
 <dt id="Gtk.Adjustment.get_lower">
-<code class="descname">get_lower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n590"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_lower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n590"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -551,12 +549,12 @@ for an alternative way of compressing multiple emissions of
 
 <dl class="method">
 <dt id="Gtk.Adjustment.get_minimum_increment">
-<code class="descname">get_minimum_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n958"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_minimum_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n958"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the minimum increment of <cite>adjustment</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the minimum increment of <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a></td>
 </tr>
@@ -570,7 +568,7 @@ for an alternative way of compressing multiple emissions of
 
 <dl class="method">
 <dt id="Gtk.Adjustment.get_page_increment">
-<code class="descname">get_page_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n724"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_page_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n724"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -589,7 +587,7 @@ for an alternative way of compressing multiple emissions of
 
 <dl class="method">
 <dt id="Gtk.Adjustment.get_page_size">
-<code class="descname">get_page_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n765"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_page_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n765"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -608,7 +606,7 @@ for an alternative way of compressing multiple emissions of
 
 <dl class="method">
 <dt id="Gtk.Adjustment.get_step_increment">
-<code class="descname">get_step_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n683"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_step_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n683"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -627,7 +625,7 @@ for an alternative way of compressing multiple emissions of
 
 <dl class="method">
 <dt id="Gtk.Adjustment.get_upper">
-<code class="descname">get_upper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n639"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_upper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n639"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -646,7 +644,7 @@ for an alternative way of compressing multiple emissions of
 
 <dl class="method">
 <dt id="Gtk.Adjustment.get_value">
-<code class="descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n425"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n425"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -658,12 +656,12 @@ for an alternative way of compressing multiple emissions of
 </tbody>
 </table>
 <p>Gets the current value of the adjustment.
-See <a class="reference internal" href="#Gtk.Adjustment.set_value" title="Gtk.Adjustment.set_value"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_value</span></code></a> ().</p>
+See <a class="reference internal" href="#Gtk.Adjustment.set_value" title="Gtk.Adjustment.set_value"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_value</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Adjustment.set_lower">
-<code class="descname">set_lower</code><span class="sig-paren">(</span><em>lower</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n620"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_lower</code><span class="sig-paren">(</span><em>lower</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n620"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -678,10 +676,10 @@ setters, multiple <a class="reference internal" href="#Gtk.Adjustment" title="Gt
 However, since the emission of the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal
 is tied to the emission of the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.signals.notify" title="(in GObject 2.0 v2.0)"><code class="xref py py-func docutils literal"><span class="pre">::notify</span></code></a> signals of the changed
 properties, it’s possible to compress the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a>
-signals into one by calling <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.freeze_notify" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.freeze_notify</span></code></a> () and
-<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.thaw_notify" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.thaw_notify</span></code></a> () around the calls to the individual setters.</p>
-<p>Alternatively, using a single <code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.set</span></code> () for all the properties
-to change, or using <a class="reference internal" href="#Gtk.Adjustment.configure" title="Gtk.Adjustment.configure"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.configure</span></code></a> () has the same effect
+signals into one by calling <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.freeze_notify" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.freeze_notify</span></code></a>() and
+<a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.thaw_notify" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.thaw_notify</span></code></a>() around the calls to the individual setters.</p>
+<p>Alternatively, using a single g_object_set() for all the properties
+to change, or using <a class="reference internal" href="#Gtk.Adjustment.configure" title="Gtk.Adjustment.configure"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.configure</span></code></a>() has the same effect
 of compressing <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> emissions.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.14.</span></p>
@@ -690,7 +688,7 @@ of compressing <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.A
 
 <dl class="method">
 <dt id="Gtk.Adjustment.set_page_increment">
-<code class="descname">set_page_increment</code><span class="sig-paren">(</span><em>page_increment</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n746"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_page_increment</code><span class="sig-paren">(</span><em>page_increment</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n746"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -700,7 +698,7 @@ of compressing <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.A
 </tbody>
 </table>
 <p>Sets the page increment of the adjustment.</p>
-<p>See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a> () about how to compress multiple
+<p>See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a>() about how to compress multiple
 emissions of the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal when setting
 multiple adjustment properties.</p>
 <div class="versionadded">
@@ -710,7 +708,7 @@ multiple adjustment properties.</p>
 
 <dl class="method">
 <dt id="Gtk.Adjustment.set_page_size">
-<code class="descname">set_page_size</code><span class="sig-paren">(</span><em>page_size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n787"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_page_size</code><span class="sig-paren">(</span><em>page_size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n787"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -720,7 +718,7 @@ multiple adjustment properties.</p>
 </tbody>
 </table>
 <p>Sets the page size of the adjustment.</p>
-<p>See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a> () about how to compress multiple
+<p>See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a>() about how to compress multiple
 emissions of the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal when setting
 multiple adjustment properties.</p>
 <div class="versionadded">
@@ -730,7 +728,7 @@ multiple adjustment properties.</p>
 
 <dl class="method">
 <dt id="Gtk.Adjustment.set_step_increment">
-<code class="descname">set_step_increment</code><span class="sig-paren">(</span><em>step_increment</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n705"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_step_increment</code><span class="sig-paren">(</span><em>step_increment</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n705"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -740,7 +738,7 @@ multiple adjustment properties.</p>
 </tbody>
 </table>
 <p>Sets the step increment of the adjustment.</p>
-<p>See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a> () about how to compress multiple
+<p>See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a>() about how to compress multiple
 emissions of the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal when setting
 multiple adjustment properties.</p>
 <div class="versionadded">
@@ -750,7 +748,7 @@ multiple adjustment properties.</p>
 
 <dl class="method">
 <dt id="Gtk.Adjustment.set_upper">
-<code class="descname">set_upper</code><span class="sig-paren">(</span><em>upper</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n664"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_upper</code><span class="sig-paren">(</span><em>upper</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n664"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -762,7 +760,7 @@ multiple adjustment properties.</p>
 <p>Sets the maximum value of the adjustment.</p>
 <p>Note that values will be restricted by <code class="docutils literal"><span class="pre">upper</span> <span class="pre">-</span> <span class="pre">page-size</span></code>
 if the page-size property is nonzero.</p>
-<p>See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a> () about how to compress multiple
+<p>See <a class="reference internal" href="#Gtk.Adjustment.set_lower" title="Gtk.Adjustment.set_lower"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment.set_lower</span></code></a>() about how to compress multiple
 emissions of the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.changed" title="Gtk.Adjustment.signals.changed"><code class="xref py py-func docutils literal"><span class="pre">::changed</span></code></a> signal when setting
 multiple adjustment properties.</p>
 <div class="versionadded">
@@ -772,7 +770,7 @@ multiple adjustment properties.</p>
 
 <dl class="method">
 <dt id="Gtk.Adjustment.set_value">
-<code class="descname">set_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n563"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n563"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -790,7 +788,7 @@ effective range of allowed values goes from <a class="reference internal" href="
 
 <dl class="method">
 <dt id="Gtk.Adjustment.value_changed">
-<code class="descname">value_changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.18.6#n895"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">value_changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkadjustment.c?h=3.20.3#n895"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Emits a <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.signals.value_changed" title="Gtk.Adjustment.signals.value_changed"><code class="xref py py-func docutils literal"><span class="pre">::value-changed</span></code></a> signal from the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a>.
 This is typically called by the owner of the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> after it has
 changed the <a class="reference internal" href="#Gtk.Adjustment" title="Gtk.Adjustment"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Adjustment</span></code></a> <a class="reference internal" href="#Gtk.Adjustment.props.value" title="Gtk.Adjustment.props.value"><code class="xref py py-data docutils literal"><span class="pre">:value</span></code></a> property.</p>
@@ -1024,7 +1022,4 @@ property is nonzero.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

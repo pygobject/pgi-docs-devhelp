@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gnm 1.12 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gnm.SheetControl" href="SheetControl.html"/>
         <link rel="prev" title="Gnm.SearchReplace" href="SearchReplace.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -1474,7 +1472,7 @@ The type can not be changed later</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>wb</strong> (<a class="reference internal" href="Workbook.html#Gnm.Workbook" title="Gnm.Workbook"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.Workbook</span></code></a>) &#8211; <a class="reference internal" href="Workbook.html#Gnm.Workbook" title="Gnm.Workbook"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.Workbook</span></code></a></li>
 <li><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; An unquoted name</li>
-<li><strong>type</strong> (<a class="reference internal" href="../enums.html#Gnm.SheetType" title="Gnm.SheetType"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.SheetType</span></code></a>) &#8211; <a class="reference internal" href="../enums.html#Gnm.SheetType" title="Gnm.SheetType"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.SheetType</span></code></a></li>
+<li><strong>type</strong> (<a class="reference internal" href="../enums.html#Gnm.SheetType" title="Gnm.SheetType"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.SheetType</span></code></a>) &#8211; <cite>GnmSheetType</cite></li>
 <li><strong>columns</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of columns for the sheet</li>
 <li><strong>rows</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of rows for the sheet</li>
 </ul>
@@ -1508,14 +1506,14 @@ The type cannot be changed later.</p>
 <li><strong>rinfo</strong> (<a class="reference internal" href="../structs/ExprRelocateInfo.html#Gnm.ExprRelocateInfo" title="Gnm.ExprRelocateInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.ExprRelocateInfo</span></code></a>) &#8211; details on what should be moved.</li>
 <li><strong>update</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; Should we do the bound_update now, or leave it for later.
 if <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> honour the move_with_cells flag.</li>
-<li><strong>pundo</strong> (<a class="reference external" href="../_docs/Gnm-1.12/../../../python-GOffice-0.10/classes/Undo.html#GOffice.Undo" title="(in GOffice 0.10 v0.10)"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.Undo</span></code></a>) &#8211; if non-NULL add dropped objects to <code class="xref py py-func docutils literal"><span class="pre">::objects</span></code></li>
+<li><strong>pundo</strong> (<a class="reference external" href="../_docs/Gnm-1.12/../../../python-GOffice-0.10/classes/Undo.html#GOffice.Undo" title="(in GOffice 0.10 v0.10)"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.Undo</span></code></a>) &#8211; if non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> add dropped objects to <code class="xref py py-func docutils literal"><span class="pre">::objects</span></code></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Uses the relocation info and the anchors to decide whether or not, and how
-to relocate objects when the grid moves (eg ins/del <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code> /row).</p>
+to relocate objects when the grid moves (eg ins/del <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code>/<code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code>).</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -1530,7 +1528,7 @@ to relocate objects when the grid moves (eg ins/del <code class="xref py py-obj 
 </tbody>
 </table>
 <p>Insert of delete style columns/rows.</p>
-<p>For the insert case, we stretch the preceding column/row into there space
+<p>For the insert case, we stretch the preceding column/<code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> into there space
 we open.</p>
 </dd></dl>
 
@@ -2358,7 +2356,7 @@ group can be ungrouped.</p>
 </tr>
 </tbody>
 </table>
-<p>Adjust filters as necessary to handle <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code> /row insertions and deletions</p>
+<p>Adjust filters as necessary to handle <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code>/<code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> insertions and deletions</p>
 </dd></dl>
 
 <dl class="method">
@@ -2369,7 +2367,7 @@ group can be ungrouped.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>from_</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; starting <code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> number</li>
+<li><strong>from</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; starting <code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> number</li>
 <li><strong>to</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; ending <code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> number</li>
 </ul>
 </td>
@@ -2527,8 +2525,8 @@ updated if appropriate.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>the <code class="xref py py-obj docutils literal"><span class="pre">GOffice.value</span></code> returned by the callback, which can be :
-non-NULL on error, or VALUE_TERMINATE if some invoked routine requested
-to stop (by returning non-NULL).</p>
+non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error, or VALUE_TERMINATE if some invoked routine requested
+to stop (by returning non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>).</p>
 <p>NOTE: between 0.56 and 0.57, the traversal order changed.  The order is now</p>
 <p>1    2    3
 4    5    6
@@ -2565,7 +2563,7 @@ callbacks are only invoked for existing cells.</p>
 </tr>
 </tbody>
 </table>
-<p>Executes <cite>func</cite> for each name in <cite>sheet</cite>.</p>
+<p>Executes <cite>func</cite> for each name in <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2599,7 +2597,7 @@ callbacks are only invoked for existing cells.</p>
 </tr>
 </tbody>
 </table>
-<p>If there is a cell <code class="xref py py-obj docutils literal"><span class="pre">Gnm.comment</span></code> at <cite>pos</cite> in <cite>sheet</cite> return it.</p>
+<p>If there is a cell <code class="xref py py-obj docutils literal"><span class="pre">Gnm.comment</span></code> at <cite>pos</cite> in <cite>self</cite> return it.</p>
 <p>Caller does get a reference to the object if it exists.</p>
 </dd></dl>
 
@@ -2699,9 +2697,9 @@ formulas with such values, are *ignored.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wb</strong> (<a class="reference internal" href="Workbook.html#Gnm.Workbook" title="Gnm.Workbook"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.Workbook</span></code></a>) &#8211; <a class="reference internal" href="Workbook.html#Gnm.Workbook" title="Gnm.Workbook"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.Workbook</span></code></a>, must be non <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>sheet</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wb</strong> (<a class="reference internal" href="Workbook.html#Gnm.Workbook" title="Gnm.Workbook"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.Workbook</span></code></a>) &#8211; <a class="reference internal" href="Workbook.html#Gnm.Workbook" title="Gnm.Workbook"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.Workbook</span></code></a>, must be non <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the sheet size if <cite>sheet</cite> is non <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, or the
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the sheet size if <cite>self</cite> is non <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, or the
 default sheet size for <cite>wb</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/SheetSize.html#Gnm.SheetSize" title="Gnm.SheetSize"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.SheetSize</span></code></a></td>
@@ -2717,7 +2715,7 @@ default sheet size for <cite>wb</cite>.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the sort setups for <cite>sheet</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the sort setups for <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">{<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>}</td>
 </tr>
@@ -2887,7 +2885,7 @@ expanded result in <cite>region</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the specified region of the <cite>sheet</cite> does not
+<p>Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the specified region of the <cite>self</cite> does not
 contain any cells</p>
 </dd></dl>
 
@@ -3045,7 +3043,7 @@ Queues a redraw.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns a constant string if <cite>sheet</cite> !&#64;r is the target of a named range.
+<p>Returns a constant string if <cite>self</cite>!`r` is the target of a named range.
 Preference is given to <code class="xref py py-obj docutils literal"><span class="pre">GOffice.workbook</span></code> scope over sheet.</p>
 </dd></dl>
 
@@ -3101,7 +3099,7 @@ Preference is given to <code class="xref py py-obj docutils literal"><span class
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a list of which
 the caller must free (just the list not the content).
-Containing all objects of exactly the specified type (inheritence does not <code class="xref py py-obj docutils literal"><span class="pre">GOffice.count</span></code> )
+Containing all objects of exactly the specified type (inheritence does not <code class="xref py py-obj docutils literal"><span class="pre">GOffice.count</span></code>)
 that are completely contained by <cite>r</cite>.</p>
 </td>
 </tr>
@@ -3180,7 +3178,7 @@ the cached version of the rendered text in the cell.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the target region <cite>sheet</cite> !&#64;r contains any merged regions or
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the target region <cite>self</cite>!`r` contains any merged regions or
 arrays.</p>
 </td>
 </tr>
@@ -3189,7 +3187,7 @@ arrays.</p>
 </tr>
 </tbody>
 </table>
-<p>Check to see if the target region <cite>sheet</cite> !&#64;r contains any merged regions or
+<p>Check to see if the target region <cite>self</cite>!`r` contains any merged regions or
 arrays.  Report an error to the <cite>cc</cite> if it is supplied.</p>
 </dd></dl>
 
@@ -3215,7 +3213,7 @@ arrays.  Report an error to the <cite>cc</cite> if it is supplied.</p>
 </tr>
 </tbody>
 </table>
-<p>Checks for a header <code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> in <cite>sheet</cite> <a class="reference external" href="mailto:!&#37;&#52;&#48;src">!<span>&#64;</span>src</a>.  If top is true it looks for a
+<p>Checks for a header <code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> in <cite>self</cite>!`src`.  If top is true it looks for a
 header <code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> from the top and if false it looks for a header <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code> from the
 left</p>
 </dd></dl>
@@ -3243,7 +3241,7 @@ left</p>
 </tr>
 </tbody>
 </table>
-<p>Check the outer edges of range <cite>sheet</cite> !&#64;r to ensure that if an array is
+<p>Check the outer edges of range <cite>self</cite>!`r` to ensure that if an array is
 within it then the entire array is within the range.  <cite>ignore</cite> is useful when
 src &amp; dest ranges may overlap.</p>
 </dd></dl>
@@ -3399,7 +3397,7 @@ the column.</p>
 </tr>
 </tbody>
 </table>
-<p>Queues things that depend on <cite>sheet</cite> <a class="reference external" href="mailto:!&#37;&#52;&#48;range">!<span>&#64;</span>range</a> for recalc.</p>
+<p>Queues things that depend on <cite>self</cite>!`range` for recalc.</p>
 <p>If <cite>range</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> the entire sheet is used.</p>
 </dd></dl>
 
@@ -3496,7 +3494,7 @@ This function returns the raw sum, no rounding etc.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>from_</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+<li><strong>from</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
 <li><strong>to</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
 </ul>
 </td>
@@ -3776,7 +3774,7 @@ need to be recomputed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> (<a class="reference internal" href="../structs/CellPos.html#Gnm.CellPos" title="Gnm.CellPos"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.CellPos</span></code></a>) &#8211; <a class="reference internal" href="../structs/CellPos.html#Gnm.CellPos" title="Gnm.CellPos"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.CellPos</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> or the <a class="reference internal" href="SheetSlicer.html#Gnm.SheetSlicer" title="Gnm.SheetSlicer"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.SheetSlicer</span></code></a> in <cite>sheet</cite> that overlaps with <cite>pos</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> or the <a class="reference internal" href="SheetSlicer.html#Gnm.SheetSlicer" title="Gnm.SheetSlicer"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.SheetSlicer</span></code></a> in <cite>self</cite> that overlaps with <cite>pos</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="SheetSlicer.html#Gnm.SheetSlicer" title="Gnm.SheetSlicer"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.SheetSlicer</span></code></a></td>
 </tr>
@@ -3821,7 +3819,7 @@ of the range offset upwards.</p>
 </tr>
 </tbody>
 </table>
-<p>NOTE: This is a simple wrapper for now.  When we support <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code> /row styles it
+<p>NOTE: This is a simple wrapper for now.  When we support <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code>/<code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> styles it
 will make life easier.</p>
 <p>Apply a partial style to a full <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code>.
 The routine absorbs a reference to the partial style.</p>
@@ -3881,7 +3879,7 @@ The routine absorbs a reference to the partial style.</p>
 </tr>
 </tbody>
 </table>
-<p>NOTE: This is a simple wrapper for now.  When we support <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code> /row styles it
+<p>NOTE: This is a simple wrapper for now.  When we support <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code>/<code class="xref py py-obj docutils literal"><span class="pre">Gnm.row</span></code> styles it
 will make life easier.</p>
 <p>Apply a partial style to a full <code class="xref py py-obj docutils literal"><span class="pre">Gnm.col</span></code>.
 The routine absorbs a reference to the partial style.</p>
@@ -4273,7 +4271,7 @@ and returns the 1st one it finds.</p>
 </tbody>
 </table>
 <p>Set the color for rendering auto colored patterns in this sheet.
-Absorbs a reference to <cite>pattern_color</cite> ;</p>
+Absorbs a reference to <cite>pattern_color</cite>;</p>
 </dd></dl>
 
 <dl class="method">
@@ -4285,7 +4283,7 @@ Absorbs a reference to <cite>pattern_color</cite> ;</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>corner</strong> (<a class="reference internal" href="../structs/CellPos.html#Gnm.CellPos" title="Gnm.CellPos"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.CellPos</span></code></a>) &#8211; The top-left corner (in LTR mode)</li>
-<li><strong>l</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>]) &#8211; <code class="xref py py-obj docutils literal"><span class="pre">Gnm.StyleList</span></code></li>
+<li><strong>l</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>]) &#8211; #GnmStyleList</li>
 <li><strong>range_modify</strong> (<a class="reference internal" href="../callbacks.html#Gnm.sheet_style_set_list_cb_t" title="Gnm.sheet_style_set_list_cb_t"><code class="xref py py-obj docutils literal"><span class="pre">Gnm.sheet_style_set_list_cb_t</span></code></a>) &#8211; </li>
 <li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data</li>
 </ul>
@@ -5149,7 +5147,4 @@ to request redraws for any pending events</p>
   </div> 
 
 </body>
-
-  
-
 </html>

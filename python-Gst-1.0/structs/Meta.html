@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gst.MetaInfo" href="MetaInfo.html"/>
         <link rel="prev" title="Gst.Message" href="Message.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -207,21 +205,21 @@
 <dd><p>The <a class="reference internal" href="#Gst.Meta" title="Gst.Meta"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta</span></code></a> structure should be included as the first member of a <a class="reference internal" href="Buffer.html#Gst.Buffer" title="Gst.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>
 metadata structure. The structure defines the API of the metadata and should
 be accessible to all elements using the metadata.</p>
-<p>A metadata API is registered with <a class="reference internal" href="#Gst.Meta.api_type_register" title="Gst.Meta.api_type_register"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.api_type_register</span></code></a> () which takes a
+<p>A metadata API is registered with <a class="reference internal" href="#Gst.Meta.api_type_register" title="Gst.Meta.api_type_register"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.api_type_register</span></code></a>() which takes a
 name for the metadata API and some tags associated with the metadata.
-With <a class="reference internal" href="#Gst.Meta.api_type_has_tag" title="Gst.Meta.api_type_has_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.api_type_has_tag</span></code></a> () one can check if a certain metadata API
+With <a class="reference internal" href="#Gst.Meta.api_type_has_tag" title="Gst.Meta.api_type_has_tag"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.api_type_has_tag</span></code></a>() one can check if a certain metadata API
 contains a given tag.</p>
 <p>Multiple implementations of a metadata API can be registered.
-To implement a metadata API, <a class="reference internal" href="#Gst.Meta.register" title="Gst.Meta.register"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.register</span></code></a> () should be used. This
+To implement a metadata API, <a class="reference internal" href="#Gst.Meta.register" title="Gst.Meta.register"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.register</span></code></a>() should be used. This
 function takes all parameters needed to create, free and transform metadata
 along with the size of the metadata. The function returns a <a class="reference internal" href="MetaInfo.html#Gst.MetaInfo" title="Gst.MetaInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gst.MetaInfo</span></code></a>
 structure that contains the information for the implementation of the API.</p>
-<p>A specific implementation can be retrieved by name with <a class="reference internal" href="#Gst.Meta.get_info" title="Gst.Meta.get_info"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.get_info</span></code></a> ().</p>
+<p>A specific implementation can be retrieved by name with <a class="reference internal" href="#Gst.Meta.get_info" title="Gst.Meta.get_info"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.get_info</span></code></a>().</p>
 <p>See <a class="reference internal" href="Buffer.html#Gst.Buffer" title="Gst.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> for how the metadata can be added, retrieved and removed from
 buffers.</p>
 <dl class="staticmethod">
 <dt id="Gst.Meta.api_type_get_tags">
-<em class="property">static </em><code class="descname">api_type_get_tags</code><span class="sig-paren">(</span><em>api</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.6.2#n135"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">api_type_get_tags</code><span class="sig-paren">(</span><em>api</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.8.1#n135"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -241,7 +239,7 @@ buffers.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Meta.api_type_has_tag">
-<em class="property">static </em><code class="descname">api_type_has_tag</code><span class="sig-paren">(</span><em>api</em>, <em>tag</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.6.2#n116"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">api_type_has_tag</code><span class="sig-paren">(</span><em>api</em>, <em>tag</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.8.1#n116"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -265,7 +263,7 @@ buffers.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Meta.api_type_register">
-<em class="property">static </em><code class="descname">api_type_register</code><span class="sig-paren">(</span><em>api</em>, <em>tags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.6.2#n80"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">api_type_register</code><span class="sig-paren">(</span><em>api</em>, <em>tags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.8.1#n80"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -276,7 +274,7 @@ buffers.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a unique <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> for <cite>api</cite>.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a unique <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> for <cite>api</cite>.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></p>
@@ -284,13 +282,13 @@ buffers.</p>
 </tr>
 </tbody>
 </table>
-<p>Register and return a <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> for the <cite>api</cite> and associate it with
+<p>Register and return a <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> for the <cite>api</cite> and associate it with
 <cite>tags</cite>.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Gst.Meta.get_info">
-<em class="property">static </em><code class="descname">get_info</code><span class="sig-paren">(</span><em>impl</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.6.2#n215"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_info</code><span class="sig-paren">(</span><em>impl</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.8.1#n215"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -310,7 +308,7 @@ buffers.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Meta.register">
-<em class="property">static </em><code class="descname">register</code><span class="sig-paren">(</span><em>api</em>, <em>impl</em>, <em>size</em>, <em>init_func</em>, <em>free_func</em>, <em>transform_func</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.6.2#n166"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">register</code><span class="sig-paren">(</span><em>api</em>, <em>impl</em>, <em>size</em>, <em>init_func</em>, <em>free_func</em>, <em>transform_func</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstmeta.c?h=1.8.1#n166"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -334,7 +332,7 @@ buffers.</p>
 </tbody>
 </table>
 <p>Register a new <a class="reference internal" href="#Gst.Meta" title="Gst.Meta"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta</span></code></a> implementation.</p>
-<p>The same <cite>info</cite> can be retrieved later with <a class="reference internal" href="#Gst.Meta.get_info" title="Gst.Meta.get_info"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.get_info</span></code></a> () by using
+<p>The same <cite>info</cite> can be retrieved later with <a class="reference internal" href="#Gst.Meta.get_info" title="Gst.Meta.get_info"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta.get_info</span></code></a>() by using
 <cite>impl</cite> as the key.</p>
 </dd></dl>
 
@@ -354,7 +352,4 @@ buffers.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

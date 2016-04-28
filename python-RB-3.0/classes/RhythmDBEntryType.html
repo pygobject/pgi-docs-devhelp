@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="RB 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="RB.RhythmDBImportJob" href="RhythmDBImportJob.html"/>
         <link rel="prev" title="RB.RhythmDB" href="RhythmDB.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -184,7 +182,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Subclasses:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Subclasses:</th><td class="field-body"><a class="reference internal" href="MediaPlayerEntryType.html#RB.MediaPlayerEntryType" title="RB.MediaPlayerEntryType"><code class="xref py py-class docutils literal"><span class="pre">RB.MediaPlayerEntryType</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -207,7 +205,13 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#RB.RhythmDBEntryType.fetch_metadata" title="RB.RhythmDBEntryType.fetch_metadata"><code class="xref py py-func docutils literal"><span class="pre">fetch_metadata</span></code></a> (uri, metadata)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#RB.RhythmDBEntryType.get_name" title="RB.RhythmDBEntryType.get_name"><code class="xref py py-func docutils literal"><span class="pre">get_name</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#RB.RhythmDBEntryType.purge_metadata_cache" title="RB.RhythmDBEntryType.purge_metadata_cache"><code class="xref py py-func docutils literal"><span class="pre">purge_metadata_cache</span></code></a> (prefix, max_age)</td>
 </tr>
 </tbody>
 </table>
@@ -229,19 +233,25 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#RB.RhythmDBEntryType.do_cache_key_to_uri" title="RB.RhythmDBEntryType.do_cache_key_to_uri"><code class="xref py py-func docutils literal"><span class="pre">do_cache_key_to_uri</span></code></a> (key)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#RB.RhythmDBEntryType.do_can_sync_metadata" title="RB.RhythmDBEntryType.do_can_sync_metadata"><code class="xref py py-func docutils literal"><span class="pre">do_can_sync_metadata</span></code></a> (entry)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#RB.RhythmDBEntryType.do_destroy_entry" title="RB.RhythmDBEntryType.do_destroy_entry"><code class="xref py py-func docutils literal"><span class="pre">do_destroy_entry</span></code></a> (entry)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#RB.RhythmDBEntryType.do_entry_created" title="RB.RhythmDBEntryType.do_entry_created"><code class="xref py py-func docutils literal"><span class="pre">do_entry_created</span></code></a> (entry)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#RB.RhythmDBEntryType.do_get_playback_uri" title="RB.RhythmDBEntryType.do_get_playback_uri"><code class="xref py py-func docutils literal"><span class="pre">do_get_playback_uri</span></code></a> (entry)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#RB.RhythmDBEntryType.do_update_availability" title="RB.RhythmDBEntryType.do_update_availability"><code class="xref py py-func docutils literal"><span class="pre">do_update_availability</span></code></a> (entry, avail)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#RB.RhythmDBEntryType.do_uri_to_cache_key" title="RB.RhythmDBEntryType.do_uri_to_cache_key"><code class="xref py py-func docutils literal"><span class="pre">do_uri_to_cache_key</span></code></a> (uri)</td>
 </tr>
 </tbody>
 </table>
@@ -263,27 +273,32 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.category" title="RB.RhythmDBEntryType.props.category"><code class="xref py py-data docutils literal"><span class="pre">category</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.cache_name" title="RB.RhythmDBEntryType.props.cache_name"><code class="xref py py-data docutils literal"><span class="pre">cache-name</span></code></a></td>
+<td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+<td>r/w/co</td>
+<td>metadata cache name</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.category" title="RB.RhythmDBEntryType.props.category"><code class="xref py py-data docutils literal"><span class="pre">category</span></code></a></td>
 <td><a class="reference internal" href="../enums.html#RB.RhythmDBEntryCategory" title="RB.RhythmDBEntryCategory"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryCategory</span></code></a></td>
 <td>r/w/co</td>
 <td><a class="reference internal" href="../enums.html#RB.RhythmDBEntryCategory" title="RB.RhythmDBEntryCategory"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryCategory</span></code></a> for the entry type</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.db" title="RB.RhythmDBEntryType.props.db"><code class="xref py py-data docutils literal"><span class="pre">db</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.db" title="RB.RhythmDBEntryType.props.db"><code class="xref py py-data docutils literal"><span class="pre">db</span></code></a></td>
 <td><a class="reference internal" href="RhythmDB.html#RB.RhythmDB" title="RB.RhythmDB"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB</span></code></a></td>
 <td>r/w/co</td>
 <td><a class="reference internal" href="RhythmDB.html#RB.RhythmDB" title="RB.RhythmDB"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB</span></code></a> instance</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.name" title="RB.RhythmDBEntryType.props.name"><code class="xref py py-data docutils literal"><span class="pre">name</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.name" title="RB.RhythmDBEntryType.props.name"><code class="xref py py-data docutils literal"><span class="pre">name</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w/co</td>
 <td>entry type name</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.save_to_disk" title="RB.RhythmDBEntryType.props.save_to_disk"><code class="xref py py-data docutils literal"><span class="pre">save-to-disk</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.save_to_disk" title="RB.RhythmDBEntryType.props.save_to_disk"><code class="xref py py-data docutils literal"><span class="pre">save-to-disk</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>r/w/co</td>
 <td>whether to save this type of entry to disk</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.type_data_size" title="RB.RhythmDBEntryType.props.type_data_size"><code class="xref py py-data docutils literal"><span class="pre">type-data-size</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#RB.RhythmDBEntryType.props.type_data_size" title="RB.RhythmDBEntryType.props.type_data_size"><code class="xref py py-data docutils literal"><span class="pre">type-data-size</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>r/w/co</td>
 <td>size of entry type specific data</td>
@@ -353,6 +368,31 @@
 </tbody>
 </table>
 <dl class="method">
+<dt id="RB.RhythmDBEntryType.fetch_metadata">
+<code class="descname">fetch_metadata</code><span class="sig-paren">(</span><em>uri</em>, <em>metadata</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>uri</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; uri of the item to fetch</li>
+<li><strong>metadata</strong> ([<a class="reference internal" href="../structs/RhythmDBEntryChange.html#RB.RhythmDBEntryChange" title="RB.RhythmDBEntryChange"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryChange</span></code></a>]) &#8211; returns fetched metadata</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if metadata is returned</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fetches metadata for a URI (not an entry yet, at this point) from a cache, if possible.</p>
+<p>The <cite>metadata</cite> array contains <a class="reference internal" href="../structs/RhythmDBEntryChange.html#RB.RhythmDBEntryChange" title="RB.RhythmDBEntryChange"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntryChange</span></code></a> items with just the &#8216;new&#8217; value set.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="RB.RhythmDBEntryType.get_name">
 <code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -366,6 +406,38 @@
 </tbody>
 </table>
 <p>Returns the name of the entry type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RB.RhythmDBEntryType.purge_metadata_cache">
+<code class="descname">purge_metadata_cache</code><span class="sig-paren">(</span><em>prefix</em>, <em>max_age</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>prefix</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a cache key prefix to scan</li>
+<li><strong>max_age</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; maximum age of missing entries to keep</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="RB.RhythmDBEntryType.do_cache_key_to_uri">
+<code class="descname">do_cache_key_to_uri</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -441,11 +513,47 @@
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="RB.RhythmDBEntryType.do_uri_to_cache_key">
+<code class="descname">do_uri_to_cache_key</code><span class="sig-paren">(</span><em>uri</em><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uri</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
 <div class="section" id="property-details">
 <h2>Property Details</h2>
+<dl class="data">
+<dt id="RB.RhythmDBEntryType.props.cache_name">
+<code class="descclassname">RB.RhythmDBEntryType.props.</code><code class="descname">cache_name</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal"><span class="pre">cache-name</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">READABLE</span></code></a>, <a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.WRITABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">WRITABLE</span></code></a>, <a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.CONSTRUCT_ONLY" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">CONSTRUCT_ONLY</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Metadata cache name.  For entry types created by a plugin, should match the plugin name.
+If this is set, the entry type must also implement the uri_to_cache_key method.</p>
+</dd></dl>
+
 <dl class="data">
 <dt id="RB.RhythmDBEntryType.props.category">
 <code class="descclassname">RB.RhythmDBEntryType.props.</code><code class="descname">category</code></dt>
@@ -562,7 +670,4 @@ entry of this type.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

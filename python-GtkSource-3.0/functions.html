@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GtkSource 3.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Interfaces" href="interfaces/index.html"/>
         <link rel="prev" title="GtkSource 3.0" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -193,7 +191,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of
-all <a class="reference internal" href="structs/Encoding.html#GtkSource.Encoding" title="GtkSource.Encoding"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.Encoding</span></code></a> &#8216;s. Free with <code class="xref py py-obj docutils literal"><span class="pre">GLib.SList.free</span></code> ().</td>
+all <a class="reference internal" href="structs/Encoding.html#GtkSource.Encoding" title="GtkSource.Encoding"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.Encoding</span></code></a>&#8216;s. Free with g_slist_free().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="structs/Encoding.html#GtkSource.Encoding" title="GtkSource.Encoding"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.Encoding</span></code></a>]</td>
 </tr>
@@ -218,7 +216,7 @@ all <a class="reference internal" href="structs/Encoding.html#GtkSource.Encoding
 </tr>
 </tbody>
 </table>
-<p>Gets the <a class="reference internal" href="structs/Encoding.html#GtkSource.Encoding" title="GtkSource.Encoding"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.Encoding</span></code></a> for the current locale. See also <a class="reference external" href="_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.get_charset" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_charset</span></code></a> ().</p>
+<p>Gets the <a class="reference internal" href="structs/Encoding.html#GtkSource.Encoding" title="GtkSource.Encoding"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.Encoding</span></code></a> for the current locale. See also <a class="reference external" href="_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.get_charset" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_charset</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.14.</span></p>
 </div>
@@ -232,14 +230,14 @@ all <a class="reference internal" href="structs/Encoding.html#GtkSource.Encoding
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the list of
-default candidate encodings. Free with <code class="xref py py-obj docutils literal"><span class="pre">GLib.SList.free</span></code> ().</td>
+default candidate encodings. Free with g_slist_free().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="structs/Encoding.html#GtkSource.Encoding" title="GtkSource.Encoding"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.Encoding</span></code></a>]</td>
 </tr>
 </tbody>
 </table>
 <p>Gets the list of default candidate encodings to try when loading a file. See
-<a class="reference internal" href="classes/FileLoader.html#GtkSource.FileLoader.set_candidate_encodings" title="GtkSource.FileLoader.set_candidate_encodings"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.FileLoader.set_candidate_encodings</span></code></a> ().</p>
+<a class="reference internal" href="classes/FileLoader.html#GtkSource.FileLoader.set_candidate_encodings" title="GtkSource.FileLoader.set_candidate_encodings"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.FileLoader.set_candidate_encodings</span></code></a>().</p>
 <p>This function returns a different list depending on the current locale (i.e.
 language, country and default encoding). The UTF-8 encoding and the current
 locale encoding are guaranteed to be present in the returned list.</p>
@@ -331,12 +329,12 @@ if not found.</td>
 </tbody>
 </table>
 <p>Use this function to escape the following characters: \n, \r, \t and \.</p>
-<p>For a regular expression search, use <a class="reference external" href="_docs/GtkSource-3.0/../../../python-GLib-2.0/structs/Regex.html#GLib.Regex.escape_string" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Regex.escape_string</span></code></a> () instead.</p>
-<p>One possible use case is to take the <a class="reference external" href="_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/TextBuffer.html#Gtk.TextBuffer" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a> &#8216;s selection and put it in a
+<p>For a regular expression search, use <a class="reference external" href="_docs/GtkSource-3.0/../../../python-GLib-2.0/structs/Regex.html#GLib.Regex.escape_string" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Regex.escape_string</span></code></a>() instead.</p>
+<p>One possible use case is to take the <a class="reference external" href="_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/TextBuffer.html#Gtk.TextBuffer" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>&#8216;s selection and put it in a
 search entry. The selection can contain tabulations, newlines, etc. So it&#8217;s
 better to escape those special characters to better fit in the search entry.</p>
-<p>See also: <a class="reference internal" href="#GtkSource.utils_unescape_search_text" title="GtkSource.utils_unescape_search_text"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.utils_unescape_search_text</span></code></a> ().</p>
-<p>The escape and unescape functions are not reciprocal! For example,
+<p>See also: <a class="reference internal" href="#GtkSource.utils_unescape_search_text" title="GtkSource.utils_unescape_search_text"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.utils_unescape_search_text</span></code></a>().</p>
+<p>Warning: the escape and unescape functions are not reciprocal! For example,
 escape (unescape (\)) = \\. So avoid cycles such as: search entry -&gt; unescape
 -&gt; search settings -&gt; escape -&gt; search entry. The original search entry text
 may be modified.</p>
@@ -360,12 +358,12 @@ may be modified.</p>
 </tr>
 </tbody>
 </table>
-<p>Use this function before <a class="reference internal" href="classes/SearchSettings.html#GtkSource.SearchSettings.set_search_text" title="GtkSource.SearchSettings.set_search_text"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.SearchSettings.set_search_text</span></code></a> (), to
+<p>Use this function before <a class="reference internal" href="classes/SearchSettings.html#GtkSource.SearchSettings.set_search_text" title="GtkSource.SearchSettings.set_search_text"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.SearchSettings.set_search_text</span></code></a>(), to
 unescape the following sequences of characters: \n, \r, \t and \\.
 The purpose is to easily write those characters in a search entry.</p>
 <p>Note that unescaping the search text is not needed for regular expression
 searches.</p>
-<p>See also: <a class="reference internal" href="#GtkSource.utils_escape_search_text" title="GtkSource.utils_escape_search_text"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.utils_escape_search_text</span></code></a> ().</p>
+<p>See also: <a class="reference internal" href="#GtkSource.utils_escape_search_text" title="GtkSource.utils_escape_search_text"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.utils_escape_search_text</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.10.</span></p>
 </div>
@@ -385,7 +383,4 @@ searches.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

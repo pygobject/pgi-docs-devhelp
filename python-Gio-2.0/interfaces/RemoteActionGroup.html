@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gio.Seekable" href="Seekable.html"/>
         <link rel="prev" title="Gio.ProxyResolver" href="ProxyResolver.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -254,21 +252,21 @@ or receive action invocations in the local process from other
 processes.</p>
 <p>The interface has <code class="docutils literal"><span class="pre">_full</span></code> variants of the two
 methods on <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup" title="Gio.ActionGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup</span></code></a> used to activate actions:
-<a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.activate_action" title="Gio.ActionGroup.activate_action"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.activate_action</span></code></a> () and
-<a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.change_action_state" title="Gio.ActionGroup.change_action_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.change_action_state</span></code></a> (). These variants allow a
+<a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.activate_action" title="Gio.ActionGroup.activate_action"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.activate_action</span></code></a>() and
+<a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.change_action_state" title="Gio.ActionGroup.change_action_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.change_action_state</span></code></a>(). These variants allow a
 &#8220;platform data&#8221; <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> to be specified: a dictionary providing
 context for the action invocation (for example: timestamps, startup
 notification IDs, etc).</p>
 <p><a class="reference internal" href="../classes/DBusActionGroup.html#Gio.DBusActionGroup" title="Gio.DBusActionGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DBusActionGroup</span></code></a> implements <a class="reference internal" href="#Gio.RemoteActionGroup" title="Gio.RemoteActionGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gio.RemoteActionGroup</span></code></a>.  This provides a
 mechanism to send platform data for action invocations over D-Bus.</p>
-<p>Additionally, <a class="reference internal" href="../classes/DBusConnection.html#Gio.DBusConnection.export_action_group" title="Gio.DBusConnection.export_action_group"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DBusConnection.export_action_group</span></code></a> () will check if
+<p>Additionally, <a class="reference internal" href="../classes/DBusConnection.html#Gio.DBusConnection.export_action_group" title="Gio.DBusConnection.export_action_group"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DBusConnection.export_action_group</span></code></a>() will check if
 the exported <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup" title="Gio.ActionGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup</span></code></a> implements <a class="reference internal" href="#Gio.RemoteActionGroup" title="Gio.RemoteActionGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gio.RemoteActionGroup</span></code></a> and use the
 <code class="docutils literal"><span class="pre">_full</span></code> variants of the calls if available.  This
 provides a mechanism by which to receive platform data for action
 invocations that arrive by way of D-Bus.</p>
 <dl class="method">
 <dt id="Gio.RemoteActionGroup.activate_action_full">
-<code class="descname">activate_action_full</code><span class="sig-paren">(</span><em>action_name</em>, <em>parameter</em>, <em>platform_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gremoteactiongroup.c?h=2.46.2#n109"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">activate_action_full</code><span class="sig-paren">(</span><em>action_name</em>, <em>parameter</em>, <em>platform_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gremoteactiongroup.c?h=2.48.0#n109"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -283,7 +281,7 @@ invocations that arrive by way of D-Bus.</p>
 </tbody>
 </table>
 <p>Activates the remote action.</p>
-<p>This is the same as <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.activate_action" title="Gio.ActionGroup.activate_action"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.activate_action</span></code></a> () except that it
+<p>This is the same as <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.activate_action" title="Gio.ActionGroup.activate_action"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.activate_action</span></code></a>() except that it
 allows for provision of &#8220;platform data&#8221; to be sent along with the
 activation request.  This typically contains details such as the user
 interaction timestamp or startup notification information.</p>
@@ -296,7 +294,7 @@ interaction timestamp or startup notification information.</p>
 
 <dl class="method">
 <dt id="Gio.RemoteActionGroup.change_action_state_full">
-<code class="descname">change_action_state_full</code><span class="sig-paren">(</span><em>action_name</em>, <em>value</em>, <em>platform_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gremoteactiongroup.c?h=2.46.2#n138"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">change_action_state_full</code><span class="sig-paren">(</span><em>action_name</em>, <em>value</em>, <em>platform_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gremoteactiongroup.c?h=2.48.0#n138"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -311,7 +309,7 @@ interaction timestamp or startup notification information.</p>
 </tbody>
 </table>
 <p>Changes the state of a remote action.</p>
-<p>This is the same as <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.change_action_state" title="Gio.ActionGroup.change_action_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.change_action_state</span></code></a> () except that
+<p>This is the same as <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.change_action_state" title="Gio.ActionGroup.change_action_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.change_action_state</span></code></a>() except that
 it allows for provision of &#8220;platform data&#8221; to be sent along with the
 state change request.  This typically contains details such as the
 user interaction timestamp or startup notification information.</p>
@@ -339,7 +337,7 @@ user interaction timestamp or startup notification information.</p>
 </tbody>
 </table>
 <p>Activates the remote action.</p>
-<p>This is the same as <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.activate_action" title="Gio.ActionGroup.activate_action"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.activate_action</span></code></a> () except that it
+<p>This is the same as <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.activate_action" title="Gio.ActionGroup.activate_action"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.activate_action</span></code></a>() except that it
 allows for provision of &#8220;platform data&#8221; to be sent along with the
 activation request.  This typically contains details such as the user
 interaction timestamp or startup notification information.</p>
@@ -367,7 +365,7 @@ interaction timestamp or startup notification information.</p>
 </tbody>
 </table>
 <p>Changes the state of a remote action.</p>
-<p>This is the same as <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.change_action_state" title="Gio.ActionGroup.change_action_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.change_action_state</span></code></a> () except that
+<p>This is the same as <a class="reference internal" href="ActionGroup.html#Gio.ActionGroup.change_action_state" title="Gio.ActionGroup.change_action_state"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ActionGroup.change_action_state</span></code></a>() except that
 it allows for provision of &#8220;platform data&#8221; to be sent along with the
 state change request.  This typically contains details such as the
 user interaction timestamp or startup notification information.</p>
@@ -394,7 +392,4 @@ user interaction timestamp or startup notification information.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

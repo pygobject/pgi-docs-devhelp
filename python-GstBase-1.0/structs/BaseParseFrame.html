@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstBase 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GstBase.BitReader" href="BitReader.html"/>
         <link rel="prev" title="Structures" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -227,7 +225,7 @@ only to some a particular one.  These parameters are effectively zeroed at start
 of each frame&#8217;s processing, i.e. parsing virtual method invocation sequence.</p>
 <dl class="staticmethod">
 <dt id="GstBase.BaseParseFrame.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>buffer</em>, <em>flags</em>, <em>overhead</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstbaseparse.c?h=1.6.2#n760"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>buffer</em>, <em>flags</em>, <em>overhead</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstbaseparse.c?h=1.8.1#n764"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -242,7 +240,7 @@ Set to -1 to mark the entire frame as metadata. If in doubt, set to 0.</li>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a newly-allocated <a class="reference internal" href="#GstBase.BaseParseFrame" title="GstBase.BaseParseFrame"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame</span></code></a>. Free with
-<a class="reference internal" href="#GstBase.BaseParseFrame.free" title="GstBase.BaseParseFrame.free"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame.free</span></code></a> () when no longer needed.</p>
+<a class="reference internal" href="#GstBase.BaseParseFrame.free" title="GstBase.BaseParseFrame.free"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame.free</span></code></a>() when no longer needed.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#GstBase.BaseParseFrame" title="GstBase.BaseParseFrame"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame</span></code></a></p>
@@ -252,20 +250,20 @@ Set to -1 to mark the entire frame as metadata. If in doubt, set to 0.</li>
 </table>
 <p>Allocates a new <a class="reference internal" href="#GstBase.BaseParseFrame" title="GstBase.BaseParseFrame"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame</span></code></a>. This function is mainly for bindings,
 elements written in C should usually allocate the frame on the stack and
-then use <a class="reference internal" href="#GstBase.BaseParseFrame.init" title="GstBase.BaseParseFrame.init"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame.init</span></code></a> () to initialise it.</p>
+then use <a class="reference internal" href="#GstBase.BaseParseFrame.init" title="GstBase.BaseParseFrame.init"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame.init</span></code></a>() to initialise it.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstBase.BaseParseFrame.free">
-<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstbaseparse.c?h=1.6.2#n706"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstbaseparse.c?h=1.8.1#n710"><span class="viewcode-link">[source]</span></a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="GstBase.BaseParseFrame.init">
-<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstbaseparse.c?h=1.6.2#n89"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/base/gstbaseparse.c?h=1.8.1#n89"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Sets a <a class="reference internal" href="#GstBase.BaseParseFrame" title="GstBase.BaseParseFrame"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame</span></code></a> to initial state.  Currently this means
 all public fields are zero-ed and a private flag is set to make
-sure <a class="reference internal" href="#GstBase.BaseParseFrame.free" title="GstBase.BaseParseFrame.free"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame.free</span></code></a> () only frees the contents but not
+sure <a class="reference internal" href="#GstBase.BaseParseFrame.free" title="GstBase.BaseParseFrame.free"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame.free</span></code></a>() only frees the contents but not
 the actual frame. Use this function to initialise a <a class="reference internal" href="#GstBase.BaseParseFrame" title="GstBase.BaseParseFrame"><code class="xref py py-obj docutils literal"><span class="pre">GstBase.BaseParseFrame</span></code></a>
 allocated on the stack.</p>
 </dd></dl>
@@ -286,7 +284,4 @@ allocated on the stack.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

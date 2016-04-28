@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Vips 8.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Hierarchy" href="../hierarchy.html"/>
         <link rel="prev" title="Vips.Operation" href="Operation.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -373,7 +371,7 @@
 </table>
 <p>A small part of a <a class="reference internal" href="Image.html#Vips.Image" title="Vips.Image"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Image</span></code></a>. <cite>valid</cite> holds the left/top/width/height of the
 area of pixels that are available from the region.</p>
-<p>See also: VIPS_REGION_ADDR(), <a class="reference internal" href="#Vips.Region.new" title="Vips.Region.new"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Region.new</span></code></a> (), <code class="xref py py-obj docutils literal"><span class="pre">Vips.Region.prepare</span></code> ().</p>
+<p>See also: VIPS_REGION_ADDR(), <a class="reference internal" href="#Vips.Region.new" title="Vips.Region.new"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Region.new</span></code></a>(), vips_region_prepare().</p>
 <dl class="staticmethod">
 <dt id="Vips.Region.dump_all">
 <em class="property">static </em><code class="descname">dump_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
@@ -393,15 +391,15 @@ area of pixels that are available from the region.</p>
 </tbody>
 </table>
 <p>Create a region. <a class="reference internal" href="#Vips.Region" title="Vips.Region"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Region</span></code></a> s start out empty, you need to call
-<code class="xref py py-obj docutils literal"><span class="pre">Vips.Region.prepare</span></code> () to fill them with pixels.</p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.Region.prepare</span></code> ().</p>
+vips_region_prepare() to fill them with pixels.</p>
+<p>See also: vips_region_prepare().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Vips.Region.black">
 <code class="descname">black</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Paints 0 into the valid part of <cite>reg</cite>.</p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.Region.paint</span></code> ().</p>
+<dd><p>Paints 0 into the valid part of <cite>self</cite>.</p>
+<p>See also: vips_region_paint().</p>
 </dd></dl>
 
 <dl class="method">
@@ -420,9 +418,9 @@ area of pixels that are available from the region.</p>
 </tbody>
 </table>
 <p>Do two regions point to the same piece of image? ie.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">VIPS_REGION_ADDR</span><span class="p">(</span> <span class="n">reg1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span> <span class="o">==</span> <span class="n">VIPS_REGION_ADDR</span><span class="p">(</span> <span class="n">reg2</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span> <span class="o">&amp;&amp;</span>
-<span class="o">*</span><span class="n">VIPS_REGION_ADDR</span><span class="p">(</span> <span class="n">reg1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span> <span class="o">==</span>
-    <span class="o">*</span><span class="n">VIPS_REGION_ADDR</span><span class="p">(</span> <span class="n">reg2</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span> <span class="k">for</span> <span class="n">all</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">reg1</span><span class="p">,</span> <span class="n">reg2</span><span class="p">.</span>
+<div class="highlight-none"><div class="highlight"><pre>VIPS_REGION_ADDR( reg1, x, y ) == VIPS_REGION_ADDR( reg2, x, y ) &amp;&amp;
+*VIPS_REGION_ADDR( reg1, x, y ) ==
+    *VIPS_REGION_ADDR( reg2, x, y ) for all x, y, reg1, reg2.
 </pre></div>
 </div>
 </dd></dl>
@@ -431,11 +429,11 @@ area of pixels that are available from the region.</p>
 <dt id="Vips.Region.invalidate">
 <code class="descname">invalidate</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Mark a region as containing invalid pixels. Calling this function means
-that the next time <code class="xref py py-obj docutils literal"><span class="pre">Vips.Region.prepare</span></code> () is called, the region will be
+that the next time vips_region_prepare() is called, the region will be
 recalculated.</p>
-<p>This is faster than calling <a class="reference internal" href="Image.html#Vips.Image.invalidate_all" title="Vips.Image.invalidate_all"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Image.invalidate_all</span></code></a> (), but obviously only
+<p>This is faster than calling <a class="reference internal" href="Image.html#Vips.Image.invalidate_all" title="Vips.Image.invalidate_all"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Image.invalidate_all</span></code></a>(), but obviously only
 affects a single region.</p>
-<p>See also: <a class="reference internal" href="Image.html#Vips.Image.invalidate_all" title="Vips.Image.invalidate_all"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Image.invalidate_all</span></code></a> (), <code class="xref py py-obj docutils literal"><span class="pre">Vips.Region.prepare</span></code> ().</p>
+<p>See also: <a class="reference internal" href="Image.html#Vips.Image.invalidate_all" title="Vips.Image.invalidate_all"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Image.invalidate_all</span></code></a>(), vips_region_prepare().</p>
 </dd></dl>
 
 <dl class="method">
@@ -481,7 +479,4 @@ positions outside the image.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

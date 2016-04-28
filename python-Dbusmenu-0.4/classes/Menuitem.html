@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Dbusmenu 0.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Dbusmenu.MenuitemProxy" href="MenuitemProxy.html"/>
         <link rel="prev" title="Dbusmenu.Client" href="Client.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -538,8 +536,8 @@ the bus it can lead to lots of fun complex scenarios.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>child</strong> (<a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a>) &#8211; The <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> to make a child of <cite>mi</cite>.</li>
-<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Where in <cite>mi</cite> object&#8217;s list of chidren <cite>child</cite> should be placed.</li>
+<li><strong>child</strong> (<a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a>) &#8211; The <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> to make a child of <cite>self</cite>.</li>
+<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Where in <cite>self</cite> object&#8217;s list of chidren <cite>child</cite> should be placed.</li>
 </ul>
 </td>
 </tr>
@@ -551,7 +549,7 @@ the bus it can lead to lots of fun complex scenarios.</p>
 </tr>
 </tbody>
 </table>
-<p>Puts <cite>child</cite> in the list of children for <cite>mi</cite> at the location
+<p>Puts <cite>child</cite> in the list of children for <cite>self</cite> at the location
 specified in <cite>position</cite>.  If there is not enough entires available
 then <cite>child</cite> will be placed at the end of the list.</p>
 </dd></dl>
@@ -571,7 +569,7 @@ then <cite>child</cite> will be placed at the end of the list.</p>
 </tr>
 </tbody>
 </table>
-<p>This function adds <cite>child</cite> to the list of children on <cite>mi</cite> at
+<p>This function adds <cite>child</cite> to the list of children on <cite>self</cite> at
 the end of that list.</p>
 </dd></dl>
 
@@ -583,7 +581,7 @@ the end of that list.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>child</strong> (<a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a>) &#8211; The child <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> that you want to no longer
-be a child of <cite>mi</cite>.</td>
+be a child of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">If we were able to delete <cite>child</cite>.</td>
 </tr>
@@ -591,7 +589,7 @@ be a child of <cite>mi</cite>.</td>
 </tr>
 </tbody>
 </table>
-<p>This function removes <cite>child</cite> from the children list of <cite>mi</cite>.  It does
+<p>This function removes <cite>child</cite> from the children list of <cite>self</cite>.  It does
 not call <a class="reference external" href="../_docs/Dbusmenu-0.4/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> on <cite>child</cite>.</p>
 </dd></dl>
 
@@ -611,7 +609,7 @@ can&#8217;t be found.</td>
 </tr>
 </tbody>
 </table>
-<p>Search the children of <cite>mi</cite> to find one with the ID of <cite>id</cite>.
+<p>Search the children of <cite>self</cite> to find one with the ID of <cite>id</cite>.
 If it doesn&#8217;t exist then we return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
 
@@ -630,7 +628,7 @@ If it doesn&#8217;t exist then we return <a class="reference external" href="htt
 </tr>
 </tbody>
 </table>
-<p>This function adds <cite>child</cite> to the list of children on <cite>mi</cite> at
+<p>This function adds <cite>child</cite> to the list of children on <cite>self</cite> at
 the beginning of that list.</p>
 </dd></dl>
 
@@ -671,14 +669,14 @@ new location.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> with the ID of <cite>id</cite>
 or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if there isn&#8217;t such a menu item in the tree
-represented by <cite>mi</cite>.</td>
+represented by <cite>self</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>This function searchs the whole tree of children that
-are attached to <cite>mi</cite>.  This could be quite a few nodes, all
+are attached to <cite>self</cite>.  This could be quite a few nodes, all
 the way down the tree.  It is a depth first search.</p>
 </dd></dl>
 
@@ -728,13 +726,13 @@ is called, where it might be changed.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The ID of the <cite>mi</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The ID of the <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the unique ID for <cite>mi</cite>.</p>
+<p>Gets the unique ID for <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -750,7 +748,7 @@ is called, where it might be changed.</p>
 </tr>
 </tbody>
 </table>
-<p>This function looks up the parent of <cite>mi</cite></p>
+<p>This function looks up the parent of <cite>self</cite></p>
 </dd></dl>
 
 <dl class="method">
@@ -760,15 +758,15 @@ is called, where it might be changed.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a>) &#8211; The <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> who&#8217;s children contain <cite>mi</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a>) &#8211; The <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> who&#8217;s children contain <cite>self</cite></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The position of <cite>mi</cite> in the children of <cite>parent</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The position of <cite>self</cite> in the children of <cite>parent</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>This function returns the position of the menu item <cite>mi</cite>
+<p>This function returns the position of the menu item <cite>self</cite>
 in the children of <cite>parent</cite>.  It will return zero if the
 menu item can&#8217;t be found.</p>
 </dd></dl>
@@ -780,9 +778,9 @@ menu item can&#8217;t be found.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a>) &#8211; The <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> who&#8217;s children contain <cite>mi</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a>) &#8211; The <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> who&#8217;s children contain <cite>self</cite></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The position of <cite>mi</cite> in the realized children of <cite>parent</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The position of <cite>self</cite> in the realized children of <cite>parent</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -844,7 +842,7 @@ reason not to.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A brand new <a class="reference external" href="../_docs/Dbusmenu-0.4/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> that contains all of
-theroperties that are on this <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> <cite>mi</cite>.</td>
+theroperties that are on this <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">{<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>}</td>
 </tr>
@@ -875,7 +873,7 @@ strings or <a class="reference external" href="http://docs.python.org/2.7/librar
 <p>This functiong gets a list of the names of all the properties
 that are set on this menu item.  This data on the list is owned
 by the menuitem but the list is not and should be freed using
-<code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> () when the calling function is done with it.</p>
+g_list_free() when the calling function is done with it.</p>
 </dd></dl>
 
 <dl class="method">
@@ -893,7 +891,7 @@ by the menuitem but the list is not and should be freed using
 </tr>
 </tbody>
 </table>
-<p>Checkes to see if a particular property exists on <cite>mi</cite> and
+<p>Checkes to see if a particular property exists on <cite>self</cite> and
 returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if so.</p>
 </dd></dl>
 
@@ -914,7 +912,7 @@ is not set or is not a string.</td>
 </tr>
 </tbody>
 </table>
-<p>Look up a property on <cite>mi</cite> and return the value of it if
+<p>Look up a property on <cite>self</cite> and return the value of it if
 it exits.  <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> will be returned if the property doesn&#8217;t
 exist.</p>
 </dd></dl>
@@ -934,7 +932,7 @@ exist.</p>
 </tr>
 </tbody>
 </table>
-<p>Look up a property on <cite>mi</cite> and return the value of it if
+<p>Look up a property on <cite>self</cite> and return the value of it if
 it exits.  Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the property doesn&#8217;t exist.</p>
 </dd></dl>
 
@@ -955,7 +953,7 @@ is not set or is not a byte array.</td>
 </tr>
 </tbody>
 </table>
-<p>Look up a property on <cite>mi</cite> and return the value of it if
+<p>Look up a property on <cite>self</cite> and return the value of it if
 it exits.  <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> will be returned if the property doesn&#8217;t
 exist.</p>
 </dd></dl>
@@ -975,7 +973,7 @@ exist.</p>
 </tr>
 </tbody>
 </table>
-<p>Look up a property on <cite>mi</cite> and return the value of it if
+<p>Look up a property on <cite>self</cite> and return the value of it if
 it exits.  Returns zero if the property doesn&#8217;t exist.</p>
 </dd></dl>
 
@@ -994,7 +992,7 @@ it exits.  Returns zero if the property doesn&#8217;t exist.</p>
 </tr>
 </tbody>
 </table>
-<p>Look up a property on <cite>mi</cite> and return the value of it if
+<p>Look up a property on <cite>self</cite> and return the value of it if
 it exits.  <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> will be returned if the property doesn&#8217;t
 exist.</p>
 </dd></dl>
@@ -1035,7 +1033,7 @@ exist.</p>
 </tbody>
 </table>
 <p>Takes the pair of <cite>property</cite> and <cite>value</cite> and places them as a
-property on <cite>mi</cite>.  If a property already exists by that name,
+property on <cite>self</cite>.  If a property already exists by that name,
 then the value is set to the new value.  If not, the property
 is added.  If the value is changed or the property was previously
 unset then the signal <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> <code class="xref py py-func docutils literal"><span class="pre">::prop-changed</span></code> will be
@@ -1064,7 +1062,7 @@ emitted by this function.</p>
 </tbody>
 </table>
 <p>Takes a boolean <cite>value</cite> and sets it on <cite>property</cite> as a
-property on <cite>mi</cite>.  If a property already exists by that name,
+property on <cite>self</cite>.  If a property already exists by that name,
 then the value is set to the new value.  If not, the property
 is added.  If the value is changed or the property was previously
 unset then the signal <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> <code class="xref py py-func docutils literal"><span class="pre">::prop-changed</span></code> will be
@@ -1094,7 +1092,7 @@ emitted by this function.</p>
 </tbody>
 </table>
 <p>Takes a byte array <cite>value</cite> and sets it on <cite>property</cite> as a
-property on <cite>mi</cite>.  If a property already exists by that name,
+property on <cite>self</cite>.  If a property already exists by that name,
 then the value is set to the new value.  If not, the property
 is added.  If the value is changed or the property was previously
 unset then the signal <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> <code class="xref py py-func docutils literal"><span class="pre">::prop-changed</span></code> will be
@@ -1123,7 +1121,7 @@ emitted by this function.</p>
 </tbody>
 </table>
 <p>Takes a boolean <cite>value</cite> and sets it on <cite>property</cite> as a
-property on <cite>mi</cite>.  If a property already exists by that name,
+property on <cite>self</cite>.  If a property already exists by that name,
 then the value is set to the new value.  If not, the property
 is added.  If the value is changed or the property was previously
 unset then the signal <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> <code class="xref py py-func docutils literal"><span class="pre">::prop-changed</span></code> will be
@@ -1152,7 +1150,7 @@ emitted by this function.</p>
 </tbody>
 </table>
 <p>Takes the pair of <cite>property</cite> and <cite>value</cite> and places them as a
-property on <cite>mi</cite>.  If a property already exists by that name,
+property on <cite>self</cite>.  If a property already exists by that name,
 then the value is set to the new value.  If not, the property
 is added.  If the value is changed or the property was previously
 unset then the signal <a class="reference internal" href="#Dbusmenu.Menuitem" title="Dbusmenu.Menuitem"><code class="xref py py-obj docutils literal"><span class="pre">Dbusmenu.Menuitem</span></code></a> <code class="xref py py-func docutils literal"><span class="pre">::prop-changed</span></code> will be
@@ -1195,7 +1193,7 @@ called if possible.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the parent of <cite>mi</cite> to <cite>parent</cite>. If <cite>mi</cite> already
+<p>Sets the parent of <cite>self</cite> to <cite>parent</cite>. If <cite>self</cite> already
 has a parent, then this call will fail. The parent will
 be set automatically when using the usual methods to add a
 child menuitem, so this function should not normally be
@@ -1209,7 +1207,7 @@ called directly</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>root</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; Whether <cite>mi</cite> is a root node or not</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>root</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; Whether <cite>self</cite> is a root node or not</td>
 </tr>
 </tbody>
 </table>
@@ -1247,7 +1245,7 @@ bus.</p>
 </tbody>
 </table>
 <p>While the name sounds devious that&#8217;s exactly what this function
-does.  It takes the list of children from the <cite>mi</cite> and clears the
+does.  It takes the list of children from the <cite>self</cite> and clears the
 internal list.  The calling function is now in charge of the ref&#8217;s
 on the children it has taken.  A lot of responsibility involved
 in taking children.</p>
@@ -1266,7 +1264,7 @@ in taking children.</p>
 </tr>
 </tbody>
 </table>
-<p>Unparents the menu item <cite>mi</cite>. If <cite>mi</cite> doesn&#8217;t have a
+<p>Unparents the menu item <cite>self</cite>. If <cite>self</cite> doesn&#8217;t have a
 parent, then this call will fail. The menuitem will
 be unparented automatically when using the usual methods
 to delete a child menuitem, so this function should not
@@ -1644,7 +1642,4 @@ going over the bus to get it done.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

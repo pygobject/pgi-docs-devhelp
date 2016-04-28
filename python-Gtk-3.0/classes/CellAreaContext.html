@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.CellRenderer" href="CellRenderer.html"/>
         <link rel="prev" title="Gtk.CellAreaBox" href="CellAreaBox.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -377,33 +375,33 @@
 </tbody>
 </table>
 <p>The <a class="reference internal" href="#Gtk.CellAreaContext" title="Gtk.CellAreaContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext</span></code></a> object is created by a given <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>
-implementation via its <a class="reference internal" href="../class-structs/CellAreaClass.html#Gtk.CellAreaClass" title="Gtk.CellAreaClass"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaClass</span></code></a>.create_context() virtual
+implementation via its <a class="reference internal" href="CellArea.html#Gtk.CellArea.do_create_context" title="Gtk.CellArea.do_create_context"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.do_create_context</span></code></a>() virtual
 method and is used to store cell sizes and alignments for a series of
 <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> rows that are requested and rendered in the same context.</p>
 <p><a class="reference internal" href="../interfaces/CellLayout.html#Gtk.CellLayout" title="Gtk.CellLayout"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayout</span></code></a> widgets can create any number of contexts in which to
 request and render groups of data rows. However, it’s important that the
 same context which was used to request sizes for a given <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a>
 row also be used for the same row when calling other <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> APIs
-such as <a class="reference internal" href="CellArea.html#Gtk.CellArea.render" title="Gtk.CellArea.render"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.render</span></code></a> () and <a class="reference internal" href="CellArea.html#Gtk.CellArea.event" title="Gtk.CellArea.event"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.event</span></code></a> ().</p>
+such as <a class="reference internal" href="CellArea.html#Gtk.CellArea.render" title="Gtk.CellArea.render"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.render</span></code></a>() and <a class="reference internal" href="CellArea.html#Gtk.CellArea.event" title="Gtk.CellArea.event"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.event</span></code></a>().</p>
 <dl class="method">
 <dt id="Gtk.CellAreaContext.allocate">
-<code class="descname">allocate</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n414"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">allocate</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n414"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the allocated width for all <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> rows rendered
-with <cite>context</cite>, or -1.</li>
+with <cite>self</cite>, or -1.</li>
 <li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the allocated height for all <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> rows rendered
-with <cite>context</cite>, or -1.</li>
+with <cite>self</cite>, or -1.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Allocates a width and/or a height for all rows which are to be
-rendered with <cite>context</cite>.</p>
+rendered with <cite>self</cite>.</p>
 <p>Usually allocation is performed only horizontally or sometimes
 vertically since a group of rows are usually rendered side by
 side vertically or horizontally and share either the same width
@@ -418,7 +416,7 @@ rows. This is generally the case for <a class="reference internal" href="TreeVie
 
 <dl class="method">
 <dt id="Gtk.CellAreaContext.get_allocation">
-<code class="descname">get_allocation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n570"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_allocation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n570"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -439,9 +437,9 @@ rows. This is generally the case for <a class="reference internal" href="TreeVie
 </tr>
 </tbody>
 </table>
-<p>Fetches the current allocation size for <cite>context</cite>.</p>
+<p>Fetches the current allocation size for <cite>self</cite>.</p>
 <p>If the context was not allocated in width or height, or if the
-context was recently reset with <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a> (),
+context was recently reset with <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a>(),
 the returned value will be -1.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
@@ -450,7 +448,7 @@ the returned value will be -1.</p>
 
 <dl class="method">
 <dt id="Gtk.CellAreaContext.get_area">
-<code class="descname">get_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n342"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n342"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -461,11 +459,11 @@ the returned value will be -1.</p>
 </tr>
 </tbody>
 </table>
-<p>Fetches the <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> this <cite>context</cite> was created by.</p>
+<p>Fetches the <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> this <cite>self</cite> was created by.</p>
 <p>This is generally unneeded by layouting widgets; however,
 it is important for the context implementation itself to
 fetch information about the area it is being used for.</p>
-<p>For instance at <a class="reference internal" href="../class-structs/CellAreaContextClass.html#Gtk.CellAreaContextClass" title="Gtk.CellAreaContextClass"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContextClass</span></code></a>.allocate() time
+<p>For instance at <a class="reference internal" href="#Gtk.CellAreaContext.do_allocate" title="Gtk.CellAreaContext.do_allocate"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.do_allocate</span></code></a>() time
 it’s important to know details about any cell spacing
 that the <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> is configured with in order to
 compute a proper allocation.</p>
@@ -476,7 +474,7 @@ compute a proper allocation.</p>
 
 <dl class="method">
 <dt id="Gtk.CellAreaContext.get_preferred_height">
-<code class="descname">get_preferred_height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n474"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_preferred_height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n474"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -501,7 +499,7 @@ or <a class="reference external" href="http://docs.python.org/2.7/library/consta
 </table>
 <p>Gets the accumulative preferred height for all rows which have been
 requested with this context.</p>
-<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a> () is called and/or before ever
+<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a>() is called and/or before ever
 requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>, the returned values are 0.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
@@ -510,7 +508,7 @@ requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.C
 
 <dl class="method">
 <dt id="Gtk.CellAreaContext.get_preferred_height_for_width">
-<code class="descname">get_preferred_height_for_width</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n510"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_preferred_height_for_width</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n510"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -537,7 +535,7 @@ or <a class="reference external" href="http://docs.python.org/2.7/library/consta
 </table>
 <p>Gets the accumulative preferred height for <cite>width</cite> for all rows
 which have been requested for the same said <cite>width</cite> with this context.</p>
-<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a> () is called and/or before ever
+<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a>() is called and/or before ever
 requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>, the returned values are -1.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
@@ -546,7 +544,7 @@ requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.C
 
 <dl class="method">
 <dt id="Gtk.CellAreaContext.get_preferred_width">
-<code class="descname">get_preferred_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n440"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_preferred_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n440"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -571,7 +569,7 @@ or <a class="reference external" href="http://docs.python.org/2.7/library/consta
 </table>
 <p>Gets the accumulative preferred width for all rows which have been
 requested with this context.</p>
-<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a> () is called and/or before ever
+<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a>() is called and/or before ever
 requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>, the returned values are 0.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
@@ -580,7 +578,7 @@ requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.C
 
 <dl class="method">
 <dt id="Gtk.CellAreaContext.get_preferred_width_for_height">
-<code class="descname">get_preferred_width_for_height</code><span class="sig-paren">(</span><em>height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n542"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_preferred_width_for_height</code><span class="sig-paren">(</span><em>height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n542"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -607,7 +605,7 @@ or <a class="reference external" href="http://docs.python.org/2.7/library/consta
 </table>
 <p>Gets the accumulative preferred width for <cite>height</cite> for all rows which
 have been requested for the same said <cite>height</cite> with this context.</p>
-<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a> () is called and/or before ever
+<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a>() is called and/or before ever
 requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>, the returned values are -1.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
@@ -616,14 +614,14 @@ requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.C
 
 <dl class="method">
 <dt id="Gtk.CellAreaContext.push_preferred_height">
-<code class="descname">push_preferred_height</code><span class="sig-paren">(</span><em>minimum_height</em>, <em>natural_height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n650"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push_preferred_height</code><span class="sig-paren">(</span><em>minimum_height</em>, <em>natural_height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n650"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>minimum_height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the proposed new minimum height for <cite>context</cite></li>
-<li><strong>natural_height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the proposed new natural height for <cite>context</cite></li>
+<li><strong>minimum_height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the proposed new minimum height for <cite>self</cite></li>
+<li><strong>natural_height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the proposed new natural height for <cite>self</cite></li>
 </ul>
 </td>
 </tr>
@@ -634,7 +632,7 @@ proposed sizes exceed the current minimum and natural height.</p>
 <p>This is used by <a class="reference internal" href="#Gtk.CellAreaContext" title="Gtk.CellAreaContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext</span></code></a> implementations during
 the request process over a series of <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> rows to
 progressively push the requested height over a series of
-<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height" title="Gtk.CellArea.get_preferred_height"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height</span></code></a> () requests.</p>
+<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height" title="Gtk.CellArea.get_preferred_height"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height</span></code></a>() requests.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -642,14 +640,14 @@ progressively push the requested height over a series of
 
 <dl class="method">
 <dt id="Gtk.CellAreaContext.push_preferred_width">
-<code class="descname">push_preferred_width</code><span class="sig-paren">(</span><em>minimum_width</em>, <em>natural_width</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n604"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push_preferred_width</code><span class="sig-paren">(</span><em>minimum_width</em>, <em>natural_width</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n604"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>minimum_width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the proposed new minimum width for <cite>context</cite></li>
-<li><strong>natural_width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the proposed new natural width for <cite>context</cite></li>
+<li><strong>minimum_width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the proposed new minimum width for <cite>self</cite></li>
+<li><strong>natural_width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the proposed new natural width for <cite>self</cite></li>
 </ul>
 </td>
 </tr>
@@ -660,7 +658,7 @@ proposed sizes exceed the current minimum and natural width.</p>
 <p>This is used by <a class="reference internal" href="#Gtk.CellAreaContext" title="Gtk.CellAreaContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext</span></code></a> implementations during
 the request process over a series of <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> rows to
 progressively push the requested width over a series of
-<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a> () requests.</p>
+<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a>() requests.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -668,7 +666,7 @@ progressively push the requested width over a series of
 
 <dl class="method">
 <dt id="Gtk.CellAreaContext.reset">
-<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.18.6#n383"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellareacontext.c?h=3.20.3#n383"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Resets any previously cached request and allocation
 data.</p>
 <p>When underlying <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> data changes its
@@ -678,7 +676,7 @@ is only allowed to grow (this is usually an option
 for views rendering large data stores as a measure
 of optimization), then only the row that changed
 or was inserted needs to be (re)requested with
-<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a> ().</p>
+<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a>().</p>
 <p>When the new overall size of the context requires
 that the allocated size changes (or whenever this
 allocation changes at all), the variable row
@@ -687,7 +685,7 @@ sizes need to be re-requested for every row.</p>
 the same width from top to bottom then a change
 in the allocated width necessitates a recalculation
 of all the displayed row heights using
-<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height_for_width" title="Gtk.CellArea.get_preferred_height_for_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height_for_width</span></code></a> ().</p>
+<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height_for_width" title="Gtk.CellArea.get_preferred_height_for_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height_for_width</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -753,7 +751,7 @@ or <a class="reference external" href="http://docs.python.org/2.7/library/consta
 </table>
 <p>Gets the accumulative preferred height for <cite>width</cite> for all rows
 which have been requested for the same said <cite>width</cite> with this context.</p>
-<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a> () is called and/or before ever
+<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a>() is called and/or before ever
 requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>, the returned values are -1.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
@@ -789,7 +787,7 @@ or <a class="reference external" href="http://docs.python.org/2.7/library/consta
 </table>
 <p>Gets the accumulative preferred width for <cite>height</cite> for all rows which
 have been requested for the same said <cite>height</cite> with this context.</p>
-<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a> () is called and/or before ever
+<p>After <a class="reference internal" href="#Gtk.CellAreaContext.reset" title="Gtk.CellAreaContext.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellAreaContext.reset</span></code></a>() is called and/or before ever
 requesting the size of a <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>, the returned values are -1.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
@@ -808,7 +806,7 @@ is only allowed to grow (this is usually an option
 for views rendering large data stores as a measure
 of optimization), then only the row that changed
 or was inserted needs to be (re)requested with
-<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a> ().</p>
+<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a>().</p>
 <p>When the new overall size of the context requires
 that the allocated size changes (or whenever this
 allocation changes at all), the variable row
@@ -817,7 +815,7 @@ sizes need to be re-requested for every row.</p>
 the same width from top to bottom then a change
 in the allocated width necessitates a recalculation
 of all the displayed row heights using
-<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height_for_width" title="Gtk.CellArea.get_preferred_height_for_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height_for_width</span></code></a> ().</p>
+<a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height_for_width" title="Gtk.CellArea.get_preferred_height_for_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height_for_width</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -870,7 +868,7 @@ of all the displayed row heights using
 </table>
 <p>The minimum height for the <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> in this context
 for all <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> rows that this context was requested
-for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height" title="Gtk.CellArea.get_preferred_height"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height</span></code></a> ().</p>
+for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height" title="Gtk.CellArea.get_preferred_height"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -895,7 +893,7 @@ for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_pre
 </table>
 <p>The minimum width for the <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> in this context
 for all <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> rows that this context was requested
-for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a> ().</p>
+for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -920,7 +918,7 @@ for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_pre
 </table>
 <p>The natural height for the <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> in this context
 for all <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> rows that this context was requested
-for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height" title="Gtk.CellArea.get_preferred_height"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height</span></code></a> ().</p>
+for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_height" title="Gtk.CellArea.get_preferred_height"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_height</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -945,7 +943,7 @@ for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_pre
 </table>
 <p>The natural width for the <a class="reference internal" href="CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> in this context
 for all <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> rows that this context was requested
-for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a> ().</p>
+for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_preferred_width" title="Gtk.CellArea.get_preferred_width"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea.get_preferred_width</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -965,7 +963,4 @@ for using <a class="reference internal" href="CellArea.html#Gtk.CellArea.get_pre
   </div> 
 
 </body>
-
-  
-
 </html>

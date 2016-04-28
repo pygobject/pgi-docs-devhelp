@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstRtp 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GstRtp.RTCPPacket" href="RTCPPacket.html"/>
         <link rel="prev" title="Structures" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -227,12 +225,12 @@
 <a class="reference external" href="../_docs/GstRtp-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> objects that contain compound RTCP packets. These buffers are typically
 of &#8216;application/x-rtcp&#8217; <a class="reference external" href="../_docs/GstRtp-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>.</p>
 <p>An RTCP buffer consists of 1 or more <a class="reference internal" href="RTCPPacket.html#GstRtp.RTCPPacket" title="GstRtp.RTCPPacket"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPPacket</span></code></a> structures that you can
-retrieve with <a class="reference internal" href="#GstRtp.RTCPBuffer.get_first_packet" title="GstRtp.RTCPBuffer.get_first_packet"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPBuffer.get_first_packet</span></code></a> (). <a class="reference internal" href="RTCPPacket.html#GstRtp.RTCPPacket" title="GstRtp.RTCPPacket"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPPacket</span></code></a> acts as a pointer
+retrieve with <a class="reference internal" href="#GstRtp.RTCPBuffer.get_first_packet" title="GstRtp.RTCPBuffer.get_first_packet"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPBuffer.get_first_packet</span></code></a>(). <a class="reference internal" href="RTCPPacket.html#GstRtp.RTCPPacket" title="GstRtp.RTCPPacket"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPPacket</span></code></a> acts as a pointer
 into the RTCP buffer; you can move to the next packet with
-<a class="reference internal" href="RTCPPacket.html#GstRtp.RTCPPacket.move_to_next" title="GstRtp.RTCPPacket.move_to_next"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPPacket.move_to_next</span></code></a> ().</p>
+<a class="reference internal" href="RTCPPacket.html#GstRtp.RTCPPacket.move_to_next" title="GstRtp.RTCPPacket.move_to_next"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPPacket.move_to_next</span></code></a>().</p>
 <dl class="staticmethod">
 <dt id="GstRtp.RTCPBuffer.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>mtu</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n287"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>mtu</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n287"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -251,7 +249,7 @@ maximum size of <cite>mtu</cite>.</p>
 
 <dl class="staticmethod">
 <dt id="GstRtp.RTCPBuffer.new_copy_data">
-<em class="property">static </em><code class="descname">new_copy_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n85"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_copy_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n85"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -271,7 +269,7 @@ is freed.</p>
 
 <dl class="staticmethod">
 <dt id="GstRtp.RTCPBuffer.new_take_data">
-<em class="property">static </em><code class="descname">new_take_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n61"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_take_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n61"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -291,7 +289,7 @@ function transfers ownership of <cite>data</cite> to the new buffer.</p>
 
 <dl class="staticmethod">
 <dt id="GstRtp.RTCPBuffer.validate">
-<em class="property">static </em><code class="descname">validate</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n259"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">validate</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n259"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -305,12 +303,12 @@ function transfers ownership of <cite>data</cite> to the new buffer.</p>
 </tbody>
 </table>
 <p>Check if the data pointed to by <cite>buffer</cite> is a valid RTCP packet using
-<a class="reference internal" href="#GstRtp.RTCPBuffer.validate_data" title="GstRtp.RTCPBuffer.validate_data"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPBuffer.validate_data</span></code></a> ().</p>
+<a class="reference internal" href="#GstRtp.RTCPBuffer.validate_data" title="GstRtp.RTCPBuffer.validate_data"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPBuffer.validate_data</span></code></a>().</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="GstRtp.RTCPBuffer.validate_data">
-<em class="property">static </em><code class="descname">validate_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n218"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">validate_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n218"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -331,7 +329,7 @@ this module.</p>
 
 <dl class="staticmethod">
 <dt id="GstRtp.RTCPBuffer.validate_data_reduced">
-<em class="property">static </em><code class="descname">validate_data_reduced</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n199"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">validate_data_reduced</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n199"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -357,7 +355,7 @@ size RTCP packets.</p>
 
 <dl class="staticmethod">
 <dt id="GstRtp.RTCPBuffer.validate_reduced">
-<em class="property">static </em><code class="descname">validate_reduced</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n235"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">validate_reduced</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n235"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -371,7 +369,7 @@ size RTCP packets.</p>
 </tbody>
 </table>
 <p>Check if the data pointed to by <cite>buffer</cite> is a valid RTCP packet using
-<a class="reference internal" href="#GstRtp.RTCPBuffer.validate_reduced" title="GstRtp.RTCPBuffer.validate_reduced"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPBuffer.validate_reduced</span></code></a> ().</p>
+<a class="reference internal" href="#GstRtp.RTCPBuffer.validate_reduced" title="GstRtp.RTCPBuffer.validate_reduced"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPBuffer.validate_reduced</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -379,7 +377,7 @@ size RTCP packets.</p>
 
 <dl class="method">
 <dt id="GstRtp.RTCPBuffer.add_packet">
-<code class="descname">add_packet</code><span class="sig-paren">(</span><em>type</em>, <em>packet</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n514"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_packet</code><span class="sig-paren">(</span><em>type</em>, <em>packet</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n514"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -399,48 +397,48 @@ if the max mtu is exceeded for the buffer.</p>
 </tr>
 </tbody>
 </table>
-<p>Add a new packet of <cite>type</cite> to <cite>rtcp</cite>. <cite>packet</cite> will point to the newly created
+<p>Add a new packet of <cite>type</cite> to <cite>self</cite>. <cite>packet</cite> will point to the newly created
 packet.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstRtp.RTCPBuffer.get_first_packet">
-<code class="descname">get_first_packet</code><span class="sig-paren">(</span><em>packet</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n435"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_first_packet</code><span class="sig-paren">(</span><em>packet</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n435"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>packet</strong> (<a class="reference internal" href="RTCPPacket.html#GstRtp.RTCPPacket" title="GstRtp.RTCPPacket"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPPacket</span></code></a>) &#8211; a <a class="reference internal" href="RTCPPacket.html#GstRtp.RTCPPacket" title="GstRtp.RTCPPacket"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPPacket</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the packet existed in <cite>rtcp</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the packet existed in <cite>self</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Initialize a new <a class="reference internal" href="RTCPPacket.html#GstRtp.RTCPPacket" title="GstRtp.RTCPPacket"><code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPPacket</span></code></a> pointer that points to the first packet in
-<cite>rtcp</cite>.</p>
+<cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstRtp.RTCPBuffer.get_packet_count">
-<code class="descname">get_packet_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n357"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_packet_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n357"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of RTCP packets in <cite>rtcp</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of RTCP packets in <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Get the number of RTCP packets in <cite>rtcp</cite>.</p>
+<p>Get the number of RTCP packets in <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstRtp.RTCPBuffer.unmap">
-<code class="descname">unmap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.6.2#n333"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unmap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/rtp/gstrtcpbuffer.c?h=1.8.1#n333"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -449,9 +447,9 @@ packet.</p>
 </tr>
 </tbody>
 </table>
-<p>Finish <cite>rtcp</cite> after being constructed. This function is usually called
-after <code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPBuffer.map</span></code> () and after adding the RTCP items to the new buffer.</p>
-<p>The function adjusts the size of <cite>rtcp</cite> with the total length of all the
+<p>Finish <cite>self</cite> after being constructed. This function is usually called
+after <code class="xref py py-obj docutils literal"><span class="pre">GstRtp.RTCPBuffer.map</span></code>() and after adding the RTCP items to the new buffer.</p>
+<p>The function adjusts the size of <cite>self</cite> with the total length of all the
 added packets.</p>
 </dd></dl>
 
@@ -471,7 +469,4 @@ added packets.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

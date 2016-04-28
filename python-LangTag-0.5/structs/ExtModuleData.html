@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="LangTag 0.5 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="LangTag.ExtModuleFuncs" href="ExtModuleFuncs.html"/>
         <link rel="prev" title="LangTag.ExtModule" href="ExtModule.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -218,10 +216,10 @@ structure are private to the <a class="reference internal" href="#LangTag.ExtMod
 </table>
 <p>Create a new instance of <a class="reference internal" href="#LangTag.ExtModuleData" title="LangTag.ExtModuleData"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.ExtModuleData</span></code></a>. this function allows
 to create an inherited instance like:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">struct</span> <span class="kt">_my_module_data_t</span> <span class="p">{</span>
-<span class="n">LtExtModuleData</span>  <span class="n">parent</span><span class="p">;</span>
-<span class="p">...</span><span class="n">own</span> <span class="n">members</span><span class="p">...</span>
-<span class="p">};</span>
+<div class="highlight-none"><div class="highlight"><pre>struct _my_module_data_t {
+LtExtModuleData  parent;
+...own members...
+};
 </pre></div>
 </div>
 </dd></dl>
@@ -233,19 +231,19 @@ to create an inherited instance like:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the same <cite>data</cite> object.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the same <cite>self</cite> object.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#LangTag.ExtModuleData" title="LangTag.ExtModuleData"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.ExtModuleData</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Increases the reference count of <cite>data</cite>.</p>
+<p>Increases the reference count of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="LangTag.ExtModuleData.unref">
 <code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Decreases the reference count of <cite>data</cite>. when its reference count
+<dd><p>Decreases the reference count of <cite>self</cite>. when its reference count
 drops to 0, the object is finalized (i.e. its memory is freed).</p>
 </dd></dl>
 
@@ -265,7 +263,4 @@ drops to 0, the object is finalized (i.e. its memory is freed).</p>
   </div> 
 
 </body>
-
-  
-
 </html>

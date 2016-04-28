@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Soup 2.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Soup.Message" href="Message.html"/>
         <link rel="prev" title="Soup.CookieJarText" href="CookieJarText.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -352,8 +350,8 @@
 <a class="reference internal" href="../enums.html#Soup.LoggerLogLevel.BODY" title="Soup.LoggerLogLevel.BODY"><code class="xref py py-obj docutils literal"><span class="pre">Soup.LoggerLogLevel.BODY</span></code></a>, <cite>max_body_size</cite> gives the maximum number of
 bytes of the body that will be logged. (-1 means &#8220;no limit&#8221;.)</p>
 <p>If you need finer control over what message parts are and aren&#8217;t
-logged, use <a class="reference internal" href="#Soup.Logger.set_request_filter" title="Soup.Logger.set_request_filter"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_request_filter</span></code></a> () and
-<a class="reference internal" href="#Soup.Logger.set_response_filter" title="Soup.Logger.set_response_filter"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_response_filter</span></code></a> ().</p>
+logged, use <a class="reference internal" href="#Soup.Logger.set_request_filter" title="Soup.Logger.set_request_filter"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_request_filter</span></code></a>() and
+<a class="reference internal" href="#Soup.Logger.set_response_filter" title="Soup.Logger.set_response_filter"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.set_response_filter</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -367,13 +365,13 @@ logged, use <a class="reference internal" href="#Soup.Logger.set_request_filter"
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>logger</cite> to watch <cite>session</cite> and print debug information for
+<p>Sets <cite>self</cite> to watch <cite>session</cite> and print debug information for
 its messages.</p>
-<p>(The session will take a reference on <cite>logger</cite>, which will be
-removed when you call <a class="reference internal" href="#Soup.Logger.detach" title="Soup.Logger.detach"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.detach</span></code></a> (), or when the session is
+<p>(The session will take a reference on <cite>self</cite>, which will be
+removed when you call <a class="reference internal" href="#Soup.Logger.detach" title="Soup.Logger.detach"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.detach</span></code></a>(), or when the session is
 destroyed.)</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Use <a class="reference internal" href="Session.html#Soup.Session.add_feature" title="Soup.Session.add_feature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.add_feature</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>Use <a class="reference internal" href="Session.html#Soup.Session.add_feature" title="Soup.Session.add_feature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.add_feature</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
@@ -388,9 +386,9 @@ destroyed.)</p>
 </tr>
 </tbody>
 </table>
-<p>Stops <cite>logger</cite> from watching <cite>session</cite>.</p>
+<p>Stops <cite>self</cite> from watching <cite>session</cite>.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Use <a class="reference internal" href="Session.html#Soup.Session.remove_feature" title="Soup.Session.remove_feature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.remove_feature</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>Use <a class="reference internal" href="Session.html#Soup.Session.remove_feature" title="Soup.Session.remove_feature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.remove_feature</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
@@ -403,7 +401,7 @@ destroyed.)</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>printer</strong> (<a class="reference internal" href="../callbacks.html#Soup.LoggerPrinter" title="Soup.LoggerPrinter"><code class="xref py py-obj docutils literal"><span class="pre">Soup.LoggerPrinter</span></code></a>) &#8211; the callback for printing logging output</li>
-<li><strong>printer_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data to pass to the callback</li>
+<li><strong>printer_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data to pass to the callback</li>
 </ul>
 </td>
 </tr>
@@ -422,17 +420,17 @@ the log to go to <code class="docutils literal"><span class="pre">stdout</span><
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>request_filter</strong> (<a class="reference internal" href="../callbacks.html#Soup.LoggerFilter" title="Soup.LoggerFilter"><code class="xref py py-obj docutils literal"><span class="pre">Soup.LoggerFilter</span></code></a>) &#8211; the callback for request debugging</li>
-<li><strong>filter_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data to pass to the callback</li>
+<li><strong>filter_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data to pass to the callback</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Sets up a filter to determine the log level for a given request.
-For each HTTP request <cite>logger</cite> will invoke <cite>request_filter</cite> to
+For each HTTP request <cite>self</cite> will invoke <cite>request_filter</cite> to
 determine how much (if any) of that request to log. (If you do not
-set a request filter, <cite>logger</cite> will just always log requests at the
-level passed to <a class="reference internal" href="#Soup.Logger.new" title="Soup.Logger.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.new</span></code></a> ().)</p>
+set a request filter, <cite>self</cite> will just always log requests at the
+level passed to <a class="reference internal" href="#Soup.Logger.new" title="Soup.Logger.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.new</span></code></a>().)</p>
 </dd></dl>
 
 <dl class="method">
@@ -444,17 +442,17 @@ level passed to <a class="reference internal" href="#Soup.Logger.new" title="Sou
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>response_filter</strong> (<a class="reference internal" href="../callbacks.html#Soup.LoggerFilter" title="Soup.LoggerFilter"><code class="xref py py-obj docutils literal"><span class="pre">Soup.LoggerFilter</span></code></a>) &#8211; the callback for response debugging</li>
-<li><strong>filter_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data to pass to the callback</li>
+<li><strong>filter_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data to pass to the callback</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Sets up a filter to determine the log level for a given response.
-For each HTTP response <cite>logger</cite> will invoke <cite>response_filter</cite> to
+For each HTTP response <cite>self</cite> will invoke <cite>response_filter</cite> to
 determine how much (if any) of that response to log. (If you do not
-set a response filter, <cite>logger</cite> will just always log responses at
-the level passed to <a class="reference internal" href="#Soup.Logger.new" title="Soup.Logger.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.new</span></code></a> ().)</p>
+set a response filter, <cite>self</cite> will just always log responses at
+the level passed to <a class="reference internal" href="#Soup.Logger.new" title="Soup.Logger.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Logger.new</span></code></a>().)</p>
 </dd></dl>
 
 </dd></dl>
@@ -473,7 +471,4 @@ the level passed to <a class="reference internal" href="#Soup.Logger.new" title=
   </div> 
 
 </body>
-
-  
-
 </html>

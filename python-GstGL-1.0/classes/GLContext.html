@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
-    <link rel="top" title="GstGL 1.0 Python API Docs" href="../index.html"/>
-        <link rel="up" title="Classes" href="index.html"/>
-        <link rel="next" title="GstGL.GLDisplay" href="GLDisplay.html"/>
-        <link rel="prev" title="GstGL.GLColorConvert" href="GLColorConvert.html"/> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    <link rel="top" title="GstGL 1.0 Python API Docs" href="../index.html"/>
+        <link rel="up" title="Classes" href="index.html"/>
+        <link rel="next" title="GstGL.GLControlBindingProxy" href="GLControlBindingProxy.html"/>
+        <link rel="prev" title="GstGL.GLColorConvert" href="GLColorConvert.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -69,7 +67,7 @@
 
 
 
-<td><a accesskey="n" href="GLDisplay.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="GLControlBindingProxy.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -114,7 +112,7 @@
 
 
 
-<td><a accesskey="n" href="GLDisplay.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="GLControlBindingProxy.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -154,9 +152,17 @@
  viewBox="0.00 0.00 130.00 188.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
 <title>g</title>
+<!-- GstGL.GLContext -->
+<g id="node1" class="node"><title>GstGL.GLContext</title>
+<g id="a_node1"><a xlink:href="#GstGL.GLContext" xlink:title="GstGL.GLContext">
+<path fill="none" stroke="#aaaaaa" d="M99.5,-18C99.5,-18 22.5,-18 22.5,-18 19.5,-18 16.5,-15 16.5,-12 16.5,-12 16.5,-6 16.5,-6 16.5,-3 19.5,-0 22.5,-0 22.5,-0 99.5,-0 99.5,-0 102.5,-0 105.5,-3 105.5,-6 105.5,-6 105.5,-12 105.5,-12 105.5,-15 102.5,-18 99.5,-18"/>
+<text text-anchor="middle" x="61" y="-6.7" font-family="inherit" font-size="8.50">GstGL.GLContext</text>
+</a>
+</g>
+</g>
 <!-- GObject.InitiallyUnowned -->
-<g id="node1" class="node"><title>GObject.InitiallyUnowned</title>
-<g id="a_node1"><a xlink:href="../_docs/GstGL-1.0/../../../python-GObject-2.0/classes/InitiallyUnowned.html#GObject.InitiallyUnowned" xlink:title="GObject.InitiallyUnowned">
+<g id="node2" class="node"><title>GObject.InitiallyUnowned</title>
+<g id="a_node2"><a xlink:href="../_docs/GstGL-1.0/../../../python-GObject-2.0/classes/InitiallyUnowned.html#GObject.InitiallyUnowned" xlink:title="GObject.InitiallyUnowned">
 <path fill="none" stroke="#75507b" d="M116,-126C116,-126 6,-126 6,-126 3,-126 -7.10543e-15,-123 -7.10543e-15,-120 -7.10543e-15,-120 -7.10543e-15,-114 -7.10543e-15,-114 -7.10543e-15,-111 3,-108 6,-108 6,-108 116,-108 116,-108 119,-108 122,-111 122,-114 122,-114 122,-120 122,-120 122,-123 119,-126 116,-126"/>
 <text text-anchor="middle" x="61" y="-114.7" font-family="inherit" font-size="8.50">GObject.InitiallyUnowned</text>
 </a>
@@ -174,14 +180,6 @@
 <g id="edge1" class="edge"><title>GObject.InitiallyUnowned&#45;&gt;Gst.Object</title>
 <path fill="none" stroke="black" stroke-width="0.5" d="M61,-107.875C61,-99.7564 61,-87.1312 61,-77.5044"/>
 <polygon fill="black" stroke="black" stroke-width="0.5" points="62.7501,-77.2395 61,-72.2396 59.2501,-77.2396 62.7501,-77.2395"/>
-</g>
-<!-- GstGL.GLContext -->
-<g id="node2" class="node"><title>GstGL.GLContext</title>
-<g id="a_node2"><a xlink:href="#GstGL.GLContext" xlink:title="GstGL.GLContext">
-<path fill="none" stroke="#aaaaaa" d="M99.5,-18C99.5,-18 22.5,-18 22.5,-18 19.5,-18 16.5,-15 16.5,-12 16.5,-12 16.5,-6 16.5,-6 16.5,-3 19.5,-0 22.5,-0 22.5,-0 99.5,-0 99.5,-0 102.5,-0 105.5,-3 105.5,-6 105.5,-6 105.5,-12 105.5,-12 105.5,-15 102.5,-18 99.5,-18"/>
-<text text-anchor="middle" x="61" y="-6.7" font-family="inherit" font-size="8.50">GstGL.GLContext</text>
-</a>
-</g>
 </g>
 <!-- Gst.Object&#45;&gt;GstGL.GLContext -->
 <g id="edge3" class="edge"><title>Gst.Object&#45;&gt;GstGL.GLContext</title>
@@ -231,16 +229,22 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><em>static</em></td>
+<td><a class="reference internal" href="#GstGL.GLContext.default_get_proc_address" title="GstGL.GLContext.default_get_proc_address"><code class="xref py py-func docutils literal"><span class="pre">default_get_proc_address</span></code></a> (gl_api, name)</td>
+</tr>
+<tr class="row-even"><td><em>static</em></td>
 <td><a class="reference internal" href="#GstGL.GLContext.error_quark" title="GstGL.GLContext.error_quark"><code class="xref py py-func docutils literal"><span class="pre">error_quark</span></code></a> ()</td>
 </tr>
-<tr class="row-even"><td><em>static</em></td>
+<tr class="row-odd"><td><em>static</em></td>
 <td><a class="reference internal" href="#GstGL.GLContext.get_current_gl_api" title="GstGL.GLContext.get_current_gl_api"><code class="xref py py-func docutils literal"><span class="pre">get_current_gl_api</span></code></a> (platform)</td>
 </tr>
+<tr class="row-even"><td><em>static</em></td>
+<td><a class="reference internal" href="#GstGL.GLContext.get_current_gl_context" title="GstGL.GLContext.get_current_gl_context"><code class="xref py py-func docutils literal"><span class="pre">get_current_gl_context</span></code></a> (context_type)</td>
+</tr>
 <tr class="row-odd"><td><em>static</em></td>
-<td><a class="reference internal" href="#GstGL.GLContext.get_current_gl_context" title="GstGL.GLContext.get_current_gl_context"><code class="xref py py-func docutils literal"><span class="pre">get_current_gl_context</span></code></a> (platform)</td>
+<td><a class="reference internal" href="#GstGL.GLContext.get_error" title="GstGL.GLContext.get_error"><code class="xref py py-func docutils literal"><span class="pre">get_error</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td><em>static</em></td>
-<td><a class="reference internal" href="#GstGL.GLContext.get_error" title="GstGL.GLContext.get_error"><code class="xref py py-func docutils literal"><span class="pre">get_error</span></code></a> ()</td>
+<td><a class="reference internal" href="#GstGL.GLContext.get_proc_address_with_platform" title="GstGL.GLContext.get_proc_address_with_platform"><code class="xref py py-func docutils literal"><span class="pre">get_proc_address_with_platform</span></code></a> (context_type, gl_api, name)</td>
 </tr>
 <tr class="row-odd"><td><em>static</em></td>
 <td><a class="reference internal" href="#GstGL.GLContext.new" title="GstGL.GLContext.new"><code class="xref py py-func docutils literal"><span class="pre">new</span></code></a> (display)</td>
@@ -294,10 +298,22 @@
 <td><a class="reference internal" href="#GstGL.GLContext.get_gl_version" title="GstGL.GLContext.get_gl_version"><code class="xref py py-func docutils literal"><span class="pre">get_gl_version</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GstGL.GLContext.get_thread" title="GstGL.GLContext.get_thread"><code class="xref py py-func docutils literal"><span class="pre">get_thread</span></code></a> ()</td>
+<td><a class="reference internal" href="#GstGL.GLContext.get_proc_address" title="GstGL.GLContext.get_proc_address"><code class="xref py py-func docutils literal"><span class="pre">get_proc_address</span></code></a> (name)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstGL.GLContext.get_thread" title="GstGL.GLContext.get_thread"><code class="xref py py-func docutils literal"><span class="pre">get_thread</span></code></a> ()</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstGL.GLContext.is_shared" title="GstGL.GLContext.is_shared"><code class="xref py py-func docutils literal"><span class="pre">is_shared</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstGL.GLContext.set_shared_with" title="GstGL.GLContext.set_shared_with"><code class="xref py py-func docutils literal"><span class="pre">set_shared_with</span></code></a> (share)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstGL.GLContext.set_window" title="GstGL.GLContext.set_window"><code class="xref py py-func docutils literal"><span class="pre">set_window</span></code></a> (window)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstGL.GLContext.supports_glsl_profile_version" title="GstGL.GLContext.supports_glsl_profile_version"><code class="xref py py-func docutils literal"><span class="pre">supports_glsl_profile_version</span></code></a> (version, profile)</td>
 </tr>
 </tbody>
 </table>
@@ -439,6 +455,26 @@
 of the limitation on OpenGL context, this object is not thread safe unless
 specified and must only be activated in a single thread.</p>
 <dl class="staticmethod">
+<dt id="GstGL.GLContext.default_get_proc_address">
+<em class="property">static </em><code class="descname">default_get_proc_address</code><span class="sig-paren">(</span><em>gl_api</em>, <em>name</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>gl_api</strong> (<a class="reference internal" href="../flags.html#GstGL.GLAPI" title="GstGL.GLAPI"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLAPI</span></code></a>) &#8211; </li>
+<li><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
 <dt id="GstGL.GLContext.error_quark">
 <em class="property">static </em><code class="descname">error_quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -486,12 +522,12 @@ returned.</p>
 
 <dl class="staticmethod">
 <dt id="GstGL.GLContext.get_current_gl_context">
-<em class="property">static </em><code class="descname">get_current_gl_context</code><span class="sig-paren">(</span><em>platform</em><span class="sig-paren">)</span></dt>
+<em class="property">static </em><code class="descname">get_current_gl_context</code><span class="sig-paren">(</span><em>context_type</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>platform</strong> (<a class="reference internal" href="../flags.html#GstGL.GLPlatform" title="GstGL.GLPlatform"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLPlatform</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context_type</strong> (<a class="reference internal" href="../flags.html#GstGL.GLPlatform" title="GstGL.GLPlatform"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLPlatform</span></code></a>) &#8211; a <a class="reference internal" href="../flags.html#GstGL.GLPlatform" title="GstGL.GLPlatform"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLPlatform</span></code></a> specifying the type of context to retrieve</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The OpenGL context handle current in the calling thread or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
@@ -512,6 +548,27 @@ returned.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="GstGL.GLContext.get_proc_address_with_platform">
+<em class="property">static </em><code class="descname">get_proc_address_with_platform</code><span class="sig-paren">(</span><em>context_type</em>, <em>gl_api</em>, <em>name</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>context_type</strong> (<a class="reference internal" href="../flags.html#GstGL.GLPlatform" title="GstGL.GLPlatform"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLPlatform</span></code></a>) &#8211; </li>
+<li><strong>gl_api</strong> (<a class="reference internal" href="../flags.html#GstGL.GLAPI" title="GstGL.GLAPI"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLAPI</span></code></a>) &#8211; </li>
+<li><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -582,9 +639,9 @@ returned.</p>
 </tr>
 </tbody>
 </table>
-<p>(De)activate the OpenGL context represented by this <cite>context</cite>.</p>
+<p>(De)activate the OpenGL context represented by this <cite>self</cite>.</p>
 <p>In OpenGL terms, calls eglMakeCurrent or similar with this context and the
-currently set window.  See <a class="reference internal" href="#GstGL.GLContext.set_window" title="GstGL.GLContext.set_window"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.set_window</span></code></a> () for details.</p>
+currently set window.  See <a class="reference internal" href="#GstGL.GLContext.set_window" title="GstGL.GLContext.set_window"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.set_window</span></code></a>() for details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -599,14 +656,14 @@ currently set window.  See <a class="reference internal" href="#GstGL.GLContext.
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other_context</strong> (<a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a>) &#8211; another <a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">whether <cite>context</cite> and <cite>other_context</cite> are able to share OpenGL
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">whether <cite>self</cite> and <cite>other_context</cite> are able to share OpenGL
 resources.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Note: This will always fail for two wrapped <a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a> &#8216;s</p>
+<p>Note: This will always fail for two wrapped <a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a>&#8216;s</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -621,7 +678,7 @@ resources.</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a platform specific feature</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Whether <cite>feature</cite> is supported by <cite>context</cite></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Whether <cite>feature</cite> is supported by <cite>self</cite></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -678,7 +735,9 @@ version.</p>
 <dl class="method">
 <dt id="GstGL.GLContext.clear_shader">
 <code class="descname">clear_shader</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
+<dd><p>Clear&#8217;s the currently set shader from the GL state machine.</p>
+<p>Note: must be called in the GL thread.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="GstGL.GLContext.create">
@@ -689,7 +748,7 @@ version.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other_context</strong> (<a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a> to share OpenGL objects with</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GstGL-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GstGL-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether the context could successfully be created</td>
 </tr>
@@ -725,7 +784,7 @@ of the error and <a class="reference external" href="http://docs.python.org/2.7/
 <dt id="GstGL.GLContext.destroy">
 <code class="descname">destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Destroys an OpenGL context.</p>
-<p>Should only be called after <a class="reference internal" href="#GstGL.GLContext.create" title="GstGL.GLContext.create"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.create</span></code></a> () has been successfully
+<p>Should only be called after <a class="reference internal" href="#GstGL.GLContext.create" title="GstGL.GLContext.create"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.create</span></code></a>() has been successfully
 called for this context.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -739,15 +798,15 @@ called for this context.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GstGL-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GstGL-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Fills <cite>context</cite> &#8216;s info (version, extensions, vtable, etc) from the GL
+<p>Fills <cite>self</cite>&#8216;s info (version, extensions, vtable, etc) from the GL
 context in the current thread.  Typically used with wrapped contexts to
-allow wrapped contexts to be used as regular <a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a> &#8216;s.</p>
+allow wrapped contexts to be used as regular <a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a>&#8216;s.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -808,7 +867,7 @@ the <a class="reference internal" href="GLWindow.html#GstGL.GLWindow" title="Gst
 </tr>
 </tbody>
 </table>
-<p>Gets the backing OpenGL context used by <cite>context</cite>.</p>
+<p>Gets the backing OpenGL context used by <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -827,7 +886,7 @@ the <a class="reference internal" href="GLWindow.html#GstGL.GLWindow" title="Gst
 </tr>
 </tbody>
 </table>
-<p>Gets the OpenGL platform that used by <cite>context</cite>.</p>
+<p>Gets the OpenGL platform that used by <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -856,9 +915,33 @@ the <a class="reference internal" href="GLWindow.html#GstGL.GLWindow" title="Gst
 </tr>
 </tbody>
 </table>
-<p>Returns the OpenGL version implemented by <cite>context</cite>.  See
-<a class="reference internal" href="#GstGL.GLContext.get_gl_api" title="GstGL.GLContext.get_gl_api"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.get_gl_api</span></code></a> () for retreiving the OpenGL api implemented by
-<cite>context</cite>.</p>
+<p>Returns the OpenGL version implemented by <cite>self</cite>.  See
+<a class="reference internal" href="#GstGL.GLContext.get_gl_api" title="GstGL.GLContext.get_gl_api"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.get_gl_api</span></code></a>() for retreiving the OpenGL api implemented by
+<cite>self</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.4.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="GstGL.GLContext.get_proc_address">
+<code class="descname">get_proc_address</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; an opengl function name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a function pointer or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Get a function pointer to a specified opengl function, <cite>name</cite>.  If the the
+specific function does not exist, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned instead.</p>
+<p>Platform specfic functions (names starting &#8216;egl&#8217;, &#8216;glX&#8217;, &#8216;wgl&#8217;, etc) can also
+be retrieved using this method.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -871,7 +954,7 @@ the <a class="reference internal" href="GLWindow.html#GstGL.GLWindow" title="Gst
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The <a class="reference external" href="../_docs/GstGL-1.0/../../../python-GLib-2.0/structs/Thread.html#GLib.Thread" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Thread</span></code></a>, <cite>context</cite> is current in or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The <a class="reference external" href="../_docs/GstGL-1.0/../../../python-GLib-2.0/structs/Thread.html#GLib.Thread" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Thread</span></code></a>, <cite>self</cite> is current in or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/GstGL-1.0/../../../python-GLib-2.0/structs/Thread.html#GLib.Thread" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Thread</span></code></a></td>
 </tr>
@@ -879,6 +962,41 @@ the <a class="reference internal" href="GLWindow.html#GstGL.GLWindow" title="Gst
 </table>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="GstGL.GLContext.is_shared">
+<code class="descname">is_shared</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Whether the <a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a> has been shared with another <a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="GstGL.GLContext.set_shared_with">
+<code class="descname">set_shared_with</code><span class="sig-paren">(</span><em>share</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>share</strong> (<a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a>) &#8211; another <a class="reference internal" href="#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Will internally set <cite>self</cite> as shared with <cite>share</cite></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
 </dd></dl>
 
@@ -897,12 +1015,32 @@ the <a class="reference internal" href="GLWindow.html#GstGL.GLWindow" title="Gst
 </tr>
 </tbody>
 </table>
-<p>Set&#8217;s the current window on <cite>context</cite> to <cite>window</cite>.  The window can only be
-changed before <a class="reference internal" href="#GstGL.GLContext.create" title="GstGL.GLContext.create"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.create</span></code></a> () has been called and the <cite>window</cite> is not
+<p>Set&#8217;s the current window on <cite>self</cite> to <cite>window</cite>.  The window can only be
+changed before <a class="reference internal" href="#GstGL.GLContext.create" title="GstGL.GLContext.create"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.create</span></code></a>() has been called and the <cite>window</cite> is not
 already running.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
+</dd></dl>
+
+<dl class="method">
+<dt id="GstGL.GLContext.supports_glsl_profile_version">
+<code class="descname">supports_glsl_profile_version</code><span class="sig-paren">(</span><em>version</em>, <em>profile</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>version</strong> (<a class="reference internal" href="../enums.html#GstGL.GLSLVersion" title="GstGL.GLSLVersion"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLSLVersion</span></code></a>) &#8211; </li>
+<li><strong>profile</strong> (<a class="reference internal" href="../flags.html#GstGL.GLSLProfile" title="GstGL.GLSLProfile"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLSLProfile</span></code></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -922,7 +1060,7 @@ already running.</p>
 </table>
 <p>(De)activate the OpenGL context represented by this <cite>context</cite>.</p>
 <p>In OpenGL terms, calls eglMakeCurrent or similar with this context and the
-currently set window.  See <a class="reference internal" href="#GstGL.GLContext.set_window" title="GstGL.GLContext.set_window"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.set_window</span></code></a> () for details.</p>
+currently set window.  See <a class="reference internal" href="#GstGL.GLContext.set_window" title="GstGL.GLContext.set_window"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext.set_window</span></code></a>() for details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -1068,7 +1206,4 @@ the <a class="reference internal" href="GLWindow.html#GstGL.GLWindow" title="Gst
   </div> 
 
 </body>
-
-  
-
 </html>

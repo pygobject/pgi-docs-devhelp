@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gda 5.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gda.TreeMgrColumns" href="TreeMgrColumns.html"/>
         <link rel="prev" title="Gda.Tree" href="Tree.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -350,12 +348,12 @@
 </tr>
 </tbody>
 </table>
-<p>Adds a sub manager to <cite>manager</cite>. Use this method to create the skeleton structure
+<p>Adds a sub manager to <cite>self</cite>. Use this method to create the skeleton structure
 of a <a class="reference internal" href="Tree.html#Gda.Tree" title="Gda.Tree"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Tree</span></code></a>. Note that a single <a class="reference internal" href="#Gda.TreeManager" title="Gda.TreeManager"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeManager</span></code></a> can be used by several <a class="reference internal" href="Tree.html#Gda.Tree" title="Gda.Tree"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Tree</span></code></a> objects
-or several times in the same <a class="reference internal" href="Tree.html#Gda.Tree" title="Gda.Tree"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Tree</span></code></a> &#8216;s structure.</p>
+or several times in the same <a class="reference internal" href="Tree.html#Gda.Tree" title="Gda.Tree"><code class="xref py py-obj docutils literal"><span class="pre">Gda.Tree</span></code></a>&#8216;s structure.</p>
 <p>Please note that it&#8217;s possible for <cite>mgr</cite> and <cite>sub</cite> to be the same object, but beware of the possible
 infinite recursive behaviour in this case when creating children nodes
-(depending on the actual implementation of the <a class="reference internal" href="#Gda.TreeManager" title="Gda.TreeManager"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeManager</span></code></a> ).</p>
+(depending on the actual implementation of the <a class="reference internal" href="#Gda.TreeManager" title="Gda.TreeManager"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeManager</span></code></a>).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 4.2.</span></p>
 </div>
@@ -376,7 +374,7 @@ infinite recursive behaviour in this case when creating children nodes
 </tr>
 </tbody>
 </table>
-<p>Requests that for any new node managed (eg. created) by <cite>manager</cite>, a new attribute will be set. This allows
+<p>Requests that for any new node managed (eg. created) by <cite>self</cite>, a new attribute will be set. This allows
 one to customize the attributes of new nodes created by an existing <a class="reference internal" href="#Gda.TreeManager" title="Gda.TreeManager"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeManager</span></code></a>.</p>
 <p>As a side effect, if <cite>value</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, then the corresponding attribute, if it was set, is unset.</p>
 <div class="versionadded">
@@ -405,9 +403,9 @@ one to customize the attributes of new nodes created by an existing <a class="re
 </tr>
 </tbody>
 </table>
-<p>Requests that <cite>manager</cite> creates a new <a class="reference internal" href="TreeNode.html#Gda.TreeNode" title="Gda.TreeNode"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeNode</span></code></a>. The new node is not in any
-way linked to <cite>manager</cite> yet, consider this method as a <a class="reference internal" href="TreeNode.html#Gda.TreeNode" title="Gda.TreeNode"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeNode</span></code></a> factory.</p>
-<p>This method is usually used when implementing a <code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeManagerNodesFunc</span></code> function (to create nodes),
+<p>Requests that <cite>self</cite> creates a new <a class="reference internal" href="TreeNode.html#Gda.TreeNode" title="Gda.TreeNode"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeNode</span></code></a>. The new node is not in any
+way linked to <cite>self</cite> yet, consider this method as a <a class="reference internal" href="TreeNode.html#Gda.TreeNode" title="Gda.TreeNode"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeNode</span></code></a> factory.</p>
+<p>This method is usually used when implementing a #GdaTreeManagerNodesFunc function (to create nodes),
 or when subclassing the <a class="reference internal" href="#Gda.TreeManager" title="Gda.TreeManager"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeManager</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 4.2.</span></p>
@@ -427,7 +425,7 @@ or when subclassing the <a class="reference internal" href="#Gda.TreeManager" ti
 </tr>
 </tbody>
 </table>
-<p>Get the list of sub managers which have already been added using <a class="reference internal" href="#Gda.TreeManager.add_manager" title="Gda.TreeManager.add_manager"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeManager.add_manager</span></code></a> ()</p>
+<p>Get the list of sub managers which have already been added using <a class="reference internal" href="#Gda.TreeManager.add_manager" title="Gda.TreeManager.add_manager"><code class="xref py py-obj docutils literal"><span class="pre">Gda.TreeManager.add_manager</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 4.2.</span></p>
 </div>
@@ -497,7 +495,4 @@ and needs to be postponed while an event occurs.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="RB 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="RB.RhythmDBEntryType" href="RhythmDBEntryType.html"/>
         <link rel="prev" title="RB.RemovableMediaManager" href="RemovableMediaManager.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -675,7 +673,7 @@ elsewhere in order for them to be marked for translation correctly.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Quark</span></code> used for <a class="reference internal" href="../enums.html#RB.RhythmDBError" title="RB.RhythmDBError"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBError</span></code></a> information</p>
+<p>Returns the #GQuark used for <a class="reference internal" href="../enums.html#RB.RhythmDBError" title="RB.RhythmDBError"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBError</span></code></a> information</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -754,7 +752,7 @@ elsewhere in order for them to be marked for translation correctly.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>array</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/structs/PtrArray.html#GLib.PtrArray" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray</span></code></a>) &#8211; the query to copy.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a copy of the passed query.
-It must be freed with <a class="reference internal" href="#RB.RhythmDB.query_free" title="RB.RhythmDB.query_free"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.query_free</span></code></a> ()</td>
+It must be freed with <a class="reference internal" href="#RB.RhythmDB.query_free" title="RB.RhythmDB.query_free"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.query_free</span></code></a>()</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/structs/PtrArray.html#GLib.PtrArray" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray</span></code></a></td>
 </tr>
@@ -821,7 +819,7 @@ recursively.</p>
 <code class="descname">commit</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Apply all database changes, and send notification of changes and new entries.
 This needs to be called after any changes have been made, such as a group of
-<a class="reference internal" href="#RB.RhythmDB.entry_set" title="RB.RhythmDB.entry_set"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.entry_set</span></code></a> () calls, or a new entry has been added.</p>
+<a class="reference internal" href="#RB.RhythmDB.entry_set" title="RB.RhythmDB.entry_set"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.entry_set</span></code></a>() calls, or a new entry has been added.</p>
 </dd></dl>
 
 <dl class="method">
@@ -842,7 +840,7 @@ This needs to be called after any changes have been made, such as a group of
 <p>Asynchronously runs a parsed query across the database, feeding matching
 entries to <cite>results</cite> in chunks.  This can only be called from the
 main thread.</p>
-<p>Since <cite>results</cite> is always a <a class="reference internal" href="RhythmDBQueryModel.html#RB.RhythmDBQueryModel" title="RB.RhythmDBQueryModel"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBQueryModel</span></code></a>,
+<p>Since <cite>results</cite> is always a <cite>RhythmDBQueryModel</cite>,
 use the <a class="reference internal" href="RhythmDBQueryModel.html#RB.RhythmDBQueryModel" title="RB.RhythmDBQueryModel"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBQueryModel</span></code></a> <a class="reference internal" href="RhythmDBQueryModel.html#RB.RhythmDBQueryModel.signals.complete" title="RB.RhythmDBQueryModel.signals.complete"><code class="xref py py-func docutils literal"><span class="pre">::complete</span></code></a> signal to identify when the
 query is complete.</p>
 </dd></dl>
@@ -1039,7 +1037,7 @@ This must be freed using <a class="reference external" href="../_docs/RB-3.0/../
 </table>
 <p>Gathers all metadata for the <cite>entry</cite>. The returned <a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> maps property
 names and extra metadata names (described under
-<cite>rhythmdb_entry_request_extra_metadata</cite> ) to GValues. Anything wanting to
+<cite>rhythmdb_entry_request_extra_metadata</cite>) to GValues. Anything wanting to
 provide extra metadata should connect to the &#8220;entry_extra_metadata_gather&#8221;
 signal.</p>
 </dd></dl>
@@ -1314,12 +1312,12 @@ the accumulator will take ownership. The caller should unset and free the
 song property and send a notification.  It may be called when the
 database is read-only; in this case the change will be queued for
 an unspecified time in the future.  The implication of this is that
-<a class="reference internal" href="#RB.RhythmDB.entry_get" title="RB.RhythmDB.entry_get"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.entry_get</span></code></a> () may not reflect the changes immediately.  However,
+<a class="reference internal" href="#RB.RhythmDB.entry_get" title="RB.RhythmDB.entry_get"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.entry_get</span></code></a>() may not reflect the changes immediately.  However,
 if this property is exposed in the user interface, you should still
 make the change in the widget.  Then when the database returns to a
 writable state, your change will take effect in the database too,
 and a notification will be sent at that point.</p>
-<p>Note that you must call <a class="reference internal" href="#RB.RhythmDB.commit" title="RB.RhythmDB.commit"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.commit</span></code></a> () at some point after invoking
+<p>Note that you must call <a class="reference internal" href="#RB.RhythmDB.commit" title="RB.RhythmDB.commit"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB.commit</span></code></a>() at some point after invoking
 this function, and that even after the commit, your change may not
 have taken effect.</p>
 </dd></dl>
@@ -1356,7 +1354,7 @@ type is registered with the specified name.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -1375,7 +1373,7 @@ to the file at the entry&#8217;s location.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>query</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/structs/PtrArray.html#GLib.PtrArray" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray</span></code></a>) &#8211; a query.</li>
-<li><strong>entry</strong> (<a class="reference internal" href="../structs/RhythmDBEntry.html#RB.RhythmDBEntry" title="RB.RhythmDBEntry"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntry</span></code></a>) &#8211; a <a class="reference internal" href="../structs/RhythmDBEntry.html#RB.RhythmDBEntry" title="RB.RhythmDBEntry"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntry</span></code></a>.</li>
+<li><strong>entry</strong> (<a class="reference internal" href="../structs/RhythmDBEntry.html#RB.RhythmDBEntry" title="RB.RhythmDBEntry"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBEntry</span></code></a>) &#8211; a <cite>RhythmDBEntry</cite>.</li>
 </ul>
 </td>
 </tr>
@@ -1397,7 +1395,7 @@ to the file at the entry&#8217;s location.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>property_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a property ID (<a class="reference internal" href="../enums.html#RB.RhythmDBPropType" title="RB.RhythmDBPropType"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBPropType</span></code></a> )</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>property_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a property ID (<a class="reference internal" href="../enums.html#RB.RhythmDBPropType" title="RB.RhythmDBPropType"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDBPropType</span></code></a>)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">property value type</td>
 </tr>
@@ -1405,7 +1403,7 @@ to the file at the entry&#8217;s location.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> for the value of the property.</p>
+<p>Returns the <a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> for the value of the property.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1508,7 +1506,7 @@ listed in <cite>items</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Converts a serialized query back into a <a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/structs/PtrArray.html#GLib.PtrArray" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray</span></code></a> query.</p>
+<p>Converts a serialized query back into a <cite>GPtrArray</cite> query.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2057,7 +2055,7 @@ removing all actions and events currently queued.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>uri</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
-<li><strong>error</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a>) &#8211; </li>
+<li><strong>error</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a>) &#8211; </li>
 </ul>
 </td>
 </tr>
@@ -2083,7 +2081,7 @@ removing all actions and events currently queued.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rhythm_d_b</strong> (<a class="reference internal" href="#RB.RhythmDB" title="RB.RhythmDB"><code class="xref py py-obj docutils literal"><span class="pre">RB.RhythmDB</span></code></a>) &#8211; The object which received the signal</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="../_docs/RB-3.0/../../../python-Gio-2.0/classes/MountOperation.html#Gio.MountOperation" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.MountOperation</span></code></a> (usually actually a <a class="reference external" href="../_docs/RB-3.0/../../../python-Gtk-3.0/classes/MountOperation.html#Gtk.MountOperation" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.MountOperation</span></code></a> )</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="../_docs/RB-3.0/../../../python-Gio-2.0/classes/MountOperation.html#Gio.MountOperation" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.MountOperation</span></code></a> (usually actually a <a class="reference external" href="../_docs/RB-3.0/../../../python-Gtk-3.0/classes/MountOperation.html#Gtk.MountOperation" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.MountOperation</span></code></a>)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/RB-3.0/../../../python-Gio-2.0/classes/MountOperation.html#Gio.MountOperation" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.MountOperation</span></code></a></td>
 </tr>
@@ -2471,7 +2469,4 @@ writeable after being read-only.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

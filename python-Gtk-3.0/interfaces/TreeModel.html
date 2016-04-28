@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gtk.TreeSortable" href="TreeSortable.html"/>
         <link rel="prev" title="Gtk.TreeDragSource" href="TreeDragSource.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -406,6 +404,14 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Implements <code class="docutils literal"><span class="pre">__len__</span></code>, <code class="docutils literal"><span class="pre">__bool__</span></code>, <code class="docutils literal"><span class="pre">__nonzero__</span></code>, <code class="docutils literal"><span class="pre">__iter__</span></code>,
+<code class="docutils literal"><span class="pre">__getitem__</span></code>, <code class="docutils literal"><span class="pre">__setitem__</span></code> and <code class="docutils literal"><span class="pre">__delitem__</span></code>.</p>
+<p>Iterating over a <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> yields
+<a class="reference internal" href="../classes/TreeModelRow.html#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> instances.</p>
+<p class="last"><code class="docutils literal"><span class="pre">__getitem__</span></code> returns a <a class="reference internal" href="../classes/TreeModelRow.html#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a>.</p>
+</div>
 <p>The <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> interface defines a generic tree interface for
 use by the <a class="reference internal" href="../classes/TreeView.html#Gtk.TreeView" title="Gtk.TreeView"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeView</span></code></a> widget. It is an abstract interface, and
 is designed to be usable with any appropriate data structure. The
@@ -415,7 +421,7 @@ type for it to be viewable by a <a class="reference internal" href="../classes/T
 columned data. In other words, the model can be seen as a tree where
 every node has different values depending on which column is being
 queried. The type of data found in a column is determined by using
-the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> system (ie. <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_INT" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_INT</span></code></a>, #GTK_TYPE_BUTTON, <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_POINTER" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_POINTER</span></code></a>,
+the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> system (ie. <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_INT" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_INT</span></code></a>, #GTK_TYPE_BUTTON, <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_POINTER" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_POINTER</span></code></a>,
 etc). The types are homogeneous per column across all nodes. It is
 important to note that this interface only provides a way of examining
 a model and observing changes. The implementation of each individual
@@ -446,7 +452,7 @@ the third node.</p>
 a specific model. It is a generic struct with an integer and three
 generic pointers. These are filled in by the model in a model-specific
 way. One can convert a path to an iterator by calling
-<a class="reference internal" href="#Gtk.TreeModel.get_iter" title="Gtk.TreeModel.get_iter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.get_iter</span></code></a> (). These iterators are the primary way
+<a class="reference internal" href="#Gtk.TreeModel.get_iter" title="Gtk.TreeModel.get_iter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.get_iter</span></code></a>(). These iterators are the primary way
 of accessing a model and are similar to the iterators used by
 <a class="reference internal" href="../classes/TextBuffer.html#Gtk.TextBuffer" title="Gtk.TextBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TextBuffer</span></code></a>. They are generally statically allocated on the
 stack and only used for a short time. The model interface defines
@@ -464,7 +470,7 @@ is unchanged (and doesn’t emit a signal). The model is considered
 to own all outstanding iterators and nothing needs to be done to
 free them from the user’s point of view. Additionally, some models
 guarantee that an iterator is valid for as long as the node it refers
-to is valid (most notably the <a class="reference internal" href="../classes/TreeStore.html#Gtk.TreeStore" title="Gtk.TreeStore"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeStore</span></code></a> and <a class="reference internal" href="../classes/ListStore.html#Gtk.ListStore" title="Gtk.ListStore"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ListStore</span></code></a> ).
+to is valid (most notably the <a class="reference internal" href="../classes/TreeStore.html#Gtk.TreeStore" title="Gtk.TreeStore"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeStore</span></code></a> and <a class="reference internal" href="../classes/ListStore.html#Gtk.ListStore" title="Gtk.ListStore"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ListStore</span></code></a>).
 Although generally uninteresting, as one always has to allow for
 the case where iterators do not persist beyond a signal, some very
 important performance enhancements were made in the sort model.
@@ -564,7 +570,7 @@ how to write such a function, see the <a class="reference internal" href="../cla
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> interface contains two methods for reference
-counting: <a class="reference internal" href="#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a> () and <a class="reference internal" href="#Gtk.TreeModel.unref_node" title="Gtk.TreeModel.unref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.unref_node</span></code></a> ().
+counting: <a class="reference internal" href="#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a>() and <a class="reference internal" href="#Gtk.TreeModel.unref_node" title="Gtk.TreeModel.unref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.unref_node</span></code></a>().
 These two methods are optional to implement. The reference counting
 is meant as a way for views to let models know when nodes are being
 displayed. <a class="reference internal" href="../classes/TreeView.html#Gtk.TreeView" title="Gtk.TreeView"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeView</span></code></a> will take a reference on a node when it is
@@ -592,7 +598,7 @@ is always referenced when any view is attached).</li>
 </ul>
 <dl class="method">
 <dt id="Gtk.TreeModel.filter_new">
-<code class="descname">filter_new</code><span class="sig-paren">(</span><em>root</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.18.6#n3774"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">filter_new</code><span class="sig-paren">(</span><em>root</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelfilter.c?h=3.20.3#n3774"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -605,7 +611,7 @@ is always referenced when any view is attached).</li>
 </tr>
 </tbody>
 </table>
-<p>Creates a new <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a>, with <cite>child_model</cite> as the child_model
+<p>Creates a new <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a>, with <cite>self</cite> as the child_model
 and <cite>root</cite> as the virtual root.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
@@ -614,7 +620,7 @@ and <cite>root</cite> as the virtual root.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.foreach">
-<code class="descname">foreach</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n2018"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">foreach</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n2018"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -629,33 +635,37 @@ and <cite>root</cite> as the virtual root.</p>
 </table>
 <p>Calls func on each node in model in a depth-first fashion.</p>
 <p>If <cite>func</cite> returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, then the tree ceases to be walked,
-and <a class="reference internal" href="#Gtk.TreeModel.foreach" title="Gtk.TreeModel.foreach"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.foreach</span></code></a> () returns.</p>
+and <a class="reference internal" href="#Gtk.TreeModel.foreach" title="Gtk.TreeModel.foreach"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.foreach</span></code></a>() returns.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>treeiter</em>, <em>*columns</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1751"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Gets the value of one or more cells in the row referenced by <cite>iter</cite>.
-The variable argument list should contain integer column numbers,
-each column number followed by a place to store the value being
-retrieved.  The list is terminated by a -1. For example, to get a
-value from column 0 with type <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_STRING" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_STRING</span></code></a>, you would
-write: <code class="docutils literal"><span class="pre">gtk_tree_model_get</span> <span class="pre">(model,</span> <span class="pre">iter,</span> <span class="pre">0,</span> <span class="pre">&amp;amp;place_string_here,</span> <span class="pre">-1)</span></code>,
-where <code class="docutils literal"><span class="pre">place_string_here</span></code> is a #gchararray
-to be filled with the string.</p>
-<p>Returned values with type <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_OBJECT" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_OBJECT</span></code></a> have to be unreferenced,
-values with type <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_STRING" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_STRING</span></code></a> or <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_BOXED" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_BOXED</span></code></a> have to be freed.
-Other values are passed by value.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="Gtk.TreeModel.get_column_type">
-<code class="descname">get_column_type</code><span class="sig-paren">(</span><em>index_</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1229"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get</code><span class="sig-paren">(</span><em>treeiter</em>, <em>*columns</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1751"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index_</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the column index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>treeiter</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; the <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a></li>
+<li><strong>*columns</strong> &#8211; a list of column indices to fetch</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a tuple of all values specified by their indices in <cite>columns</cite>
+in the order the indices are contained in <cite>columns</cite></p>
+<p>Also see <code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeStore.get_value</span></code>()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gtk.TreeModel.get_column_type">
+<code class="descname">get_column_type</code><span class="sig-paren">(</span><em>index_</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1229"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the column index</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the type of the column</td>
 </tr>
@@ -668,7 +678,7 @@ Other values are passed by value.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.get_flags">
-<code class="descname">get_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1185"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1185"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -682,54 +692,40 @@ Other values are passed by value.</p>
 <p>Returns a set of flags supported by this interface.</p>
 <p>The flags are a bitwise combination of <a class="reference internal" href="../flags.html#Gtk.TreeModelFlags" title="Gtk.TreeModelFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelFlags</span></code></a>.
 The flags supported should not change during the lifetime
-of the <cite>tree_model</cite>.</p>
+of the <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.get_iter">
-<code class="descname">get_iter</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1256"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_iter</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1256"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a>) &#8211; the <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a>-struct</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>iter</cite> was set<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">iter:</th><td class="field-body">the uninitialized <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ValueError</span></code> if <cite>path</cite> doesn&#8217;t exist</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a></td>
 </tr>
 </tbody>
 </table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>iter</strong>: <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>)</td>
-</tr>
-</tbody>
-</table>
-<p>Sets <cite>iter</cite> to a valid iterator pointing to <cite>path</cite>.  If <cite>path</cite> does
-not exist, <cite>iter</cite> is set to an invalid iterator and <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned.</p>
+<p>Returns an iterator pointing to <cite>path</cite>. If <cite>path</cite> does not exist
+<code class="xref py py-class docutils literal"><span class="pre">ValueError</span></code> is raised.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.get_iter_first">
-<code class="descname">get_iter_first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1355"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_iter_first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1355"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>iter</cite> was set<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">iter:</th><td class="field-body">the uninitialized <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if the tree is empty.</td>
 </tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>iter</strong>: <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -740,34 +736,28 @@ not exist, <cite>iter</cite> is set to an invalid iterator and <a class="referen
 
 <dl class="method">
 <dt id="Gtk.TreeModel.get_iter_from_string">
-<code class="descname">get_iter_from_string</code><span class="sig-paren">(</span><em>path_string</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1287"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_iter_from_string</code><span class="sig-paren">(</span><em>path_string</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1287"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path_string</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a string representation of a <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a>-struct</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>iter</cite> was set<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">iter:</th><td class="field-body">an uninitialized <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ValueError</span></code> if an iterator pointing to <cite>path_string</cite> does not exist.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a></td>
 </tr>
 </tbody>
 </table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>iter</strong>: <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>)</td>
-</tr>
-</tbody>
-</table>
-<p>Sets <cite>iter</cite> to a valid iterator pointing to <cite>path_string</cite>, if it
-exists. Otherwise, <cite>iter</cite> is left invalid and <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned.</p>
+<p>Returns a valid iterator pointing to <cite>path_string</cite>, if it
+exists. Otherwise raises <code class="xref py py-class docutils literal"><span class="pre">ValueError</span></code></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.get_n_columns">
-<code class="descname">get_n_columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1207"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_n_columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1207"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -778,12 +768,12 @@ exists. Otherwise, <cite>iter</cite> is left invalid and <a class="reference ext
 </tr>
 </tbody>
 </table>
-<p>Returns the number of columns supported by <cite>tree_model</cite>.</p>
+<p>Returns the number of columns supported by <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.get_path">
-<code class="descname">get_path</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1383"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_path</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1383"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -797,12 +787,12 @@ exists. Otherwise, <cite>iter</cite> is left invalid and <a class="reference ext
 </tbody>
 </table>
 <p>Returns a newly-created <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a>-struct referenced by <cite>iter</cite>.</p>
-<p>This path should be freed with <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath.free" title="Gtk.TreePath.free"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath.free</span></code></a> ().</p>
+<p>This path should be freed with <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath.free" title="Gtk.TreePath.free"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath.free</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.get_string_from_iter">
-<code class="descname">get_string_from_iter</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1324"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_string_from_iter</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1324"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -810,7 +800,7 @@ exists. Otherwise, <cite>iter</cite> is left invalid and <a class="reference ext
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iter</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; a <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated string.
-Must be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</td>
+Must be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -827,7 +817,7 @@ return value for this string.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.get_value">
-<code class="descname">get_value</code><span class="sig-paren">(</span><em>iter</em>, <em>column</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1412"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_value</code><span class="sig-paren">(</span><em>iter</em>, <em>column</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1412"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -847,44 +837,34 @@ return value for this string.</p>
 </tbody>
 </table>
 <p>Initializes and sets <cite>value</cite> to that at <cite>column</cite>.</p>
-<p>When done with <cite>value</cite>, <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value.unset" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value.unset</span></code></a> () needs to be called
+<p>When done with <cite>value</cite>, <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value.unset" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value.unset</span></code></a>() needs to be called
 to free any allocated memory.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.iter_children">
-<code class="descname">iter_children</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1528"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iter_children</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1528"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>child</cite> has been set to the first child<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">iter:</th><td class="field-body">the new <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct to be set to the child</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>iter</strong>: <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>)</td>
-</tr>
-</tbody>
-</table>
-<p>Sets <cite>iter</cite> to point to the first child of <cite>parent</cite>.</p>
-<p>If <cite>parent</cite> has no children, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned and <cite>iter</cite> is
-set to be invalid. <cite>parent</cite> will remain a valid node after this
-function has been called.</p>
-<p>If <cite>parent</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> returns the first node, equivalent to
-<code class="docutils literal"><span class="pre">gtk_tree_model_get_iter_first</span> <span class="pre">(tree_model,</span> <span class="pre">iter);</span></code></p>
+<p>Sets <cite>iter</cite> to point to the first child of <cite>parent</cite>.
+If <cite>parent</cite> has no children, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.
+If <cite>parent</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> returns the first node, equivalent to
+<code class="docutils literal"><span class="pre">Gtk.TreeModel.iter_first()</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.iter_has_child">
-<code class="descname">iter_has_child</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1554"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iter_has_child</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1554"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -902,7 +882,7 @@ function has been called.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.iter_n_children">
-<code class="descname">iter_n_children</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1581"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iter_n_children</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1581"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -922,27 +902,27 @@ of toplevel nodes is returned.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.iter_next">
-<code class="descname">iter_next</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1440"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iter_next</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1440"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iter</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; the <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>iter</cite> has been changed to the next node</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>iter</cite> to point to the node following it at the current level.</p>
-<p>If there is no next <cite>iter</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned and <cite>iter</cite> is set
-to be invalid.</p>
+<p>Returns an iterator pointing to the node following <cite>iter</cite> at the
+current level.</p>
+<p>If there is no next <cite>iter</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.iter_nth_child">
-<code class="descname">iter_nth_child</code><span class="sig-paren">(</span><em>parent</em>, <em>n</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1614"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iter_nth_child</code><span class="sig-paren">(</span><em>parent</em>, <em>n</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1614"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -953,79 +933,59 @@ to be invalid.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>parent</cite> has an <cite>n</cite> -th child</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">iter:</th><td class="field-body">the <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct to set to the nth child</td>
-</tr>
-</tbody>
-</table>
-</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> if <cite>parent</cite> has an <cite>n</cite>-th child otherwise <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>iter</strong>: <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>iter</cite> to be the child of <cite>parent</cite>, using the given index.</p>
+<p>Returns child <cite>iter</cite> of <cite>parent</cite>, using the given index.</p>
 <p>The first index is 0. If <cite>n</cite> is too big, or <cite>parent</cite> has no children,
-<cite>iter</cite> is set to an invalid iterator and <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned. <cite>parent</cite>
-will remain a valid node after this function has been called. As a
-special case, if <cite>parent</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, then the <cite>n</cite> -th root node
-is set.</p>
+<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned. <cite>parent</cite> will remain a valid node after this
+function has been called. As a special case, if <cite>parent</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>,
+then the <cite>n</cite>-th root node is set.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.iter_parent">
-<code class="descname">iter_parent</code><span class="sig-paren">(</span><em>child</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1648"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iter_parent</code><span class="sig-paren">(</span><em>child</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1648"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>child</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; the <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>iter</cite> is set to the parent of <cite>child</cite><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">iter:</th><td class="field-body">the new <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct to set to the parent</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>child</cite> has a parent.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or :obj`None`</td>
 </tr>
 </tbody>
 </table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>iter</strong>: <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>)</td>
-</tr>
-</tbody>
-</table>
-<p>Sets <cite>iter</cite> to be the parent of <cite>child</cite>.</p>
-<p>If <cite>child</cite> is at the toplevel, and doesn’t have a parent, then
-<cite>iter</cite> is set to an invalid iterator and <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned.
-<cite>child</cite> will remain a valid node after this function has been
+<p>Returns iter of the parent of <cite>child</cite>.</p>
+<p>If <cite>child</cite> is at the toplevel, and doesn&#8217;t have a parent, then <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
+is returned. <cite>child</cite> will remain a valid node after this function has been
 called.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.iter_previous">
-<code class="descname">iter_previous</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1490"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iter_previous</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1490"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iter</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; the <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>iter</cite> has been changed to the previous node</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>iter</cite> to point to the previous node at the current level.</p>
-<p>If there is no previous <cite>iter</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned and <cite>iter</cite> is
-set to be invalid.</p>
+<p>Returns an iterator pointing to the previous node at the current level.</p>
+<p>If there is no previous <cite>iter</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -1033,7 +993,7 @@ set to be invalid.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.ref_node">
-<code class="descname">ref_node</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1689"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">ref_node</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1689"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1060,7 +1020,7 @@ of its reffed state.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.row_changed">
-<code class="descname">row_changed</code><span class="sig-paren">(</span><em>path</em>, <em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1826"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">row_changed</code><span class="sig-paren">(</span><em>path</em>, <em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1826"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1073,12 +1033,12 @@ of its reffed state.</p>
 </tr>
 </tbody>
 </table>
-<p>Emits the <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> <a class="reference internal" href="#Gtk.TreeModel.signals.row_changed" title="Gtk.TreeModel.signals.row_changed"><code class="xref py py-func docutils literal"><span class="pre">::row-changed</span></code></a> signal on <cite>tree_model</cite>.</p>
+<p>Emits the <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> <a class="reference internal" href="#Gtk.TreeModel.signals.row_changed" title="Gtk.TreeModel.signals.row_changed"><code class="xref py py-func docutils literal"><span class="pre">::row-changed</span></code></a> signal on <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.row_deleted">
-<code class="descname">row_deleted</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1894"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">row_deleted</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1894"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1088,7 +1048,7 @@ the deleted row</td>
 </tr>
 </tbody>
 </table>
-<p>Emits the <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> <a class="reference internal" href="#Gtk.TreeModel.signals.row_deleted" title="Gtk.TreeModel.signals.row_deleted"><code class="xref py py-func docutils literal"><span class="pre">::row-deleted</span></code></a> signal on <cite>tree_model</cite>.</p>
+<p>Emits the <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> <a class="reference internal" href="#Gtk.TreeModel.signals.row_deleted" title="Gtk.TreeModel.signals.row_deleted"><code class="xref py py-func docutils literal"><span class="pre">::row-deleted</span></code></a> signal on <cite>self</cite>.</p>
 <p>This should be called by models after a row has been removed.
 The location pointed to by <cite>path</cite> should be the location that
 the row previously was at. It may not be a valid location anymore.</p>
@@ -1098,7 +1058,7 @@ outstanding references on the deleted node should not be released.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.row_has_child_toggled">
-<code class="descname">row_has_child_toggled</code><span class="sig-paren">(</span><em>path</em>, <em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1868"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">row_has_child_toggled</code><span class="sig-paren">(</span><em>path</em>, <em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1868"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1112,13 +1072,13 @@ outstanding references on the deleted node should not be released.</p>
 </tbody>
 </table>
 <p>Emits the <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> <a class="reference internal" href="#Gtk.TreeModel.signals.row_has_child_toggled" title="Gtk.TreeModel.signals.row_has_child_toggled"><code class="xref py py-func docutils literal"><span class="pre">::row-has-child-toggled</span></code></a> signal on
-<cite>tree_model</cite>. This should be called by models after the child
+<cite>self</cite>. This should be called by models after the child
 state of a node changes.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.row_inserted">
-<code class="descname">row_inserted</code><span class="sig-paren">(</span><em>path</em>, <em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1846"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">row_inserted</code><span class="sig-paren">(</span><em>path</em>, <em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1846"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1131,12 +1091,12 @@ state of a node changes.</p>
 </tr>
 </tbody>
 </table>
-<p>Emits the <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> <a class="reference internal" href="#Gtk.TreeModel.signals.row_inserted" title="Gtk.TreeModel.signals.row_inserted"><code class="xref py py-func docutils literal"><span class="pre">::row-inserted</span></code></a> signal on <cite>tree_model</cite>.</p>
+<p>Emits the <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> <a class="reference internal" href="#Gtk.TreeModel.signals.row_inserted" title="Gtk.TreeModel.signals.row_inserted"><code class="xref py py-func docutils literal"><span class="pre">::row-inserted</span></code></a> signal on <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.rows_reordered">
-<code class="descname">rows_reordered</code><span class="sig-paren">(</span><em>path</em>, <em>iter</em>, <em>new_order</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1956"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">rows_reordered</code><span class="sig-paren">(</span><em>path</em>, <em>iter</em>, <em>new_order</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1956"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1156,7 +1116,7 @@ i.e. <cite>new_order</cite> <code class="docutils literal"><span class="pre">[ne
 </tr>
 </tbody>
 </table>
-<p>Emits the <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> <a class="reference internal" href="#Gtk.TreeModel.signals.rows_reordered" title="Gtk.TreeModel.signals.rows_reordered"><code class="xref py py-func docutils literal"><span class="pre">::rows-reordered</span></code></a> signal on <cite>tree_model</cite>.</p>
+<p>Emits the <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> <a class="reference internal" href="#Gtk.TreeModel.signals.rows_reordered" title="Gtk.TreeModel.signals.rows_reordered"><code class="xref py py-func docutils literal"><span class="pre">::rows-reordered</span></code></a> signal on <cite>self</cite>.</p>
 <p>This should be called by models when their rows have been
 reordered.</p>
 <div class="versionadded">
@@ -1167,11 +1127,29 @@ reordered.</p>
 <dl class="method">
 <dt id="Gtk.TreeModel.set_row">
 <code class="descname">set_row</code><span class="sig-paren">(</span><em>treeiter</em>, <em>row</em><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>treeiter</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; the <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a></li>
+<li><strong>row</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>]) &#8211; a list of values for each column</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Sets all values of a row pointed to by <cite>treeiter</cite> from a list of
+values passes as <cite>row</cite>. The length of the row has to match the number
+of columns of the model. <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> in <cite>row</cite> means the value will be
+skipped and not set.</p>
+<p>Also see <a class="reference internal" href="../classes/ListStore.html#Gtk.ListStore.set_value" title="Gtk.ListStore.set_value"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ListStore.set_value</span></code></a>() and
+<a class="reference internal" href="../classes/TreeStore.html#Gtk.TreeStore.set_value" title="Gtk.TreeStore.set_value"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeStore.set_value</span></code></a>()</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.sort_new_with_model">
-<code class="descname">sort_new_with_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.18.6#n537"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">sort_new_with_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.20.3#n537"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1182,12 +1160,12 @@ reordered.</p>
 </tr>
 </tbody>
 </table>
-<p>Creates a new <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a>, with <cite>child_model</cite> as the child model.</p>
+<p>Creates a new <a class="reference internal" href="#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a>, with <cite>self</cite> as the child model.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModel.unref_node">
-<code class="descname">unref_node</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.18.6#n1716"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unref_node</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodel.c?h=3.20.3#n1716"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1200,7 +1178,7 @@ reordered.</p>
 <p>This is an optional method for models to implement.
 To be more specific, models may ignore this call as it exists
 primarily for performance reasons. For more information on what
-this means, see <a class="reference internal" href="#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a> ().</p>
+this means, see <a class="reference internal" href="#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a>().</p>
 <p>Please note that nodes that are deleted are not unreffed.</p>
 </dd></dl>
 
@@ -1211,7 +1189,7 @@ this means, see <a class="reference internal" href="#Gtk.TreeModel.ref_node" tit
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index_</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the column index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the column index</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the type of the column</td>
 </tr>
@@ -1300,7 +1278,7 @@ not exist, <cite>iter</cite> is set to an invalid iterator and <a class="referen
 </tbody>
 </table>
 <p>Returns a newly-created <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a>-struct referenced by <cite>iter</cite>.</p>
-<p>This path should be freed with <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath.free" title="Gtk.TreePath.free"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath.free</span></code></a> ().</p>
+<p>This path should be freed with <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath.free" title="Gtk.TreePath.free"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath.free</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1325,7 +1303,7 @@ not exist, <cite>iter</cite> is set to an invalid iterator and <a class="referen
 </tbody>
 </table>
 <p>Initializes and sets <cite>value</cite> to that at <cite>column</cite>.</p>
-<p>When done with <cite>value</cite>, <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value.unset" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value.unset</span></code></a> () needs to be called
+<p>When done with <cite>value</cite>, <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value.unset" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value.unset</span></code></a>() needs to be called
 to free any allocated memory.</p>
 </dd></dl>
 
@@ -1338,7 +1316,7 @@ to free any allocated memory.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>-struct, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>child</cite> has been set to the first child<table class="docutils field-list" frame="void" rules="none">
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>iter</cite> has been set to the first child<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1431,7 +1409,7 @@ to be invalid.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>parent</cite> has an <cite>n</cite> -th child</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, if <cite>parent</cite> has an <cite>n</cite>-th child</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1452,7 +1430,7 @@ to be invalid.</p>
 <p>The first index is 0. If <cite>n</cite> is too big, or <cite>parent</cite> has no children,
 <cite>iter</cite> is set to an invalid iterator and <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned. <cite>parent</cite>
 will remain a valid node after this function has been called. As a
-special case, if <cite>parent</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, then the <cite>n</cite> -th root node
+special case, if <cite>parent</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, then the <cite>n</cite>-th root node
 is set.</p>
 </dd></dl>
 
@@ -1627,7 +1605,7 @@ state of a node changes.</p>
 <p>This is an optional method for models to implement.
 To be more specific, models may ignore this call as it exists
 primarily for performance reasons. For more information on what
-this means, see <a class="reference internal" href="#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a> ().</p>
+this means, see <a class="reference internal" href="#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a>().</p>
 <p>Please note that nodes that are deleted are not unreffed.</p>
 </dd></dl>
 
@@ -1779,7 +1757,4 @@ by removing and then reinserting the row.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

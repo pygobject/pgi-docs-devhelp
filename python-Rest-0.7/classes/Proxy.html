@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Rest 0.7 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Rest.ProxyAuth" href="ProxyAuth.html"/>
         <link rel="prev" title="Rest.OAuthProxyCall" href="OAuthProxyCall.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -417,7 +415,7 @@
 &#8220;GET&#8221; method.</p>
 <p>Set <cite>binding_required</cite> to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the URL contains string formatting
 operations (for example &#8220;http://foo.com/% s&#8221;.  These must be expanded
-using <code class="xref py py-obj docutils literal"><span class="pre">Rest.Proxy.bind</span></code> () before invoking the proxy.</p>
+using rest_proxy_bind() before invoking the proxy.</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -447,7 +445,7 @@ using <code class="xref py py-obj docutils literal"><span class="pre">Rest.Proxy
 &#8220;GET&#8221; method.</p>
 <p>Set <cite>binding_required</cite> to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the URL contains string formatting
 operations (for example &#8220;http://foo.com/% s&#8221;.  These must be expanded
-using <code class="xref py py-obj docutils literal"><span class="pre">Rest.Proxy.bind</span></code> () before invoking the proxy.</p>
+using rest_proxy_bind() before invoking the proxy.</p>
 </dd></dl>
 
 <dl class="method">
@@ -466,12 +464,12 @@ that are used by librest for its HTTP connections. For example, if one needs
 extensive control over the cookies which are used for the REST HTTP
 communication, it&#8217;s possible to get full access to libsoup cookie API by
 using</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">RestProxy</span> <span class="o">*</span><span class="n">proxy</span> <span class="o">=</span> <span class="n">g_object_new</span><span class="p">(</span><span class="n">REST_TYPE_PROXY</span><span class="p">,</span>
-                                <span class="s">&quot;url-format&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span>
-                                <span class="s">&quot;disable-cookies&quot;</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span>
-                                <span class="nb">NULL</span><span class="p">);</span>
-<span class="n">SoupSessionFeature</span> <span class="o">*</span><span class="n">cookie_jar</span> <span class="o">=</span> <span class="n">SOUP_SESSION_FEATURE</span><span class="p">(</span><span class="n">soup_cookie_jar_new</span> <span class="p">());</span>
-<span class="n">rest_proxy_add_soup_feature</span><span class="p">(</span><span class="n">proxy</span><span class="p">,</span> <span class="n">cookie_jar</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>RestProxy *proxy = g_object_new(REST_TYPE_PROXY,
+                                &quot;url-format&quot;, url,
+                                &quot;disable-cookies&quot;, TRUE,
+                                NULL);
+SoupSessionFeature *cookie_jar = SOUP_SESSION_FEATURE(soup_cookie_jar_new ());
+rest_proxy_add_soup_feature(proxy, cookie_jar);
 </pre></div>
 </div>
 <div class="versionadded">
@@ -597,12 +595,12 @@ try to connect with these credentials
 If these credentials fail, the signal will be
 emitted again, with <cite>retrying</cite> set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, which will
 continue until <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned from the callback.</p>
-<p>If you call <a class="reference internal" href="ProxyAuth.html#Rest.ProxyAuth.pause" title="Rest.ProxyAuth.pause"><code class="xref py py-obj docutils literal"><span class="pre">Rest.ProxyAuth.pause</span></code></a> () on <cite>auth</cite> before
+<p>If you call <a class="reference internal" href="ProxyAuth.html#Rest.ProxyAuth.pause" title="Rest.ProxyAuth.pause"><code class="xref py py-obj docutils literal"><span class="pre">Rest.ProxyAuth.pause</span></code></a>() on <cite>auth</cite> before
 returning, then you can the authentication credentials on
 the <a class="reference internal" href="#Rest.Proxy" title="Rest.Proxy"><code class="xref py py-obj docutils literal"><span class="pre">Rest.Proxy</span></code></a> object asynchronously. You have to make sure
-that <cite>auth</cite> does not get destroyed with <a class="reference external" href="../_docs/Rest-0.7/../../../python-GObject-2.0/classes/Object.html#GObject.Object.ref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.ref</span></code></a> ().
+that <cite>auth</cite> does not get destroyed with <a class="reference external" href="../_docs/Rest-0.7/../../../python-GObject-2.0/classes/Object.html#GObject.Object.ref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.ref</span></code></a>().
 You can then unpause the authentication with
-<a class="reference internal" href="ProxyAuth.html#Rest.ProxyAuth.unpause" title="Rest.ProxyAuth.unpause"><code class="xref py py-obj docutils literal"><span class="pre">Rest.ProxyAuth.unpause</span></code></a> () when everything is ready for it
+<a class="reference internal" href="ProxyAuth.html#Rest.ProxyAuth.unpause" title="Rest.ProxyAuth.unpause"><code class="xref py py-obj docutils literal"><span class="pre">Rest.ProxyAuth.unpause</span></code></a>() when everything is ready for it
 to continue.</p>
 </dd></dl>
 
@@ -783,7 +781,4 @@ to continue.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

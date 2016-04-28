@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Hierarchy" href="../hierarchy.html"/>
         <link rel="prev" title="Gtk.WindowAccessible" href="WindowAccessible.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -309,14 +307,14 @@ Windows that have not been explicitly assigned to a group are
 implicitly treated like windows of the default window group.</p>
 <p><a class="reference internal" href="#Gtk.WindowGroup" title="Gtk.WindowGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.WindowGroup</span></code></a> objects are referenced by each window in the group,
 so once you have added all windows to a <a class="reference internal" href="#Gtk.WindowGroup" title="Gtk.WindowGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.WindowGroup</span></code></a>, you can drop
-the initial reference to the window group with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> (). If the
+the initial reference to the window group with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>(). If the
 windows in the window group are subsequently destroyed, then they will
 be removed from the window group and drop their references on the window
 group; when all window have been removed, the window group will be
 freed.</p>
 <dl class="staticmethod">
 <dt id="Gtk.WindowGroup.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.18.6#n91"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.20.3#n91"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -328,12 +326,12 @@ freed.</p>
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#Gtk.WindowGroup" title="Gtk.WindowGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.WindowGroup</span></code></a> object. Grabs added with
-<a class="reference internal" href="Widget.html#Gtk.Widget.grab_add" title="Gtk.Widget.grab_add"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.grab_add</span></code></a> () only affect windows within the same <a class="reference internal" href="#Gtk.WindowGroup" title="Gtk.WindowGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.WindowGroup</span></code></a>.</p>
+<a class="reference internal" href="Widget.html#Gtk.Widget.grab_add" title="Gtk.Widget.grab_add"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.grab_add</span></code></a>() only affect windows within the same <a class="reference internal" href="#Gtk.WindowGroup" title="Gtk.WindowGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.WindowGroup</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.WindowGroup.add_window">
-<code class="descname">add_window</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.18.6#n152"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_window</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.20.3#n152"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -347,7 +345,7 @@ freed.</p>
 
 <dl class="method">
 <dt id="Gtk.WindowGroup.get_current_device_grab">
-<code class="descname">get_current_device_grab</code><span class="sig-paren">(</span><em>device</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.18.6#n346"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_current_device_grab</code><span class="sig-paren">(</span><em>device</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.20.3#n346"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -356,7 +354,7 @@ freed.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The grab widget, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Widget.html#Gtk.Widget" title="Gtk.Widget"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Widget.html#Gtk.Widget" title="Gtk.Widget"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -368,7 +366,7 @@ freed.</p>
 
 <dl class="method">
 <dt id="Gtk.WindowGroup.get_current_grab">
-<code class="descname">get_current_grab</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.18.6#n247"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_current_grab</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.20.3#n247"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -380,7 +378,7 @@ freed.</p>
 </tbody>
 </table>
 <p>Gets the current grab widget of the given group,
-see <a class="reference internal" href="Widget.html#Gtk.Widget.grab_add" title="Gtk.Widget.grab_add"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.grab_add</span></code></a> ().</p>
+see <a class="reference internal" href="Widget.html#Gtk.Widget.grab_add" title="Gtk.Widget.grab_add"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.grab_add</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -388,7 +386,7 @@ see <a class="reference internal" href="Widget.html#Gtk.Widget.grab_add" title="
 
 <dl class="method">
 <dt id="Gtk.WindowGroup.list_windows">
-<code class="descname">list_windows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.18.6#n213"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">list_windows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.20.3#n213"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -400,7 +398,7 @@ newly-allocated list of windows inside the group.</td>
 </tr>
 </tbody>
 </table>
-<p>Returns a list of the <a class="reference internal" href="Window.html#Gtk.Window" title="Gtk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Windows</span></code></a> that belong to <cite>window_group</cite>.</p>
+<p>Returns a list of the <a class="reference internal" href="Window.html#Gtk.Window" title="Gtk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Windows</span></code></a> that belong to <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.14.</span></p>
 </div>
@@ -408,7 +406,7 @@ newly-allocated list of windows inside the group.</td>
 
 <dl class="method">
 <dt id="Gtk.WindowGroup.remove_window">
-<code class="descname">remove_window</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.18.6#n186"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_window</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkwindowgroup.c?h=3.20.3#n186"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -436,7 +434,4 @@ newly-allocated list of windows inside the group.</td>
   </div> 
 
 </body>
-
-  
-
 </html>

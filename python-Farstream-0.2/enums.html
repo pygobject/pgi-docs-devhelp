@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Farstream 0.2 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -235,6 +233,36 @@ http://www.iana.org/assignments/audio-telephone-event-registry</p>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Farstream.DTMFEvent.STAR">
+<code class="descname">STAR</code><em class="property"> = 10</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.DTMFEvent.POUND">
+<code class="descname">POUND</code><em class="property"> = 11</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.DTMFEvent.A">
+<code class="descname">A</code><em class="property"> = 12</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.DTMFEvent.B">
+<code class="descname">B</code><em class="property"> = 13</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.DTMFEvent.C">
+<code class="descname">C</code><em class="property"> = 14</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.DTMFEvent.D">
+<code class="descname">D</code><em class="property"> = 15</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Farstream.DTMFEvent.2">
 <code class="descname">2</code><em class="property"> = 2</em></dt>
 <dd></dd></dl>
@@ -314,36 +342,6 @@ http://www.iana.org/assignments/audio-telephone-event-registry</p>
 <code class="descname">_9</code><em class="property"> = 9</em></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="Farstream.DTMFEvent.STAR">
-<code class="descname">STAR</code><em class="property"> = 10</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Farstream.DTMFEvent.POUND">
-<code class="descname">POUND</code><em class="property"> = 11</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Farstream.DTMFEvent.A">
-<code class="descname">A</code><em class="property"> = 12</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Farstream.DTMFEvent.B">
-<code class="descname">B</code><em class="property"> = 13</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Farstream.DTMFEvent.C">
-<code class="descname">C</code><em class="property"> = 14</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Farstream.DTMFEvent.D">
-<code class="descname">D</code><em class="property"> = 15</em></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -391,14 +389,6 @@ signal, from the Gst Bus or for error in the FS_ERROR domain in GErrors</p>
 <dd><p>Error constructing some of the sub-elements, this
 probably denotes an error in the installation of the gstreamer elements.
 It is a fatal error.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Farstream.Error.INTERNAL">
-<code class="descname">INTERNAL</code><em class="property"> = 2</em></dt>
-<dd><p>An internal error happened in Farstream, it may be in
-an inconsistent state. The object from which this error comes should be
-discarded.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -469,6 +459,14 @@ codec preferences, one should try less strict codec preferences.</p>
 <dd><p>The object already exists</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="Farstream.Error.INTERNAL">
+<code class="descname">INTERNAL</code><em class="property"> = 2</em></dt>
+<dd><p>An internal error happened in Farstream, it may be in
+an inconsistent state. The object from which this error comes should be
+discarded.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -501,15 +499,21 @@ codec preferences, one should try less strict codec preferences.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Farstream.MediaType.LAST">
-<code class="descname">LAST</code><em class="property"> = 1</em></dt>
-<dd><p>Largest valid <a class="reference internal" href="#Farstream.MediaType" title="Farstream.MediaType"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.MediaType</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="Farstream.MediaType.VIDEO">
 <code class="descname">VIDEO</code><em class="property"> = 1</em></dt>
 <dd><p>A media type that encodes video.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.MediaType.APPLICATION">
+<code class="descname">APPLICATION</code><em class="property"> = 2</em></dt>
+<dd><p>A media type for application data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.MediaType.LAST">
+<code class="descname">LAST</code><em class="property"> = 2</em></dt>
+<dd><p>Largest valid <a class="reference internal" href="#Farstream.MediaType" title="Farstream.MediaType"><code class="xref py py-obj docutils literal"><span class="pre">Farstream.MediaType</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
@@ -530,6 +534,28 @@ codec preferences, one should try less strict codec preferences.</p>
 <code class="descname">TCP</code><em class="property"> = 1</em></dt>
 <dd><p>A TCP based protocol, will listen for
 incoming connections</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.NetworkProtocol.TCP_PASSIVE">
+<code class="descname">TCP_PASSIVE</code><em class="property"> = 1</em></dt>
+<dd><p>A TCP based protocol, will listen for
+incoming connections</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.NetworkProtocol.TCP_ACTIVE">
+<code class="descname">TCP_ACTIVE</code><em class="property"> = 2</em></dt>
+<dd><p>A TCP based protocol, will attempt to
+open an outbound connection</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Farstream.NetworkProtocol.TCP_SO">
+<code class="descname">TCP_SO</code><em class="property"> = 3</em></dt>
+<dd><p>A TCP based protocol, will listen for
+incoming connections and attempt an outbound connection at the same time
+as the peer (Simultanuous-Open)</p>
 </dd></dl>
 
 </dd></dl>
@@ -594,7 +620,4 @@ but connectivity was not established</p>
   </div> 
 
 </body>
-
-  
-
 </html>

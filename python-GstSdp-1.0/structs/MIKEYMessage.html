@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstSdp 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GstSdp.MIKEYPayload" href="MIKEYPayload.html"/>
         <link rel="prev" title="GstSdp.MIKEYMapSRTP" href="MIKEYMapSRTP.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -223,28 +221,34 @@
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.new_from_bytes" title="GstSdp.MIKEYMessage.new_from_bytes"><code class="xref py py-obj docutils literal"><span class="pre">new_from_bytes</span></code></a> (bytes, info)</td>
 </tr>
 <tr class="row-odd"><td><em>static</em></td>
+<td><a class="reference internal" href="#GstSdp.MIKEYMessage.new_from_caps" title="GstSdp.MIKEYMessage.new_from_caps"><code class="xref py py-obj docutils literal"><span class="pre">new_from_caps</span></code></a> (caps)</td>
+</tr>
+<tr class="row-even"><td><em>static</em></td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.new_from_data" title="GstSdp.MIKEYMessage.new_from_data"><code class="xref py py-obj docutils literal"><span class="pre">new_from_data</span></code></a> (data, info)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.add_cs_srtp" title="GstSdp.MIKEYMessage.add_cs_srtp"><code class="xref py py-obj docutils literal"><span class="pre">add_cs_srtp</span></code></a> (policy, ssrc, roc)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.add_payload" title="GstSdp.MIKEYMessage.add_payload"><code class="xref py py-obj docutils literal"><span class="pre">add_payload</span></code></a> (payload)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.add_pke" title="GstSdp.MIKEYMessage.add_pke"><code class="xref py py-obj docutils literal"><span class="pre">add_pke</span></code></a> (C, data)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.add_rand" title="GstSdp.MIKEYMessage.add_rand"><code class="xref py py-obj docutils literal"><span class="pre">add_rand</span></code></a> (rand)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.add_rand_len" title="GstSdp.MIKEYMessage.add_rand_len"><code class="xref py py-obj docutils literal"><span class="pre">add_rand_len</span></code></a> (len)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.add_t" title="GstSdp.MIKEYMessage.add_t"><code class="xref py py-obj docutils literal"><span class="pre">add_t</span></code></a> (type, ts_value)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.add_t_now_ntp_utc" title="GstSdp.MIKEYMessage.add_t_now_ntp_utc"><code class="xref py py-obj docutils literal"><span class="pre">add_t_now_ntp_utc</span></code></a> ()</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstSdp.MIKEYMessage.base64_encode" title="GstSdp.MIKEYMessage.base64_encode"><code class="xref py py-obj docutils literal"><span class="pre">base64_encode</span></code></a> ()</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.find_payload" title="GstSdp.MIKEYMessage.find_payload"><code class="xref py py-obj docutils literal"><span class="pre">find_payload</span></code></a> (type, nth)</td>
@@ -285,6 +289,9 @@
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstSdp.MIKEYMessage.to_bytes" title="GstSdp.MIKEYMessage.to_bytes"><code class="xref py py-obj docutils literal"><span class="pre">to_bytes</span></code></a> (info)</td>
 </tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstSdp.MIKEYMessage.to_caps" title="GstSdp.MIKEYMessage.to_caps"><code class="xref py py-obj docutils literal"><span class="pre">to_caps</span></code></a> (caps)</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -296,7 +303,7 @@
 <dd><p>Structure holding the information of the MIKEY message</p>
 <dl class="staticmethod">
 <dt id="GstSdp.MIKEYMessage.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n878"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n878"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -315,7 +322,7 @@
 
 <dl class="staticmethod">
 <dt id="GstSdp.MIKEYMessage.new_from_bytes">
-<em class="property">static </em><code class="descname">new_from_bytes</code><span class="sig-paren">(</span><em>bytes</em>, <em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n908"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_from_bytes</code><span class="sig-paren">(</span><em>bytes</em>, <em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n908"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -326,7 +333,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference internal" href="#GstSdp.MIKEYMessage" title="GstSdp.MIKEYMessage"><code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYMessage</span></code></a></p>
@@ -344,8 +351,35 @@
 </dd></dl>
 
 <dl class="staticmethod">
+<dt id="GstSdp.MIKEYMessage.new_from_caps">
+<em class="property">static </em><code class="descname">new_from_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n2198"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caps</strong> (<a class="reference external" href="../_docs/GstSdp-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstSdp-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>, including SRTP parameters (srtp/srtcp cipher, authorization, key data)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="#GstSdp.MIKEYMessage" title="GstSdp.MIKEYMessage"><code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYMessage</span></code></a>,
+or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if there is no srtp information in the caps.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GstSdp.MIKEYMessage" title="GstSdp.MIKEYMessage"><code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYMessage</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Makes mikey message including:</p>
+<ul class="simple">
+<li>Security Policy Payload</li>
+<li>Key Data Transport Payload</li>
+<li>Key Data Sub-Payload</li>
+</ul>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="staticmethod">
 <dt id="GstSdp.MIKEYMessage.new_from_data">
-<em class="property">static </em><code class="descname">new_from_data</code><span class="sig-paren">(</span><em>data</em>, <em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n2063"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_from_data</code><span class="sig-paren">(</span><em>data</em>, <em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n2063"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -356,7 +390,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a <a class="reference internal" href="#GstSdp.MIKEYMessage" title="GstSdp.MIKEYMessage"><code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYMessage</span></code></a> on success or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> when parsing failed and
@@ -377,7 +411,7 @@ parameters to decrypt and verify the data.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.add_cs_srtp">
-<code class="descname">add_cs_srtp</code><span class="sig-paren">(</span><em>policy</em>, <em>ssrc</em>, <em>roc</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1088"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_cs_srtp</code><span class="sig-paren">(</span><em>policy</em>, <em>ssrc</em>, <em>roc</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1088"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -397,7 +431,7 @@ parameters to decrypt and verify the data.</p>
 </tr>
 </tbody>
 </table>
-<p>Add a Crypto policy for SRTP to <cite>msg</cite>.</p>
+<p>Add a Crypto policy for SRTP to <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -405,7 +439,7 @@ parameters to decrypt and verify the data.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.add_payload">
-<code class="descname">add_payload</code><span class="sig-paren">(</span><em>payload</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1241"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_payload</code><span class="sig-paren">(</span><em>payload</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1241"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -418,7 +452,7 @@ parameters to decrypt and verify the data.</p>
 </tr>
 </tbody>
 </table>
-<p>Add a new payload to <cite>msg</cite>.</p>
+<p>Add a new payload to <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -426,7 +460,7 @@ parameters to decrypt and verify the data.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.add_pke">
-<code class="descname">add_pke</code><span class="sig-paren">(</span><em>C</em>, <em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1293"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_pke</code><span class="sig-paren">(</span><em>C</em>, <em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1293"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -445,7 +479,7 @@ parameters to decrypt and verify the data.</p>
 </tr>
 </tbody>
 </table>
-<p>Add a new PKE payload to <cite>msg</cite> with the given parameters.</p>
+<p>Add a new PKE payload to <cite>self</cite> with the given parameters.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -453,7 +487,7 @@ parameters to decrypt and verify the data.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.add_rand">
-<code class="descname">add_rand</code><span class="sig-paren">(</span><em>rand</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1379"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_rand</code><span class="sig-paren">(</span><em>rand</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1379"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -466,7 +500,7 @@ parameters to decrypt and verify the data.</p>
 </tr>
 </tbody>
 </table>
-<p>Add a new RAND payload to <cite>msg</cite> with the given parameters.</p>
+<p>Add a new RAND payload to <cite>self</cite> with the given parameters.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -474,7 +508,7 @@ parameters to decrypt and verify the data.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.add_rand_len">
-<code class="descname">add_rand_len</code><span class="sig-paren">(</span><em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1407"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_rand_len</code><span class="sig-paren">(</span><em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1407"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -487,7 +521,7 @@ parameters to decrypt and verify the data.</p>
 </tr>
 </tbody>
 </table>
-<p>Add a new RAND payload to <cite>msg</cite> with <cite>len</cite> random bytes.</p>
+<p>Add a new RAND payload to <cite>self</cite> with <cite>len</cite> random bytes.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -495,7 +529,7 @@ parameters to decrypt and verify the data.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.add_t">
-<code class="descname">add_t</code><span class="sig-paren">(</span><em>type</em>, <em>ts_value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1319"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_t</code><span class="sig-paren">(</span><em>type</em>, <em>ts_value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1319"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -514,7 +548,7 @@ parameters to decrypt and verify the data.</p>
 </tr>
 </tbody>
 </table>
-<p>Add a new T payload to <cite>msg</cite> with the given parameters.</p>
+<p>Add a new T payload to <cite>self</cite> with the given parameters.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -522,7 +556,7 @@ parameters to decrypt and verify the data.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.add_t_now_ntp_utc">
-<code class="descname">add_t_now_ntp_utc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1346"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_t_now_ntp_utc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1346"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -533,7 +567,7 @@ parameters to decrypt and verify the data.</p>
 </tr>
 </tbody>
 </table>
-<p>Add a new T payload to <cite>msg</cite> that contains the current time
+<p>Add a new T payload to <cite>self</cite> that contains the current time
 in NTP-UTC format.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
@@ -541,8 +575,26 @@ in NTP-UTC format.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="GstSdp.MIKEYMessage.base64_encode">
+<code class="descname">base64_encode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n2447"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, base64-encoded data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="GstSdp.MIKEYMessage.find_payload">
-<code class="descname">find_payload</code><span class="sig-paren">(</span><em>type</em>, <em>nth</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1162"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">find_payload</code><span class="sig-paren">(</span><em>type</em>, <em>nth</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1162"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -561,7 +613,7 @@ in NTP-UTC format.</p>
 </tr>
 </tbody>
 </table>
-<p>Find the <cite>nth</cite> occurence of the payload with <cite>type</cite> in <cite>msg</cite>.</p>
+<p>Find the <cite>nth</cite> occurence of the payload with <cite>type</cite> in <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -569,7 +621,7 @@ in NTP-UTC format.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.get_cs_srtp">
-<code class="descname">get_cs_srtp</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n982"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_cs_srtp</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n982"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -582,7 +634,7 @@ in NTP-UTC format.</p>
 </tr>
 </tbody>
 </table>
-<p>Get the policy information of <cite>msg</cite> at <cite>idx</cite>.</p>
+<p>Get the policy information of <cite>self</cite> at <cite>idx</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -590,7 +642,7 @@ in NTP-UTC format.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.get_n_cs">
-<code class="descname">get_n_cs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n964"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_n_cs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n964"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -601,7 +653,7 @@ in NTP-UTC format.</p>
 </tr>
 </tbody>
 </table>
-<p>Get the number of crypto sessions in <cite>msg</cite>.</p>
+<p>Get the number of crypto sessions in <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -609,18 +661,18 @@ in NTP-UTC format.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.get_n_payloads">
-<code class="descname">get_n_payloads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1115"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_n_payloads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1115"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of payloads in <cite>msg</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of payloads in <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Get the number of payloads in <cite>msg</cite>.</p>
+<p>Get the number of payloads in <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -628,7 +680,7 @@ in NTP-UTC format.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.get_payload">
-<code class="descname">get_payload</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1135"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_payload</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1135"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -636,13 +688,13 @@ in NTP-UTC format.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>idx</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; an index</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="MIKEYPayload.html#GstSdp.MIKEYPayload" title="GstSdp.MIKEYPayload"><code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYPayload</span></code></a> at <cite>idx</cite>. The payload
-remains valid for as long as it is part of <cite>msg</cite>.</td>
+remains valid for as long as it is part of <cite>self</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="MIKEYPayload.html#GstSdp.MIKEYPayload" title="GstSdp.MIKEYPayload"><code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYPayload</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Get the <a class="reference internal" href="MIKEYPayload.html#GstSdp.MIKEYPayload" title="GstSdp.MIKEYPayload"><code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYPayload</span></code></a> at <cite>idx</cite> in <cite>msg</cite></p>
+<p>Get the <a class="reference internal" href="MIKEYPayload.html#GstSdp.MIKEYPayload" title="GstSdp.MIKEYPayload"><code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYPayload</span></code></a> at <cite>idx</cite> in <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -650,7 +702,7 @@ remains valid for as long as it is part of <cite>msg</cite>.</td>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.insert_cs_srtp">
-<code class="descname">insert_cs_srtp</code><span class="sig-paren">(</span><em>idx</em>, <em>map</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1009"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_cs_srtp</code><span class="sig-paren">(</span><em>idx</em>, <em>map</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1009"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -669,7 +721,7 @@ remains valid for as long as it is part of <cite>msg</cite>.</td>
 </tr>
 </tbody>
 </table>
-<p>Insert a Crypto Session map for SRTP in <cite>msg</cite> at <cite>idx</cite></p>
+<p>Insert a Crypto Session map for SRTP in <cite>self</cite> at <cite>idx</cite></p>
 <p>When <cite>idx</cite> is -1, the policy will be appended.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
@@ -678,7 +730,7 @@ remains valid for as long as it is part of <cite>msg</cite>.</td>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.insert_payload">
-<code class="descname">insert_payload</code><span class="sig-paren">(</span><em>idx</em>, <em>payload</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1215"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_payload</code><span class="sig-paren">(</span><em>idx</em>, <em>payload</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1215"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -697,8 +749,8 @@ remains valid for as long as it is part of <cite>msg</cite>.</td>
 </tr>
 </tbody>
 </table>
-<p>Insert the <cite>payload</cite> at index <cite>idx</cite> in <cite>msg</cite>. If <cite>idx</cite> is -1, the payload
-will be appended to <cite>msg</cite>.</p>
+<p>Insert the <cite>payload</cite> at index <cite>idx</cite> in <cite>self</cite>. If <cite>idx</cite> is -1, the payload
+will be appended to <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -706,7 +758,7 @@ will be appended to <cite>msg</cite>.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.remove_cs_srtp">
-<code class="descname">remove_cs_srtp</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1062"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_cs_srtp</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1062"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -727,7 +779,7 @@ will be appended to <cite>msg</cite>.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.remove_payload">
-<code class="descname">remove_payload</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1190"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_payload</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1190"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -740,7 +792,7 @@ will be appended to <cite>msg</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Remove the payload in <cite>msg</cite> at <cite>idx</cite></p>
+<p>Remove the payload in <cite>self</cite> at <cite>idx</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -748,7 +800,7 @@ will be appended to <cite>msg</cite>.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.replace_cs_srtp">
-<code class="descname">replace_cs_srtp</code><span class="sig-paren">(</span><em>idx</em>, <em>map</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1038"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">replace_cs_srtp</code><span class="sig-paren">(</span><em>idx</em>, <em>map</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1038"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -767,7 +819,7 @@ will be appended to <cite>msg</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Replace a Crypto Session map for SRTP in <cite>msg</cite> at <cite>idx</cite> with <cite>map</cite>.</p>
+<p>Replace a Crypto Session map for SRTP in <cite>self</cite> at <cite>idx</cite> with <cite>map</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -775,7 +827,7 @@ will be appended to <cite>msg</cite>.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.replace_payload">
-<code class="descname">replace_payload</code><span class="sig-paren">(</span><em>idx</em>, <em>payload</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1263"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">replace_payload</code><span class="sig-paren">(</span><em>idx</em>, <em>payload</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1263"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -794,7 +846,7 @@ will be appended to <cite>msg</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Replace the payload at <cite>idx</cite> in <cite>msg</cite> with <cite>payload</cite>.</p>
+<p>Replace the payload at <cite>idx</cite> in <cite>self</cite> with <cite>payload</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -802,7 +854,7 @@ will be appended to <cite>msg</cite>.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.set_info">
-<code class="descname">set_info</code><span class="sig-paren">(</span><em>version</em>, <em>type</em>, <em>V</em>, <em>prf_func</em>, <em>CSB_id</em>, <em>map_type</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n938"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_info</code><span class="sig-paren">(</span><em>version</em>, <em>type</em>, <em>V</em>, <em>prf_func</em>, <em>CSB_id</em>, <em>map_type</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n938"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -825,7 +877,7 @@ will be appended to <cite>msg</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Set the information in <cite>msg</cite>.</p>
+<p>Set the information in <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -833,24 +885,44 @@ will be appended to <cite>msg</cite>.</p>
 
 <dl class="method">
 <dt id="GstSdp.MIKEYMessage.to_bytes">
-<code class="descname">to_bytes</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.6.2#n1676"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">to_bytes</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n1676"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>info</strong> (<code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYEncryptInfo</span></code>) &#8211; a <code class="xref py py-obj docutils literal"><span class="pre">GstSdp.MIKEYEncryptInfo</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> for <cite>msg</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> for <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Convert <cite>msg</cite> to a <a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>.</p>
+<p>Convert <cite>self</cite> to a <a class="reference external" href="../_docs/GstSdp-1.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="GstSdp.MIKEYMessage.to_caps">
+<code class="descname">to_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/sdp/gstmikey.c?h=1.8.1#n2317"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caps</strong> (<a class="reference external" href="../_docs/GstSdp-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstSdp-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to be filled with SRTP parameters (srtp/srtcp cipher, authorization, key data)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.1.</span></p>
 </div>
 </dd></dl>
 
@@ -870,7 +942,4 @@ will be appended to <cite>msg</cite>.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

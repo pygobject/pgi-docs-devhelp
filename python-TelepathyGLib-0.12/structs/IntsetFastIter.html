@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="TelepathyGLib 0.12 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="TelepathyGLib.IntsetIter" href="IntsetIter.html"/>
         <link rel="prev" title="TelepathyGLib.Intset" href="Intset.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -170,19 +168,19 @@
 <dt id="TelepathyGLib.IntsetFastIter">
 <em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">IntsetFastIter</code></dt>
 <dd><p>An opaque structure representing iteration in undefined order over a set of
-integers. Must be initialized with <a class="reference internal" href="#TelepathyGLib.IntsetFastIter.init" title="TelepathyGLib.IntsetFastIter.init"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.IntsetFastIter.init</span></code></a> ().</p>
+integers. Must be initialized with <a class="reference internal" href="#TelepathyGLib.IntsetFastIter.init" title="TelepathyGLib.IntsetFastIter.init"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.IntsetFastIter.init</span></code></a>().</p>
 <p>Before 0.11.16, this type was called <code class="docutils literal"><span class="pre">TpIntSetFastIter</span></code>,
 which is now a backwards compatibility typedef.</p>
 <p>Usage is similar to <a class="reference external" href="../_docs/TelepathyGLib-0.12/../../../python-GLib-2.0/structs/HashTableIter.html#GLib.HashTableIter" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter</span></code></a>:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">TpIntsetFastIter</span> <span class="n">iter</span><span class="p">;</span>
-<span class="n">guint</span> <span class="n">element</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>TpIntsetFastIter iter;
+guint element;
 
-<span class="n">tp_intset_fast_iter_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">,</span> <span class="n">intset</span><span class="p">);</span>
+tp_intset_fast_iter_init (&amp;iter, intset);
 
-<span class="k">while</span> <span class="p">(</span><span class="n">tp_intset_fast_iter_next</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">element</span><span class="p">))</span>
-<span class="p">{</span>
-  <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;%u is in the intset</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">element</span><span class="p">);</span>
-<span class="p">}</span>
+while (tp_intset_fast_iter_next (&amp;iter, &amp;element))
+{
+  printf (&quot;%u is in the intset\n&quot;, element);
+}
 </pre></div>
 </div>
 <div class="versionadded">
@@ -199,7 +197,7 @@ which is now a backwards compatibility typedef.</p>
 </tr>
 </tbody>
 </table>
-<p>Initialize <cite>iter</cite> to iterate over <cite>set</cite> in arbitrary order. <cite>iter</cite> will become
+<p>Initialize <cite>self</cite> to iterate over <cite>set</cite> in arbitrary order. <cite>self</cite> will become
 invalid if <cite>set</cite> is modified.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.11.6.</span></p>
@@ -221,7 +219,7 @@ invalid if <cite>set</cite> is modified.</p>
 </tr>
 </tbody>
 </table>
-<p>Advances <cite>iter</cite> and retrieves the integer it now points to. Iteration
+<p>Advances <cite>self</cite> and retrieves the integer it now points to. Iteration
 is not necessarily in numerical order.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.11.6.</span></p>
@@ -244,7 +242,4 @@ is not necessarily in numerical order.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Cogl.Renderer" href="Renderer.html"/>
         <link rel="prev" title="Cogl.PixelBuffer" href="PixelBuffer.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -80,8 +78,6 @@
 <li><a class="reference internal" href="#">Cogl.Primitive</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -125,8 +121,6 @@
 <li><a class="reference internal" href="#">Cogl.Primitive</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -275,14 +269,6 @@
 <span id="cogl-primitive-vfuncs"></span><h2>Virtual Methods</h2>
 <p>None</p>
 </div>
-<div class="section" id="properties">
-<span id="cogl-primitive-props"></span><h2>Properties</h2>
-<p>None</p>
-</div>
-<div class="section" id="signals">
-<span id="cogl-primitive-signals"></span><h2>Signals</h2>
-<p>None</p>
-</div>
 <div class="section" id="fields">
 <span id="cogl-primitive-fields"></span><h2>Fields</h2>
 <p>None</p>
@@ -318,7 +304,7 @@ of <a class="reference internal" href="../structs/VertexP2.html#Cogl.VertexP2" t
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A newly allocated <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>
-with a reference of 1. This can be freed using <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object.unref</span></code> ().</p>
+with a reference of 1. This can be freed using cogl_object_unref().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a></p>
@@ -331,21 +317,21 @@ triangle strip or a triangle fan, that will internally allocate the
 necessary <a class="reference internal" href="AttributeBuffer.html#Cogl.AttributeBuffer" title="Cogl.AttributeBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.AttributeBuffer</span></code></a> storage, describe the position
 attribute with a <a class="reference internal" href="Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a> and upload your data.</p>
 <p>For example to draw a convex polygon you can do:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">CoglVertexP2</span> <span class="n">triangle</span><span class="p">[]</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">300</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="p">},</span>
-  <span class="p">{</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span> <span class="p">}</span>
-<span class="p">};</span>
-<span class="n">prim</span> <span class="o">=</span> <span class="n">cogl_primitive_new_p2</span> <span class="p">(</span><span class="n">COGL_VERTICES_MODE_TRIANGLE_FAN</span><span class="p">,</span>
-                              <span class="mi">3</span><span class="p">,</span> <span class="n">triangle</span><span class="p">);</span>
-<span class="n">cogl_primitive_draw</span> <span class="p">(</span><span class="n">prim</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>CoglVertexP2 triangle[] =
+{
+  { 0,   300 },
+  { 150, 0,  },
+  { 300, 300 }
+};
+prim = cogl_primitive_new_p2 (COGL_VERTICES_MODE_TRIANGLE_FAN,
+                              3, triangle);
+cogl_primitive_draw (prim);
 </pre></div>
 </div>
 <p>The value passed as <cite>n_vertices</cite> is initially used to determine how
 much can be read from <cite>data</cite> but it will also be used to update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to read when drawing.</p>
 <p>The primitive API doesn&#8217;t support drawing with sliced
 textures (since switching between slices implies changing state and
@@ -376,7 +362,7 @@ of <a class="reference internal" href="../structs/VertexP2C4.html#Cogl.VertexP2C
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A newly allocated <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>
-with a reference of 1. This can be freed using <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object.unref</span></code> ().</p>
+with a reference of 1. This can be freed using cogl_object_unref().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a></p>
@@ -391,21 +377,21 @@ and color attributes with <a class="reference internal" href="Attribute.html#Cog
 your data.</p>
 <p>For example to draw a convex polygon with a linear gradient you
 can do:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">CoglVertexP2C4</span> <span class="n">triangle</span><span class="p">[]</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">300</span><span class="p">,</span>  <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>    <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span>  <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span> <span class="p">}</span>
-<span class="p">};</span>
-<span class="n">prim</span> <span class="o">=</span> <span class="n">cogl_primitive_new_p2c4</span> <span class="p">(</span><span class="n">COGL_VERTICES_MODE_TRIANGLE_FAN</span><span class="p">,</span>
-                                <span class="mi">3</span><span class="p">,</span> <span class="n">triangle</span><span class="p">);</span>
-<span class="n">cogl_primitive_draw</span> <span class="p">(</span><span class="n">prim</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>CoglVertexP2C4 triangle[] =
+{
+  { 0,   300,  0xff, 0x00, 0x00, 0xff },
+  { 150, 0,    0x00, 0xff, 0x00, 0xff },
+  { 300, 300,  0xff, 0x00, 0x00, 0xff }
+};
+prim = cogl_primitive_new_p2c4 (COGL_VERTICES_MODE_TRIANGLE_FAN,
+                                3, triangle);
+cogl_primitive_draw (prim);
 </pre></div>
 </div>
 <p>The value passed as <cite>n_vertices</cite> is initially used to determine how
 much can be read from <cite>data</cite> but it will also be used to update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to read when drawing.</p>
 <p>The primitive API doesn&#8217;t support drawing with sliced
 textures (since switching between slices implies changing state and
@@ -436,7 +422,7 @@ of <a class="reference internal" href="../structs/VertexP2T2.html#Cogl.VertexP2T
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A newly allocated <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>
-with a reference of 1. This can be freed using <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object.unref</span></code> ().</p>
+with a reference of 1. This can be freed using cogl_object_unref().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a></p>
@@ -451,21 +437,21 @@ texture coordinate attributes with <a class="reference internal" href="Attribute
 upload your data.</p>
 <p>For example to draw a convex polygon with texture mapping you can
 do:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">CoglVertexP2T2</span> <span class="n">triangle</span><span class="p">[]</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">300</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">},</span>
-  <span class="p">{</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>    <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">},</span>
-  <span class="p">{</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">}</span>
-<span class="p">};</span>
-<span class="n">prim</span> <span class="o">=</span> <span class="n">cogl_primitive_new_p2t2</span> <span class="p">(</span><span class="n">COGL_VERTICES_MODE_TRIANGLE_FAN</span><span class="p">,</span>
-                                <span class="mi">3</span><span class="p">,</span> <span class="n">triangle</span><span class="p">);</span>
-<span class="n">cogl_primitive_draw</span> <span class="p">(</span><span class="n">prim</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>CoglVertexP2T2 triangle[] =
+{
+  { 0,   300,  0.0, 1.0},
+  { 150, 0,    0.5, 0.0},
+  { 300, 300,  1.0, 1.0}
+};
+prim = cogl_primitive_new_p2t2 (COGL_VERTICES_MODE_TRIANGLE_FAN,
+                                3, triangle);
+cogl_primitive_draw (prim);
 </pre></div>
 </div>
 <p>The value passed as <cite>n_vertices</cite> is initially used to determine how
 much can be read from <cite>data</cite> but it will also be used to update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to read when drawing.</p>
 <p>The primitive API doesn&#8217;t support drawing with sliced
 textures (since switching between slices implies changing state and
@@ -496,7 +482,7 @@ array of <a class="reference internal" href="../structs/VertexP2T2C4.html#Cogl.V
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A newly allocated <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>
-with a reference of 1. This can be freed using <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object.unref</span></code> ().</p>
+with a reference of 1. This can be freed using cogl_object_unref().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a></p>
@@ -511,21 +497,21 @@ coordinate and color attributes with <a class="reference internal" href="Attribu
 upload your data.</p>
 <p>For example to draw a convex polygon with texture mapping and a
 linear gradient you can do:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">CoglVertexP2T2C4</span> <span class="n">triangle</span><span class="p">[]</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">300</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">},</span>
-  <span class="p">{</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>    <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">},</span>
-  <span class="p">{</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">}</span>
-<span class="p">};</span>
-<span class="n">prim</span> <span class="o">=</span> <span class="n">cogl_primitive_new_p2t2c4</span> <span class="p">(</span><span class="n">COGL_VERTICES_MODE_TRIANGLE_FAN</span><span class="p">,</span>
-                                  <span class="mi">3</span><span class="p">,</span> <span class="n">triangle</span><span class="p">);</span>
-<span class="n">cogl_primitive_draw</span> <span class="p">(</span><span class="n">prim</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>CoglVertexP2T2C4 triangle[] =
+{
+  { 0,   300,  0.0, 1.0,  0xff, 0x00, 0x00, 0xff},
+  { 150, 0,    0.5, 0.0,  0x00, 0xff, 0x00, 0xff},
+  { 300, 300,  1.0, 1.0,  0xff, 0x00, 0x00, 0xff}
+};
+prim = cogl_primitive_new_p2t2c4 (COGL_VERTICES_MODE_TRIANGLE_FAN,
+                                  3, triangle);
+cogl_primitive_draw (prim);
 </pre></div>
 </div>
 <p>The value passed as <cite>n_vertices</cite> is initially used to determine how
 much can be read from <cite>data</cite> but it will also be used to update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to read when drawing.</p>
 <p>The primitive API doesn&#8217;t support drawing with sliced
 textures (since switching between slices implies changing state and
@@ -556,7 +542,7 @@ power-of-two size (though they don&#8217;t have to be square)</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A newly allocated <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>
-with a reference of 1. This can be freed using <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object.unref</span></code> ().</p>
+with a reference of 1. This can be freed using cogl_object_unref().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a></p>
@@ -569,21 +555,21 @@ triangle strip or a triangle fan, that will internally allocate the
 necessary <a class="reference internal" href="AttributeBuffer.html#Cogl.AttributeBuffer" title="Cogl.AttributeBuffer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.AttributeBuffer</span></code></a> storage, describe the position
 attribute with a <a class="reference internal" href="Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a> and upload your data.</p>
 <p>For example to draw a convex polygon you can do:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">CoglVertexP3</span> <span class="n">triangle</span><span class="p">[]</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span> <span class="p">}</span>
-<span class="p">};</span>
-<span class="n">prim</span> <span class="o">=</span> <span class="n">cogl_primitive_new_p3</span> <span class="p">(</span><span class="n">COGL_VERTICES_MODE_TRIANGLE_FAN</span><span class="p">,</span>
-                              <span class="mi">3</span><span class="p">,</span> <span class="n">triangle</span><span class="p">);</span>
-<span class="n">cogl_primitive_draw</span> <span class="p">(</span><span class="n">prim</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>CoglVertexP3 triangle[] =
+{
+  { 0,   300, 0 },
+  { 150, 0,   0 },
+  { 300, 300, 0 }
+};
+prim = cogl_primitive_new_p3 (COGL_VERTICES_MODE_TRIANGLE_FAN,
+                              3, triangle);
+cogl_primitive_draw (prim);
 </pre></div>
 </div>
 <p>The value passed as <cite>n_vertices</cite> is initially used to determine how
 much can be read from <cite>data</cite> but it will also be used to update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to read when drawing.</p>
 <p>The primitive API doesn&#8217;t support drawing with sliced
 textures (since switching between slices implies changing state and
@@ -614,7 +600,7 @@ of <a class="reference internal" href="../structs/VertexP3C4.html#Cogl.VertexP3C
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A newly allocated <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>
-with a reference of 1. This can be freed using <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object.unref</span></code> ().</p>
+with a reference of 1. This can be freed using cogl_object_unref().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a></p>
@@ -629,21 +615,21 @@ and color attributes with <a class="reference internal" href="Attribute.html#Cog
 your data.</p>
 <p>For example to draw a convex polygon with a linear gradient you
 can do:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">CoglVertexP3C4</span> <span class="n">triangle</span><span class="p">[]</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>  <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span> <span class="p">}</span>
-<span class="p">};</span>
-<span class="n">prim</span> <span class="o">=</span> <span class="n">cogl_primitive_new_p3c4</span> <span class="p">(</span><span class="n">COGL_VERTICES_MODE_TRIANGLE_FAN</span><span class="p">,</span>
-                                <span class="mi">3</span><span class="p">,</span> <span class="n">triangle</span><span class="p">);</span>
-<span class="n">cogl_primitive_draw</span> <span class="p">(</span><span class="n">prim</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>CoglVertexP3C4 triangle[] =
+{
+  { 0,   300, 0,  0xff, 0x00, 0x00, 0xff },
+  { 150, 0,   0,  0x00, 0xff, 0x00, 0xff },
+  { 300, 300, 0,  0xff, 0x00, 0x00, 0xff }
+};
+prim = cogl_primitive_new_p3c4 (COGL_VERTICES_MODE_TRIANGLE_FAN,
+                                3, triangle);
+cogl_primitive_draw (prim);
 </pre></div>
 </div>
 <p>The value passed as <cite>n_vertices</cite> is initially used to determine how
 much can be read from <cite>data</cite> but it will also be used to update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to read when drawing.</p>
 <p>The primitive API doesn&#8217;t support drawing with sliced
 textures (since switching between slices implies changing state and
@@ -674,7 +660,7 @@ of <a class="reference internal" href="../structs/VertexP3T2.html#Cogl.VertexP3T
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A newly allocated <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>
-with a reference of 1. This can be freed using <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object.unref</span></code> ().</p>
+with a reference of 1. This can be freed using cogl_object_unref().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a></p>
@@ -689,21 +675,21 @@ texture coordinate attributes with <a class="reference internal" href="Attribute
 upload your data.</p>
 <p>For example to draw a convex polygon with texture mapping you can
 do:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">CoglVertexP3T2</span> <span class="n">triangle</span><span class="p">[]</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">},</span>
-  <span class="p">{</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">},</span>
-  <span class="p">{</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">}</span>
-<span class="p">};</span>
-<span class="n">prim</span> <span class="o">=</span> <span class="n">cogl_primitive_new_p3t2</span> <span class="p">(</span><span class="n">COGL_VERTICES_MODE_TRIANGLE_FAN</span><span class="p">,</span>
-                                <span class="mi">3</span><span class="p">,</span> <span class="n">triangle</span><span class="p">);</span>
-<span class="n">cogl_primitive_draw</span> <span class="p">(</span><span class="n">prim</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>CoglVertexP3T2 triangle[] =
+{
+  { 0,   300, 0,  0.0, 1.0},
+  { 150, 0,   0,  0.5, 0.0},
+  { 300, 300, 0,  1.0, 1.0}
+};
+prim = cogl_primitive_new_p3t2 (COGL_VERTICES_MODE_TRIANGLE_FAN,
+                                3, triangle);
+cogl_primitive_draw (prim);
 </pre></div>
 </div>
 <p>The value passed as <cite>n_vertices</cite> is initially used to determine how
 much can be read from <cite>data</cite> but it will also be used to update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to read when drawing.</p>
 <p>The primitive API doesn&#8217;t support drawing with sliced
 textures (since switching between slices implies changing state and
@@ -734,7 +720,7 @@ array of <a class="reference internal" href="../structs/VertexP3T2C4.html#Cogl.V
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A newly allocated <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>
-with a reference of 1. This can be freed using <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Object.unref</span></code> ().</p>
+with a reference of 1. This can be freed using cogl_object_unref().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a></p>
@@ -749,21 +735,21 @@ coordinate and color attributes with <a class="reference internal" href="Attribu
 upload your data.</p>
 <p>For example to draw a convex polygon with texture mapping and a
 linear gradient you can do:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">CoglVertexP3T2C4</span> <span class="n">triangle</span><span class="p">[]</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">},</span>
-  <span class="p">{</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">},</span>
-  <span class="p">{</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">}</span>
-<span class="p">};</span>
-<span class="n">prim</span> <span class="o">=</span> <span class="n">cogl_primitive_new_p3t2c4</span> <span class="p">(</span><span class="n">COGL_VERTICES_MODE_TRIANGLE_FAN</span><span class="p">,</span>
-                                  <span class="mi">3</span><span class="p">,</span> <span class="n">triangle</span><span class="p">);</span>
-<span class="n">cogl_primitive_draw</span> <span class="p">(</span><span class="n">prim</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>CoglVertexP3T2C4 triangle[] =
+{
+  { 0,   300, 0,  0.0, 1.0,  0xff, 0x00, 0x00, 0xff},
+  { 150, 0,   0,  0.5, 0.0,  0x00, 0xff, 0x00, 0xff},
+  { 300, 300, 0,  1.0, 1.0,  0xff, 0x00, 0x00, 0xff}
+};
+prim = cogl_primitive_new_p3t2c4 (COGL_VERTICES_MODE_TRIANGLE_FAN,
+                                  3, triangle);
+cogl_primitive_draw (prim);
 </pre></div>
 </div>
 <p>The value passed as <cite>n_vertices</cite> is initially used to determine how
 much can be read from <cite>data</cite> but it will also be used to update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to read when drawing.</p>
 <p>The primitive API doesn&#8217;t support drawing with sliced
 textures (since switching between slices implies changing state and
@@ -806,7 +792,7 @@ and defines a vertex count so a <a class="reference internal" href="#Cogl.Primit
 drawn later with no addition information required.</p>
 <p>The value passed as <cite>n_vertices</cite> will simply update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to read when drawing.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -821,7 +807,7 @@ the number of vertices to read when drawing.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>primitive_texture</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A <code class="xref py py-obj docutils literal"><span class="pre">Cogl.PrimitiveTexture</span></code></li>
+<li><strong>primitive_texture</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A #CoglPrimitiveTexture</li>
 <li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The new value for whether to auto mipmap</li>
 </ul>
 </td>
@@ -875,7 +861,7 @@ attribute buffers as the original primitive.</p>
 </tr>
 </tbody>
 </table>
-<p>Draws the given <cite>primitive</cite> geometry to the specified destination
+<p>Draws the given <cite>self</cite> geometry to the specified destination
 <cite>framebuffer</cite> using the graphics processing state described by <cite>pipeline</cite>.</p>
 <p>This drawing api doesn&#8217;t support high-level meta texture types such
 as <a class="reference internal" href="../interfaces/Texture2DSliced.html#Cogl.Texture2DSliced" title="Cogl.Texture2DSliced"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2DSliced</span></code></a> so it is the user&#8217;s responsibility to
@@ -931,7 +917,7 @@ callback</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the indices that were set with
-<a class="reference internal" href="#Cogl.Primitive.set_indices" title="Cogl.Primitive.set_indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_indices</span></code></a> () or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no indices were set.</td>
+<a class="reference internal" href="#Cogl.Primitive.set_indices" title="Cogl.Primitive.set_indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_indices</span></code></a>() or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no indices were set.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Indices.html#Cogl.Indices" title="Cogl.Indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Indices</span></code></a></td>
 </tr>
@@ -969,10 +955,10 @@ callback</li>
 </tbody>
 </table>
 <p>Queries the number of vertices to read when drawing the given
-<cite>primitive</cite>. Usually this value is implicitly set when associating
+<cite>self</cite>. Usually this value is implicitly set when associating
 vertex data or indices with a <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>.</p>
-<p>If <a class="reference internal" href="#Cogl.Primitive.set_indices" title="Cogl.Primitive.set_indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_indices</span></code></a> () has been used to associate a
-sequence of <a class="reference internal" href="Indices.html#Cogl.Indices" title="Cogl.Indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Indices</span></code></a> with the given <cite>primitive</cite> then the
+<p>If <a class="reference internal" href="#Cogl.Primitive.set_indices" title="Cogl.Primitive.set_indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_indices</span></code></a>() has been used to associate a
+sequence of <a class="reference internal" href="Indices.html#Cogl.Indices" title="Cogl.Indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Indices</span></code></a> with the given <cite>self</cite> then the
 number of vertices to read can also be phrased as the number
 of indices to read.</p>
 <p>To be clear; it doesn&#8217;t refer to the number of vertices - in
@@ -1032,7 +1018,7 @@ of vertices to read and draw.</p>
 </tr>
 </tbody>
 </table>
-<p>Associates a sequence of <a class="reference internal" href="Indices.html#Cogl.Indices" title="Cogl.Indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Indices</span></code></a> with the given <cite>primitive</cite>.</p>
+<p>Associates a sequence of <a class="reference internal" href="Indices.html#Cogl.Indices" title="Cogl.Indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Indices</span></code></a> with the given <cite>self</cite>.</p>
 <p><a class="reference internal" href="Indices.html#Cogl.Indices" title="Cogl.Indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Indices</span></code></a> provide a way to virtualize your real vertex data by
 providing a sequence of indices that index into your real vertex
 data. The GPU will walk though the index values to indirectly
@@ -1041,7 +1027,7 @@ through the data directly. This lets you save memory by indexing
 shared data multiple times instead of duplicating the data.</p>
 <p>The value passed as <cite>n_indices</cite> will simply update the
 <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> n_vertices property as if
-<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a> () were called. This property defines
+<a class="reference internal" href="#Cogl.Primitive.set_n_vertices" title="Cogl.Primitive.set_n_vertices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.set_n_vertices</span></code></a>() were called. This property defines
 the number of vertices to draw or, put another way, how many
 indices should be read from <cite>indices</cite> when drawing.</p>
 <p>The <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> first_vertex property
@@ -1077,7 +1063,7 @@ indices to start drawing from.</p>
 </tbody>
 </table>
 <p>Specifies how many vertices should be read when drawing the given
-<cite>primitive</cite>.</p>
+<cite>self</cite>.</p>
 <p>Usually this value is set implicitly when associating vertex data
 or indices with a <a class="reference internal" href="#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a>.</p>
 <p>To be clear; it doesn&#8217;t refer to the number of vertices - in
@@ -1104,7 +1090,4 @@ of vertices to read and draw.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

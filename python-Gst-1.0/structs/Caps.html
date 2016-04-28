@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gst.CapsFeatures" href="CapsFeatures.html"/>
         <link rel="prev" title="Gst.BufferPoolAcquireParams" href="BufferPoolAcquireParams.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -309,7 +307,7 @@ They are composed of an array of <a class="reference internal" href="Structure.h
 <p>Caps are exposed on <a class="reference internal" href="../classes/PadTemplate.html#Gst.PadTemplate" title="Gst.PadTemplate"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadTemplate</span></code></a> to describe all possible types a
 given pad can handle. They are also stored in the <a class="reference internal" href="../classes/Registry.html#Gst.Registry" title="Gst.Registry"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Registry</span></code></a> along with
 a description of the <a class="reference internal" href="../classes/Element.html#Gst.Element" title="Gst.Element"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>.</p>
-<p>Caps are exposed on the element pads using the <a class="reference internal" href="../classes/Pad.html#Gst.Pad.query_caps" title="Gst.Pad.query_caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.query_caps</span></code></a> () pad
+<p>Caps are exposed on the element pads using the <a class="reference internal" href="../classes/Pad.html#Gst.Pad.query_caps" title="Gst.Pad.query_caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.query_caps</span></code></a>() pad
 function. This function describes the possible types that the pad can
 handle or produce at runtime.</p>
 <p>A <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> can be constructed with the following code fragment:</p>
@@ -323,18 +321,18 @@ handle or produce at runtime.</p>
 </pre></div>
 </div>
 <p>A <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> is fixed when it has no properties with ranges or lists. Use
-<a class="reference internal" href="#Gst.Caps.is_fixed" title="Gst.Caps.is_fixed"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.is_fixed</span></code></a> () to test for fixed caps. Fixed caps can be used in a
+<a class="reference internal" href="#Gst.Caps.is_fixed" title="Gst.Caps.is_fixed"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.is_fixed</span></code></a>() to test for fixed caps. Fixed caps can be used in a
 caps event to notify downstream elements of the current media type.</p>
 <p>Various methods exist to work with the media types such as subtracting
 or intersecting.</p>
 <p>Be aware that the current <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> / <a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> serialization into string
 has limited support for nested <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> / <a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> fields. It can only
 support one level of nesting. Using more levels will lead to unexpected
-behavior when using serialization features, such as <a class="reference internal" href="#Gst.Caps.to_string" title="Gst.Caps.to_string"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.to_string</span></code></a> () or
-<a class="reference internal" href="../functions.html#Gst.value_serialize" title="Gst.value_serialize"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_serialize</span></code></a> () and their counterparts.</p>
+behavior when using serialization features, such as <a class="reference internal" href="#Gst.Caps.to_string" title="Gst.Caps.to_string"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.to_string</span></code></a>() or
+<a class="reference internal" href="../functions.html#Gst.value_serialize" title="Gst.value_serialize"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_serialize</span></code></a>() and their counterparts.</p>
 <dl class="staticmethod">
 <dt id="Gst.Caps.from_string">
-<em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n2338"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2352"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -354,7 +352,7 @@ when there are nested <a class="reference internal" href="#Gst.Caps" title="Gst.
 
 <dl class="staticmethod">
 <dt id="Gst.Caps.new_any">
-<em class="property">static </em><code class="descname">new_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n263"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n263"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -371,7 +369,7 @@ any media format.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Caps.new_empty">
-<em class="property">static </em><code class="descname">new_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n239"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n239"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -390,7 +388,7 @@ Caller is responsible for unreffing the returned caps.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Caps.new_empty_simple">
-<em class="property">static </em><code class="descname">new_empty_simple</code><span class="sig-paren">(</span><em>media_type</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n283"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_empty_simple</code><span class="sig-paren">(</span><em>media_type</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n283"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -410,7 +408,7 @@ Caller is responsible for unreffing the returned caps.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.append">
-<code class="descname">append</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n526"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">append</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n526"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -419,14 +417,14 @@ Caller is responsible for unreffing the returned caps.</p>
 </tr>
 </tbody>
 </table>
-<p>Appends the structures contained in <cite>caps2</cite> to <cite>caps1</cite>. The structures in
-<cite>caps2</cite> are not copied &#8211; they are transferred to <cite>caps1</cite>, and then <cite>caps2</cite> is
+<p>Appends the structures contained in <cite>caps2</cite> to <cite>self</cite>. The structures in
+<cite>caps2</cite> are not copied &#8211; they are transferred to <cite>self</cite>, and then <cite>caps2</cite> is
 freed. If either caps is ANY, the resulting caps will be ANY.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.append_structure">
-<code class="descname">append_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n614"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">append_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n614"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -435,13 +433,13 @@ freed. If either caps is ANY, the resulting caps will be ANY.</p>
 </tr>
 </tbody>
 </table>
-<p>Appends <cite>structure</cite> to <cite>caps</cite>.  The structure is not copied; <cite>caps</cite>
+<p>Appends <cite>structure</cite> to <cite>self</cite>.  The structure is not copied; <cite>self</cite>
 becomes the owner of <cite>structure</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.append_structure_full">
-<code class="descname">append_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n637"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">append_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n637"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -454,7 +452,7 @@ becomes the owner of <cite>structure</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Appends <cite>structure</cite> with <cite>features</cite> to <cite>caps</cite>.  The structure is not copied; <cite>caps</cite>
+<p>Appends <cite>structure</cite> with <cite>features</cite> to <cite>self</cite>.  The structure is not copied; <cite>self</cite>
 becomes the owner of <cite>structure</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
@@ -463,7 +461,7 @@ becomes the owner of <cite>structure</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.can_intersect">
-<code class="descname">can_intersect</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1405"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">can_intersect</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1409"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -476,13 +474,13 @@ becomes the owner of <cite>structure</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Tries intersecting <cite>caps1</cite> and <cite>caps2</cite> and reports whether the result would not
+<p>Tries intersecting <cite>self</cite> and <cite>caps2</cite> and reports whether the result would not
 be empty</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.copy_nth">
-<code class="descname">copy_nth</code><span class="sig-paren">(</span><em>nth</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n925"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy_nth</code><span class="sig-paren">(</span><em>nth</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n925"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -496,27 +494,27 @@ be empty</p>
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> and appends a copy of the nth structure
-contained in <cite>caps</cite>.</p>
+contained in <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.filter_and_map_in_place">
-<code class="descname">filter_and_map_in_place</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n2478"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">filter_and_map_in_place</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2492"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gst.CapsFilterMapFunc" title="Gst.CapsFilterMapFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsFilterMapFunc</span></code></a>) &#8211; a function to call for each field</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; private data</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; private data</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Calls the provided function once for each structure and caps feature in the
-<a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>. In contrast to <a class="reference internal" href="#Gst.Caps.foreach" title="Gst.Caps.foreach"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.foreach</span></code></a> (), the function may modify the
-structure and features. In contrast to <a class="reference internal" href="#Gst.Caps.filter_and_map_in_place" title="Gst.Caps.filter_and_map_in_place"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.filter_and_map_in_place</span></code></a> (),
+<a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>. In contrast to <a class="reference internal" href="#Gst.Caps.foreach" title="Gst.Caps.foreach"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.foreach</span></code></a>(), the function may modify the
+structure and features. In contrast to <a class="reference internal" href="#Gst.Caps.filter_and_map_in_place" title="Gst.Caps.filter_and_map_in_place"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.filter_and_map_in_place</span></code></a>(),
 the structure and features are removed from the caps if <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned
 from the function.
 The caps must be mutable.</p>
@@ -527,7 +525,7 @@ The caps must be mutable.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.fixate">
-<code class="descname">fixate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n2123"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">fixate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2137"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -538,21 +536,24 @@ The caps must be mutable.</p>
 </tr>
 </tbody>
 </table>
-<p>Modifies the given <cite>caps</cite> into a representation with only fixed
+<p>Modifies the given <cite>self</cite> into a representation with only fixed
 values. First the caps will be truncated and then the first structure will be
-fixated with <a class="reference internal" href="Structure.html#Gst.Structure.fixate" title="Gst.Structure.fixate"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure.fixate</span></code></a> ().</p>
+fixated with <a class="reference internal" href="Structure.html#Gst.Structure.fixate" title="Gst.Structure.fixate"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure.fixate</span></code></a>().</p>
+<p>This function takes ownership of <cite>self</cite> and will call gst_caps_make_writable()
+on it so you must not use <cite>self</cite> afterwards unless you keep an additional
+reference to it with gst_caps_ref().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.foreach">
-<code class="descname">foreach</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n2389"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">foreach</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2403"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gst.CapsForeachFunc" title="Gst.CapsForeachFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsForeachFunc</span></code></a>) &#8211; a function to call for each field</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; private data</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; private data</li>
 </ul>
 </td>
 </tr>
@@ -567,7 +568,7 @@ fixated with <a class="reference internal" href="Structure.html#Gst.Structure.fi
 </table>
 <p>Calls the provided function once for each structure and caps feature in the
 <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>. The function must not modify the fields.
-Also see <a class="reference internal" href="#Gst.Caps.map_in_place" title="Gst.Caps.map_in_place"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.map_in_place</span></code></a> () and <a class="reference internal" href="#Gst.Caps.filter_and_map_in_place" title="Gst.Caps.filter_and_map_in_place"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.filter_and_map_in_place</span></code></a> ().</p>
+Also see <a class="reference internal" href="#Gst.Caps.map_in_place" title="Gst.Caps.map_in_place"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.map_in_place</span></code></a>() and <a class="reference internal" href="#Gst.Caps.filter_and_map_in_place" title="Gst.Caps.filter_and_map_in_place"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.filter_and_map_in_place</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
 </div>
@@ -575,7 +576,7 @@ Also see <a class="reference internal" href="#Gst.Caps.map_in_place" title="Gst.
 
 <dl class="method">
 <dt id="Gst.Caps.get_features">
-<code class="descname">get_features</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n850"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_features</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n850"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -589,7 +590,7 @@ to <cite>index</cite></td>
 </tr>
 </tbody>
 </table>
-<p>Finds the features in <cite>caps</cite> that has the index <cite>index</cite>, and
+<p>Finds the features in <cite>self</cite> that has the index <cite>index</cite>, and
 returns it.</p>
 <p>WARNING: This function takes a const <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> *, but returns a
 non-const <a class="reference internal" href="CapsFeatures.html#Gst.CapsFeatures" title="Gst.CapsFeatures"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsFeatures</span></code></a> *.  This is for programming convenience &#8211;
@@ -598,7 +599,7 @@ the caller should be aware that structures inside a constant
 are writable, either because you have just copied them or made
 them writable with gst_caps_make_writable(), you may modify the
 features returned in the usual way, e.g. with functions like
-<a class="reference internal" href="CapsFeatures.html#Gst.CapsFeatures.add" title="Gst.CapsFeatures.add"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsFeatures.add</span></code></a> ().</p>
+<a class="reference internal" href="CapsFeatures.html#Gst.CapsFeatures.add" title="Gst.CapsFeatures.add"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsFeatures.add</span></code></a>().</p>
 <p>You do not need to free or unref the structure returned, it
 belongs to the <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>.</p>
 <div class="versionadded">
@@ -608,23 +609,23 @@ belongs to the <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><
 
 <dl class="method">
 <dt id="Gst.Caps.get_size">
-<code class="descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n785"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n785"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of structures that <cite>caps</cite> contains</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of structures that <cite>self</cite> contains</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the number of structures contained in <cite>caps</cite>.</p>
+<p>Gets the number of structures contained in <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.get_structure">
-<code class="descname">get_structure</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n816"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_structure</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n816"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -638,7 +639,7 @@ to <cite>index</cite></td>
 </tr>
 </tbody>
 </table>
-<p>Finds the structure in <cite>caps</cite> that has the index <cite>index</cite>, and
+<p>Finds the structure in <cite>self</cite> that has the index <cite>index</cite>, and
 returns it.</p>
 <p>WARNING: This function takes a const <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> *, but returns a
 non-const <a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> *.  This is for programming convenience &#8211;
@@ -647,14 +648,14 @@ the caller should be aware that structures inside a constant
 are writable, either because you have just copied them or made
 them writable with gst_caps_make_writable(), you may modify the
 structure returned in the usual way, e.g. with functions like
-<code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure.set</span></code> ().</p>
+gst_structure_set().</p>
 <p>You do not need to free or unref the structure returned, it
 belongs to the <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.intersect">
-<code class="descname">intersect</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1680"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">intersect</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1684"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -668,12 +669,12 @@ belongs to the <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> that contains all the formats that are common
-to both <cite>caps1</cite> and <cite>caps2</cite>. Defaults to <a class="reference internal" href="../enums.html#Gst.CapsIntersectMode.ZIG_ZAG" title="Gst.CapsIntersectMode.ZIG_ZAG"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsIntersectMode.ZIG_ZAG</span></code></a> mode.</p>
+to both <cite>self</cite> and <cite>caps2</cite>. Defaults to <a class="reference internal" href="../enums.html#Gst.CapsIntersectMode.ZIG_ZAG" title="Gst.CapsIntersectMode.ZIG_ZAG"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsIntersectMode.ZIG_ZAG</span></code></a> mode.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.intersect_full">
-<code class="descname">intersect_full</code><span class="sig-paren">(</span><em>caps2</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1652"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">intersect_full</code><span class="sig-paren">(</span><em>caps2</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1656"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -693,20 +694,20 @@ to both <cite>caps1</cite> and <cite>caps2</cite>. Defaults to <a class="referen
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> that contains all the formats that are common
-to both <cite>caps1</cite> and <cite>caps2</cite>, the order is defined by the <a class="reference internal" href="../enums.html#Gst.CapsIntersectMode" title="Gst.CapsIntersectMode"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsIntersectMode</span></code></a>
+to both <cite>self</cite> and <cite>caps2</cite>, the order is defined by the <a class="reference internal" href="../enums.html#Gst.CapsIntersectMode" title="Gst.CapsIntersectMode"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsIntersectMode</span></code></a>
 used.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.is_always_compatible">
-<code class="descname">is_always_compatible</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1178"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_always_compatible</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1182"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caps2</strong> (<a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to test</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>caps1</cite> is a subset of <cite>caps2</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a subset of <cite>caps2</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -714,44 +715,44 @@ used.</p>
 </table>
 <p>A given <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> structure is always compatible with another if
 every media format that is in the first is also contained in the
-second.  That is, <cite>caps1</cite> is a subset of <cite>caps2</cite>.</p>
+second.  That is, <cite>self</cite> is a subset of <cite>caps2</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.is_any">
-<code class="descname">is_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1071"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1075"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>caps</cite> represents any format.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> represents any format.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if <cite>caps</cite> represents any media format.</p>
+<p>Determines if <cite>self</cite> represents any media format.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.is_empty">
-<code class="descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1087"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1091"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>caps</cite> represents no formats.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> represents no formats.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if <cite>caps</cite> represents no media formats.</p>
+<p>Determines if <cite>self</cite> represents no media formats.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.is_equal">
-<code class="descname">is_equal</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1334"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_equal</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1338"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -769,7 +770,7 @@ second.  That is, <cite>caps1</cite> is a subset of <cite>caps2</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_equal_fixed">
-<code class="descname">is_equal_fixed</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1145"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_equal_fixed</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1149"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -788,12 +789,12 @@ second.  That is, <cite>caps1</cite> is a subset of <cite>caps2</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_fixed">
-<code class="descname">is_fixed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1119"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_fixed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1123"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>caps</cite> is fixed</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is fixed</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -806,7 +807,7 @@ Examples of non-fixed types are GST_TYPE_INT_RANGE and GST_TYPE_LIST.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_strictly_equal">
-<code class="descname">is_strictly_equal</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1358"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_strictly_equal</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1362"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -824,55 +825,55 @@ Examples of non-fixed types are GST_TYPE_INT_RANGE and GST_TYPE_LIST.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_subset">
-<code class="descname">is_subset</code><span class="sig-paren">(</span><em>superset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1196"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_subset</code><span class="sig-paren">(</span><em>superset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1200"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>superset</strong> (<a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; a potentially greater <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>subset</cite> is a subset of <cite>superset</cite></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a subset of <cite>superset</cite></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks if all caps represented by <cite>subset</cite> are also represented by <cite>superset</cite>.</p>
+<p>Checks if all caps represented by <cite>self</cite> are also represented by <cite>superset</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.is_subset_structure">
-<code class="descname">is_subset_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1252"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_subset_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1256"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>structure</strong> (<a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a>) &#8211; a potential <a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> subset of <cite>caps</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>structure</strong> (<a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a>) &#8211; a potential <a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> subset of <cite>self</cite></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>structure</cite> is a subset of <cite>caps</cite></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>structure</cite> is a subset of <cite>self</cite></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>structure</cite> is a subset of <cite>caps</cite>. See <a class="reference internal" href="#Gst.Caps.is_subset" title="Gst.Caps.is_subset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.is_subset</span></code></a> ()
+<p>Checks if <cite>structure</cite> is a subset of <cite>self</cite>. See <a class="reference internal" href="#Gst.Caps.is_subset" title="Gst.Caps.is_subset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.is_subset</span></code></a>()
 for more information.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.is_subset_structure_full">
-<code class="descname">is_subset_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1291"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_subset_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1295"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>structure</strong> (<a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a>) &#8211; a potential <a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> subset of <cite>caps</cite></li>
+<li><strong>structure</strong> (<a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a>) &#8211; a potential <a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> subset of <cite>self</cite></li>
 <li><strong>features</strong> (<a class="reference internal" href="CapsFeatures.html#Gst.CapsFeatures" title="Gst.CapsFeatures"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsFeatures</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference internal" href="CapsFeatures.html#Gst.CapsFeatures" title="Gst.CapsFeatures"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsFeatures</span></code></a> for <cite>structure</cite></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>structure</cite> is a subset of <cite>caps</cite></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>structure</cite> is a subset of <cite>self</cite></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
@@ -880,7 +881,7 @@ for more information.</p>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>structure</cite> is a subset of <cite>caps</cite>. See <a class="reference internal" href="#Gst.Caps.is_subset" title="Gst.Caps.is_subset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.is_subset</span></code></a> ()
+<p>Checks if <cite>structure</cite> is a subset of <cite>self</cite>. See <a class="reference internal" href="#Gst.Caps.is_subset" title="Gst.Caps.is_subset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.is_subset</span></code></a>()
 for more information.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
@@ -889,14 +890,14 @@ for more information.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.map_in_place">
-<code class="descname">map_in_place</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n2423"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">map_in_place</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2437"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gst.CapsMapFunc" title="Gst.CapsMapFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsMapFunc</span></code></a>) &#8211; a function to call for each field</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; private data</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; private data</li>
 </ul>
 </td>
 </tr>
@@ -910,7 +911,7 @@ for more information.</p>
 </tbody>
 </table>
 <p>Calls the provided function once for each structure and caps feature in the
-<a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>. In contrast to <a class="reference internal" href="#Gst.Caps.foreach" title="Gst.Caps.foreach"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.foreach</span></code></a> (), the function may modify but not
+<a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>. In contrast to <a class="reference internal" href="#Gst.Caps.foreach" title="Gst.Caps.foreach"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.foreach</span></code></a>(), the function may modify but not
 delete the structures and features. The caps must be mutable.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -919,7 +920,7 @@ delete the structures and features. The caps must be mutable.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.merge">
-<code class="descname">merge</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n564"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">merge</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n564"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -932,15 +933,15 @@ delete the structures and features. The caps must be mutable.</p>
 </tr>
 </tbody>
 </table>
-<p>Appends the structures contained in <cite>caps2</cite> to <cite>caps1</cite> if they are not yet
-expressed by <cite>caps1</cite>. The structures in <cite>caps2</cite> are not copied &#8211; they are
-transferred to a writable copy of <cite>caps1</cite>, and then <cite>caps2</cite> is freed.
+<p>Appends the structures contained in <cite>caps2</cite> to <cite>self</cite> if they are not yet
+expressed by <cite>self</cite>. The structures in <cite>caps2</cite> are not copied &#8211; they are
+transferred to a writable copy of <cite>self</cite>, and then <cite>caps2</cite> is freed.
 If either caps is ANY, the resulting caps will be ANY.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.merge_structure">
-<code class="descname">merge_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n678"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">merge_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n678"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -953,12 +954,12 @@ If either caps is ANY, the resulting caps will be ANY.</p>
 </tr>
 </tbody>
 </table>
-<p>Appends <cite>structure</cite> to <cite>caps</cite> if its not already expressed by <cite>caps</cite>.</p>
+<p>Appends <cite>structure</cite> to <cite>self</cite> if its not already expressed by <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.merge_structure_full">
-<code class="descname">merge_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n729"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">merge_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n729"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -977,7 +978,7 @@ If either caps is ANY, the resulting caps will be ANY.</p>
 </tr>
 </tbody>
 </table>
-<p>Appends <cite>structure</cite> with <cite>features</cite> to <cite>caps</cite> if its not already expressed by <cite>caps</cite>.</p>
+<p>Appends <cite>structure</cite> with <cite>features</cite> to <cite>self</cite> if its not already expressed by <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
 </div>
@@ -985,7 +986,7 @@ If either caps is ANY, the resulting caps will be ANY.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.normalize">
-<code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1894"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1900"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -997,14 +998,16 @@ If either caps is ANY, the resulting caps will be ANY.</p>
 </tbody>
 </table>
 <p>Returns a <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> that represents the same set of formats as
-<cite>caps</cite>, but contains no lists.  Each list is expanded into separate
-GstStructures.</p>
-<p>This function takes ownership of <cite>caps</cite>.</p>
+<cite>self</cite>, but contains no lists.  Each list is expanded into separate
+<cite>GstStructures</cite>.</p>
+<p>This function takes ownership of <cite>self</cite> and will call gst_caps_make_writable()
+on it so you must not use <cite>self</cite> afterwards unless you keep an additional
+reference to it with gst_caps_ref().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.remove_structure">
-<code class="descname">remove_structure</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n656"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_structure</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n656"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1014,12 +1017,12 @@ GstStructures.</p>
 </tbody>
 </table>
 <p>removes the structure with the given index from the list of structures
-contained in <cite>caps</cite>.</p>
+contained in <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.set_features">
-<code class="descname">set_features</code><span class="sig-paren">(</span><em>index</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n895"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_features</code><span class="sig-paren">(</span><em>index</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n895"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1040,7 +1043,7 @@ contained in <cite>caps</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.set_value">
-<code class="descname">set_value</code><span class="sig-paren">(</span><em>field</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n988"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>field</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n992"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1053,14 +1056,14 @@ contained in <cite>caps</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the given <cite>field</cite> on all structures of <cite>caps</cite> to the given <cite>value</cite>.
-This is a convenience function for calling <a class="reference internal" href="Structure.html#Gst.Structure.set_value" title="Gst.Structure.set_value"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure.set_value</span></code></a> () on
-all structures of <cite>caps</cite>.</p>
+<p>Sets the given <cite>field</cite> on all structures of <cite>self</cite> to the given <cite>value</cite>.
+This is a convenience function for calling <a class="reference internal" href="Structure.html#Gst.Structure.set_value" title="Gst.Structure.set_value"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure.set_value</span></code></a>() on
+all structures of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.simplify">
-<code class="descname">simplify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n2051"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">simplify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2061"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1071,16 +1074,19 @@ all structures of <cite>caps</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Converts the given <cite>caps</cite> into a representation that represents the
+<p>Converts the given <cite>self</cite> into a representation that represents the
 same set of formats, but in a simpler form.  Component structures that are
 identical are merged.  Component structures that have values that can be
 merged are also merged.</p>
-<p>This method does not preserve the original order of <cite>caps</cite>.</p>
+<p>This function takes ownership of <cite>self</cite> and will call gst_caps_make_writable()
+on it if necessary, so you must not use <cite>self</cite> afterwards unless you keep an
+additional reference to it with gst_caps_ref().</p>
+<p>This method does not preserve the original order of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.steal_structure">
-<code class="descname">steal_structure</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n505"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">steal_structure</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n505"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1095,12 +1101,12 @@ to <cite>index</cite>.</td>
 </tbody>
 </table>
 <p>Retrieves the structure with the given index from the list of structures
-contained in <cite>caps</cite>. The caller becomes the owner of the returned structure.</p>
+contained in <cite>self</cite>. The caller becomes the owner of the returned structure.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.subtract">
-<code class="descname">subtract</code><span class="sig-paren">(</span><em>subtrahend</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n1759"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">subtract</code><span class="sig-paren">(</span><em>subtrahend</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1763"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1113,26 +1119,26 @@ contained in <cite>caps</cite>. The caller becomes the owner of the returned str
 </tr>
 </tbody>
 </table>
-<p>Subtracts the <cite>subtrahend</cite> from the <cite>minuend</cite>.</p>
+<p>Subtracts the <cite>subtrahend</cite> from the <cite>self</cite>.</p>
 <p>This function does not work reliably if optional properties for caps
 are included on one caps and omitted on the other.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Caps.to_string">
-<code class="descname">to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n2173"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2187"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly allocated string representing <cite>caps</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly allocated string representing <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Converts <cite>caps</cite> to a string representation.  This string representation
-can be converted back to a <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> by <a class="reference internal" href="#Gst.Caps.from_string" title="Gst.Caps.from_string"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.from_string</span></code></a> ().</p>
+<p>Converts <cite>self</cite> to a string representation.  This string representation
+can be converted back to a <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> by <a class="reference internal" href="#Gst.Caps.from_string" title="Gst.Caps.from_string"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.from_string</span></code></a>().</p>
 <p>For debugging purposes its easier to do something like this:</p>
 <p><code class="docutils literal"><span class="pre">GST_LOG</span> <span class="pre">(&quot;caps</span> <span class="pre">are</span> <span class="pre">%&quot;</span> <span class="pre">GST_PTR_FORMAT,</span> <span class="pre">caps);</span></code></p>
 <p>This prints the caps in human readable form.</p>
@@ -1142,7 +1148,7 @@ when there are nested <a class="reference internal" href="#Gst.Caps" title="Gst.
 
 <dl class="method">
 <dt id="Gst.Caps.truncate">
-<code class="descname">truncate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.6.2#n957"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">truncate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n961"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1153,8 +1159,11 @@ when there are nested <a class="reference internal" href="#Gst.Caps" title="Gst.
 </tr>
 </tbody>
 </table>
-<p>Discard all but the first structure from <cite>caps</cite>. Useful when
+<p>Discard all but the first structure from <cite>self</cite>. Useful when
 fixating.</p>
+<p>This function takes ownership of <cite>self</cite> and will call gst_caps_make_writable()
+on it if necessary, so you must not use <cite>self</cite> afterwards unless you keep an
+additional reference to it with gst_caps_ref().</p>
 </dd></dl>
 
 </dd></dl>
@@ -1173,7 +1182,4 @@ fixating.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

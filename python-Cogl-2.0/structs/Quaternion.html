@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Cogl.TextureVertex" href="TextureVertex.html"/>
         <link rel="prev" title="Cogl.PollFD" href="PollFD.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -357,14 +355,14 @@ equal.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="#Cogl.Quaternion" title="Cogl.Quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion</span></code></a> which should be freed
-using <a class="reference internal" href="#Cogl.Quaternion.free" title="Cogl.Quaternion.free"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion.free</span></code></a> ()</td>
+using <a class="reference internal" href="#Cogl.Quaternion.free" title="Cogl.Quaternion.free"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion.free</span></code></a>()</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Cogl.Quaternion" title="Cogl.Quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Allocates a new <a class="reference internal" href="#Cogl.Quaternion" title="Cogl.Quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion</span></code></a> on the stack and initializes it with
-the same values as <cite>src</cite>.</p>
+the same values as <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.0.</span></p>
 </div>
@@ -392,7 +390,7 @@ the same values as <cite>src</cite>.</p>
 <dt id="Cogl.Quaternion.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Frees a <a class="reference internal" href="#Cogl.Quaternion" title="Cogl.Quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion</span></code></a> that was previously allocated via
-<a class="reference internal" href="#Cogl.Quaternion.copy" title="Cogl.Quaternion.copy"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion.copy</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.Quaternion.copy" title="Cogl.Quaternion.copy"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion.copy</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.0.</span></p>
 </div>
@@ -453,7 +451,7 @@ rotate.</li>
 </tbody>
 </table>
 <p>Initializes a quaternion that rotates <cite>angle</cite> degrees around the
-axis vector (<cite>x</cite>, <cite>y</cite>, <cite>z</cite> ). The axis vector does not need to be
+axis vector (<cite>x</cite>, <cite>y</cite>, <cite>z</cite>). The axis vector does not need to be
 normalized.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.0.</span></p>
@@ -541,7 +539,7 @@ floats: [w,x,y,z].</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>src</strong> (<a class="reference internal" href="#Cogl.Quaternion" title="Cogl.Quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion</span></code></a>) &#8211; A <a class="reference internal" href="#Cogl.Quaternion" title="Cogl.Quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion</span></code></a> with which to initialize <cite>quaternion</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>src</strong> (<a class="reference internal" href="#Cogl.Quaternion" title="Cogl.Quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion</span></code></a>) &#8211; A <a class="reference internal" href="#Cogl.Quaternion" title="Cogl.Quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion</span></code></a> with which to initialize <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
@@ -606,7 +604,7 @@ floats: [w,x,y,z].</p>
 [1 (0, 0, 0)] which represents no rotation. Multiplying a
 quaternion with this identity leaves the quaternion unchanged.</p>
 <p>You might also want to consider using
-<a class="reference internal" href="../functions.html#Cogl.get_static_identity_quaternion" title="Cogl.get_static_identity_quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.get_static_identity_quaternion</span></code></a> ().</p>
+<a class="reference internal" href="../functions.html#Cogl.get_static_identity_quaternion" title="Cogl.get_static_identity_quaternion"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.get_static_identity_quaternion</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.0.</span></p>
 </div>
@@ -635,13 +633,13 @@ quaternion with this identity leaves the quaternion unchanged.</p>
 </tr>
 </tbody>
 </table>
-<p>This combines the rotations of two quaternions into <cite>result</cite>. The
+<p>This combines the rotations of two quaternions into <cite>self</cite>. The
 operation is not commutative so the order is important because AxB
 != BxA. Cogl follows the standard convention for quaternions here
 so the rotations are applied <cite>right</cite> to <cite>left</cite>. This is similar to the
 combining of matrices.</p>
 <p>It is possible to multiply the <cite>a</cite> quaternion in-place, so
-<cite>result</cite> can be equal to <cite>a</cite> but can&#8217;t be equal to <cite>b</cite>.</p>
+<cite>self</cite> can be equal to <cite>a</cite> but can&#8217;t be equal to <cite>b</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.0.</span></p>
 </div>
@@ -679,7 +677,7 @@ if you don&#8217;t need the constant speed property of the slerp() function.</p>
 <li>commutative: Yes</li>
 <li>constant velocity: No</li>
 <li>torque minimal (travels along the surface of the 4-sphere): Yes</li>
-<li>faster than <a class="reference internal" href="#Cogl.Quaternion.slerp" title="Cogl.Quaternion.slerp"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion.slerp</span></code></a> ()</li>
+<li>faster than <a class="reference internal" href="#Cogl.Quaternion.slerp" title="Cogl.Quaternion.slerp"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion.slerp</span></code></a>()</li>
 </ul>
 </dd></dl>
 
@@ -730,7 +728,7 @@ quaternion <cite>a</cite> and <cite>b</cite>.</li>
 <li>commutative: No</li>
 <li>constant velocity: Yes</li>
 <li>torque minimal (travels along the surface of the 4-sphere): Yes</li>
-<li>more expensive than <a class="reference internal" href="#Cogl.Quaternion.nlerp" title="Cogl.Quaternion.nlerp"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion.nlerp</span></code></a> ()</li>
+<li>more expensive than <a class="reference internal" href="#Cogl.Quaternion.nlerp" title="Cogl.Quaternion.nlerp"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Quaternion.nlerp</span></code></a>()</li>
 </ul>
 </dd></dl>
 
@@ -774,7 +772,4 @@ quaternion <cite>a</cite> and <cite>b</cite>.</li>
   </div> 
 
 </body>
-
-  
-
 </html>

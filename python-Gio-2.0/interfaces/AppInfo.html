@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gio.AsyncInitable" href="AsyncInitable.html"/>
         <link rel="prev" title="Gio.ActionMap" href="ActionMap.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -404,7 +402,7 @@
 <p><a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo</span></code></a> and <a class="reference internal" href="../classes/AppLaunchContext.html#Gio.AppLaunchContext" title="Gio.AppLaunchContext"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppLaunchContext</span></code></a> are used for describing and launching
 applications installed on the system.</p>
 <p>As of GLib 2.20, URIs will always be converted to POSIX paths
-(using <a class="reference internal" href="File.html#Gio.File.get_path" title="Gio.File.get_path"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.get_path</span></code></a> ()) when using <a class="reference internal" href="#Gio.AppInfo.launch" title="Gio.AppInfo.launch"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.launch</span></code></a> () even if
+(using <a class="reference internal" href="File.html#Gio.File.get_path" title="Gio.File.get_path"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.get_path</span></code></a>()) when using <a class="reference internal" href="#Gio.AppInfo.launch" title="Gio.AppInfo.launch"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.launch</span></code></a>() even if
 the application requested an URI and not a POSIX path. For example
 for an desktop-file based application with Exec key <code class="docutils literal"><span class="pre">totem</span>
 <span class="pre">%U</span></code> and a single URI, <code class="docutils literal"><span class="pre">sftp://foo/file.avi</span></code>, then
@@ -418,25 +416,25 @@ passed unmodified to the application.</p>
 <p>Specifically for gvfs 2.26 and later, the POSIX URI will be mapped
 back to the GIO URI in the <a class="reference internal" href="File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> constructors (since gvfs
 implements the <a class="reference internal" href="../classes/Vfs.html#Gio.Vfs" title="Gio.Vfs"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Vfs</span></code></a> extension point). As such, if the application
-needs to examine the URI, it needs to use <a class="reference internal" href="File.html#Gio.File.get_uri" title="Gio.File.get_uri"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.get_uri</span></code></a> () or
+needs to examine the URI, it needs to use <a class="reference internal" href="File.html#Gio.File.get_uri" title="Gio.File.get_uri"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.get_uri</span></code></a>() or
 similar on <a class="reference internal" href="File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>. In other words, an application cannot assume
-that the URI passed to e.g. <a class="reference internal" href="File.html#Gio.File.new_for_commandline_arg" title="Gio.File.new_for_commandline_arg"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.new_for_commandline_arg</span></code></a> () is
-equal to the result of <a class="reference internal" href="File.html#Gio.File.get_uri" title="Gio.File.get_uri"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.get_uri</span></code></a> (). The following snippet
+that the URI passed to e.g. <a class="reference internal" href="File.html#Gio.File.new_for_commandline_arg" title="Gio.File.new_for_commandline_arg"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.new_for_commandline_arg</span></code></a>() is
+equal to the result of <a class="reference internal" href="File.html#Gio.File.get_uri" title="Gio.File.get_uri"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File.get_uri</span></code></a>(). The following snippet
 illustrates this:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">GFile</span> <span class="o">*</span><span class="n">f</span><span class="p">;</span>
-<span class="kt">char</span> <span class="o">*</span><span class="n">uri</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>GFile *f;
+char *uri;
 
-<span class="n">file</span> <span class="o">=</span> <span class="n">g_file_new_for_commandline_arg</span> <span class="p">(</span><span class="n">uri_from_commandline</span><span class="p">);</span>
+file = g_file_new_for_commandline_arg (uri_from_commandline);
 
-<span class="n">uri</span> <span class="o">=</span> <span class="n">g_file_get_uri</span> <span class="p">(</span><span class="n">file</span><span class="p">);</span>
-<span class="n">strcmp</span> <span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">uri_from_commandline</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">g_free</span> <span class="p">(</span><span class="n">uri</span><span class="p">);</span>
+uri = g_file_get_uri (file);
+strcmp (uri, uri_from_commandline) == 0;
+g_free (uri);
 
-<span class="k">if</span> <span class="p">(</span><span class="n">g_file_has_uri_scheme</span> <span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&quot;cdda&quot;</span><span class="p">))</span>
-  <span class="p">{</span>
-    <span class="c1">// do something special with uri</span>
-  <span class="p">}</span>
-<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">file</span><span class="p">);</span>
+if (g_file_has_uri_scheme (file, &quot;cdda&quot;))
+  {
+    // do something special with uri
+  }
+g_object_unref (file);
 </pre></div>
 </div>
 <p>This code will work when both <code class="docutils literal"><span class="pre">cdda://sr0/Track</span> <span class="pre">1.wav</span></code> and
@@ -447,7 +445,7 @@ Different launcher applications (e.g. file managers) may have
 different ideas of what a given URI means.</p>
 <dl class="staticmethod">
 <dt id="Gio.AppInfo.create_from_commandline">
-<em class="property">static </em><code class="descname">create_from_commandline</code><span class="sig-paren">(</span><em>commandline</em>, <em>application_name</em>, <em>flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.46.2#n3699"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">create_from_commandline</code><span class="sig-paren">(</span><em>commandline</em>, <em>application_name</em>, <em>flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.48.0#n3700"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -459,7 +457,7 @@ different ideas of what a given URI means.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">new <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo</span></code></a> for given command.</p>
@@ -480,7 +478,7 @@ being swallowed by Exec key unquoting. See the specification for exact quoting r
 
 <dl class="staticmethod">
 <dt id="Gio.AppInfo.get_all">
-<em class="property">static </em><code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.46.2#n4251"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.48.0#n4252"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -495,14 +493,14 @@ being swallowed by Exec key unquoting. See the specification for exact quoting r
 on this system.</p>
 <p>For desktop files, this includes applications that have
 <code class="docutils literal"><span class="pre">NoDisplay=true</span></code> set or are excluded from display by means
-of <code class="docutils literal"><span class="pre">OnlyShowIn</span></code> or <code class="docutils literal"><span class="pre">NotShowIn</span></code>. See <a class="reference internal" href="#Gio.AppInfo.should_show" title="Gio.AppInfo.should_show"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.should_show</span></code></a> ().
+of <code class="docutils literal"><span class="pre">OnlyShowIn</span></code> or <code class="docutils literal"><span class="pre">NotShowIn</span></code>. See <a class="reference internal" href="#Gio.AppInfo.should_show" title="Gio.AppInfo.should_show"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.should_show</span></code></a>().
 The returned list does not include applications which have
 the <code class="docutils literal"><span class="pre">Hidden</span></code> key set.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Gio.AppInfo.get_all_for_type">
-<em class="property">static </em><code class="descname">get_all_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.46.2#n3958"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_all_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.48.0#n3959"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -518,13 +516,13 @@ for given <cite>content_type</cite> or <a class="reference external" href="http:
 </table>
 <p>Gets a list of all <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfos</span></code></a> for a given content type,
 including the recommended and fallback <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfos</span></code></a>. See
-<a class="reference internal" href="#Gio.AppInfo.get_recommended_for_type" title="Gio.AppInfo.get_recommended_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.get_recommended_for_type</span></code></a> () and
-<a class="reference internal" href="#Gio.AppInfo.get_fallback_for_type" title="Gio.AppInfo.get_fallback_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.get_fallback_for_type</span></code></a> ().</p>
+<a class="reference internal" href="#Gio.AppInfo.get_recommended_for_type" title="Gio.AppInfo.get_recommended_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.get_recommended_for_type</span></code></a>() and
+<a class="reference internal" href="#Gio.AppInfo.get_fallback_for_type" title="Gio.AppInfo.get_fallback_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.get_fallback_for_type</span></code></a>().</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Gio.AppInfo.get_default_for_type">
-<em class="property">static </em><code class="descname">get_default_for_type</code><span class="sig-paren">(</span><em>content_type</em>, <em>must_support_uris</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.46.2#n4011"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_default_for_type</code><span class="sig-paren">(</span><em>content_type</em>, <em>must_support_uris</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.48.0#n4012"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -550,7 +548,7 @@ support URIs</li>
 
 <dl class="staticmethod">
 <dt id="Gio.AppInfo.get_default_for_uri_scheme">
-<em class="property">static </em><code class="descname">get_default_for_uri_scheme</code><span class="sig-paren">(</span><em>uri_scheme</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.46.2#n4086"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_default_for_uri_scheme</code><span class="sig-paren">(</span><em>uri_scheme</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.48.0#n4087"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -571,7 +569,7 @@ of the URI, up to but not including the &#8216;:&#8217;, e.g. &#8220;http&#8221;
 
 <dl class="staticmethod">
 <dt id="Gio.AppInfo.get_fallback_for_type">
-<em class="property">static </em><code class="descname">get_fallback_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.46.2#n3908"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_fallback_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.48.0#n3909"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -595,7 +593,7 @@ by MIME type subclassing and not directly.</p>
 
 <dl class="staticmethod">
 <dt id="Gio.AppInfo.get_recommended_for_type">
-<em class="property">static </em><code class="descname">get_recommended_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.46.2#n3868"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_recommended_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.48.0#n3869"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -613,7 +611,7 @@ for given <cite>content_type</cite> or <a class="reference external" href="http:
 those applications which claim to support the given content type exactly,
 and not by MIME type subclassing.
 Note that the first application of the list is the last used one, i.e.
-the last one for which <a class="reference internal" href="#Gio.AppInfo.set_as_last_used_for_type" title="Gio.AppInfo.set_as_last_used_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.set_as_last_used_for_type</span></code></a> () has been
+the last one for which <a class="reference internal" href="#Gio.AppInfo.set_as_last_used_for_type" title="Gio.AppInfo.set_as_last_used_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.set_as_last_used_for_type</span></code></a>() has been
 called.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
@@ -622,7 +620,7 @@ called.</p>
 
 <dl class="staticmethod">
 <dt id="Gio.AppInfo.launch_default_for_uri">
-<em class="property">static </em><code class="descname">launch_default_for_uri</code><span class="sig-paren">(</span><em>uri</em>, <em>launch_context</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n683"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">launch_default_for_uri</code><span class="sig-paren">(</span><em>uri</em>, <em>launch_context</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n683"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -633,7 +631,7 @@ called.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on error.</p>
@@ -652,7 +650,7 @@ required.</p>
 
 <dl class="staticmethod">
 <dt id="Gio.AppInfo.reset_type_associations">
-<em class="property">static </em><code class="descname">reset_type_associations</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.46.2#n3991"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">reset_type_associations</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gdesktopappinfo.c?h=2.48.0#n3992"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -662,10 +660,10 @@ required.</p>
 </tbody>
 </table>
 <p>Removes all changes to the type associations done by
-<a class="reference internal" href="#Gio.AppInfo.set_as_default_for_type" title="Gio.AppInfo.set_as_default_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.set_as_default_for_type</span></code></a> (),
-<a class="reference internal" href="#Gio.AppInfo.set_as_default_for_extension" title="Gio.AppInfo.set_as_default_for_extension"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.set_as_default_for_extension</span></code></a> (),
-<a class="reference internal" href="#Gio.AppInfo.add_supports_type" title="Gio.AppInfo.add_supports_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.add_supports_type</span></code></a> () or
-<a class="reference internal" href="#Gio.AppInfo.remove_supports_type" title="Gio.AppInfo.remove_supports_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.remove_supports_type</span></code></a> ().</p>
+<a class="reference internal" href="#Gio.AppInfo.set_as_default_for_type" title="Gio.AppInfo.set_as_default_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.set_as_default_for_type</span></code></a>(),
+<a class="reference internal" href="#Gio.AppInfo.set_as_default_for_extension" title="Gio.AppInfo.set_as_default_for_extension"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.set_as_default_for_extension</span></code></a>(),
+<a class="reference internal" href="#Gio.AppInfo.add_supports_type" title="Gio.AppInfo.add_supports_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.add_supports_type</span></code></a>() or
+<a class="reference internal" href="#Gio.AppInfo.remove_supports_type" title="Gio.AppInfo.remove_supports_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.remove_supports_type</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
 </div>
@@ -673,14 +671,14 @@ required.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.add_supports_type">
-<code class="descname">add_supports_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n384"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_supports_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n384"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>content_type</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a string.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on error.</td>
 </tr>
@@ -694,19 +692,19 @@ application is capable of opening files with the given content type.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.can_delete">
-<code class="descname">can_delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n738"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">can_delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n738"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>appinfo</cite> can be deleted</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> can be deleted</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Obtains the information whether the <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo</span></code></a> can be deleted.
-See <a class="reference internal" href="#Gio.AppInfo.delete" title="Gio.AppInfo.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.delete</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.AppInfo.delete" title="Gio.AppInfo.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.delete</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
 </div>
@@ -714,13 +712,13 @@ See <a class="reference internal" href="#Gio.AppInfo.delete" title="Gio.AppInfo.
 
 <dl class="method">
 <dt id="Gio.AppInfo.can_remove_supports_type">
-<code class="descname">can_remove_supports_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n414"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">can_remove_supports_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n414"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if it is possible to remove supported
-content types from a given <cite>appinfo</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not.</td>
+content types from a given <cite>self</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -731,12 +729,12 @@ content types from a given <cite>appinfo</cite>, <a class="reference external" h
 
 <dl class="method">
 <dt id="Gio.AppInfo.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n769"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n769"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>appinfo</cite> has been deleted</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> has been deleted</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -745,7 +743,7 @@ content types from a given <cite>appinfo</cite>, <a class="reference external" h
 <p>Tries to delete a <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo</span></code></a>.</p>
 <p>On some platforms, there may be a difference between user-defined
 <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfos</span></code></a> which can be deleted, and system-wide ones which cannot.
-See <a class="reference internal" href="#Gio.AppInfo.can_delete" title="Gio.AppInfo.can_delete"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.can_delete</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.AppInfo.can_delete" title="Gio.AppInfo.can_delete"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.can_delete</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
 </div>
@@ -753,12 +751,12 @@ See <a class="reference internal" href="#Gio.AppInfo.can_delete" title="Gio.AppI
 
 <dl class="method">
 <dt id="Gio.AppInfo.dup">
-<code class="descname">dup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n106"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">dup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n106"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a duplicate of <cite>appinfo</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a duplicate of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo</span></code></a></td>
 </tr>
@@ -769,14 +767,14 @@ See <a class="reference internal" href="#Gio.AppInfo.can_delete" title="Gio.AppI
 
 <dl class="method">
 <dt id="Gio.AppInfo.equal">
-<code class="descname">equal</code><span class="sig-paren">(</span><em>appinfo2</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n128"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">equal</code><span class="sig-paren">(</span><em>appinfo2</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n128"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>appinfo2</strong> (<a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo</span></code></a>) &#8211; the second <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>appinfo1</cite> is equal to <cite>appinfo2</cite>. <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is equal to <cite>appinfo2</cite>. <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -787,12 +785,12 @@ See <a class="reference internal" href="#Gio.AppInfo.can_delete" title="Gio.AppI
 
 <dl class="method">
 <dt id="Gio.AppInfo.get_commandline">
-<code class="descname">get_commandline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n272"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_commandline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n272"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing the <cite>appinfo</cite> &#8216;s commandline,
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing the <cite>self</cite>&#8216;s commandline,
 or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if this information is not available</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
@@ -808,13 +806,13 @@ started.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.get_description">
-<code class="descname">get_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n226"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n226"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing a description of the
-application <cite>appinfo</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if none.</td>
+application <cite>self</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if none.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -825,12 +823,12 @@ application <cite>appinfo</cite>, or <a class="reference external" href="http://
 
 <dl class="method">
 <dt id="Gio.AppInfo.get_display_name">
-<code class="descname">get_display_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n202"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_display_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n202"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the display name of the application for <cite>appinfo</cite>, or the name if
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the display name of the application for <cite>self</cite>, or the name if
 no display name is available.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
@@ -846,12 +844,12 @@ descriptive to the user than the name itself.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.get_executable">
-<code class="descname">get_executable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n247"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_executable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n247"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing the <cite>appinfo</cite> &#8216;s application
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing the <cite>self</cite>&#8216;s application
 binaries name</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
@@ -863,12 +861,12 @@ binaries name</td>
 
 <dl class="method">
 <dt id="Gio.AppInfo.get_icon">
-<code class="descname">get_icon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n503"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_icon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n503"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the default <a class="reference internal" href="Icon.html#Gio.Icon" title="Gio.Icon"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Icon</span></code></a> for <cite>appinfo</cite> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the default <a class="reference internal" href="Icon.html#Gio.Icon" title="Gio.Icon"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Icon</span></code></a> for <cite>self</cite> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
 if there is no default icon.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Icon.html#Gio.Icon" title="Gio.Icon"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Icon</span></code></a></td>
@@ -880,7 +878,7 @@ if there is no default icon.</td>
 
 <dl class="method">
 <dt id="Gio.AppInfo.get_id">
-<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n158"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n158"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -896,17 +894,17 @@ identifies the application. The exact format of the id is
 platform dependent. For instance, on Unix this is the
 desktop file id from the xdg menu specification.</p>
 <p>Note that the returned ID may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, depending on how
-the <cite>appinfo</cite> has been constructed.</p>
+the <cite>self</cite> has been constructed.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.AppInfo.get_name">
-<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n178"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n178"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of the application for <cite>appinfo</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of the application for <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -917,7 +915,7 @@ the <cite>appinfo</cite> has been constructed.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.get_supported_types">
-<code class="descname">get_supported_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n478"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_supported_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n478"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -932,7 +930,7 @@ the <cite>appinfo</cite> has been constructed.</p>
 If this information is not provided by the environment, this function
 will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.
 This function does not take in consideration associations added with
-<a class="reference internal" href="#Gio.AppInfo.add_supports_type" title="Gio.AppInfo.add_supports_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.add_supports_type</span></code></a> (), but only those exported directly by
+<a class="reference internal" href="#Gio.AppInfo.add_supports_type" title="Gio.AppInfo.add_supports_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.add_supports_type</span></code></a>(), but only those exported directly by
 the application.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.34.</span></p>
@@ -941,7 +939,7 @@ the application.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.launch">
-<code class="descname">launch</code><span class="sig-paren">(</span><em>files</em>, <em>launch_context</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n556"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">launch</code><span class="sig-paren">(</span><em>files</em>, <em>launch_context</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n556"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -952,7 +950,7 @@ the application.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on successful launch, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</p>
@@ -974,10 +972,10 @@ no way to detect this.</p>
 <p>Some URIs can be changed when passed through a <a class="reference internal" href="File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> (for instance
 unsupported URIs with strange formats like mailto:), so if you have
 a textual URI you want to pass in as argument, consider using
-<a class="reference internal" href="#Gio.AppInfo.launch_uris" title="Gio.AppInfo.launch_uris"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.launch_uris</span></code></a> () instead.</p>
+<a class="reference internal" href="#Gio.AppInfo.launch_uris" title="Gio.AppInfo.launch_uris"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.launch_uris</span></code></a>() instead.</p>
 <p>The launched application inherits the environment of the launching
-process, but it can be modified with <a class="reference internal" href="../classes/AppLaunchContext.html#Gio.AppLaunchContext.setenv" title="Gio.AppLaunchContext.setenv"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppLaunchContext.setenv</span></code></a> ()
-and <a class="reference internal" href="../classes/AppLaunchContext.html#Gio.AppLaunchContext.unsetenv" title="Gio.AppLaunchContext.unsetenv"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppLaunchContext.unsetenv</span></code></a> ().</p>
+process, but it can be modified with <a class="reference internal" href="../classes/AppLaunchContext.html#Gio.AppLaunchContext.setenv" title="Gio.AppLaunchContext.setenv"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppLaunchContext.setenv</span></code></a>()
+and <a class="reference internal" href="../classes/AppLaunchContext.html#Gio.AppLaunchContext.unsetenv" title="Gio.AppLaunchContext.unsetenv"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppLaunchContext.unsetenv</span></code></a>().</p>
 <p>On UNIX, this function sets the <code class="docutils literal"><span class="pre">GIO_LAUNCHED_DESKTOP_FILE</span></code>
 environment variable with the path of the launched desktop file and
 <code class="docutils literal"><span class="pre">GIO_LAUNCHED_DESKTOP_FILE_PID</span></code> to the process id of the launched
@@ -989,7 +987,7 @@ on information provided in <cite>launch_context</cite>.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.launch_uris">
-<code class="descname">launch_uris</code><span class="sig-paren">(</span><em>uris</em>, <em>launch_context</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n634"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">launch_uris</code><span class="sig-paren">(</span><em>uris</em>, <em>launch_context</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n634"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1000,7 +998,7 @@ on information provided in <cite>launch_context</cite>.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on successful launch, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</p>
@@ -1023,14 +1021,14 @@ no way to detect this.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.remove_supports_type">
-<code class="descname">remove_supports_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n442"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_supports_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n442"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>content_type</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a string.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on error.</td>
 </tr>
@@ -1043,14 +1041,14 @@ no way to detect this.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.set_as_default_for_extension">
-<code class="descname">set_as_default_for_extension</code><span class="sig-paren">(</span><em>extension</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n352"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_as_default_for_extension</code><span class="sig-paren">(</span><em>extension</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n352"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>extension</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a string containing the file extension (without the dot).</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on error.</td>
 </tr>
@@ -1063,14 +1061,14 @@ no way to detect this.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.set_as_default_for_type">
-<code class="descname">set_as_default_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n299"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_as_default_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n299"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>content_type</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the content type.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on error.</td>
 </tr>
@@ -1083,14 +1081,14 @@ no way to detect this.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.set_as_last_used_for_type">
-<code class="descname">set_as_last_used_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n327"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_as_last_used_for_type</code><span class="sig-paren">(</span><em>content_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n327"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>content_type</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the content type.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on error.</td>
 </tr>
@@ -1100,18 +1098,18 @@ no way to detect this.</p>
 </table>
 <p>Sets the application as the last used application for a given type.
 This will make the application appear as first in the list returned
-by <a class="reference internal" href="#Gio.AppInfo.get_recommended_for_type" title="Gio.AppInfo.get_recommended_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.get_recommended_for_type</span></code></a> (), regardless of the default
+by <a class="reference internal" href="#Gio.AppInfo.get_recommended_for_type" title="Gio.AppInfo.get_recommended_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.get_recommended_for_type</span></code></a>(), regardless of the default
 application for that content type.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.AppInfo.should_show">
-<code class="descname">should_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n656"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">should_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n656"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>appinfo</cite> should be shown, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>self</cite> should be shown, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -1123,12 +1121,12 @@ list available applications.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.supports_files">
-<code class="descname">supports_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n598"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">supports_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n598"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>appinfo</cite> supports files.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>self</cite> supports files.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -1139,12 +1137,12 @@ list available applications.</p>
 
 <dl class="method">
 <dt id="Gio.AppInfo.supports_uris">
-<code class="descname">supports_uris</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.46.2#n577"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">supports_uris</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gappinfo.c?h=2.48.0#n577"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>appinfo</cite> supports URIs.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>self</cite> supports URIs.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -1186,7 +1184,7 @@ application is capable of opening files with the given content type.</p>
 </tbody>
 </table>
 <p>Obtains the information whether the <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo</span></code></a> can be deleted.
-See <a class="reference internal" href="#Gio.AppInfo.delete" title="Gio.AppInfo.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.delete</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.AppInfo.delete" title="Gio.AppInfo.delete"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.delete</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
 </div>
@@ -1225,7 +1223,7 @@ content types from a given <cite>appinfo</cite>, <a class="reference external" h
 <p>Tries to delete a <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo</span></code></a>.</p>
 <p>On some platforms, there may be a difference between user-defined
 <a class="reference internal" href="#Gio.AppInfo" title="Gio.AppInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfos</span></code></a> which can be deleted, and system-wide ones which cannot.
-See <a class="reference internal" href="#Gio.AppInfo.can_delete" title="Gio.AppInfo.can_delete"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.can_delete</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.AppInfo.can_delete" title="Gio.AppInfo.can_delete"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.can_delete</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
 </div>
@@ -1272,7 +1270,7 @@ See <a class="reference internal" href="#Gio.AppInfo.can_delete" title="Gio.AppI
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing the <cite>appinfo</cite> &#8216;s commandline,
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing the <cite>appinfo</cite>&#8216;s commandline,
 or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if this information is not available</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
@@ -1331,7 +1329,7 @@ descriptive to the user than the name itself.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing the <cite>appinfo</cite> &#8216;s application
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing the <cite>appinfo</cite>&#8216;s application
 binaries name</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
@@ -1412,7 +1410,7 @@ the <cite>appinfo</cite> has been constructed.</p>
 If this information is not provided by the environment, this function
 will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.
 This function does not take in consideration associations added with
-<a class="reference internal" href="#Gio.AppInfo.add_supports_type" title="Gio.AppInfo.add_supports_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.add_supports_type</span></code></a> (), but only those exported directly by
+<a class="reference internal" href="#Gio.AppInfo.add_supports_type" title="Gio.AppInfo.add_supports_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.add_supports_type</span></code></a>(), but only those exported directly by
 the application.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.34.</span></p>
@@ -1451,10 +1449,10 @@ no way to detect this.</p>
 <p>Some URIs can be changed when passed through a <a class="reference internal" href="File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> (for instance
 unsupported URIs with strange formats like mailto:), so if you have
 a textual URI you want to pass in as argument, consider using
-<a class="reference internal" href="#Gio.AppInfo.launch_uris" title="Gio.AppInfo.launch_uris"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.launch_uris</span></code></a> () instead.</p>
+<a class="reference internal" href="#Gio.AppInfo.launch_uris" title="Gio.AppInfo.launch_uris"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.launch_uris</span></code></a>() instead.</p>
 <p>The launched application inherits the environment of the launching
-process, but it can be modified with <a class="reference internal" href="../classes/AppLaunchContext.html#Gio.AppLaunchContext.setenv" title="Gio.AppLaunchContext.setenv"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppLaunchContext.setenv</span></code></a> ()
-and <a class="reference internal" href="../classes/AppLaunchContext.html#Gio.AppLaunchContext.unsetenv" title="Gio.AppLaunchContext.unsetenv"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppLaunchContext.unsetenv</span></code></a> ().</p>
+process, but it can be modified with <a class="reference internal" href="../classes/AppLaunchContext.html#Gio.AppLaunchContext.setenv" title="Gio.AppLaunchContext.setenv"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppLaunchContext.setenv</span></code></a>()
+and <a class="reference internal" href="../classes/AppLaunchContext.html#Gio.AppLaunchContext.unsetenv" title="Gio.AppLaunchContext.unsetenv"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppLaunchContext.unsetenv</span></code></a>().</p>
 <p>On UNIX, this function sets the <code class="docutils literal"><span class="pre">GIO_LAUNCHED_DESKTOP_FILE</span></code>
 environment variable with the path of the launched desktop file and
 <code class="docutils literal"><span class="pre">GIO_LAUNCHED_DESKTOP_FILE_PID</span></code> to the process id of the launched
@@ -1566,7 +1564,7 @@ no way to detect this.</p>
 </table>
 <p>Sets the application as the last used application for a given type.
 This will make the application appear as first in the list returned
-by <a class="reference internal" href="#Gio.AppInfo.get_recommended_for_type" title="Gio.AppInfo.get_recommended_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.get_recommended_for_type</span></code></a> (), regardless of the default
+by <a class="reference internal" href="#Gio.AppInfo.get_recommended_for_type" title="Gio.AppInfo.get_recommended_for_type"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AppInfo.get_recommended_for_type</span></code></a>(), regardless of the default
 application for that content type.</p>
 </dd></dl>
 
@@ -1635,7 +1633,4 @@ list available applications.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

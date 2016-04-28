@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Soup 2.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Soup.XMLRPCParams" href="XMLRPCParams.html"/>
         <link rel="prev" title="Soup.Range" href="Range.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -323,24 +321,24 @@ URI <cite>scheme</cite> values.</p>
 <p><cite>user</cite> and <cite>password</cite> are parsed as defined in the older URI specs
 (ie, separated by a colon; RFC 3986 only talks about a single
 &#8220;userinfo&#8221; field). Note that <cite>password</cite> is not included in the
-output of <a class="reference internal" href="#Soup.URI.to_string" title="Soup.URI.to_string"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.to_string</span></code></a> (). libsoup does not normally use these
+output of <a class="reference internal" href="#Soup.URI.to_string" title="Soup.URI.to_string"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.to_string</span></code></a>(). libsoup does not normally use these
 fields; authentication is handled via <a class="reference internal" href="../classes/Session.html#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> signals.</p>
 <p><cite>host</cite> contains the hostname, and <cite>port</cite> the port specified in the
 URI. If the URI doesn&#8217;t contain a hostname, <cite>host</cite> will be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>,
 and if it doesn&#8217;t specify a port, <cite>port</cite> may be 0. However, for
 &#8220;http&#8221; and &#8220;https&#8221; URIs, <cite>host</cite> is guaranteed to be non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
-(trying to parse an http URI with no <cite>host</cite> will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> ), and
+(trying to parse an http URI with no <cite>host</cite> will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>), and
 <cite>port</cite> will always be non-0 (because libsoup knows the default value
 to use when it is not specified in the URI).</p>
 <p><cite>path</cite> is always non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. For http/https URIs, <cite>path</cite> will never be
 an empty string either; if the input URI has no path, the parsed
 <a class="reference internal" href="#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a> will have a <cite>path</cite> of &#8220;/&#8221;.</p>
 <p><cite>query</cite> and <cite>fragment</cite> are optional for all URI types.
-<a class="reference internal" href="../functions.html#Soup.form_decode" title="Soup.form_decode"><code class="xref py py-obj docutils literal"><span class="pre">Soup.form_decode</span></code></a> () may be useful for parsing <cite>query</cite>.</p>
+<a class="reference internal" href="../functions.html#Soup.form_decode" title="Soup.form_decode"><code class="xref py py-obj docutils literal"><span class="pre">Soup.form_decode</span></code></a>() may be useful for parsing <cite>query</cite>.</p>
 <p>Note that <cite>path</cite>, <cite>query</cite>, and <cite>fragment</cite> may contain
-% -encoded characters. <a class="reference internal" href="#Soup.URI.new" title="Soup.URI.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.new</span></code></a> () calls
-<a class="reference internal" href="#Soup.URI.normalize" title="Soup.URI.normalize"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.normalize</span></code></a> () on them, but not <a class="reference internal" href="#Soup.URI.decode" title="Soup.URI.decode"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.decode</span></code></a> (). This is
-necessary to ensure that <a class="reference internal" href="#Soup.URI.to_string" title="Soup.URI.to_string"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.to_string</span></code></a> () will generate a URI
+% -encoded characters. <a class="reference internal" href="#Soup.URI.new" title="Soup.URI.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.new</span></code></a>() calls
+<a class="reference internal" href="#Soup.URI.normalize" title="Soup.URI.normalize"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.normalize</span></code></a>() on them, but not <a class="reference internal" href="#Soup.URI.decode" title="Soup.URI.decode"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.decode</span></code></a>(). This is
+necessary to ensure that <a class="reference internal" href="#Soup.URI.to_string" title="Soup.URI.to_string"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.to_string</span></code></a>() will generate a URI
 that has exactly the same meaning as the original. (In theory,
 <a class="reference internal" href="#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a> should leave <cite>user</cite>, <cite>password</cite>, and <cite>host</cite> partially-encoded
 as well, but this would be more annoying than useful.)</p>
@@ -362,7 +360,7 @@ as well, but this would be more annoying than useful.)</p>
 <p>Fully % -decodes <cite>part</cite>.</p>
 <p>In the past, this would return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>part</cite> contained invalid
 percent-encoding, but now it just ignores the problem (as
-<a class="reference internal" href="#Soup.URI.new" title="Soup.URI.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.new</span></code></a> () already did).</p>
+<a class="reference internal" href="#Soup.URI.new" title="Soup.URI.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.new</span></code></a>() already did).</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -375,7 +373,7 @@ percent-encoding, but now it just ignores the problem (as
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>part</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a URI part</li>
 <li><strong>escape_extra</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; additional reserved characters to
-escape (or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> )</li>
+escape (or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>)</li>
 </ul>
 </td>
 </tr>
@@ -411,7 +409,7 @@ was found to be invalid.</td>
 <p>Parses an absolute URI.</p>
 <p>You can also pass <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for <cite>uri_string</cite> if you want to get back an
 &#8220;empty&#8221; <a class="reference internal" href="#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a> that you can fill in by hand. (You will need to
-call at least <a class="reference internal" href="#Soup.URI.set_scheme" title="Soup.URI.set_scheme"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.set_scheme</span></code></a> () and <a class="reference internal" href="#Soup.URI.set_path" title="Soup.URI.set_path"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.set_path</span></code></a> (), since
+call at least <a class="reference internal" href="#Soup.URI.set_scheme" title="Soup.URI.set_scheme"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.set_scheme</span></code></a>() and <a class="reference internal" href="#Soup.URI.set_path" title="Soup.URI.set_path"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.set_path</span></code></a>(), since
 those fields are required.)</p>
 </dd></dl>
 
@@ -424,7 +422,7 @@ those fields are required.)</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>part</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a URI part</li>
-<li><strong>unescape_extra</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; reserved characters to unescape (or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> )</li>
+<li><strong>unescape_extra</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; reserved characters to unescape (or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>)</li>
 </ul>
 </td>
 </tr>
@@ -437,10 +435,11 @@ those fields are required.)</p>
 </tbody>
 </table>
 <p>% -decodes any &#8220;unreserved&#8221; characters (or characters in
-<cite>unescape_extra</cite> ) in <cite>part</cite>.</p>
+<cite>unescape_extra</cite>) in <cite>part</cite>, and % -encodes any non-ASCII
+characters, spaces, and non-printing characters in <cite>part</cite>.</p>
 <p>&#8220;Unreserved&#8221; characters are those that are not allowed to be used
 for punctuation according to the URI spec. For example, letters are
-unreserved, so <a class="reference internal" href="#Soup.URI.normalize" title="Soup.URI.normalize"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.normalize</span></code></a> () will turn
+unreserved, so <a class="reference internal" href="#Soup.URI.normalize" title="Soup.URI.normalize"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.normalize</span></code></a>() will turn
 <code class="docutils literal"><span class="pre">http://example.com/foo/b%61r</span></code> into
 <code class="docutils literal"><span class="pre">http://example.com/foo/bar</span></code>, which is guaranteed
 to mean the same thing. However, &#8220;/&#8221; is &#8220;reserved&#8221;, so
@@ -449,7 +448,7 @@ be changed, because it might mean something different to the
 server.</p>
 <p>In the past, this would return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>part</cite> contained invalid
 percent-encoding, but now it just ignores the problem (as
-<a class="reference internal" href="#Soup.URI.new" title="Soup.URI.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.new</span></code></a> () already did).</p>
+<a class="reference internal" href="#Soup.URI.new" title="Soup.URI.new"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.new</span></code></a>() already did).</p>
 </dd></dl>
 
 <dl class="method">
@@ -459,13 +458,13 @@ percent-encoding, but now it just ignores the problem (as
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a copy of <cite>uri</cite>, which must be freed with <a class="reference internal" href="#Soup.URI.free" title="Soup.URI.free"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.free</span></code></a> ()</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a copy of <cite>self</cite>, which must be freed with <a class="reference internal" href="#Soup.URI.free" title="Soup.URI.free"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI.free</span></code></a>()</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Copies <cite>uri</cite></p>
+<p>Copies <cite>self</cite></p>
 </dd></dl>
 
 <dl class="method">
@@ -481,7 +480,7 @@ percent-encoding, but now it just ignores the problem (as
 </tr>
 </tbody>
 </table>
-<p>Makes a copy of <cite>uri</cite>, considering only the protocol, host, and port</p>
+<p>Makes a copy of <cite>self</cite>, considering only the protocol, host, and port</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -502,13 +501,13 @@ percent-encoding, but now it just ignores the problem (as
 </tr>
 </tbody>
 </table>
-<p>Tests whether or not <cite>uri1</cite> and <cite>uri2</cite> are equal in all parts</p>
+<p>Tests whether or not <cite>self</cite> and <cite>uri2</cite> are equal in all parts</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Soup.URI.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Frees <cite>uri</cite>.</p>
+<dd><p>Frees <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -518,13 +517,13 @@ percent-encoding, but now it just ignores the problem (as
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>uri</cite> &#8216;s fragment.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s fragment.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>uri</cite> &#8216;s fragment.</p>
+<p>Gets <cite>self</cite>&#8216;s fragment.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -537,13 +536,13 @@ percent-encoding, but now it just ignores the problem (as
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>uri</cite> &#8216;s host.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s host.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>uri</cite> &#8216;s host.</p>
+<p>Gets <cite>self</cite>&#8216;s host.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -556,13 +555,13 @@ percent-encoding, but now it just ignores the problem (as
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>uri</cite> &#8216;s password.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s password.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>uri</cite> &#8216;s password.</p>
+<p>Gets <cite>self</cite>&#8216;s password.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -575,13 +574,13 @@ percent-encoding, but now it just ignores the problem (as
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>uri</cite> &#8216;s path.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s path.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>uri</cite> &#8216;s path.</p>
+<p>Gets <cite>self</cite>&#8216;s path.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -594,13 +593,13 @@ percent-encoding, but now it just ignores the problem (as
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>uri</cite> &#8216;s port.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s port.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>uri</cite> &#8216;s port.</p>
+<p>Gets <cite>self</cite>&#8216;s port.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -613,13 +612,13 @@ percent-encoding, but now it just ignores the problem (as
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>uri</cite> &#8216;s query.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s query.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>uri</cite> &#8216;s query.</p>
+<p>Gets <cite>self</cite>&#8216;s query.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -632,13 +631,13 @@ percent-encoding, but now it just ignores the problem (as
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>uri</cite> &#8216;s scheme.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s scheme.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>uri</cite> &#8216;s scheme.</p>
+<p>Gets <cite>self</cite>&#8216;s scheme.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -651,13 +650,13 @@ percent-encoding, but now it just ignores the problem (as
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>uri</cite> &#8216;s user.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s user.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>uri</cite> &#8216;s user.</p>
+<p>Gets <cite>self</cite>&#8216;s user.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -679,7 +678,7 @@ and port.</td>
 </tr>
 </tbody>
 </table>
-<p>Compares <cite>v1</cite> and <cite>v2</cite>, considering only the scheme, host, and port.</p>
+<p>Compares <cite>self</cite> and <cite>v2</cite>, considering only the scheme, host, and port.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -698,7 +697,7 @@ and port.</td>
 </tr>
 </tbody>
 </table>
-<p>Hashes <cite>key</cite>, considering only the scheme, host, and port.</p>
+<p>Hashes <cite>self</cite>, considering only the scheme, host, and port.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -719,7 +718,7 @@ and port.</td>
 </tr>
 </tbody>
 </table>
-<p>Parses <cite>uri_string</cite> relative to <cite>base</cite>.</p>
+<p>Parses <cite>uri_string</cite> relative to <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -733,7 +732,7 @@ and port.</td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>uri</cite> &#8216;s fragment to <cite>fragment</cite>.</p>
+<p>Sets <cite>self</cite>&#8216;s fragment to <cite>fragment</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -747,10 +746,10 @@ and port.</td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>uri</cite> &#8216;s host to <cite>host</cite>.</p>
+<p>Sets <cite>self</cite>&#8216;s host to <cite>host</cite>.</p>
 <p>If <cite>host</cite> is an IPv6 IP address, it should not include the brackets
 required by the URI syntax; they will be added automatically when
-converting <cite>uri</cite> to a string.</p>
+converting <cite>self</cite> to a string.</p>
 <p>http and https URIs should not have a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> <cite>host</cite>.</p>
 </dd></dl>
 
@@ -765,7 +764,7 @@ converting <cite>uri</cite> to a string.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>uri</cite> &#8216;s password to <cite>password</cite>.</p>
+<p>Sets <cite>self</cite>&#8216;s password to <cite>password</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -779,7 +778,7 @@ converting <cite>uri</cite> to a string.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>uri</cite> &#8216;s path to <cite>path</cite>.</p>
+<p>Sets <cite>self</cite>&#8216;s path to <cite>path</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -793,7 +792,7 @@ converting <cite>uri</cite> to a string.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>uri</cite> &#8216;s port to <cite>port</cite>. If <cite>port</cite> is 0, <cite>uri</cite> will not have an
+<p>Sets <cite>self</cite>&#8216;s port to <cite>port</cite>. If <cite>port</cite> is 0, <cite>self</cite> will not have an
 explicitly-specified port.</p>
 </dd></dl>
 
@@ -808,7 +807,7 @@ explicitly-specified port.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>uri</cite> &#8216;s query to <cite>query</cite>.</p>
+<p>Sets <cite>self</cite>&#8216;s query to <cite>query</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -823,8 +822,8 @@ information</td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>uri</cite> &#8216;s query to the result of encoding <cite>form</cite> according to the
-HTML form rules. See <a class="reference internal" href="../functions.html#Soup.form_encode_hash" title="Soup.form_encode_hash"><code class="xref py py-obj docutils literal"><span class="pre">Soup.form_encode_hash</span></code></a> () for more information.</p>
+<p>Sets <cite>self</cite>&#8216;s query to the result of encoding <cite>form</cite> according to the
+HTML form rules. See <a class="reference internal" href="../functions.html#Soup.form_encode_hash" title="Soup.form_encode_hash"><code class="xref py py-obj docutils literal"><span class="pre">Soup.form_encode_hash</span></code></a>() for more information.</p>
 </dd></dl>
 
 <dl class="method">
@@ -838,7 +837,7 @@ HTML form rules. See <a class="reference internal" href="../functions.html#Soup.
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>uri</cite> &#8216;s scheme to <cite>scheme</cite>. This will also set <cite>uri</cite> &#8216;s port to
+<p>Sets <cite>self</cite>&#8216;s scheme to <cite>scheme</cite>. This will also set <cite>self</cite>&#8216;s port to
 the default port for <cite>scheme</cite>, if known.</p>
 </dd></dl>
 
@@ -853,7 +852,7 @@ the default port for <cite>scheme</cite>, if known.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>uri</cite> &#8216;s user to <cite>user</cite>.</p>
+<p>Sets <cite>self</cite>&#8216;s user to <cite>user</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -865,17 +864,17 @@ the default port for <cite>scheme</cite>, if known.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>just_path_and_query</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; if <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, output just the path and query portions</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a string representing <cite>uri</cite>, which the caller must free.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a string representing <cite>self</cite>, which the caller must free.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Returns a string representing <cite>uri</cite>.</p>
+<p>Returns a string representing <cite>self</cite>.</p>
 <p>If <cite>just_path_and_query</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, this concatenates the path and query
 together. That is, it constructs the string that would be needed in
-the Request-Line of an HTTP request for <cite>uri</cite>.</p>
-<p>Note that the output will never contain a password, even if <cite>uri</cite>
+the Request-Line of an HTTP request for <cite>self</cite>.</p>
+<p>Note that the output will never contain a password, even if <cite>self</cite>
 does.</p>
 </dd></dl>
 
@@ -892,7 +891,7 @@ does.</p>
 </tr>
 </tbody>
 </table>
-<p>Tests if <cite>uri</cite> uses the default port for its scheme. (Eg, 80 for
+<p>Tests if <cite>self</cite> uses the default port for its scheme. (Eg, 80 for
 http.) (This only works for http, https and ftp; libsoup does not know
 the default ports of other protocols.)</p>
 </dd></dl>
@@ -913,7 +912,4 @@ the default ports of other protocols.)</p>
   </div> 
 
 </body>
-
-  
-
 </html>

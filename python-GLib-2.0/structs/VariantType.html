@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Unions" href="../unions/index.html"/>
         <link rel="prev" title="GLib.VariantDict" href="VariantDict.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -286,8 +284,8 @@ containing exactly one argument.</p>
 abstract type in other type systems.  No value can exist that has an
 indefinite type as its type, but values can exist that have types
 that are subtypes of indefinite types.  That is to say,
-<a class="reference internal" href="Variant.html#GLib.Variant.get_type" title="GLib.Variant.get_type"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.get_type</span></code></a> () will never return an indefinite type, but
-calling <a class="reference internal" href="Variant.html#GLib.Variant.is_of_type" title="GLib.Variant.is_of_type"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.is_of_type</span></code></a> () with an indefinite type may return
+<a class="reference internal" href="Variant.html#GLib.Variant.get_type" title="GLib.Variant.get_type"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.get_type</span></code></a>() will never return an indefinite type, but
+calling <a class="reference internal" href="Variant.html#GLib.Variant.is_of_type" title="GLib.Variant.is_of_type"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.is_of_type</span></code></a>() with an indefinite type may return
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.  For example, you cannot have a value that represents &#8220;an
 array of no particular type&#8221;, but you can have an &#8220;array of integers&#8221;
 which certainly matches the type of &#8220;an array of no particular type&#8221;,
@@ -315,7 +313,7 @@ type strings, followed by the character &#8216;)&#8217;</li>
 followed by another type string, followed by the character &#8216;}&#8217;</li>
 </ul>
 <p>A basic type string describes a basic type (as per
-<a class="reference internal" href="#GLib.VariantType.is_basic" title="GLib.VariantType.is_basic"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.is_basic</span></code></a> ()) and is always a single character in length.
+<a class="reference internal" href="#GLib.VariantType.is_basic" title="GLib.VariantType.is_basic"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.is_basic</span></code></a>()) and is always a single character in length.
 The valid basic type strings are &#8220;b&#8221;, &#8220;y&#8221;, &#8220;n&#8221;, &#8220;q&#8221;, &#8220;i&#8221;, &#8220;u&#8221;, &#8220;x&#8221;, &#8220;t&#8221;,
 &#8220;h&#8221;, &#8220;d&#8221;, &#8220;s&#8221;, &#8220;o&#8221;, &#8220;g&#8221; and &#8221;?&#8221;.</p>
 <p>The above definition is recursive to arbitrary depth. &#8220;aaaaai&#8221; and
@@ -405,7 +403,7 @@ that, due to the restriction that the key of a dictionary entry must
 be a basic type, &#8220;{**}&#8221; is not a valid type string.</p>
 <dl class="staticmethod">
 <dt id="GLib.VariantType.checked_">
-<em class="property">static </em><code class="descname">checked_</code><span class="sig-paren">(</span><em>arg0</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n1214"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">checked_</code><span class="sig-paren">(</span><em>arg0</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n1214"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -420,7 +418,7 @@ be a basic type, &#8220;{**}&#8221; is not a valid type string.</p>
 
 <dl class="staticmethod">
 <dt id="GLib.VariantType.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>type_string</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n357"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>type_string</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n357"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -434,10 +432,10 @@ be a basic type, &#8220;{**}&#8221; is not a valid type string.</p>
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> corresponding to the type string given
-by <cite>type_string</cite>.  It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a> () on
+by <cite>type_string</cite>.  It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a>() on
 the return value.</p>
 <p>It is a programmer error to call this function with an invalid type
-string.  Use <a class="reference internal" href="#GLib.VariantType.string_is_valid" title="GLib.VariantType.string_is_valid"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.string_is_valid</span></code></a> () if you are unsure.</p>
+string.  Use <a class="reference internal" href="#GLib.VariantType.string_is_valid" title="GLib.VariantType.string_is_valid"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.string_is_valid</span></code></a>() if you are unsure.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -445,7 +443,7 @@ string.  Use <a class="reference internal" href="#GLib.VariantType.string_is_val
 
 <dl class="staticmethod">
 <dt id="GLib.VariantType.new_array">
-<em class="property">static </em><code class="descname">new_array</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n1133"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_array</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n1133"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -460,12 +458,12 @@ string.  Use <a class="reference internal" href="#GLib.VariantType.string_is_val
 </table>
 <p>Constructs the type corresponding to an array of elements of the
 type <cite>type</cite>.</p>
-<p>It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a> () on the return value.</p>
+<p>It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a>() on the return value.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="GLib.VariantType.new_dict_entry">
-<em class="property">static </em><code class="descname">new_dict_entry</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n1191"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_dict_entry</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n1191"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -486,12 +484,12 @@ type <cite>type</cite>.</p>
 </table>
 <p>Constructs the type corresponding to a dictionary entry with a key
 of type <cite>key</cite> and a value of type <cite>value</cite>.</p>
-<p>It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a> () on the return value.</p>
+<p>It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a>() on the return value.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="GLib.VariantType.new_maybe">
-<em class="property">static </em><code class="descname">new_maybe</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n1163"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_maybe</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n1163"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -506,12 +504,12 @@ of type <cite>key</cite> and a value of type <cite>value</cite>.</p>
 </table>
 <p>Constructs the type corresponding to a maybe instance containing
 type <cite>type</cite> or Nothing.</p>
-<p>It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a> () on the return value.</p>
+<p>It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a>() on the return value.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="GLib.VariantType.new_tuple">
-<em class="property">static </em><code class="descname">new_tuple</code><span class="sig-paren">(</span><em>items</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n1078"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_tuple</code><span class="sig-paren">(</span><em>items</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n1078"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -527,12 +525,12 @@ type <cite>type</cite> or Nothing.</p>
 <p>Constructs a new tuple type, from <cite>items</cite>.</p>
 <p><cite>length</cite> is the number of items in <cite>items</cite>, or -1 to indicate that
 <cite>items</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>-terminated.</p>
-<p>It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a> () on the return value.</p>
+<p>It is appropriate to call <a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a>() on the return value.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="GLib.VariantType.string_is_valid">
-<em class="property">static </em><code class="descname">string_is_valid</code><span class="sig-paren">(</span><em>type_string</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n281"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">string_is_valid</code><span class="sig-paren">(</span><em>type_string</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n281"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -546,13 +544,13 @@ type <cite>type</cite> or Nothing.</p>
 </tbody>
 </table>
 <p>Checks if <cite>type_string</cite> is a valid <a class="reference internal" href="Variant.html#GLib.Variant" title="GLib.Variant"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> type string.  This call is
-equivalent to calling <a class="reference internal" href="#GLib.VariantType.string_scan" title="GLib.VariantType.string_scan"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.string_scan</span></code></a> () and confirming
+equivalent to calling <a class="reference internal" href="#GLib.VariantType.string_scan" title="GLib.VariantType.string_scan"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.string_scan</span></code></a>() and confirming
 that the following character is a nul terminator.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="GLib.VariantType.string_scan">
-<em class="property">static </em><code class="descname">string_scan</code><span class="sig-paren">(</span><em>string</em>, <em>limit</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n224"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">string_scan</code><span class="sig-paren">(</span><em>string</em>, <em>limit</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n224"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -589,7 +587,7 @@ is returned.</p>
 <p>If there is no valid type string starting at <cite>string</cite>, or if the type
 string does not end before <cite>limit</cite> then <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned.</p>
 <p>For the simple case of checking if a string is a valid type string,
-see <a class="reference internal" href="#GLib.VariantType.string_is_valid" title="GLib.VariantType.string_is_valid"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.string_is_valid</span></code></a> ().</p>
+see <a class="reference internal" href="#GLib.VariantType.string_is_valid" title="GLib.VariantType.string_is_valid"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.string_is_valid</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -597,7 +595,7 @@ see <a class="reference internal" href="#GLib.VariantType.string_is_valid" title
 
 <dl class="method">
 <dt id="GLib.VariantType.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n325"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n325"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -609,12 +607,12 @@ see <a class="reference internal" href="#GLib.VariantType.string_is_valid" title
 </tbody>
 </table>
 <p>Makes a copy of a <a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a>.  It is appropriate to call
-<a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a> () on the return value.  <cite>type</cite> may not be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
+<a class="reference internal" href="#GLib.VariantType.free" title="GLib.VariantType.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.free</span></code></a>() on the return value.  <cite>self</cite> may not be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.dup_string">
-<code class="descname">dup_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n442"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">dup_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n442"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -626,18 +624,18 @@ see <a class="reference internal" href="#GLib.VariantType.string_is_valid" title
 </tbody>
 </table>
 <p>Returns a newly-allocated copy of the type string corresponding to
-<cite>type</cite>.  The returned string is nul-terminated.  It is appropriate to
-call <a class="reference internal" href="../functions.html#GLib.free" title="GLib.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> () on the return value.</p>
+<cite>self</cite>.  The returned string is nul-terminated.  It is appropriate to
+call <a class="reference internal" href="../functions.html#GLib.free" title="GLib.free"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() on the return value.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.element">
-<code class="descname">element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n859"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n859"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the element type of <cite>type</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the element type of <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a></td>
 </tr>
@@ -649,37 +647,37 @@ call <a class="reference internal" href="../functions.html#GLib.free" title="GLi
 
 <dl class="method">
 <dt id="GLib.VariantType.equal">
-<code class="descname">equal</code><span class="sig-paren">(</span><em>type2</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n752"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">equal</code><span class="sig-paren">(</span><em>type2</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n752"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type2</strong> (<a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a>) &#8211; a <a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type1</cite> and <cite>type2</cite> are exactly equal</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> and <cite>type2</cite> are exactly equal</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Compares <cite>type1</cite> and <cite>type2</cite> for equality.</p>
+<p>Compares <cite>self</cite> and <cite>type2</cite> for equality.</p>
 <p>Only returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the types are exactly equal.  Even if one type
 is an indefinite type and the other is a subtype of it, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> will
 be returned if they are not exactly equal.  If you want to check for
-subtypes, use <a class="reference internal" href="#GLib.VariantType.is_subtype_of" title="GLib.VariantType.is_subtype_of"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.is_subtype_of</span></code></a> ().</p>
-<p>The argument types of <cite>type1</cite> and <cite>type2</cite> are only #gconstpointer to
+subtypes, use <a class="reference internal" href="#GLib.VariantType.is_subtype_of" title="GLib.VariantType.is_subtype_of"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.is_subtype_of</span></code></a>().</p>
+<p>The argument types of <cite>self</cite> and <cite>type2</cite> are only #gconstpointer to
 allow use with <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> without function pointer casting.  For
 both arguments, a valid <a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> must be provided.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.first">
-<code class="descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n896"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n896"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the first item type of <cite>type</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the first item type of <cite>self</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a></td>
 </tr>
@@ -692,18 +690,18 @@ but must not be used with the generic tuple type
 %G_VARIANT_TYPE_TUPLE.</p>
 <p>In the case of a dictionary entry type, this returns the type of
 the key.</p>
-<p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned in case of <cite>type</cite> being %G_VARIANT_TYPE_UNIT.</p>
-<p>This call, together with <a class="reference internal" href="#GLib.VariantType.next" title="GLib.VariantType.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.next</span></code></a> () provides an iterator
+<p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned in case of <cite>self</cite> being %G_VARIANT_TYPE_UNIT.</p>
+<p>This call, together with <a class="reference internal" href="#GLib.VariantType.next" title="GLib.VariantType.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.next</span></code></a>() provides an iterator
 interface over tuple and dictionary entry types.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.free">
-<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n309"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n309"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Frees a <a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> that was allocated with
-<a class="reference internal" href="#GLib.VariantType.copy" title="GLib.VariantType.copy"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.copy</span></code></a> (), <a class="reference internal" href="#GLib.VariantType.new" title="GLib.VariantType.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.new</span></code></a> () or one of the container
+<a class="reference internal" href="#GLib.VariantType.copy" title="GLib.VariantType.copy"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.copy</span></code></a>(), <a class="reference internal" href="#GLib.VariantType.new" title="GLib.VariantType.new"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.new</span></code></a>() or one of the container
 type constructor functions.</p>
-<p>In the case that <cite>type</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, this function does nothing.</p>
+<p>In the case that <cite>self</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, this function does nothing.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -711,7 +709,7 @@ type constructor functions.</p>
 
 <dl class="method">
 <dt id="GLib.VariantType.get_string_length">
-<code class="descname">get_string_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n382"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_string_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n382"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -723,13 +721,13 @@ type constructor functions.</p>
 </tbody>
 </table>
 <p>Returns the length of the type string corresponding to the given
-<cite>type</cite>.  This function must be used to determine the valid extent of
-the memory region returned by <code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.peek_string</span></code> ().</p>
+<cite>self</cite>.  This function must be used to determine the valid extent of
+the memory region returned by g_variant_type_peek_string().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.hash">
-<code class="descname">hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n708"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n708"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -740,27 +738,27 @@ the memory region returned by <code class="xref py py-obj docutils literal"><spa
 </tr>
 </tbody>
 </table>
-<p>Hashes <cite>type</cite>.</p>
-<p>The argument type of <cite>type</cite> is only #gconstpointer to allow use with
+<p>Hashes <cite>self</cite>.</p>
+<p>The argument type of <cite>self</cite> is only #gconstpointer to allow use with
 <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> without function pointer casting.  A valid
 <a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> must be provided.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.is_array">
-<code class="descname">is_array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n618"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n618"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is an array type</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is an array type</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if the given <cite>type</cite> is an array type.  This is true if the
-type string for <cite>type</cite> starts with an &#8216;a&#8217;.</p>
+<p>Determines if the given <cite>self</cite> is an array type.  This is true if the
+type string for <cite>self</cite> starts with an &#8216;a&#8217;.</p>
 <p>This function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> for any indefinite type for which every
 definite subtype is an array type &#8211; %G_VARIANT_TYPE_ARRAY, for
 example.</p>
@@ -768,18 +766,18 @@ example.</p>
 
 <dl class="method">
 <dt id="GLib.VariantType.is_basic">
-<code class="descname">is_basic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n549"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_basic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n549"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is a basic type</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a basic type</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if the given <cite>type</cite> is a basic type.</p>
+<p>Determines if the given <cite>self</cite> is a basic type.</p>
 <p>Basic types are booleans, bytes, integers, doubles, strings, object
 paths and signatures.</p>
 <p>Only a basic type may be used as the key of a dictionary entry.</p>
@@ -789,18 +787,18 @@ paths and signatures.</p>
 
 <dl class="method">
 <dt id="GLib.VariantType.is_container">
-<code class="descname">is_container</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n508"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_container</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n508"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is a container type</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a container type</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if the given <cite>type</cite> is a container type.</p>
+<p>Determines if the given <cite>self</cite> is a container type.</p>
 <p>Container types are any array, maybe, tuple, or dictionary
 entry types plus the variant type.</p>
 <p>This function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> for any indefinite type for which every
@@ -810,22 +808,22 @@ example.</p>
 
 <dl class="method">
 <dt id="GLib.VariantType.is_definite">
-<code class="descname">is_definite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n470"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_definite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n470"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is definite</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is definite</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if the given <cite>type</cite> is definite (ie: not indefinite).</p>
+<p>Determines if the given <cite>self</cite> is definite (ie: not indefinite).</p>
 <p>A type is definite if its type string does not contain any indefinite
 type characters (&#8216;*&#8217;, &#8216;?&#8217;, or &#8216;r&#8217;).</p>
 <p>A <a class="reference internal" href="Variant.html#GLib.Variant" title="GLib.Variant"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> instance may not have an indefinite type, so calling
-this function on the result of <a class="reference internal" href="Variant.html#GLib.Variant.get_type" title="GLib.Variant.get_type"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.get_type</span></code></a> () will always
+this function on the result of <a class="reference internal" href="Variant.html#GLib.Variant.get_type" title="GLib.Variant.get_type"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.get_type</span></code></a>() will always
 result in <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> being returned.  Calling this function on an
 indefinite type like %G_VARIANT_TYPE_ARRAY, however, will result in
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> being returned.</p>
@@ -833,19 +831,19 @@ indefinite type like %G_VARIANT_TYPE_ARRAY, however, will result in
 
 <dl class="method">
 <dt id="GLib.VariantType.is_dict_entry">
-<code class="descname">is_dict_entry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n668"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_dict_entry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n668"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is a dictionary entry type</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a dictionary entry type</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if the given <cite>type</cite> is a dictionary entry type.  This is
-true if the type string for <cite>type</cite> starts with a &#8216;{&#8216;.</p>
+<p>Determines if the given <cite>self</cite> is a dictionary entry type.  This is
+true if the type string for <cite>self</cite> starts with a &#8216;{&#8216;.</p>
 <p>This function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> for any indefinite type for which every
 definite subtype is a dictionary entry type &#8211;
 %G_VARIANT_TYPE_DICT_ENTRY, for example.</p>
@@ -853,19 +851,19 @@ definite subtype is a dictionary entry type &#8211;
 
 <dl class="method">
 <dt id="GLib.VariantType.is_maybe">
-<code class="descname">is_maybe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n595"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_maybe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n595"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is a maybe type</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a maybe type</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if the given <cite>type</cite> is a maybe type.  This is true if the
-type string for <cite>type</cite> starts with an &#8216;m&#8217;.</p>
+<p>Determines if the given <cite>self</cite> is a maybe type.  This is true if the
+type string for <cite>self</cite> starts with an &#8216;m&#8217;.</p>
 <p>This function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> for any indefinite type for which every
 definite subtype is a maybe type &#8211; %G_VARIANT_TYPE_MAYBE, for
 example.</p>
@@ -873,40 +871,40 @@ example.</p>
 
 <dl class="method">
 <dt id="GLib.VariantType.is_subtype_of">
-<code class="descname">is_subtype_of</code><span class="sig-paren">(</span><em>supertype</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n793"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_subtype_of</code><span class="sig-paren">(</span><em>supertype</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n793"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>supertype</strong> (<a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a>) &#8211; a <a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is a subtype of <cite>supertype</cite></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a subtype of <cite>supertype</cite></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>type</cite> is a subtype of <cite>supertype</cite>.</p>
-<p>This function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is a subtype of <cite>supertype</cite>.  All
+<p>Checks if <cite>self</cite> is a subtype of <cite>supertype</cite>.</p>
+<p>This function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a subtype of <cite>supertype</cite>.  All
 types are considered to be subtypes of themselves.  Aside from that,
 only indefinite types can have subtypes.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.is_tuple">
-<code class="descname">is_tuple</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n642"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_tuple</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n642"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is a tuple type</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is a tuple type</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if the given <cite>type</cite> is a tuple type.  This is true if the
-type string for <cite>type</cite> starts with a &#8216;(&#8216; or if <cite>type</cite> is
+<p>Determines if the given <cite>self</cite> is a tuple type.  This is true if the
+type string for <cite>self</cite> starts with a &#8216;(&#8216; or if <cite>self</cite> is
 %G_VARIANT_TYPE_TUPLE.</p>
 <p>This function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> for any indefinite type for which every
 definite subtype is a tuple type &#8211; %G_VARIANT_TYPE_TUPLE, for
@@ -915,23 +913,23 @@ example.</p>
 
 <dl class="method">
 <dt id="GLib.VariantType.is_variant">
-<code class="descname">is_variant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n686"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_variant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n686"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>type</cite> is the variant type</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is the variant type</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines if the given <cite>type</cite> is the variant type.</p>
+<p>Determines if the given <cite>self</cite> is the variant type.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.key">
-<code class="descname">key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n995"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n995"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -945,17 +943,17 @@ example.</p>
 <p>Determines the key type of a dictionary entry type.</p>
 <p>This function may only be used with a dictionary entry type.  Other
 than the additional restriction, this call is equivalent to
-<a class="reference internal" href="#GLib.VariantType.first" title="GLib.VariantType.first"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.first</span></code></a> ().</p>
+<a class="reference internal" href="#GLib.VariantType.first" title="GLib.VariantType.first"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.first</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.n_items">
-<code class="descname">n_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n969"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">n_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n969"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of items in <cite>type</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of items in <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -972,12 +970,12 @@ return 2.</p>
 
 <dl class="method">
 <dt id="GLib.VariantType.next">
-<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n932"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n932"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the next <a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> after <cite>type</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the next <a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a> after <cite>self</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GLib.VariantType" title="GLib.VariantType"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType</span></code></a></td>
 </tr>
@@ -985,17 +983,17 @@ return 2.</p>
 </table>
 <p>Determines the next item type of a tuple or dictionary entry
 type.</p>
-<p><cite>type</cite> must be the result of a previous call to
-<a class="reference internal" href="#GLib.VariantType.first" title="GLib.VariantType.first"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.first</span></code></a> () or <a class="reference internal" href="#GLib.VariantType.next" title="GLib.VariantType.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.next</span></code></a> ().</p>
+<p><cite>self</cite> must be the result of a previous call to
+<a class="reference internal" href="#GLib.VariantType.first" title="GLib.VariantType.first"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.first</span></code></a>() or <a class="reference internal" href="#GLib.VariantType.next" title="GLib.VariantType.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.VariantType.next</span></code></a>().</p>
 <p>If called on the key type of a dictionary entry then this call
 returns the value type.  If called on the value type of a dictionary
 entry then this call returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
-<p>For tuples, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned when <cite>type</cite> is the last item in a tuple.</p>
+<p>For tuples, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned when <cite>self</cite> is the last item in a tuple.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.VariantType.value">
-<code class="descname">value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.46.2#n1023"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gvarianttype.c?h=2.48.0#n1023"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1026,7 +1024,4 @@ entry then this call returns <a class="reference external" href="http://docs.pyt
   </div> 
 
 </body>
-
-  
-
 </html>

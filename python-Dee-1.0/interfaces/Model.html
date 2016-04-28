@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Dee 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Dee.ResourceManager" href="ResourceManager.html"/>
         <link rel="prev" title="Interfaces" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -505,10 +503,10 @@ consumed</td>
 </tr>
 </tbody>
 </table>
-<p>Like <code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.append</span></code> () but intended for language bindings or
+<p>Like dee_model_append() but intended for language bindings or
 situations where you work with models on a meta level and may not have
 a prior knowledge of the column schemas of the models. See also
-<code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.build_row</span></code> ().</p>
+dee_model_build_row().</p>
 </dd></dl>
 
 <dl class="method">
@@ -532,7 +530,7 @@ a prior knowledge of the column schemas of the models. See also
 </tr>
 </tbody>
 </table>
-<p>This method is purely syntactic sugar for calling <a class="reference internal" href="#Dee.Model.set_tag" title="Dee.Model.set_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.set_tag</span></code></a> () with
+<p>This method is purely syntactic sugar for calling <a class="reference internal" href="#Dee.Model.set_tag" title="Dee.Model.set_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.set_tag</span></code></a>() with
 a <cite>value</cite> of <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. It&#8217;s included in order to help developers write more
 readable code.</p>
 </dd></dl>
@@ -580,7 +578,7 @@ Pass <a class="reference external" href="http://docs.python.org/2.7/library/cons
 <p>Finds a row in <cite>self</cite> according to the sorting specified by <cite>cmp_func</cite>.
 This method will assume that <cite>self</cite> is already sorted by <cite>cmp_func</cite>.</p>
 <p>If you use this method for searching you should only use
-<a class="reference internal" href="#Dee.Model.insert_row_sorted" title="Dee.Model.insert_row_sorted"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.insert_row_sorted</span></code></a> () to insert rows in the model.</p>
+<a class="reference internal" href="#Dee.Model.insert_row_sorted" title="Dee.Model.insert_row_sorted"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.insert_row_sorted</span></code></a>() to insert rows in the model.</p>
 </dd></dl>
 
 <dl class="method">
@@ -818,8 +816,8 @@ not  guaranteed to be O(1).</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><cite>out_row_members</cite> if it was not <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
 or a newly allocated array otherwise which you must free
-with <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> (). The variants in the array will have a strong
-reference and needs to be freed with <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a> ().<table class="docutils field-list" frame="void" rules="none">
+with <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>(). The variants in the array will have a strong
+reference and needs to be freed with <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a>().<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -896,7 +894,7 @@ Otherwise <a class="reference external" href="http://docs.python.org/2.7/library
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>tag</cite> is unset otherwise the
-value of the tag as it was set with <a class="reference internal" href="#Dee.Model.set_tag" title="Dee.Model.set_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.set_tag</span></code></a> ().</p>
+value of the tag as it was set with <a class="reference internal" href="#Dee.Model.set_tag" title="Dee.Model.set_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.set_tag</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></p>
@@ -994,7 +992,7 @@ Otherwise 0.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A, guaranteed non-floating, reference to a
-<a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> containing the row data. Free with <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a> ().</p>
+<a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> containing the row data. Free with <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a></p>
@@ -1028,10 +1026,10 @@ floating references they will be consumed.</li>
 </tr>
 </tbody>
 </table>
-<p>As <code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.insert</span></code> (), but intended for language bindings or
+<p>As dee_model_insert(), but intended for language bindings or
 situations where you work with models on a meta level and may not have
 a priori knowledge of the column schemas of the models. See also
-<code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.build_row</span></code> ().</p>
+dee_model_build_row().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1058,10 +1056,10 @@ references they will be consumed.</li>
 </tr>
 </tbody>
 </table>
-<p>As <code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.insert_before</span></code> (), but intended for language bindings or
+<p>As dee_model_insert_before(), but intended for language bindings or
 situations where you work with models on a meta level and may not have
 a priori knowledge of the column schemas of the models. See also
-<code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.build_row</span></code> ().</p>
+dee_model_build_row().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1168,10 +1166,10 @@ floating references they will be consumed.</td>
 </tr>
 </tbody>
 </table>
-<p>Like <code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.prepend</span></code> () but intended for language bindings or
+<p>Like dee_model_prepend() but intended for language bindings or
 situations where you work with models on a meta level and may not have
 a priori knowledge of the column schemas of the models. See also
-<code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.build_row</span></code> ().</p>
+dee_model_build_row().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1214,7 +1212,7 @@ that you can use to set and get tags with</td>
 <p>Register a new tag on a <a class="reference internal" href="#Dee.Model" title="Dee.Model"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model</span></code></a>. A tag is an extra
 value attached to a given row on a model. The tags are invisible to all
 that doesn&#8217;t have the tag handle returned by this method. <a class="reference internal" href="#Dee.Model" title="Dee.Model"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model</span></code></a>
-implementations must ensure that <a class="reference internal" href="#Dee.Model.get_tag" title="Dee.Model.get_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.get_tag</span></code></a> () is an O(1) operation.</p>
+implementations must ensure that <a class="reference internal" href="#Dee.Model.get_tag" title="Dee.Model.get_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.get_tag</span></code></a>() is an O(1) operation.</p>
 <p>Tags can be very useful in associating some extra data to a row in a model
 and have that automatically synced when the model changes. If you&#8217;re
 writing a tiled view for a model you might want to tag each row with the
@@ -1287,7 +1285,7 @@ some constructors will do this for you.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>iter</strong> (<a class="reference internal" href="../structs/ModelIter.html#Dee.ModelIter" title="Dee.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Dee.ModelIter</span></code></a>) &#8211; The row to set the tag on</li>
-<li><strong>tag</strong> (<a class="reference internal" href="../structs/ModelTag.html#Dee.ModelTag" title="Dee.ModelTag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.ModelTag</span></code></a>) &#8211; The tag handle for the tag as obtained from <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a> ()</li>
+<li><strong>tag</strong> (<a class="reference internal" href="../structs/ModelTag.html#Dee.ModelTag" title="Dee.ModelTag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.ModelTag</span></code></a>) &#8211; The tag handle for the tag as obtained from <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a>()</li>
 <li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; The value to set for <cite>tag</cite>. Note that <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> represents an unset tag</li>
 </ul>
 </td>
@@ -1295,9 +1293,9 @@ some constructors will do this for you.</p>
 </tbody>
 </table>
 <p>Set a tag on a row in a model. This function is guaranteed to be O(1).
-See also <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a> ().</p>
+See also <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a>().</p>
 <p>If <cite>tag</cite> is already set on this row the existing tag value will be destroyed
-with the <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/callbacks.html#GLib.DestroyNotify" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a> passed to the <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a> ().</p>
+with the <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/callbacks.html#GLib.DestroyNotify" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a> passed to the <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1342,10 +1340,10 @@ consumed</td>
 </tr>
 </tbody>
 </table>
-<p>Like <code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.append</span></code> () but intended for language bindings or
+<p>Like dee_model_append() but intended for language bindings or
 situations where you work with models on a meta level and may not have
 a prior knowledge of the column schemas of the models. See also
-<code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.build_row</span></code> ().</p>
+dee_model_build_row().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1397,7 +1395,7 @@ Pass <a class="reference external" href="http://docs.python.org/2.7/library/cons
 <p>Finds a row in <cite>self</cite> according to the sorting specified by <cite>cmp_func</cite>.
 This method will assume that <cite>self</cite> is already sorted by <cite>cmp_func</cite>.</p>
 <p>If you use this method for searching you should only use
-<a class="reference internal" href="#Dee.Model.insert_row_sorted" title="Dee.Model.insert_row_sorted"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.insert_row_sorted</span></code></a> () to insert rows in the model.</p>
+<a class="reference internal" href="#Dee.Model.insert_row_sorted" title="Dee.Model.insert_row_sorted"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.insert_row_sorted</span></code></a>() to insert rows in the model.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1701,7 +1699,7 @@ Otherwise <a class="reference external" href="http://docs.python.org/2.7/library
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>tag</cite> is unset otherwise the
-value of the tag as it was set with <a class="reference internal" href="#Dee.Model.set_tag" title="Dee.Model.set_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.set_tag</span></code></a> ().</p>
+value of the tag as it was set with <a class="reference internal" href="#Dee.Model.set_tag" title="Dee.Model.set_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.set_tag</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></p>
@@ -1799,7 +1797,7 @@ Otherwise 0.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A, guaranteed non-floating, reference to a
-<a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> containing the row data. Free with <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a> ().</p>
+<a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> containing the row data. Free with <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.unref</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a></p>
@@ -1833,10 +1831,10 @@ floating references they will be consumed.</li>
 </tr>
 </tbody>
 </table>
-<p>As <code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.insert</span></code> (), but intended for language bindings or
+<p>As dee_model_insert(), but intended for language bindings or
 situations where you work with models on a meta level and may not have
 a priori knowledge of the column schemas of the models. See also
-<code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.build_row</span></code> ().</p>
+dee_model_build_row().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1863,10 +1861,10 @@ references they will be consumed.</li>
 </tr>
 </tbody>
 </table>
-<p>As <code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.insert_before</span></code> (), but intended for language bindings or
+<p>As dee_model_insert_before(), but intended for language bindings or
 situations where you work with models on a meta level and may not have
 a priori knowledge of the column schemas of the models. See also
-<code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.build_row</span></code> ().</p>
+dee_model_build_row().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1973,10 +1971,10 @@ floating references they will be consumed.</td>
 </tr>
 </tbody>
 </table>
-<p>Like <code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.prepend</span></code> () but intended for language bindings or
+<p>Like dee_model_prepend() but intended for language bindings or
 situations where you work with models on a meta level and may not have
 a priori knowledge of the column schemas of the models. See also
-<code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.build_row</span></code> ().</p>
+dee_model_build_row().</p>
 </dd></dl>
 
 <dl class="method">
@@ -2019,7 +2017,7 @@ that you can use to set and get tags with</td>
 <p>Register a new tag on a <a class="reference internal" href="#Dee.Model" title="Dee.Model"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model</span></code></a>. A tag is an extra
 value attached to a given row on a model. The tags are invisible to all
 that doesn&#8217;t have the tag handle returned by this method. <a class="reference internal" href="#Dee.Model" title="Dee.Model"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model</span></code></a>
-implementations must ensure that <a class="reference internal" href="#Dee.Model.get_tag" title="Dee.Model.get_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.get_tag</span></code></a> () is an O(1) operation.</p>
+implementations must ensure that <a class="reference internal" href="#Dee.Model.get_tag" title="Dee.Model.get_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.get_tag</span></code></a>() is an O(1) operation.</p>
 <p>Tags can be very useful in associating some extra data to a row in a model
 and have that automatically synced when the model changes. If you&#8217;re
 writing a tiled view for a model you might want to tag each row with the
@@ -2131,7 +2129,7 @@ some constructors will do this for you.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>iter</strong> (<a class="reference internal" href="../structs/ModelIter.html#Dee.ModelIter" title="Dee.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Dee.ModelIter</span></code></a>) &#8211; The row to set the tag on</li>
-<li><strong>tag</strong> (<a class="reference internal" href="../structs/ModelTag.html#Dee.ModelTag" title="Dee.ModelTag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.ModelTag</span></code></a>) &#8211; The tag handle for the tag as obtained from <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a> ()</li>
+<li><strong>tag</strong> (<a class="reference internal" href="../structs/ModelTag.html#Dee.ModelTag" title="Dee.ModelTag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.ModelTag</span></code></a>) &#8211; The tag handle for the tag as obtained from <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a>()</li>
 <li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; The value to set for <cite>tag</cite>. Note that <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> represents an unset tag</li>
 </ul>
 </td>
@@ -2139,9 +2137,9 @@ some constructors will do this for you.</p>
 </tbody>
 </table>
 <p>Set a tag on a row in a model. This function is guaranteed to be O(1).
-See also <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a> ().</p>
+See also <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a>().</p>
 <p>If <cite>tag</cite> is already set on this row the existing tag value will be destroyed
-with the <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/callbacks.html#GLib.DestroyNotify" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a> passed to the <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a> ().</p>
+with the <a class="reference external" href="../_docs/Dee-1.0/../../../python-GLib-2.0/callbacks.html#GLib.DestroyNotify" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a> passed to the <a class="reference internal" href="#Dee.Model.register_tag" title="Dee.Model.register_tag"><code class="xref py py-obj docutils literal"><span class="pre">Dee.Model.register_tag</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -2260,7 +2258,4 @@ The row is still valid while the signal is being emitted.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

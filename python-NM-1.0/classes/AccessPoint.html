@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="NM 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="NM.ActiveConnection" href="ActiveConnection.html"/>
         <link rel="prev" title="Classes" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -466,7 +464,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connection</strong> (<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a>) &#8211; an <a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a> to validate against <cite>ap</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connection</strong> (<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a>) &#8211; an <a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a> to validate against <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the connection may be activated with this Wi-Fi AP,
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if it cannot be.</td>
@@ -477,7 +475,7 @@
 </table>
 <p>Validates a given connection against a given Wi-Fi access point to ensure that
 the connection may be activated with that AP.  The connection must match the
-<cite>ap</cite> &#8216;s SSID, (if given) BSSID, and other attributes like security settings,
+<cite>self</cite>&#8216;s SSID, (if given) BSSID, and other attributes like security settings,
 channel, band, etc.</p>
 </dd></dl>
 
@@ -492,8 +490,8 @@ channel, band, etc.</p>
 filter</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an array of
-<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connections</span></code></a> that could be activated with the given <cite>ap</cite>.  The array should
-be freed with <code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray.unref</span></code> () when it is no longer required.</td>
+<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connections</span></code></a> that could be activated with the given <cite>self</cite>.  The array should
+be freed with g_ptr_array_unref() when it is no longer required.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a>]</td>
 </tr>
@@ -501,11 +499,11 @@ be freed with <code class="xref py py-obj docutils literal"><span class="pre">GL
 </table>
 <p>Filters a given array of connections for a given <a class="reference internal" href="#NM.AccessPoint" title="NM.AccessPoint"><code class="xref py py-obj docutils literal"><span class="pre">NM.AccessPoint</span></code></a> object and
 returns connections which may be activated with the access point.  Any
-returned connections will match the <cite>ap</cite> &#8216;s SSID and (if given) BSSID and
+returned connections will match the <cite>self</cite>&#8216;s SSID and (if given) BSSID and
 other attributes like security settings, channel, etc.</p>
 <p>To obtain the list of connections that are compatible with this access point,
-use <a class="reference internal" href="Client.html#NM.Client.get_connections" title="NM.Client.get_connections"><code class="xref py py-obj docutils literal"><span class="pre">NM.Client.get_connections</span></code></a> () and then filter the returned list for a given
-<a class="reference internal" href="Device.html#NM.Device" title="NM.Device"><code class="xref py py-obj docutils literal"><span class="pre">NM.Device</span></code></a> using <a class="reference internal" href="Device.html#NM.Device.filter_connections" title="NM.Device.filter_connections"><code class="xref py py-obj docutils literal"><span class="pre">NM.Device.filter_connections</span></code></a> () and finally filter that list
+use <a class="reference internal" href="Client.html#NM.Client.get_connections" title="NM.Client.get_connections"><code class="xref py py-obj docutils literal"><span class="pre">NM.Client.get_connections</span></code></a>() and then filter the returned list for a given
+<a class="reference internal" href="Device.html#NM.Device" title="NM.Device"><code class="xref py py-obj docutils literal"><span class="pre">NM.Device</span></code></a> using <a class="reference internal" href="Device.html#NM.Device.filter_connections" title="NM.Device.filter_connections"><code class="xref py py-obj docutils literal"><span class="pre">NM.Device.filter_connections</span></code></a>() and finally filter that list
 with this function.</p>
 </dd></dl>
 
@@ -575,7 +573,7 @@ not be modified or freed.</td>
 access point was found in scan results.  A value of -1 means the access
 point has not been found in a scan.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 1.0.6.</span></p>
+<p><span class="versionmodified">New in version 1.2.</span></p>
 </div>
 </dd></dl>
 
@@ -786,7 +784,7 @@ SSID is unknown.</td>
 access point was found in scan results.  A value of -1 means the
 access point has not been found in a scan.</p>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 1.0.6.</span></p>
+<p><span class="versionmodified">New in version 1.2.</span></p>
 </div>
 </dd></dl>
 
@@ -926,7 +924,4 @@ coordinator of the wireless network allowing clients to connect) or
   </div> 
 
 </body>
-
-  
-
 </html>

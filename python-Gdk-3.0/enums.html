@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gdk 3.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -138,6 +136,7 @@
 <li><a class="reference internal" href="#Gdk.CrossingMode" title="Gdk.CrossingMode"><code class="xref py py-class docutils literal"><span class="pre">Gdk.CrossingMode</span></code></a></li>
 <li><a class="reference internal" href="#Gdk.CursorType" title="Gdk.CursorType"><code class="xref py py-class docutils literal"><span class="pre">Gdk.CursorType</span></code></a></li>
 <li><a class="reference internal" href="#Gdk.DeviceType" title="Gdk.DeviceType"><code class="xref py py-class docutils literal"><span class="pre">Gdk.DeviceType</span></code></a></li>
+<li><a class="reference internal" href="#Gdk.DragCancelReason" title="Gdk.DragCancelReason"><code class="xref py py-class docutils literal"><span class="pre">Gdk.DragCancelReason</span></code></a></li>
 <li><a class="reference internal" href="#Gdk.DragProtocol" title="Gdk.DragProtocol"><code class="xref py py-class docutils literal"><span class="pre">Gdk.DragProtocol</span></code></a></li>
 <li><a class="reference internal" href="#Gdk.EventType" title="Gdk.EventType"><code class="xref py py-class docutils literal"><span class="pre">Gdk.EventType</span></code></a></li>
 <li><a class="reference internal" href="#Gdk.FilterReturn" title="Gdk.FilterReturn"><code class="xref py py-class docutils literal"><span class="pre">Gdk.FilterReturn</span></code></a></li>
@@ -320,7 +319,14 @@ is synthetic as the pointer didn’t leave the window.</p>
 <p>Predefined cursors.</p>
 <p>Note that these IDs are directly taken from the X cursor font, and many
 of these cursors are either not useful, or are not available on other platforms.</p>
-<p>The recommended way to create cursors is to use <a class="reference internal" href="classes/Cursor.html#Gdk.Cursor.new_from_name" title="Gdk.Cursor.new_from_name"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Cursor.new_from_name</span></code></a> ().</p>
+<p>The recommended way to create cursors is to use <a class="reference internal" href="classes/Cursor.html#Gdk.Cursor.new_from_name" title="Gdk.Cursor.new_from_name"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Cursor.new_from_name</span></code></a>().</p>
+<dl class="attribute">
+<dt id="Gdk.CursorType.CURSOR_IS_PIXMAP">
+<code class="descname">CURSOR_IS_PIXMAP</code><em class="property"> = -1</em></dt>
+<dd><p>type of cursors constructed with
+<a class="reference internal" href="classes/Cursor.html#Gdk.Cursor.new_from_pixbuf" title="Gdk.Cursor.new_from_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Cursor.new_from_pixbuf</span></code></a>()</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="Gdk.CursorType.BLANK_CURSOR">
 <code class="descname">BLANK_CURSOR</code><em class="property"> = -2</em></dt>
@@ -331,260 +337,13 @@ of these cursors are either not useful, or are not available on other platforms.
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Gdk.CursorType.CURSOR_IS_PIXMAP">
-<code class="descname">CURSOR_IS_PIXMAP</code><em class="property"> = -1</em></dt>
-<dd><p>type of cursors constructed with
-<a class="reference internal" href="classes/Cursor.html#Gdk.Cursor.new_from_pixbuf" title="Gdk.Cursor.new_from_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Cursor.new_from_pixbuf</span></code></a> ()</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="Gdk.CursorType.X_CURSOR">
 <code class="descname">X_CURSOR</code><em class="property"> = 0</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Gdk.CursorType.ARROW">
-<code class="descname">ARROW</code><em class="property"> = 2</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.BASED_ARROW_DOWN">
-<code class="descname">BASED_ARROW_DOWN</code><em class="property"> = 4</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.BASED_ARROW_UP">
-<code class="descname">BASED_ARROW_UP</code><em class="property"> = 6</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.BOAT">
-<code class="descname">BOAT</code><em class="property"> = 8</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="Gdk.CursorType.BOGOSITY">
 <code class="descname">BOGOSITY</code><em class="property"> = 10</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.BOTTOM_LEFT_CORNER">
-<code class="descname">BOTTOM_LEFT_CORNER</code><em class="property"> = 12</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.BOTTOM_RIGHT_CORNER">
-<code class="descname">BOTTOM_RIGHT_CORNER</code><em class="property"> = 14</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.BOTTOM_SIDE">
-<code class="descname">BOTTOM_SIDE</code><em class="property"> = 16</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.BOTTOM_TEE">
-<code class="descname">BOTTOM_TEE</code><em class="property"> = 18</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.BOX_SPIRAL">
-<code class="descname">BOX_SPIRAL</code><em class="property"> = 20</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.CENTER_PTR">
-<code class="descname">CENTER_PTR</code><em class="property"> = 22</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.CIRCLE">
-<code class="descname">CIRCLE</code><em class="property"> = 24</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.CLOCK">
-<code class="descname">CLOCK</code><em class="property"> = 26</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.COFFEE_MUG">
-<code class="descname">COFFEE_MUG</code><em class="property"> = 28</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.CROSS">
-<code class="descname">CROSS</code><em class="property"> = 30</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.CROSS_REVERSE">
-<code class="descname">CROSS_REVERSE</code><em class="property"> = 32</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.CROSSHAIR">
-<code class="descname">CROSSHAIR</code><em class="property"> = 34</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.DIAMOND_CROSS">
-<code class="descname">DIAMOND_CROSS</code><em class="property"> = 36</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.DOT">
-<code class="descname">DOT</code><em class="property"> = 38</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.DOTBOX">
-<code class="descname">DOTBOX</code><em class="property"> = 40</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.DOUBLE_ARROW">
-<code class="descname">DOUBLE_ARROW</code><em class="property"> = 42</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.DRAFT_LARGE">
-<code class="descname">DRAFT_LARGE</code><em class="property"> = 44</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.DRAFT_SMALL">
-<code class="descname">DRAFT_SMALL</code><em class="property"> = 46</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.DRAPED_BOX">
-<code class="descname">DRAPED_BOX</code><em class="property"> = 48</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.EXCHANGE">
-<code class="descname">EXCHANGE</code><em class="property"> = 50</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.FLEUR">
-<code class="descname">FLEUR</code><em class="property"> = 52</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.GOBBLER">
-<code class="descname">GOBBLER</code><em class="property"> = 54</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.GUMBY">
-<code class="descname">GUMBY</code><em class="property"> = 56</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.HAND1">
-<code class="descname">HAND1</code><em class="property"> = 58</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.HAND2">
-<code class="descname">HAND2</code><em class="property"> = 60</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.HEART">
-<code class="descname">HEART</code><em class="property"> = 62</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.ICON">
-<code class="descname">ICON</code><em class="property"> = 64</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.IRON_CROSS">
-<code class="descname">IRON_CROSS</code><em class="property"> = 66</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.LEFT_PTR">
-<code class="descname">LEFT_PTR</code><em class="property"> = 68</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.LEFT_SIDE">
-<code class="descname">LEFT_SIDE</code><em class="property"> = 70</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.LEFT_TEE">
-<code class="descname">LEFT_TEE</code><em class="property"> = 72</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.LEFTBUTTON">
-<code class="descname">LEFTBUTTON</code><em class="property"> = 74</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.LL_ANGLE">
-<code class="descname">LL_ANGLE</code><em class="property"> = 76</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.LR_ANGLE">
-<code class="descname">LR_ANGLE</code><em class="property"> = 78</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.MAN">
-<code class="descname">MAN</code><em class="property"> = 80</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.MIDDLEBUTTON">
-<code class="descname">MIDDLEBUTTON</code><em class="property"> = 82</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.MOUSE">
-<code class="descname">MOUSE</code><em class="property"> = 84</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.PENCIL">
-<code class="descname">PENCIL</code><em class="property"> = 86</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.PIRATE">
-<code class="descname">PIRATE</code><em class="property"> = 88</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.PLUS">
-<code class="descname">PLUS</code><em class="property"> = 90</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.QUESTION_ARROW">
-<code class="descname">QUESTION_ARROW</code><em class="property"> = 92</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.RIGHT_PTR">
-<code class="descname">RIGHT_PTR</code><em class="property"> = 94</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.RIGHT_SIDE">
-<code class="descname">RIGHT_SIDE</code><em class="property"> = 96</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.CursorType.RIGHT_TEE">
-<code class="descname">RIGHT_TEE</code><em class="property"> = 98</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -638,6 +397,11 @@ of these cursors are either not useful, or are not available on other platforms.
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Gdk.CursorType.BOTTOM_LEFT_CORNER">
+<code class="descname">BOTTOM_LEFT_CORNER</code><em class="property"> = 12</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Gdk.CursorType.SIZING">
 <code class="descname">SIZING</code><em class="property"> = 120</em></dt>
 <dd></dd></dl>
@@ -688,6 +452,11 @@ of these cursors are either not useful, or are not available on other platforms.
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="Gdk.CursorType.BOTTOM_RIGHT_CORNER">
+<code class="descname">BOTTOM_RIGHT_CORNER</code><em class="property"> = 14</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Gdk.CursorType.TOP_TEE">
 <code class="descname">TOP_TEE</code><em class="property"> = 140</em></dt>
 <dd></dd></dl>
@@ -728,6 +497,236 @@ of these cursors are either not useful, or are not available on other platforms.
 <dd><p>last cursor type</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="Gdk.CursorType.BOTTOM_SIDE">
+<code class="descname">BOTTOM_SIDE</code><em class="property"> = 16</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.BOTTOM_TEE">
+<code class="descname">BOTTOM_TEE</code><em class="property"> = 18</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.ARROW">
+<code class="descname">ARROW</code><em class="property"> = 2</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.BOX_SPIRAL">
+<code class="descname">BOX_SPIRAL</code><em class="property"> = 20</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.CENTER_PTR">
+<code class="descname">CENTER_PTR</code><em class="property"> = 22</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.CIRCLE">
+<code class="descname">CIRCLE</code><em class="property"> = 24</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.CLOCK">
+<code class="descname">CLOCK</code><em class="property"> = 26</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.COFFEE_MUG">
+<code class="descname">COFFEE_MUG</code><em class="property"> = 28</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.CROSS">
+<code class="descname">CROSS</code><em class="property"> = 30</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.CROSS_REVERSE">
+<code class="descname">CROSS_REVERSE</code><em class="property"> = 32</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.CROSSHAIR">
+<code class="descname">CROSSHAIR</code><em class="property"> = 34</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.DIAMOND_CROSS">
+<code class="descname">DIAMOND_CROSS</code><em class="property"> = 36</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.DOT">
+<code class="descname">DOT</code><em class="property"> = 38</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.BASED_ARROW_DOWN">
+<code class="descname">BASED_ARROW_DOWN</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.DOTBOX">
+<code class="descname">DOTBOX</code><em class="property"> = 40</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.DOUBLE_ARROW">
+<code class="descname">DOUBLE_ARROW</code><em class="property"> = 42</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.DRAFT_LARGE">
+<code class="descname">DRAFT_LARGE</code><em class="property"> = 44</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.DRAFT_SMALL">
+<code class="descname">DRAFT_SMALL</code><em class="property"> = 46</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.DRAPED_BOX">
+<code class="descname">DRAPED_BOX</code><em class="property"> = 48</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.EXCHANGE">
+<code class="descname">EXCHANGE</code><em class="property"> = 50</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.FLEUR">
+<code class="descname">FLEUR</code><em class="property"> = 52</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.GOBBLER">
+<code class="descname">GOBBLER</code><em class="property"> = 54</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.GUMBY">
+<code class="descname">GUMBY</code><em class="property"> = 56</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.HAND1">
+<code class="descname">HAND1</code><em class="property"> = 58</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.BASED_ARROW_UP">
+<code class="descname">BASED_ARROW_UP</code><em class="property"> = 6</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.HAND2">
+<code class="descname">HAND2</code><em class="property"> = 60</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.HEART">
+<code class="descname">HEART</code><em class="property"> = 62</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.ICON">
+<code class="descname">ICON</code><em class="property"> = 64</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.IRON_CROSS">
+<code class="descname">IRON_CROSS</code><em class="property"> = 66</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.LEFT_PTR">
+<code class="descname">LEFT_PTR</code><em class="property"> = 68</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.LEFT_SIDE">
+<code class="descname">LEFT_SIDE</code><em class="property"> = 70</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.LEFT_TEE">
+<code class="descname">LEFT_TEE</code><em class="property"> = 72</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.LEFTBUTTON">
+<code class="descname">LEFTBUTTON</code><em class="property"> = 74</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.LL_ANGLE">
+<code class="descname">LL_ANGLE</code><em class="property"> = 76</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.LR_ANGLE">
+<code class="descname">LR_ANGLE</code><em class="property"> = 78</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.BOAT">
+<code class="descname">BOAT</code><em class="property"> = 8</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.MAN">
+<code class="descname">MAN</code><em class="property"> = 80</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.MIDDLEBUTTON">
+<code class="descname">MIDDLEBUTTON</code><em class="property"> = 82</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.MOUSE">
+<code class="descname">MOUSE</code><em class="property"> = 84</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.PENCIL">
+<code class="descname">PENCIL</code><em class="property"> = 86</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.PIRATE">
+<code class="descname">PIRATE</code><em class="property"> = 88</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.PLUS">
+<code class="descname">PLUS</code><em class="property"> = 90</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.QUESTION_ARROW">
+<code class="descname">QUESTION_ARROW</code><em class="property"> = 92</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.RIGHT_PTR">
+<code class="descname">RIGHT_PTR</code><em class="property"> = 94</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.RIGHT_SIDE">
+<code class="descname">RIGHT_SIDE</code><em class="property"> = 96</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.CursorType.RIGHT_TEE">
+<code class="descname">RIGHT_TEE</code><em class="property"> = 98</em></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -754,6 +753,34 @@ be an associated focus indicator on the screen.</p>
 <code class="descname">FLOATING</code><em class="property"> = 2</em></dt>
 <dd><p>Device is a physical device, currently not attached to
 any virtual device.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Gdk.DragCancelReason">
+<em class="property">class </em><code class="descclassname">Gdk.</code><code class="descname">DragCancelReason</code></dt>
+<dd><p>Bases: <a class="reference external" href="_docs/Gdk-3.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<p>Used in <a class="reference internal" href="classes/DragContext.html#Gdk.DragContext" title="Gdk.DragContext"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.DragContext</span></code></a> to the reason of a cancelled DND operation.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.20.</span></p>
+</div>
+<dl class="attribute">
+<dt id="Gdk.DragCancelReason.NO_TARGET">
+<code class="descname">NO_TARGET</code><em class="property"> = 0</em></dt>
+<dd><p>There is no suitable drop target.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.DragCancelReason.USER_CANCELLED">
+<code class="descname">USER_CANCELLED</code><em class="property"> = 1</em></dt>
+<dd><p>Drag cancelled by the user</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.DragCancelReason.ERROR">
+<code class="descname">ERROR</code><em class="property"> = 2</em></dt>
+<dd><p>Unspecified error.</p>
 </dd></dl>
 
 </dd></dl>
@@ -850,80 +877,6 @@ title bar.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Gdk.EventType.EXPOSE">
-<code class="descname">EXPOSE</code><em class="property"> = 2</em></dt>
-<dd><p>all or part of the window has become visible and needs to be
-redrawn.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType.MOTION_NOTIFY">
-<code class="descname">MOTION_NOTIFY</code><em class="property"> = 3</em></dt>
-<dd><p>the pointer (usually a mouse) has moved.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType.BUTTON_PRESS">
-<code class="descname">BUTTON_PRESS</code><em class="property"> = 4</em></dt>
-<dd><p>a mouse button has been pressed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType.2BUTTON_PRESS">
-<code class="descname">2BUTTON_PRESS</code><em class="property"> = 5</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType._2BUTTON_PRESS">
-<code class="descname">_2BUTTON_PRESS</code><em class="property"> = 5</em></dt>
-<dd><p>a mouse button has been double-clicked (clicked twice
-within a short period of time). Note that each click also generates a
-<a class="reference internal" href="#Gdk.EventType.BUTTON_PRESS" title="Gdk.EventType.BUTTON_PRESS"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType.BUTTON_PRESS</span></code></a> event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType.DOUBLE_BUTTON_PRESS">
-<code class="descname">DOUBLE_BUTTON_PRESS</code><em class="property"> = 5</em></dt>
-<dd><p>alias for <a class="reference internal" href="#Gdk.EventType._2BUTTON_PRESS" title="Gdk.EventType._2BUTTON_PRESS"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType._2BUTTON_PRESS</span></code></a>, added in 3.6.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType.3BUTTON_PRESS">
-<code class="descname">3BUTTON_PRESS</code><em class="property"> = 6</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType.TRIPLE_BUTTON_PRESS">
-<code class="descname">TRIPLE_BUTTON_PRESS</code><em class="property"> = 6</em></dt>
-<dd><p>alias for <a class="reference internal" href="#Gdk.EventType._3BUTTON_PRESS" title="Gdk.EventType._3BUTTON_PRESS"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType._3BUTTON_PRESS</span></code></a>, added in 3.6.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType._3BUTTON_PRESS">
-<code class="descname">_3BUTTON_PRESS</code><em class="property"> = 6</em></dt>
-<dd><p>a mouse button has been clicked 3 times in a short period
-of time. Note that each click also generates a <a class="reference internal" href="#Gdk.EventType.BUTTON_PRESS" title="Gdk.EventType.BUTTON_PRESS"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType.BUTTON_PRESS</span></code></a> event.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType.BUTTON_RELEASE">
-<code class="descname">BUTTON_RELEASE</code><em class="property"> = 7</em></dt>
-<dd><p>a mouse button has been released.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType.KEY_PRESS">
-<code class="descname">KEY_PRESS</code><em class="property"> = 8</em></dt>
-<dd><p>a key has been pressed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.EventType.KEY_RELEASE">
-<code class="descname">KEY_RELEASE</code><em class="property"> = 9</em></dt>
-<dd><p>a key has been released.</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="Gdk.EventType.ENTER_NOTIFY">
 <code class="descname">ENTER_NOTIFY</code><em class="property"> = 10</em></dt>
 <dd><p>the pointer has entered the window.</p>
@@ -982,6 +935,13 @@ Note that GTK+ discards these events for <a class="reference internal" href="#Gd
 <dt id="Gdk.EventType.SELECTION_NOTIFY">
 <code class="descname">SELECTION_NOTIFY</code><em class="property"> = 19</em></dt>
 <dd><p>a selection has been received.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType.EXPOSE">
+<code class="descname">EXPOSE</code><em class="property"> = 2</em></dt>
+<dd><p>all or part of the window has become visible and needs to be
+redrawn.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1049,6 +1009,12 @@ has changed.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Gdk.EventType.MOTION_NOTIFY">
+<code class="descname">MOTION_NOTIFY</code><em class="property"> = 3</em></dt>
+<dd><p>the pointer (usually a mouse) has moved.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Gdk.EventType.SCROLL">
 <code class="descname">SCROLL</code><em class="property"> = 31</em></dt>
 <dd><p>the scroll wheel was turned</p>
@@ -1110,6 +1076,12 @@ was added in 3.4.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Gdk.EventType.BUTTON_PRESS">
+<code class="descname">BUTTON_PRESS</code><em class="property"> = 4</em></dt>
+<dd><p>a mouse button has been pressed.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Gdk.EventType.TOUCH_CANCEL">
 <code class="descname">TOUCH_CANCEL</code><em class="property"> = 40</em></dt>
 <dd><p>A touch event sequence has been canceled. This event type
@@ -1134,6 +1106,61 @@ is determined by its phase field. This event type was added in 3.18.</p>
 <dt id="Gdk.EventType.EVENT_LAST">
 <code class="descname">EVENT_LAST</code><em class="property"> = 43</em></dt>
 <dd><p>marks the end of the <a class="reference internal" href="#Gdk.EventType" title="Gdk.EventType"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType</span></code></a> enumeration. Added in 2.18</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType.2BUTTON_PRESS">
+<code class="descname">2BUTTON_PRESS</code><em class="property"> = 5</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType.DOUBLE_BUTTON_PRESS">
+<code class="descname">DOUBLE_BUTTON_PRESS</code><em class="property"> = 5</em></dt>
+<dd><p>alias for <a class="reference internal" href="#Gdk.EventType._2BUTTON_PRESS" title="Gdk.EventType._2BUTTON_PRESS"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType._2BUTTON_PRESS</span></code></a>, added in 3.6.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType._2BUTTON_PRESS">
+<code class="descname">_2BUTTON_PRESS</code><em class="property"> = 5</em></dt>
+<dd><p>a mouse button has been double-clicked (clicked twice
+within a short period of time). Note that each click also generates a
+<a class="reference internal" href="#Gdk.EventType.BUTTON_PRESS" title="Gdk.EventType.BUTTON_PRESS"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType.BUTTON_PRESS</span></code></a> event.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType.3BUTTON_PRESS">
+<code class="descname">3BUTTON_PRESS</code><em class="property"> = 6</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType.TRIPLE_BUTTON_PRESS">
+<code class="descname">TRIPLE_BUTTON_PRESS</code><em class="property"> = 6</em></dt>
+<dd><p>alias for <a class="reference internal" href="#Gdk.EventType._3BUTTON_PRESS" title="Gdk.EventType._3BUTTON_PRESS"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType._3BUTTON_PRESS</span></code></a>, added in 3.6.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType._3BUTTON_PRESS">
+<code class="descname">_3BUTTON_PRESS</code><em class="property"> = 6</em></dt>
+<dd><p>a mouse button has been clicked 3 times in a short period
+of time. Note that each click also generates a <a class="reference internal" href="#Gdk.EventType.BUTTON_PRESS" title="Gdk.EventType.BUTTON_PRESS"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventType.BUTTON_PRESS</span></code></a> event.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType.BUTTON_RELEASE">
+<code class="descname">BUTTON_RELEASE</code><em class="property"> = 7</em></dt>
+<dd><p>a mouse button has been released.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType.KEY_PRESS">
+<code class="descname">KEY_PRESS</code><em class="property"> = 8</em></dt>
+<dd><p>a key has been pressed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.EventType.KEY_RELEASE">
+<code class="descname">KEY_RELEASE</code><em class="property"> = 9</em></dt>
+<dd><p>a key has been released.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1197,7 +1224,7 @@ when in fullscreen mode.</p>
 </div>
 <dl class="staticmethod">
 <dt id="Gdk.GLError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.18.6#n121"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gdk/gdkglcontext.c?h=3.20.3#n122"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1257,7 +1284,7 @@ when in fullscreen mode.</p>
 <dt id="Gdk.GrabStatus">
 <em class="property">class </em><code class="descclassname">Gdk.</code><code class="descname">GrabStatus</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Gdk-3.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>Returned by <a class="reference internal" href="classes/Device.html#Gdk.Device.grab" title="Gdk.Device.grab"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Device.grab</span></code></a> (), <a class="reference internal" href="functions.html#Gdk.pointer_grab" title="Gdk.pointer_grab"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.pointer_grab</span></code></a> () and <a class="reference internal" href="functions.html#Gdk.keyboard_grab" title="Gdk.keyboard_grab"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.keyboard_grab</span></code></a> () to
+<p>Returned by <a class="reference internal" href="classes/Device.html#Gdk.Device.grab" title="Gdk.Device.grab"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Device.grab</span></code></a>(), <a class="reference internal" href="functions.html#Gdk.pointer_grab" title="Gdk.pointer_grab"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.pointer_grab</span></code></a>() and <a class="reference internal" href="functions.html#Gdk.keyboard_grab" title="Gdk.keyboard_grab"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.keyboard_grab</span></code></a>() to
 indicate success or the reason for the failure of the grab attempt.</p>
 <dl class="attribute">
 <dt id="Gdk.GrabStatus.SUCCESS">
@@ -1315,6 +1342,13 @@ specification for more details.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Gdk.Gravity.STATIC">
+<code class="descname">STATIC</code><em class="property"> = 10</em></dt>
+<dd><p>the reference point is at the top left corner of the
+window itself, ignoring window manager decorations.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Gdk.Gravity.NORTH">
 <code class="descname">NORTH</code><em class="property"> = 2</em></dt>
 <dd><p>the reference point is in the middle of the top edge.</p>
@@ -1360,13 +1394,6 @@ specification for more details.</p>
 <dt id="Gdk.Gravity.SOUTH_EAST">
 <code class="descname">SOUTH_EAST</code><em class="property"> = 9</em></dt>
 <dd><p>the reference point is at the lower right corner.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.Gravity.STATIC">
-<code class="descname">STATIC</code><em class="property"> = 10</em></dt>
-<dd><p>the reference point is at the top left corner of the
-window itself, ignoring window manager decorations.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1457,7 +1484,7 @@ as a touchpad. This device type has been added in 3.4.</p>
 <dt id="Gdk.ModifierIntent">
 <em class="property">class </em><code class="descclassname">Gdk.</code><code class="descname">ModifierIntent</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Gdk-3.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>This enum is used with <a class="reference internal" href="classes/Keymap.html#Gdk.Keymap.get_modifier_mask" title="Gdk.Keymap.get_modifier_mask"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Keymap.get_modifier_mask</span></code></a> ()
+<p>This enum is used with <a class="reference internal" href="classes/Keymap.html#Gdk.Keymap.get_modifier_mask" title="Gdk.Keymap.get_modifier_mask"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Keymap.get_modifier_mask</span></code></a>()
 in order to determine what modifiers the
 currently used windowing system backend uses for particular
 purposes. For example, on X11/Windows, the Control key is used for
@@ -1605,7 +1632,7 @@ common ancestor.</p>
 <em class="property">class </em><code class="descclassname">Gdk.</code><code class="descname">PropMode</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Gdk-3.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Describes how existing data is combined with new data when
-using <code class="xref py py-obj docutils literal"><span class="pre">Gdk.property_change</span></code> ().</p>
+using gdk_property_change().</p>
 <dl class="attribute">
 <dt id="Gdk.PropMode.REPLACE">
 <code class="descname">REPLACE</code><em class="property"> = 0</em></dt>
@@ -1678,7 +1705,7 @@ using <code class="xref py py-obj docutils literal"><span class="pre">Gdk.proper
 <dt id="Gdk.ScrollDirection.SMOOTH">
 <code class="descname">SMOOTH</code><em class="property"> = 4</em></dt>
 <dd><p>the scrolling is determined by the delta values
-in <a class="reference internal" href="structs/EventScroll.html#Gdk.EventScroll" title="Gdk.EventScroll"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventScroll</span></code></a>. See <a class="reference internal" href="unions/Event.html#Gdk.Event.get_scroll_deltas" title="Gdk.Event.get_scroll_deltas"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.get_scroll_deltas</span></code></a> ().</p>
+in <a class="reference internal" href="structs/EventScroll.html#Gdk.EventScroll" title="Gdk.EventScroll"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.EventScroll</span></code></a>. See <a class="reference internal" href="unions/Event.html#Gdk.Event.get_scroll_deltas" title="Gdk.Event.get_scroll_deltas"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.get_scroll_deltas</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.4.</span></p>
 </div>
@@ -1717,13 +1744,8 @@ in <a class="reference internal" href="structs/EventScroll.html#Gdk.EventScroll"
 <em class="property">class </em><code class="descclassname">Gdk.</code><code class="descname">Status</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Gdk-3.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <dl class="attribute">
-<dt id="Gdk.Status.ERROR_MEM">
-<code class="descname">ERROR_MEM</code><em class="property"> = -4</em></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.Status.ERROR_FILE">
-<code class="descname">ERROR_FILE</code><em class="property"> = -3</em></dt>
+<dt id="Gdk.Status.ERROR">
+<code class="descname">ERROR</code><em class="property"> = -1</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1732,8 +1754,13 @@ in <a class="reference internal" href="structs/EventScroll.html#Gdk.EventScroll"
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="Gdk.Status.ERROR">
-<code class="descname">ERROR</code><em class="property"> = -1</em></dt>
+<dt id="Gdk.Status.ERROR_FILE">
+<code class="descname">ERROR_FILE</code><em class="property"> = -3</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.Status.ERROR_MEM">
+<code class="descname">ERROR_MEM</code><em class="property"> = -4</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1855,7 +1882,7 @@ an application.</p>
 <dt id="Gdk.VisualType.TRUE_COLOR">
 <code class="descname">TRUE_COLOR</code><em class="property"> = 4</em></dt>
 <dd><p>Each pixel value directly contains red, green,
-and blue components. Use <a class="reference internal" href="classes/Visual.html#Gdk.Visual.get_red_pixel_details" title="Gdk.Visual.get_red_pixel_details"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Visual.get_red_pixel_details</span></code></a> (), etc,
+and blue components. Use <a class="reference internal" href="classes/Visual.html#Gdk.Visual.get_red_pixel_details" title="Gdk.Visual.get_red_pixel_details"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Visual.get_red_pixel_details</span></code></a>(), etc,
 to obtain information about how the components are assembled into
 a pixel value.</p>
 </dd></dl>
@@ -2008,6 +2035,31 @@ specification for more details about window types.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Gdk.WindowTypeHint.TOOLTIP">
+<code class="descname">TOOLTIP</code><em class="property"> = 10</em></dt>
+<dd><p>A tooltip.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.WindowTypeHint.NOTIFICATION">
+<code class="descname">NOTIFICATION</code><em class="property"> = 11</em></dt>
+<dd><p>A notification - typically a “bubble”
+that belongs to a status icon.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.WindowTypeHint.COMBO">
+<code class="descname">COMBO</code><em class="property"> = 12</em></dt>
+<dd><p>A popup from a combo box.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gdk.WindowTypeHint.DND">
+<code class="descname">DND</code><em class="property"> = 13</em></dt>
+<dd><p>A window that is used to implement a DND cursor.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Gdk.WindowTypeHint.MENU">
 <code class="descname">MENU</code><em class="property"> = 2</em></dt>
 <dd><p>Window used to implement a menu; GTK+ uses
@@ -2060,31 +2112,6 @@ window.</p>
 e.g. a context menu.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="Gdk.WindowTypeHint.TOOLTIP">
-<code class="descname">TOOLTIP</code><em class="property"> = 10</em></dt>
-<dd><p>A tooltip.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.WindowTypeHint.NOTIFICATION">
-<code class="descname">NOTIFICATION</code><em class="property"> = 11</em></dt>
-<dd><p>A notification - typically a “bubble”
-that belongs to a status icon.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.WindowTypeHint.COMBO">
-<code class="descname">COMBO</code><em class="property"> = 12</em></dt>
-<dd><p>A popup from a combo box.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Gdk.WindowTypeHint.DND">
-<code class="descname">DND</code><em class="property"> = 13</em></dt>
-<dd><p>A window that is used to implement a DND cursor.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -2124,7 +2151,4 @@ windows in order to trap or filter the events. You can’t draw on
   </div> 
 
 </body>
-
-  
-
 </html>

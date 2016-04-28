@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.TreeModelRowIter" href="TreeModelRowIter.html"/>
         <link rel="prev" title="Gtk.TreeModelFilter" href="TreeModelFilter.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -143,8 +141,97 @@
 <h2>Class Details</h2>
 <dl class="class">
 <dt id="Gtk.TreeModelRow">
-<em class="property">class </em><code class="descclassname">Gtk.</code><code class="descname">TreeModelRow</code></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="descclassname">Gtk.</code><code class="descname">TreeModelRow</code><span class="sig-paren">(</span><em>model</em>, <em>iter_or_path</em><span class="sig-paren">)</span></dt>
+<dd><p>A <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> object represents a row in a
+<a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a>. A <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> is created by taking the
+mapping of a <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a>. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">treemodelrow</span> <span class="o">=</span> <span class="n">liststore</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">treemodelrow</span> <span class="o">=</span> <span class="n">liststore</span><span class="p">[(</span><span class="mi">0</span><span class="p">,)]</span>
+<span class="n">treemodelrow</span> <span class="o">=</span> <span class="n">liststore</span><span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>all create a <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> for the first row in liststore. The
+<a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> implements some of the Python sequence protocol
+that makes the row behave like a sequence of objects. Specifically a tree
+model row has the capability of:</p>
+<ul class="simple">
+<li>getting and setting column values,</li>
+<li>returning a tuple or list containing the column values, and</li>
+<li>getting the number of values in the row i.e. the number of columns</li>
+</ul>
+<p>For example to get and set the value in the second column of a row, you
+could do the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">value</span> <span class="o">=</span> <span class="n">treemodelrow</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">treemodelrow</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>You can use the Python len() function to get the number of columns in the
+row and you can retrieve all the column values as a list (tuple) using the
+Python list() (tuple()) function.</p>
+<p>The <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> supports one method: the iterchildren() method
+that returns a <a class="reference internal" href="TreeModelRowIter.html#Gtk.TreeModelRowIter" title="Gtk.TreeModelRowIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRowIter</span></code></a> for iterating over the children
+of the row.</p>
+<dl class="attribute">
+<dt id="Gtk.TreeModelRow.iter">
+<code class="descname">iter</code></dt>
+<dd><p>A <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> pointing at the row</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gtk.TreeModelRow.model">
+<code class="descname">model</code></dt>
+<dd><p>The <a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel</span></code></a> that the row is part of</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gtk.TreeModelRow.next">
+<code class="descname">next</code></dt>
+<dd><p>The next <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> or None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gtk.TreeModelRow.parent">
+<code class="descname">parent</code></dt>
+<dd><p>The parent <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> or htis row or None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gtk.TreeModelRow.path">
+<code class="descname">path</code></dt>
+<dd><p>The tree path of the row</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gtk.TreeModelRow.previous">
+<code class="descname">previous</code></dt>
+<dd><p>The previous <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> or None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gtk.TreeModelRow.get_next">
+<code class="descname">get_next</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Returns the next <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> or None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gtk.TreeModelRow.get_parent">
+<code class="descname">get_parent</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Returns the parent <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> or htis row or None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gtk.TreeModelRow.get_previous">
+<code class="descname">get_previous</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Returns the previous <a class="reference internal" href="#Gtk.TreeModelRow" title="Gtk.TreeModelRow"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRow</span></code></a> or None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gtk.TreeModelRow.iterchildren">
+<code class="descname">iterchildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Returns a <a class="reference internal" href="TreeModelRowIter.html#Gtk.TreeModelRowIter" title="Gtk.TreeModelRowIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelRowIter</span></code></a> for the row&#8217;s children</p>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 </div>
@@ -160,7 +247,4 @@
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GIRepository 2.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Enums" href="enums.html"/>
         <link rel="prev" title="GIRepository.Argument" href="unions/Argument.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -143,8 +141,8 @@
 <dl class="class">
 <dt id="GIRepository.FieldInfoFlags">
 <em class="property">class </em><code class="descclassname">GIRepository.</code><code class="descname">FieldInfoFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/GIRepository-2.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
-<p>Flags for a <code class="xref py py-obj docutils literal"><span class="pre">GIRepository.FieldInfo</span></code>.</p>
+<dd><p>Bases: <a class="reference external" href="_docs/GIRepository-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
+<p>Flags for a #GIFieldInfo.</p>
 <dl class="attribute">
 <dt id="GIRepository.FieldInfoFlags.READABLE">
 <code class="descname">READABLE</code><em class="property"> = 1</em></dt>
@@ -162,30 +160,12 @@
 <dl class="class">
 <dt id="GIRepository.FunctionInfoFlags">
 <em class="property">class </em><code class="descclassname">GIRepository.</code><code class="descname">FunctionInfoFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/GIRepository-2.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
-<p>Flags for a <code class="xref py py-obj docutils literal"><span class="pre">GIRepository.FunctionInfo</span></code> struct.</p>
+<dd><p>Bases: <a class="reference external" href="_docs/GIRepository-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
+<p>Flags for a #GIFunctionInfo struct.</p>
 <dl class="attribute">
 <dt id="GIRepository.FunctionInfoFlags.IS_METHOD">
 <code class="descname">IS_METHOD</code><em class="property"> = 1</em></dt>
 <dd><p>is a method.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GIRepository.FunctionInfoFlags.IS_CONSTRUCTOR">
-<code class="descname">IS_CONSTRUCTOR</code><em class="property"> = 2</em></dt>
-<dd><p>is a constructor.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GIRepository.FunctionInfoFlags.IS_GETTER">
-<code class="descname">IS_GETTER</code><em class="property"> = 4</em></dt>
-<dd><p>is a getter of a <code class="xref py py-obj docutils literal"><span class="pre">GIRepository.PropertyInfo</span></code>.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GIRepository.FunctionInfoFlags.IS_SETTER">
-<code class="descname">IS_SETTER</code><em class="property"> = 8</em></dt>
-<dd><p>is a setter of a <code class="xref py py-obj docutils literal"><span class="pre">GIRepository.PropertyInfo</span></code>.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -195,9 +175,27 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="GIRepository.FunctionInfoFlags.IS_CONSTRUCTOR">
+<code class="descname">IS_CONSTRUCTOR</code><em class="property"> = 2</em></dt>
+<dd><p>is a constructor.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="GIRepository.FunctionInfoFlags.THROWS">
 <code class="descname">THROWS</code><em class="property"> = 32</em></dt>
 <dd><p>the function may throw an error.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GIRepository.FunctionInfoFlags.IS_GETTER">
+<code class="descname">IS_GETTER</code><em class="property"> = 4</em></dt>
+<dd><p>is a getter of a #GIPropertyInfo.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GIRepository.FunctionInfoFlags.IS_SETTER">
+<code class="descname">IS_SETTER</code><em class="property"> = 8</em></dt>
+<dd><p>is a setter of a #GIPropertyInfo.</p>
 </dd></dl>
 
 </dd></dl>
@@ -205,7 +203,7 @@
 <dl class="class">
 <dt id="GIRepository.RepositoryLoadFlags">
 <em class="property">class </em><code class="descclassname">GIRepository.</code><code class="descname">RepositoryLoadFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/GIRepository-2.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="_docs/GIRepository-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
 <p>Flags that control how a typelib is loaded.</p>
 <dl class="attribute">
 <dt id="GIRepository.RepositoryLoadFlags.IREPOSITORY_LOAD_FLAG_LAZY">
@@ -218,8 +216,8 @@
 <dl class="class">
 <dt id="GIRepository.VFuncInfoFlags">
 <em class="property">class </em><code class="descclassname">GIRepository.</code><code class="descname">VFuncInfoFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/GIRepository-2.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
-<p>Flags of a <code class="xref py py-obj docutils literal"><span class="pre">GIRepository.VFuncInfo</span></code> struct.</p>
+<dd><p>Bases: <a class="reference external" href="_docs/GIRepository-2.0/../../../python-GLib-2.0/flags.html#GLib.Flags" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Flags</span></code></a></p>
+<p>Flags of a #GIVFuncInfo struct.</p>
 <dl class="attribute">
 <dt id="GIRepository.VFuncInfoFlags.MUST_CHAIN_UP">
 <code class="descname">MUST_CHAIN_UP</code><em class="property"> = 1</em></dt>
@@ -241,7 +239,7 @@
 <dl class="attribute">
 <dt id="GIRepository.VFuncInfoFlags.THROWS">
 <code class="descname">THROWS</code><em class="property"> = 8</em></dt>
-<dd><p>Includes a <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></p>
+<dd><p>Includes a <a class="reference external" href="_docs/GIRepository-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
@@ -260,7 +258,4 @@
   </div> 
 
 </body>
-
-  
-
 </html>

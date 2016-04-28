@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Cogl.Snippet" href="Snippet.html"/>
         <link rel="prev" title="Cogl.Primitive" href="Primitive.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -80,8 +78,6 @@
 <li><a class="reference internal" href="#">Cogl.Renderer</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -125,8 +121,6 @@
 <li><a class="reference internal" href="#">Cogl.Renderer</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a></li>
 <li><a class="reference internal" href="#virtual-methods">Virtual Methods</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#signals">Signals</a></li>
 <li><a class="reference internal" href="#fields">Fields</a></li>
 <li><a class="reference internal" href="#class-details">Class Details</a></li>
 </ul>
@@ -242,14 +236,6 @@
 <span id="cogl-renderer-vfuncs"></span><h2>Virtual Methods</h2>
 <p>None</p>
 </div>
-<div class="section" id="properties">
-<span id="cogl-renderer-props"></span><h2>Properties</h2>
-<p>None</p>
-</div>
-<div class="section" id="signals">
-<span id="cogl-renderer-signals"></span><h2>Signals</h2>
-<p>None</p>
-</div>
 <div class="section" id="fields">
 <span id="cogl-renderer-fields"></span><h2>Fields</h2>
 <p>None</p>
@@ -289,23 +275,23 @@ a selection of a window system binding API such as GLX, or EGL or
 WGL.</p>
 <p>While the renderer is unconnected it can be configured so that
 applications may specify backend constraints, such as &#8220;must use
-x11&#8221; for example via <a class="reference internal" href="#Cogl.Renderer.add_constraint" title="Cogl.Renderer.add_constraint"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.add_constraint</span></code></a> ().</p>
+x11&#8221; for example via <a class="reference internal" href="#Cogl.Renderer.add_constraint" title="Cogl.Renderer.add_constraint"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.add_constraint</span></code></a>().</p>
 <p>There are also some platform specific configuration apis such
 as cogl_xlib_renderer_set_foreign_display() that may also be
 used while the renderer is unconnected.</p>
 <p>Once the renderer has been configured, then it may (optionally) be
-explicitly connected using <a class="reference internal" href="#Cogl.Renderer.connect" title="Cogl.Renderer.connect"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.connect</span></code></a> () which allows
+explicitly connected using <a class="reference internal" href="#Cogl.Renderer.connect" title="Cogl.Renderer.connect"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.connect</span></code></a>() which allows
 errors to be handled gracefully and potentially fallback
 configurations can be tried out if there are initial failures.</p>
-<p>If a renderer is not explicitly connected then <a class="reference internal" href="Display.html#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a> ()
+<p>If a renderer is not explicitly connected then <a class="reference internal" href="Display.html#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a>()
 will automatically connect the renderer for you. If you don&#8217;t
 have any code to deal with error/fallback situations then its fine
 to just let Cogl do the connection for you.</p>
 <p>Once you have setup your renderer then the next step is to create a
-<a class="reference internal" href="Display.html#Cogl.Display" title="Cogl.Display"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display</span></code></a> using <a class="reference internal" href="Display.html#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a> ().</p>
+<a class="reference internal" href="Display.html#Cogl.Display" title="Cogl.Display"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display</span></code></a> using <a class="reference internal" href="Display.html#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a>().</p>
 <p>Many applications don&#8217;t need to explicitly use
-<a class="reference internal" href="#Cogl.Renderer.new" title="Cogl.Renderer.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.new</span></code></a> () or <a class="reference internal" href="Display.html#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a> () and can just jump
-straight to <a class="reference internal" href="Context.html#Cogl.Context.new" title="Cogl.Context.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context.new</span></code></a> () and pass a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> display argument
+<a class="reference internal" href="#Cogl.Renderer.new" title="Cogl.Renderer.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.new</span></code></a>() or <a class="reference internal" href="Display.html#Cogl.Display.new" title="Cogl.Display.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Display.new</span></code></a>() and can just jump
+straight to <a class="reference internal" href="Context.html#Cogl.Context.new" title="Cogl.Context.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context.new</span></code></a>() and pass a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> display argument
 so Cogl will automatically connect and setup a renderer and
 display.</p>
 <div class="versionadded">
@@ -341,7 +327,7 @@ depend on to ensure maximum portability.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>onscreen_template</strong> (<a class="reference internal" href="OnscreenTemplate.html#Cogl.OnscreenTemplate" title="Cogl.OnscreenTemplate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.OnscreenTemplate</span></code></a>) &#8211; A <a class="reference internal" href="OnscreenTemplate.html#Cogl.OnscreenTemplate" title="Cogl.OnscreenTemplate"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.OnscreenTemplate</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>onscreen_template</cite> can be supported,
 else <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</td>
@@ -351,7 +337,7 @@ else <a class="reference external" href="http://docs.python.org/2.7/library/cons
 </tbody>
 </table>
 <p>Tests if a given <cite>onscreen_template</cite> can be supported with the given
-<cite>renderer</cite>.</p>
+<cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -364,16 +350,16 @@ else <a class="reference external" href="http://docs.python.org/2.7/library/cons
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if there was no error while connecting the
-given <cite>renderer</cite>. <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if there was an error.</td>
+given <cite>self</cite>. <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if there was an error.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Connects the configured <cite>renderer</cite>. Renderer connection isn&#8217;t a
+<p>Connects the configured <cite>self</cite>. Renderer connection isn&#8217;t a
 very active process, it basically just means validating that
 any given constraint criteria can be satisfied and that a
 usable driver and window system backend can be found.</p>
@@ -398,7 +384,7 @@ each display output</li>
 </tr>
 </tbody>
 </table>
-<p>Iterates all known display outputs for the given <cite>renderer</cite> and
+<p>Iterates all known display outputs for the given <cite>self</cite> and
 passes a corresponding <a class="reference internal" href="Output.html#Cogl.Output" title="Cogl.Output"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Output</span></code></a> pointer to the given <cite>callback</cite>
 for each one, along with the given <cite>user_data</cite>.</p>
 <div class="versionadded">
@@ -493,7 +479,7 @@ depend on to ensure maximum portability.</p>
 </table>
 <p>Requests that Cogl should try to use a specific underlying driver
 for rendering.</p>
-<p>If you select an unsupported driver then <a class="reference internal" href="#Cogl.Renderer.connect" title="Cogl.Renderer.connect"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.connect</span></code></a> ()
+<p>If you select an unsupported driver then <a class="reference internal" href="#Cogl.Renderer.connect" title="Cogl.Renderer.connect"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.connect</span></code></a>()
 will fail and report an error. Most applications should not
 explicitly select a driver and should rely on Cogl automatically
 choosing the driver.</p>
@@ -516,7 +502,7 @@ choosing the driver.</p>
 </table>
 <p>This allows you to explicitly select a winsys backend to use instead
 of letting Cogl automatically select a backend.</p>
-<p>if you select an unsupported backend then <a class="reference internal" href="#Cogl.Renderer.connect" title="Cogl.Renderer.connect"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.connect</span></code></a> ()
+<p>if you select an unsupported backend then <a class="reference internal" href="#Cogl.Renderer.connect" title="Cogl.Renderer.connect"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer.connect</span></code></a>()
 will fail and report an error.</p>
 <p>This may only be called on an un-connected <a class="reference internal" href="#Cogl.Renderer" title="Cogl.Renderer"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Renderer</span></code></a>.</p>
 </dd></dl>
@@ -537,7 +523,4 @@ will fail and report an error.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

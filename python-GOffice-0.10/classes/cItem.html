@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GOffice 0.10 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GOffice.cLine" href="cLine.html"/>
         <link rel="prev" title="GOffice.cImage" href="cImage.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -495,14 +493,14 @@
 <dl class="method">
 <dt id="GOffice.cItem.bounds_changed">
 <code class="descname">bounds_changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>This function needs to be called each time the bounds of <cite>item</cite> change. It
+<dd><p>This function needs to be called each time the bounds of <cite>self</cite> change. It
 is normally called from inside the implementation of items derived classes.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GOffice.cItem.destroy">
 <code class="descname">destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Destroys <cite>item</cite>, removes it from its parent group and updates the canvas
+<dd><p>Destroys <cite>self</cite>, removes it from its parent group and updates the canvas
 accordingly.</p>
 </dd></dl>
 
@@ -529,7 +527,7 @@ accordingly.</p>
 </tbody>
 </table>
 <p>Evaluates the distance between the point with canvas coordinates <cite>x</cite>,`y`
-and the nearest point of <cite>item</cite>. <cite>near_item</cite> is set with either <cite>item</cite> or
+and the nearest point of <cite>self</cite>. <cite>near_item</cite> is set with either <cite>self</cite> or
 its appropriate child.</p>
 </dd></dl>
 
@@ -544,7 +542,7 @@ its appropriate child.</p>
 </tr>
 </tbody>
 </table>
-<p>Renders <cite>item</cite> using <cite>cr</cite>. There is no need to call this function directly.
+<p>Renders <cite>self</cite> using <cite>cr</cite>. There is no need to call this function directly.
 Invalidating the item is the way to go.</p>
 </dd></dl>
 
@@ -572,7 +570,7 @@ Invalidating the item is the way to go.</p>
 </tr>
 </tbody>
 </table>
-<p>Renders <cite>item</cite> using <cite>cr</cite>, limiting all drawings to the region limited by
+<p>Renders <cite>self</cite> using <cite>cr</cite>, limiting all drawings to the region limited by
 <cite>x0</cite>, <cite>y0</cite>, <cite>x1</cite>, and <cite>y1</cite>. If this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, <a class="reference internal" href="#GOffice.cItem.draw" title="GOffice.cItem.draw"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.cItem.draw</span></code></a>
 should be called. There is no need to call this function directly.
 Invalidating the item is the way to go.</p>
@@ -595,7 +593,7 @@ Invalidating the item is the way to go.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the bounds of <cite>item</cite> in canvas coordinates.</p>
+<p>Retrieves the bounds of <cite>self</cite> in canvas coordinates.</p>
 </dd></dl>
 
 <dl class="method">
@@ -653,13 +651,13 @@ Invalidating the item is the way to go.</p>
 <dl class="method">
 <dt id="GOffice.cItem.hide">
 <code class="descname">hide</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Hides <cite>item</cite>.</p>
+<dd><p>Hides <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GOffice.cItem.invalidate">
 <code class="descname">invalidate</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Force a redraw of <cite>item</cite> bounding region.</p>
+<dd><p>Force a redraw of <cite>self</cite> bounding region.</p>
 </dd></dl>
 
 <dl class="method">
@@ -669,7 +667,7 @@ Invalidating the item is the way to go.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>item</cite> is visible.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is visible.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -688,7 +686,7 @@ Invalidating the item is the way to go.</p>
 </tr>
 </tbody>
 </table>
-<p>Lowers <cite>item</cite> by <cite>n</cite> steps inside its parent <a class="reference internal" href="cGroup.html#GOffice.cGroup" title="GOffice.cGroup"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.cGroup</span></code></a> (or less if the list
+<p>Lowers <cite>self</cite> by <cite>n</cite> steps inside its parent <a class="reference internal" href="cGroup.html#GOffice.cGroup" title="GOffice.cGroup"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.cGroup</span></code></a> (or less if the list
 is too short) in the item list so that it is displayed more deeply in the
 items stack.</p>
 </dd></dl>
@@ -696,7 +694,7 @@ items stack.</p>
 <dl class="method">
 <dt id="GOffice.cItem.lower_to_bottom">
 <code class="descname">lower_to_bottom</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Lowers <cite>item</cite> to bottom inside its parent <a class="reference internal" href="cGroup.html#GOffice.cGroup" title="GOffice.cGroup"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.cGroup</span></code></a> so that it will be at
+<dd><p>Lowers <cite>self</cite> to bottom inside its parent <a class="reference internal" href="cGroup.html#GOffice.cGroup" title="GOffice.cGroup"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.cGroup</span></code></a> so that it will be at
 least partly hidden by any overlapping item.</p>
 </dd></dl>
 
@@ -711,7 +709,7 @@ least partly hidden by any overlapping item.</p>
 </tr>
 </tbody>
 </table>
-<p>Raises <cite>item</cite> by <cite>n</cite> steps inside its parent <a class="reference internal" href="cGroup.html#GOffice.cGroup" title="GOffice.cGroup"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.cGroup</span></code></a> (or less if the list
+<p>Raises <cite>self</cite> by <cite>n</cite> steps inside its parent <a class="reference internal" href="cGroup.html#GOffice.cGroup" title="GOffice.cGroup"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.cGroup</span></code></a> (or less if the list
 is too short) in the item list so that it is displayed nearer the top of
 the items stack.</p>
 </dd></dl>
@@ -719,7 +717,7 @@ the items stack.</p>
 <dl class="method">
 <dt id="GOffice.cItem.raise_to_top">
 <code class="descname">raise_to_top</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Raises <cite>item</cite> to front so that it becomes the toplevel item inside
+<dd><p>Raises <cite>self</cite> to front so that it becomes the toplevel item inside
 its parent <a class="reference internal" href="cGroup.html#GOffice.cGroup" title="GOffice.cGroup"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.cGroup</span></code></a>.</p>
 </dd></dl>
 
@@ -734,19 +732,19 @@ its parent <a class="reference internal" href="cGroup.html#GOffice.cGroup" title
 </tr>
 </tbody>
 </table>
-<p>Either hides or shows <cite>item</cite> as appropriate..</p>
+<p>Either hides or shows <cite>self</cite> as appropriate..</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GOffice.cItem.show">
 <code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Makes <cite>item</cite> visible.</p>
+<dd><p>Makes <cite>self</cite> visible.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GOffice.cItem.ungrab">
 <code class="descname">ungrab</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Ungrabs the item. This function will fail if <cite>item</cite> is not grabbed.</p>
+<dd><p>Ungrabs the item. This function will fail if <cite>self</cite> is not grabbed.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1069,7 +1067,4 @@ Invalidating the item is the way to go.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

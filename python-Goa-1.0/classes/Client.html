@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Goa 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Goa.ContactsProxy" href="ContactsProxy.html"/>
         <link rel="prev" title="Goa.ChatSkeleton" href="ChatSkeleton.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -383,14 +381,15 @@ from a client program.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>cancellable</strong> (<a class="reference external" href="../_docs/Goa-1.0/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A <a class="reference external" href="../_docs/Goa-1.0/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</li>
 <li><strong>callback</strong> (<a class="reference external" href="../_docs/Goa-1.0/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Function that will be called when the result is ready.</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; Data to pass to <cite>callback</cite>.</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Data to pass to <cite>callback</cite>.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Asynchronously gets a <a class="reference internal" href="#Goa.Client" title="Goa.Client"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Client</span></code></a>. When the operation is
-finished, <cite>callback</cite> will be invoked in the <a class="reference external" href="../_docs/Goa-1.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.push_thread_default</span></code></a> of the thread you are calling this method from.</p>
+finished, <cite>callback</cite> will be invoked in the <a class="reference external" href="../_docs/Goa-1.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">thread-default</span> <span class="pre">main</span>
+<span class="pre">loop</span></code></a> of the thread you are calling this method from.</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -402,16 +401,16 @@ finished, <cite>callback</cite> will be invoked in the <a class="reference exter
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>res</strong> (<a class="reference external" href="../_docs/Goa-1.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; A <a class="reference external" href="../_docs/Goa-1.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Goa-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Goa-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#Goa.Client" title="Goa.Client"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Client</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>error</cite> is set. Free with
-<a class="reference external" href="../_docs/Goa-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> () when done with it.</td>
+<a class="reference external" href="../_docs/Goa-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>() when done with it.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Goa.Client" title="Goa.Client"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Client</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Finishes an operation started with <a class="reference internal" href="#Goa.Client.new" title="Goa.Client.new"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Client.new</span></code></a> ().</p>
+<p>Finishes an operation started with <a class="reference internal" href="#Goa.Client.new" title="Goa.Client.new"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Client.new</span></code></a>().</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -423,10 +422,10 @@ finished, <cite>callback</cite> will be invoked in the <a class="reference exter
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cancellable</strong> (<a class="reference external" href="../_docs/Goa-1.0/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A <a class="reference external" href="../_docs/Goa-1.0/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Goa-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Goa-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#Goa.Client" title="Goa.Client"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Client</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>error</cite> is set. Free with
-<a class="reference external" href="../_docs/Goa-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> () when done with it.</td>
+<a class="reference external" href="../_docs/Goa-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>() when done with it.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Goa.Client" title="Goa.Client"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Client</span></code></a></td>
 </tr>
@@ -443,8 +442,8 @@ finished, <cite>callback</cite> will be invoked in the <a class="reference exter
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of
-<a class="reference internal" href="../interfaces/Object.html#Goa.Object" title="Goa.Object"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Object</span></code></a> instances that must be freed with <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> () after
-each element has been freed with <a class="reference external" href="../_docs/Goa-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ().</td>
+<a class="reference internal" href="../interfaces/Object.html#Goa.Object" title="Goa.Object"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Object</span></code></a> instances that must be freed with g_list_free() after
+each element has been freed with <a class="reference external" href="../_docs/Goa-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="../interfaces/Object.html#Goa.Object" title="Goa.Object"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Object</span></code></a>]</td>
 </tr>
@@ -452,7 +451,7 @@ each element has been freed with <a class="reference external" href="../_docs/Go
 </table>
 <p>Gets all accounts that <cite>self</cite> knows about. The result is a list of
 <a class="reference internal" href="../interfaces/Object.html#Goa.Object" title="Goa.Object"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Object</span></code></a> instances where each object at least has an <a class="reference internal" href="../interfaces/Account.html#Goa.Account" title="Goa.Account"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Account</span></code></a>
-interface (that can be obtained via the <a class="reference internal" href="../interfaces/Object.html#Goa.Object.get_account" title="Goa.Object.get_account"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Object.get_account</span></code></a> ()
+interface (that can be obtained via the <a class="reference internal" href="../interfaces/Object.html#Goa.Object.get_account" title="Goa.Object.get_account"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Object.get_account</span></code></a>()
 method) but may also implement other interfaces such as
 <a class="reference internal" href="../interfaces/Mail.html#Goa.Mail" title="Goa.Mail"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Mail</span></code></a> or <a class="reference internal" href="../interfaces/Files.html#Goa.Files" title="Goa.Files"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Files</span></code></a>.</p>
 </dd></dl>
@@ -501,7 +500,7 @@ instance is owned by <cite>self</cite>.</td>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The ID to look for.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="../interfaces/Object.html#Goa.Object" title="Goa.Object"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Object</span></code></a>. Free the returned
-object with <a class="reference external" href="../_docs/Goa-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ().</td>
+object with <a class="reference external" href="../_docs/Goa-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../interfaces/Object.html#Goa.Object" title="Goa.Object"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Object</span></code></a></td>
 </tr>
@@ -542,7 +541,7 @@ D-Bus property matches <cite>id</cite>.</p>
 </tbody>
 </table>
 <p>Emitted when <cite>object</cite> has been added. See
-<a class="reference internal" href="#Goa.Client.get_accounts" title="Goa.Client.get_accounts"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Client.get_accounts</span></code></a> () for information about how to use this
+<a class="reference internal" href="#Goa.Client.get_accounts" title="Goa.Client.get_accounts"><code class="xref py py-obj docutils literal"><span class="pre">Goa.Client.get_accounts</span></code></a>() for information about how to use this
 object.</p>
 </dd></dl>
 
@@ -631,7 +630,4 @@ object.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

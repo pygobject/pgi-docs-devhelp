@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Clutter 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Clutter.PageTurnEffect" href="PageTurnEffect.html"/>
         <link rel="prev" title="Clutter.ModelIter" href="ModelIter.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -389,7 +387,7 @@ count increased.</p>
 </tr>
 </tbody>
 </table>
-<p>Calls the create_texture() virtual function of the <cite>effect</cite></p>
+<p>Calls the create_texture() virtual function of the <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -411,7 +409,7 @@ modified or freed</td>
 </tbody>
 </table>
 <p>Retrieves the material used as a render target for the offscreen
-buffer created by <cite>effect</cite></p>
+buffer created by <cite>self</cite></p>
 <p>You should only use the returned <a class="reference external" href="../_docs/Clutter-1.0/../../../python-Cogl-1.0/structs/Material.html#Cogl.Material" title="(in Cogl 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Material</span></code></a> when painting. The
 returned material might change between different frames.</p>
 <div class="versionadded">
@@ -441,10 +439,10 @@ and <a class="reference external" href="http://docs.python.org/2.7/library/const
 </tr>
 </tbody>
 </table>
-<p>Retrieves the origin and size of the offscreen buffer used by <cite>effect</cite> to
+<p>Retrieves the origin and size of the offscreen buffer used by <cite>self</cite> to
 paint the actor to which it has been applied.</p>
 <p>This function should only be called by <a class="reference internal" href="#Clutter.OffscreenEffect" title="Clutter.OffscreenEffect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffect</span></code></a>
-implementations, from within the <a class="reference internal" href="../class-structs/OffscreenEffectClass.html#Clutter.OffscreenEffectClass" title="Clutter.OffscreenEffectClass"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffectClass</span></code></a>.paint_target()
+implementations, from within the <a class="reference internal" href="#Clutter.OffscreenEffect.do_paint_target" title="Clutter.OffscreenEffect.do_paint_target"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffect.do_paint_target</span></code></a>()
 virtual function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.14.</span></p>
@@ -475,16 +473,16 @@ and <a class="reference external" href="http://docs.python.org/2.7/library/const
 </tr>
 </tbody>
 </table>
-<p>Retrieves the size of the offscreen buffer used by <cite>effect</cite> to
+<p>Retrieves the size of the offscreen buffer used by <cite>self</cite> to
 paint the actor to which it has been applied.</p>
 <p>This function should only be called by <a class="reference internal" href="#Clutter.OffscreenEffect" title="Clutter.OffscreenEffect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffect</span></code></a>
-implementations, from within the <a class="reference internal" href="../class-structs/OffscreenEffectClass.html#Clutter.OffscreenEffectClass" title="Clutter.OffscreenEffectClass"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffectClass</span></code></a>.paint_target()
+implementations, from within the <a class="reference internal" href="#Clutter.OffscreenEffect.do_paint_target" title="Clutter.OffscreenEffect.do_paint_target"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffect.do_paint_target</span></code></a>()
 virtual function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.14: </span>Use <a class="reference internal" href="#Clutter.OffscreenEffect.get_target_rect" title="Clutter.OffscreenEffect.get_target_rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffect.get_target_rect</span></code></a> () instead</p>
+<p><span class="versionmodified">Deprecated since version 1.14: </span>Use <a class="reference internal" href="#Clutter.OffscreenEffect.get_target_rect" title="Clutter.OffscreenEffect.get_target_rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffect.get_target_rect</span></code></a>() instead</p>
 </div>
 </dd></dl>
 
@@ -495,7 +493,7 @@ virtual function.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <code class="xref py py-obj docutils literal"><span class="pre">Cogl.Handle</span></code> or %COGL_INVALID_HANDLE. The
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a #CoglHandle or %COGL_INVALID_HANDLE. The
 returned texture is owned by Clutter and it should not be
 modified or freed</td>
 </tr>
@@ -504,12 +502,12 @@ modified or freed</td>
 </tbody>
 </table>
 <p>Retrieves the texture used as a render target for the offscreen
-buffer created by <cite>effect</cite></p>
+buffer created by <cite>self</cite></p>
 <p>You should only use the returned texture when painting. The texture
-may change after <a class="reference internal" href="Effect.html#Clutter.Effect" title="Clutter.Effect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Effect</span></code></a> <code class="xref py py-func docutils literal"><span class="pre">::pre-paint</span></code> is called so the effect
+may change after ClutterEffect::pre_paint is called so the effect
 implementation should update any references to the texture after
 chaining-up to the parent&#8217;s pre_paint implementation. This can be
-used instead of <a class="reference internal" href="#Clutter.OffscreenEffect.get_target" title="Clutter.OffscreenEffect.get_target"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffect.get_target</span></code></a> () when the
+used instead of <a class="reference internal" href="#Clutter.OffscreenEffect.get_target" title="Clutter.OffscreenEffect.get_target"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.OffscreenEffect.get_target</span></code></a>() when the
 effect subclass wants to paint using its own material.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
@@ -519,7 +517,7 @@ effect subclass wants to paint using its own material.</p>
 <dl class="method">
 <dt id="Clutter.OffscreenEffect.paint_target">
 <code class="descname">paint_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Calls the paint_target() virtual function of the <cite>effect</cite></p>
+<dd><p>Calls the paint_target() virtual function of the <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
@@ -579,7 +577,4 @@ count increased.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

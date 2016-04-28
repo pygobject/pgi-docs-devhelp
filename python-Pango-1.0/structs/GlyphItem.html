@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Pango 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Pango.GlyphItemIter" href="GlyphItemIter.html"/>
         <link rel="prev" title="Pango.GlyphInfo" href="GlyphInfo.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -214,7 +212,7 @@ of shaping text with <a class="reference internal" href="../classes/Layout.html#
 each of which contains a list of <a class="reference internal" href="#Pango.GlyphItem" title="Pango.GlyphItem"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem</span></code></a>.</p>
 <dl class="method">
 <dt id="Pango.GlyphItem.apply_attrs">
-<code class="descname">apply_attrs</code><span class="sig-paren">(</span><em>text</em>, <em>list</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.38.1#n585"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">apply_attrs</code><span class="sig-paren">(</span><em>text</em>, <em>list</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.40.1#n585"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -226,9 +224,9 @@ each of which contains a list of <a class="reference internal" href="#Pango.Glyp
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a
-list of glyph items resulting from splitting <cite>glyph_item</cite>. Free
-the elements using <a class="reference internal" href="#Pango.GlyphItem.free" title="Pango.GlyphItem.free"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem.free</span></code></a> (), the list using
-<code class="xref py py-obj docutils literal"><span class="pre">GLib.SList.free</span></code> ().</p>
+list of glyph items resulting from splitting <cite>self</cite>. Free
+the elements using <a class="reference internal" href="#Pango.GlyphItem.free" title="Pango.GlyphItem.free"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem.free</span></code></a>(), the list using
+g_slist_free().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[<a class="reference internal" href="#Pango.GlyphItem" title="Pango.GlyphItem"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem</span></code></a>]</p>
@@ -236,10 +234,10 @@ the elements using <a class="reference internal" href="#Pango.GlyphItem.free" ti
 </tr>
 </tbody>
 </table>
-<p>Splits a shaped item (<a class="reference internal" href="#Pango.GlyphItem" title="Pango.GlyphItem"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem</span></code></a> ) into multiple items based
+<p>Splits a shaped item (<a class="reference internal" href="#Pango.GlyphItem" title="Pango.GlyphItem"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem</span></code></a>) into multiple items based
 on an attribute list. The idea is that if you have attributes
 that don&#8217;t affect shaping, such as color or underline, to avoid
-affecting shaping, you filter them out (<a class="reference internal" href="AttrList.html#Pango.AttrList.filter" title="Pango.AttrList.filter"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.filter</span></code></a> ()),
+affecting shaping, you filter them out (<a class="reference internal" href="AttrList.html#Pango.AttrList.filter" title="Pango.AttrList.filter"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.filter</span></code></a>()),
 apply the shaping process and then reapply them to the result using
 this function.</p>
 <p>All attributes that start or end inside a cluster are applied
@@ -248,7 +246,7 @@ and the other-half strikethrough, then the cluster will end
 up with both underline and strikethrough attributes. In these
 cases, it may happen that item-&gt;extra_attrs for some of the
 result items can have multiple attributes of the same type.</p>
-<p>This function takes ownership of <cite>glyph_item</cite> ; it will be reused
+<p>This function takes ownership of <cite>self</cite>; it will be reused
 as one of the elements in the list.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
@@ -257,14 +255,14 @@ as one of the elements in the list.</p>
 
 <dl class="method">
 <dt id="Pango.GlyphItem.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.38.1#n148"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.40.1#n148"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the newly allocated <a class="reference internal" href="#Pango.GlyphItem" title="Pango.GlyphItem"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem</span></code></a>, which should
-be freed with <a class="reference internal" href="#Pango.GlyphItem.free" title="Pango.GlyphItem.free"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem.free</span></code></a> (), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
-if <cite>orig</cite> was <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
+be freed with <a class="reference internal" href="#Pango.GlyphItem.free" title="Pango.GlyphItem.free"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem.free</span></code></a>(), or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
+if <cite>self</cite> was <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Pango.GlyphItem" title="Pango.GlyphItem"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
@@ -278,7 +276,7 @@ if <cite>orig</cite> was <a class="reference external" href="http://docs.python.
 
 <dl class="method">
 <dt id="Pango.GlyphItem.free">
-<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.38.1#n170"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.40.1#n170"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Frees a <a class="reference internal" href="#Pango.GlyphItem" title="Pango.GlyphItem"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem</span></code></a> and resources to which it points.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -287,15 +285,15 @@ if <cite>orig</cite> was <a class="reference external" href="http://docs.python.
 
 <dl class="method">
 <dt id="Pango.GlyphItem.get_logical_widths">
-<code class="descname">get_logical_widths</code><span class="sig-paren">(</span><em>text</em>, <em>logical_widths</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.38.1#n806"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_logical_widths</code><span class="sig-paren">(</span><em>text</em>, <em>logical_widths</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.40.1#n806"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>text</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; text that <cite>glyph_item</cite> corresponds to
+<li><strong>text</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; text that <cite>self</cite> corresponds to
 (glyph_item-&gt;item-&gt;offset is an offset from the
-start of <cite>text</cite> )</li>
+start of <cite>text</cite>)</li>
 <li><strong>logical_widths</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>]) &#8211; an array whose length is the number of
 characters in glyph_item (equal to
 glyph_item-&gt;item-&gt;num_chars) to be filled in with
@@ -309,7 +307,7 @@ the resulting character widths.</li>
 text, determine the screen width corresponding to each character. When
 multiple characters compose a single cluster, the width of the entire
 cluster is divided equally among the characters.</p>
-<p>See also <a class="reference internal" href="GlyphString.html#Pango.GlyphString.get_logical_widths" title="Pango.GlyphString.get_logical_widths"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphString.get_logical_widths</span></code></a> ().</p>
+<p>See also <a class="reference internal" href="GlyphString.html#Pango.GlyphString.get_logical_widths" title="Pango.GlyphString.get_logical_widths"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphString.get_logical_widths</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.26.</span></p>
 </div>
@@ -317,15 +315,15 @@ cluster is divided equally among the characters.</p>
 
 <dl class="method">
 <dt id="Pango.GlyphItem.letter_space">
-<code class="descname">letter_space</code><span class="sig-paren">(</span><em>text</em>, <em>log_attrs</em>, <em>letter_spacing</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.38.1#n732"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">letter_space</code><span class="sig-paren">(</span><em>text</em>, <em>log_attrs</em>, <em>letter_spacing</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.40.1#n732"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>text</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; text that <cite>glyph_item</cite> corresponds to
+<li><strong>text</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; text that <cite>self</cite> corresponds to
 (glyph_item-&gt;item-&gt;offset is an offset from the
-start of <cite>text</cite> )</li>
+start of <cite>text</cite>)</li>
 <li><strong>log_attrs</strong> ([<a class="reference internal" href="LogAttr.html#Pango.LogAttr" title="Pango.LogAttr"><code class="xref py py-obj docutils literal"><span class="pre">Pango.LogAttr</span></code></a>]) &#8211; logical attributes for the item
 (the first logical attribute refers to the position
 before the first character in the item)</li>
@@ -337,7 +335,7 @@ negative values will give ugly results.</li>
 </tr>
 </tbody>
 </table>
-<p>Adds spacing between the graphemes of <cite>glyph_item</cite> to
+<p>Adds spacing between the graphemes of <cite>self</cite> to
 give the effect of typographic letter spacing.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -346,20 +344,20 @@ give the effect of typographic letter spacing.</p>
 
 <dl class="method">
 <dt id="Pango.GlyphItem.split">
-<code class="descname">split</code><span class="sig-paren">(</span><em>text</em>, <em>split_index</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.38.1#n56"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">split</code><span class="sig-paren">(</span><em>text</em>, <em>split_index</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-glyph-item.c?h=1.40.1#n56"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>text</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; text to which positions in <cite>orig</cite> apply</li>
+<li><strong>text</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; text to which positions in <cite>self</cite> apply</li>
 <li><strong>split_index</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; byte index of position to split item, relative to the start of the item</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the newly allocated item representing text before
 <cite>split_index</cite>, which should be freed
-with <a class="reference internal" href="#Pango.GlyphItem.free" title="Pango.GlyphItem.free"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem.free</span></code></a> ().</p>
+with <a class="reference internal" href="#Pango.GlyphItem.free" title="Pango.GlyphItem.free"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem.free</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Pango.GlyphItem" title="Pango.GlyphItem"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GlyphItem</span></code></a></p>
@@ -367,14 +365,14 @@ with <a class="reference internal" href="#Pango.GlyphItem.free" title="Pango.Gly
 </tr>
 </tbody>
 </table>
-<p>Modifies <cite>orig</cite> to cover only the text after <cite>split_index</cite>, and
+<p>Modifies <cite>self</cite> to cover only the text after <cite>split_index</cite>, and
 returns a new item that covers the text before <cite>split_index</cite> that
-used to be in <cite>orig</cite>. You can think of <cite>split_index</cite> as the length of
+used to be in <cite>self</cite>. You can think of <cite>split_index</cite> as the length of
 the returned item. <cite>split_index</cite> may not be 0, and it may not be
-greater than or equal to the length of <cite>orig</cite> (that is, there must
+greater than or equal to the length of <cite>self</cite> (that is, there must
 be at least one byte assigned to each item, you can&#8217;t create a
 zero-length item).</p>
-<p>This function is similar in function to <a class="reference internal" href="Item.html#Pango.Item.split" title="Pango.Item.split"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Item.split</span></code></a> () (and uses
+<p>This function is similar in function to <a class="reference internal" href="Item.html#Pango.Item.split" title="Pango.Item.split"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Item.split</span></code></a>() (and uses
 it internally.)</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
@@ -397,7 +395,4 @@ it internally.)</p>
   </div> 
 
 </body>
-
-  
-
 </html>

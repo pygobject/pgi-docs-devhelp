@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Limba 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Limba.Package" href="Package.html"/>
         <link rel="prev" title="Limba.Keyring" href="Keyring.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -213,22 +211,22 @@
 <td><a class="reference internal" href="#Limba.Manager.new" title="Limba.Manager.new"><code class="xref py py-func docutils literal"><span class="pre">new</span></code></a> ()</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Limba.Manager.apply_updates" title="Limba.Manager.apply_updates"><code class="xref py py-func docutils literal"><span class="pre">apply_updates</span></code></a> ()</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.Manager.cleanup" title="Limba.Manager.cleanup"><code class="xref py py-func docutils literal"><span class="pre">cleanup</span></code></a> ()</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.Manager.find_runtime_with_members" title="Limba.Manager.find_runtime_with_members"><code class="xref py py-func docutils literal"><span class="pre">find_runtime_with_members</span></code></a> (members)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.Manager.get_installed_runtimes" title="Limba.Manager.get_installed_runtimes"><code class="xref py py-func docutils literal"><span class="pre">get_installed_runtimes</span></code></a> ()</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.Manager.get_software_by_pkid" title="Limba.Manager.get_software_by_pkid"><code class="xref py py-func docutils literal"><span class="pre">get_software_by_pkid</span></code></a> (pkid)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.Manager.get_software_list" title="Limba.Manager.get_software_list"><code class="xref py py-func docutils literal"><span class="pre">get_software_list</span></code></a> ()</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Limba.Manager.get_update_for_id" title="Limba.Manager.get_update_for_id"><code class="xref py py-func docutils literal"><span class="pre">get_update_for_id</span></code></a> (pkid)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.Manager.get_update_list" title="Limba.Manager.get_update_list"><code class="xref py py-func docutils literal"><span class="pre">get_update_list</span></code></a> ()</td>
@@ -237,13 +235,25 @@
 <td><a class="reference internal" href="#Limba.Manager.package_is_installed" title="Limba.Manager.package_is_installed"><code class="xref py py-func docutils literal"><span class="pre">package_is_installed</span></code></a> (pki)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Limba.Manager.receive_key" title="Limba.Manager.receive_key"><code class="xref py py-func docutils literal"><span class="pre">receive_key</span></code></a> (fpr)</td>
+<td><a class="reference internal" href="#Limba.Manager.refresh_cache" title="Limba.Manager.refresh_cache"><code class="xref py py-func docutils literal"><span class="pre">refresh_cache</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Limba.Manager.refresh_cache" title="Limba.Manager.refresh_cache"><code class="xref py py-func docutils literal"><span class="pre">refresh_cache</span></code></a> ()</td>
+<td><a class="reference internal" href="#Limba.Manager.refresh_keyring" title="Limba.Manager.refresh_keyring"><code class="xref py py-func docutils literal"><span class="pre">refresh_keyring</span></code></a> ()</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Limba.Manager.remove_software" title="Limba.Manager.remove_software"><code class="xref py py-func docutils literal"><span class="pre">remove_software</span></code></a> (pkgid)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Limba.Manager.trust_key" title="Limba.Manager.trust_key"><code class="xref py py-func docutils literal"><span class="pre">trust_key</span></code></a> (fpr)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Limba.Manager.trust_key_file" title="Limba.Manager.trust_key_file"><code class="xref py py-func docutils literal"><span class="pre">trust_key_file</span></code></a> (fname)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Limba.Manager.update" title="Limba.Manager.update"><code class="xref py py-func docutils literal"><span class="pre">update</span></code></a> (uitem)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Limba.Manager.update_all" title="Limba.Manager.update_all"><code class="xref py py-func docutils literal"><span class="pre">update_all</span></code></a> ()</td>
 </tr>
 </tbody>
 </table>
@@ -372,35 +382,25 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="Limba.Manager.apply_updates">
-<code class="descname">apply_updates</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
-</tr>
-</tbody>
-</table>
-<p>EXPERIMENTAL</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="Limba.Manager.cleanup">
 <code class="descname">cleanup</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Remove unnecessary software.</p>
+<p>Remove unnecessary software.
+Limba automatically determines whether software is still needed.
+Only software which has been explicitly installed is kept, anything
+else will be automatically cleaned as soon as nothing needs it anymore.
+The cleanup routine will remove faded bundles, so it is recommended to
+runt it when to Limba-installed app is still in use.
+By default, cleanup happens when the system is shutting down.</p>
 </dd></dl>
 
 <dl class="method">
@@ -420,7 +420,7 @@
 </table>
 <p>Get an installed runtime which contains the specified members.
 If none is available, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.
-The resulting runtime needs to be unref&#8217;ed with <a class="reference external" href="../_docs/Limba-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ()
+The resulting runtime needs to be unref&#8217;ed with <a class="reference external" href="../_docs/Limba-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>()
 if it is no longer needed.</p>
 </dd></dl>
 
@@ -448,7 +448,7 @@ if it is no longer needed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pkid</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="PkgInfo.html#Limba.PkgInfo" title="Limba.PkgInfo"><code class="xref py py-obj docutils literal"><span class="pre">Limba.PkgInfo</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no software was found.</td>
 </tr>
@@ -465,7 +465,7 @@ if it is no longer needed.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of installed and available software</td>
 </tr>
@@ -476,21 +476,42 @@ if it is no longer needed.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="Limba.Manager.get_update_for_id">
+<code class="descname">get_update_for_id</code><span class="sig-paren">(</span><em>pkid</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pkid</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; ID of the existing package which can be upgraded.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="UpdateItem.html#Limba.UpdateItem" title="Limba.UpdateItem"><code class="xref py py-obj docutils literal"><span class="pre">Limba.UpdateItem</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if none was found.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="UpdateItem.html#Limba.UpdateItem" title="Limba.UpdateItem"><code class="xref py py-obj docutils literal"><span class="pre">Limba.UpdateItem</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Get the <a class="reference internal" href="UpdateItem.html#Limba.UpdateItem" title="Limba.UpdateItem"><code class="xref py py-obj docutils literal"><span class="pre">Limba.UpdateItem</span></code></a> which represents an update of the package given by
+the pkid parameter.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="Limba.Manager.get_update_list">
 <code class="descname">get_update_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of <a class="reference internal" href="UpdateItem.html#Limba.UpdateItem" title="Limba.UpdateItem"><code class="xref py py-obj docutils literal"><span class="pre">Limba.UpdateItem</span></code></a> describing the potential updates. Free with <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> ().</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of <a class="reference internal" href="UpdateItem.html#Limba.UpdateItem" title="Limba.UpdateItem"><code class="xref py py-obj docutils literal"><span class="pre">Limba.UpdateItem</span></code></a> describing the potential updates. Free with g_list_free().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="UpdateItem.html#Limba.UpdateItem" title="Limba.UpdateItem"><code class="xref py py-obj docutils literal"><span class="pre">Limba.UpdateItem</span></code></a>]</td>
 </tr>
 </tbody>
 </table>
-<p>EXPERIMENTAL</p>
+<p>Get a list of available updates for the installed software.</p>
 </dd></dl>
 
 <dl class="method">
@@ -510,33 +531,31 @@ if it is no longer needed.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="Limba.Manager.receive_key">
-<code class="descname">receive_key</code><span class="sig-paren">(</span><em>fpr</em><span class="sig-paren">)</span></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fpr</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
-</tr>
-</tbody>
-</table>
-<p>Download a PGP key and add it to the database of highly trusted keys.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="Limba.Manager.refresh_cache">
 <code class="descname">refresh_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Refresh the cache of available packages.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Limba.Manager.refresh_keyring">
+<code class="descname">refresh_keyring</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Look for new trusted keys and update the keyring.</p>
 </dd></dl>
 
 <dl class="method">
@@ -548,12 +567,78 @@ if it is no longer needed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pkgid</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Limba.Manager.trust_key">
+<code class="descname">trust_key</code><span class="sig-paren">(</span><em>fpr</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fpr</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The fingerprint of the key to add.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Download a PGP key and add it to the database of trusted keys.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Limba.Manager.trust_key_file">
+<code class="descname">trust_key_file</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fname</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The filename of the GPG key that should be added.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Download a PGP key and add it to the database of trusted keys.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Limba.Manager.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>uitem</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uitem</strong> (<a class="reference internal" href="UpdateItem.html#Limba.UpdateItem" title="Limba.UpdateItem"><code class="xref py py-obj docutils literal"><span class="pre">Limba.UpdateItem</span></code></a>) &#8211; The <a class="reference internal" href="UpdateItem.html#Limba.UpdateItem" title="Limba.UpdateItem"><code class="xref py py-obj docutils literal"><span class="pre">Limba.UpdateItem</span></code></a> which should be updated.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Update a single package.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Limba.Manager.update_all">
+<code class="descname">update_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Limba-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Upgrade all Limba packages.</p>
 </dd></dl>
 
 </dd></dl>
@@ -599,7 +684,4 @@ if it is no longer needed.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

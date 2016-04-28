@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.ToplevelAccessible" href="ToplevelAccessible.html"/>
         <link rel="prev" title="Gtk.Toolbar" href="Toolbar.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -286,8 +284,8 @@
 </tr>
 </tbody>
 </table>
-<p>Basic tooltips can be realized simply by using <a class="reference internal" href="Widget.html#Gtk.Widget.set_tooltip_text" title="Gtk.Widget.set_tooltip_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.set_tooltip_text</span></code></a> ()
-or <a class="reference internal" href="Widget.html#Gtk.Widget.set_tooltip_markup" title="Gtk.Widget.set_tooltip_markup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.set_tooltip_markup</span></code></a> () without any explicit tooltip object.</p>
+<p>Basic tooltips can be realized simply by using <a class="reference internal" href="Widget.html#Gtk.Widget.set_tooltip_text" title="Gtk.Widget.set_tooltip_text"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.set_tooltip_text</span></code></a>()
+or <a class="reference internal" href="Widget.html#Gtk.Widget.set_tooltip_markup" title="Gtk.Widget.set_tooltip_markup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.set_tooltip_markup</span></code></a>() without any explicit tooltip object.</p>
 <p>When you need a tooltip with a little more fancy contents, like adding an
 image, or you want the tooltip to have different contents per <a class="reference internal" href="TreeView.html#Gtk.TreeView" title="Gtk.TreeView"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeView</span></code></a>
 row or cell, you will have to do a little more work:</p>
@@ -300,7 +298,7 @@ determine when and where to show a tooltip.</p>
 emitted when a tooltip is supposed to be shown. One of the arguments passed
 to the signal handler is a <a class="reference internal" href="#Gtk.Tooltip" title="Gtk.Tooltip"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip</span></code></a> object. This is the object that we
 are about to display as a tooltip, and can be manipulated in your callback
-using functions like <a class="reference internal" href="#Gtk.Tooltip.set_icon" title="Gtk.Tooltip.set_icon"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_icon</span></code></a> (). There are functions for setting
+using functions like <a class="reference internal" href="#Gtk.Tooltip.set_icon" title="Gtk.Tooltip.set_icon"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_icon</span></code></a>(). There are functions for setting
 the tooltip’s markup, setting an image from a named icon, or even putting in
 a custom widget.</p>
 <p>Return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> from your query-tooltip handler. This causes the tooltip to be
@@ -312,16 +310,16 @@ tooltip that is about to be shown, you can set your own <a class="reference inte
 will be used as tooltip window.  This works as follows:</p>
 <ul class="simple">
 <li>Set <a class="reference internal" href="Widget.html#Gtk.Widget" title="Gtk.Widget"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> <a class="reference internal" href="Widget.html#Gtk.Widget.props.has_tooltip" title="Gtk.Widget.props.has_tooltip"><code class="xref py py-data docutils literal"><span class="pre">:has-tooltip</span></code></a> and connect to <a class="reference internal" href="Widget.html#Gtk.Widget" title="Gtk.Widget"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> <a class="reference internal" href="Widget.html#Gtk.Widget.signals.query_tooltip" title="Gtk.Widget.signals.query_tooltip"><code class="xref py py-func docutils literal"><span class="pre">::query-tooltip</span></code></a> as before.
-Use <a class="reference internal" href="Widget.html#Gtk.Widget.set_tooltip_window" title="Gtk.Widget.set_tooltip_window"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.set_tooltip_window</span></code></a> () to set a <a class="reference internal" href="Window.html#Gtk.Window" title="Gtk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Window</span></code></a> created by you as
+Use <a class="reference internal" href="Widget.html#Gtk.Widget.set_tooltip_window" title="Gtk.Widget.set_tooltip_window"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.set_tooltip_window</span></code></a>() to set a <a class="reference internal" href="Window.html#Gtk.Window" title="Gtk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Window</span></code></a> created by you as
 tooltip window.</li>
 <li>In the <a class="reference internal" href="Widget.html#Gtk.Widget" title="Gtk.Widget"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> <a class="reference internal" href="Widget.html#Gtk.Widget.signals.query_tooltip" title="Gtk.Widget.signals.query_tooltip"><code class="xref py py-func docutils literal"><span class="pre">::query-tooltip</span></code></a> callback you can access your window using
-<a class="reference internal" href="Widget.html#Gtk.Widget.get_tooltip_window" title="Gtk.Widget.get_tooltip_window"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.get_tooltip_window</span></code></a> () and manipulate as you wish. The semantics of
+<a class="reference internal" href="Widget.html#Gtk.Widget.get_tooltip_window" title="Gtk.Widget.get_tooltip_window"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.get_tooltip_window</span></code></a>() and manipulate as you wish. The semantics of
 the return value are exactly as before, return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> to show the window,
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> to not show it.</li>
 </ul>
 <dl class="staticmethod">
 <dt id="Gtk.Tooltip.trigger_tooltip_query">
-<em class="property">static </em><code class="descname">trigger_tooltip_query</code><span class="sig-paren">(</span><em>display</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.18.6#n542"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">trigger_tooltip_query</code><span class="sig-paren">(</span><em>display</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.20.3#n432"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -341,7 +339,7 @@ key press.</p>
 
 <dl class="method">
 <dt id="Gtk.Tooltip.set_custom">
-<code class="descname">set_custom</code><span class="sig-paren">(</span><em>custom_widget</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.18.6#n463"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_custom</code><span class="sig-paren">(</span><em>custom_widget</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.20.3#n376"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -354,8 +352,8 @@ key press.</p>
 <cite>custom_widget</cite>. <cite>custom_widget</cite> does not get destroyed when the tooltip goes
 away.
 By default a box with a <a class="reference internal" href="Image.html#Gtk.Image" title="Gtk.Image"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Image</span></code></a> and <a class="reference internal" href="Label.html#Gtk.Label" title="Gtk.Label"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Label</span></code></a> is embedded in
-the tooltip, which can be configured using <a class="reference internal" href="#Gtk.Tooltip.set_markup" title="Gtk.Tooltip.set_markup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_markup</span></code></a> ()
-and <a class="reference internal" href="#Gtk.Tooltip.set_icon" title="Gtk.Tooltip.set_icon"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_icon</span></code></a> ().</p>
+the tooltip, which can be configured using <a class="reference internal" href="#Gtk.Tooltip.set_markup" title="Gtk.Tooltip.set_markup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_markup</span></code></a>()
+and <a class="reference internal" href="#Gtk.Tooltip.set_icon" title="Gtk.Tooltip.set_icon"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_icon</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.12.</span></p>
 </div>
@@ -363,7 +361,7 @@ and <a class="reference internal" href="#Gtk.Tooltip.set_icon" title="Gtk.Toolti
 
 <dl class="method">
 <dt id="Gtk.Tooltip.set_icon">
-<code class="descname">set_icon</code><span class="sig-paren">(</span><em>pixbuf</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.18.6#n335"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_icon</code><span class="sig-paren">(</span><em>pixbuf</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.20.3#n277"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -381,14 +379,14 @@ and <a class="reference internal" href="#Gtk.Tooltip.set_icon" title="Gtk.Toolti
 
 <dl class="method">
 <dt id="Gtk.Tooltip.set_icon_from_gicon">
-<code class="descname">set_icon_from_gicon</code><span class="sig-paren">(</span><em>gicon</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.18.6#n431"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_icon_from_gicon</code><span class="sig-paren">(</span><em>gicon</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.20.3#n350"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>gicon</strong> (<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gio-2.0/interfaces/Icon.html#Gio.Icon" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Icon</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gio-2.0/interfaces/Icon.html#Gio.Icon" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Icon</span></code></a> representing the icon, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
-<li><strong>size</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a stock icon size</li>
+<li><strong>size</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a stock icon size (<a class="reference internal" href="../enums.html#Gtk.IconSize" title="Gtk.IconSize"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IconSize</span></code></a>)</li>
 </ul>
 </td>
 </tr>
@@ -404,14 +402,14 @@ by <cite>size</cite>. If <cite>gicon</cite> is <a class="reference external" hre
 
 <dl class="method">
 <dt id="Gtk.Tooltip.set_icon_from_icon_name">
-<code class="descname">set_icon_from_icon_name</code><span class="sig-paren">(</span><em>icon_name</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.18.6#n401"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_icon_from_icon_name</code><span class="sig-paren">(</span><em>icon_name</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.20.3#n326"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>icon_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; an icon name, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
-<li><strong>size</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a stock icon size</li>
+<li><strong>size</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a stock icon size (<a class="reference internal" href="../enums.html#Gtk.IconSize" title="Gtk.IconSize"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IconSize</span></code></a>)</li>
 </ul>
 </td>
 </tr>
@@ -427,14 +425,14 @@ by <cite>size</cite>.  If <cite>icon_name</cite> is <a class="reference external
 
 <dl class="method">
 <dt id="Gtk.Tooltip.set_icon_from_stock">
-<code class="descname">set_icon_from_stock</code><span class="sig-paren">(</span><em>stock_id</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.18.6#n369"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_icon_from_stock</code><span class="sig-paren">(</span><em>stock_id</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.20.3#n302"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>stock_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a stock id, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
-<li><strong>size</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a stock icon size</li>
+<li><strong>size</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a stock icon size (<a class="reference internal" href="../enums.html#Gtk.IconSize" title="Gtk.IconSize"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IconSize</span></code></a>)</li>
 </ul>
 </td>
 </tr>
@@ -447,13 +445,13 @@ by <cite>size</cite>.  If <cite>stock_id</cite> is <a class="reference external"
 <p><span class="versionmodified">New in version 2.12.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.10: </span>Use <a class="reference internal" href="#Gtk.Tooltip.set_icon_from_icon_name" title="Gtk.Tooltip.set_icon_from_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_icon_from_icon_name</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 3.10: </span>Use <a class="reference internal" href="#Gtk.Tooltip.set_icon_from_icon_name" title="Gtk.Tooltip.set_icon_from_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_icon_from_icon_name</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Tooltip.set_markup">
-<code class="descname">set_markup</code><span class="sig-paren">(</span><em>markup</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.18.6#n281"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_markup</code><span class="sig-paren">(</span><em>markup</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.20.3#n239"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -472,7 +470,7 @@ If <cite>markup</cite> is <a class="reference external" href="http://docs.python
 
 <dl class="method">
 <dt id="Gtk.Tooltip.set_text">
-<code class="descname">set_text</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.18.6#n308"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_text</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.20.3#n258"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -482,7 +480,7 @@ If <cite>markup</cite> is <a class="reference external" href="http://docs.python
 </tbody>
 </table>
 <p>Sets the text of the tooltip to be <cite>text</cite>. If <cite>text</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, the label
-will be hidden. See also <a class="reference internal" href="#Gtk.Tooltip.set_markup" title="Gtk.Tooltip.set_markup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_markup</span></code></a> ().</p>
+will be hidden. See also <a class="reference internal" href="#Gtk.Tooltip.set_markup" title="Gtk.Tooltip.set_markup"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Tooltip.set_markup</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.12.</span></p>
 </div>
@@ -490,7 +488,7 @@ will be hidden. See also <a class="reference internal" href="#Gtk.Tooltip.set_ma
 
 <dl class="method">
 <dt id="Gtk.Tooltip.set_tip_area">
-<code class="descname">set_tip_area</code><span class="sig-paren">(</span><em>rect</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.18.6#n517"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_tip_area</code><span class="sig-paren">(</span><em>rect</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktooltip.c?h=3.20.3#n407"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -504,8 +502,8 @@ to be <cite>rect</cite> (in widget coordinates).  This is especially useful for
 properly setting tooltips on <a class="reference internal" href="TreeView.html#Gtk.TreeView" title="Gtk.TreeView"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeView</span></code></a> rows and cells, <a class="reference internal" href="IconView.html#Gtk.IconView" title="Gtk.IconView"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IconViews</span></code></a>,
 etc.</p>
 <p>For setting tooltips on <a class="reference internal" href="TreeView.html#Gtk.TreeView" title="Gtk.TreeView"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeView</span></code></a>, please refer to the convenience
-functions for this: <a class="reference internal" href="TreeView.html#Gtk.TreeView.set_tooltip_row" title="Gtk.TreeView.set_tooltip_row"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeView.set_tooltip_row</span></code></a> () and
-<a class="reference internal" href="TreeView.html#Gtk.TreeView.set_tooltip_cell" title="Gtk.TreeView.set_tooltip_cell"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeView.set_tooltip_cell</span></code></a> ().</p>
+functions for this: <a class="reference internal" href="TreeView.html#Gtk.TreeView.set_tooltip_row" title="Gtk.TreeView.set_tooltip_row"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeView.set_tooltip_row</span></code></a>() and
+<a class="reference internal" href="TreeView.html#Gtk.TreeView.set_tooltip_cell" title="Gtk.TreeView.set_tooltip_cell"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeView.set_tooltip_cell</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.12.</span></p>
 </div>
@@ -527,7 +525,4 @@ functions for this: <a class="reference internal" href="TreeView.html#Gtk.TreeVi
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GData 0.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="GData.ComparableIface" href="iface-structs/ComparableIface.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -538,6 +536,26 @@ transition from the old YouTube login details to the new ones.)</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="GData.ServiceError.PROXY_ERROR">
+<code class="descname">PROXY_ERROR</code><em class="property"> = 10</em></dt>
+<dd><p>The service is unavailable due to proxy network errors (e.g. proxy unreachable)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GData.ServiceError.WITH_BATCH_OPERATION">
+<code class="descname">WITH_BATCH_OPERATION</code><em class="property"> = 11</em></dt>
+<dd><p>Generic error when running a batch operation and the whole operation fails</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GData.ServiceError.API_QUOTA_EXCEEDED">
+<code class="descname">API_QUOTA_EXCEEDED</code><em class="property"> = 12</em></dt>
+<dd><p>The API request quota for this
+developer account has been exceeded for the current time period (e.g. day).
+Try again later. (Since: 0.16.0.)</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="GData.ServiceError.PROTOCOL_ERROR">
 <code class="descname">PROTOCOL_ERROR</code><em class="property"> = 2</em></dt>
 <dd><p>The client or server unexpectedly strayed from the protocol (fatal error)</p>
@@ -585,26 +603,6 @@ and uploading the modified entry</p>
 <dt id="GData.ServiceError.NETWORK_ERROR">
 <code class="descname">NETWORK_ERROR</code><em class="property"> = 9</em></dt>
 <dd><p>The service is unavailable due to local network errors (e.g. no Internet connection)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GData.ServiceError.PROXY_ERROR">
-<code class="descname">PROXY_ERROR</code><em class="property"> = 10</em></dt>
-<dd><p>The service is unavailable due to proxy network errors (e.g. proxy unreachable)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GData.ServiceError.WITH_BATCH_OPERATION">
-<code class="descname">WITH_BATCH_OPERATION</code><em class="property"> = 11</em></dt>
-<dd><p>Generic error when running a batch operation and the whole operation fails</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="GData.ServiceError.API_QUOTA_EXCEEDED">
-<code class="descname">API_QUOTA_EXCEEDED</code><em class="property"> = 12</em></dt>
-<dd><p>The API request quota for this
-developer account has been exceeded for the current time period (e.g. day).
-Try again later. (Since: 0.16.0.)</p>
 </dd></dl>
 
 </dd></dl>
@@ -685,7 +683,7 @@ Try again later. (Since: 0.16.0.)</p>
 <dt id="GData.YouTubePermission">
 <em class="property">class </em><code class="descclassname">GData.</code><code class="descname">YouTubePermission</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/GData-0.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>Permissions for actions which can be set on a <a class="reference internal" href="classes/YouTubeVideo.html#GData.YouTubeVideo" title="GData.YouTubeVideo"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo</span></code></a> using <a class="reference internal" href="classes/YouTubeVideo.html#GData.YouTubeVideo.set_access_control" title="GData.YouTubeVideo.set_access_control"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.set_access_control</span></code></a> ().</p>
+<p>Permissions for actions which can be set on a <a class="reference internal" href="classes/YouTubeVideo.html#GData.YouTubeVideo" title="GData.YouTubeVideo"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo</span></code></a> using <a class="reference internal" href="classes/YouTubeVideo.html#GData.YouTubeVideo.set_access_control" title="GData.YouTubeVideo.set_access_control"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeVideo.set_access_control</span></code></a>().</p>
 <p>The only actions which can have the <a class="reference internal" href="#GData.YouTubePermission.MODERATED" title="GData.YouTubePermission.MODERATED"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubePermission.MODERATED</span></code></a> permission are
 <a class="reference internal" href="constants.html#GData.YOUTUBE_ACTION_RATE" title="GData.YOUTUBE_ACTION_RATE"><code class="xref py py-obj docutils literal"><span class="pre">GData.YOUTUBE_ACTION_RATE</span></code></a> and <a class="reference internal" href="constants.html#GData.YOUTUBE_ACTION_COMMENT" title="GData.YOUTUBE_ACTION_COMMENT"><code class="xref py py-obj docutils literal"><span class="pre">GData.YOUTUBE_ACTION_COMMENT</span></code></a>.</p>
 <div class="versionadded">
@@ -817,7 +815,7 @@ if this error is received, inform the user that they need a YouTube channel, and
 <em class="property">class </em><code class="descclassname">GData.</code><code class="descname">YouTubeStandardFeedType</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/GData-0.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Standard feed types for standard feed queries with
-<a class="reference internal" href="classes/YouTubeService.html#GData.YouTubeService.query_standard_feed" title="GData.YouTubeService.query_standard_feed"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeService.query_standard_feed</span></code></a> (). For more information, see the</p>
+<a class="reference internal" href="classes/YouTubeService.html#GData.YouTubeService.query_standard_feed" title="GData.YouTubeService.query_standard_feed"><code class="xref py py-obj docutils literal"><span class="pre">GData.YouTubeService.query_standard_feed</span></code></a>(). For more information, see the</p>
 <p><a class="reference external" href="https://developers.google.com/youtube/2.0/developers_guide_protocol_video_feeds#Standard_feeds">online
 documentation</a>.</p>
 <dl class="attribute">
@@ -951,7 +949,4 @@ supports this feed type, and it will return results equivalent to
   </div> 
 
 </body>
-
-  
-
 </html>

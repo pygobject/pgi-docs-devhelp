@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Soup 2.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Soup.WebsocketConnection" href="WebsocketConnection.html"/>
         <link rel="prev" title="Soup.SessionSync" href="SessionSync.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -443,7 +441,7 @@
 <td>Emitted when a network-related event occurs.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#Soup.Socket.signals.new_connection" title="Soup.Socket.signals.new_connection"><code class="xref py py-func docutils literal"><span class="pre">new-connection</span></code></a></td>
-<td>Emitted when a listening socket (set up with <a class="reference internal" href="#Soup.Socket.listen" title="Soup.Socket.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.listen</span></code></a> ()) receives a new connection.</td>
+<td>Emitted when a listening socket (set up with <a class="reference internal" href="#Soup.Socket.listen" title="Soup.Socket.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.listen</span></code></a>()) receives a new connection.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#Soup.Socket.signals.readable" title="Soup.Socket.signals.readable"><code class="xref py py-func docutils literal"><span class="pre">readable</span></code></a></td>
 <td>Emitted when an async socket is readable.</td>
@@ -514,13 +512,13 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>cancellable</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Soup.SocketCallback" title="Soup.SocketCallback"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketCallback</span></code></a>) &#8211; callback to call after connecting</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data to pass to <cite>callback</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data to pass to <cite>callback</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Begins asynchronously connecting to <cite>sock</cite> &#8216;s remote address. The
+<p>Begins asynchronously connecting to <cite>self</cite>&#8216;s remote address. The
 socket will call <cite>callback</cite> when it succeeds or fails (but not
 before returning from this function).</p>
 <p>If <cite>cancellable</cite> is non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, it can be used to cancel the
@@ -543,16 +541,16 @@ status of <a class="reference internal" href="../enums.html#Soup.Status.CANCELLE
 </tr>
 </tbody>
 </table>
-<p>Attempt to synchronously connect <cite>sock</cite> to its remote address.</p>
+<p>Attempt to synchronously connect <cite>self</cite> to its remote address.</p>
 <p>If <cite>cancellable</cite> is non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, it can be used to cancel the
-connection, in which case <a class="reference internal" href="#Soup.Socket.connect_sync" title="Soup.Socket.connect_sync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.connect_sync</span></code></a> () will return
+connection, in which case <a class="reference internal" href="#Soup.Socket.connect_sync" title="Soup.Socket.connect_sync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.connect_sync</span></code></a>() will return
 <a class="reference internal" href="../enums.html#Soup.Status.CANCELLED" title="Soup.Status.CANCELLED"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Status.CANCELLED</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Soup.Socket.disconnect">
 <code class="descname">disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Disconnects <cite>sock</cite>. Any further read or write attempts on it will
+<dd><p>Disconnects <cite>self</cite>. Any further read or write attempts on it will
 fail.</p>
 </dd></dl>
 
@@ -563,13 +561,13 @@ fail.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>sock</cite> &#8216;s file descriptor.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s file descriptor.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>sock</cite> &#8216;s underlying file descriptor.</p>
+<p>Gets <cite>self</cite>&#8216;s underlying file descriptor.</p>
 <p>Note that fiddling with the file descriptor may break the
 <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a>.</p>
 </dd></dl>
@@ -587,7 +585,7 @@ fail.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the <a class="reference internal" href="Address.html#Soup.Address" title="Soup.Address"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Address</span></code></a> corresponding to the local end of <cite>sock</cite>.</p>
+<p>Returns the <a class="reference internal" href="Address.html#Soup.Address" title="Soup.Address"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Address</span></code></a> corresponding to the local end of <cite>self</cite>.</p>
 <p>Calling this method on an unconnected socket is considered to be
 an error, and produces undefined results.</p>
 </dd></dl>
@@ -605,7 +603,7 @@ an error, and produces undefined results.</p>
 </tr>
 </tbody>
 </table>
-<p>Returns the <a class="reference internal" href="Address.html#Soup.Address" title="Soup.Address"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Address</span></code></a> corresponding to the remote end of <cite>sock</cite>.</p>
+<p>Returns the <a class="reference internal" href="Address.html#Soup.Address" title="Soup.Address"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Address</span></code></a> corresponding to the remote end of <cite>self</cite>.</p>
 <p>Calling this method on an unconnected socket is considered to be
 an error, and produces undefined results.</p>
 </dd></dl>
@@ -623,7 +621,7 @@ an error, and produces undefined results.</p>
 </tr>
 </tbody>
 </table>
-<p>Tests if <cite>sock</cite> is connected to another host</p>
+<p>Tests if <cite>self</cite> is connected to another host</p>
 </dd></dl>
 
 <dl class="method">
@@ -633,13 +631,13 @@ an error, and produces undefined results.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>sock</cite> has SSL credentials set</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> has SSL credentials set</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests if <cite>sock</cite> is doing (or has attempted to do) SSL.</p>
+<p>Tests if <cite>self</cite> is doing (or has attempted to do) SSL.</p>
 </dd></dl>
 
 <dl class="method">
@@ -649,14 +647,14 @@ an error, and produces undefined results.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether or not <cite>sock</cite> is now listening.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether or not <cite>self</cite> is now listening.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Makes <cite>sock</cite> start listening on its local address. When connections
-come in, <cite>sock</cite> will emit <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.signals.new_connection" title="Soup.Socket.signals.new_connection"><code class="xref py py-func docutils literal"><span class="pre">::new-connection</span></code></a>.</p>
+<p>Makes <cite>self</cite> start listening on its local address. When connections
+come in, <cite>self</cite> will emit #SoupSocket::new_connection.</p>
 </dd></dl>
 
 <dl class="method">
@@ -673,7 +671,7 @@ into</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>a <a class="reference internal" href="../enums.html#Soup.SocketIOStatus" title="Soup.SocketIOStatus"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus</span></code></a>, as described above (or
@@ -696,16 +694,16 @@ also be set).</p>
 </tr>
 </tbody>
 </table>
-<p>Attempts to read up to <cite>len</cite> bytes from <cite>sock</cite> into <cite>buffer</cite>. If some
-data is successfully read, <a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a> () will return
+<p>Attempts to read up to <cite>len</cite> bytes from <cite>self</cite> into <cite>buffer</cite>. If some
+data is successfully read, <a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a>() will return
 <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.OK" title="Soup.SocketIOStatus.OK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.OK</span></code></a>, and <cite>nread</cite> will contain the number of bytes
-actually read (which may be less than <cite>len</cite> ).</p>
-<p>If <cite>sock</cite> is non-blocking, and no data is available, the return
+actually read (which may be less than <cite>len</cite>).</p>
+<p>If <cite>self</cite> is non-blocking, and no data is available, the return
 value will be <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.WOULD_BLOCK" title="Soup.SocketIOStatus.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.WOULD_BLOCK</span></code></a>. In this case, the caller
 can connect to the <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.signals.readable" title="Soup.Socket.signals.readable"><code class="xref py py-func docutils literal"><span class="pre">::readable</span></code></a> signal to know when there
 is more data to read. (NB: You MUST read all available data off the
 socket first. <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.signals.readable" title="Soup.Socket.signals.readable"><code class="xref py py-func docutils literal"><span class="pre">::readable</span></code></a> is only emitted after
-<a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a> () returns <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.WOULD_BLOCK" title="Soup.SocketIOStatus.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.WOULD_BLOCK</span></code></a>, and it is only
+<a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a>() returns <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.WOULD_BLOCK" title="Soup.SocketIOStatus.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.WOULD_BLOCK</span></code></a>, and it is only
 emitted once. See the documentation for <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.props.non_blocking" title="Soup.Socket.props.non_blocking"><code class="xref py py-data docutils literal"><span class="pre">:non-blocking</span></code></a>.)</p>
 </dd></dl>
 
@@ -719,7 +717,7 @@ emitted once. See the documentation for <a class="reference internal" href="#Sou
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>buffer</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bytes</span></code></a>) &#8211; buffer to read
 into</li>
-<li><strong>boundary</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; boundary to read until</li>
+<li><strong>boundary</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; boundary to read until</li>
 <li><strong>boundary_len</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; length of <cite>boundary</cite> in bytes</li>
 <li><strong>got_boundary</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; on return, whether or not the data in <cite>buffer</cite>
 ends with the boundary string</li>
@@ -727,10 +725,10 @@ ends with the boundary string</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>as for <a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a> ()</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>as for <a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a>()</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -747,11 +745,11 @@ ends with the boundary string</li>
 </tr>
 </tbody>
 </table>
-<p>Like <a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a> (), but reads no further than the first
+<p>Like <a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a>(), but reads no further than the first
 occurrence of <cite>boundary</cite>. (If the boundary is found, it will be
 included in the returned data, and <cite>got_boundary</cite> will be set to
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.) Any data after the boundary will returned in future reads.</p>
-<p><a class="reference internal" href="#Soup.Socket.read_until" title="Soup.Socket.read_until"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read_until</span></code></a> () will almost always return fewer than <cite>len</cite>
+<p><a class="reference internal" href="#Soup.Socket.read_until" title="Soup.Socket.read_until"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read_until</span></code></a>() will almost always return fewer than <cite>len</cite>
 bytes: if the boundary is found, then it will only return the bytes
 up until the end of the boundary, and if the boundary is not found,
 then it will leave the last <code class="docutils literal"><span class="pre">(boundary_len</span> <span class="pre">-</span> <span class="pre">1)</span></code>
@@ -816,7 +814,7 @@ longer than <cite>boundary_len</cite> if you want to make any progress at all.</
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>a <a class="reference internal" href="../enums.html#Soup.SocketIOStatus" title="Soup.SocketIOStatus"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus</span></code></a>, as described above (or
@@ -838,15 +836,15 @@ return value is <a class="reference internal" href="../enums.html#Soup.SocketIOS
 </tr>
 </tbody>
 </table>
-<p>Attempts to write <cite>len</cite> bytes from <cite>buffer</cite> to <cite>sock</cite>. If some data is
+<p>Attempts to write <cite>len</cite> bytes from <cite>buffer</cite> to <cite>self</cite>. If some data is
 successfully written, the return status will be <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.OK" title="Soup.SocketIOStatus.OK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.OK</span></code></a>,
 and <cite>nwrote</cite> will contain the number of bytes actually written
-(which may be less than <cite>len</cite> ).</p>
-<p>If <cite>sock</cite> is non-blocking, and no data could be written right away,
+(which may be less than <cite>len</cite>).</p>
+<p>If <cite>self</cite> is non-blocking, and no data could be written right away,
 the return value will be <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.WOULD_BLOCK" title="Soup.SocketIOStatus.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.WOULD_BLOCK</span></code></a>. In this case,
 the caller can connect to the <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.signals.writable" title="Soup.Socket.signals.writable"><code class="xref py py-func docutils literal"><span class="pre">::writable</span></code></a> signal to know
 when more data can be written. (NB: <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.signals.writable" title="Soup.Socket.signals.writable"><code class="xref py py-func docutils literal"><span class="pre">::writable</span></code></a> is only
-emitted after <a class="reference internal" href="#Soup.Socket.write" title="Soup.Socket.write"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.write</span></code></a> () returns <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.WOULD_BLOCK" title="Soup.SocketIOStatus.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.WOULD_BLOCK</span></code></a>,
+emitted after <a class="reference internal" href="#Soup.Socket.write" title="Soup.Socket.write"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.write</span></code></a>() returns <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.WOULD_BLOCK" title="Soup.SocketIOStatus.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.WOULD_BLOCK</span></code></a>,
 and it is only emitted once. See the documentation for
 <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.props.non_blocking" title="Soup.Socket.props.non_blocking"><code class="xref py py-data docutils literal"><span class="pre">:non-blocking</span></code></a>.)</p>
 </dd></dl>
@@ -954,7 +952,7 @@ reason.</p>
 </tbody>
 </table>
 <p>Emitted when a listening socket (set up with
-<a class="reference internal" href="#Soup.Socket.listen" title="Soup.Socket.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.listen</span></code></a> ()) receives a new connection.</p>
+<a class="reference internal" href="#Soup.Socket.listen" title="Soup.Socket.listen"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.listen</span></code></a>()) receives a new connection.</p>
 <p>You must ref the <cite>new</cite> if you want to keep it; otherwise it
 will be destroyed after the signal is emitted.</p>
 </dd></dl>
@@ -975,7 +973,7 @@ will be destroyed after the signal is emitted.</p>
 </tbody>
 </table>
 <p>Emitted when an async socket is readable. See
-<a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a> (), <a class="reference internal" href="#Soup.Socket.read_until" title="Soup.Socket.read_until"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read_until</span></code></a> () and
+<a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a>(), <a class="reference internal" href="#Soup.Socket.read_until" title="Soup.Socket.read_until"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read_until</span></code></a>() and
 <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.props.non_blocking" title="Soup.Socket.props.non_blocking"><code class="xref py py-data docutils literal"><span class="pre">:non-blocking</span></code></a>.</p>
 </dd></dl>
 
@@ -995,7 +993,7 @@ will be destroyed after the signal is emitted.</p>
 </tbody>
 </table>
 <p>Emitted when an async socket is writable. See
-<a class="reference internal" href="#Soup.Socket.write" title="Soup.Socket.write"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.write</span></code></a> () and <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.props.non_blocking" title="Soup.Socket.props.non_blocking"><code class="xref py py-data docutils literal"><span class="pre">:non-blocking</span></code></a>.</p>
+<a class="reference internal" href="#Soup.Socket.write" title="Soup.Socket.write"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.write</span></code></a>() and <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.props.non_blocking" title="Soup.Socket.props.non_blocking"><code class="xref py py-data docutils literal"><span class="pre">:non-blocking</span></code></a>.</p>
 </dd></dl>
 
 </div>
@@ -1164,16 +1162,16 @@ sockets.</p>
 </tbody>
 </table>
 <p>Whether or not the socket uses non-blocking I/O.</p>
-<p><a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> &#8216;s I/O methods are designed around the idea of
+<p><a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a>&#8216;s I/O methods are designed around the idea of
 using a single codepath for both synchronous and
 asynchronous I/O. If you want to read off a <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a>,
-the &#8220;correct&#8221; way to do it is to call <a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a> () or
-<a class="reference internal" href="#Soup.Socket.read_until" title="Soup.Socket.read_until"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read_until</span></code></a> () repeatedly until you have read
+the &#8220;correct&#8221; way to do it is to call <a class="reference internal" href="#Soup.Socket.read" title="Soup.Socket.read"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read</span></code></a>() or
+<a class="reference internal" href="#Soup.Socket.read_until" title="Soup.Socket.read_until"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.read_until</span></code></a>() repeatedly until you have read
 everything you want. If it returns <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.WOULD_BLOCK" title="Soup.SocketIOStatus.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.WOULD_BLOCK</span></code></a>
 at any point, stop reading and wait for it to emit the
 <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.signals.readable" title="Soup.Socket.signals.readable"><code class="xref py py-func docutils literal"><span class="pre">::readable</span></code></a> signal. Then go back to the
 reading-as-much-as-you-can loop. Likewise, for writing to a
-<a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a>, you should call <a class="reference internal" href="#Soup.Socket.write" title="Soup.Socket.write"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.write</span></code></a> () either
+<a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a>, you should call <a class="reference internal" href="#Soup.Socket.write" title="Soup.Socket.write"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket.write</span></code></a>() either
 until you have written everything, or it returns
 <a class="reference internal" href="../enums.html#Soup.SocketIOStatus.WOULD_BLOCK" title="Soup.SocketIOStatus.WOULD_BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SocketIOStatus.WOULD_BLOCK</span></code></a> (in which case you wait for
 <a class="reference internal" href="#Soup.Socket" title="Soup.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Socket</span></code></a> <a class="reference internal" href="#Soup.Socket.signals.writable" title="Soup.Socket.signals.writable"><code class="xref py py-func docutils literal"><span class="pre">::writable</span></code></a> and then go back into the loop).</p>
@@ -1360,7 +1358,7 @@ code that handles that case just won&#8217;t get used for them.</p>
 </tr>
 </tbody>
 </table>
-<p>Use <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.get_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a> ().</p>
+<p>Use <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.get_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.get_thread_default</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.38.</span></p>
 </div>
@@ -1380,7 +1378,4 @@ code that handles that case just won&#8217;t get used for them.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

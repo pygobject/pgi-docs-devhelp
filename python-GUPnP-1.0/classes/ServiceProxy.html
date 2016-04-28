@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GUPnP 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GUPnP.WhiteList" href="WhiteList.html"/>
         <link rel="prev" title="GUPnP.ServiceIntrospection" href="ServiceIntrospection.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -228,34 +226,28 @@
 <td><a class="reference internal" href="#GUPnP.ServiceProxy.add_raw_notify" title="GUPnP.ServiceProxy.add_raw_notify"><code class="xref py py-func docutils literal"><span class="pre">add_raw_notify</span></code></a> (callback, *user_data)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GUPnP.ServiceProxy.begin_action_hash" title="GUPnP.ServiceProxy.begin_action_hash"><code class="xref py py-func docutils literal"><span class="pre">begin_action_hash</span></code></a> (action, callback, user_data, hash)</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GUPnP.ServiceProxy.begin_action_list" title="GUPnP.ServiceProxy.begin_action_list"><code class="xref py py-func docutils literal"><span class="pre">begin_action_list</span></code></a> (action, in_names, in_values, callback, *user_data)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GUPnP.ServiceProxy.cancel_action" title="GUPnP.ServiceProxy.cancel_action"><code class="xref py py-func docutils literal"><span class="pre">cancel_action</span></code></a> (action)</td>
 </tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GUPnP.ServiceProxy.end_action_hash" title="GUPnP.ServiceProxy.end_action_hash"><code class="xref py py-func docutils literal"><span class="pre">end_action_hash</span></code></a> (action, hash)</td>
+</tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GUPnP.ServiceProxy.end_action_hash" title="GUPnP.ServiceProxy.end_action_hash"><code class="xref py py-func docutils literal"><span class="pre">end_action_hash</span></code></a> (action, error, hash)</td>
+<td><a class="reference internal" href="#GUPnP.ServiceProxy.end_action_list" title="GUPnP.ServiceProxy.end_action_list"><code class="xref py py-func docutils literal"><span class="pre">end_action_list</span></code></a> (action, out_names, out_types)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GUPnP.ServiceProxy.end_action_list" title="GUPnP.ServiceProxy.end_action_list"><code class="xref py py-func docutils literal"><span class="pre">end_action_list</span></code></a> (action, error, out_names, out_types)</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GUPnP.ServiceProxy.get_subscribed" title="GUPnP.ServiceProxy.get_subscribed"><code class="xref py py-func docutils literal"><span class="pre">get_subscribed</span></code></a> ()</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GUPnP.ServiceProxy.remove_notify" title="GUPnP.ServiceProxy.remove_notify"><code class="xref py py-func docutils literal"><span class="pre">remove_notify</span></code></a> (variable, callback, *user_data)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GUPnP.ServiceProxy.remove_raw_notify" title="GUPnP.ServiceProxy.remove_raw_notify"><code class="xref py py-func docutils literal"><span class="pre">remove_raw_notify</span></code></a> (callback, *user_data)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GUPnP.ServiceProxy.send_action_hash" title="GUPnP.ServiceProxy.send_action_hash"><code class="xref py py-func docutils literal"><span class="pre">send_action_hash</span></code></a> (action, error, in_hash, out_hash)</td>
-</tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GUPnP.ServiceProxy.send_action_list" title="GUPnP.ServiceProxy.send_action_list"><code class="xref py py-func docutils literal"><span class="pre">send_action_list</span></code></a> (action, error, in_names, in_values, out_names, out_types)</td>
+<td><a class="reference internal" href="#GUPnP.ServiceProxy.send_action_list" title="GUPnP.ServiceProxy.send_action_list"><code class="xref py py-func docutils literal"><span class="pre">send_action_list</span></code></a> (action, in_names, in_values, out_names, out_types)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GUPnP.ServiceProxy.set_subscribed" title="GUPnP.ServiceProxy.set_subscribed"><code class="xref py py-func docutils literal"><span class="pre">set_subscribed</span></code></a> (subscribed)</td>
@@ -458,41 +450,6 @@ variable notification.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="GUPnP.ServiceProxy.begin_action_hash">
-<code class="descname">begin_action_hash</code><span class="sig-paren">(</span><em>action</em>, <em>callback</em>, <em>user_data</em>, <em>hash</em><span class="sig-paren">)</span></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>action</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; An action</li>
-<li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#GUPnP.ServiceProxyActionCallback" title="GUPnP.ServiceProxyActionCallback"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyActionCallback</span></code></a>) &#8211; The callback to call when sending the action has succeeded
-or failed</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; User data for <cite>callback</cite></li>
-<li><strong>hash</strong> ({<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>: <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>}) &#8211; A <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> of in parameter name and <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> pairs</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="../structs/ServiceProxyAction.html#GUPnP.ServiceProxyAction" title="GUPnP.ServiceProxyAction"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyAction</span></code></a> handle. This will
-be freed when calling <a class="reference internal" href="#GUPnP.ServiceProxy.cancel_action" title="GUPnP.ServiceProxy.cancel_action"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.cancel_action</span></code></a> () or
-<a class="reference internal" href="#GUPnP.ServiceProxy.end_action_hash" title="GUPnP.ServiceProxy.end_action_hash"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.end_action_hash</span></code></a> ().</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../structs/ServiceProxyAction.html#GUPnP.ServiceProxyAction" title="GUPnP.ServiceProxyAction"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyAction</span></code></a></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>See <code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.begin_action</span></code> (); this version takes a <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>
-for runtime generated parameter lists.</p>
-<p>Do not use this function in newly written code; it cannot guarantee the
-order of arguments and thus breaks interaction with many devices.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 0.20.9: </span>Use <code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.send_action</span></code> () or <a class="reference internal" href="#GUPnP.ServiceProxy.send_action_list" title="GUPnP.ServiceProxy.send_action_list"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.send_action_list</span></code></a> ()</p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="GUPnP.ServiceProxy.begin_action_list">
 <code class="descname">begin_action_list</code><span class="sig-paren">(</span><em>action</em>, <em>in_names</em>, <em>in_values</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -504,7 +461,7 @@ order of arguments and thus breaks interaction with many devices.</p>
 <li><strong>in_names</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of &#8216;in&#8217; parameter
 names (as strings)</li>
 <li><strong>in_values</strong> ([<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of values (as
-<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> ) that line up with <cite>in_names</cite></li>
+<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) that line up with <cite>in_names</cite></li>
 <li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#GUPnP.ServiceProxyActionCallback" title="GUPnP.ServiceProxyActionCallback"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyActionCallback</span></code></a>) &#8211; The callback to call when sending the action has succeeded or
 failed</li>
 <li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; User data for <cite>callback</cite></li>
@@ -512,8 +469,8 @@ failed</li>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="../structs/ServiceProxyAction.html#GUPnP.ServiceProxyAction" title="GUPnP.ServiceProxyAction"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyAction</span></code></a> handle. This will
-be freed when calling <a class="reference internal" href="#GUPnP.ServiceProxy.cancel_action" title="GUPnP.ServiceProxy.cancel_action"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.cancel_action</span></code></a> () or
-<a class="reference internal" href="#GUPnP.ServiceProxy.end_action_list" title="GUPnP.ServiceProxy.end_action_list"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.end_action_list</span></code></a> ().</p>
+be freed when calling <a class="reference internal" href="#GUPnP.ServiceProxy.cancel_action" title="GUPnP.ServiceProxy.cancel_action"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.cancel_action</span></code></a>() or
+<a class="reference internal" href="#GUPnP.ServiceProxy.end_action_list" title="GUPnP.ServiceProxy.end_action_list"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.end_action_list</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../structs/ServiceProxyAction.html#GUPnP.ServiceProxyAction" title="GUPnP.ServiceProxyAction"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyAction</span></code></a></p>
@@ -521,7 +478,7 @@ be freed when calling <a class="reference internal" href="#GUPnP.ServiceProxy.ca
 </tr>
 </tbody>
 </table>
-<p>A variant of <code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.begin_action</span></code> that takes lists of
+<p>A variant of #gupnp_service_proxy_begin_action that takes lists of
 in-parameter names, types and values.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.13.3.</span></p>
@@ -544,20 +501,22 @@ in-parameter names, types and values.</p>
 
 <dl class="method">
 <dt id="GUPnP.ServiceProxy.end_action_hash">
-<code class="descname">end_action_hash</code><span class="sig-paren">(</span><em>action</em>, <em>error</em>, <em>hash</em><span class="sig-paren">)</span></dt>
+<code class="descname">end_action_hash</code><span class="sig-paren">(</span><em>action</em>, <em>hash</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>action</strong> (<a class="reference internal" href="../structs/ServiceProxyAction.html#GUPnP.ServiceProxyAction" title="GUPnP.ServiceProxyAction"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyAction</span></code></a>) &#8211; A <a class="reference internal" href="../structs/ServiceProxyAction.html#GUPnP.ServiceProxyAction" title="GUPnP.ServiceProxyAction"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyAction</span></code></a> handle</li>
-<li><strong>error</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a>) &#8211; The location where to store any error, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>hash</strong> ({<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>: <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>}) &#8211; A <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> of
 out parameter name and initialised <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> pairs</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success.</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -575,34 +534,36 @@ out parameter name and initialised <a class="reference external" href="../_docs/
 </tr>
 </tbody>
 </table>
-<p>See <code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.end_action</span></code> (); this version takes a <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> for
+<p>See gupnp_service_proxy_end_action(); this version takes a <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> for
 runtime generated parameter lists.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GUPnP.ServiceProxy.end_action_list">
-<code class="descname">end_action_list</code><span class="sig-paren">(</span><em>action</em>, <em>error</em>, <em>out_names</em>, <em>out_types</em><span class="sig-paren">)</span></dt>
+<code class="descname">end_action_list</code><span class="sig-paren">(</span><em>action</em>, <em>out_names</em>, <em>out_types</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>action</strong> (<a class="reference internal" href="../structs/ServiceProxyAction.html#GUPnP.ServiceProxyAction" title="GUPnP.ServiceProxyAction"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyAction</span></code></a>) &#8211; A <a class="reference internal" href="../structs/ServiceProxyAction.html#GUPnP.ServiceProxyAction" title="GUPnP.ServiceProxyAction"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxyAction</span></code></a> handle</li>
-<li><strong>error</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; The location where to store any error, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>out_names</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of &#8216;out&#8217; parameter
 names (as strings)</li>
-<li><strong>out_types</strong> ([<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of types (as <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> )
+<li><strong>out_types</strong> ([<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of types (as <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>)
 that line up with <cite>out_names</cite></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success.</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">out_values:</th><td class="field-body"><a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of values
-(as <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> ) that line up with <cite>out_names</cite> and <cite>out_types</cite>.</td>
+(as <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) that line up with <cite>out_names</cite> and <cite>out_types</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -614,9 +575,9 @@ that line up with <cite>out_names</cite></li>
 </tr>
 </tbody>
 </table>
-<p>A variant of <code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.end_action</span></code> that takes lists of
+<p>A variant of #gupnp_service_proxy_end_action that takes lists of
 out-parameter names, types and place-holders for values. The returned list
-in <cite>out_values</cite> must be freed using <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> and each element in it using
+in <cite>out_values</cite> must be freed using #g_list_free and each element in it using
 <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value.unset" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value.unset</span></code></a> and #g_slice_free.</p>
 </dd></dl>
 
@@ -693,77 +654,35 @@ if it is for another variable.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="GUPnP.ServiceProxy.send_action_hash">
-<code class="descname">send_action_hash</code><span class="sig-paren">(</span><em>action</em>, <em>error</em>, <em>in_hash</em>, <em>out_hash</em><span class="sig-paren">)</span></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>action</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; An action</li>
-<li><strong>error</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; The location where to store any error, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
-<li><strong>in_hash</strong> ({<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>: <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>}) &#8211; A <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> of in
-parameter name and <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> pairs</li>
-<li><strong>out_hash</strong> ({<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>: <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>}) &#8211; A <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>
-of out parameter name and initialized <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> pairs</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if sending the action was succesful.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">out_hash:</th><td class="field-body">A <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>
-of out parameter name and initialized <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> pairs</td>
-</tr>
-</tbody>
-</table>
-</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_hash</strong>: {<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>: <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>})</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>See <code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.send_action</span></code> (); this version takes a pair of
-<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> s for runtime determined parameter lists.</p>
-<p>Do not use this function in newly written code; it cannot guarantee the
-order of arguments and thus breaks interaction with many devices.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 0.20.9: </span>Use <code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.send_action</span></code> () or <a class="reference internal" href="#GUPnP.ServiceProxy.send_action_list" title="GUPnP.ServiceProxy.send_action_list"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.send_action_list</span></code></a> ()</p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="GUPnP.ServiceProxy.send_action_list">
-<code class="descname">send_action_list</code><span class="sig-paren">(</span><em>action</em>, <em>error</em>, <em>in_names</em>, <em>in_values</em>, <em>out_names</em>, <em>out_types</em><span class="sig-paren">)</span></dt>
+<code class="descname">send_action_list</code><span class="sig-paren">(</span><em>action</em>, <em>in_names</em>, <em>in_values</em>, <em>out_names</em>, <em>out_types</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>action</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; An action</li>
-<li><strong>error</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; The location where to store any error, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>in_names</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of &#8216;in&#8217; parameter
 names (as strings)</li>
 <li><strong>in_values</strong> ([<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of values (as
-<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> ) that line up with <cite>in_names</cite></li>
+<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) that line up with <cite>in_names</cite></li>
 <li><strong>out_names</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of &#8216;out&#8217; parameter
 names (as strings)</li>
-<li><strong>out_types</strong> ([<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of types (as <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> )
+<li><strong>out_types</strong> ([<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of types (as <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>)
 that line up with <cite>out_names</cite></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if sending the action was succesful.</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if sending the action was succesful.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">out_values:</th><td class="field-body"><a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of values
-(as <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> ) that line up with <cite>out_names</cite> and <cite>out_types</cite>.</td>
+(as <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) that line up with <cite>out_names</cite> and <cite>out_types</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -777,9 +696,6 @@ that line up with <cite>out_names</cite></li>
 </table>
 <p>The synchronous variant of <a class="reference internal" href="#GUPnP.ServiceProxy.begin_action_list" title="GUPnP.ServiceProxy.begin_action_list"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.begin_action_list</span></code></a> and
 <a class="reference internal" href="#GUPnP.ServiceProxy.end_action_list" title="GUPnP.ServiceProxy.end_action_list"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy.end_action_list</span></code></a>.</p>
-<div class="versionadded">
-<p><span class="versionmodified">New in version 0.13.3.</span></p>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -807,7 +723,7 @@ destruction instead.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reason</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reason</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a>) &#8211; </td>
 </tr>
 </tbody>
 </table>
@@ -833,7 +749,7 @@ destruction instead.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>service_proxy</strong> (<a class="reference internal" href="#GUPnP.ServiceProxy" title="GUPnP.ServiceProxy"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceProxy</span></code></a>) &#8211; The object which received the signal</li>
-<li><strong>error</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a>) &#8211; A pointer to a <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code> describing why the subscription has
+<li><strong>error</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a>) &#8211; A pointer to a <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> describing why the subscription has
 been lost</li>
 </ul>
 </td>
@@ -881,7 +797,4 @@ to an error condition.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

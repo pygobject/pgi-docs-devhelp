@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GtkSource 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GtkSource.SearchContext" href="SearchContext.html"/>
         <link rel="prev" title="GtkSource.MarkAttributes" href="MarkAttributes.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -537,24 +535,24 @@ drawing the page for printing.</li>
 </tbody>
 </table>
 <p>Draw page <cite>page_nr</cite> for printing on the the Cairo context encapsuled in <cite>context</cite>.</p>
-<p>This method has been designed to be called in the handler of the <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/PrintOperation.html#Gtk.PrintOperation" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintOperation</span></code></a> <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/PrintOperation.html#Gtk.PrintOperation.signals.draw_page" title="(in Gtk 3.0 v3.0)"><code class="xref py py-func docutils literal"><span class="pre">::draw-page</span></code></a> signal
+<p>This method has been designed to be called in the handler of the #GtkPrintOperation::draw_page signal
 as shown in the following example:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="c1">// Signal handler for the GtkPrintOperation::draw_page signal</span>
+<div class="highlight-none"><div class="highlight"><pre>// Signal handler for the GtkPrintOperation::draw_page signal
 
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">draw_page</span> <span class="p">(</span><span class="n">GtkPrintOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span>
-           <span class="n">GtkPrintContext</span>   <span class="o">*</span><span class="n">context</span><span class="p">,</span>
-           <span class="n">gint</span>               <span class="n">page_nr</span><span class="p">,</span>
-           <span class="n">gpointer</span>           <span class="n">user_data</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">GtkSourcePrintCompositor</span> <span class="o">*</span><span class="n">compositor</span><span class="p">;</span>
+static void
+draw_page (GtkPrintOperation *operation,
+           GtkPrintContext   *context,
+           gint               page_nr,
+           gpointer           user_data)
+{
+    GtkSourcePrintCompositor *compositor;
 
-    <span class="n">compositor</span> <span class="o">=</span> <span class="n">GTK_SOURCE_PRINT_COMPOSITOR</span> <span class="p">(</span><span class="n">user_data</span><span class="p">);</span>
+    compositor = GTK_SOURCE_PRINT_COMPOSITOR (user_data);
 
-    <span class="n">gtk_source_print_compositor_draw_page</span> <span class="p">(</span><span class="n">compositor</span><span class="p">,</span>
-                                           <span class="n">context</span><span class="p">,</span>
-                                           <span class="n">page_nr</span><span class="p">);</span>
-<span class="p">}</span>
+    gtk_source_print_compositor_draw_page (compositor,
+                                           context,
+                                           page_nr);
+}
 </pre></div>
 </div>
 </dd></dl>
@@ -574,7 +572,7 @@ text body.</td>
 </tbody>
 </table>
 <p>Returns the name of the font used to print the text body. The returned string
-must be freed with <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</p>
+must be freed with <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -637,7 +635,7 @@ the page footer.</td>
 </tbody>
 </table>
 <p>Returns the name of the font used to print the page footer.
-The returned string must be freed with <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</p>
+The returned string must be freed with <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -658,7 +656,7 @@ the page header.</td>
 </tbody>
 </table>
 <p>Returns the name of the font used to print the page header.
-The returned string must be freed with <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</p>
+The returned string must be freed with <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -721,7 +719,7 @@ line numbers on the left margin.</td>
 </tbody>
 </table>
 <p>Returns the name of the font used to print line numbers on the left margin.
-The returned string must be freed with <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</p>
+The returned string must be freed with <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -783,7 +781,7 @@ document has not been completely paginated.</p>
 <p>Determines if a footer is set to be printed for each page.  A
 footer will be printed if this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>
 and some format strings have been specified
-with <a class="reference internal" href="#GtkSource.PrintCompositor.set_footer_format" title="GtkSource.PrintCompositor.set_footer_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_footer_format</span></code></a> ().</p>
+with <a class="reference internal" href="#GtkSource.PrintCompositor.set_footer_format" title="GtkSource.PrintCompositor.set_footer_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_footer_format</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -805,7 +803,7 @@ with <a class="reference internal" href="#GtkSource.PrintCompositor.set_footer_f
 <p>Determines if a header is set to be printed for each page.  A
 header will be printed if this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>
 and some format strings have been specified
-with <a class="reference internal" href="#GtkSource.PrintCompositor.set_header_format" title="GtkSource.PrintCompositor.set_header_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_header_format</span></code></a> ().</p>
+with <a class="reference internal" href="#GtkSource.PrintCompositor.set_header_format" title="GtkSource.PrintCompositor.set_header_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_header_format</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -920,7 +918,7 @@ value is 0, no line numbers will be printed.  The default value is
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> (<a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/PrintContext.html#Gtk.PrintContext" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintContext</span></code></a>) &#8211; the <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/PrintContext.html#Gtk.PrintContext" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintContext</span></code></a> whose parameters (e.g. paper size, print margins, etc.)
-are used by the the <cite>compositor</cite> to paginate the document.</td>
+are used by the the <cite>self</cite> to paginate the document.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the document has been completely paginated, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
@@ -928,59 +926,59 @@ are used by the the <cite>compositor</cite> to paginate the document.</td>
 </tr>
 </tbody>
 </table>
-<p>Paginate the document associated with the <cite>compositor</cite>.</p>
+<p>Paginate the document associated with the <cite>self</cite>.</p>
 <p>In order to support non-blocking pagination, document is paginated in small chunks.
-Each time <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () is invoked, a chunk of the document
-is paginated. To paginate the entire document, <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> ()
+Each time <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() is invoked, a chunk of the document
+is paginated. To paginate the entire document, <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>()
 must be invoked multiple times.
 It returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the document has been completely paginated, otherwise it returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</p>
 <p>This method has been designed to be invoked in the handler of the <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/PrintOperation.html#Gtk.PrintOperation" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintOperation</span></code></a> <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/PrintOperation.html#Gtk.PrintOperation.signals.paginate" title="(in Gtk 3.0 v3.0)"><code class="xref py py-func docutils literal"><span class="pre">::paginate</span></code></a> signal,
 as shown in the following example:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="c1">// Signal handler for the GtkPrintOperation::paginate signal</span>
+<div class="highlight-none"><div class="highlight"><pre>// Signal handler for the GtkPrintOperation::paginate signal
 
-<span class="k">static</span> <span class="n">gboolean</span>
-<span class="nf">paginate</span> <span class="p">(</span><span class="n">GtkPrintOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span>
-          <span class="n">GtkPrintContext</span>   <span class="o">*</span><span class="n">context</span><span class="p">,</span>
-          <span class="n">gpointer</span>           <span class="n">user_data</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">GtkSourcePrintCompositor</span> <span class="o">*</span><span class="n">compositor</span><span class="p">;</span>
+static gboolean
+paginate (GtkPrintOperation *operation,
+          GtkPrintContext   *context,
+          gpointer           user_data)
+{
+    GtkSourcePrintCompositor *compositor;
 
-    <span class="n">compositor</span> <span class="o">=</span> <span class="n">GTK_SOURCE_PRINT_COMPOSITOR</span> <span class="p">(</span><span class="n">user_data</span><span class="p">);</span>
+    compositor = GTK_SOURCE_PRINT_COMPOSITOR (user_data);
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">gtk_source_print_compositor_paginate</span> <span class="p">(</span><span class="n">compositor</span><span class="p">,</span> <span class="n">context</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="n">gint</span> <span class="n">n_pages</span><span class="p">;</span>
+    if (gtk_source_print_compositor_paginate (compositor, context))
+    {
+        gint n_pages;
 
-        <span class="n">n_pages</span> <span class="o">=</span> <span class="n">gtk_source_print_compositor_get_n_pages</span> <span class="p">(</span><span class="n">compositor</span><span class="p">);</span>
-        <span class="n">gtk_print_operation_set_n_pages</span> <span class="p">(</span><span class="n">operation</span><span class="p">,</span> <span class="n">n_pages</span><span class="p">);</span>
+        n_pages = gtk_source_print_compositor_get_n_pages (compositor);
+        gtk_print_operation_set_n_pages (operation, n_pages);
 
-        <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
-    <span class="p">}</span>
+        return TRUE;
+    }
 
-    <span class="k">return</span> <span class="n">FALSE</span><span class="p">;</span>
-<span class="p">}</span>
+    return FALSE;
+}
 </pre></div>
 </div>
 <p>If you don&#8217;t need to do pagination in chunks, you can simply do it all in the
 <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/PrintOperation.html#Gtk.PrintOperation" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintOperation</span></code></a> <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Gtk-3.0/classes/PrintOperation.html#Gtk.PrintOperation.signals.begin_print" title="(in Gtk 3.0 v3.0)"><code class="xref py py-func docutils literal"><span class="pre">::begin-print</span></code></a> handler, and set the number of pages from there, like
 in the following example:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="c1">// Signal handler for the GtkPrintOperation::begin-print signal</span>
+<div class="highlight-none"><div class="highlight"><pre>// Signal handler for the GtkPrintOperation::begin-print signal
 
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">begin_print</span> <span class="p">(</span><span class="n">GtkPrintOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span>
-             <span class="n">GtkPrintContext</span>   <span class="o">*</span><span class="n">context</span><span class="p">,</span>
-             <span class="n">gpointer</span>           <span class="n">user_data</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">GtkSourcePrintCompositor</span> <span class="o">*</span><span class="n">compositor</span><span class="p">;</span>
-    <span class="n">gint</span> <span class="n">n_pages</span><span class="p">;</span>
+static void
+begin_print (GtkPrintOperation *operation,
+             GtkPrintContext   *context,
+             gpointer           user_data)
+{
+    GtkSourcePrintCompositor *compositor;
+    gint n_pages;
 
-    <span class="n">compositor</span> <span class="o">=</span> <span class="n">GTK_SOURCE_PRINT_COMPOSITOR</span> <span class="p">(</span><span class="n">user_data</span><span class="p">);</span>
+    compositor = GTK_SOURCE_PRINT_COMPOSITOR (user_data);
 
-    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">gtk_source_print_compositor_paginate</span> <span class="p">(</span><span class="n">compositor</span><span class="p">,</span> <span class="n">context</span><span class="p">));</span>
+    while (!gtk_source_print_compositor_paginate (compositor, context));
 
-    <span class="n">n_pages</span> <span class="o">=</span> <span class="n">gtk_source_print_compositor_get_n_pages</span> <span class="p">(</span><span class="n">compositor</span><span class="p">);</span>
-    <span class="n">gtk_print_operation_set_n_pages</span> <span class="p">(</span><span class="n">operation</span><span class="p">,</span> <span class="n">n_pages</span><span class="p">);</span>
-<span class="p">}</span>
+    n_pages = gtk_source_print_compositor_get_n_pages (compositor);
+    gtk_print_operation_set_n_pages (operation, n_pages);
+}
 </pre></div>
 </div>
 <div class="versionadded">
@@ -1002,10 +1000,10 @@ in the following example:</p>
 <p>Sets the default font for the printed text.</p>
 <p><cite>font_name</cite> should be a
 string representation of a font description Pango can understand.
-(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a> ()
+(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a>()
 for a description of the format of the string representation.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1026,7 +1024,7 @@ for a description of the format of the string representation.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the bottom margin used by <cite>compositor</cite>.</p>
+<p>Sets the bottom margin used by <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1048,10 +1046,10 @@ for a description of the format of the string representation.</p>
 text) will be used instead.</p>
 <p><cite>font_name</cite> should be a
 string representation of a font description Pango can understand.
-(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a> ()
+(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a>()
 for a description of the format of the string representation.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1074,7 +1072,7 @@ for a description of the format of the string representation.</p>
 </tr>
 </tbody>
 </table>
-<p>See <a class="reference internal" href="#GtkSource.PrintCompositor.set_header_format" title="GtkSource.PrintCompositor.set_header_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_header_format</span></code></a> () for more information
+<p>See <a class="reference internal" href="#GtkSource.PrintCompositor.set_header_format" title="GtkSource.PrintCompositor.set_header_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_header_format</span></code></a>() for more information
 about the parameters.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
@@ -1097,10 +1095,10 @@ about the parameters.</p>
 text) will be used instead.</p>
 <p><cite>font_name</cite> should be a
 string representation of a font description Pango can understand.
-(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a> ()
+(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a>()
 for a description of the format of the string representation.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1126,7 +1124,7 @@ for a description of the format of the string representation.</p>
 <p>Sets strftime like header format strings, to be printed on the
 left, center and right of the top of each page.  The strings may
 include strftime(3) codes which will be expanded at print time.
-A subset of strftime() codes are accepted, see <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/structs/DateTime.html#GLib.DateTime.format" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DateTime.format</span></code></a> ()
+A subset of strftime() codes are accepted, see <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-GLib-2.0/structs/DateTime.html#GLib.DateTime.format" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DateTime.format</span></code></a>()
 for more details on the accepted format specifiers.
 Additionally the following format specifiers are accepted:</p>
 <ul class="simple">
@@ -1139,9 +1137,9 @@ the header from the document text.</p>
 string will not be printed.</p>
 <p>For the header to be printed, in
 addition to specifying format strings, you need to enable header
-printing with <a class="reference internal" href="#GtkSource.PrintCompositor.set_print_header" title="GtkSource.PrintCompositor.set_print_header"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_print_header</span></code></a> ().</p>
+printing with <a class="reference internal" href="#GtkSource.PrintCompositor.set_print_header" title="GtkSource.PrintCompositor.set_print_header"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_print_header</span></code></a>().</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1161,7 +1159,7 @@ printing with <a class="reference internal" href="#GtkSource.PrintCompositor.set
 <p>Sets whether the printed text will be highlighted according to the
 buffer rules.  Both color and font style are applied.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1182,7 +1180,7 @@ buffer rules.  Both color and font style are applied.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the left margin used by <cite>compositor</cite>.</p>
+<p>Sets the left margin used by <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1204,10 +1202,10 @@ buffer rules.  Both color and font style are applied.</p>
 text) will be used instead.</p>
 <p><cite>font_name</cite> should be a
 string representation of a font description Pango can understand.
-(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a> ()
+(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a>()
 for a description of the format of the string representation.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1220,18 +1218,18 @@ for a description of the format of the string representation.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>print_</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if you want the footer to be printed.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>print</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if you want the footer to be printed.</td>
 </tr>
 </tbody>
 </table>
 <p>Sets whether you want to print a footer in each page.  The
 footer consists of three pieces of text and an optional line
 separator, configurable with
-<a class="reference internal" href="#GtkSource.PrintCompositor.set_footer_format" title="GtkSource.PrintCompositor.set_footer_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_footer_format</span></code></a> ().</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.set_footer_format" title="GtkSource.PrintCompositor.set_footer_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_footer_format</span></code></a>().</p>
 <p>Note that by default the footer format is unspecified, and if it&#8217;s
 empty it will not be printed, regardless of this setting.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1244,18 +1242,18 @@ empty it will not be printed, regardless of this setting.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>print_</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if you want the header to be printed.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>print</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if you want the header to be printed.</td>
 </tr>
 </tbody>
 </table>
 <p>Sets whether you want to print a header in each page.  The
 header consists of three pieces of text and an optional line
 separator, configurable with
-<a class="reference internal" href="#GtkSource.PrintCompositor.set_header_format" title="GtkSource.PrintCompositor.set_header_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_header_format</span></code></a> ().</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.set_header_format" title="GtkSource.PrintCompositor.set_header_format"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.set_header_format</span></code></a>().</p>
 <p>Note that by default the header format is unspecified, and if it&#8217;s
 empty it will not be printed, regardless of this setting.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1277,7 +1275,7 @@ numbers will be printed.  If greater than 0, a number will be
 printed every <cite>interval</cite> lines (i.e. 1 will print all line numbers).</p>
 <p>Maximum accepted value for <cite>interval</cite> is 100.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1298,7 +1296,7 @@ printed every <cite>interval</cite> lines (i.e. 1 will print all line numbers).<
 </tr>
 </tbody>
 </table>
-<p>Sets the right margin used by <cite>compositor</cite>.</p>
+<p>Sets the right margin used by <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1317,7 +1315,7 @@ printed every <cite>interval</cite> lines (i.e. 1 will print all line numbers).<
 </table>
 <p>Sets the width of tabulation in characters for printed text.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1338,7 +1336,7 @@ printed every <cite>interval</cite> lines (i.e. 1 will print all line numbers).<
 </tr>
 </tbody>
 </table>
-<p>Sets the top margin used by <cite>compositor</cite>.</p>
+<p>Sets the top margin used by <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1357,7 +1355,7 @@ printed every <cite>interval</cite> lines (i.e. 1 will print all line numbers).<
 </table>
 <p>Sets the line wrapping mode for the printed text.</p>
 <p>This function cannot be called anymore after the first call to the
-<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+<a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1387,10 +1385,10 @@ printed every <cite>interval</cite> lines (i.e. 1 will print all line numbers).<
 </table>
 <p>Name of the font used for the text body.</p>
 <p>Accepted values are strings representing a font description Pango can understand.
-(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a> ()
+(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a>()
 for a description of the format of the string representation.</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1439,10 +1437,10 @@ call to the <a class="reference internal" href="#GtkSource.PrintCompositor.pagin
 <p>Name of the font used to print page footer.
 If this property is unspecified, the text body font is used.</p>
 <p>Accepted values are strings representing a font description Pango can understand.
-(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a> ()
+(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a>()
 for a description of the format of the string representation.</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1468,10 +1466,10 @@ call to the <a class="reference internal" href="#GtkSource.PrintCompositor.pagin
 <p>Name of the font used to print page header.
 If this property is unspecified, the text body font is used.</p>
 <p>Accepted values are strings representing a font description Pango can understand.
-(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a> ()
+(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a>()
 for a description of the format of the string representation.</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1496,7 +1494,7 @@ call to the <a class="reference internal" href="#GtkSource.PrintCompositor.pagin
 </table>
 <p>Whether to print the document with highlighted syntax.</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1522,10 +1520,10 @@ call to the <a class="reference internal" href="#GtkSource.PrintCompositor.pagin
 <p>Name of the font used to print line numbers on the left margin.
 If this property is unspecified, the text body font is used.</p>
 <p>Accepted values are strings representing a font description Pango can understand.
-(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a> ()
+(e.g. &#8220;Monospace 10&#8221;). See <a class="reference external" href="../_docs/GtkSource-3.0/../../../python-Pango-1.0/structs/FontDescription.html#Pango.FontDescription.from_string" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.FontDescription.from_string</span></code></a>()
 for a description of the format of the string representation.</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1577,7 +1575,7 @@ document has not been completely paginated.</p>
 unspecified the footer will not be printed, regardless of the value of
 this property.</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1605,7 +1603,7 @@ call to the <a class="reference internal" href="#GtkSource.PrintCompositor.pagin
 unspecified the header will not be printed, regardless of the value of
 this property.</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1632,7 +1630,7 @@ call to the <a class="reference internal" href="#GtkSource.PrintCompositor.pagin
 numbers will be printed.  If greater than 0, a number will be
 printed every &#8220;print-line-numbers&#8221; lines (i.e. 1 will print all line numbers).</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1657,7 +1655,7 @@ call to the <a class="reference internal" href="#GtkSource.PrintCompositor.pagin
 </table>
 <p>Width of a tab character expressed in spaces.</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1682,7 +1680,7 @@ call to the <a class="reference internal" href="#GtkSource.PrintCompositor.pagin
 </table>
 <p>Whether to wrap lines never, at word boundaries, or at character boundaries.</p>
 <p>The value of this property cannot be changed anymore after the first
-call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a> () function.</p>
+call to the <a class="reference internal" href="#GtkSource.PrintCompositor.paginate" title="GtkSource.PrintCompositor.paginate"><code class="xref py py-obj docutils literal"><span class="pre">GtkSource.PrintCompositor.paginate</span></code></a>() function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -1702,7 +1700,4 @@ call to the <a class="reference internal" href="#GtkSource.PrintCompositor.pagin
   </div> 
 
 </body>
-
-  
-
 </html>

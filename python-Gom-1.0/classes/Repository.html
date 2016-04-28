@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gom 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gom.Resource" href="Resource.html"/>
         <link rel="prev" title="Gom.Filter" href="Filter.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -234,6 +232,12 @@
 <td><a class="reference internal" href="#Gom.Repository.find_one_sync" title="Gom.Repository.find_one_sync"><code class="xref py py-func docutils literal"><span class="pre">find_one_sync</span></code></a> (resource_type, filter)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gom.Repository.find_sorted_async" title="Gom.Repository.find_sorted_async"><code class="xref py py-func docutils literal"><span class="pre">find_sorted_async</span></code></a> (resource_type, filter, sorting, callback, *user_data)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gom.Repository.find_sorted_sync" title="Gom.Repository.find_sorted_sync"><code class="xref py py-func docutils literal"><span class="pre">find_sorted_sync</span></code></a> (resource_type, filter, sorting)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gom.Repository.find_sync" title="Gom.Repository.find_sync"><code class="xref py py-func docutils literal"><span class="pre">find_sync</span></code></a> (resource_type, filter)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
@@ -372,18 +376,18 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>version</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The version to migrate to.</li>
-<li><strong>object_types</strong> ([<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; a <a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code></li>
+<li><strong>object_types</strong> ([<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; a <a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></li>
 <li><strong>callback</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A callback to execute upon completion.</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; User data for <cite>callback</cite>.</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; User data for <cite>callback</cite>.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Performs an automatic migration on the underlying database. See
-<a class="reference internal" href="#Gom.Repository.automatic_migrate_sync" title="Gom.Repository.automatic_migrate_sync"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.automatic_migrate_sync</span></code></a> () for details.</p>
+<a class="reference internal" href="#Gom.Repository.automatic_migrate_sync" title="Gom.Repository.automatic_migrate_sync"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.automatic_migrate_sync</span></code></a>() for details.</p>
 <p>Upon completion, <cite>callback</cite> will be executed and it must call
-<a class="reference internal" href="#Gom.Repository.automatic_migrate_finish" title="Gom.Repository.automatic_migrate_finish"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.automatic_migrate_finish</span></code></a> ().</p>
+<a class="reference internal" href="#Gom.Repository.automatic_migrate_finish" title="Gom.Repository.automatic_migrate_finish"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.automatic_migrate_finish</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -395,7 +399,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -412,11 +416,11 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>version</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The version to migrate to.</li>
-<li><strong>object_types</strong> ([<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; a <a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code></li>
+<li><strong>object_types</strong> ([<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; a <a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> in case of success.</p>
@@ -428,7 +432,7 @@
 </tbody>
 </table>
 <p>Performs an automatic migration on the underlying database. For
-each of the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> passed in <cite>object_types</cite>, the table will be
+each of the <a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> passed in <cite>object_types</cite>, the table will be
 created if necessary, and each of the columns corresponding to
 properties will be added if needed.</p>
 </dd></dl>
@@ -444,7 +448,7 @@ properties will be added if needed.</p>
 <li><strong>resource_type</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; </li>
 <li><strong>filter</strong> (<a class="reference internal" href="Filter.html#Gom.Filter" title="Gom.Filter"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Filter</span></code></a>) &#8211; </li>
 <li><strong>callback</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; </li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </li>
 </ul>
 </td>
 </tr>
@@ -461,7 +465,7 @@ properties will be added if needed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; A <a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ResourceGroup.html#Gom.ResourceGroup" title="Gom.ResourceGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gom.ResourceGroup</span></code></a>.</td>
 </tr>
@@ -483,7 +487,7 @@ properties will be added if needed.</p>
 <li><strong>resource_type</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; </li>
 <li><strong>filter</strong> (<a class="reference internal" href="Filter.html#Gom.Filter" title="Gom.Filter"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Filter</span></code></a>) &#8211; </li>
 <li><strong>callback</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; </li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </li>
 </ul>
 </td>
 </tr>
@@ -500,7 +504,7 @@ properties will be added if needed.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; A <a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="Resource.html#Gom.Resource" title="Gom.Resource"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Resource</span></code></a> if successful, otherwise <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
@@ -509,7 +513,7 @@ properties will be added if needed.</p>
 </tbody>
 </table>
 <p>Completes an asynchronous request to find a single resource in the
-repository. See <a class="reference internal" href="#Gom.Repository.find_one_async" title="Gom.Repository.find_one_async"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.find_one_async</span></code></a> () for more info.</p>
+repository. See <a class="reference internal" href="#Gom.Repository.find_one_async" title="Gom.Repository.find_one_async"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.find_one_async</span></code></a>() for more info.</p>
 </dd></dl>
 
 <dl class="method">
@@ -520,12 +524,12 @@ repository. See <a class="reference internal" href="#Gom.Repository.find_one_asy
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>resource_type</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; A <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the resource to lookup.</li>
-<li><strong>filter</strong> (<a class="reference internal" href="Filter.html#Gom.Filter" title="Gom.Filter"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Filter</span></code></a>) &#8211; A <a class="reference internal" href="Filter.html#Gom.Filter" title="Gom.Filter"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Filter</span></code></a> to apply to your search.</li>
+<li><strong>resource_type</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; A <a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the resource to lookup.</li>
+<li><strong>filter</strong> (<a class="reference internal" href="Filter.html#Gom.Filter" title="Gom.Filter"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Filter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A <a class="reference internal" href="Filter.html#Gom.Filter" title="Gom.Filter"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Filter</span></code></a> to apply to your search.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="Resource.html#Gom.Resource" title="Gom.Resource"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Resource</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
@@ -536,23 +540,45 @@ repository. See <a class="reference internal" href="#Gom.Repository.find_one_asy
 </tr>
 </tbody>
 </table>
-<p>Synchronous version of <a class="reference internal" href="#Gom.Repository.find_async" title="Gom.Repository.find_async"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.find_async</span></code></a> ().</p>
+<p>Synchronous version of <a class="reference internal" href="#Gom.Repository.find_async" title="Gom.Repository.find_async"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.find_async</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="Gom.Repository.find_sync">
-<code class="descname">find_sync</code><span class="sig-paren">(</span><em>resource_type</em>, <em>filter</em><span class="sig-paren">)</span></dt>
+<dt id="Gom.Repository.find_sorted_async">
+<code class="descname">find_sorted_async</code><span class="sig-paren">(</span><em>resource_type</em>, <em>filter</em>, <em>sorting</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resource_type</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; </li>
+<li><strong>filter</strong> (<a class="reference internal" href="Filter.html#Gom.Filter" title="Gom.Filter"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Filter</span></code></a>) &#8211; </li>
+<li><strong>sorting</strong> (<a class="reference internal" href="Sorting.html#Gom.Sorting" title="Gom.Sorting"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Sorting</span></code></a>) &#8211; </li>
+<li><strong>callback</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gom.Repository.find_sorted_sync">
+<code class="descname">find_sorted_sync</code><span class="sig-paren">(</span><em>resource_type</em>, <em>filter</em>, <em>sorting</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>resource_type</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; The <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the resources to query.</li>
+<li><strong>resource_type</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; The <a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the resources to query.</li>
 <li><strong>filter</strong> (<a class="reference internal" href="Filter.html#Gom.Filter" title="Gom.Filter"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Filter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; An optional filter for the query.</li>
+<li><strong>sorting</strong> (<a class="reference internal" href="Sorting.html#Gom.Sorting" title="Gom.Sorting"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Sorting</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; An optional <a class="reference internal" href="Sorting.html#Gom.Sorting" title="Gom.Sorting"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Sorting</span></code></a> to order the query
+results.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="ResourceGroup.html#Gom.ResourceGroup" title="Gom.ResourceGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gom.ResourceGroup</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
@@ -565,7 +591,36 @@ repository. See <a class="reference internal" href="#Gom.Repository.find_one_asy
 </table>
 <p>Synchronously queries the <a class="reference internal" href="#Gom.Repository" title="Gom.Repository"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository</span></code></a> for objects matching the
 requested query. This must only be run from a callback provided to
-<a class="reference internal" href="Adapter.html#Gom.Adapter.queue_read" title="Gom.Adapter.queue_read"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Adapter.queue_read</span></code></a> ().</p>
+<a class="reference internal" href="Adapter.html#Gom.Adapter.queue_read" title="Gom.Adapter.queue_read"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Adapter.queue_read</span></code></a>().</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gom.Repository.find_sync">
+<code class="descname">find_sync</code><span class="sig-paren">(</span><em>resource_type</em>, <em>filter</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resource_type</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; The <a class="reference external" href="../_docs/Gom-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the resources to query.</li>
+<li><strong>filter</strong> (<a class="reference internal" href="Filter.html#Gom.Filter" title="Gom.Filter"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Filter</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; An optional filter for the query.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="ResourceGroup.html#Gom.ResourceGroup" title="Gom.ResourceGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gom.ResourceGroup</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="ResourceGroup.html#Gom.ResourceGroup" title="Gom.ResourceGroup"><code class="xref py py-obj docutils literal"><span class="pre">Gom.ResourceGroup</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Synchronously queries the <a class="reference internal" href="#Gom.Repository" title="Gom.Repository"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository</span></code></a> for objects matching the
+requested query. This must only be run from a callback provided to
+<a class="reference internal" href="Adapter.html#Gom.Adapter.queue_read" title="Gom.Adapter.queue_read"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Adapter.queue_read</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -594,9 +649,9 @@ requested query. This must only be run from a callback provided to
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>version</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The version to migrate to.</li>
 <li><strong>migrator</strong> (<a class="reference internal" href="../callbacks.html#Gom.RepositoryMigrator" title="Gom.RepositoryMigrator"><code class="xref py py-obj docutils literal"><span class="pre">Gom.RepositoryMigrator</span></code></a>) &#8211; A function to perform the migrations.</li>
-<li><strong>migrator_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; User data for <cite>migrator</cite></li>
+<li><strong>migrator_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; User data for <cite>migrator</cite></li>
 <li><strong>callback</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A callback to execute upon completion.</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; User data for <cite>callback</cite>.</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; User data for <cite>callback</cite>.</li>
 </ul>
 </td>
 </tr>
@@ -605,7 +660,7 @@ requested query. This must only be run from a callback provided to
 <p>Asynchronously performs a migration on the underlying database. This will
 call <cite>migrator</cite> from the SQLite thread for each migration to perform.</p>
 <p>Upon completion, <cite>callback</cite> will be executed and it must call
-<a class="reference internal" href="#Gom.Repository.migrate_finish" title="Gom.Repository.migrate_finish"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.migrate_finish</span></code></a> ().</p>
+<a class="reference internal" href="#Gom.Repository.migrate_finish" title="Gom.Repository.migrate_finish"><code class="xref py py-obj docutils literal"><span class="pre">Gom.Repository.migrate_finish</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -617,7 +672,7 @@ call <cite>migrator</cite> from the SQLite thread for each migration to perform.
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/Gom-1.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -635,11 +690,11 @@ call <cite>migrator</cite> from the SQLite thread for each migration to perform.
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>version</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The version to migrate to.</li>
 <li><strong>migrator</strong> (<a class="reference internal" href="../callbacks.html#Gom.RepositoryMigrator" title="Gom.RepositoryMigrator"><code class="xref py py-obj docutils literal"><span class="pre">Gom.RepositoryMigrator</span></code></a>) &#8211; A function to perform the migrations.</li>
-<li><strong>migrator_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; User data for <cite>migrator</cite>.</li>
+<li><strong>migrator_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; User data for <cite>migrator</cite>.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gom-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> in case of success.</p>
@@ -693,7 +748,4 @@ call <cite>migrator</cite> from the SQLite thread for each migration to perform.
   </div> 
 
 </body>
-
-  
-
 </html>

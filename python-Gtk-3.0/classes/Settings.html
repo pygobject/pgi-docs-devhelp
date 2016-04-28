@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
-    <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
-        <link rel="up" title="Classes" href="index.html"/>
-        <link rel="next" title="Gtk.SizeGroup" href="SizeGroup.html"/>
-        <link rel="prev" title="Gtk.SeparatorToolItem" href="SeparatorToolItem.html"/> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
+        <link rel="up" title="Classes" href="index.html"/>
+        <link rel="next" title="Gtk.ShortcutsGroup" href="ShortcutsGroup.html"/>
+        <link rel="prev" title="Gtk.SeparatorToolItem" href="SeparatorToolItem.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -69,7 +67,7 @@
 
 
 
-<td><a accesskey="n" href="SizeGroup.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="ShortcutsGroup.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -115,7 +113,7 @@
 
 
 
-<td><a accesskey="n" href="SizeGroup.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="ShortcutsGroup.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -245,15 +243,18 @@
 <td><a class="reference internal" href="#Gtk.Settings.install_property_parser" title="Gtk.Settings.install_property_parser"><code class="xref py py-func docutils literal"><span class="pre">install_property_parser</span></code></a> (pspec, parser)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gtk.Settings.reset_property" title="Gtk.Settings.reset_property"><code class="xref py py-func docutils literal"><span class="pre">reset_property</span></code></a> (name)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gtk.Settings.set_double_property" title="Gtk.Settings.set_double_property"><code class="xref py py-func docutils literal"><span class="pre">set_double_property</span></code></a> (name, v_double, origin)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gtk.Settings.set_long_property" title="Gtk.Settings.set_long_property"><code class="xref py py-func docutils literal"><span class="pre">set_long_property</span></code></a> (name, v_long, origin)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gtk.Settings.set_property_value" title="Gtk.Settings.set_property_value"><code class="xref py py-func docutils literal"><span class="pre">set_property_value</span></code></a> (name, svalue)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gtk.Settings.set_string_property" title="Gtk.Settings.set_string_property"><code class="xref py py-func docutils literal"><span class="pre">set_string_property</span></code></a> (name, v_string, origin)</td>
 </tr>
 </tbody>
@@ -345,7 +346,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_cursor_blink_timeout" title="Gtk.Settings.props.gtk_cursor_blink_timeout"><code class="xref py py-data docutils literal"><span class="pre">gtk-cursor-blink-timeout</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>r/w</td>
-<td><code class="xref py py-obj docutils literal"><span class="pre">xlib.Time</span></code> after which the cursor stops blinking, in seconds</td>
+<td>Time after which the cursor stops blinking, in seconds</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_cursor_theme_name" title="Gtk.Settings.props.gtk_cursor_theme_name"><code class="xref py py-data docutils literal"><span class="pre">gtk-cursor-theme-name</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
@@ -455,7 +456,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_icon_sizes" title="Gtk.Settings.props.gtk_icon_sizes"><code class="xref py py-data docutils literal"><span class="pre">gtk-icon-sizes</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>d/r/w</td>
-<td>List of icon sizes (gtk-menu=16,16:gtk-button=20,20... <code class="docutils literal"><span class="pre">deprecated</span></code></td>
+<td>List of icon sizes (gtk-menu=16,16:py:data:<cite>:gtk-button&lt;Gtk.Settings.props.gtk_button&gt;</cite>=20,20... <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_icon_theme_name" title="Gtk.Settings.props.gtk_icon_theme_name"><code class="xref py py-data docutils literal"><span class="pre">gtk-icon-theme-name</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
@@ -487,212 +488,217 @@
 <td>d/r/w</td>
 <td>When <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, there are only cursor keys available to navigate widgets <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_keynav_wrap_around" title="Gtk.Settings.props.gtk_keynav_wrap_around"><code class="xref py py-data docutils literal"><span class="pre">gtk-keynav-wrap-around</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_keynav_use_caret" title="Gtk.Settings.props.gtk_keynav_use_caret"><code class="xref py py-data docutils literal"><span class="pre">gtk-keynav-use-caret</span></code></a></td>
+<td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+<td>r/w</td>
+<td>Whether to show cursor in text</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_keynav_wrap_around" title="Gtk.Settings.props.gtk_keynav_wrap_around"><code class="xref py py-data docutils literal"><span class="pre">gtk-keynav-wrap-around</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>d/r/w</td>
 <td>Whether to wrap around when keyboard-navigating widgets <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_label_select_on_focus" title="Gtk.Settings.props.gtk_label_select_on_focus"><code class="xref py py-data docutils literal"><span class="pre">gtk-label-select-on-focus</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_label_select_on_focus" title="Gtk.Settings.props.gtk_label_select_on_focus"><code class="xref py py-data docutils literal"><span class="pre">gtk-label-select-on-focus</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>r/w</td>
 <td>Whether to select the contents of a selectable label when it is focused</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_long_press_time" title="Gtk.Settings.props.gtk_long_press_time"><code class="xref py py-data docutils literal"><span class="pre">gtk-long-press-time</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_long_press_time" title="Gtk.Settings.props.gtk_long_press_time"><code class="xref py py-data docutils literal"><span class="pre">gtk-long-press-time</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>r/w</td>
-<td><code class="xref py py-obj docutils literal"><span class="pre">xlib.Time</span></code> for a button/touch press to be considered a long press (in milliseconds)</td>
+<td>Time for a button/touch press to be considered a long press (in milliseconds)</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_bar_accel" title="Gtk.Settings.props.gtk_menu_bar_accel"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-bar-accel</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_bar_accel" title="Gtk.Settings.props.gtk_menu_bar_accel"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-bar-accel</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>Keybinding to activate the menu bar <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_bar_popup_delay" title="Gtk.Settings.props.gtk_menu_bar_popup_delay"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-bar-popup-delay</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_bar_popup_delay" title="Gtk.Settings.props.gtk_menu_bar_popup_delay"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-bar-popup-delay</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>Delay before the submenus of a menu bar appear <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_images" title="Gtk.Settings.props.gtk_menu_images"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-images</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_images" title="Gtk.Settings.props.gtk_menu_images"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-images</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>d/r/w</td>
 <td>Whether images should be shown in menus <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_popdown_delay" title="Gtk.Settings.props.gtk_menu_popdown_delay"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-popdown-delay</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_popdown_delay" title="Gtk.Settings.props.gtk_menu_popdown_delay"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-popdown-delay</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>The time before hiding a submenu when the pointer is moving towards the submenu <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_popup_delay" title="Gtk.Settings.props.gtk_menu_popup_delay"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-popup-delay</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_menu_popup_delay" title="Gtk.Settings.props.gtk_menu_popup_delay"><code class="xref py py-data docutils literal"><span class="pre">gtk-menu-popup-delay</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>Minimum time the pointer must stay over a menu item before the submenu appear <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_modules" title="Gtk.Settings.props.gtk_modules"><code class="xref py py-data docutils literal"><span class="pre">gtk-modules</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_modules" title="Gtk.Settings.props.gtk_modules"><code class="xref py py-data docutils literal"><span class="pre">gtk-modules</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>List of currently active GTK modules</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_primary_button_warps_slider" title="Gtk.Settings.props.gtk_primary_button_warps_slider"><code class="xref py py-data docutils literal"><span class="pre">gtk-primary-button-warps-slider</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_primary_button_warps_slider" title="Gtk.Settings.props.gtk_primary_button_warps_slider"><code class="xref py py-data docutils literal"><span class="pre">gtk-primary-button-warps-slider</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>r/w</td>
 <td>Whether a primary click on the trough should warp the slider into position</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_print_backends" title="Gtk.Settings.props.gtk_print_backends"><code class="xref py py-data docutils literal"><span class="pre">gtk-print-backends</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_print_backends" title="Gtk.Settings.props.gtk_print_backends"><code class="xref py py-data docutils literal"><span class="pre">gtk-print-backends</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>List of the GtkPrintBackend backends to use by default</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_print_preview_command" title="Gtk.Settings.props.gtk_print_preview_command"><code class="xref py py-data docutils literal"><span class="pre">gtk-print-preview-command</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_print_preview_command" title="Gtk.Settings.props.gtk_print_preview_command"><code class="xref py py-data docutils literal"><span class="pre">gtk-print-preview-command</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>Command to run when displaying a print preview</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_recent_files_enabled" title="Gtk.Settings.props.gtk_recent_files_enabled"><code class="xref py py-data docutils literal"><span class="pre">gtk-recent-files-enabled</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_recent_files_enabled" title="Gtk.Settings.props.gtk_recent_files_enabled"><code class="xref py py-data docutils literal"><span class="pre">gtk-recent-files-enabled</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>r/w</td>
 <td>Whether GTK+ remembers recent files</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_recent_files_limit" title="Gtk.Settings.props.gtk_recent_files_limit"><code class="xref py py-data docutils literal"><span class="pre">gtk-recent-files-limit</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_recent_files_limit" title="Gtk.Settings.props.gtk_recent_files_limit"><code class="xref py py-data docutils literal"><span class="pre">gtk-recent-files-limit</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>Number of recently used files <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_recent_files_max_age" title="Gtk.Settings.props.gtk_recent_files_max_age"><code class="xref py py-data docutils literal"><span class="pre">gtk-recent-files-max-age</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_recent_files_max_age" title="Gtk.Settings.props.gtk_recent_files_max_age"><code class="xref py py-data docutils literal"><span class="pre">gtk-recent-files-max-age</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>r/w</td>
 <td>Maximum age of recently used files, in days</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_scrolled_window_placement" title="Gtk.Settings.props.gtk_scrolled_window_placement"><code class="xref py py-data docutils literal"><span class="pre">gtk-scrolled-window-placement</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_scrolled_window_placement" title="Gtk.Settings.props.gtk_scrolled_window_placement"><code class="xref py py-data docutils literal"><span class="pre">gtk-scrolled-window-placement</span></code></a></td>
 <td><a class="reference internal" href="../enums.html#Gtk.CornerType" title="Gtk.CornerType"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CornerType</span></code></a></td>
 <td>d/r/w</td>
 <td>Where the contents of scrolled windows are located with respect to the scrollbars, if not overridden by the scrolled window&#8217;s own placement. <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_shell_shows_app_menu" title="Gtk.Settings.props.gtk_shell_shows_app_menu"><code class="xref py py-data docutils literal"><span class="pre">gtk-shell-shows-app-menu</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_shell_shows_app_menu" title="Gtk.Settings.props.gtk_shell_shows_app_menu"><code class="xref py py-data docutils literal"><span class="pre">gtk-shell-shows-app-menu</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>r/w</td>
 <td>Set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the desktop environment is displaying the app menu, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the app should display it itself.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_shell_shows_desktop" title="Gtk.Settings.props.gtk_shell_shows_desktop"><code class="xref py py-data docutils literal"><span class="pre">gtk-shell-shows-desktop</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_shell_shows_desktop" title="Gtk.Settings.props.gtk_shell_shows_desktop"><code class="xref py py-data docutils literal"><span class="pre">gtk-shell-shows-desktop</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>r/w</td>
 <td>Set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the desktop environment is displaying the desktop folder, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_shell_shows_menubar" title="Gtk.Settings.props.gtk_shell_shows_menubar"><code class="xref py py-data docutils literal"><span class="pre">gtk-shell-shows-menubar</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_shell_shows_menubar" title="Gtk.Settings.props.gtk_shell_shows_menubar"><code class="xref py py-data docutils literal"><span class="pre">gtk-shell-shows-menubar</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>r/w</td>
 <td>Set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the desktop environment is displaying the menubar, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the app should display it itself.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_show_input_method_menu" title="Gtk.Settings.props.gtk_show_input_method_menu"><code class="xref py py-data docutils literal"><span class="pre">gtk-show-input-method-menu</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_show_input_method_menu" title="Gtk.Settings.props.gtk_show_input_method_menu"><code class="xref py py-data docutils literal"><span class="pre">gtk-show-input-method-menu</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>d/r/w</td>
 <td>Whether the context menus of entries and text views should offer to change the input method <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_show_unicode_menu" title="Gtk.Settings.props.gtk_show_unicode_menu"><code class="xref py py-data docutils literal"><span class="pre">gtk-show-unicode-menu</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_show_unicode_menu" title="Gtk.Settings.props.gtk_show_unicode_menu"><code class="xref py py-data docutils literal"><span class="pre">gtk-show-unicode-menu</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>d/r/w</td>
 <td>Whether the context menus of entries and text views should offer to insert control characters <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_sound_theme_name" title="Gtk.Settings.props.gtk_sound_theme_name"><code class="xref py py-data docutils literal"><span class="pre">gtk-sound-theme-name</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_sound_theme_name" title="Gtk.Settings.props.gtk_sound_theme_name"><code class="xref py py-data docutils literal"><span class="pre">gtk-sound-theme-name</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>XDG sound theme name</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_split_cursor" title="Gtk.Settings.props.gtk_split_cursor"><code class="xref py py-data docutils literal"><span class="pre">gtk-split-cursor</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_split_cursor" title="Gtk.Settings.props.gtk_split_cursor"><code class="xref py py-data docutils literal"><span class="pre">gtk-split-cursor</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>r/w</td>
 <td>Whether two cursors should be displayed for mixed left-to-right and right-to-left text</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_theme_name" title="Gtk.Settings.props.gtk_theme_name"><code class="xref py py-data docutils literal"><span class="pre">gtk-theme-name</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_theme_name" title="Gtk.Settings.props.gtk_theme_name"><code class="xref py py-data docutils literal"><span class="pre">gtk-theme-name</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>Name of theme to load</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_timeout_expand" title="Gtk.Settings.props.gtk_timeout_expand"><code class="xref py py-data docutils literal"><span class="pre">gtk-timeout-expand</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_timeout_expand" title="Gtk.Settings.props.gtk_timeout_expand"><code class="xref py py-data docutils literal"><span class="pre">gtk-timeout-expand</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>Expand value for timeouts, when a widget is expanding a new region <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_timeout_initial" title="Gtk.Settings.props.gtk_timeout_initial"><code class="xref py py-data docutils literal"><span class="pre">gtk-timeout-initial</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_timeout_initial" title="Gtk.Settings.props.gtk_timeout_initial"><code class="xref py py-data docutils literal"><span class="pre">gtk-timeout-initial</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>Starting value for timeouts, when button is pressed <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_timeout_repeat" title="Gtk.Settings.props.gtk_timeout_repeat"><code class="xref py py-data docutils literal"><span class="pre">gtk-timeout-repeat</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_timeout_repeat" title="Gtk.Settings.props.gtk_timeout_repeat"><code class="xref py py-data docutils literal"><span class="pre">gtk-timeout-repeat</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>Repeat value for timeouts, when button is pressed <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_titlebar_double_click" title="Gtk.Settings.props.gtk_titlebar_double_click"><code class="xref py py-data docutils literal"><span class="pre">gtk-titlebar-double-click</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_titlebar_double_click" title="Gtk.Settings.props.gtk_titlebar_double_click"><code class="xref py py-data docutils literal"><span class="pre">gtk-titlebar-double-click</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>The action to take on titlebar double-click</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_titlebar_middle_click" title="Gtk.Settings.props.gtk_titlebar_middle_click"><code class="xref py py-data docutils literal"><span class="pre">gtk-titlebar-middle-click</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_titlebar_middle_click" title="Gtk.Settings.props.gtk_titlebar_middle_click"><code class="xref py py-data docutils literal"><span class="pre">gtk-titlebar-middle-click</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>The action to take on titlebar middle-click</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_titlebar_right_click" title="Gtk.Settings.props.gtk_titlebar_right_click"><code class="xref py py-data docutils literal"><span class="pre">gtk-titlebar-right-click</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_titlebar_right_click" title="Gtk.Settings.props.gtk_titlebar_right_click"><code class="xref py py-data docutils literal"><span class="pre">gtk-titlebar-right-click</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>The action to take on titlebar right-click</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_toolbar_icon_size" title="Gtk.Settings.props.gtk_toolbar_icon_size"><code class="xref py py-data docutils literal"><span class="pre">gtk-toolbar-icon-size</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_toolbar_icon_size" title="Gtk.Settings.props.gtk_toolbar_icon_size"><code class="xref py py-data docutils literal"><span class="pre">gtk-toolbar-icon-size</span></code></a></td>
 <td><a class="reference internal" href="../enums.html#Gtk.IconSize" title="Gtk.IconSize"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IconSize</span></code></a></td>
 <td>d/r/w</td>
 <td>The size of icons in default toolbars. <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_toolbar_style" title="Gtk.Settings.props.gtk_toolbar_style"><code class="xref py py-data docutils literal"><span class="pre">gtk-toolbar-style</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_toolbar_style" title="Gtk.Settings.props.gtk_toolbar_style"><code class="xref py py-data docutils literal"><span class="pre">gtk-toolbar-style</span></code></a></td>
 <td><a class="reference internal" href="../enums.html#Gtk.ToolbarStyle" title="Gtk.ToolbarStyle"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ToolbarStyle</span></code></a></td>
 <td>d/r/w</td>
 <td>Whether default toolbars have text only, text and icons, icons only, etc. <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_tooltip_browse_mode_timeout" title="Gtk.Settings.props.gtk_tooltip_browse_mode_timeout"><code class="xref py py-data docutils literal"><span class="pre">gtk-tooltip-browse-mode-timeout</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_tooltip_browse_mode_timeout" title="Gtk.Settings.props.gtk_tooltip_browse_mode_timeout"><code class="xref py py-data docutils literal"><span class="pre">gtk-tooltip-browse-mode-timeout</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>Timeout after which browse mode is disabled <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_tooltip_browse_timeout" title="Gtk.Settings.props.gtk_tooltip_browse_timeout"><code class="xref py py-data docutils literal"><span class="pre">gtk-tooltip-browse-timeout</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_tooltip_browse_timeout" title="Gtk.Settings.props.gtk_tooltip_browse_timeout"><code class="xref py py-data docutils literal"><span class="pre">gtk-tooltip-browse-timeout</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>Timeout before tooltip is shown when browse mode is enabled <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_tooltip_timeout" title="Gtk.Settings.props.gtk_tooltip_timeout"><code class="xref py py-data docutils literal"><span class="pre">gtk-tooltip-timeout</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_tooltip_timeout" title="Gtk.Settings.props.gtk_tooltip_timeout"><code class="xref py py-data docutils literal"><span class="pre">gtk-tooltip-timeout</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>d/r/w</td>
 <td>Timeout before tooltip is shown <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_touchscreen_mode" title="Gtk.Settings.props.gtk_touchscreen_mode"><code class="xref py py-data docutils literal"><span class="pre">gtk-touchscreen-mode</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_touchscreen_mode" title="Gtk.Settings.props.gtk_touchscreen_mode"><code class="xref py py-data docutils literal"><span class="pre">gtk-touchscreen-mode</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>d/r/w</td>
 <td>When <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, there are no motion notify events delivered on this screen <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_visible_focus" title="Gtk.Settings.props.gtk_visible_focus"><code class="xref py py-data docutils literal"><span class="pre">gtk-visible-focus</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_visible_focus" title="Gtk.Settings.props.gtk_visible_focus"><code class="xref py py-data docutils literal"><span class="pre">gtk-visible-focus</span></code></a></td>
 <td><a class="reference internal" href="../enums.html#Gtk.PolicyType" title="Gtk.PolicyType"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PolicyType</span></code></a></td>
 <td>d/r/w</td>
 <td>Whether &#8216;focus rectangles&#8217; should be hidden until the user starts to use the keyboard. <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_antialias" title="Gtk.Settings.props.gtk_xft_antialias"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-antialias</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_antialias" title="Gtk.Settings.props.gtk_xft_antialias"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-antialias</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>r/w</td>
 <td>Whether to antialias Xft fonts; 0=no, 1=yes, -1=default</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_dpi" title="Gtk.Settings.props.gtk_xft_dpi"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-dpi</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_dpi" title="Gtk.Settings.props.gtk_xft_dpi"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-dpi</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>r/w</td>
 <td>Resolution for Xft, in 1024 * dots/inch. -1 to use default value</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_hinting" title="Gtk.Settings.props.gtk_xft_hinting"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-hinting</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_hinting" title="Gtk.Settings.props.gtk_xft_hinting"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-hinting</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 <td>r/w</td>
 <td>Whether to hint Xft fonts; 0=no, 1=yes, -1=default</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_hintstyle" title="Gtk.Settings.props.gtk_xft_hintstyle"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-hintstyle</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_hintstyle" title="Gtk.Settings.props.gtk_xft_hintstyle"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-hintstyle</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>What degree of hinting to use; hintnone, hintslight, hintmedium, or hintfull</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_rgba" title="Gtk.Settings.props.gtk_xft_rgba"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-rgba</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Gtk.Settings.props.gtk_xft_rgba" title="Gtk.Settings.props.gtk_xft_rgba"><code class="xref py py-data docutils literal"><span class="pre">gtk-xft-rgba</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 <td>r/w</td>
 <td>Type of subpixel antialiasing; none, rgb, bgr, vrgb, vbgr</td>
@@ -771,12 +777,12 @@ an Xsettings manager, GTK+ reads default values for settings from
 <code class="docutils literal"><span class="pre">settings.ini</span></code> files in
 <code class="docutils literal"><span class="pre">/etc/gtk-3.0</span></code>, <code class="docutils literal"><span class="pre">$XDG_CONFIG_DIRS/gtk-3.0</span></code>
 and <code class="docutils literal"><span class="pre">$XDG_CONFIG_HOME/gtk-3.0</span></code>.
-These files must be valid key files (see <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/structs/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a> ), and have
+These files must be valid key files (see <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/structs/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a>), and have
 a section called Settings. Themes can also provide default values
 for settings by installing a <code class="docutils literal"><span class="pre">settings.ini</span></code> file
 next to their <code class="docutils literal"><span class="pre">gtk.css</span></code> file.</p>
 <p>Applications can override system-wide settings by setting the property
-of the <a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> object with <code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.set</span></code> (). This should be restricted
+of the <a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> object with g_object_set(). This should be restricted
 to special cases though; <a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> are not meant as an application
 configuration facility. When doing so, you need to be aware that settings
 that are specific to individual widgets may not be available before the
@@ -791,30 +797,30 @@ demonstrates a way to do this:</p>
 </pre></div>
 </div>
 <p>There is one <a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> instance per screen. It can be obtained with
-<a class="reference internal" href="#Gtk.Settings.get_for_screen" title="Gtk.Settings.get_for_screen"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings.get_for_screen</span></code></a> (), but in many cases, it is more convenient
-to use <a class="reference internal" href="Widget.html#Gtk.Widget.get_settings" title="Gtk.Widget.get_settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.get_settings</span></code></a> (). <a class="reference internal" href="#Gtk.Settings.get_default" title="Gtk.Settings.get_default"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings.get_default</span></code></a> () returns the
+<a class="reference internal" href="#Gtk.Settings.get_for_screen" title="Gtk.Settings.get_for_screen"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings.get_for_screen</span></code></a>(), but in many cases, it is more convenient
+to use <a class="reference internal" href="Widget.html#Gtk.Widget.get_settings" title="Gtk.Widget.get_settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget.get_settings</span></code></a>(). <a class="reference internal" href="#Gtk.Settings.get_default" title="Gtk.Settings.get_default"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings.get_default</span></code></a>() returns the
 <a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> instance for the default screen.</p>
 <dl class="staticmethod">
 <dt id="Gtk.Settings.get_default">
-<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.18.6#n1910"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.20.3#n1925"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> object. If there is no default
-screen, then returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> object. If there is
+no default screen, then returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets the <a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> object for the default GDK screen, creating
-it if necessary. See <a class="reference internal" href="#Gtk.Settings.get_for_screen" title="Gtk.Settings.get_for_screen"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings.get_for_screen</span></code></a> ().</p>
+it if necessary. See <a class="reference internal" href="#Gtk.Settings.get_for_screen" title="Gtk.Settings.get_for_screen"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings.get_for_screen</span></code></a>().</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Gtk.Settings.get_for_screen">
-<em class="property">static </em><code class="descname">get_for_screen</code><span class="sig-paren">(</span><em>screen</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.18.6#n1853"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_for_screen</code><span class="sig-paren">(</span><em>screen</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.20.3#n1868"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -835,7 +841,7 @@ it if necessary. See <a class="reference internal" href="#Gtk.Settings.get_for_s
 
 <dl class="staticmethod">
 <dt id="Gtk.Settings.install_property">
-<em class="property">static </em><code class="descname">install_property</code><span class="sig-paren">(</span><em>pspec</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.18.6#n2281"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">install_property</code><span class="sig-paren">(</span><em>pspec</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.20.3#n2296"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -851,7 +857,7 @@ it if necessary. See <a class="reference internal" href="#Gtk.Settings.get_for_s
 
 <dl class="staticmethod">
 <dt id="Gtk.Settings.install_property_parser">
-<em class="property">static </em><code class="descname">install_property_parser</code><span class="sig-paren">(</span><em>pspec</em>, <em>parser</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.18.6#n2306"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">install_property_parser</code><span class="sig-paren">(</span><em>pspec</em>, <em>parser</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.20.3#n2321"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -870,8 +876,28 @@ it if necessary. See <a class="reference internal" href="#Gtk.Settings.get_for_s
 </dd></dl>
 
 <dl class="method">
+<dt id="Gtk.Settings.reset_property">
+<code class="descname">reset_property</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.20.3#n3450"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the name of the setting to reset</td>
+</tr>
+</tbody>
+</table>
+<p>Undoes the effect of calling g_object_set() to install an
+application-specific value for a setting. After this call,
+the setting will again follow the session-wide value for
+this setting.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.20.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="Gtk.Settings.set_double_property">
-<code class="descname">set_double_property</code><span class="sig-paren">(</span><em>name</em>, <em>v_double</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.18.6#n2479"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_double_property</code><span class="sig-paren">(</span><em>name</em>, <em>v_double</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.20.3#n2494"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -886,13 +912,13 @@ it if necessary. See <a class="reference internal" href="#Gtk.Settings.get_for_s
 </tbody>
 </table>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.16: </span>Use <code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.set</span></code> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 3.16: </span>Use g_object_set() instead.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Settings.set_long_property">
-<code class="descname">set_long_property</code><span class="sig-paren">(</span><em>name</em>, <em>v_long</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.18.6#n2451"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_long_property</code><span class="sig-paren">(</span><em>name</em>, <em>v_long</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.20.3#n2466"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -907,13 +933,13 @@ it if necessary. See <a class="reference internal" href="#Gtk.Settings.get_for_s
 </tbody>
 </table>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.16: </span>Use <code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.set</span></code> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 3.16: </span>Use g_object_set() instead.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Settings.set_property_value">
-<code class="descname">set_property_value</code><span class="sig-paren">(</span><em>name</em>, <em>svalue</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.18.6#n2387"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_property_value</code><span class="sig-paren">(</span><em>name</em>, <em>svalue</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.20.3#n2402"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -927,13 +953,13 @@ it if necessary. See <a class="reference internal" href="#Gtk.Settings.get_for_s
 </tbody>
 </table>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.16: </span>Use <code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.set</span></code> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 3.16: </span>Use g_object_set() instead.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Settings.set_string_property">
-<code class="descname">set_string_property</code><span class="sig-paren">(</span><em>name</em>, <em>v_string</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.18.6#n2422"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_string_property</code><span class="sig-paren">(</span><em>name</em>, <em>v_string</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtksettings.c?h=3.20.3#n2437"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -948,7 +974,7 @@ it if necessary. See <a class="reference internal" href="#Gtk.Settings.get_for_s
 </tbody>
 </table>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.16: </span>Use <code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.set</span></code> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 3.16: </span>Use g_object_set() instead.</p>
 </div>
 </dd></dl>
 
@@ -1177,15 +1203,15 @@ presses the mnemonic activator.</p>
 </tbody>
 </table>
 <p>A palette of named colors for use in themes. The format of the string is</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="nl">name1</span><span class="p">:</span> <span class="n">color1</span>
-<span class="nl">name2</span><span class="p">:</span> <span class="n">color2</span>
-<span class="p">...</span>
+<div class="highlight-none"><div class="highlight"><pre>name1: color1
+name2: color2
+...
 </pre></div>
 </div>
 <p>Color names must be acceptable as identifiers in the
 <a class="reference external" href="https://developer.gnome.org/gtk3/stable/gtk3-Resource-Files.html#gtk3-Resource-Files">gtkrc</a> syntax, and
 color specifications must be in the format accepted by
-<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/Color.html#Gdk.Color.parse" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Color.parse</span></code></a> ().</p>
+<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/structs/Color.html#Gdk.Color.parse" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Color.parse</span></code></a>().</p>
 <p>Note that due to the way the color tables from different sources are
 merged, color specifications will be converted to hexadecimal form
 when getting this property.</p>
@@ -1259,7 +1285,7 @@ which allows more flexible control over cursor blinking.</p>
 </tr>
 </tbody>
 </table>
-<p><code class="xref py py-obj docutils literal"><span class="pre">xlib.Time</span></code> after which the cursor stops blinking, in seconds.
+<p>Time after which the cursor stops blinking, in seconds.
 The timer is reset after each user interaction.</p>
 <p>Setting this to zero has the same effect as setting
 <a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> <a class="reference internal" href="#Gtk.Settings.props.gtk_cursor_blink" title="Gtk.Settings.props.gtk_cursor_blink"><code class="xref py py-data docutils literal"><span class="pre">:gtk-cursor-blink</span></code></a> to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</p>
@@ -1424,7 +1450,7 @@ directly, or message dialogs.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><code class="docutils literal"><span class="pre">250</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><code class="docutils literal"><span class="pre">400</span></code></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">READABLE</span></code></a>, <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.WRITABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">WRITABLE</span></code></a></td>
 </tr>
@@ -1672,7 +1698,7 @@ last <a class="reference external" href="http://docs.python.org/2.7/library/func
 </table>
 <p>When <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, keyboard navigation and other input-related errors
 will cause a beep. Since the error bell is implemented using
-<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/Window.html#Gdk.Window.beep" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.beep</span></code></a> (), the windowing system may offer ways to
+<a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/classes/Window.html#Gdk.Window.beep" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.beep</span></code></a>(), the windowing system may offer ways to
 configure the error bell in many ways, such as flashing the
 window or similar visual effects.</p>
 <div class="versionadded">
@@ -1786,11 +1812,11 @@ window or similar visual effects.</p>
 <p>A list of icon sizes. The list is separated by colons, and
 item has the form:</p>
 <p><code class="docutils literal"><span class="pre">size-name</span></code> = <code class="docutils literal"><span class="pre">width</span></code> , <code class="docutils literal"><span class="pre">height</span></code></p>
-<p>E.g. &#8220;gtk-menu=16,16:gtk-button=20,20:gtk-dialog=48,48&#8221;.
+<p>E.g. &#8220;gtk-menu=16,16:py:data:<cite>:gtk-button&lt;Gtk.Settings.props.gtk_button&gt;</cite>=20,20:py:data:<cite>:gtk-dialog&lt;Gtk.Settings.props.gtk_dialog&gt;</cite>=48,48&#8221;.
 GTK+ itself use the following named icon sizes: gtk-menu,
 gtk-button, gtk-small-toolbar, gtk-large-toolbar, gtk-dnd,
 gtk-dialog. Applications can register their own named icon
-sizes with <a class="reference internal" href="../enums.html#Gtk.IconSize.register" title="Gtk.IconSize.register"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IconSize.register</span></code></a> ().</p>
+sizes with <a class="reference internal" href="../enums.html#Gtk.IconSize.register" title="Gtk.IconSize.register"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IconSize.register</span></code></a>().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version 3.10: </span>This setting is ignored.</p>
 </div>
@@ -1931,7 +1957,32 @@ to be present on the used input device.</p>
 <p><span class="versionmodified">New in version 2.12.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.10: </span>Generally, the behavior for touchscreen input should be performed dynamically based on <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/unions/Event.html#Gdk.Event.get_source_device" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.get_source_device</span></code></a> ().</p>
+<p><span class="versionmodified">Deprecated since version 3.10: </span>Generally, the behavior for touchscreen input should be performed dynamically based on <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/unions/Event.html#Gdk.Event.get_source_device" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.get_source_device</span></code></a>().</p>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="Gtk.Settings.props.gtk_keynav_use_caret">
+<code class="descclassname">Gtk.Settings.props.</code><code class="descname">gtk_keynav_use_caret</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal"><span class="pre">gtk-keynav-use-caret</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">READABLE</span></code></a>, <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/flags.html#GObject.ParamFlags.WRITABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">WRITABLE</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Whether GTK+ should make sure that text can be navigated with
+a caret, even if it is not editable. This is useful when using
+a screen reader.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.20.</span></p>
 </div>
 </dd></dl>
 
@@ -2070,7 +2121,7 @@ navigation, such as menus, menubars and notebooks.</p>
 </table>
 <p>Whether images should be shown in menu items</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.10: </span>This setting is deprecated. Application developers control whether or not a <a class="reference internal" href="MenuItem.html#Gtk.MenuItem" title="Gtk.MenuItem"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.MenuItem</span></code></a> should have an icon or not, on a per widget basis. Either use a <a class="reference internal" href="MenuItem.html#Gtk.MenuItem" title="Gtk.MenuItem"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.MenuItem</span></code></a> with a <a class="reference internal" href="Box.html#Gtk.Box" title="Gtk.Box"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Box</span></code></a>  containing a <a class="reference internal" href="Image.html#Gtk.Image" title="Gtk.Image"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Image</span></code></a> and a <a class="reference internal" href="AccelLabel.html#Gtk.AccelLabel" title="Gtk.AccelLabel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.AccelLabel</span></code></a>, or describe your menus using a <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gio-2.0/classes/Menu.html#Gio.Menu" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Menu</span></code></a> XML description</p>
+<p><span class="versionmodified">Deprecated since version 3.10: </span>This setting is deprecated. Application developers control whether or not a <a class="reference internal" href="MenuItem.html#Gtk.MenuItem" title="Gtk.MenuItem"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.MenuItem</span></code></a> should have an icon or not, on a per widget basis. Either use a <a class="reference internal" href="MenuItem.html#Gtk.MenuItem" title="Gtk.MenuItem"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.MenuItem</span></code></a> with a <a class="reference internal" href="Box.html#Gtk.Box" title="Gtk.Box"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Box</span></code></a> containing a <a class="reference internal" href="Image.html#Gtk.Image" title="Gtk.Image"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Image</span></code></a> and a <a class="reference internal" href="AccelLabel.html#Gtk.AccelLabel" title="Gtk.AccelLabel"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.AccelLabel</span></code></a>, or describe your menus using a <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gio-2.0/classes/Menu.html#Gio.Menu" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Menu</span></code></a> XML description</p>
 </div>
 </dd></dl>
 
@@ -2211,7 +2262,7 @@ should contain a <code class="docutils literal"><span class="pre">%f</span></cod
 the path to the pdf file. The command may also contain a <code class="docutils literal"><span class="pre">%s</span></code>
 placeholder, which will get replaced by the path to a file
 containing the print settings in the format produced by
-<a class="reference internal" href="PrintSettings.html#Gtk.PrintSettings.to_file" title="Gtk.PrintSettings.to_file"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintSettings.to_file</span></code></a> ().</p>
+<a class="reference internal" href="PrintSettings.html#Gtk.PrintSettings.to_file" title="Gtk.PrintSettings.to_file"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.PrintSettings.to_file</span></code></a>().</p>
 <p>The preview application is responsible for removing the pdf file
 and the print settings file when it is done.</p>
 <div class="versionadded">
@@ -2741,7 +2792,7 @@ browse mode is enabled, in milliseconds.</p>
 <p>Browse mode is enabled when the mouse pointer moves off an object
 where a tooltip was currently being displayed. If the mouse pointer
 hits another object before the browse mode timeout expires (see
-<a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> <a class="reference internal" href="#Gtk.Settings.props.gtk_tooltip_browse_mode_timeout" title="Gtk.Settings.props.gtk_tooltip_browse_mode_timeout"><code class="xref py py-data docutils literal"><span class="pre">:gtk-tooltip-browse-mode-timeout</span></code></a> ), it will take the
+<a class="reference internal" href="#Gtk.Settings" title="Gtk.Settings"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Settings</span></code></a> <a class="reference internal" href="#Gtk.Settings.props.gtk_tooltip_browse_mode_timeout" title="Gtk.Settings.props.gtk_tooltip_browse_mode_timeout"><code class="xref py py-data docutils literal"><span class="pre">:gtk-tooltip-browse-mode-timeout</span></code></a>), it will take the
 amount of milliseconds specified by this setting to popup the tooltip
 for the new object.</p>
 <div class="versionadded">
@@ -2769,7 +2820,7 @@ for the new object.</p>
 </tr>
 </tbody>
 </table>
-<p><code class="xref py py-obj docutils literal"><span class="pre">xlib.Time</span></code>, in milliseconds, after which a tooltip could appear if the
+<p>Time, in milliseconds, after which a tooltip could appear if the
 cursor is hovering on top of a widget.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.12.</span></p>
@@ -2803,7 +2854,7 @@ functionality.</p>
 <p><span class="versionmodified">New in version 2.10.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.4.: </span>Generally, the behavior for touchscreen input should be performed dynamically based on <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/unions/Event.html#Gdk.Event.get_source_device" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.get_source_device</span></code></a> ().</p>
+<p><span class="versionmodified">Deprecated since version 3.4.: </span>Generally, the behavior for touchscreen input should be performed dynamically based on <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gdk-3.0/unions/Event.html#Gdk.Event.get_source_device" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.get_source_device</span></code></a>().</p>
 </div>
 </dd></dl>
 
@@ -2948,7 +2999,4 @@ or hidden until the user starts to use the keyboard.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

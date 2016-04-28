@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GnomeKeyring 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Callbacks" href="callbacks.html"/>
         <link rel="prev" title="GnomeKeyring 1.0" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -302,7 +300,7 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>list</strong> ([<a class="reference internal" href="structs/AccessControl.html#GnomeKeyring.AccessControl" title="GnomeKeyring.AccessControl"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AccessControl</span></code></a>]) &#8211; A list of
 <a class="reference internal" href="structs/AccessControl.html#GnomeKeyring.AccessControl" title="GnomeKeyring.AccessControl"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AccessControl</span></code></a> pointers.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new list of <a class="reference internal" href="structs/AccessControl.html#GnomeKeyring.AccessControl" title="GnomeKeyring.AccessControl"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AccessControl</span></code></a> items. Use <a class="reference internal" href="#GnomeKeyring.acl_free" title="GnomeKeyring.acl_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.acl_free</span></code></a> ()
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new list of <a class="reference internal" href="structs/AccessControl.html#GnomeKeyring.AccessControl" title="GnomeKeyring.AccessControl"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AccessControl</span></code></a> items. Use <a class="reference internal" href="#GnomeKeyring.acl_free" title="GnomeKeyring.acl_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.acl_free</span></code></a>()
 to free the memory.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="structs/AccessControl.html#GnomeKeyring.AccessControl" title="GnomeKeyring.AccessControl"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AccessControl</span></code></a>]</td>
@@ -341,7 +339,7 @@ to free the memory.</td>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AttributeList</span></code></li>
+<li><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A #GnomeKeyringAttributeList</li>
 <li><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The name of the new attribute</li>
 <li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The value to store in <cite>attributes</cite></li>
 </ul>
@@ -351,7 +349,7 @@ to free the memory.</td>
 </table>
 <p>Store a key-value-pair with a string value in <cite>attributes</cite>.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>libsecret stores attributes as a <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> containing string keys and values, use <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable.replace" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.replace</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>libsecret stores attributes as a <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> containing string keys and values, use <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable.replace" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.replace</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
@@ -363,7 +361,7 @@ to free the memory.</td>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AttributeList</span></code></li>
+<li><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A #GnomeKeyringAttributeList</li>
 <li><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The name of the new attribute</li>
 <li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The value to store in <cite>attributes</cite></li>
 </ul>
@@ -384,9 +382,9 @@ to free the memory.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AttributeList</span></code> to copy.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A #GnomeKeyringAttributeList to copy.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The new <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AttributeList</span></code></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The new #GnomeKeyringAttributeList</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a></td>
 </tr>
@@ -405,14 +403,14 @@ to free the memory.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AttributeList</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A #GnomeKeyringAttributeList</td>
 </tr>
 </tbody>
 </table>
 <p>Free the memory used by <cite>attributes</cite>.</p>
 <p>If a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> pointer is passed, it is ignored.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>libsecret stores attributes as a <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> containing string keys and values, use <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.unref</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>libsecret stores attributes as a <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> containing string keys and values, use <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.unref</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
@@ -436,15 +434,15 @@ to free the memory.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The new <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AttributeList</span></code></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The new #GnomeKeyringAttributeList</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Create a new <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AttributeList</span></code>.</p>
+<p>Create a new #GnomeKeyringAttributeList.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>libsecret stores attributes as a <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> containing string keys and values; use <code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.new</span></code> () instead.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>libsecret stores attributes as a <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/HashTable.html#GLib.HashTable" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> containing string keys and values; use g_hash_table_new() instead.</p>
 </div>
 </dd></dl>
 
@@ -455,7 +453,7 @@ to free the memory.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AttributeList</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attributes</strong> (<a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/Array.html#GLib.Array" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Array</span></code></a>) &#8211; A #GnomeKeyringAttributeList</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a>
 of <a class="reference internal" href="structs/Attribute.html#GnomeKeyring.Attribute" title="GnomeKeyring.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.Attribute</span></code></a>.</td>
@@ -521,7 +519,7 @@ an error result otherwise.</p>
 <p>Change the password for <cite>keyring</cite>. In most cases you would specify <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for
 both the <cite>original</cite> and <cite>password</cite> arguments and allow the user to type the
 correct passwords.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.change_password</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_change_password().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Not used with libsecret.</p>
 </div>
@@ -553,7 +551,7 @@ an error result otherwise.</p>
 <p>Create a new keyring with the specified name. In most cases <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> will be
 passed in as the <cite>password</cite>, which will prompt the user to enter a password
 of their choice.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.create</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_create().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_collection_create_sync() instead.</p>
 </div>
@@ -615,7 +613,7 @@ an error result otherwise.</td>
 </table>
 <p>Delete <cite>keyring</cite>. Once a keyring is deleted there is no mechanism for
 recovery of its contents.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.delete</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_delete().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_collection_delete_sync() instead.</p>
 </div>
@@ -657,10 +655,10 @@ list of <a class="reference internal" href="structs/Found.html#GnomeKeyring.Foun
 The matches are for exact equality.</p>
 <p>A <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <a class="reference internal" href="structs/Found.html#GnomeKeyring.Found" title="GnomeKeyring.Found"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.Found</span></code></a> structures is returned in <cite>found</cite>. The list may
 have zero items if nothing matched the criteria. The list should be freed
-using <a class="reference internal" href="structs/Found.html#GnomeKeyring.Found.list_free" title="GnomeKeyring.Found.list_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.Found.list_free</span></code></a> ().</p>
+using <a class="reference internal" href="structs/Found.html#GnomeKeyring.Found.list_free" title="GnomeKeyring.Found.list_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.Found.list_free</span></code></a>().</p>
 <p>The user may have been prompted to unlock necessary keyrings, and user will
 have been prompted for access to the items if needed.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.find_items</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_find_items().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_password_lookup_sync() or secret_service_search_sync() instead.</p>
 </div>
@@ -705,7 +703,7 @@ to return a <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../
 </table>
 <p>Find a previously stored network password. Searches all keyrings.</p>
 <p>A <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of <a class="reference internal" href="structs/NetworkPasswordData.html#GnomeKeyring.NetworkPasswordData" title="GnomeKeyring.NetworkPasswordData"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.NetworkPasswordData</span></code></a> structures are returned in the
-<cite>out_list</cite> argument. The list should be freed with <a class="reference internal" href="#GnomeKeyring.network_password_list_free" title="GnomeKeyring.network_password_list_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.network_password_list_free</span></code></a> ()</p>
+<cite>out_list</cite> argument. The list should be freed with <a class="reference internal" href="#GnomeKeyring.network_password_list_free" title="GnomeKeyring.network_password_list_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.network_password_list_free</span></code></a>()</p>
 <p>The user may have been prompted to unlock necessary keyrings, and user will
 have been prompted for access to the items if needed.</p>
 <p>Network passwords are items with the item type <a class="reference internal" href="enums.html#GnomeKeyring.ItemType.NETWORK_PASSWORD" title="GnomeKeyring.ItemType.NETWORK_PASSWORD"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.ItemType.NETWORK_PASSWORD</span></code></a></p>
@@ -743,7 +741,7 @@ have been prompted for access to the items if needed.</p>
 </tbody>
 </table>
 <p>Clears the memory used by password by filling with &#8216;\0&#8217; and frees the memory
-after doing this. You should use this function instead of <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> () for
+after doing this. You should use this function instead of <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() for
 secret information.</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_password_free() instead.</p>
@@ -773,8 +771,8 @@ an error result otherwise.<table class="docutils field-list" frame="void" rules=
 </tbody>
 </table>
 <p>Get the default keyring name.</p>
-<p>The string returned in <cite>keyring</cite> must be freed with <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.get_default_keyring</span></code> ().</p>
+<p>The string returned in <cite>keyring</cite> must be freed with <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</p>
+<p>For an asynchronous version of this function see gnome_keyring_get_default_keyring().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_collection_for_alias_sync() instead.</p>
 </div>
@@ -807,8 +805,8 @@ an error result otherwise.<table class="docutils field-list" frame="void" rules=
 </table>
 <p>Get information about <cite>keyring</cite>.</p>
 <p>The <a class="reference internal" href="structs/Info.html#GnomeKeyring.Info" title="GnomeKeyring.Info"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.Info</span></code></a> structure returned in <cite>info</cite> must be freed with
-<a class="reference internal" href="structs/Info.html#GnomeKeyring.Info.free" title="GnomeKeyring.Info.free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.Info.free</span></code></a> ().</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.get_info</span></code> ().</p>
+<a class="reference internal" href="structs/Info.html#GnomeKeyring.Info.free" title="GnomeKeyring.Info.free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.Info.free</span></code></a>().</p>
+<p>For an asynchronous version of this function see gnome_keyring_get_info().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use #SecretCollection objects instead.</p>
 </div>
@@ -999,13 +997,13 @@ an error result otherwise.</p>
 </table>
 <p>Create a new item in a keyring.</p>
 <p>The <cite>secret</cite> must be a null terminated string. It should be allocated using secure
-memory whenever possible. See <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.memory_strdup</span></code> ()</p>
+memory whenever possible. See gnome_keyring_memory_strdup()</p>
 <p>The user may have been prompted to unlock necessary keyrings. If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is
 specified as the <cite>keyring</cite> and no default keyring exists, the user will be
 prompted to create a new keyring.</p>
 <p>When <cite>update_if_exists</cite> is set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, the user may be prompted for access
 to the previously existing item.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.item_create</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_item_create().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_password_store_sync() or secret_item_create_sync() instead.</p>
 </div>
@@ -1037,7 +1035,7 @@ an error result otherwise.</p>
 <p>Delete an item in a keyring.</p>
 <p>The user may be prompted if the calling application doesn&#8217;t have necessary
 access to delete the item.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.item_delete</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_item_delete().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_password_clear_sync() or secret_item_delete_sync() instead.</p>
 </div>
@@ -1105,9 +1103,9 @@ an error result otherwise.</p>
 </tbody>
 </table>
 <p>Get all attributes for an item.</p>
-<p>A <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AttributeList</span></code> will be returned in <cite>attributes</cite>. This should be
-freed using <a class="reference internal" href="structs/Attribute.html#GnomeKeyring.Attribute.list_free" title="GnomeKeyring.Attribute.list_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.Attribute.list_free</span></code></a> ().</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.item_get_attributes</span></code> ().</p>
+<p>A #GnomeKeyringAttributeList will be returned in <cite>attributes</cite>. This should be
+freed using <a class="reference internal" href="structs/Attribute.html#GnomeKeyring.Attribute.list_free" title="GnomeKeyring.Attribute.list_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.Attribute.list_free</span></code></a>().</p>
+<p>For an asynchronous version of this function see gnome_keyring_item_get_attributes().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_item_get_attributes() instead.</p>
 </div>
@@ -1152,8 +1150,8 @@ prompted if the calling application doesn&#8217;t have necessary access to read
 the item with its secret.</p>
 <p>A <a class="reference internal" href="structs/ItemInfo.html#GnomeKeyring.ItemInfo" title="GnomeKeyring.ItemInfo"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.ItemInfo</span></code></a> structure will be returned in <cite>info</cite>. Certain fields
 of this structure may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> or zero if they were not specified in <cite>flags</cite>.
-This must be freed using <a class="reference internal" href="structs/ItemInfo.html#GnomeKeyring.ItemInfo.free" title="GnomeKeyring.ItemInfo.free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.ItemInfo.free</span></code></a> ().</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.item_get_info_full</span></code> ().</p>
+This must be freed using <a class="reference internal" href="structs/ItemInfo.html#GnomeKeyring.ItemInfo.free" title="GnomeKeyring.ItemInfo.free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.ItemInfo.free</span></code></a>().</p>
+<p>For an asynchronous version of this function see gnome_keyring_item_get_info_full().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use #SecretItem objects instead.</p>
 </div>
@@ -1195,8 +1193,8 @@ an error result otherwise.</p>
 <p>The user may be prompted if the calling application doesn&#8217;t have necessary
 access to read the item with its secret.</p>
 <p>A <a class="reference internal" href="structs/ItemInfo.html#GnomeKeyring.ItemInfo" title="GnomeKeyring.ItemInfo"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.ItemInfo</span></code></a> structure will be returned in <cite>info</cite>. This must be
-freed using <a class="reference internal" href="structs/ItemInfo.html#GnomeKeyring.ItemInfo.free" title="GnomeKeyring.ItemInfo.free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.ItemInfo.free</span></code></a> ().</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.item_get_info</span></code> ().</p>
+freed using <a class="reference internal" href="structs/ItemInfo.html#GnomeKeyring.ItemInfo.free" title="GnomeKeyring.ItemInfo.free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.ItemInfo.free</span></code></a>().</p>
+<p>For an asynchronous version of this function see gnome_keyring_item_get_info().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use #SecretItem objects instead.</p>
 </div>
@@ -1211,7 +1209,7 @@ freed using <a class="reference internal" href="structs/ItemInfo.html#GnomeKeyri
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>keyring</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; The keyring name, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for the default keyring.</li>
-<li><strong>display_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The display name for the application, as returned by <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/functions.html#GLib.get_application_name" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_application_name</span></code></a> ().</li>
+<li><strong>display_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The display name for the application, as returned by <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/functions.html#GLib.get_application_name" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_application_name</span></code></a>().</li>
 <li><strong>full_path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The full filepath to the application.</li>
 <li><strong>id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The id of the item to grant access to.</li>
 <li><strong>rights</strong> (<a class="reference internal" href="flags.html#GnomeKeyring.AccessType" title="GnomeKeyring.AccessType"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.AccessType</span></code></a>) &#8211; The type of rights to grant.</li>
@@ -1290,7 +1288,7 @@ an error result otherwise.</p>
 </table>
 <p>Set all the attributes for an item. This will replace any previous attributes
 set on the item.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.item_set_attributes</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_item_set_attributes().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_item_set_attributes_sync() instead.</p>
 </div>
@@ -1323,7 +1321,7 @@ an error result otherwise.</p>
 <p>Set information on an item, like its display name, secret etc...</p>
 <p>Only the fields in the <cite>info</cite> pointer that are non-null or non-zero will be
 set on the item.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.item_set_info</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_item_set_info().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use #SecretItem objects instead.</p>
 </div>
@@ -1357,8 +1355,8 @@ an error result otherwise.<table class="docutils field-list" frame="void" rules=
 </table>
 <p>Get a list of all the ids for items in <cite>keyring</cite>.</p>
 <p>Use GPOINTER_TO_UINT() on the list to access the integer ids. The list
-should be freed with <code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> ().</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.list_item_ids</span></code> ().</p>
+should be freed with g_list_free().</p>
+<p>For an asynchronous version of this function see gnome_keyring_list_item_ids().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_collection_get_items() instead.</p>
 </div>
@@ -1388,8 +1386,8 @@ an error result otherwise.<table class="docutils field-list" frame="void" rules=
 </table>
 <p>Get a list of keyring names.</p>
 <p>The list returned in in <cite>keyrings</cite> must be freed using
-<a class="reference internal" href="#GnomeKeyring.string_list_free" title="GnomeKeyring.string_list_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.string_list_free</span></code></a> ().</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.list_keyring_names</span></code> ().</p>
+<a class="reference internal" href="#GnomeKeyring.string_list_free" title="GnomeKeyring.string_list_free"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.string_list_free</span></code></a>().</p>
+<p>For an asynchronous version of this function see gnome_keyring_list_keyring_names().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_service_get_collections() instead.</p>
 </div>
@@ -1411,7 +1409,7 @@ an error result otherwise.</td>
 </table>
 <p>Lock all the keyrings, so that their contents may not eb accessed without
 first unlocking them with a password.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.lock_all</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_lock_all().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use libsecret instead.</p>
 </div>
@@ -1437,8 +1435,8 @@ an error result otherwise.</td>
 <p>Lock a <cite>keyring</cite>, so that its contents may not be accessed without first
 supplying a password.</p>
 <p>Most keyring opretaions involving items require that you first unlock the
-keyring. One exception is <a class="reference internal" href="#GnomeKeyring.find_items_sync" title="GnomeKeyring.find_items_sync"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.find_items_sync</span></code></a> () and related functions.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.lock</span></code> ().</p>
+keyring. One exception is <a class="reference internal" href="#GnomeKeyring.find_items_sync" title="GnomeKeyring.find_items_sync"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.find_items_sync</span></code></a>() and related functions.</p>
+<p>For an asynchronous version of this function see gnome_keyring_lock().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_service_lock_sync() instead.</p>
 </div>
@@ -1503,7 +1501,7 @@ codes will return an empty string.</p>
 take appropriate action rather than just display an error message to
 the user.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>libsecret returns errors as <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code> directly. Use the error message field for a description.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>libsecret returns errors as <a class="reference external" href="_docs/GnomeKeyring-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> directly. Use the error message field for a description.</p>
 </div>
 </dd></dl>
 
@@ -1524,7 +1522,7 @@ an error result otherwise.</td>
 </tbody>
 </table>
 <p>Change the default keyring.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.set_default_keyring</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_set_default_keyring().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_service_set_alias_sync() instead.</p>
 </div>
@@ -1555,7 +1553,7 @@ an error result otherwise.</p>
 </table>
 <p>Set flags and info for <cite>keyring</cite>. The only fields in <cite>info</cite> that are used
 are lock_on_idle and lock_timeout.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.set_info</span></code> ().</p>
+<p>For an asynchronous version of this function see gnome_keyring_set_info().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use #SecretCollection objects instead.</p>
 </div>
@@ -1655,8 +1653,8 @@ an error result otherwise.</p>
 will be passed in as the <cite>password</cite>, which will prompt the user to enter the
 correct password.</p>
 <p>Most keyring opretaions involving items require that yo ufirst unlock the
-keyring. One exception is <a class="reference internal" href="#GnomeKeyring.find_items_sync" title="GnomeKeyring.find_items_sync"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.find_items_sync</span></code></a> () and related functions.</p>
-<p>For an asynchronous version of this function see <code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.unlock</span></code> ().</p>
+keyring. One exception is <a class="reference internal" href="#GnomeKeyring.find_items_sync" title="GnomeKeyring.find_items_sync"><code class="xref py py-obj docutils literal"><span class="pre">GnomeKeyring.find_items_sync</span></code></a>() and related functions.</p>
+<p>For an asynchronous version of this function see gnome_keyring_unlock().</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version ???: </span>Use secret_service_unlock_sync() instead.</p>
 </div>
@@ -1676,7 +1674,4 @@ keyring. One exception is <a class="reference internal" href="#GnomeKeyring.find
   </div> 
 
 </body>
-
-  
-
 </html>

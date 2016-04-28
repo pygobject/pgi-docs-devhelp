@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstVideo 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GstVideo.VideoRectangle" href="VideoRectangle.html"/>
         <link rel="prev" title="GstVideo.VideoOverlayCompositionMeta" href="VideoOverlayCompositionMeta.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -209,7 +207,7 @@
 overlay rectangle which can be added to a composition.</p>
 <dl class="staticmethod">
 <dt id="GstVideo.VideoOverlayRectangle.new_raw">
-<em class="property">static </em><code class="descname">new_raw</code><span class="sig-paren">(</span><em>pixels</em>, <em>render_x</em>, <em>render_y</em>, <em>render_width</em>, <em>render_height</em>, <em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n681"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new_raw</code><span class="sig-paren">(</span><em>pixels</em>, <em>render_x</em>, <em>render_y</em>, <em>render_width</em>, <em>render_height</em>, <em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n681"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -238,8 +236,8 @@ gst_video_overlay_rectangle_unref() when no longer needed.</p>
 <p>Creates a new video overlay rectangle with ARGB or AYUV pixel data.
 The layout in case of ARGB of the components in memory is B-G-R-A
 on little-endian platforms
-(corresponding to <a class="reference internal" href="../enums.html#GstVideo.VideoFormat.BGRA" title="GstVideo.VideoFormat.BGRA"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormat.BGRA</span></code></a> ) and A-R-G-B on big-endian
-platforms (corresponding to <a class="reference internal" href="../enums.html#GstVideo.VideoFormat.ARGB" title="GstVideo.VideoFormat.ARGB"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormat.ARGB</span></code></a> ). In other words,
+(corresponding to <a class="reference internal" href="../enums.html#GstVideo.VideoFormat.BGRA" title="GstVideo.VideoFormat.BGRA"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormat.BGRA</span></code></a>) and A-R-G-B on big-endian
+platforms (corresponding to <a class="reference internal" href="../enums.html#GstVideo.VideoFormat.ARGB" title="GstVideo.VideoFormat.ARGB"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormat.ARGB</span></code></a>). In other words,
 pixels are treated as 32-bit words and the lowest 8 bits then contain
 the blue component value and the highest 8 bits contain the alpha
 component value. Unless specified in the flags, the RGB values are
@@ -250,19 +248,19 @@ The pixel data buffer must have <a class="reference internal" href="VideoMeta.ht
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1541"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1541"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#GstVideo.VideoOverlayRectangle" title="GstVideo.VideoOverlayRectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle</span></code></a> equivalent
-to <cite>rectangle</cite>.</td>
+to <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GstVideo.VideoOverlayRectangle" title="GstVideo.VideoOverlayRectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Makes a copy of <cite>rectangle</cite>, so that it is possible to modify it
+<p>Makes a copy of <cite>self</cite>, so that it is possible to modify it
 (e.g. to change the render co-ordinates or render dimension). The
 actual overlay pixel data buffers contained in the rectangle are not
 copied.</p>
@@ -270,7 +268,7 @@ copied.</p>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_flags">
-<code class="descname">get_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1468"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1468"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -290,7 +288,7 @@ it is stored in, to avoid unnecessary conversion.</p>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_global_alpha">
-<code class="descname">get_global_alpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1486"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_global_alpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1486"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -306,7 +304,7 @@ it is stored in, to avoid unnecessary conversion.</p>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_pixels_argb">
-<code class="descname">get_pixels_argb</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1343"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_pixels_argb</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1343"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -319,7 +317,7 @@ global_alpha is applied internally before returning the pixel-data.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="../_docs/GstVideo-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> holding the ARGB pixel data with
 width and height of the render dimensions as per
-<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a> (). This function does
+<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a>(). This function does
 not return a reference, the caller should obtain a reference of her own
 with gst_buffer_ref() if needed.</td>
 </tr>
@@ -331,7 +329,7 @@ with gst_buffer_ref() if needed.</td>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_pixels_ayuv">
-<code class="descname">get_pixels_ayuv</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1366"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_pixels_ayuv</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1366"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -344,7 +342,7 @@ global_alpha is applied internally before returning the pixel-data.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="../_docs/GstVideo-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> holding the AYUV pixel data with
 width and height of the render dimensions as per
-<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a> (). This function does
+<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a>(). This function does
 not return a reference, the caller should obtain a reference of her own
 with gst_buffer_ref() if needed.</td>
 </tr>
@@ -356,7 +354,7 @@ with gst_buffer_ref() if needed.</td>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_pixels_raw">
-<code class="descname">get_pixels_raw</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1320"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_pixels_raw</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1320"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -370,7 +368,7 @@ global_alpha is applied internally before returning the pixel-data.</td>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="../_docs/GstVideo-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> holding the pixel data with
 format as originally provided and specified in video meta with
 width and height of the render dimensions as per
-<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a> (). This function does
+<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a>(). This function does
 not return a reference, the caller should obtain a reference of her own
 with gst_buffer_ref() if needed.</td>
 </tr>
@@ -382,7 +380,7 @@ with gst_buffer_ref() if needed.</td>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_pixels_unscaled_argb">
-<code class="descname">get_pixels_unscaled_argb</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1419"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_pixels_unscaled_argb</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1419"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -404,12 +402,12 @@ should obtain a reference of her own with gst_buffer_ref() if needed.</td>
 <p>Retrieves the pixel data as it is. This is useful if the caller can
 do the scaling itself when handling the overlaying. The rectangle will
 need to be scaled to the render dimensions, which can be retrieved using
-<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a> ().</p>
+<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_pixels_unscaled_ayuv">
-<code class="descname">get_pixels_unscaled_ayuv</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1447"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_pixels_unscaled_ayuv</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1447"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -431,12 +429,12 @@ should obtain a reference of her own with gst_buffer_ref() if needed.</td>
 <p>Retrieves the pixel data as it is. This is useful if the caller can
 do the scaling itself when handling the overlaying. The rectangle will
 need to be scaled to the render dimensions, which can be retrieved using
-<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a> ().</p>
+<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_pixels_unscaled_raw">
-<code class="descname">get_pixels_unscaled_raw</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1391"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_pixels_unscaled_raw</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1391"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -458,12 +456,12 @@ should obtain a reference of her own with gst_buffer_ref() if needed.</td>
 <p>Retrieves the pixel data as it is. This is useful if the caller can
 do the scaling itself when handling the overlaying. The rectangle will
 need to be scaled to the render dimensions, which can be retrieved using
-<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a> ().</p>
+<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.get_render_rectangle" title="GstVideo.VideoOverlayRectangle.get_render_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.get_render_rectangle</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_render_rectangle">
-<code class="descname">get_render_rectangle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n763"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_render_rectangle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n763"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -494,12 +492,12 @@ rectangle on the video.</p>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.get_seqnum">
-<code class="descname">get_seqnum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1579"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_seqnum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1579"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the sequence number of <cite>rectangle</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the sequence number of <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -511,7 +509,7 @@ monotonically increasing and unique for overlay compositions and rectangles
 a composition).</p>
 <p>Using the sequence number of a rectangle as an indicator for changed
 pixel-data of a rectangle is dangereous. Some API calls, like e.g.
-<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.set_global_alpha" title="GstVideo.VideoOverlayRectangle.set_global_alpha"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.set_global_alpha</span></code></a> (), automatically update
+<a class="reference internal" href="#GstVideo.VideoOverlayRectangle.set_global_alpha" title="GstVideo.VideoOverlayRectangle.set_global_alpha"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle.set_global_alpha</span></code></a>(), automatically update
 the per rectangle sequence number, which is misleading for renderers/
 consumers, that handle global-alpha themselves. For them  the
 pixel-data returned by gst_video_overlay_rectangle_get_pixels_*()
@@ -522,7 +520,7 @@ pixel-data.</p>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.set_global_alpha">
-<code class="descname">set_global_alpha</code><span class="sig-paren">(</span><em>global_alpha</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n1509"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_global_alpha</code><span class="sig-paren">(</span><em>global_alpha</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n1509"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -534,15 +532,15 @@ pixel-data.</p>
 <p>Sets the global alpha value associated with a <a class="reference internal" href="#GstVideo.VideoOverlayRectangle" title="GstVideo.VideoOverlayRectangle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayRectangle</span></code></a>. Per-
 pixel alpha values are multiplied with this value. Valid
 values: 0 &lt;= global_alpha &lt;= 1; 1 to deactivate.</p>
-<p><cite>rectangle</cite> must be writable, meaning its refcount must be 1. You can
+<p><cite>self</cite> must be writable, meaning its refcount must be 1. You can
 make the rectangles inside a <a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition" title="GstVideo.VideoOverlayComposition"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition</span></code></a> writable using
-<a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.make_writable" title="GstVideo.VideoOverlayComposition.make_writable"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.make_writable</span></code></a> () or
-<a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.copy" title="GstVideo.VideoOverlayComposition.copy"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.copy</span></code></a> ().</p>
+<a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.make_writable" title="GstVideo.VideoOverlayComposition.make_writable"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.make_writable</span></code></a>() or
+<a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.copy" title="GstVideo.VideoOverlayComposition.copy"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.copy</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlayRectangle.set_render_rectangle">
-<code class="descname">set_render_rectangle</code><span class="sig-paren">(</span><em>render_x</em>, <em>render_y</em>, <em>render_width</em>, <em>render_height</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.6.2#n800"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_render_rectangle</code><span class="sig-paren">(</span><em>render_x</em>, <em>render_y</em>, <em>render_width</em>, <em>render_height</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-overlay-composition.c?h=1.8.1#n800"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -561,10 +559,10 @@ make the rectangles inside a <a class="reference internal" href="VideoOverlayCom
 This function is mainly for elements that modify the size of the video
 in some way (e.g. through scaling or cropping) and need to adjust the
 details of any overlays to match the operation that changed the size.</p>
-<p><cite>rectangle</cite> must be writable, meaning its refcount must be 1. You can
+<p><cite>self</cite> must be writable, meaning its refcount must be 1. You can
 make the rectangles inside a <a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition" title="GstVideo.VideoOverlayComposition"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition</span></code></a> writable using
-<a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.make_writable" title="GstVideo.VideoOverlayComposition.make_writable"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.make_writable</span></code></a> () or
-<a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.copy" title="GstVideo.VideoOverlayComposition.copy"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.copy</span></code></a> ().</p>
+<a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.make_writable" title="GstVideo.VideoOverlayComposition.make_writable"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.make_writable</span></code></a>() or
+<a class="reference internal" href="VideoOverlayComposition.html#GstVideo.VideoOverlayComposition.copy" title="GstVideo.VideoOverlayComposition.copy"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlayComposition.copy</span></code></a>().</p>
 </dd></dl>
 
 </dd></dl>
@@ -583,7 +581,4 @@ make the rectangles inside a <a class="reference internal" href="VideoOverlayCom
   </div> 
 
 </body>
-
-  
-
 </html>

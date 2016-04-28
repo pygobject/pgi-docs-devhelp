@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="WebKit 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="WebKit.WebDataSource" href="WebDataSource.html"/>
         <link rel="prev" title="WebKit.ViewportAttributes" href="ViewportAttributes.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -154,19 +152,19 @@
  viewBox="0.00 0.00 141.00 80.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 76)">
 <title>g</title>
-<!-- GObject.Object -->
-<g id="node1" class="node"><title>GObject.Object</title>
-<g id="a_node1"><a xlink:href="#WebKit.WebBackForwardList" xlink:title="GObject.Object">
-<path fill="none" stroke="#75507b" d="M100.5,-72C100.5,-72 32.5,-72 32.5,-72 29.5,-72 26.5,-69 26.5,-66 26.5,-66 26.5,-60 26.5,-60 26.5,-57 29.5,-54 32.5,-54 32.5,-54 100.5,-54 100.5,-54 103.5,-54 106.5,-57 106.5,-60 106.5,-60 106.5,-66 106.5,-66 106.5,-69 103.5,-72 100.5,-72"/>
-<text text-anchor="middle" x="66.5" y="-60.7" font-family="inherit" font-size="8.50">GObject.Object</text>
+<!-- WebKit.WebBackForwardList -->
+<g id="node1" class="node"><title>WebKit.WebBackForwardList</title>
+<g id="a_node1"><a xlink:href="#WebKit.WebBackForwardList" xlink:title="WebKit.WebBackForwardList">
+<path fill="none" stroke="#75507b" d="M127,-18C127,-18 6,-18 6,-18 3,-18 0,-15 0,-12 0,-12 0,-6 0,-6 0,-3 3,-0 6,-0 6,-0 127,-0 127,-0 130,-0 133,-3 133,-6 133,-6 133,-12 133,-12 133,-15 130,-18 127,-18"/>
+<text text-anchor="middle" x="66.5" y="-6.7" font-family="inherit" font-size="8.50">WebKit.WebBackForwardList</text>
 </a>
 </g>
 </g>
-<!-- WebKit.WebBackForwardList -->
-<g id="node2" class="node"><title>WebKit.WebBackForwardList</title>
-<g id="a_node2"><a xlink:href="../_docs/WebKit-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" xlink:title="WebKit.WebBackForwardList">
-<path fill="none" stroke="#75507b" d="M127,-18C127,-18 6,-18 6,-18 3,-18 0,-15 0,-12 0,-12 0,-6 0,-6 0,-3 3,-0 6,-0 6,-0 127,-0 127,-0 130,-0 133,-3 133,-6 133,-6 133,-12 133,-12 133,-15 130,-18 127,-18"/>
-<text text-anchor="middle" x="66.5" y="-6.7" font-family="inherit" font-size="8.50">WebKit.WebBackForwardList</text>
+<!-- GObject.Object -->
+<g id="node2" class="node"><title>GObject.Object</title>
+<g id="a_node2"><a xlink:href="../_docs/WebKit-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" xlink:title="GObject.Object">
+<path fill="none" stroke="#75507b" d="M100.5,-72C100.5,-72 32.5,-72 32.5,-72 29.5,-72 26.5,-69 26.5,-66 26.5,-66 26.5,-60 26.5,-60 26.5,-57 29.5,-54 32.5,-54 32.5,-54 100.5,-54 100.5,-54 103.5,-54 106.5,-57 106.5,-60 106.5,-60 106.5,-66 106.5,-66 106.5,-69 103.5,-72 100.5,-72"/>
+<text text-anchor="middle" x="66.5" y="-60.7" font-family="inherit" font-size="8.50">GObject.Object</text>
 </a>
 </g>
 </g>
@@ -331,16 +329,16 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-c"><div class="highlight"><pre><span class="cm">/* Get the WebKitWebBackForwardList from the WebKitWebView */</span>
-<span class="n">WebKitWebBackForwardList</span> <span class="o">*</span><span class="n">back_forward_list</span> <span class="o">=</span> <span class="n">webkit_web_view_get_back_forward_list</span> <span class="p">(</span><span class="n">my_web_view</span><span class="p">);</span>
-<span class="n">WebKitWebHistoryItem</span> <span class="o">*</span><span class="n">item</span> <span class="o">=</span> <span class="n">webkit_web_back_forward_list_get_current_item</span> <span class="p">(</span><span class="n">back_forward_list</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>/* Get the WebKitWebBackForwardList from the WebKitWebView */
+WebKitWebBackForwardList *back_forward_list = webkit_web_view_get_back_forward_list (my_web_view);
+WebKitWebHistoryItem *item = webkit_web_back_forward_list_get_current_item (back_forward_list);
 
-<span class="cm">/* Do something with a WebKitWebHistoryItem */</span>
-<span class="n">g_print</span><span class="p">(</span><span class="s">&quot;%p&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+/* Do something with a WebKitWebHistoryItem */
+g_print(&quot;%p&quot;, item);
 
-<span class="cm">/* Control some parameters */</span>
-<span class="n">WebKitWebBackForwardList</span> <span class="o">*</span><span class="n">back_forward_list</span> <span class="o">=</span> <span class="n">webkit_web_view_get_back_forward_list</span> <span class="p">(</span><span class="n">my_web_view</span><span class="p">);</span>
-<span class="n">webkit_web_back_forward_list_set_limit</span> <span class="p">(</span><span class="n">back_forward_list</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+/* Control some parameters */
+WebKitWebBackForwardList *back_forward_list = webkit_web_view_get_back_forward_list (my_web_view);
+webkit_web_back_forward_list_set_limit (back_forward_list, 30);
 </pre></div>
 </div>
 <dl class="method">
@@ -355,7 +353,7 @@
 </tbody>
 </table>
 <p>Adds the item to the <a class="reference internal" href="#WebKit.WebBackForwardList" title="WebKit.WebBackForwardList"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebBackForwardList</span></code></a>.</p>
-<p>The webBackForwardList will add a reference to the webHistoryItem, so you
+<p>The <cite>webBackForwardList</cite> will add a reference to the <cite>webHistoryItem</cite>, so you
 don&#8217;t need to keep a reference once you&#8217;ve added it to the list.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.1.1.</span></p>
@@ -365,7 +363,7 @@ don&#8217;t need to keep a reference once you&#8217;ve added it to the list.</p>
 <dl class="method">
 <dt id="WebKit.WebBackForwardList.clear">
 <code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Clears the webBackForwardList by removing all its elements. Note that not even
+<dd><p>Clears the <cite>webBackForwardList</cite> by removing all its elements. Note that not even
 the current page is kept in list when cleared so you would have to add it later.
 This method also clears the list of visited links which means that all links will
 appear unvisited.</p>
@@ -602,7 +600,4 @@ added.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

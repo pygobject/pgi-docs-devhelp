@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Ggit 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Symbol Mapping" href="mapping.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -217,27 +215,39 @@ These priority levels correspond to the natural escalation logic
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Ggit.ConfigLevel.PROGRAMDATA">
+<code class="descname">PROGRAMDATA</code><em class="property"> = 1</em></dt>
+<dd><p>System-wide on Windows, for compatibility with portable git.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Ggit.ConfigLevel.SYSTEM">
-<code class="descname">SYSTEM</code><em class="property"> = 1</em></dt>
+<code class="descname">SYSTEM</code><em class="property"> = 2</em></dt>
 <dd><p>System-wide configuration file.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="Ggit.ConfigLevel.XDG">
-<code class="descname">XDG</code><em class="property"> = 2</em></dt>
+<code class="descname">XDG</code><em class="property"> = 3</em></dt>
 <dd><p>XDG compatible configuration file (.config/git/config).</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="Ggit.ConfigLevel.GLOBAL">
-<code class="descname">GLOBAL</code><em class="property"> = 3</em></dt>
+<code class="descname">GLOBAL</code><em class="property"> = 4</em></dt>
 <dd><p>User-specific configuration file, also called Global configuration file.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="Ggit.ConfigLevel.LOCAL">
-<code class="descname">LOCAL</code><em class="property"> = 4</em></dt>
+<code class="descname">LOCAL</code><em class="property"> = 5</em></dt>
 <dd><p>Repository specific configuration file.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.ConfigLevel.APP">
+<code class="descname">APP</code><em class="property"> = 6</em></dt>
+<dd><p>Application specific configuration file; freely defined by applications.</p>
 </dd></dl>
 
 </dd></dl>
@@ -457,37 +467,13 @@ the <a class="reference internal" href="callbacks.html#Ggit.DiffLineCallback" ti
 </table>
 <p>Error domain for Ggit functions.
 Errors in this domain will be from the <a class="reference internal" href="#Ggit.Error" title="Ggit.Error"><code class="xref py py-obj docutils literal"><span class="pre">Ggit.Error</span></code></a> enumeration.
-See <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code> for information on error domains.</p>
+See <a class="reference external" href="_docs/Ggit-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> for information on error domains.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.Error.ITEROVER">
-<code class="descname">ITEROVER</code><em class="property"> = -31</em></dt>
-<dd><p>The iteration has finished.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.Error.PASSTHROUGH">
-<code class="descname">PASSTHROUGH</code><em class="property"> = -30</em></dt>
-<dd><p>Skip and passthrough the given ODB backend.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.Error.BUFS">
-<code class="descname">BUFS</code><em class="property"> = -6</em></dt>
-<dd><p>The buffer is too short.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.Error.AMBIGUOUS">
-<code class="descname">AMBIGUOUS</code><em class="property"> = -5</em></dt>
-<dd><p>The given error is ambiguous.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="Ggit.Error.EXISTS">
-<code class="descname">EXISTS</code><em class="property"> = -4</em></dt>
-<dd><p>A reference with this name already exists.</p>
+<dt id="Ggit.Error.GIT_ERROR">
+<code class="descname">GIT_ERROR</code><em class="property"> = -1</em></dt>
+<dd><p>A generic error for when an operation fails.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -497,9 +483,33 @@ See <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Ggit.Error.GIT_ERROR">
-<code class="descname">GIT_ERROR</code><em class="property"> = -1</em></dt>
-<dd><p>A generic error for when an operation fails.</p>
+<dt id="Ggit.Error.PASSTHROUGH">
+<code class="descname">PASSTHROUGH</code><em class="property"> = -30</em></dt>
+<dd><p>Skip and passthrough the given ODB backend.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.Error.ITEROVER">
+<code class="descname">ITEROVER</code><em class="property"> = -31</em></dt>
+<dd><p>The iteration has finished.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.Error.EXISTS">
+<code class="descname">EXISTS</code><em class="property"> = -4</em></dt>
+<dd><p>A reference with this name already exists.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.Error.AMBIGUOUS">
+<code class="descname">AMBIGUOUS</code><em class="property"> = -5</em></dt>
+<dd><p>The given error is ambiguous.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Ggit.Error.BUFS">
+<code class="descname">BUFS</code><em class="property"> = -6</em></dt>
+<dd><p>The buffer is too short.</p>
 </dd></dl>
 
 </dd></dl>
@@ -760,7 +770,7 @@ files are included in the status.</p>
 <dt id="Ggit.StatusShow.INDEX_AND_WORKDIR">
 <code class="descname">INDEX_AND_WORKDIR</code><em class="property"> = 0</em></dt>
 <dd><p>receive one callback for each file,
-even if the file is in both the index and the workdir (combining <a class="reference internal" href="flags.html#Ggit.StatusFlags" title="Ggit.StatusFlags"><code class="xref py py-obj docutils literal"><span class="pre">Ggit.StatusFlags</span></code></a> ).</p>
+even if the file is in both the index and the workdir (combining <a class="reference internal" href="flags.html#Ggit.StatusFlags" title="Ggit.StatusFlags"><code class="xref py py-obj docutils literal"><span class="pre">Ggit.StatusFlags</span></code></a>).</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -914,7 +924,4 @@ superproject into the current branch.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

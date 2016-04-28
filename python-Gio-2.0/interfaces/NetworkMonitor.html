@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gio.PollableInputStream" href="PollableInputStream.html"/>
         <link rel="prev" title="Gio.Mount" href="Mount.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -327,7 +325,7 @@ is based on the kernel&#8217;s netlink interface.</p>
 </div>
 <dl class="staticmethod">
 <dt id="Gio.NetworkMonitor.get_default">
-<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.46.2#n89"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.48.0#n89"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -346,7 +344,7 @@ is based on the kernel&#8217;s netlink interface.</p>
 
 <dl class="method">
 <dt id="Gio.NetworkMonitor.can_reach">
-<code class="descname">can_reach</code><span class="sig-paren">(</span><em>connectable</em>, <em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.46.2#n208"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">can_reach</code><span class="sig-paren">(</span><em>connectable</em>, <em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.48.0#n208"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -357,7 +355,7 @@ is based on the kernel&#8217;s netlink interface.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>connectable</cite> is reachable, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not.</p>
@@ -372,16 +370,16 @@ is based on the kernel&#8217;s netlink interface.</p>
 <cite>connectable</cite> can be reached, without actually trying to connect to
 it.</p>
 <p>This may return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> even when <a class="reference internal" href="#Gio.NetworkMonitor" title="Gio.NetworkMonitor"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor</span></code></a> <a class="reference internal" href="#Gio.NetworkMonitor.props.network_available" title="Gio.NetworkMonitor.props.network_available"><code class="xref py py-data docutils literal"><span class="pre">:network-available</span></code></a>
-is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, if, for example, <cite>monitor</cite> can determine that
+is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, if, for example, <cite>self</cite> can determine that
 <cite>connectable</cite> refers to a host on a local network.</p>
-<p>If <cite>monitor</cite> believes that an attempt to connect to <cite>connectable</cite>
+<p>If <cite>self</cite> believes that an attempt to connect to <cite>connectable</cite>
 will succeed, it will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>. Otherwise, it will return
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> and set <cite>error</cite> to an appropriate error (such as
-<a class="reference internal" href="../enums.html#Gio.IOErrorEnum.HOST_UNREACHABLE" title="Gio.IOErrorEnum.HOST_UNREACHABLE"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.HOST_UNREACHABLE</span></code></a> ).</p>
+<a class="reference internal" href="../enums.html#Gio.IOErrorEnum.HOST_UNREACHABLE" title="Gio.IOErrorEnum.HOST_UNREACHABLE"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.HOST_UNREACHABLE</span></code></a>).</p>
 <p>Note that although this does not attempt to connect to
 <cite>connectable</cite>, it may still block for a brief period of time (eg,
 trying to do multicast DNS on the local network), so if you do not
-want to block, you should use <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a> ().</p>
+want to block, you should use <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -389,7 +387,7 @@ want to block, you should use <a class="reference internal" href="#Gio.NetworkMo
 
 <dl class="method">
 <dt id="Gio.NetworkMonitor.can_reach_async">
-<code class="descname">can_reach_async</code><span class="sig-paren">(</span><em>connectable</em>, <em>cancellable</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.46.2#n258"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">can_reach_async</code><span class="sig-paren">(</span><em>connectable</em>, <em>cancellable</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.48.0#n258"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -399,7 +397,7 @@ want to block, you should use <a class="reference internal" href="#Gio.NetworkMo
 <li><strong>cancellable</strong> (<a class="reference internal" href="../classes/Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference internal" href="../classes/Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> to call when the
 request is satisfied</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the data to pass to callback function</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the data to pass to callback function</li>
 </ul>
 </td>
 </tr>
@@ -408,22 +406,22 @@ request is satisfied</li>
 <p>Asynchronously attempts to determine whether or not the host
 pointed to by <cite>connectable</cite> can be reached, without actually
 trying to connect to it.</p>
-<p>For more details, see <a class="reference internal" href="#Gio.NetworkMonitor.can_reach" title="Gio.NetworkMonitor.can_reach"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach</span></code></a> ().</p>
+<p>For more details, see <a class="reference internal" href="#Gio.NetworkMonitor.can_reach" title="Gio.NetworkMonitor.can_reach"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach</span></code></a>().</p>
 <p>When the operation is finished, <cite>callback</cite> will be called.
-You can then call <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_finish" title="Gio.NetworkMonitor.can_reach_finish"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_finish</span></code></a> ()
+You can then call <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_finish" title="Gio.NetworkMonitor.can_reach_finish"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_finish</span></code></a>()
 to get the result of the operation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.NetworkMonitor.can_reach_finish">
-<code class="descname">can_reach_finish</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.46.2#n290"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">can_reach_finish</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.48.0#n290"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference internal" href="AsyncResult.html#Gio.AsyncResult" title="Gio.AsyncResult"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; a <a class="reference internal" href="AsyncResult.html#Gio.AsyncResult" title="Gio.AsyncResult"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if network is reachable, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not.</td>
 </tr>
@@ -432,12 +430,12 @@ to get the result of the operation.</p>
 </tbody>
 </table>
 <p>Finishes an async network connectivity test.
-See <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.NetworkMonitor.get_connectivity">
-<code class="descname">get_connectivity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.46.2#n166"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_connectivity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.48.0#n166"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -449,7 +447,7 @@ See <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" tit
 </tbody>
 </table>
 <p>Gets a more detailed networking state than
-<a class="reference internal" href="#Gio.NetworkMonitor.get_network_available" title="Gio.NetworkMonitor.get_network_available"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.get_network_available</span></code></a> ().</p>
+<a class="reference internal" href="#Gio.NetworkMonitor.get_network_available" title="Gio.NetworkMonitor.get_network_available"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.get_network_available</span></code></a>().</p>
 <p>If <a class="reference internal" href="#Gio.NetworkMonitor" title="Gio.NetworkMonitor"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor</span></code></a> <a class="reference internal" href="#Gio.NetworkMonitor.props.network_available" title="Gio.NetworkMonitor.props.network_available"><code class="xref py py-data docutils literal"><span class="pre">:network-available</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, then the
 connectivity state will be <a class="reference internal" href="../enums.html#Gio.NetworkConnectivity.LOCAL" title="Gio.NetworkConnectivity.LOCAL"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkConnectivity.LOCAL</span></code></a>.</p>
 <p>If <a class="reference internal" href="#Gio.NetworkMonitor" title="Gio.NetworkMonitor"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor</span></code></a> <a class="reference internal" href="#Gio.NetworkMonitor.props.network_available" title="Gio.NetworkMonitor.props.network_available"><code class="xref py py-data docutils literal"><span class="pre">:network-available</span></code></a> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, then the
@@ -471,7 +469,7 @@ back to their &#8220;offline&#8221; behavior if the connection attempt fails.</p
 
 <dl class="method">
 <dt id="Gio.NetworkMonitor.get_network_available">
-<code class="descname">get_network_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.46.2#n109"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_network_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.48.0#n109"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -493,7 +491,7 @@ reachable. See <a class="reference internal" href="#Gio.NetworkMonitor" title="G
 
 <dl class="method">
 <dt id="Gio.NetworkMonitor.get_network_metered">
-<code class="descname">get_network_metered</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.46.2#n129"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_network_metered</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gnetworkmonitor.c?h=2.48.0#n129"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -541,11 +539,11 @@ is <a class="reference external" href="http://docs.python.org/2.7/library/consta
 <p>If <cite>monitor</cite> believes that an attempt to connect to <cite>connectable</cite>
 will succeed, it will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>. Otherwise, it will return
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> and set <cite>error</cite> to an appropriate error (such as
-<a class="reference internal" href="../enums.html#Gio.IOErrorEnum.HOST_UNREACHABLE" title="Gio.IOErrorEnum.HOST_UNREACHABLE"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.HOST_UNREACHABLE</span></code></a> ).</p>
+<a class="reference internal" href="../enums.html#Gio.IOErrorEnum.HOST_UNREACHABLE" title="Gio.IOErrorEnum.HOST_UNREACHABLE"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.HOST_UNREACHABLE</span></code></a>).</p>
 <p>Note that although this does not attempt to connect to
 <cite>connectable</cite>, it may still block for a brief period of time (eg,
 trying to do multicast DNS on the local network), so if you do not
-want to block, you should use <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a> ().</p>
+want to block, you should use <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -563,7 +561,7 @@ want to block, you should use <a class="reference internal" href="#Gio.NetworkMo
 <li><strong>cancellable</strong> (<a class="reference internal" href="../classes/Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference internal" href="../classes/Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> to call when the
 request is satisfied</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the data to pass to callback function</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the data to pass to callback function</li>
 </ul>
 </td>
 </tr>
@@ -572,9 +570,9 @@ request is satisfied</li>
 <p>Asynchronously attempts to determine whether or not the host
 pointed to by <cite>connectable</cite> can be reached, without actually
 trying to connect to it.</p>
-<p>For more details, see <a class="reference internal" href="#Gio.NetworkMonitor.can_reach" title="Gio.NetworkMonitor.can_reach"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach</span></code></a> ().</p>
+<p>For more details, see <a class="reference internal" href="#Gio.NetworkMonitor.can_reach" title="Gio.NetworkMonitor.can_reach"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach</span></code></a>().</p>
 <p>When the operation is finished, <cite>callback</cite> will be called.
-You can then call <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_finish" title="Gio.NetworkMonitor.can_reach_finish"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_finish</span></code></a> ()
+You can then call <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_finish" title="Gio.NetworkMonitor.can_reach_finish"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_finish</span></code></a>()
 to get the result of the operation.</p>
 </dd></dl>
 
@@ -594,7 +592,7 @@ to get the result of the operation.</p>
 </tbody>
 </table>
 <p>Finishes an async network connectivity test.
-See <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a> ().</p>
+See <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -667,7 +665,7 @@ reachable.</p>
 </tbody>
 </table>
 <p>More detailed information about the host&#8217;s network connectivity.
-See <a class="reference internal" href="#Gio.NetworkMonitor.get_connectivity" title="Gio.NetworkMonitor.get_connectivity"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.get_connectivity</span></code></a> () and
+See <a class="reference internal" href="#Gio.NetworkMonitor.get_connectivity" title="Gio.NetworkMonitor.get_connectivity"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.get_connectivity</span></code></a>() and
 <a class="reference internal" href="../enums.html#Gio.NetworkConnectivity" title="Gio.NetworkConnectivity"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkConnectivity</span></code></a> for more details.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.44.</span></p>
@@ -699,8 +697,8 @@ requires payment before allowing traffic through, or may be
 connected to a functioning router that has lost its own upstream
 connectivity. Some hosts might only be accessible when a VPN is
 active. Other hosts might only be accessible when the VPN is
-not active. Thus, it is best to use <a class="reference internal" href="#Gio.NetworkMonitor.can_reach" title="Gio.NetworkMonitor.can_reach"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach</span></code></a> ()
-or <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a> () to test for reachability
+not active. Thus, it is best to use <a class="reference internal" href="#Gio.NetworkMonitor.can_reach" title="Gio.NetworkMonitor.can_reach"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach</span></code></a>()
+or <a class="reference internal" href="#Gio.NetworkMonitor.can_reach_async" title="Gio.NetworkMonitor.can_reach_async"><code class="xref py py-obj docutils literal"><span class="pre">Gio.NetworkMonitor.can_reach_async</span></code></a>() to test for reachability
 on a host-by-host basis. (On the other hand, when the property is
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, the application can reasonably expect that no remote
 hosts at all are reachable, and should indicate this to the user
@@ -761,7 +759,4 @@ marked as metered.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
-    <link rel="top" title="GstAudio 1.0 Python API Docs" href="../index.html"/>
-        <link rel="up" title="Structures" href="index.html"/>
-        <link rel="next" title="GstAudio.AudioRingBufferSpec" href="AudioRingBufferSpec.html"/>
-        <link rel="prev" title="GstAudio.AudioFormatInfo" href="AudioFormatInfo.html"/> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    <link rel="top" title="GstAudio 1.0 Python API Docs" href="../index.html"/>
+        <link rel="up" title="Structures" href="index.html"/>
+        <link rel="next" title="GstAudio.AudioQuantize" href="AudioQuantize.html"/>
+        <link rel="prev" title="GstAudio.AudioFormatInfo" href="AudioFormatInfo.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -69,7 +67,7 @@
 
 
 
-<td><a accesskey="n" href="AudioRingBufferSpec.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="AudioQuantize.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -111,7 +109,7 @@
 
 
 
-<td><a accesskey="n" href="AudioRingBufferSpec.html"><i class="fa fa-chevron-right"></i></a></td>
+<td><a accesskey="n" href="AudioQuantize.html"><i class="fa fa-chevron-right"></i></a></td>
 
 
 </tr></tbody>
@@ -242,28 +240,28 @@
 <dt id="GstAudio.AudioInfo">
 <em class="property">class </em><code class="descclassname">GstAudio.</code><code class="descname">AudioInfo</code></dt>
 <dd><p>Information describing audio properties. This information can be filled
-in from <a class="reference external" href="../_docs/GstAudio-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> with <a class="reference internal" href="#GstAudio.AudioInfo.from_caps" title="GstAudio.AudioInfo.from_caps"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.from_caps</span></code></a> ().</p>
+in from <a class="reference external" href="../_docs/GstAudio-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> with <a class="reference internal" href="#GstAudio.AudioInfo.from_caps" title="GstAudio.AudioInfo.from_caps"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.from_caps</span></code></a>().</p>
 <p>Use the provided macros to access the info in this structure.</p>
 <dl class="staticmethod">
 <dt id="GstAudio.AudioInfo.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.6.2#n69"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.8.1#n92"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#GstAudio.AudioInfo" title="GstAudio.AudioInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo</span></code></a>. free with <a class="reference internal" href="#GstAudio.AudioInfo.free" title="GstAudio.AudioInfo.free"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.free</span></code></a> ().</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#GstAudio.AudioInfo" title="GstAudio.AudioInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo</span></code></a>. free with <a class="reference internal" href="#GstAudio.AudioInfo.free" title="GstAudio.AudioInfo.free"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.free</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GstAudio.AudioInfo" title="GstAudio.AudioInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Allocate a new <a class="reference internal" href="#GstAudio.AudioInfo" title="GstAudio.AudioInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo</span></code></a> that is also initialized with
-<a class="reference internal" href="#GstAudio.AudioInfo.init" title="GstAudio.AudioInfo.init"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.init</span></code></a> ().</p>
+<a class="reference internal" href="#GstAudio.AudioInfo.init" title="GstAudio.AudioInfo.init"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.init</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstAudio.AudioInfo.convert">
-<code class="descname">convert</code><span class="sig-paren">(</span><em>src_fmt</em>, <em>src_val</em>, <em>dest_fmt</em>, <em>dest_val</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.6.2#n390"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert</code><span class="sig-paren">(</span><em>src_fmt</em>, <em>src_val</em>, <em>dest_fmt</em>, <em>dest_val</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.8.1#n413"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -292,7 +290,7 @@ function can be used to handle pad queries of the type <a class="reference exter
 
 <dl class="method">
 <dt id="GstAudio.AudioInfo.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.6.2#n39"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.8.1#n62"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -308,14 +306,14 @@ function can be used to handle pad queries of the type <a class="reference exter
 
 <dl class="method">
 <dt id="GstAudio.AudioInfo.free">
-<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.6.2#n52"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Free a <a class="reference internal" href="#GstAudio.AudioInfo" title="GstAudio.AudioInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo</span></code></a> structure previously allocated with <a class="reference internal" href="#GstAudio.AudioInfo.new" title="GstAudio.AudioInfo.new"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.new</span></code></a> ()
-or <a class="reference internal" href="#GstAudio.AudioInfo.copy" title="GstAudio.AudioInfo.copy"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.copy</span></code></a> ().</p>
+<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.8.1#n75"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Free a <a class="reference internal" href="#GstAudio.AudioInfo" title="GstAudio.AudioInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo</span></code></a> structure previously allocated with <a class="reference internal" href="#GstAudio.AudioInfo.new" title="GstAudio.AudioInfo.new"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.new</span></code></a>()
+or <a class="reference internal" href="#GstAudio.AudioInfo.copy" title="GstAudio.AudioInfo.copy"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo.copy</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstAudio.AudioInfo.from_caps">
-<code class="descname">from_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.6.2#n169"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">from_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.8.1#n192"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -328,25 +326,25 @@ or <a class="reference internal" href="#GstAudio.AudioInfo.copy" title="GstAudio
 </tr>
 </tbody>
 </table>
-<p>Parse <cite>caps</cite> and update <cite>info</cite>.</p>
+<p>Parse <cite>caps</cite> and update <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstAudio.AudioInfo.init">
-<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.6.2#n87"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Initialize <cite>info</cite> with default values.</p>
+<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.8.1#n110"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Initialize <cite>self</cite> with default values.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstAudio.AudioInfo.is_equal">
-<code class="descname">is_equal</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.6.2#n480"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_equal</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.8.1#n503"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#GstAudio.AudioInfo" title="GstAudio.AudioInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo</span></code></a>) &#8211; a <a class="reference internal" href="#GstAudio.AudioInfo" title="GstAudio.AudioInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioInfo</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>info</cite> and <cite>other</cite> are equal, else <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> and <cite>other</cite> are equal, else <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
@@ -360,7 +358,7 @@ or <a class="reference internal" href="#GstAudio.AudioInfo.copy" title="GstAudio
 
 <dl class="method">
 <dt id="GstAudio.AudioInfo.set_format">
-<code class="descname">set_format</code><span class="sig-paren">(</span><em>format</em>, <em>rate</em>, <em>channels</em>, <em>position</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.6.2#n113"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_format</code><span class="sig-paren">(</span><em>format</em>, <em>rate</em>, <em>channels</em>, <em>position</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.8.1#n136"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -376,24 +374,24 @@ or <a class="reference internal" href="#GstAudio.AudioInfo.copy" title="GstAudio
 </tbody>
 </table>
 <p>Set the default info for the audio info of <cite>format</cite> and <cite>rate</cite> and <cite>channels</cite>.</p>
-<p>Note: This initializes <cite>info</cite> first, no values are preserved.</p>
+<p>Note: This initializes <cite>self</cite> first, no values are preserved.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstAudio.AudioInfo.to_caps">
-<code class="descname">to_caps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.6.2#n302"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">to_caps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/audio/audio-info.c?h=1.8.1#n325"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the new <a class="reference external" href="../_docs/GstAudio-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> containing the
-info of <cite>info</cite>.</td>
+info of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/GstAudio-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Convert the values of <cite>info</cite> into a <a class="reference external" href="../_docs/GstAudio-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>.</p>
+<p>Convert the values of <cite>self</cite> into a <a class="reference external" href="../_docs/GstAudio-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -412,7 +410,4 @@ info of <cite>info</cite>.</td>
   </div> 
 
 </body>
-
-  
-
 </html>

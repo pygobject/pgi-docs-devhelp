@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Vips 8.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -153,6 +151,7 @@
 <li><a class="reference internal" href="#Vips.ImageType" title="Vips.ImageType"><code class="xref py py-class docutils literal"><span class="pre">Vips.ImageType</span></code></a></li>
 <li><a class="reference internal" href="#Vips.Intent" title="Vips.Intent"><code class="xref py py-class docutils literal"><span class="pre">Vips.Intent</span></code></a></li>
 <li><a class="reference internal" href="#Vips.Interpretation" title="Vips.Interpretation"><code class="xref py py-class docutils literal"><span class="pre">Vips.Interpretation</span></code></a></li>
+<li><a class="reference internal" href="#Vips.Kernel" title="Vips.Kernel"><code class="xref py py-class docutils literal"><span class="pre">Vips.Kernel</span></code></a></li>
 <li><a class="reference internal" href="#Vips.OperationBoolean" title="Vips.OperationBoolean"><code class="xref py py-class docutils literal"><span class="pre">Vips.OperationBoolean</span></code></a></li>
 <li><a class="reference internal" href="#Vips.OperationComplex" title="Vips.OperationComplex"><code class="xref py py-class docutils literal"><span class="pre">Vips.OperationComplex</span></code></a></li>
 <li><a class="reference internal" href="#Vips.OperationComplex2" title="Vips.OperationComplex2"><code class="xref py py-class docutils literal"><span class="pre">Vips.OperationComplex2</span></code></a></li>
@@ -173,7 +172,7 @@
 <dt id="Vips.Access">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">Access</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>The type of access an operation has to supply. See <code class="xref py py-obj docutils literal"><span class="pre">Vips.tilecache</span></code> ()
+<p>The type of access an operation has to supply. See vips_tilecache()
 and <a class="reference internal" href="classes/Foreign.html#Vips.Foreign" title="Vips.Foreign"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Foreign</span></code></a>.</p>
 <p><a class="reference internal" href="#Vips.Access.RANDOM" title="Vips.Access.RANDOM"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Access.RANDOM</span></code></a> means requests can come in any order.</p>
 <p><a class="reference internal" href="#Vips.Access.SEQUENTIAL" title="Vips.Access.SEQUENTIAL"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Access.SEQUENTIAL</span></code></a> means requests will be top-to-bottom, but with some
@@ -209,10 +208,10 @@ top-to-bottom with no read-behind. This can save some memory.</p>
 <dt id="Vips.Align">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">Align</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See <code class="xref py py-obj docutils literal"><span class="pre">Vips.join</span></code> () and so on.</p>
-<p>Operations like <code class="xref py py-obj docutils literal"><span class="pre">Vips.join</span></code> () need to be told whether to align images on the
+<p>See vips_join() and so on.</p>
+<p>Operations like vips_join() need to be told whether to align images on the
 low or high coordinate edge, or centre.</p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.join</span></code> ().</p>
+<p>See also: vips_join().</p>
 <dl class="attribute">
 <dt id="Vips.Align.LOW">
 <code class="descname">LOW</code><em class="property"> = 0</em></dt>
@@ -242,9 +241,9 @@ low or high coordinate edge, or centre.</p>
 <dt id="Vips.Angle">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">Angle</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See <code class="xref py py-obj docutils literal"><span class="pre">Vips.rot</span></code> () and so on.</p>
+<p>See vips_rot() and so on.</p>
 <p>Fixed rotate angles.</p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.rot</span></code> ().</p>
+<p>See also: vips_rot().</p>
 <dl class="attribute">
 <dt id="Vips.Angle.D0">
 <code class="descname">D0</code><em class="property"> = 0</em></dt>
@@ -280,9 +279,9 @@ low or high coordinate edge, or centre.</p>
 <dt id="Vips.Angle45">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">Angle45</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See <code class="xref py py-obj docutils literal"><span class="pre">Vips.rot45</span></code> () and so on.</p>
+<p>See vips_rot45() and so on.</p>
 <p>Fixed rotate angles.</p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.rot45</span></code> ().</p>
+<p>See also: vips_rot45().</p>
 <dl class="attribute">
 <dt id="Vips.Angle45.D0">
 <code class="descname">D0</code><em class="property"> = 0</em></dt>
@@ -444,6 +443,11 @@ low or high coordinate edge, or centre.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Vips.BandFormat.LAST">
+<code class="descname">LAST</code><em class="property"> = 10</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="Vips.BandFormat.USHORT">
 <code class="descname">USHORT</code><em class="property"> = 2</em></dt>
 <dd><p>unsigned short format</p>
@@ -490,11 +494,6 @@ low or high coordinate edge, or centre.</p>
 <code class="descname">DPCOMPLEX</code><em class="property"> = 9</em></dt>
 <dd><p>double complex (two double) format</p>
 </dd></dl>
-
-<dl class="attribute">
-<dt id="Vips.BandFormat.LAST">
-<code class="descname">LAST</code><em class="property"> = 10</em></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -566,10 +565,10 @@ new numbers from the end.</p>
 <dt id="Vips.CombineMode">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">CombineMode</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See <code class="xref py py-obj docutils literal"><span class="pre">Vips.draw_image</span></code> () and so on.</p>
-<p>Operations like <code class="xref py py-obj docutils literal"><span class="pre">Vips.draw_image</span></code> () need to be told how to combine images
+<p>See vips_draw_image() and so on.</p>
+<p>Operations like vips_draw_image() need to be told how to combine images
 from two sources.</p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.join</span></code> ().</p>
+<p>See also: vips_join().</p>
 <dl class="attribute">
 <dt id="Vips.CombineMode.SET">
 <code class="descname">SET</code><em class="property"> = 0</em></dt>
@@ -608,7 +607,7 @@ upon the pel in the corresponding position in the input image.</p>
 <p><a class="reference internal" href="#Vips.DemandStyle.FATSTRIP" title="Vips.DemandStyle.FATSTRIP"><code class="xref py py-obj docutils literal"><span class="pre">Vips.DemandStyle.FATSTRIP</span></code></a> &#8212; This operation would like to output strips
 the width of the image and as high as possible. This option is suitable
 for area operations which do not violently transform coordinates, such
-as <code class="xref py py-obj docutils literal"><span class="pre">Vips.conv</span></code> ().</p>
+as vips_conv().</p>
 <p><a class="reference internal" href="#Vips.DemandStyle.SMALLTILE" title="Vips.DemandStyle.SMALLTILE"><code class="xref py py-obj docutils literal"><span class="pre">Vips.DemandStyle.SMALLTILE</span></code></a> &#8212; This is the most general demand format.
 Output is demanded in small (around 100x100 pel) sections. This style works
 reasonably efficiently, even for bizzare operations like 45 degree rotate.</p>
@@ -651,10 +650,10 @@ vips_black() where the pixels are calculated.</p>
 <dt id="Vips.Direction">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">Direction</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See <code class="xref py py-obj docutils literal"><span class="pre">Vips.flip</span></code> (), <code class="xref py py-obj docutils literal"><span class="pre">Vips.join</span></code> () and so on.</p>
-<p>Operations like <code class="xref py py-obj docutils literal"><span class="pre">Vips.flip</span></code> () need to be told whether to flip left-right or
+<p>See vips_flip(), vips_join() and so on.</p>
+<p>Operations like vips_flip() need to be told whether to flip left-right or
 top-bottom.</p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.flip</span></code> (), <code class="xref py py-obj docutils literal"><span class="pre">Vips.join</span></code> ().</p>
+<p>See also: vips_flip(), vips_join().</p>
 <dl class="attribute">
 <dt id="Vips.Direction.HORIZONTAL">
 <code class="descname">HORIZONTAL</code><em class="property"> = 0</em></dt>
@@ -678,7 +677,7 @@ top-bottom.</p>
 <dt id="Vips.Extend">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">Extend</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See <code class="xref py py-obj docutils literal"><span class="pre">Vips.embed</span></code> (), <code class="xref py py-obj docutils literal"><span class="pre">Vips.conv</span></code> (), vips_affine() and so on.</p>
+<p>See vips_embed(), vips_conv(), vips_affine() and so on.</p>
 <p>When the edges of an image are extended, you can specify
 how you want the extension done.</p>
 <p><a class="reference internal" href="#Vips.Extend.BLACK" title="Vips.Extend.BLACK"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Extend.BLACK</span></code></a> &#8212; new pixels are black, ie. all bits are zero.</p>
@@ -691,7 +690,7 @@ edges</p>
 <p><a class="reference internal" href="#Vips.Extend.BACKGROUND" title="Vips.Extend.BACKGROUND"><code class="xref py py-obj docutils literal"><span class="pre">Vips.Extend.BACKGROUND</span></code></a> &#8212; colour set from the <cite>background</cite> property</p>
 <p>We have to specify the exact value of each enum member since we have to
 keep these frozen for back compat with vips7.</p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.embed</span></code> ().</p>
+<p>See also: vips_embed().</p>
 <dl class="attribute">
 <dt id="Vips.Extend.BLACK">
 <code class="descname">BLACK</code><em class="property"> = 0</em></dt>
@@ -1081,7 +1080,7 @@ new numbers from the end.</p>
 <dl class="attribute">
 <dt id="Vips.Interpretation.CMC">
 <code class="descname">CMC</code><em class="property"> = 18</em></dt>
-<dd><p>a uniform colourspace based on CMC(1 <code class="xref py py-data docutils literal"><span class="pre">:1</span></code> )</p>
+<dd><p>a uniform colourspace based on CMC(1:1)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1139,8 +1138,50 @@ new numbers from the end.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="Vips.Interpretation.HSV">
+<code class="descname">HSV</code><em class="property"> = 29</em></dt>
+<dd><p>pixels are HSV</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="Vips.Interpretation.LAST">
-<code class="descname">LAST</code><em class="property"> = 29</em></dt>
+<code class="descname">LAST</code><em class="property"> = 30</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Vips.Kernel">
+<em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">Kernel</code></dt>
+<dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="attribute">
+<dt id="Vips.Kernel.NEAREST">
+<code class="descname">NEAREST</code><em class="property"> = 0</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Vips.Kernel.LINEAR">
+<code class="descname">LINEAR</code><em class="property"> = 1</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Vips.Kernel.CUBIC">
+<code class="descname">CUBIC</code><em class="property"> = 2</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Vips.Kernel.LANCZOS2">
+<code class="descname">LANCZOS2</code><em class="property"> = 3</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Vips.Kernel.LANCZOS3">
+<code class="descname">LANCZOS3</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Vips.Kernel.LAST">
+<code class="descname">LAST</code><em class="property"> = 5</em></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1149,7 +1190,7 @@ new numbers from the end.</p>
 <dt id="Vips.OperationBoolean">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">OperationBoolean</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.boolean</span></code> ().</p>
+<p>See also: vips_boolean().</p>
 <dl class="attribute">
 <dt id="Vips.OperationBoolean.AND">
 <code class="descname">AND</code><em class="property"> = 0</em></dt>
@@ -1192,7 +1233,7 @@ new numbers from the end.</p>
 <dt id="Vips.OperationComplex">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">OperationComplex</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.complex</span></code> ().</p>
+<p>See also: vips_complex().</p>
 <dl class="attribute">
 <dt id="Vips.OperationComplex.POLAR">
 <code class="descname">POLAR</code><em class="property"> = 0</em></dt>
@@ -1222,7 +1263,7 @@ new numbers from the end.</p>
 <dt id="Vips.OperationComplex2">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">OperationComplex2</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.complex2</span></code> ().</p>
+<p>See also: vips_complex2().</p>
 <dl class="attribute">
 <dt id="Vips.OperationComplex2.CROSS_PHASE">
 <code class="descname">CROSS_PHASE</code><em class="property"> = 0</em></dt>
@@ -1240,7 +1281,7 @@ new numbers from the end.</p>
 <dt id="Vips.OperationComplexget">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">OperationComplexget</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.complexget</span></code> ().</p>
+<p>See also: vips_complexget().</p>
 <dl class="attribute">
 <dt id="Vips.OperationComplexget.REAL">
 <code class="descname">REAL</code><em class="property"> = 0</em></dt>
@@ -1264,7 +1305,7 @@ new numbers from the end.</p>
 <dt id="Vips.OperationMath">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">OperationMath</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.math</span></code> ().</p>
+<p>See also: vips_math().</p>
 <dl class="attribute">
 <dt id="Vips.OperationMath.SIN">
 <code class="descname">SIN</code><em class="property"> = 0</em></dt>
@@ -1276,6 +1317,11 @@ new numbers from the end.</p>
 <code class="descname">COS</code><em class="property"> = 1</em></dt>
 <dd><p>cos(), angles in degrees</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="Vips.OperationMath.LAST">
+<code class="descname">LAST</code><em class="property"> = 10</em></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="Vips.OperationMath.TAN">
@@ -1325,18 +1371,13 @@ new numbers from the end.</p>
 <dd><p>10 to the something</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="Vips.OperationMath.LAST">
-<code class="descname">LAST</code><em class="property"> = 10</em></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="class">
 <dt id="Vips.OperationMath2">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">OperationMath2</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.math</span></code> ().</p>
+<p>See also: vips_math().</p>
 <dl class="attribute">
 <dt id="Vips.OperationMath2.POW">
 <code class="descname">POW</code><em class="property"> = 0</em></dt>
@@ -1361,7 +1402,7 @@ new numbers from the end.</p>
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">OperationMorphology</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>More like hit-miss, really.</p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.morph</span></code> ().</p>
+<p>See also: vips_morph().</p>
 <dl class="attribute">
 <dt id="Vips.OperationMorphology.ERODE">
 <code class="descname">ERODE</code><em class="property"> = 0</em></dt>
@@ -1385,7 +1426,7 @@ new numbers from the end.</p>
 <dt id="Vips.OperationRelational">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">OperationRelational</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.relational</span></code> ().</p>
+<p>See also: vips_relational().</p>
 <dl class="attribute">
 <dt id="Vips.OperationRelational.EQUAL">
 <code class="descname">EQUAL</code><em class="property"> = 0</em></dt>
@@ -1432,7 +1473,7 @@ new numbers from the end.</p>
 <dt id="Vips.OperationRound">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">OperationRound</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>See also: <code class="xref py py-obj docutils literal"><span class="pre">Vips.round</span></code> ().</p>
+<p>See also: vips_round().</p>
 <dl class="attribute">
 <dt id="Vips.OperationRound.RINT">
 <code class="descname">RINT</code><em class="property"> = 0</em></dt>
@@ -1462,8 +1503,8 @@ new numbers from the end.</p>
 <dt id="Vips.PCS">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">PCS</code></dt>
 <dd><p>Bases: <a class="reference external" href="_docs/Vips-8.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p>Pick a Profile Connection Space for <code class="xref py py-obj docutils literal"><span class="pre">Vips.icc_import</span></code> () and
-<code class="xref py py-obj docutils literal"><span class="pre">Vips.icc_export</span></code> (). LAB is usually best, XYZ can be more convenient in some
+<p>Pick a Profile Connection Space for vips_icc_import() and
+vips_icc_export(). LAB is usually best, XYZ can be more convenient in some
 cases.</p>
 <dl class="attribute">
 <dt id="Vips.PCS.LAB">
@@ -1607,7 +1648,4 @@ cases.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Clutter 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Clutter.ClickAction" href="ClickAction.html"/>
         <link rel="prev" title="Clutter.Canvas" href="Canvas.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -333,26 +331,26 @@ about each individual child added to a container.</p>
 <p>In order to use it you should create your own subclass of
 <a class="reference internal" href="#Clutter.ChildMeta" title="Clutter.ChildMeta"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ChildMeta</span></code></a> and set the <a class="reference internal" href="../iface-structs/ContainerIface.html#Clutter.ContainerIface" title="Clutter.ContainerIface"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ContainerIface</span></code></a> child_meta_type
 interface member to your subclass type, like:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="kt">void</span>
-<span class="nf">my_container_iface_init</span> <span class="p">(</span><span class="n">ClutterContainerIface</span> <span class="o">*</span><span class="n">iface</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="c1">// set the rest of the #ClutterContainer vtable</span>
+<div class="highlight-none"><div class="highlight"><pre>static void
+my_container_iface_init (ClutterContainerIface *iface)
+{
+  // set the rest of the #ClutterContainer vtable
 
-  <span class="n">container_iface</span><span class="o">-&gt;</span><span class="n">child_meta_type</span>  <span class="o">=</span> <span class="n">MY_TYPE_CHILD_META</span><span class="p">;</span>
-<span class="p">}</span>
+  container_iface-&gt;child_meta_type  = MY_TYPE_CHILD_META;
+}
 </pre></div>
 </div>
 <p>This will automatically create a <a class="reference internal" href="#Clutter.ChildMeta" title="Clutter.ChildMeta"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ChildMeta</span></code></a> of type
 <code class="docutils literal"><span class="pre">MY_TYPE_CHILD_META</span></code> for every actor that is added to the container.</p>
 <p>The child data for an actor can be retrieved using the
-<a class="reference internal" href="../interfaces/Container.html#Clutter.Container.get_child_meta" title="Clutter.Container.get_child_meta"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Container.get_child_meta</span></code></a> () function.</p>
+<a class="reference internal" href="../interfaces/Container.html#Clutter.Container.get_child_meta" title="Clutter.Container.get_child_meta"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Container.get_child_meta</span></code></a>() function.</p>
 <p>The properties of the data and your subclass can be manipulated with
-<code class="xref py py-obj docutils literal"><span class="pre">Clutter.Container.child_set</span></code> () and <code class="xref py py-obj docutils literal"><span class="pre">Clutter.Container.child_get</span></code> () which
-act like <code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.set</span></code> () and <code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.get</span></code> ().</p>
+clutter_container_child_set() and clutter_container_child_get() which
+act like g_object_set() and g_object_get().</p>
 <p>You can provide hooks for your own storage as well as control the
 instantiation by overriding the <a class="reference internal" href="../iface-structs/ContainerIface.html#Clutter.ContainerIface" title="Clutter.ContainerIface"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ContainerIface</span></code></a> virtual functions
-<a class="reference internal" href="../iface-structs/ContainerIface.html#Clutter.ContainerIface" title="Clutter.ContainerIface"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ContainerIface</span></code></a>.create_child_meta(), <a class="reference internal" href="../iface-structs/ContainerIface.html#Clutter.ContainerIface" title="Clutter.ContainerIface"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ContainerIface</span></code></a>.destroy_child_meta(),
-and <a class="reference internal" href="../iface-structs/ContainerIface.html#Clutter.ContainerIface" title="Clutter.ContainerIface"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ContainerIface</span></code></a>.get_child_meta().</p>
+<a class="reference internal" href="../interfaces/Container.html#Clutter.Container.do_create_child_meta" title="Clutter.Container.do_create_child_meta"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Container.do_create_child_meta</span></code></a>(), <a class="reference internal" href="../interfaces/Container.html#Clutter.Container.do_destroy_child_meta" title="Clutter.Container.do_destroy_child_meta"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Container.do_destroy_child_meta</span></code></a>(),
+and <a class="reference internal" href="../interfaces/Container.html#Clutter.Container.do_get_child_meta" title="Clutter.Container.do_get_child_meta"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Container.do_get_child_meta</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.8.</span></p>
 </div>
@@ -369,7 +367,7 @@ and <a class="reference internal" href="../iface-structs/ContainerIface.html#Clu
 </tr>
 </tbody>
 </table>
-<p>Retrieves the actor wrapped by <cite>data</cite></p>
+<p>Retrieves the actor wrapped by <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.8.</span></p>
 </div>
@@ -388,7 +386,7 @@ and <a class="reference internal" href="../iface-structs/ContainerIface.html#Clu
 </tr>
 </tbody>
 </table>
-<p>Retrieves the container using <cite>data</cite></p>
+<p>Retrieves the container using <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.8.</span></p>
 </div>
@@ -459,7 +457,4 @@ and <a class="reference internal" href="../iface-structs/ContainerIface.html#Clu
   </div> 
 
 </body>
-
-  
-
 </html>

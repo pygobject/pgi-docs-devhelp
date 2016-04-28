@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gtk.FileFilterInfo" href="FileFilterInfo.html"/>
         <link rel="prev" title="Gtk.Border" href="Border.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -190,15 +188,11 @@
 <dl class="class">
 <dt id="Gtk.CssSection">
 <em class="property">class </em><code class="descclassname">Gtk.</code><code class="descname">CssSection</code></dt>
-<dd><p>Defines a part of a CSS document. Because sections are nested into
-one another, you can use <a class="reference internal" href="#Gtk.CssSection.get_parent" title="Gtk.CssSection.get_parent"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSection.get_parent</span></code></a> () to get the
-containing region.</p>
-<div class="versionadded">
-<p><span class="versionmodified">New in version 3.2.</span></p>
-</div>
+<dd><p><a class="reference internal" href="#Gtk.CssSection" title="Gtk.CssSection"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSection</span></code></a> is an auxiliary object containing information about
+the results of parsing a CSS style sheet.</p>
 <dl class="method">
 <dt id="Gtk.CssSection.get_end_line">
-<code class="descname">get_end_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.18.6#n273"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_end_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.20.3#n273"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -213,7 +207,7 @@ containing region.</p>
 The line number is 0-indexed, so the first line of the document
 will return 0.
 This value may change in future invocations of this function if
-<cite>section</cite> is not yet parsed completely. This will for example
+<cite>self</cite> is not yet parsed completely. This will for example
 happen in the <a class="reference internal" href="../classes/CssProvider.html#Gtk.CssProvider" title="Gtk.CssProvider"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssProvider</span></code></a> <a class="reference internal" href="../classes/CssProvider.html#Gtk.CssProvider.signals.parsing_error" title="Gtk.CssProvider.signals.parsing_error"><code class="xref py py-func docutils literal"><span class="pre">::parsing-error</span></code></a> signal.
 The end position and line may be identical to the start
 position and line for sections which failed to parse anything
@@ -225,7 +219,7 @@ successfully.</p>
 
 <dl class="method">
 <dt id="Gtk.CssSection.get_end_position">
-<code class="descname">get_end_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.18.6#n301"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_end_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.20.3#n301"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -237,9 +231,9 @@ successfully.</p>
 </tbody>
 </table>
 <p>Returns the offset in bytes from the start of the current line
-returned via <a class="reference internal" href="#Gtk.CssSection.get_end_line" title="Gtk.CssSection.get_end_line"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSection.get_end_line</span></code></a> ().
+returned via <a class="reference internal" href="#Gtk.CssSection.get_end_line" title="Gtk.CssSection.get_end_line"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSection.get_end_line</span></code></a>().
 This value may change in future invocations of this function if
-<cite>section</cite> is not yet parsed completely. This will for example
+<cite>self</cite> is not yet parsed completely. This will for example
 happen in the <a class="reference internal" href="../classes/CssProvider.html#Gtk.CssProvider" title="Gtk.CssProvider"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssProvider</span></code></a> <a class="reference internal" href="../classes/CssProvider.html#Gtk.CssProvider.signals.parsing_error" title="Gtk.CssProvider.signals.parsing_error"><code class="xref py py-func docutils literal"><span class="pre">::parsing-error</span></code></a> signal.
 The end position and line may be identical to the start
 position and line for sections which failed to parse anything
@@ -251,21 +245,21 @@ successfully.</p>
 
 <dl class="method">
 <dt id="Gtk.CssSection.get_file">
-<code class="descname">get_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.18.6#n208"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.20.3#n208"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> that <cite>section</cite> was parsed from
-or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>section</cite> was parsed from other data</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> that <cite>self</cite> was parsed from
+or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> was parsed from other data</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gtk-3.0/../../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the file that <cite>section</cite> was parsed from. If no such file exists,
+<p>Gets the file that <cite>self</cite> was parsed from. If no such file exists,
 for example because the CSS was loaded via
-<cite>gtk_css_provider_load_from_data</cite> (), then <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.</p>
+<cite>gtk_css_provider_load_from_data</cite>(), then <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.2.</span></p>
 </div>
@@ -273,7 +267,7 @@ for example because the CSS was loaded via
 
 <dl class="method">
 <dt id="Gtk.CssSection.get_parent">
-<code class="descname">get_parent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.18.6#n187"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_parent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.20.3#n187"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -284,11 +278,11 @@ for example because the CSS was loaded via
 </tr>
 </tbody>
 </table>
-<p>Gets the parent section for the given <cite>section</cite>. The parent section is
-the section that contains this <cite>section</cite>. A special case are sections of
+<p>Gets the parent section for the given <cite>self</cite>. The parent section is
+the section that contains this <cite>self</cite>. A special case are sections of
 type <a class="reference internal" href="../enums.html#Gtk.CssSectionType.DOCUMENT" title="Gtk.CssSectionType.DOCUMENT"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSectionType.DOCUMENT</span></code></a>. Their parent will either be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
 if they are the original CSS document that was loaded by
-<a class="reference internal" href="../classes/CssProvider.html#Gtk.CssProvider.load_from_file" title="Gtk.CssProvider.load_from_file"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssProvider.load_from_file</span></code></a> () or a section of type
+<a class="reference internal" href="../classes/CssProvider.html#Gtk.CssProvider.load_from_file" title="Gtk.CssProvider.load_from_file"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssProvider.load_from_file</span></code></a>() or a section of type
 <a class="reference internal" href="../enums.html#Gtk.CssSectionType.IMPORT" title="Gtk.CssSectionType.IMPORT"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSectionType.IMPORT</span></code></a> if it was loaded with an import rule from
 a different file.</p>
 <div class="versionadded">
@@ -298,18 +292,18 @@ a different file.</p>
 
 <dl class="method">
 <dt id="Gtk.CssSection.get_section_type">
-<code class="descname">get_section_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.18.6#n163"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_section_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.20.3#n163"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the type of <cite>section</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the type of <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../enums.html#Gtk.CssSectionType" title="Gtk.CssSectionType"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSectionType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the type of information that <cite>section</cite> describes.</p>
+<p>Gets the type of information that <cite>self</cite> describes.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.2.</span></p>
 </div>
@@ -317,7 +311,7 @@ a different file.</p>
 
 <dl class="method">
 <dt id="Gtk.CssSection.get_start_line">
-<code class="descname">get_start_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.18.6#n228"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_start_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.20.3#n228"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -338,7 +332,7 @@ will return 0.</p>
 
 <dl class="method">
 <dt id="Gtk.CssSection.get_start_position">
-<code class="descname">get_start_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.18.6#n247"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_start_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.20.3#n247"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -350,7 +344,7 @@ will return 0.</p>
 </tbody>
 </table>
 <p>Returns the offset in bytes from the start of the current line
-returned via <a class="reference internal" href="#Gtk.CssSection.get_start_line" title="Gtk.CssSection.get_start_line"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSection.get_start_line</span></code></a> ().</p>
+returned via <a class="reference internal" href="#Gtk.CssSection.get_start_line" title="Gtk.CssSection.get_start_line"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSection.get_start_line</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.2.</span></p>
 </div>
@@ -358,18 +352,18 @@ returned via <a class="reference internal" href="#Gtk.CssSection.get_start_line"
 
 <dl class="method">
 <dt id="Gtk.CssSection.ref">
-<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.18.6#n114"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.20.3#n114"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>section</cite> itself.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> itself.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Gtk.CssSection" title="Gtk.CssSection"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CssSection</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Increments the reference count on <cite>section</cite>.</p>
+<p>Increments the reference count on <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.2.</span></p>
 </div>
@@ -377,8 +371,8 @@ returned via <a class="reference internal" href="#Gtk.CssSection.get_start_line"
 
 <dl class="method">
 <dt id="Gtk.CssSection.unref">
-<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.18.6#n136"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Decrements the reference count on <cite>section</cite>, freeing the
+<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcsssection.c?h=3.20.3#n136"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Decrements the reference count on <cite>self</cite>, freeing the
 structure if the reference count reaches 0.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.2.</span></p>
@@ -401,7 +395,4 @@ structure if the reference count reaches 0.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

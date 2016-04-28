@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="LangTag 0.5 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="LangTag.ExtModule" href="ExtModule.html"/>
         <link rel="prev" title="Structures" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -191,20 +189,20 @@ structure are private to the <a class="reference internal" href="#LangTag.Error"
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly allocated <a class="reference internal" href="#LangTag.Error" title="LangTag.Error"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.Error</span></code></a>. it has to be freed
-with <a class="reference internal" href="#LangTag.Error.unref" title="LangTag.Error.unref"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.Error.unref</span></code></a> ().</td>
+with <a class="reference internal" href="#LangTag.Error.unref" title="LangTag.Error.unref"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.Error.unref</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#LangTag.Error" title="LangTag.Error"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.Error</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Creates <a class="reference internal" href="#LangTag.Error" title="LangTag.Error"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.Error</span></code></a> object. this function is protected and not supposed
-to use in applications directly. Use <code class="xref py py-obj docutils literal"><span class="pre">LangTag.Error.set</span></code> ().</p>
+to use in applications directly. Use lt_error_set().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="LangTag.Error.clear">
 <code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Clean up all of the errors in <cite>error</cite>.</p>
+<dd><p>Clean up all of the errors in <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -222,7 +220,7 @@ to use in applications directly. Use <code class="xref py py-obj docutils litera
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>error</cite> contains <cite>type</cite> of errors. if #LT_ERR_ANY is set to <cite>type</cite>,
+<p>Checks if <cite>self</cite> contains <cite>type</cite> of errors. if #LT_ERR_ANY is set to <cite>type</cite>,
 all the types of the errors are targeted. otherwise the result is filtered
 out by <cite>type</cite>.</p>
 </dd></dl>
@@ -238,7 +236,7 @@ out by <cite>type</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Output the error messages in <cite>error</cite> according to <cite>type</cite>.</p>
+<p>Output the error messages in <cite>self</cite> according to <cite>type</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -248,19 +246,19 @@ out by <cite>type</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the same <cite>error</cite> object.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the same <cite>self</cite> object.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#LangTag.Error" title="LangTag.Error"><code class="xref py py-obj docutils literal"><span class="pre">LangTag.Error</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Inscreases the reference count of <cite>error</cite>.</p>
+<p>Inscreases the reference count of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="LangTag.Error.unref">
 <code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Decreases the reference count of <cite>error</cite>. when its reference count
+<dd><p>Decreases the reference count of <cite>self</cite>. when its reference count
 drops to 0, the object is finalized (i.e. its memory is freed).</p>
 </dd></dl>
 
@@ -280,7 +278,4 @@ drops to 0, the object is finalized (i.e. its memory is freed).</p>
   </div> 
 
 </body>
-
-  
-
 </html>

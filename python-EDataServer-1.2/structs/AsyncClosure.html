@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="EDataServer 1.2 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="EDataServer.ClientErrorsList" href="ClientErrorsList.html"/>
         <link rel="prev" title="Structures" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -175,20 +173,20 @@
 <dd><p><a class="reference internal" href="#EDataServer.AsyncClosure" title="EDataServer.AsyncClosure"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure</span></code></a> provides a simple way to run an asynchronous function
 synchronously without blocking a running <a class="reference external" href="../_docs/EDataServer-1.2/../../../python-GLib-2.0/structs/MainLoop.html#GLib.MainLoop" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainLoop</span></code></a> or using threads.</p>
 <ol class="arabic simple">
-<li>Create an <a class="reference internal" href="#EDataServer.AsyncClosure" title="EDataServer.AsyncClosure"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure</span></code></a> with <code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.new</span></code> ().</li>
+<li>Create an <a class="reference internal" href="#EDataServer.AsyncClosure" title="EDataServer.AsyncClosure"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure</span></code></a> with e_async_closure_new().</li>
 </ol>
-<p>2) Call the asynchronous function passing <a class="reference internal" href="#EDataServer.AsyncClosure.callback" title="EDataServer.AsyncClosure.callback"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.callback</span></code></a> () as
+<p>2) Call the asynchronous function passing <a class="reference internal" href="#EDataServer.AsyncClosure.callback" title="EDataServer.AsyncClosure.callback"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.callback</span></code></a>() as
 the <a class="reference external" href="../_docs/EDataServer-1.2/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> argument and the <a class="reference internal" href="#EDataServer.AsyncClosure" title="EDataServer.AsyncClosure"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure</span></code></a> as the data
 argument.</p>
 <ol class="arabic simple" start="3">
-<li>Call <a class="reference internal" href="#EDataServer.AsyncClosure.wait" title="EDataServer.AsyncClosure.wait"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.wait</span></code></a> () and collect the <a class="reference external" href="../_docs/EDataServer-1.2/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>.</li>
+<li>Call <a class="reference internal" href="#EDataServer.AsyncClosure.wait" title="EDataServer.AsyncClosure.wait"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.wait</span></code></a>() and collect the <a class="reference external" href="../_docs/EDataServer-1.2/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>.</li>
 </ol>
 <p>4) Call the corresponding asynchronous &#8220;finish&#8221; function, passing the
-<a class="reference external" href="../_docs/EDataServer-1.2/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a> returned by <a class="reference internal" href="#EDataServer.AsyncClosure.wait" title="EDataServer.AsyncClosure.wait"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.wait</span></code></a> ().</p>
+<a class="reference external" href="../_docs/EDataServer-1.2/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a> returned by <a class="reference internal" href="#EDataServer.AsyncClosure.wait" title="EDataServer.AsyncClosure.wait"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.wait</span></code></a>().</p>
 <p>5) If needed, repeat steps 2-4 for additional asynchronous functions
 using the same <a class="reference internal" href="#EDataServer.AsyncClosure" title="EDataServer.AsyncClosure"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure</span></code></a>.</p>
 <ol class="arabic simple" start="6">
-<li>Finally, free the <a class="reference internal" href="#EDataServer.AsyncClosure" title="EDataServer.AsyncClosure"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure</span></code></a> with <a class="reference internal" href="#EDataServer.AsyncClosure.free" title="EDataServer.AsyncClosure.free"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.free</span></code></a> ().</li>
+<li>Finally, free the <a class="reference internal" href="#EDataServer.AsyncClosure" title="EDataServer.AsyncClosure"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure</span></code></a> with <a class="reference internal" href="#EDataServer.AsyncClosure.free" title="EDataServer.AsyncClosure.free"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.free</span></code></a>().</li>
 </ol>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.6.</span></p>
@@ -211,7 +209,7 @@ using the same <a class="reference internal" href="#EDataServer.AsyncClosure" ti
 </table>
 <p>Pass this function as the <a class="reference external" href="../_docs/EDataServer-1.2/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> argument of an asynchronous
 function, and the <a class="reference internal" href="#EDataServer.AsyncClosure" title="EDataServer.AsyncClosure"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure</span></code></a> as the data argument.</p>
-<p>This causes <a class="reference internal" href="#EDataServer.AsyncClosure.wait" title="EDataServer.AsyncClosure.wait"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.wait</span></code></a> () to terminate and return <cite>result</cite>.</p>
+<p>This causes <a class="reference internal" href="#EDataServer.AsyncClosure.wait" title="EDataServer.AsyncClosure.wait"><code class="xref py py-obj docutils literal"><span class="pre">EDataServer.AsyncClosure.wait</span></code></a>() to terminate and return <cite>result</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.6.</span></p>
 </div>
@@ -220,7 +218,7 @@ function, and the <a class="reference internal" href="#EDataServer.AsyncClosure"
 <dl class="method">
 <dt id="EDataServer.AsyncClosure.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Frees the <cite>closure</cite> and the resources it holds.</p>
+<dd><p>Frees the <cite>self</cite> and the resources it holds.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.6.</span></p>
 </div>
@@ -265,7 +263,4 @@ easily string together multiple asynchronous operations.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

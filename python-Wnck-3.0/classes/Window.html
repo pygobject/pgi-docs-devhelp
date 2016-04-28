@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Wnck 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Wnck.Workspace" href="Workspace.html"/>
         <link rel="prev" title="Wnck.Tasklist" href="Tasklist.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -481,6 +479,9 @@
 <td><a class="reference internal" href="#Wnck.Window.do_state_changed" title="Wnck.Window.do_state_changed"><code class="xref py py-func docutils literal"><span class="pre">do_state_changed</span></code></a> (changed_mask, new_state)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Wnck.Window.do_type_changed" title="Wnck.Window.do_type_changed"><code class="xref py py-func docutils literal"><span class="pre">do_type_changed</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Wnck.Window.do_workspace_changed" title="Wnck.Window.do_workspace_changed"><code class="xref py py-func docutils literal"><span class="pre">do_workspace_changed</span></code></a> ()</td>
 </tr>
 </tbody>
@@ -532,7 +533,10 @@
 <tr class="row-even"><td><a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">state-changed</span></code></a></td>
 <td>Emitted when the state of <cite>window</cite> changes.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Wnck.Window.signals.workspace_changed" title="Wnck.Window.signals.workspace_changed"><code class="xref py py-func docutils literal"><span class="pre">workspace-changed</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Wnck.Window.signals.type_changed" title="Wnck.Window.signals.type_changed"><code class="xref py py-func docutils literal"><span class="pre">type-changed</span></code></a></td>
+<td>Emitted when the EWMH type hint of the window changes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#Wnck.Window.signals.workspace_changed" title="Wnck.Window.signals.workspace_changed"><code class="xref py py-func docutils literal"><span class="pre">workspace-changed</span></code></a></td>
 <td>Emitted when the current workspace of <cite>window</cite> changes, or if <cite>window</cite> has been pinned or unpinned.</td>
 </tr>
 </tbody>
@@ -623,8 +627,8 @@ this call to occur.</td>
 </tr>
 </tbody>
 </table>
-<p>Asks the window manager to make <cite>window</cite> the active window. The
-window manager may choose to raise <cite>window</cite> along with focusing it, and may
+<p>Asks the window manager to make <cite>self</cite> the active window. The
+window manager may choose to raise <cite>self</cite> along with focusing it, and may
 decide to refuse the request (to not steal the focus if there is a more
 recent user activity, for example).</p>
 <p>This function existed before 2.10, but the <cite>timestamp</cite> argument was missing
@@ -646,10 +650,10 @@ this call to occur.</td>
 </tr>
 </tbody>
 </table>
-<p>If <cite>window</cite> has transients, activates the most likely transient
-instead of the window itself. Otherwise activates <cite>window</cite>.</p>
+<p>If <cite>self</cite> has transients, activates the most likely transient
+instead of the window itself. Otherwise activates <cite>self</cite>.</p>
 <p>FIXME the ideal behavior of this function is probably to activate
-the most recently active window among <cite>window</cite> and its transients.
+the most recently active window among <cite>self</cite> and its transients.
 This is probably best implemented on the window manager side.</p>
 <p>This function existed before 2.10, but the <cite>timestamp</cite> argument was missing
 in earlier versions.</p>
@@ -670,7 +674,7 @@ this call to occur.</td>
 </tr>
 </tbody>
 </table>
-<p>Closes <cite>window</cite>.</p>
+<p>Closes <cite>self</cite>.</p>
 <p>This function existed before 2.6, but the <cite>timestamp</cite> argument was missing
 in earlier versions.</p>
 <div class="versionadded">
@@ -685,13 +689,13 @@ in earlier versions.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bitmask of actions that can be done for <cite>window</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bitmask of actions that can be done for <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../flags.html#Wnck.WindowActions" title="Wnck.WindowActions"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.WindowActions</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the actions that can be done for <cite>window</cite>.</p>
+<p>Gets the actions that can be done for <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -701,7 +705,7 @@ in earlier versions.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="Application.html#Wnck.Application" title="Wnck.Application"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Application</span></code></a> to which <cite>window</cite> belongs.
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="Application.html#Wnck.Application" title="Wnck.Application"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Application</span></code></a> to which <cite>self</cite> belongs.
 The returned <a class="reference internal" href="Application.html#Wnck.Application" title="Wnck.Application"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Application</span></code></a> is owned by libwnck and must not be referenced
 or unreferenced.</td>
 </tr>
@@ -709,7 +713,7 @@ or unreferenced.</td>
 </tr>
 </tbody>
 </table>
-<p>Gets the <a class="reference internal" href="Application.html#Wnck.Application" title="Wnck.Application"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Application</span></code></a> to which <cite>window</cite> belongs.</p>
+<p>Gets the <a class="reference internal" href="Application.html#Wnck.Application" title="Wnck.Application"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Application</span></code></a> to which <cite>self</cite> belongs.</p>
 </dd></dl>
 
 <dl class="method">
@@ -719,7 +723,7 @@ or unreferenced.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="ClassGroup.html#Wnck.ClassGroup" title="Wnck.ClassGroup"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.ClassGroup</span></code></a> to which <cite>window</cite> belongs.
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="ClassGroup.html#Wnck.ClassGroup" title="Wnck.ClassGroup"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.ClassGroup</span></code></a> to which <cite>self</cite> belongs.
 The returned <a class="reference internal" href="ClassGroup.html#Wnck.ClassGroup" title="Wnck.ClassGroup"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.ClassGroup</span></code></a> is owned by libwnck and must not be referenced
 or unreferenced.</td>
 </tr>
@@ -727,7 +731,7 @@ or unreferenced.</td>
 </tr>
 </tbody>
 </table>
-<p>Gets the <a class="reference internal" href="ClassGroup.html#Wnck.ClassGroup" title="Wnck.ClassGroup"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.ClassGroup</span></code></a> to which <cite>window</cite> belongs.</p>
+<p>Gets the <a class="reference internal" href="ClassGroup.html#Wnck.ClassGroup" title="Wnck.ClassGroup"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.ClassGroup</span></code></a> to which <cite>self</cite> belongs.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.2.</span></p>
 </div>
@@ -740,7 +744,7 @@ or unreferenced.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the class group name for <cite>window</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>window</cite> belongs
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the class group name for <cite>self</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> belongs
 to no class group.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
@@ -748,9 +752,9 @@ to no class group.</td>
 </tbody>
 </table>
 <p>Gets the class group name from the <a class="reference external" href="http://tronche.com/gui/x/icccm/sec-4.html&amp;amp;num;WM_CLASS">WM_CLASS Property</a>
-for <cite>window</cite>.</p>
+for <cite>self</cite>.</p>
 <p>The class group name is also the identifier name of the <a class="reference internal" href="ClassGroup.html#Wnck.ClassGroup" title="Wnck.ClassGroup"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.ClassGroup</span></code></a> to
-which <cite>window</cite> belongs.</p>
+which <cite>self</cite> belongs.</p>
 </dd></dl>
 
 <dl class="method">
@@ -760,7 +764,7 @@ which <cite>window</cite> belongs.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the class instance name for <cite>window</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>window</cite> has
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the class instance name for <cite>self</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> has
 no class instance.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
@@ -768,7 +772,7 @@ no class instance.</td>
 </tbody>
 </table>
 <p>Gets the class instance name from the <a class="reference external" href="http://tronche.com/gui/x/icccm/sec-4.html&amp;amp;num;WM_CLASS">WM_CLASS Property</a>
-for <cite>window</cite>.</p>
+for <cite>self</cite>.</p>
 <p>The class instance name allows to differentiate windows belonging to the
 same class group, so that they can use different resources.</p>
 </dd></dl>
@@ -784,13 +788,13 @@ same class group, so that they can use different resources.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">xp:</th><td class="field-body">return location for X coordinate in pixels of <cite>window</cite>.</td>
+<tr class="field-odd field"><th class="field-name">xp:</th><td class="field-body">return location for X coordinate in pixels of <cite>self</cite>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">yp:</th><td class="field-body">return location for Y coordinate in pixels of <cite>window</cite>.</td>
+<tr class="field-even field"><th class="field-name">yp:</th><td class="field-body">return location for Y coordinate in pixels of <cite>self</cite>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">widthp:</th><td class="field-body">return location for width in pixels of <cite>window</cite>.</td>
+<tr class="field-odd field"><th class="field-name">widthp:</th><td class="field-body">return location for width in pixels of <cite>self</cite>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">heightp:</th><td class="field-body">return location for height in pixels of <cite>window</cite>.</td>
+<tr class="field-even field"><th class="field-name">heightp:</th><td class="field-body">return location for height in pixels of <cite>self</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -800,13 +804,13 @@ same class group, so that they can use different resources.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets the size and position of <cite>window</cite>, as last received
+<p>Gets the size and position of <cite>self</cite>, as last received
 in a ConfigureNotify event (i.e. this call does not round-trip
 to the server, just gets the last size we were notified of).
 The X and Y coordinates are relative to the root window.</p>
 <p>The window manager usually adds a frame around windows. If
-you need to know the size of <cite>window</cite> with the frame, use
-<a class="reference internal" href="#Wnck.Window.get_geometry" title="Wnck.Window.get_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_geometry</span></code></a> ().</p>
+you need to know the size of <cite>self</cite> with the frame, use
+<a class="reference internal" href="#Wnck.Window.get_geometry" title="Wnck.Window.get_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_geometry</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
 </div>
@@ -823,13 +827,13 @@ you need to know the size of <cite>window</cite> with the frame, use
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">xp:</th><td class="field-body">return location for X coordinate in pixels of <cite>window</cite>.</td>
+<tr class="field-odd field"><th class="field-name">xp:</th><td class="field-body">return location for X coordinate in pixels of <cite>self</cite>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">yp:</th><td class="field-body">return location for Y coordinate in pixels of <cite>window</cite>.</td>
+<tr class="field-even field"><th class="field-name">yp:</th><td class="field-body">return location for Y coordinate in pixels of <cite>self</cite>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">widthp:</th><td class="field-body">return location for width in pixels of <cite>window</cite>.</td>
+<tr class="field-odd field"><th class="field-name">widthp:</th><td class="field-body">return location for width in pixels of <cite>self</cite>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">heightp:</th><td class="field-body">return location for height in pixels of <cite>window</cite>.</td>
+<tr class="field-even field"><th class="field-name">heightp:</th><td class="field-body">return location for height in pixels of <cite>self</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -839,14 +843,14 @@ you need to know the size of <cite>window</cite> with the frame, use
 </tr>
 </tbody>
 </table>
-<p>Gets the size and position of <cite>window</cite>, including decorations. This
+<p>Gets the size and position of <cite>self</cite>, including decorations. This
 function uses the information last received in a ConfigureNotify
 event and adjusts it according to the size of the frame that is
 added by the window manager (this call does not round-trip to the
 server, it just gets the last sizes that were notified). The
 X and Y coordinates are relative to the root window.</p>
-<p>If you need to know the actual size of <cite>window</cite> ignoring the frame
-added by the window manager, use <a class="reference internal" href="#Wnck.Window.get_client_window_geometry" title="Wnck.Window.get_client_window_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_client_window_geometry</span></code></a> ().</p>
+<p>If you need to know the actual size of <cite>self</cite> ignoring the frame
+added by the window manager, use <a class="reference internal" href="#Wnck.Window.get_client_window_geometry" title="Wnck.Window.get_client_window_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_client_window_geometry</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -856,15 +860,15 @@ added by the window manager, use <a class="reference internal" href="#Wnck.Windo
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the group leader of the group of windows to which <cite>window</cite>
-belongs, or the X window ID of <cite>window</cite> if <cite>window</cite> does not belong to any
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the group leader of the group of windows to which <cite>self</cite>
+belongs, or the X window ID of <cite>self</cite> if <cite>self</cite> does not belong to any
 group.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the group leader of the group of windows to which <cite>window</cite> belongs.</p>
+<p>Gets the group leader of the group of windows to which <cite>self</cite> belongs.</p>
 </dd></dl>
 
 <dl class="method">
@@ -874,7 +878,7 @@ group.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the icon for <cite>window</cite>. The caller should
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the icon for <cite>self</cite>. The caller should
 reference the returned <a class="reference external" href="../_docs/Wnck-3.0/../../../python-GdkPixbuf-2.0/classes/Pixbuf.html#GdkPixbuf.Pixbuf" title="(in GdkPixbuf 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GdkPixbuf.Pixbuf</span></code></a> if it needs to keep
 the icon around.</td>
 </tr>
@@ -882,8 +886,8 @@ the icon around.</td>
 </tr>
 </tbody>
 </table>
-<p>Gets the icon to be used for <cite>window</cite>. If no icon was found, a fallback
-icon is used. <a class="reference internal" href="#Wnck.Window.get_icon_is_fallback" title="Wnck.Window.get_icon_is_fallback"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_is_fallback</span></code></a> () can be used to tell if the
+<p>Gets the icon to be used for <cite>self</cite>. If no icon was found, a fallback
+icon is used. <a class="reference internal" href="#Wnck.Window.get_icon_is_fallback" title="Wnck.Window.get_icon_is_fallback"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_is_fallback</span></code></a>() can be used to tell if the
 icon is the fallback icon.</p>
 </dd></dl>
 
@@ -894,14 +898,14 @@ icon is the fallback icon.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the icon for <cite>window</cite> is a fallback, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the icon for <cite>self</cite> is a fallback, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether a default fallback icon is used for <cite>window</cite> (because none
-was set on <cite>window</cite> ).</p>
+<p>Gets whether a default fallback icon is used for <cite>self</cite> (because none
+was set on <cite>self</cite>).</p>
 </dd></dl>
 
 <dl class="method">
@@ -911,18 +915,18 @@ was set on <cite>window</cite> ).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the icon name of <cite>window</cite>, or a fallback icon name if no icon
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the icon name of <cite>self</cite>, or a fallback icon name if no icon
 name is available.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the icon name of <cite>window</cite>, as it should be displayed for an icon
-(minimized state). Always returns some value, even if <cite>window</cite> has no icon
-name set; use <a class="reference internal" href="#Wnck.Window.has_icon_name" title="Wnck.Window.has_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_icon_name</span></code></a> () if you need to know whether the
+<p>Gets the icon name of <cite>self</cite>, as it should be displayed for an icon
+(minimized state). Always returns some value, even if <cite>self</cite> has no icon
+name set; use <a class="reference internal" href="#Wnck.Window.has_icon_name" title="Wnck.Window.has_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_icon_name</span></code></a>() if you need to know whether the
 returned icon name is &#8220;real&#8221; or not.</p>
-<p>Contrast with <a class="reference internal" href="#Wnck.Window.get_name" title="Wnck.Window.get_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_name</span></code></a> (), which returns <cite>window</cite> &#8216;s
+<p>Contrast with <a class="reference internal" href="#Wnck.Window.get_name" title="Wnck.Window.get_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_name</span></code></a>(), which returns <cite>self</cite> &#8216;s
 title, not its icon title.</p>
 </dd></dl>
 
@@ -933,7 +937,7 @@ title, not its icon title.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the mini-icon for <cite>window</cite>. The caller should
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the mini-icon for <cite>self</cite>. The caller should
 reference the returned <a class="reference external" href="../_docs/Wnck-3.0/../../../python-GdkPixbuf-2.0/classes/Pixbuf.html#GdkPixbuf.Pixbuf" title="(in GdkPixbuf 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GdkPixbuf.Pixbuf</span></code></a> if it needs to keep
 the icon around.</td>
 </tr>
@@ -941,8 +945,8 @@ the icon around.</td>
 </tr>
 </tbody>
 </table>
-<p>Gets the mini-icon to be used for <cite>window</cite>. If no mini-icon was found, a
-fallback mini-icon is used. <a class="reference internal" href="#Wnck.Window.get_icon_is_fallback" title="Wnck.Window.get_icon_is_fallback"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_is_fallback</span></code></a> () can be used
+<p>Gets the mini-icon to be used for <cite>self</cite>. If no mini-icon was found, a
+fallback mini-icon is used. <a class="reference internal" href="#Wnck.Window.get_icon_is_fallback" title="Wnck.Window.get_icon_is_fallback"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_is_fallback</span></code></a>() can be used
 to tell if the mini-icon is the fallback mini-icon.</p>
 </dd></dl>
 
@@ -953,18 +957,18 @@ to tell if the mini-icon is the fallback mini-icon.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of <cite>window</cite>, or a fallback name if no name is
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of <cite>self</cite>, or a fallback name if no name is
 available.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the name of <cite>window</cite>, as it should be displayed in a pager
-or tasklist. Always returns some value, even if <cite>window</cite> has no name
-set; use <a class="reference internal" href="#Wnck.Window.has_name" title="Wnck.Window.has_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_name</span></code></a> () if you need to know whether the returned
+<p>Gets the name of <cite>self</cite>, as it should be displayed in a pager
+or tasklist. Always returns some value, even if <cite>self</cite> has no name
+set; use <a class="reference internal" href="#Wnck.Window.has_name" title="Wnck.Window.has_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_name</span></code></a>() if you need to know whether the returned
 name is &#8220;real&#8221; or not.</p>
-<p>For icons titles, use <a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a> () instead.</p>
+<p>For icons titles, use <a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a>() instead.</p>
 </dd></dl>
 
 <dl class="method">
@@ -974,13 +978,13 @@ name is &#8220;real&#8221; or not.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the process ID of <cite>window</cite>, or 0 if none is available.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the process ID of <cite>self</cite>, or 0 if none is available.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the process ID of <cite>window</cite>.</p>
+<p>Gets the process ID of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -990,13 +994,13 @@ name is &#8220;real&#8221; or not.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">role for <cite>window</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>window</cite> has no role.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">role for <cite>self</cite>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> has no role.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the role for <cite>window</cite>.
+<p>Gets the role for <cite>self</cite>.
 The role uniquely identifies a window among all windows that have the same
 client leader window.</p>
 </dd></dl>
@@ -1008,14 +1012,14 @@ client leader window.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a> <cite>window</cite> is on. The returned
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a> <cite>self</cite> is on. The returned
 <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a> is owned by libwnck and must not be referenced or unreferenced.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a> <cite>window</cite> is on.</p>
+<p>Gets the <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a> <cite>self</cite> is on.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1025,17 +1029,17 @@ client leader window.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the session ID for <cite>window</cite> in Latin-1, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>window</cite> has
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the session ID for <cite>self</cite> in Latin-1, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> has
 no session ID.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the session ID for <cite>window</cite> in Latin-1 encoding.
+<p>Gets the session ID for <cite>self</cite> in Latin-1 encoding.
 NOTE: this is invalid UTF-8. You can&#8217;t display this
 string in a GTK+ widget without converting to UTF-8.
-See <a class="reference internal" href="#Wnck.Window.get_session_id_utf8" title="Wnck.Window.get_session_id_utf8"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_session_id_utf8</span></code></a> ().</p>
+See <a class="reference internal" href="#Wnck.Window.get_session_id_utf8" title="Wnck.Window.get_session_id_utf8"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_session_id_utf8</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -1045,14 +1049,14 @@ See <a class="reference internal" href="#Wnck.Window.get_session_id_utf8" title=
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the session ID for <cite>window</cite> in UTF-8, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>window</cite> has
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the session ID for <cite>self</cite> in UTF-8, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> has
 no session ID.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the session ID for <cite>window</cite> in UTF-8 encoding.
+<p>Gets the session ID for <cite>self</cite> in UTF-8 encoding.
 The session ID should be in Latin-1 encoding, so the conversion should work,
 but a broken client could set a session ID that might not be convertable to
 UTF-8.</p>
@@ -1065,13 +1069,13 @@ UTF-8.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the sort order of <cite>window</cite>, or <a class="reference external" href="../_docs/Wnck-3.0/../../../python-GObject-2.0/constants.html#GObject.G_MAXINT" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.G_MAXINT</span></code></a> if none is available.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the sort order of <cite>self</cite>, or <a class="reference external" href="../_docs/Wnck-3.0/../../../python-GObject-2.0/constants.html#GObject.G_MAXINT" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.G_MAXINT</span></code></a> if none is available.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the sort order of <cite>window</cite>, used for ordering of <cite>window</cite> in
+<p>Gets the sort order of <cite>self</cite>, used for ordering of <cite>self</cite> in
 <a class="reference internal" href="Selector.html#Wnck.Selector" title="Wnck.Selector"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Selector</span></code></a> and <a class="reference internal" href="Tasklist.html#Wnck.Tasklist" title="Wnck.Tasklist"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Tasklist</span></code></a>. The sort order is an internal state in
 libwnck. The initial value is defined when the window is created.</p>
 <div class="versionadded">
@@ -1086,13 +1090,13 @@ libwnck. The initial value is defined when the window is created.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bitmask of active states for <cite>window</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bitmask of active states for <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../flags.html#Wnck.WindowState" title="Wnck.WindowState"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.WindowState</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the state of <cite>window</cite>.</p>
+<p>Gets the state of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1102,8 +1106,8 @@ libwnck. The initial value is defined when the window is created.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> for which <cite>window</cite> is
-transient, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>window</cite> is not transient for any <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a>.
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> for which <cite>self</cite> is
+transient, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> is not transient for any <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a>.
 The returned <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> is owned by libwnck and must not be referenced or
 unreferenced.</td>
 </tr>
@@ -1111,7 +1115,7 @@ unreferenced.</td>
 </tr>
 </tbody>
 </table>
-<p>Gets the <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> for which <cite>window</cite> is transient.</p>
+<p>Gets the <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> for which <cite>self</cite> is transient.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.12.</span></p>
 </div>
@@ -1124,13 +1128,13 @@ unreferenced.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the semantic type of <cite>window</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the semantic type of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../enums.html#Wnck.WindowType" title="Wnck.WindowType"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.WindowType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the semantic type of <cite>window</cite>.</p>
+<p>Gets the semantic type of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1140,7 +1144,7 @@ unreferenced.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the single current workspace <cite>window</cite> is on, or
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the single current workspace <cite>self</cite> is on, or
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. The returned <a class="reference internal" href="Workspace.html#Wnck.Workspace" title="Wnck.Workspace"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Workspace</span></code></a> is owned by libwnck and must not be
 referenced or unreferenced.</td>
 </tr>
@@ -1148,7 +1152,7 @@ referenced or unreferenced.</td>
 </tr>
 </tbody>
 </table>
-<p>Gets the current workspace <cite>window</cite> is on. If the window is pinned (on all
+<p>Gets the current workspace <cite>self</cite> is on. If the window is pinned (on all
 workspaces), or not on any workspaces, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> may be returned.</p>
 </dd></dl>
 
@@ -1159,13 +1163,13 @@ workspaces), or not on any workspaces, <a class="reference external" href="http:
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the X window ID of <cite>window</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the X window ID of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the X window ID of <cite>window</cite>.</p>
+<p>Gets the X window ID of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1175,21 +1179,21 @@ workspaces), or not on any workspaces, <a class="reference external" href="http:
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a> () returns
-<cite>window</cite> &#8216;s icon name, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if it returns a fallback name.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a>() returns
+<cite>self</cite> &#8216;s icon name, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if it returns a fallback name.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks whether or not <cite>window</cite> has an icon name.
-<a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a> () will always return some value, even if
-<cite>window</cite> has no icon name set; <a class="reference internal" href="#Wnck.Window.has_icon_name" title="Wnck.Window.has_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_icon_name</span></code></a> () can
+<p>Checks whether or not <cite>self</cite> has an icon name.
+<a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a>() will always return some value, even if
+<cite>self</cite> has no icon name set; <a class="reference internal" href="#Wnck.Window.has_icon_name" title="Wnck.Window.has_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_icon_name</span></code></a>() can
 be used to tell if that icon name is real or not.</p>
-<p>(Note that if <a class="reference internal" href="#Wnck.Window.has_icon_name" title="Wnck.Window.has_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_icon_name</span></code></a> () returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, but
-<a class="reference internal" href="#Wnck.Window.has_name" title="Wnck.Window.has_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_name</span></code></a> () returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, then the name returned by
-<a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a> () is <cite>window</cite> &#8216;s name. Only when both
-methods return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> does <a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a> () return a
+<p>(Note that if <a class="reference internal" href="#Wnck.Window.has_icon_name" title="Wnck.Window.has_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_icon_name</span></code></a>() returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, but
+<a class="reference internal" href="#Wnck.Window.has_name" title="Wnck.Window.has_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_name</span></code></a>() returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, then the name returned by
+<a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a>() is <cite>self</cite> &#8216;s name. Only when both
+methods return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> does <a class="reference internal" href="#Wnck.Window.get_icon_name" title="Wnck.Window.get_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_icon_name</span></code></a>() return a
 generic fallback name.)</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.16.</span></p>
@@ -1203,18 +1207,18 @@ generic fallback name.)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <a class="reference internal" href="#Wnck.Window.get_name" title="Wnck.Window.get_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_name</span></code></a> () returns <cite>window</cite> &#8216;s
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <a class="reference internal" href="#Wnck.Window.get_name" title="Wnck.Window.get_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_name</span></code></a>() returns <cite>self</cite> &#8216;s
 name, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if it returns a fallback name.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks whether or not <cite>window</cite> has a name. <a class="reference internal" href="#Wnck.Window.get_name" title="Wnck.Window.get_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_name</span></code></a> ()
-will always return some value, even if <cite>window</cite> has no name set;
-<a class="reference internal" href="#Wnck.Window.has_name" title="Wnck.Window.has_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_name</span></code></a> () can be used to tell if that name is
+<p>Checks whether or not <cite>self</cite> has a name. <a class="reference internal" href="#Wnck.Window.get_name" title="Wnck.Window.get_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_name</span></code></a>()
+will always return some value, even if <cite>self</cite> has no name set;
+<a class="reference internal" href="#Wnck.Window.has_name" title="Wnck.Window.has_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_name</span></code></a>() can be used to tell if that name is
 real or not.</p>
-<p>For icons titles, use <a class="reference internal" href="#Wnck.Window.has_icon_name" title="Wnck.Window.has_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_icon_name</span></code></a> () instead.</p>
+<p>For icons titles, use <a class="reference internal" href="#Wnck.Window.has_icon_name" title="Wnck.Window.has_icon_name"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.has_icon_name</span></code></a>() instead.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.16.</span></p>
 </div>
@@ -1227,15 +1231,15 @@ real or not.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is above other windows, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is above other windows, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is above other windows. This state may change
+<p>Gets whether <cite>self</cite> is above other windows. This state may change
 anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
-<p>See <a class="reference internal" href="#Wnck.Window.make_above" title="Wnck.Window.make_above"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.make_above</span></code></a> () for more details on this state.</p>
+<p>See <a class="reference internal" href="#Wnck.Window.make_above" title="Wnck.Window.make_above"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.make_above</span></code></a>() for more details on this state.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.14.</span></p>
 </div>
@@ -1248,14 +1252,14 @@ anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is the active window on its <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a>,
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is the active window on its <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a>,
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is the active window on its <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a>.</p>
+<p>Gets whether <cite>self</cite> is the active window on its <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1265,15 +1269,15 @@ anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is below other windows, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is below other windows, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is below other windows. This state may change
+<p>Gets whether <cite>self</cite> is below other windows. This state may change
 anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
-<p>See <a class="reference internal" href="#Wnck.Window.make_below" title="Wnck.Window.make_below"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.make_below</span></code></a> () for more details on this state.</p>
+<p>See <a class="reference internal" href="#Wnck.Window.make_below" title="Wnck.Window.make_below"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.make_below</span></code></a>() for more details on this state.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
 </div>
@@ -1286,13 +1290,13 @@ anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is fullscreen, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is fullscreen, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is fullscreen. Fullscreen state may change
+<p>Gets whether <cite>self</cite> is fullscreen. Fullscreen state may change
 anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.8.</span></p>
@@ -1308,14 +1312,14 @@ anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window">
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>workspace</strong> (<a class="reference internal" href="Workspace.html#Wnck.Workspace" title="Wnck.Workspace"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Workspace</span></code></a>) &#8211; a <a class="reference internal" href="Workspace.html#Wnck.Workspace" title="Wnck.Workspace"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Workspace</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> appears in current viewport of <cite>workspace</cite>,
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> appears in current viewport of <cite>workspace</cite>,
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> appears in the current viewport of <cite>workspace</cite>.</p>
+<p>Gets <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> appears in the current viewport of <cite>workspace</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
 </div>
@@ -1328,17 +1332,17 @@ anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is maximized in both directions, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is maximized in both directions, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
 otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is maximized. Maximization state may change
+<p>Gets whether <cite>self</cite> is maximized. Maximization state may change
 anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
-<p>As for GDK, &#8220;maximized&#8221; means both vertically and horizontally. If <cite>window</cite>
-is maximized in only one direction, then <cite>window</cite> is not considered
+<p>As for GDK, &#8220;maximized&#8221; means both vertically and horizontally. If <cite>self</cite>
+is maximized in only one direction, then <cite>self</cite> is not considered
 maximized.</p>
 </dd></dl>
 
@@ -1349,13 +1353,13 @@ maximized.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is maximized horizontally, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is maximized horizontally, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is maximized horizontally. Horizontal maximization
+<p>Gets whether <cite>self</cite> is maximized horizontally. Horizontal maximization
 state may change anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 </dd></dl>
 
@@ -1366,13 +1370,13 @@ state may change anytime a <a class="reference internal" href="#Wnck.Window" tit
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is maximized vertically, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is maximized vertically, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is maximized vertically. vertiVal maximization
+<p>Gets whether <cite>self</cite> is maximized vertically. vertiVal maximization
 state may change anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 </dd></dl>
 
@@ -1383,13 +1387,13 @@ state may change anytime a <a class="reference internal" href="#Wnck.Window" tit
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is minimized, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is minimized, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is minimized. Minimization state may change anytime
+<p>Gets whether <cite>self</cite> is minimized. Minimization state may change anytime
 a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 </dd></dl>
 
@@ -1400,14 +1404,14 @@ a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code cl
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> was the most recently activated window on its
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> was the most recently activated window on its
 <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is the most recently activated window on its
+<p>Gets whether <cite>self</cite> is the most recently activated window on its
 <a class="reference internal" href="Screen.html#Wnck.Screen" title="Wnck.Screen"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Screen</span></code></a>.</p>
 <p>The most recently activated window is identical to the active
 window for click and sloppy focus methods (since a window is always
@@ -1427,13 +1431,13 @@ there often is no active window.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>workspace</strong> (<a class="reference internal" href="Workspace.html#Wnck.Workspace" title="Wnck.Workspace"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Workspace</span></code></a>) &#8211; a <a class="reference internal" href="Workspace.html#Wnck.Workspace" title="Wnck.Workspace"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Workspace</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> appears on <cite>workspace</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> appears on <cite>workspace</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> appears on <cite>workspace</cite>.</p>
+<p>Gets whether <cite>self</cite> appears on <cite>workspace</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1443,13 +1447,13 @@ there often is no active window.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is on all workspaces, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is on all workspaces, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is on all workspace. Pinned state may change
+<p>Gets whether <cite>self</cite> is on all workspace. Pinned state may change
 anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.workspace_changed" title="Wnck.Window.signals.workspace_changed"><code class="xref py py-func docutils literal"><span class="pre">::workspace-changed</span></code></a> signal gets emitted, but not when
 a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> gets emitted.</p>
 </dd></dl>
@@ -1461,13 +1465,13 @@ a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code cl
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is shaded, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is shaded, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is shaded. Shade state may change anytime
+<p>Gets whether <cite>self</cite> is shaded. Shade state may change anytime
 a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 </dd></dl>
 
@@ -1478,13 +1482,13 @@ a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code cl
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is included on pagers, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is included on pagers, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is included on pagers. This state may change
+<p>Gets whether <cite>self</cite> is included on pagers. This state may change
 anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 </dd></dl>
 
@@ -1495,13 +1499,13 @@ anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is included on tasklists, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is included on tasklists, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is included on tasklists. This state may change
+<p>Gets whether <cite>self</cite> is included on tasklists. This state may change
 anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 </dd></dl>
 
@@ -1512,16 +1516,16 @@ anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> is &#8220;stuck to the glass&#8221;, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is &#8220;stuck to the glass&#8221;, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> is sticky. Sticky state may change
+<p>Gets whether <cite>self</cite> is sticky. Sticky state may change
 anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 <p>Sticky here means &#8220;stuck to the glass&#8221;, i.e. does not scroll with the
-viewport. In GDK/GTK+ (e.g. <a class="reference external" href="../_docs/Wnck-3.0/../../../python-Gdk-3.0/classes/Window.html#Gdk.Window.stick" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.stick</span></code></a> ()/gtk_window_stick()), sticky
+viewport. In GDK/GTK+ (e.g. <a class="reference external" href="../_docs/Wnck-3.0/../../../python-Gdk-3.0/classes/Window.html#Gdk.Window.stick" title="(in Gdk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.stick</span></code></a>()/<a class="reference external" href="../_docs/Wnck-3.0/../../../python-Gtk-3.0/classes/Window.html#Gtk.Window.stick" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Window.stick</span></code></a>()), sticky
 means &#8220;stuck to the glass&#8221; and also that the window is
 on all workspaces. But here it only means the viewport aspect of it.</p>
 </dd></dl>
@@ -1535,33 +1539,33 @@ on all workspaces. But here it only means the viewport aspect of it.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>workspace</strong> (<a class="reference internal" href="Workspace.html#Wnck.Workspace" title="Wnck.Workspace"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Workspace</span></code></a>) &#8211; a <a class="reference internal" href="Workspace.html#Wnck.Workspace" title="Wnck.Workspace"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Workspace</span></code></a>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> appears on <cite>workspace</cite> in normal state, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> appears on <cite>workspace</cite> in normal state, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
 otherwise.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Like <a class="reference internal" href="#Wnck.Window.is_on_workspace" title="Wnck.Window.is_on_workspace"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.is_on_workspace</span></code></a> (), but also checks that
+<p>Like <a class="reference internal" href="#Wnck.Window.is_on_workspace" title="Wnck.Window.is_on_workspace"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.is_on_workspace</span></code></a>(), but also checks that
 the window is in a visible state (i.e. not minimized or shaded).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.keyboard_move">
 <code class="descname">keyboard_move</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to start moving <cite>window</cite> via the keyboard.</p>
+<dd><p>Asks the window manager to start moving <cite>self</cite> via the keyboard.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.keyboard_size">
 <code class="descname">keyboard_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to start resizing <cite>window</cite> via the keyboard.</p>
+<dd><p>Asks the window manager to start resizing <cite>self</cite> via the keyboard.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.make_above">
 <code class="descname">make_above</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to put <cite>window</cite> on top of most windows (<cite>window</cite> will
+<dd><p>Asks the window manager to put <cite>self</cite> on top of most windows (<cite>self</cite> will
 not be on top of focused fullscreen windows, of other windows with this
 setting and of dock windows).</p>
 <div class="versionadded">
@@ -1572,7 +1576,7 @@ setting and of dock windows).</p>
 <dl class="method">
 <dt id="Wnck.Window.make_below">
 <code class="descname">make_below</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to put <cite>window</cite> below most windows.</p>
+<dd><p>Asks the window manager to put <cite>self</cite> below most windows.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
 </div>
@@ -1581,25 +1585,25 @@ setting and of dock windows).</p>
 <dl class="method">
 <dt id="Wnck.Window.maximize">
 <code class="descname">maximize</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to maximize <cite>window</cite>.</p>
+<dd><p>Asks the window manager to maximize <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.maximize_horizontally">
 <code class="descname">maximize_horizontally</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to maximize horizontally <cite>window</cite>.</p>
+<dd><p>Asks the window manager to maximize horizontally <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.maximize_vertically">
 <code class="descname">maximize_vertically</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to maximize vertically <cite>window</cite>.</p>
+<dd><p>Asks the window manager to maximize vertically <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.minimize">
 <code class="descname">minimize</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Minimizes <cite>window</cite>.</p>
+<dd><p>Minimizes <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1613,8 +1617,8 @@ setting and of dock windows).</p>
 </tr>
 </tbody>
 </table>
-<p>Asks the window manager to move <cite>window</cite> to <cite>space</cite>. If <cite>window</cite> was pinned, it
-will also result in <cite>window</cite> being visible only on <cite>space</cite>.</p>
+<p>Asks the window manager to move <cite>self</cite> to <cite>space</cite>. If <cite>self</cite> was pinned, it
+will also result in <cite>self</cite> being visible only on <cite>space</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1624,13 +1628,13 @@ will also result in <cite>window</cite> being visible only on <cite>space</cite>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> needs attention, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> needs attention, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> needs attention. This state may change anytime
+<p>Gets whether <cite>self</cite> needs attention. This state may change anytime
 a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 <p>This state depends on flags such as the demands_attention and is_urgent
 hints.</p>
@@ -1646,14 +1650,14 @@ hints.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>window</cite> or one of its transients needs attention,
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> or one of its transients needs attention,
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether <cite>window</cite> or one of its transients needs attention. This state
+<p>Gets whether <cite>self</cite> or one of its transients needs attention. This state
 may change anytime a <a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a> <a class="reference internal" href="#Wnck.Window.signals.state_changed" title="Wnck.Window.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal gets emitted.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.12.</span></p>
@@ -1663,7 +1667,7 @@ may change anytime a <a class="reference internal" href="#Wnck.Window" title="Wn
 <dl class="method">
 <dt id="Wnck.Window.pin">
 <code class="descname">pin</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to put <cite>window</cite> on all workspaces.</p>
+<dd><p>Asks the window manager to put <cite>self</cite> on all workspaces.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1673,11 +1677,11 @@ may change anytime a <a class="reference internal" href="#Wnck.Window" title="Wn
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fullscreen</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether to make <cite>window</cite> fullscreen.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fullscreen</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether to make <cite>self</cite> fullscreen.</td>
 </tr>
 </tbody>
 </table>
-<p>Asks the window manager to set the fullscreen state of <cite>window</cite> according to
+<p>Asks the window manager to set the fullscreen state of <cite>self</cite> according to
 <cite>fullscreen</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.8.</span></p>
@@ -1694,22 +1698,22 @@ may change anytime a <a class="reference internal" href="#Wnck.Window" title="Wn
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>gravity</strong> (<a class="reference internal" href="../enums.html#Wnck.WindowGravity" title="Wnck.WindowGravity"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.WindowGravity</span></code></a>) &#8211; the gravity point to use as a reference for the new position.</li>
 <li><strong>geometry_mask</strong> (<a class="reference internal" href="../flags.html#Wnck.WindowMoveResizeMask" title="Wnck.WindowMoveResizeMask"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.WindowMoveResizeMask</span></code></a>) &#8211; a bitmask containing flags for what should be set.</li>
-<li><strong>x</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new X coordinate in pixels of <cite>window</cite>.</li>
-<li><strong>y</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new Y coordinate in pixels of <cite>window</cite>.</li>
-<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new width in pixels of <cite>window</cite>.</li>
-<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new height in pixels of <cite>window</cite>.</li>
+<li><strong>x</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new X coordinate in pixels of <cite>self</cite>.</li>
+<li><strong>y</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new Y coordinate in pixels of <cite>self</cite>.</li>
+<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new width in pixels of <cite>self</cite>.</li>
+<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new height in pixels of <cite>self</cite>.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Sets the size and position of <cite>window</cite>. The X and Y coordinates should be
+<p>Sets the size and position of <cite>self</cite>. The X and Y coordinates should be
 relative to the root window.</p>
-<p>Note that the new size and position apply to <cite>window</cite> with its frame added
-by the window manager. Therefore, using <a class="reference internal" href="#Wnck.Window.set_geometry" title="Wnck.Window.set_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.set_geometry</span></code></a> () with
-the values returned by <a class="reference internal" href="#Wnck.Window.get_geometry" title="Wnck.Window.get_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_geometry</span></code></a> () should be a no-op, while
-using <a class="reference internal" href="#Wnck.Window.set_geometry" title="Wnck.Window.set_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.set_geometry</span></code></a> () with the values returned by
-<a class="reference internal" href="#Wnck.Window.get_client_window_geometry" title="Wnck.Window.get_client_window_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_client_window_geometry</span></code></a> () should reduce the size of <cite>window</cite>
+<p>Note that the new size and position apply to <cite>self</cite> with its frame added
+by the window manager. Therefore, using <a class="reference internal" href="#Wnck.Window.set_geometry" title="Wnck.Window.set_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.set_geometry</span></code></a>() with
+the values returned by <a class="reference internal" href="#Wnck.Window.get_geometry" title="Wnck.Window.get_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_geometry</span></code></a>() should be a no-op, while
+using <a class="reference internal" href="#Wnck.Window.set_geometry" title="Wnck.Window.set_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.set_geometry</span></code></a>() with the values returned by
+<a class="reference internal" href="#Wnck.Window.get_client_window_geometry" title="Wnck.Window.get_client_window_geometry"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.get_client_window_geometry</span></code></a>() should reduce the size of <cite>self</cite>
 and move it.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.16.</span></p>
@@ -1733,8 +1737,8 @@ and move it.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the icon geometry for <cite>window</cite>. A typical use case for this is the
-destination of the minimization animation of <cite>window</cite>.</p>
+<p>Sets the icon geometry for <cite>self</cite>. A typical use case for this is the
+destination of the minimization animation of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1744,11 +1748,11 @@ destination of the minimization animation of <cite>window</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>skip</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether <cite>window</cite> should be included on pagers.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>skip</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether <cite>self</cite> should be included on pagers.</td>
 </tr>
 </tbody>
 </table>
-<p>Asks the window manager to make <cite>window</cite> included or not included on pagers.</p>
+<p>Asks the window manager to make <cite>self</cite> included or not included on pagers.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1758,11 +1762,11 @@ destination of the minimization animation of <cite>window</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>skip</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether <cite>window</cite> should be included on tasklists.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>skip</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether <cite>self</cite> should be included on tasklists.</td>
 </tr>
 </tbody>
 </table>
-<p>Asks the window manager to make <cite>window</cite> included or not included on
+<p>Asks the window manager to make <cite>self</cite> included or not included on
 tasklists.</p>
 </dd></dl>
 
@@ -1773,12 +1777,12 @@ tasklists.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>order</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new sort order for <cite>window</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>order</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new sort order for <cite>self</cite>.</td>
 </tr>
 </tbody>
 </table>
-<p>Sets the sort order of <cite>window</cite>. The sort order is used for ordering of
-<cite>window</cite> in <a class="reference internal" href="Selector.html#Wnck.Selector" title="Wnck.Selector"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Selector</span></code></a> and <a class="reference internal" href="Tasklist.html#Wnck.Tasklist" title="Wnck.Tasklist"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Tasklist</span></code></a>.</p>
+<p>Sets the sort order of <cite>self</cite>. The sort order is used for ordering of
+<cite>self</cite> in <a class="reference internal" href="Selector.html#Wnck.Selector" title="Wnck.Selector"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Selector</span></code></a> and <a class="reference internal" href="Tasklist.html#Wnck.Tasklist" title="Wnck.Tasklist"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Tasklist</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
 </div>
@@ -1795,7 +1799,7 @@ tasklists.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the semantic type of <cite>window</cite> to <cite>wintype</cite>.</p>
+<p>Sets the semantic type of <cite>self</cite> to <cite>wintype</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.12.</span></p>
 </div>
@@ -1804,13 +1808,13 @@ tasklists.</p>
 <dl class="method">
 <dt id="Wnck.Window.shade">
 <code class="descname">shade</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to shade <cite>window</cite>.</p>
+<dd><p>Asks the window manager to shade <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.stick">
 <code class="descname">stick</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to keep the <cite>window</cite> &#8216;s position fixed on the
+<dd><p>Asks the window manager to keep the <cite>self</cite> &#8216;s position fixed on the
 screen, even when the workspace or viewport scrolls.</p>
 </dd></dl>
 
@@ -1821,23 +1825,23 @@ screen, even when the workspace or viewport scrolls.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if one of the transients of <cite>window</cite> is the most recently
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if one of the transients of <cite>self</cite> is the most recently
 activated window, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets whether one of the transients of <cite>window</cite> is the most
+<p>Gets whether one of the transients of <cite>self</cite> is the most
 recently activated window. See
-<a class="reference internal" href="#Wnck.Window.is_most_recently_activated" title="Wnck.Window.is_most_recently_activated"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.is_most_recently_activated</span></code></a> () for a more complete
+<a class="reference internal" href="#Wnck.Window.is_most_recently_activated" title="Wnck.Window.is_most_recently_activated"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.is_most_recently_activated</span></code></a>() for a more complete
 description of what is meant by most recently activated.  This
 function is needed because clicking on a <a class="reference internal" href="Tasklist.html#Wnck.Tasklist" title="Wnck.Tasklist"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Tasklist</span></code></a> once will
-activate a transient instead of <cite>window</cite> itself
-(<a class="reference internal" href="#Wnck.Window.activate_transient" title="Wnck.Window.activate_transient"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.activate_transient</span></code></a> ), and clicking again should
-minimize <cite>window</cite> and its transients.  (Not doing this can be
+activate a transient instead of <cite>self</cite> itself
+(<a class="reference internal" href="#Wnck.Window.activate_transient" title="Wnck.Window.activate_transient"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.activate_transient</span></code></a>), and clicking again should
+minimize <cite>self</cite> and its transients.  (Not doing this can be
 especially annoying in the case of modal dialogs that don&#8217;t appear
-in the <a class="reference internal" href="Tasklist.html#Wnck.Tasklist" title="Wnck.Tasklist"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Tasklist</span></code></a> ).</p>
+in the <a class="reference internal" href="Tasklist.html#Wnck.Tasklist" title="Wnck.Tasklist"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Tasklist</span></code></a>).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.12.</span></p>
 </div>
@@ -1846,7 +1850,7 @@ in the <a class="reference internal" href="Tasklist.html#Wnck.Tasklist" title="W
 <dl class="method">
 <dt id="Wnck.Window.unmake_above">
 <code class="descname">unmake_above</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to not put <cite>window</cite> on top of most windows, and to
+<dd><p>Asks the window manager to not put <cite>self</cite> on top of most windows, and to
 put it again in the stack with other windows.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.14.</span></p>
@@ -1856,7 +1860,7 @@ put it again in the stack with other windows.</p>
 <dl class="method">
 <dt id="Wnck.Window.unmake_below">
 <code class="descname">unmake_below</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to not put <cite>window</cite> below most windows, and to
+<dd><p>Asks the window manager to not put <cite>self</cite> below most windows, and to
 put it again in the stack with other windows.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.20.</span></p>
@@ -1866,19 +1870,19 @@ put it again in the stack with other windows.</p>
 <dl class="method">
 <dt id="Wnck.Window.unmaximize">
 <code class="descname">unmaximize</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to unmaximize <cite>window</cite>.</p>
+<dd><p>Asks the window manager to unmaximize <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.unmaximize_horizontally">
 <code class="descname">unmaximize_horizontally</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to unmaximize horizontally <cite>window</cite>.</p>
+<dd><p>Asks the window manager to unmaximize horizontally <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.unmaximize_vertically">
 <code class="descname">unmaximize_vertically</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to unmaximize vertically <cite>window</cite>.</p>
+<dd><p>Asks the window manager to unmaximize vertically <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1893,30 +1897,30 @@ this call to occur.</td>
 </tr>
 </tbody>
 </table>
-<p>Unminimizes <cite>window</cite> by activating it or one of its transients. See
-<a class="reference internal" href="#Wnck.Window.activate_transient" title="Wnck.Window.activate_transient"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.activate_transient</span></code></a> () for details on how the activation is done.</p>
+<p>Unminimizes <cite>self</cite> by activating it or one of its transients. See
+<a class="reference internal" href="#Wnck.Window.activate_transient" title="Wnck.Window.activate_transient"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window.activate_transient</span></code></a>() for details on how the activation is done.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.unpin">
 <code class="descname">unpin</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to put <cite>window</cite> only in the currently active
-workspace, if <cite>window</cite> was previously pinned. If <cite>window</cite> was not pinned,
-does not change <cite>window</cite> &#8216;s workspace. If the active workspace
+<dd><p>Asks the window manager to put <cite>self</cite> only in the currently active
+workspace, if <cite>self</cite> was previously pinned. If <cite>self</cite> was not pinned,
+does not change <cite>self</cite> &#8216;s workspace. If the active workspace
 is not known for some reason (it should not happen much), sets
-<cite>window</cite> &#8216;s workspace to the first workspace.</p>
+<cite>self</cite> &#8216;s workspace to the first workspace.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.unshade">
 <code class="descname">unshade</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to unshade <cite>window</cite>.</p>
+<dd><p>Asks the window manager to unshade <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.unstick">
 <code class="descname">unstick</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Asks the window manager to not have <cite>window</cite> &#8216;s position fixed on the
+<dd><p>Asks the window manager to not have <cite>self</cite> &#8216;s position fixed on the
 screen when the workspace or viewport scrolls.</p>
 </dd></dl>
 
@@ -1978,6 +1982,11 @@ screen when the workspace or viewport scrolls.</p>
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="Wnck.Window.do_type_changed">
+<code class="descname">do_type_changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="Wnck.Window.do_workspace_changed">
@@ -2135,6 +2144,27 @@ that have changed.</li>
 </dd></dl>
 
 <dl class="function">
+<dt id="Wnck.Window.signals.type_changed">
+<code class="descclassname">Wnck.Window.signals.</code><code class="descname">type_changed</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Signal Name:</th><td class="field-body"><code class="docutils literal"><span class="pre">type-changed</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../_docs/Wnck-3.0/../../../python-GObject-2.0/flags.html#GObject.SignalFlags.RUN_LAST" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">RUN_LAST</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>window</strong> (<a class="reference internal" href="#Wnck.Window" title="Wnck.Window"><code class="xref py py-obj docutils literal"><span class="pre">Wnck.Window</span></code></a>) &#8211; The object which received the signal</td>
+</tr>
+</tbody>
+</table>
+<p>Emitted when the EWMH type hint of the window changes.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.20.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="Wnck.Window.signals.workspace_changed">
 <code class="descclassname">Wnck.Window.signals.</code><code class="descname">workspace_changed</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -2167,7 +2197,4 @@ been pinned or unpinned.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

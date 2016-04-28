@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Clutter 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Clutter.ModelIter" href="ModelIter.html"/>
         <link rel="prev" title="Clutter.ListModel" href="ListModel.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -523,7 +521,7 @@ values for the given <cite>columns</cite> upon creation.</p>
 </tbody>
 </table>
 <p>Checks whether the row pointer by <cite>iter</cite> should be filtered or not using
-the filtering function set on <cite>model</cite>.</p>
+the filtering function set on <cite>self</cite>.</p>
 <p>This function should be used only by subclasses of <a class="reference internal" href="#Clutter.Model" title="Clutter.Model"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
@@ -550,7 +548,7 @@ the filtering function set on <cite>model</cite>.</p>
 </tbody>
 </table>
 <p>Checks whether <cite>row</cite> should be filtered or not using the
-filtering function set on <cite>model</cite>.</p>
+filtering function set on <cite>self</cite>.</p>
 <p>This function should be used only by subclasses of <a class="reference internal" href="#Clutter.Model" title="Clutter.Model"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
@@ -646,8 +644,8 @@ string, and it should not be modified or freed</td>
 </tr>
 </tbody>
 </table>
-<p>Returns whether the <cite>model</cite> has a filter in place, set
-using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a> ()</p>
+<p>Returns whether the <cite>self</cite> has a filter in place, set
+using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -664,14 +662,14 @@ using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clut
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A new <a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a>.
-Call <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> () when done using it</td>
+Call <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>() when done using it</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Retrieves a <a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a> representing the first non-filtered
-row in <cite>model</cite>.</p>
+row in <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
 </div>
@@ -690,7 +688,7 @@ row in <cite>model</cite>.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>row</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; position of the row to retrieve</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new <a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>row</cite> was
-out of bounds. When done using the iterator object, call <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ()
+out of bounds. When done using the iterator object, call <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>()
 to deallocate its resources</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a></td>
@@ -698,8 +696,8 @@ to deallocate its resources</td>
 </tbody>
 </table>
 <p>Retrieves a <a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a> representing the row at the given index.</p>
-<p>If a filter function has been set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a> ()
-then the <cite>model</cite> implementation will return the first non filtered
+<p>If a filter function has been set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a>()
+then the <cite>self</cite> implementation will return the first non filtered
 row.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
@@ -717,14 +715,14 @@ row.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A new <a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a>.
-Call <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> () when done using it</td>
+Call <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>() when done using it</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Retrieves a <a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a> representing the last non-filtered
-row in <cite>model</cite>.</p>
+row in <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
 </div>
@@ -746,7 +744,7 @@ row in <cite>model</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the number of columns inside <cite>model</cite>.</p>
+<p>Retrieves the number of columns inside <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
 </div>
@@ -762,15 +760,15 @@ row in <cite>model</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The length of the <cite>model</cite>. If there is a filter set, then
-the length of the filtered <cite>model</cite> is returned.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The length of the <cite>self</cite>. If there is a filter set, then
+the length of the filtered <cite>self</cite> is returned.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the number of rows inside <cite>model</cite>, eventually taking
-into account any filtering function set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a> ().</p>
+<p>Retrieves the number of rows inside <cite>self</cite>, eventually taking
+into account any filtering function set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
 </div>
@@ -792,7 +790,7 @@ into account any filtering function set using <a class="reference internal" href
 </tr>
 </tbody>
 </table>
-<p>Retrieves the number of column used for sorting the <cite>model</cite>.</p>
+<p>Retrieves the number of column used for sorting the <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
 </div>
@@ -902,7 +900,7 @@ values for the given <cite>columns</cite> upon creation.</p>
 <dl class="method">
 <dt id="Clutter.Model.resort">
 <code class="descname">resort</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Force a resort on the <cite>model</cite>. This function should only be
+<dd><p>Force a resort on the <cite>self</cite>. This function should only be
 used by subclasses of <a class="reference internal" href="#Clutter.Model" title="Clutter.Model"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
@@ -927,7 +925,7 @@ used by subclasses of <a class="reference internal" href="#Clutter.Model" title=
 </tr>
 </tbody>
 </table>
-<p>Filters the <cite>model</cite> using the given filtering function.</p>
+<p>Filters the <cite>self</cite> using the given filtering function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
 </div>
@@ -975,7 +973,7 @@ It will not work after the initial creation of the <a class="reference internal"
 </tr>
 </tbody>
 </table>
-<p>Sorts <cite>model</cite> using the given sorting function.</p>
+<p>Sorts <cite>self</cite> using the given sorting function.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
 </div>
@@ -991,7 +989,7 @@ It will not work after the initial creation of the <a class="reference internal"
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>column</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the column of the <cite>model</cite> to sort, or -1</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>column</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the column of the <cite>self</cite> to sort, or -1</td>
 </tr>
 </tbody>
 </table>
@@ -1012,7 +1010,7 @@ the sorting column will be unset.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>types</strong> ([<a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; an array of <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> types</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>types</strong> ([<a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>]) &#8211; an array of <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> types</td>
 </tr>
 </tbody>
 </table>
@@ -1092,7 +1090,7 @@ string, and it should not be modified or freed</td>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>row</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; position of the row to retrieve</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new <a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>row</cite> was
-out of bounds. When done using the iterator object, call <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ()
+out of bounds. When done using the iterator object, call <a class="reference external" href="../_docs/Clutter-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>()
 to deallocate its resources</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a></td>
@@ -1100,7 +1098,7 @@ to deallocate its resources</td>
 </tbody>
 </table>
 <p>Retrieves a <a class="reference internal" href="ModelIter.html#Clutter.ModelIter" title="Clutter.ModelIter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.ModelIter</span></code></a> representing the row at the given index.</p>
-<p>If a filter function has been set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a> ()
+<p>If a filter function has been set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a>()
 then the <cite>model</cite> implementation will return the first non filtered
 row.</p>
 <div class="versionadded">
@@ -1148,7 +1146,7 @@ the length of the filtered <cite>model</cite> is returned.</td>
 </tbody>
 </table>
 <p>Retrieves the number of rows inside <cite>model</cite>, eventually taking
-into account any filtering function set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a> ().</p>
+into account any filtering function set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.6.</span></p>
 </div>
@@ -1385,7 +1383,7 @@ when the <a class="reference internal" href="#Clutter.Model.signals.row_removed"
 </table>
 <p>Whether the <a class="reference internal" href="#Clutter.Model" title="Clutter.Model"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model</span></code></a> has a filter set</p>
 <p>This property is set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if a filter function has been
-set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a> ()</p>
+set using <a class="reference internal" href="#Clutter.Model.set_filter" title="Clutter.Model.set_filter"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Model.set_filter</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.</span></p>
 </div>
@@ -1408,7 +1406,4 @@ set using <a class="reference internal" href="#Clutter.Model.set_filter" title="
   </div> 
 
 </body>
-
-  
-
 </html>

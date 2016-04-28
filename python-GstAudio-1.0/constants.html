@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstAudio 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Symbol Mapping" href="mapping.html"/>
         <link rel="prev" title="Enums" href="enums.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -134,6 +132,9 @@
 <h1>Constants</h1>
 <ul class="simple">
 <li><a class="reference internal" href="#GstAudio.AUDIO_CHANNELS_RANGE" title="GstAudio.AUDIO_CHANNELS_RANGE"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AUDIO_CHANNELS_RANGE</span></code></a></li>
+<li><a class="reference internal" href="#GstAudio.AUDIO_CONVERTER_OPT_DITHER_METHOD" title="GstAudio.AUDIO_CONVERTER_OPT_DITHER_METHOD"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AUDIO_CONVERTER_OPT_DITHER_METHOD</span></code></a></li>
+<li><a class="reference internal" href="#GstAudio.AUDIO_CONVERTER_OPT_NOISE_SHAPING_METHOD" title="GstAudio.AUDIO_CONVERTER_OPT_NOISE_SHAPING_METHOD"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AUDIO_CONVERTER_OPT_NOISE_SHAPING_METHOD</span></code></a></li>
+<li><a class="reference internal" href="#GstAudio.AUDIO_CONVERTER_OPT_QUANTIZATION" title="GstAudio.AUDIO_CONVERTER_OPT_QUANTIZATION"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AUDIO_CONVERTER_OPT_QUANTIZATION</span></code></a></li>
 <li><a class="reference internal" href="#GstAudio.AUDIO_DECODER_MAX_ERRORS" title="GstAudio.AUDIO_DECODER_MAX_ERRORS"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AUDIO_DECODER_MAX_ERRORS</span></code></a></li>
 <li><a class="reference internal" href="#GstAudio.AUDIO_DECODER_SINK_NAME" title="GstAudio.AUDIO_DECODER_SINK_NAME"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AUDIO_DECODER_SINK_NAME</span></code></a></li>
 <li><a class="reference internal" href="#GstAudio.AUDIO_DECODER_SRC_NAME" title="GstAudio.AUDIO_DECODER_SRC_NAME"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AUDIO_DECODER_SRC_NAME</span></code></a></li>
@@ -145,6 +146,7 @@
 <li><a class="reference internal" href="#GstAudio.AUDIO_FORMATS_ALL" title="GstAudio.AUDIO_FORMATS_ALL"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AUDIO_FORMATS_ALL</span></code></a></li>
 <li><a class="reference internal" href="#GstAudio.AUDIO_RATE_RANGE" title="GstAudio.AUDIO_RATE_RANGE"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AUDIO_RATE_RANGE</span></code></a></li>
 <li><a class="reference internal" href="#GstAudio.META_TAG_AUDIO_CHANNELS_STR" title="GstAudio.META_TAG_AUDIO_CHANNELS_STR"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.META_TAG_AUDIO_CHANNELS_STR</span></code></a></li>
+<li><a class="reference internal" href="#GstAudio.META_TAG_AUDIO_RATE_STR" title="GstAudio.META_TAG_AUDIO_RATE_STR"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.META_TAG_AUDIO_RATE_STR</span></code></a></li>
 <li><a class="reference internal" href="#GstAudio.META_TAG_AUDIO_STR" title="GstAudio.META_TAG_AUDIO_STR"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.META_TAG_AUDIO_STR</span></code></a></li>
 </ul>
 <div class="section" id="details">
@@ -153,6 +155,30 @@
 <dt id="GstAudio.AUDIO_CHANNELS_RANGE">
 <code class="descclassname">GstAudio.</code><code class="descname">AUDIO_CHANNELS_RANGE</code><em class="property"> = '(int) [ 1, max ]'</em></dt>
 <dd><p>Maximum range of allowed channels, for use in template caps strings.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="GstAudio.AUDIO_CONVERTER_OPT_DITHER_METHOD">
+<code class="descclassname">GstAudio.</code><code class="descname">AUDIO_CONVERTER_OPT_DITHER_METHOD</code><em class="property"> = 'GstAudioConverter.dither-method'</em></dt>
+<dd><p>#GST_TYPE_AUDIO_DITHER_METHOD, The dither method to use when
+changing bit depth.
+Default is <a class="reference internal" href="enums.html#GstAudio.AudioDitherMethod.NONE" title="GstAudio.AudioDitherMethod.NONE"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioDitherMethod.NONE</span></code></a>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="GstAudio.AUDIO_CONVERTER_OPT_NOISE_SHAPING_METHOD">
+<code class="descclassname">GstAudio.</code><code class="descname">AUDIO_CONVERTER_OPT_NOISE_SHAPING_METHOD</code><em class="property"> = 'GstAudioConverter.noise-shaping-method'</em></dt>
+<dd><p>#GST_TYPE_AUDIO_NOISE_SHAPING_METHOD, The noise shaping method to use
+to mask noise from quantization errors.
+Default is <a class="reference internal" href="enums.html#GstAudio.AudioNoiseShapingMethod.NONE" title="GstAudio.AudioNoiseShapingMethod.NONE"><code class="xref py py-obj docutils literal"><span class="pre">GstAudio.AudioNoiseShapingMethod.NONE</span></code></a>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="GstAudio.AUDIO_CONVERTER_OPT_QUANTIZATION">
+<code class="descclassname">GstAudio.</code><code class="descname">AUDIO_CONVERTER_OPT_QUANTIZATION</code><em class="property"> = 'GstAudioConverter.quantization'</em></dt>
+<dd><p><a class="reference external" href="_docs/GstAudio-1.0/../../../python-GObject-2.0/constants.html#GObject.TYPE_UINT" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TYPE_UINT</span></code></a>, The quantization amount. Components will be
+quantized to multiples of this value.
+Default is 1</p>
 </dd></dl>
 
 <dl class="data">
@@ -225,6 +251,15 @@
 </dd></dl>
 
 <dl class="data">
+<dt id="GstAudio.META_TAG_AUDIO_RATE_STR">
+<code class="descclassname">GstAudio.</code><code class="descname">META_TAG_AUDIO_RATE_STR</code><em class="property"> = 'rate'</em></dt>
+<dd><p>This metadata stays relevant as long as sample rate is unchanged.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="data">
 <dt id="GstAudio.META_TAG_AUDIO_STR">
 <code class="descclassname">GstAudio.</code><code class="descname">META_TAG_AUDIO_STR</code><em class="property"> = 'audio'</em></dt>
 <dd><p>This metadata is relevant for audio streams.</p>
@@ -247,7 +282,4 @@
   </div> 
 
 </body>
-
-  
-
 </html>

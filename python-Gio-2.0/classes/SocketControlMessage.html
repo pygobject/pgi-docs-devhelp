@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gio.SocketListener" href="SocketListener.html"/>
         <link rel="prev" title="Gio.SocketConnection" href="SocketConnection.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -325,18 +323,18 @@ messages are often called &#8220;ancillary data&#8221;.</p>
 information from the socket or can represent a special kind of
 transfer to the peer (for example, sending a file descriptor over
 a UNIX socket).</p>
-<p>These messages are sent with <a class="reference internal" href="Socket.html#Gio.Socket.send_message" title="Gio.Socket.send_message"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket.send_message</span></code></a> () and received
-with <a class="reference internal" href="Socket.html#Gio.Socket.receive_message" title="Gio.Socket.receive_message"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket.receive_message</span></code></a> ().</p>
+<p>These messages are sent with <a class="reference internal" href="Socket.html#Gio.Socket.send_message" title="Gio.Socket.send_message"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket.send_message</span></code></a>() and received
+with <a class="reference internal" href="Socket.html#Gio.Socket.receive_message" title="Gio.Socket.receive_message"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket.receive_message</span></code></a>().</p>
 <p>To extend the set of control message that can be sent, subclass this
 class and override the get_size, get_level, get_type and serialize
 methods.</p>
 <p>To extend the set of control messages that can be received, subclass
 this class and implement the deserialize method. Also, make sure your
-class is registered with the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> typesystem before calling
-<a class="reference internal" href="Socket.html#Gio.Socket.receive_message" title="Gio.Socket.receive_message"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket.receive_message</span></code></a> () to read such a message.</p>
+class is registered with the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> typesystem before calling
+<a class="reference internal" href="Socket.html#Gio.Socket.receive_message" title="Gio.Socket.receive_message"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket.receive_message</span></code></a>() to read such a message.</p>
 <dl class="staticmethod">
 <dt id="Gio.SocketControlMessage.deserialize">
-<em class="property">static </em><code class="descname">deserialize</code><span class="sig-paren">(</span><em>level</em>, <em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.46.2#n175"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">deserialize</code><span class="sig-paren">(</span><em>level</em>, <em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.48.0#n175"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -357,7 +355,7 @@ class is registered with the <code class="xref py py-obj docutils literal"><span
 </tbody>
 </table>
 <p>Tries to deserialize a socket control message of a given
-<cite>level</cite> and <cite>type</cite>. This will ask all known (to <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> ) subclasses
+<cite>level</cite> and <cite>type</cite>. This will ask all known (to <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) subclasses
 of <a class="reference internal" href="#Gio.SocketControlMessage" title="Gio.SocketControlMessage"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketControlMessage</span></code></a> if they can understand this kind
 of message and if so deserialize it into a <a class="reference internal" href="#Gio.SocketControlMessage" title="Gio.SocketControlMessage"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketControlMessage</span></code></a>.</p>
 <p>If there is no implementation for this kind of control message, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
@@ -369,7 +367,7 @@ will be returned.</p>
 
 <dl class="method">
 <dt id="Gio.SocketControlMessage.get_level">
-<code class="descname">get_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.46.2#n92"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.48.0#n92"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -389,7 +387,7 @@ This is often SOL_SOCKET.</p>
 
 <dl class="method">
 <dt id="Gio.SocketControlMessage.get_msg_type">
-<code class="descname">get_msg_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.46.2#n111"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_msg_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.48.0#n111"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -409,7 +407,7 @@ For instance, for UNIX fd passing this would be SCM_RIGHTS.</p>
 
 <dl class="method">
 <dt id="Gio.SocketControlMessage.get_size">
-<code class="descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.46.2#n73"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.48.0#n73"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -429,7 +427,7 @@ headers or alignment.</p>
 
 <dl class="method">
 <dt id="Gio.SocketControlMessage.serialize">
-<code class="descname">serialize</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.46.2#n134"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">serialize</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gsocketcontrolmessage.c?h=2.48.0#n134"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -441,7 +439,7 @@ headers or alignment.</p>
 <p>Converts the data in the message to bytes placed in the
 message.</p>
 <p><cite>data</cite> is guaranteed to have enough space to fit the size
-returned by <a class="reference internal" href="#Gio.SocketControlMessage.get_size" title="Gio.SocketControlMessage.get_size"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketControlMessage.get_size</span></code></a> () on this
+returned by <a class="reference internal" href="#Gio.SocketControlMessage.get_size" title="Gio.SocketControlMessage.get_size"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketControlMessage.get_size</span></code></a>() on this
 object.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
@@ -515,7 +513,7 @@ headers or alignment.</p>
 <p>Converts the data in the message to bytes placed in the
 message.</p>
 <p><cite>data</cite> is guaranteed to have enough space to fit the size
-returned by <a class="reference internal" href="#Gio.SocketControlMessage.get_size" title="Gio.SocketControlMessage.get_size"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketControlMessage.get_size</span></code></a> () on this
+returned by <a class="reference internal" href="#Gio.SocketControlMessage.get_size" title="Gio.SocketControlMessage.get_size"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketControlMessage.get_size</span></code></a>() on this
 object.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
@@ -538,7 +536,4 @@ object.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

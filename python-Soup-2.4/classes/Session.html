@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Soup 2.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Soup.SessionAsync" href="SessionAsync.html"/>
         <link rel="prev" title="Soup.Server" href="Server.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -504,7 +502,7 @@
 <td>Emitted just before a request is sent. <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#Soup.Session.signals.request_unqueued" title="Soup.Session.signals.request_unqueued"><code class="xref py py-func docutils literal"><span class="pre">request-unqueued</span></code></a></td>
-<td>Emitted when a request is removed from <cite>session</cite> &#8216;s queue, indicating that <cite>session</cite> is done with it.</td>
+<td>Emitted when a request is removed from <cite>session</cite>&#8216;s queue, indicating that <cite>session</cite> is done with it.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#Soup.Session.signals.tunneling" title="Soup.Session.signals.tunneling"><code class="xref py py-func docutils literal"><span class="pre">tunneling</span></code></a></td>
 <td>Emitted when an SSL tunnel is being created on a proxy connection.</td>
@@ -584,12 +582,12 @@
 <dl class="method">
 <dt id="Soup.Session.abort">
 <code class="descname">abort</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Cancels all pending requests in <cite>session</cite> and closes all idle
+<dd><p>Cancels all pending requests in <cite>self</cite> and closes all idle
 persistent connections.</p>
 <p>The message cancellation has the same semantics as with
-<a class="reference internal" href="#Soup.Session.cancel_message" title="Soup.Session.cancel_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.cancel_message</span></code></a> (); asynchronous requests on a
+<a class="reference internal" href="#Soup.Session.cancel_message" title="Soup.Session.cancel_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.cancel_message</span></code></a>(); asynchronous requests on a
 <a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a> will have their callback called before
-<a class="reference internal" href="#Soup.Session.abort" title="Soup.Session.abort"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.abort</span></code></a> () returns. Requests on a plain <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> will
+<a class="reference internal" href="#Soup.Session.abort" title="Soup.Session.abort"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.abort</span></code></a>() returns. Requests on a plain <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> will
 not.</p>
 </dd></dl>
 
@@ -604,7 +602,7 @@ not.</p>
 </tr>
 </tbody>
 </table>
-<p>Adds <cite>feature</cite> &#8216;s functionality to <cite>session</cite>. You can also add a
+<p>Adds <cite>feature</cite>&#8216;s functionality to <cite>self</cite>. You can also add a
 feature to the session at construct time by using the
 <code class="xref py py-obj docutils literal"><span class="pre">Soup.SESSION_ADD_FEATURE</span></code> property.</p>
 <p>See the main <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> documentation for information on what
@@ -621,16 +619,16 @@ features are present in sessions by default.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; a <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>If <cite>feature_type</cite> is the type of a class that implements
 <a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a>, this creates a new feature of that type and
-adds it to <cite>session</cite> as with <a class="reference internal" href="#Soup.Session.add_feature" title="Soup.Session.add_feature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.add_feature</span></code></a> (). You can use
+adds it to <cite>self</cite> as with <a class="reference internal" href="#Soup.Session.add_feature" title="Soup.Session.add_feature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.add_feature</span></code></a>(). You can use
 this when you don&#8217;t need to customize the new feature in any way.</p>
 <p>If <cite>feature_type</cite> is not a <a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a> type, this gives each
-existing feature on <cite>session</cite> the chance to accept <cite>feature_type</cite> as
+existing feature on <cite>self</cite> the chance to accept <cite>feature_type</cite> as
 a &#8220;subfeature&#8221;. This can be used to add new <a class="reference internal" href="Auth.html#Soup.Auth" title="Soup.Auth"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Auth</span></code></a> or
 <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a> types, for instance.</p>
 <p>You can also add a feature to the session at construct time by
@@ -652,16 +650,16 @@ features are present in sessions by default.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; the message to cancel</li>
 <li><strong>status_code</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; status code to set on <cite>msg</cite> (generally
-<a class="reference internal" href="../enums.html#Soup.Status.CANCELLED" title="Soup.Status.CANCELLED"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Status.CANCELLED</span></code></a> )</li>
+<a class="reference internal" href="../enums.html#Soup.Status.CANCELLED" title="Soup.Status.CANCELLED"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Status.CANCELLED</span></code></a>)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Causes <cite>session</cite> to immediately finish processing <cite>msg</cite> (regardless
+<p>Causes <cite>self</cite> to immediately finish processing <cite>msg</cite> (regardless
 of its current state) with a final status_code of <cite>status_code</cite>. You
-may call this at any time after handing <cite>msg</cite> off to <cite>session</cite> ; if
-<cite>session</cite> has started sending the request but has not yet received
+may call this at any time after handing <cite>msg</cite> off to <cite>self</cite>; if
+<cite>self</cite> has started sending the request but has not yet received
 the complete response, then it will close the request&#8217;s connection.
 Note that with requests that have side effects (eg,
 <code class="docutils literal"><span class="pre">POST</span></code>, <code class="docutils literal"><span class="pre">PUT</span></code>,
@@ -673,8 +671,8 @@ then the response body in <cite>msg</cite> will be left partially-filled-in.
 The response headers, on the other hand, will always be either
 empty or complete.</p>
 <p>Beware that with the deprecated <a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a>, messages queued
-with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a> () will have their callbacks invoked
-before <a class="reference internal" href="#Soup.Session.cancel_message" title="Soup.Session.cancel_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.cancel_message</span></code></a> () returns. The plain
+with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a>() will have their callbacks invoked
+before <a class="reference internal" href="#Soup.Session.cancel_message" title="Soup.Session.cancel_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.cancel_message</span></code></a>() returns. The plain
 <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> does not have this behavior; cancelling an
 asynchronous message will merely queue its callback to be run after
 returning to the main loop.</p>
@@ -687,14 +685,14 @@ returning to the main loop.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>session</cite> &#8216;s <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>,
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>,
 which may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>session</cite> &#8216;s <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.async_context" title="Soup.Session.props.async_context"><code class="xref py py-data docutils literal"><span class="pre">:async-context</span></code></a>. This does not add a ref
+<p>Gets <cite>self</cite>&#8216;s <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.async_context" title="Soup.Session.props.async_context"><code class="xref py py-data docutils literal"><span class="pre">:async-context</span></code></a>. This does not add a ref
 to the context, so you will need to ref it yourself if you want it
 to outlive its session.</p>
 <p>For a modern <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a>, this will always just return the
@@ -708,18 +706,18 @@ thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../py
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the feature to get</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the feature to get</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a>, or
-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. The feature is owned by <cite>session</cite>.</td>
+<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. The feature is owned by <cite>self</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the first feature in <cite>session</cite> of type <cite>feature_type</cite>. For
+<p>Gets the first feature in <cite>self</cite> of type <cite>feature_type</cite>. For
 features where there may be more than one feature of a given type,
-use <a class="reference internal" href="#Soup.Session.get_features" title="Soup.Session.get_features"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.get_features</span></code></a> ().</p>
+use <a class="reference internal" href="#Soup.Session.get_features" title="Soup.Session.get_features"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.get_features</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.26.</span></p>
 </div>
@@ -733,13 +731,13 @@ use <a class="reference internal" href="#Soup.Session.get_features" title="Soup.
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the feature to get</li>
+<li><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the feature to get</li>
 <li><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a></li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a <a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>. The
-feature is owned by <cite>session</cite>.</p>
+feature is owned by <cite>self</cite>.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></p>
@@ -747,9 +745,9 @@ feature is owned by <cite>session</cite>.</p>
 </tr>
 </tbody>
 </table>
-<p>Gets the first feature in <cite>session</cite> of type <cite>feature_type</cite>, provided
+<p>Gets the first feature in <cite>self</cite> of type <cite>feature_type</cite>, provided
 that it is not disabled for <cite>msg</cite>. As with
-<a class="reference internal" href="#Soup.Session.get_feature" title="Soup.Session.get_feature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.get_feature</span></code></a> (), this should only be used for features
+<a class="reference internal" href="#Soup.Session.get_feature" title="Soup.Session.get_feature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.get_feature</span></code></a>(), this should only be used for features
 where <cite>feature_type</cite> is only expected to match a single feature. In
 particular, if there are two matching features, and the first is
 disabled on <cite>msg</cite>, and the second is not, then this will return
@@ -766,7 +764,7 @@ disabled on <cite>msg</cite>, and the second is not, then this will return
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the class of features to get</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the class of features to get</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list of features. You must free the list, but not its contents</td>
 </tr>
@@ -774,7 +772,7 @@ disabled on <cite>msg</cite>, and the second is not, then this will return
 </tr>
 </tbody>
 </table>
-<p>Generates a list of <cite>session</cite> &#8216;s features of type <cite>feature_type</cite>. (If
+<p>Generates a list of <cite>self</cite>&#8216;s features of type <cite>feature_type</cite>. (If
 you want to see all features, you can pass %SOUP_TYPE_SESSION_FEATURE
 for <cite>feature_type</cite>.)</p>
 <div class="versionadded">
@@ -789,7 +787,7 @@ for <cite>feature_type</cite>.)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the class of features to check for</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the class of features to check for</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a></td>
 </tr>
@@ -797,10 +795,10 @@ for <cite>feature_type</cite>.)</p>
 </tr>
 </tbody>
 </table>
-<p>Tests if <cite>session</cite> has at a feature of type <cite>feature_type</cite> (which can
+<p>Tests if <cite>self</cite> has at a feature of type <cite>feature_type</cite> (which can
 be the type of either a <a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a>, or else a subtype of
 some class managed by another feature, such as <a class="reference internal" href="Auth.html#Soup.Auth" title="Soup.Auth"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Auth</span></code></a> or
-<a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a> ).</p>
+<a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a>).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.42.</span></p>
 </div>
@@ -813,14 +811,14 @@ some class managed by another feature, such as <a class="reference internal" hre
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> currently running on <cite>session</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> currently running on <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
-<p>Pauses HTTP I/O on <cite>msg</cite>. Call <a class="reference internal" href="#Soup.Session.unpause_message" title="Soup.Session.unpause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.unpause_message</span></code></a> () to
+<p>Pauses HTTP I/O on <cite>msg</cite>. Call <a class="reference internal" href="#Soup.Session.unpause_message" title="Soup.Session.unpause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.unpause_message</span></code></a>() to
 resume I/O.</p>
 <p>This may only be called for asynchronous messages (those sent on a
-<a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a> or using <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a> ()).</p>
+<a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a> or using <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a>()).</p>
 </dd></dl>
 
 <dl class="method">
@@ -835,13 +833,13 @@ resume I/O.</p>
 <li><strong>cancellable</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> object, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Soup.AddressCallback" title="Soup.AddressCallback"><code class="xref py py-obj docutils literal"><span class="pre">Soup.AddressCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; callback to call with the
 result, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data for <cite>callback</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data for <cite>callback</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Tells <cite>session</cite> that an URI from the given <cite>hostname</cite> may be requested
+<p>Tells <cite>self</cite> that an URI from the given <cite>hostname</cite> may be requested
 shortly, and so the session can try to prepare by resolving the
 domain name in advance, in order to work more quickly once the URI
 is actually requested.</p>
@@ -864,7 +862,7 @@ status of <a class="reference internal" href="../enums.html#Soup.Status.CANCELLE
 </tr>
 </tbody>
 </table>
-<p>Tells <cite>session</cite> that <cite>uri</cite> may be requested shortly, and so the
+<p>Tells <cite>self</cite> that <cite>uri</cite> may be requested shortly, and so the
 session can try to prepare (resolving the domain name, obtaining
 proxy address, etc.) in order to work more quickly once the URI is
 actually requested.</p>
@@ -872,7 +870,7 @@ actually requested.</p>
 <p><span class="versionmodified">New in version 2.30.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 2.38: </span>use <a class="reference internal" href="#Soup.Session.prefetch_dns" title="Soup.Session.prefetch_dns"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.prefetch_dns</span></code></a> () instead</p>
+<p><span class="versionmodified">Deprecated since version 2.38: </span>use <a class="reference internal" href="#Soup.Session.prefetch_dns" title="Soup.Session.prefetch_dns"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.prefetch_dns</span></code></a>() instead</p>
 </div>
 </dd></dl>
 
@@ -900,13 +898,13 @@ time it was last sent are freed.</p>
 <p>Upon message completion, the callback specified in <cite>callback</cite> will
 be invoked. If after returning from this callback the message has not
 been requeued, <cite>msg</cite> will be unreffed.</p>
-<p>(The behavior above applies to a plain <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> ; if you are
+<p>(The behavior above applies to a plain <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a>; if you are
 using <a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a> or <a class="reference internal" href="SessionSync.html#Soup.SessionSync" title="Soup.SessionSync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionSync</span></code></a>, then the <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>
 that is used depends on the settings of <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.async_context" title="Soup.Session.props.async_context"><code class="xref py py-data docutils literal"><span class="pre">:async-context</span></code></a>
 and <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.use_thread_context" title="Soup.Session.props.use_thread_context"><code class="xref py py-data docutils literal"><span class="pre">:use-thread-context</span></code></a>, and for <a class="reference internal" href="SessionSync.html#Soup.SessionSync" title="Soup.SessionSync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionSync</span></code></a>, the
 message will actually be sent and processed in another thread, with
 only the final callback occurring in the indicated <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>.)</p>
-<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send_async" title="Soup.Session.send_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_async</span></code></a> (), which also
+<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send_async" title="Soup.Session.send_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_async</span></code></a>(), which also
 asynchronously sends a message, but returns before reading the
 response body, and allows you to read the response via a
 <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a>.</p>
@@ -929,13 +927,13 @@ parsed).</td>
 </tr>
 </tbody>
 </table>
-<p>Updates <cite>msg</cite> &#8216;s URI according to its status code and &#8220;Location&#8221;
-header, and requeues it on <cite>session</cite>. Use this when you have set
+<p>Updates <cite>msg</cite>&#8216;s URI according to its status code and &#8220;Location&#8221;
+header, and requeues it on <cite>self</cite>. Use this when you have set
 <a class="reference internal" href="../flags.html#Soup.MessageFlags.NO_REDIRECT" title="Soup.MessageFlags.NO_REDIRECT"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageFlags.NO_REDIRECT</span></code></a> on a message, but have decided to allow a
 particular redirection to occur, or if you want to allow a
 redirection that <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> will not perform automatically (eg,
 redirecting a non-safe method such as DELETE).</p>
-<p>If <cite>msg</cite> &#8216;s status code indicates that it should be retried as a GET
+<p>If <cite>msg</cite>&#8216;s status code indicates that it should be retried as a GET
 request, then <cite>msg</cite> will be modified accordingly.</p>
 <p>If <cite>msg</cite> has already been redirected too many times, this will
 cause it to fail with <a class="reference internal" href="../enums.html#Soup.Status.TOO_MANY_REDIRECTS" title="Soup.Status.TOO_MANY_REDIRECTS"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Status.TOO_MANY_REDIRECTS</span></code></a>.</p>
@@ -951,11 +949,11 @@ cause it to fail with <a class="reference internal" href="../enums.html#Soup.Sta
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature</strong> (<a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a>) &#8211; a feature that has previously been added to <cite>session</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature</strong> (<a class="reference internal" href="../interfaces/SessionFeature.html#Soup.SessionFeature" title="Soup.SessionFeature"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionFeature</span></code></a>) &#8211; a feature that has previously been added to <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
-<p>Removes <cite>feature</cite> &#8216;s functionality from <cite>session</cite>.</p>
+<p>Removes <cite>feature</cite>&#8216;s functionality from <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -968,12 +966,12 @@ cause it to fail with <a class="reference internal" href="../enums.html#Soup.Sta
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; a <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_type</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Removes all features of type <cite>feature_type</cite> (or any subclass of
-<cite>feature_type</cite> ) from <cite>session</cite>. You can also remove standard features
+<cite>feature_type</cite>) from <cite>self</cite>. You can also remove standard features
 from the session at construct time by using the
 <code class="xref py py-obj docutils literal"><span class="pre">Soup.SESSION_REMOVE_FEATURE_BY_TYPE</span></code> property.</p>
 <div class="versionadded">
@@ -990,7 +988,7 @@ from the session at construct time by using the
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uri_string</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a URI, in string form</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a>, or
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error.</td>
@@ -1018,7 +1016,7 @@ from the session at construct time by using the
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference internal" href="RequestHTTP.html#Soup.RequestHTTP" title="Soup.RequestHTTP"><code class="xref py py-obj docutils literal"><span class="pre">Soup.RequestHTTP</span></code></a>, or
@@ -1031,8 +1029,8 @@ from the session at construct time by using the
 </tbody>
 </table>
 <p>Creates a <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a> for retrieving <cite>uri_string</cite>, which must be an
-&#8220;http&#8221; or &#8220;https&#8221; URI (or another protocol listed in <cite>session</cite> &#8216;s
-<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.http_aliases" title="Soup.Session.props.http_aliases"><code class="xref py py-data docutils literal"><span class="pre">:http-aliases</span></code></a> or <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.https_aliases" title="Soup.Session.props.https_aliases"><code class="xref py py-data docutils literal"><span class="pre">:https-aliases</span></code></a> ).</p>
+&#8220;http&#8221; or &#8220;https&#8221; URI (or another protocol listed in <cite>self</cite>&#8216;s
+<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.http_aliases" title="Soup.Session.props.http_aliases"><code class="xref py py-data docutils literal"><span class="pre">:http-aliases</span></code></a> or <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.https_aliases" title="Soup.Session.props.https_aliases"><code class="xref py py-data docutils literal"><span class="pre">:https-aliases</span></code></a>).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.42.</span></p>
 </div>
@@ -1051,7 +1049,7 @@ from the session at construct time by using the
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference internal" href="RequestHTTP.html#Soup.RequestHTTP" title="Soup.RequestHTTP"><code class="xref py py-obj docutils literal"><span class="pre">Soup.RequestHTTP</span></code></a>, or
@@ -1064,8 +1062,8 @@ from the session at construct time by using the
 </tbody>
 </table>
 <p>Creates a <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a> for retrieving <cite>uri</cite>, which must be an
-&#8220;http&#8221; or &#8220;https&#8221; URI (or another protocol listed in <cite>session</cite> &#8216;s
-<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.http_aliases" title="Soup.Session.props.http_aliases"><code class="xref py py-data docutils literal"><span class="pre">:http-aliases</span></code></a> or <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.https_aliases" title="Soup.Session.props.https_aliases"><code class="xref py py-data docutils literal"><span class="pre">:https-aliases</span></code></a> ).</p>
+&#8220;http&#8221; or &#8220;https&#8221; URI (or another protocol listed in <cite>self</cite>&#8216;s
+<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.http_aliases" title="Soup.Session.props.http_aliases"><code class="xref py py-data docutils literal"><span class="pre">:http-aliases</span></code></a> or <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.https_aliases" title="Soup.Session.props.https_aliases"><code class="xref py py-data docutils literal"><span class="pre">:https-aliases</span></code></a>).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.42.</span></p>
 </div>
@@ -1080,7 +1078,7 @@ from the session at construct time by using the
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uri</strong> (<a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a>) &#8211; a <a class="reference internal" href="../structs/URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a> representing the URI to retrieve</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="Request.html#Soup.Request" title="Soup.Request"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Request</span></code></a>, or
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error.</td>
@@ -1123,7 +1121,7 @@ again.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> for reading the
@@ -1141,7 +1139,7 @@ read the response body. (&#8220;Success&#8221; here means only that an HTTP
 response was received and understood; it does not necessarily mean
 that a 2xx class status code was received.)</p>
 <p>If non-<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, <cite>cancellable</cite> can be used to cancel the request;
-<a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a> () will return a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/enums.html#Gio.IOErrorEnum.CANCELLED" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.CANCELLED</span></code></a> error. Note
+<a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a>() will return a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/enums.html#Gio.IOErrorEnum.CANCELLED" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.IOErrorEnum.CANCELLED</span></code></a> error. Note
 that with requests that have side effects (eg,
 <code class="docutils literal"><span class="pre">POST</span></code>, <code class="docutils literal"><span class="pre">PUT</span></code>,
 <code class="docutils literal"><span class="pre">DELETE</span></code>) it is possible that you might cancel the
@@ -1149,9 +1147,9 @@ request after the server acts on it, but before it returns a
 response, leaving the remote resource in an unknown state.</p>
 <p>If <cite>msg</cite> is requeued due to a redirect or authentication, the
 initial (3xx/401/407) response body will be suppressed, and
-<a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a> () will only return once a final response has been
+<a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a>() will only return once a final response has been
 received.</p>
-<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send_message" title="Soup.Session.send_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_message</span></code></a> (), which also
+<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send_message" title="Soup.Session.send_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_message</span></code></a>(), which also
 synchronously sends a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>, but doesn&#8217;t return until the
 response has been completely read.</p>
 <p>(Note that this method cannot be called on the deprecated
@@ -1172,7 +1170,7 @@ response has been completely read.</p>
 <li><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a></li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a></li>
 <li><strong>callback</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the callback to invoke</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data for <cite>callback</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data for <cite>callback</cite></li>
 </ul>
 </td>
 </tr>
@@ -1181,10 +1179,10 @@ response has been completely read.</p>
 <p>Asynchronously sends <cite>msg</cite> and waits for the beginning of a
 response. When <cite>callback</cite> is called, then either <cite>msg</cite> has been sent,
 and its response headers received, or else an error has occurred.
-Call <a class="reference internal" href="#Soup.Session.send_finish" title="Soup.Session.send_finish"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_finish</span></code></a> () to get a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> for reading
+Call <a class="reference internal" href="#Soup.Session.send_finish" title="Soup.Session.send_finish"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_finish</span></code></a>() to get a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> for reading
 the response body.</p>
-<p>See <a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a> () for more details on the general semantics.</p>
-<p>Contrast this method with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a> (), which also
+<p>See <a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a>() for more details on the general semantics.</p>
+<p>Contrast this method with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a>(), which also
 asynchronously sends a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>, but doesn&#8217;t invoke its
 callback until the response has been completely read.</p>
 <p>(Note that this method cannot be called on the deprecated
@@ -1205,7 +1203,7 @@ callback until the response has been completely read.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a> passed to your callback</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> for reading the
 response body, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error.</td>
@@ -1214,7 +1212,7 @@ response body, or <a class="reference external" href="http://docs.python.org/2.7
 </tr>
 </tbody>
 </table>
-<p>Gets the response to a <a class="reference internal" href="#Soup.Session.send_async" title="Soup.Session.send_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_async</span></code></a> () call and (if
+<p>Gets the response to a <a class="reference internal" href="#Soup.Session.send_async" title="Soup.Session.send_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_async</span></code></a>() call and (if
 successful), returns a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> that can be used to read the
 response body.</p>
 <div class="versionadded">
@@ -1240,13 +1238,13 @@ response body.</p>
 <p>Synchronously send <cite>msg</cite>. This call will not return until the
 transfer is finished successfully or there is an unrecoverable
 error.</p>
-<p>Unlike with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a> (), <cite>msg</cite> is not freed upon
+<p>Unlike with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a>(), <cite>msg</cite> is not freed upon
 return.</p>
 <p>(Note that if you call this method on a <a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a>, it will
 still use asynchronous I/O internally, running the glib main loop
 to process the message, which may also cause other events to be
 processed.)</p>
-<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a> (), which also
+<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a>(), which also
 synchronously sends a message, but returns before reading the
 response body, and allows you to read the response via a
 <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a>.</p>
@@ -1270,9 +1268,9 @@ is returned.</td>
 </tr>
 </tbody>
 </table>
-<p>&#8220;Steals&#8221; the HTTP connection associated with <cite>msg</cite> from <cite>session</cite>.
+<p>&#8220;Steals&#8221; the HTTP connection associated with <cite>msg</cite> from <cite>self</cite>.
 This happens immediately, regardless of the current state of the
-connection, and <cite>msg</cite> &#8216;s callback will not be called. You can steal
+connection, and <cite>msg</cite>&#8216;s callback will not be called. You can steal
 the connection from a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> signal handler if you need to
 wait for part or all of the response to be received first.</p>
 <p>Calling this function may cause <cite>msg</cite> to be freed if you are not
@@ -1289,17 +1287,17 @@ holding any other reference to it.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> currently running on <cite>session</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; a <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> currently running on <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
 <p>Resumes HTTP I/O on <cite>msg</cite>. Use this to resume after calling
-<a class="reference internal" href="#Soup.Session.pause_message" title="Soup.Session.pause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.pause_message</span></code></a> ().</p>
+<a class="reference internal" href="#Soup.Session.pause_message" title="Soup.Session.pause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.pause_message</span></code></a>().</p>
 <p>If <cite>msg</cite> is being sent via blocking I/O, this will resume reading or
 writing immediately. If <cite>msg</cite> is using non-blocking I/O, then
 reading or writing won&#8217;t resume until you return to the main loop.</p>
 <p>This may only be called for asynchronous messages (those sent on a
-<a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a> or using <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a> ()).</p>
+<a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a> or using <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a>()).</p>
 </dd></dl>
 
 <dl class="method">
@@ -1316,7 +1314,7 @@ reading or writing won&#8217;t resume until you return to the main loop.</p>
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>-terminated array of protocols supported</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a></li>
 <li><strong>callback</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the callback to invoke</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; data for <cite>callback</cite></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; data for <cite>callback</cite></li>
 </ul>
 </td>
 </tr>
@@ -1327,11 +1325,11 @@ with a remote server.</p>
 <p>All necessary WebSocket-related headers will be added to <cite>msg</cite>, and
 it will then be sent and asynchronously processed normally
 (including handling of redirection and HTTP authentication).</p>
-<p>If the server returns &#8220;101 Switching Protocols&#8221;, then <cite>msg</cite> &#8216;s status
+<p>If the server returns &#8220;101 Switching Protocols&#8221;, then <cite>msg</cite>&#8216;s status
 code and response headers will be updated, and then the WebSocket
 handshake will be completed. On success,
 soup_websocket_connect_finish() will return a new
-<a class="reference internal" href="WebsocketConnection.html#Soup.WebsocketConnection" title="Soup.WebsocketConnection"><code class="xref py py-obj docutils literal"><span class="pre">Soup.WebsocketConnection</span></code></a>. On failure it will return a <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code>.</p>
+<a class="reference internal" href="WebsocketConnection.html#Soup.WebsocketConnection" title="Soup.WebsocketConnection"><code class="xref py py-obj docutils literal"><span class="pre">Soup.WebsocketConnection</span></code></a>. On failure it will return a <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a>.</p>
 <p>If the server returns a status other than &#8220;101 Switching
 Protocols&#8221;, then <cite>msg</cite> will contain the complete response headers
 and body from the server&#8217;s response, and
@@ -1351,7 +1349,7 @@ soup_websocket_connect_finish() will return
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a> passed to your callback</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="WebsocketConnection.html#Soup.WebsocketConnection" title="Soup.WebsocketConnection"><code class="xref py py-obj docutils literal"><span class="pre">Soup.WebsocketConnection</span></code></a>, or
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error.</td>
@@ -1361,7 +1359,7 @@ soup_websocket_connect_finish() will return
 </tbody>
 </table>
 <p>Gets the <a class="reference internal" href="WebsocketConnection.html#Soup.WebsocketConnection" title="Soup.WebsocketConnection"><code class="xref py py-obj docutils literal"><span class="pre">Soup.WebsocketConnection</span></code></a> response to a
-<a class="reference internal" href="#Soup.Session.websocket_connect_async" title="Soup.Session.websocket_connect_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.websocket_connect_async</span></code></a> () call and (if successful),
+<a class="reference internal" href="#Soup.Session.websocket_connect_async" title="Soup.Session.websocket_connect_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.websocket_connect_async</span></code></a>() call and (if successful),
 returns a #SoupWebsockConnection that can be used to communicate
 with the server.</p>
 <div class="versionadded">
@@ -1384,8 +1382,8 @@ with the server.</p>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>msg</cite> contains a response that would cause <cite>session</cite> to
-redirect it to a new URL (ignoring <cite>msg</cite> &#8216;s <a class="reference internal" href="../flags.html#Soup.MessageFlags.NO_REDIRECT" title="Soup.MessageFlags.NO_REDIRECT"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageFlags.NO_REDIRECT</span></code></a>
+<p>Checks if <cite>msg</cite> contains a response that would cause <cite>self</cite> to
+redirect it to a new URL (ignoring <cite>msg</cite>&#8216;s <a class="reference internal" href="../flags.html#Soup.MessageFlags.NO_REDIRECT" title="Soup.MessageFlags.NO_REDIRECT"><code class="xref py py-obj docutils literal"><span class="pre">Soup.MessageFlags.NO_REDIRECT</span></code></a>
 flag, and the number of times it has already been redirected).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.38.</span></p>
@@ -1438,7 +1436,7 @@ flag, and the number of times it has already been redirected).</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>msg</strong> (<a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>) &#8211; the message to cancel</li>
 <li><strong>status_code</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; status code to set on <cite>msg</cite> (generally
-<a class="reference internal" href="../enums.html#Soup.Status.CANCELLED" title="Soup.Status.CANCELLED"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Status.CANCELLED</span></code></a> )</li>
+<a class="reference internal" href="../enums.html#Soup.Status.CANCELLED" title="Soup.Status.CANCELLED"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Status.CANCELLED</span></code></a>)</li>
 </ul>
 </td>
 </tr>
@@ -1446,7 +1444,7 @@ flag, and the number of times it has already been redirected).</p>
 </table>
 <p>Causes <cite>session</cite> to immediately finish processing <cite>msg</cite> (regardless
 of its current state) with a final status_code of <cite>status_code</cite>. You
-may call this at any time after handing <cite>msg</cite> off to <cite>session</cite> ; if
+may call this at any time after handing <cite>msg</cite> off to <cite>session</cite>; if
 <cite>session</cite> has started sending the request but has not yet received
 the complete response, then it will close the request&#8217;s connection.
 Note that with requests that have side effects (eg,
@@ -1459,8 +1457,8 @@ then the response body in <cite>msg</cite> will be left partially-filled-in.
 The response headers, on the other hand, will always be either
 empty or complete.</p>
 <p>Beware that with the deprecated <a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a>, messages queued
-with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a> () will have their callbacks invoked
-before <a class="reference internal" href="#Soup.Session.cancel_message" title="Soup.Session.cancel_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.cancel_message</span></code></a> () returns. The plain
+with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a>() will have their callbacks invoked
+before <a class="reference internal" href="#Soup.Session.cancel_message" title="Soup.Session.cancel_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.cancel_message</span></code></a>() returns. The plain
 <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> does not have this behavior; cancelling an
 asynchronous message will merely queue its callback to be run after
 returning to the main loop.</p>
@@ -1500,13 +1498,13 @@ time it was last sent are freed.</p>
 <p>Upon message completion, the callback specified in <cite>callback</cite> will
 be invoked. If after returning from this callback the message has not
 been requeued, <cite>msg</cite> will be unreffed.</p>
-<p>(The behavior above applies to a plain <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> ; if you are
+<p>(The behavior above applies to a plain <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a>; if you are
 using <a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a> or <a class="reference internal" href="SessionSync.html#Soup.SessionSync" title="Soup.SessionSync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionSync</span></code></a>, then the <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>
 that is used depends on the settings of <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.async_context" title="Soup.Session.props.async_context"><code class="xref py py-data docutils literal"><span class="pre">:async-context</span></code></a>
 and <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.use_thread_context" title="Soup.Session.props.use_thread_context"><code class="xref py py-data docutils literal"><span class="pre">:use-thread-context</span></code></a>, and for <a class="reference internal" href="SessionSync.html#Soup.SessionSync" title="Soup.SessionSync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionSync</span></code></a>, the
 message will actually be sent and processed in another thread, with
 only the final callback occurring in the indicated <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a>.)</p>
-<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send_async" title="Soup.Session.send_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_async</span></code></a> (), which also
+<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send_async" title="Soup.Session.send_async"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_async</span></code></a>(), which also
 asynchronously sends a message, but returns before reading the
 response body, and allows you to read the response via a
 <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a>.</p>
@@ -1562,13 +1560,13 @@ again.</p>
 <p>Synchronously send <cite>msg</cite>. This call will not return until the
 transfer is finished successfully or there is an unrecoverable
 error.</p>
-<p>Unlike with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a> (), <cite>msg</cite> is not freed upon
+<p>Unlike with <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a>(), <cite>msg</cite> is not freed upon
 return.</p>
 <p>(Note that if you call this method on a <a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a>, it will
 still use asynchronous I/O internally, running the glib main loop
 to process the message, which may also cause other events to be
 processed.)</p>
-<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a> (), which also
+<p>Contrast this method with <a class="reference internal" href="#Soup.Session.send" title="Soup.Session.send"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send</span></code></a>(), which also
 synchronously sends a message, but returns before reading the
 response body, and allows you to read the response via a
 <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a>.</p>
@@ -1603,16 +1601,16 @@ response body, and allows you to read the response via a
 </tbody>
 </table>
 <p>Emitted when the session requires authentication. If
-credentials are available call <a class="reference internal" href="Auth.html#Soup.Auth.authenticate" title="Soup.Auth.authenticate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Auth.authenticate</span></code></a> () on
+credentials are available call <a class="reference internal" href="Auth.html#Soup.Auth.authenticate" title="Soup.Auth.authenticate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Auth.authenticate</span></code></a>() on
 <cite>auth</cite>. If these credentials fail, the signal will be
 emitted again, with <cite>retrying</cite> set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, which will
 continue until you return without calling
-<a class="reference internal" href="Auth.html#Soup.Auth.authenticate" title="Soup.Auth.authenticate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Auth.authenticate</span></code></a> () on <cite>auth</cite>.</p>
-<p>Note that this may be emitted before <cite>msg</cite> &#8216;s body has been
+<a class="reference internal" href="Auth.html#Soup.Auth.authenticate" title="Soup.Auth.authenticate"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Auth.authenticate</span></code></a>() on <cite>auth</cite>.</p>
+<p>Note that this may be emitted before <cite>msg</cite>&#8216;s body has been
 fully read.</p>
-<p>If you call <a class="reference internal" href="#Soup.Session.pause_message" title="Soup.Session.pause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.pause_message</span></code></a> () on <cite>msg</cite> before
+<p>If you call <a class="reference internal" href="#Soup.Session.pause_message" title="Soup.Session.pause_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.pause_message</span></code></a>() on <cite>msg</cite> before
 returning, then you can authenticate <cite>auth</cite> asynchronously
-(as long as you <a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/Object.html#GObject.Object.ref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.ref</span></code></a> () it to make sure it doesn&#8217;t
+(as long as you <a class="reference external" href="../_docs/Soup-2.4/../../../python-GObject-2.0/classes/Object.html#GObject.Object.ref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.ref</span></code></a>() it to make sure it doesn&#8217;t
 get destroyed), and then unpause <cite>msg</cite> when you are ready
 for it to continue.</p>
 </dd></dl>
@@ -1668,33 +1666,33 @@ purposes, and may go away in the future.</p>
 </tbody>
 </table>
 <p>Emitted when a request is queued on <cite>session</cite>. (Note that
-&#8220;queued&#8221; doesn&#8217;t just mean <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a> ();
-<a class="reference internal" href="#Soup.Session.send_message" title="Soup.Session.send_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_message</span></code></a> () implicitly queues the message
+&#8220;queued&#8221; doesn&#8217;t just mean <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a>();
+<a class="reference internal" href="#Soup.Session.send_message" title="Soup.Session.send_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.send_message</span></code></a>() implicitly queues the message
 as well.)</p>
-<p>When sending a request, first <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_queued" title="Soup.Session.signals.request_queued"><code class="xref py py-func docutils literal"><span class="pre">::request-queued</span></code></a>
+<p>When sending a request, first #SoupSession::request_queued
 is emitted, indicating that the session has become aware of
 the request.</p>
 <p>Once a connection is available to send the request on, the
-session emits <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_started" title="Soup.Session.signals.request_started"><code class="xref py py-func docutils literal"><span class="pre">::request-started</span></code></a>. Then, various
+session emits #SoupSession::request_started. Then, various
 <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> signals are emitted as the message is
 processed. If the message is requeued, it will emit
 <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="Message.html#Soup.Message.signals.restarted" title="Soup.Message.signals.restarted"><code class="xref py py-func docutils literal"><span class="pre">::restarted</span></code></a>, which will then be followed by
-another <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_started" title="Soup.Session.signals.request_started"><code class="xref py py-func docutils literal"><span class="pre">::request-started</span></code></a> and another set of
+another #SoupSession::request_started and another set of
 <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> signals when the message is re-sent.</p>
 <p>Eventually, the message will emit <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="Message.html#Soup.Message.signals.finished" title="Soup.Message.signals.finished"><code class="xref py py-func docutils literal"><span class="pre">::finished</span></code></a>.
 Normally, this signals the completion of message
 processing. However, it is possible that the application
 will requeue the message from the &#8220;finished&#8221; handler (or
-equivalently, from the <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a> ()
+equivalently, from the <a class="reference internal" href="#Soup.Session.queue_message" title="Soup.Session.queue_message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.queue_message</span></code></a>()
 callback). In that case, the process will loop back to
-<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_started" title="Soup.Session.signals.request_started"><code class="xref py py-func docutils literal"><span class="pre">::request-started</span></code></a>.</p>
+#SoupSession::request_started.</p>
 <p>Eventually, a message will reach &#8220;finished&#8221; and not be
 requeued. At that point, the session will emit
-<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_unqueued" title="Soup.Session.signals.request_unqueued"><code class="xref py py-func docutils literal"><span class="pre">::request-unqueued</span></code></a> to indicate that it is done
+#SoupSession::request_unqueued to indicate that it is done
 with the message.</p>
-<p>To sum up: <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_queued" title="Soup.Session.signals.request_queued"><code class="xref py py-func docutils literal"><span class="pre">::request-queued</span></code></a> and
-<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_unqueued" title="Soup.Session.signals.request_unqueued"><code class="xref py py-func docutils literal"><span class="pre">::request-unqueued</span></code></a> are guaranteed to be emitted
-exactly once, but <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_started" title="Soup.Session.signals.request_started"><code class="xref py py-func docutils literal"><span class="pre">::request-started</span></code></a> and
+<p>To sum up: #SoupSession::request_queued and
+#SoupSession::request_unqueued are guaranteed to be emitted
+exactly once, but #SoupSession::request_started and
 <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="Message.html#Soup.Message.signals.finished" title="Soup.Message.signals.finished"><code class="xref py py-func docutils literal"><span class="pre">::finished</span></code></a> (and all of the other <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>
 signals) may be invoked multiple times for a given message.</p>
 <div class="versionadded">
@@ -1725,7 +1723,7 @@ signals) may be invoked multiple times for a given message.</p>
 </tbody>
 </table>
 <p>Emitted just before a request is sent. See
-<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_queued" title="Soup.Session.signals.request_queued"><code class="xref py py-func docutils literal"><span class="pre">::request-queued</span></code></a> for a detailed description of
+#SoupSession::request_queued for a detailed description of
 the message lifecycle within a session.</p>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version 2.50.: </span>Use <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> <a class="reference internal" href="Message.html#Soup.Message.signals.starting" title="Soup.Message.signals.starting"><code class="xref py py-func docutils literal"><span class="pre">::starting</span></code></a> instead.</p>
@@ -1753,9 +1751,9 @@ the message lifecycle within a session.</p>
 </tr>
 </tbody>
 </table>
-<p>Emitted when a request is removed from <cite>session</cite> &#8216;s queue,
+<p>Emitted when a request is removed from <cite>session</cite>&#8216;s queue,
 indicating that <cite>session</cite> is done with it. See
-<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.signals.request_queued" title="Soup.Session.signals.request_queued"><code class="xref py py-func docutils literal"><span class="pre">::request-queued</span></code></a> for a detailed description of the
+#SoupSession::request_queued for a detailed description of the
 message lifecycle within a session.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
@@ -1839,7 +1837,7 @@ on <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Me
 </table>
 <p>If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> will automatically set the string
 for the &#8220;Accept-Language&#8221; header on every <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a>
-sent, based on the return value of <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/functions.html#GLib.get_language_names" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_language_names</span></code></a> ().</p>
+sent, based on the return value of <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/functions.html#GLib.get_language_names" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.get_language_names</span></code></a>().</p>
 <p>Setting this will override any previous value of
 <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.accept_language" title="Soup.Session.props.accept_language"><code class="xref py py-data docutils literal"><span class="pre">:accept-language</span></code></a>.</p>
 <div class="versionadded">
@@ -1960,7 +1958,7 @@ are considered aliases for &#8220;https&#8221;.</p>
 left idle longer than this will be closed.</p>
 <p>Although you can change this property at any time, it will
 only affect newly-created connections, not currently-open
-ones. You can call <a class="reference internal" href="#Soup.Session.abort" title="Soup.Session.abort"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.abort</span></code></a> () after setting this
+ones. You can call <a class="reference internal" href="#Soup.Session.abort" title="Soup.Session.abort"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.abort</span></code></a>() after setting this
 if you want to ensure that all future connections will have
 this timeout value.</p>
 <p>Note that the default value of 60 seconds only applies to
@@ -2126,7 +2124,7 @@ then libsoup will print a warning, and then behave as
 though it had read in a empty CA file, meaning that all SSL
 certificates will be considered invalid.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>use <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.ssl_use_system_ca_file" title="Soup.Session.props.ssl_use_system_ca_file"><code class="xref py py-data docutils literal"><span class="pre">:ssl-use-system-ca-file</span></code></a>, or else <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.tls_database" title="Soup.Session.props.tls_database"><code class="xref py py-data docutils literal"><span class="pre">:tls-database</span></code></a> with a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/interfaces/TlsFileDatabase.html#Gio.TlsFileDatabase" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsFileDatabase</span></code></a>  (which allows you to do explicit error handling).</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>use <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.ssl_use_system_ca_file" title="Soup.Session.props.ssl_use_system_ca_file"><code class="xref py py-data docutils literal"><span class="pre">:ssl-use-system-ca-file</span></code></a>, or else <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.tls_database" title="Soup.Session.props.tls_database"><code class="xref py py-data docutils literal"><span class="pre">:tls-database</span></code></a> with a <a class="reference external" href="../_docs/Soup-2.4/../../../python-Gio-2.0/interfaces/TlsFileDatabase.html#Gio.TlsFileDatabase" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsFileDatabase</span></code></a> (which allows you to do explicit error handling).</p>
 </div>
 </dd></dl>
 
@@ -2149,14 +2147,14 @@ certificates will be considered invalid.</p>
 </table>
 <p>Normally, if <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.tls_database" title="Soup.Session.props.tls_database"><code class="xref py py-data docutils literal"><span class="pre">:tls-database</span></code></a> is set (including if
 it was set via <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.ssl_use_system_ca_file" title="Soup.Session.props.ssl_use_system_ca_file"><code class="xref py py-data docutils literal"><span class="pre">:ssl-use-system-ca-file</span></code></a> or
-<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.ssl_ca_file" title="Soup.Session.props.ssl_ca_file"><code class="xref py py-data docutils literal"><span class="pre">:ssl-ca-file</span></code></a> ), then libsoup will reject any
+<a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.ssl_ca_file" title="Soup.Session.props.ssl_ca_file"><code class="xref py py-data docutils literal"><span class="pre">:ssl-ca-file</span></code></a>), then libsoup will reject any
 certificate that is invalid (ie, expired) or that is not
 signed by one of the given CA certificates, and the
 <a class="reference internal" href="Message.html#Soup.Message" title="Soup.Message"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message</span></code></a> will fail with the status
 <a class="reference internal" href="../enums.html#Soup.Status.SSL_FAILED" title="Soup.Status.SSL_FAILED"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Status.SSL_FAILED</span></code></a>.</p>
 <p>If you set <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.ssl_strict" title="Soup.Session.props.ssl_strict"><code class="xref py py-data docutils literal"><span class="pre">:ssl-strict</span></code></a> to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, then all
 certificates will be accepted, and you will need to call
-<a class="reference internal" href="Message.html#Soup.Message.get_https_status" title="Soup.Message.get_https_status"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.get_https_status</span></code></a> () to distinguish valid from
+<a class="reference internal" href="Message.html#Soup.Message.get_https_status" title="Soup.Message.get_https_status"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Message.get_https_status</span></code></a>() to distinguish valid from
 invalid certificates. (This can be used, eg, if you want to
 accept invalid certificates after giving some sort of
 warning.)</p>
@@ -2164,7 +2162,7 @@ warning.)</p>
 TLS database, and this property is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, then all
 certificates will be rejected. However, beware that the
 deprecated <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> subclasses (<a class="reference internal" href="SessionAsync.html#Soup.SessionAsync" title="Soup.SessionAsync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionAsync</span></code></a> and
-<a class="reference internal" href="SessionSync.html#Soup.SessionSync" title="Soup.SessionSync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionSync</span></code></a> ) have the opposite behavior: if there is
+<a class="reference internal" href="SessionSync.html#Soup.SessionSync" title="Soup.SessionSync"><code class="xref py py-obj docutils literal"><span class="pre">Soup.SessionSync</span></code></a>) have the opposite behavior: if there is
 no CA file or TLS database, then all certificates are always
 accepted, and this property has no effect.</p>
 <div class="versionadded">
@@ -2193,8 +2191,8 @@ accepted, and this property has no effect.</p>
 <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.tls_database" title="Soup.Session.props.tls_database"><code class="xref py py-data docutils literal"><span class="pre">:tls-database</span></code></a> to the default system CA database.
 (and likewise, setting <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.tls_database" title="Soup.Session.props.tls_database"><code class="xref py py-data docutils literal"><span class="pre">:tls-database</span></code></a> to the
 default database by hand will cause this property to
-become <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> ).</p>
-<p>Setting this to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> (when it was previously <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> ) will
+become <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>).</p>
+<p>Setting this to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> (when it was previously <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>) will
 clear the <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.tls_database" title="Soup.Session.props.tls_database"><code class="xref py py-data docutils literal"><span class="pre">:tls-database</span></code></a> field.</p>
 <p>See <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.ssl_strict" title="Soup.Session.props.ssl_strict"><code class="xref py py-data docutils literal"><span class="pre">:ssl-strict</span></code></a> for more information on how
 https certificate validation is handled.</p>
@@ -2229,7 +2227,7 @@ compatibility.</p>
 to an HTTP request).</p>
 <p>Although you can change this property at any time, it will
 only affect newly-created connections, not currently-open
-ones. You can call <a class="reference internal" href="#Soup.Session.abort" title="Soup.Session.abort"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.abort</span></code></a> () after setting this
+ones. You can call <a class="reference internal" href="#Soup.Session.abort" title="Soup.Session.abort"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.abort</span></code></a>() after setting this
 if you want to ensure that all future connections will have
 this timeout value.</p>
 <p>Note that the default value of 60 seconds only applies to
@@ -2320,7 +2318,7 @@ provide client-side certificates, for example.)</p>
 </table>
 <p>Whether or not to use NTLM authentication.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>use <a class="reference internal" href="#Soup.Session.add_feature_by_type" title="Soup.Session.add_feature_by_type"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.add_feature_by_type</span></code></a> () with #SOUP_TYPE_AUTH_NTLM.</p>
+<p><span class="versionmodified">Deprecated since version ???: </span>use <a class="reference internal" href="#Soup.Session.add_feature_by_type" title="Soup.Session.add_feature_by_type"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session.add_feature_by_type</span></code></a>() with #SOUP_TYPE_AUTH_NTLM.</p>
 </div>
 </dd></dl>
 
@@ -2341,7 +2339,7 @@ provide client-side certificates, for example.)</p>
 </tr>
 </tbody>
 </table>
-<p>If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> (which it always is on a plain <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> ),
+<p>If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> (which it always is on a plain <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a>),
 asynchronous HTTP requests in this session will run in
 whatever the thread-default <a class="reference external" href="../_docs/Soup-2.4/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is at the time
 they are started, rather than always occurring in
@@ -2384,7 +2382,7 @@ brief, ASCII, and mostly alphanumeric (although &#8220;-&#8221;, &#8220;_&#8221;
 and &#8221;.&#8221; are also allowed), and may optionally include a &#8220;/&#8221;
 followed by a version string. You may also put comments,
 enclosed in parentheses, between or after the tokens.</p>
-<p>If you set a <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> <a class="reference internal" href="#Soup.Session.props.user_agent" title="Soup.Session.props.user_agent"><code class="xref py py-data docutils literal"><span class="pre">:user-agent</span></code></a> property that has trailing
+<p>If you set a #SoupSession:user_agent property that has trailing
 whitespace, <a class="reference internal" href="#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> will append its own product token
 (eg, &#8220;<code class="docutils literal"><span class="pre">libsoup/2.3.2</span></code>&#8221;) to the end of the
 header for you.</p>
@@ -2404,7 +2402,4 @@ header for you.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

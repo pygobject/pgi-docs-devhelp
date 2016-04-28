@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.Variant" href="Variant.html"/>
         <link rel="prev" title="GLib.TrashStack" href="TrashStack.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -165,21 +163,24 @@
 <td><a class="reference internal" href="#GLib.Tree.insert" title="GLib.Tree.insert"><code class="xref py py-obj docutils literal"><span class="pre">insert</span></code></a> (key, value)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GLib.Tree.lookup" title="GLib.Tree.lookup"><code class="xref py py-obj docutils literal"><span class="pre">lookup</span></code></a> (key)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.Tree.lookup_extended" title="GLib.Tree.lookup_extended"><code class="xref py py-obj docutils literal"><span class="pre">lookup_extended</span></code></a> (lookup_key, orig_key, value)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.Tree.nnodes" title="GLib.Tree.nnodes"><code class="xref py py-obj docutils literal"><span class="pre">nnodes</span></code></a> ()</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.Tree.remove" title="GLib.Tree.remove"><code class="xref py py-obj docutils literal"><span class="pre">remove</span></code></a> (key)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.Tree.replace" title="GLib.Tree.replace"><code class="xref py py-obj docutils literal"><span class="pre">replace</span></code></a> (key, value)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.Tree.steal" title="GLib.Tree.steal"><code class="xref py py-obj docutils literal"><span class="pre">steal</span></code></a> (key)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.Tree.unref" title="GLib.Tree.unref"><code class="xref py py-obj docutils literal"><span class="pre">unref</span></code></a> ()</td>
 </tr>
 </tbody>
@@ -195,23 +196,23 @@
 accessed only by using the following functions.</p>
 <dl class="method">
 <dt id="GLib.Tree.destroy">
-<code class="descname">destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.46.2#n360"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n360"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Removes all keys and values from the <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a> and decreases its
 reference count by one. If keys and/or values are dynamically
 allocated, you should either free them first or create the <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a>
-using <code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree.new_full</span></code> (). In the latter case the destroy functions
+using g_tree_new_full(). In the latter case the destroy functions
 you supplied will be called on all keys and values before destroying
 the <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.Tree.height">
-<code class="descname">height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.46.2#n1038"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n1038"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the height of <cite>tree</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the height of <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -225,14 +226,14 @@ If the root node has children the height is 2, etc.</p>
 
 <dl class="method">
 <dt id="GLib.Tree.insert">
-<code class="descname">insert</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.46.2#n388"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n388"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the key to insert</li>
-<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the value corresponding to the key</li>
+<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the key to insert</li>
+<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the value corresponding to the key</li>
 </ul>
 </td>
 </tr>
@@ -249,16 +250,37 @@ so that the distance from the root to every leaf is as small as possible.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="GLib.Tree.lookup">
+<code class="descname">lookup</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n841"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the key to look up</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the value corresponding to the key, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
+if the key was not found</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Gets the value corresponding to the given key. Since a <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a> is
+automatically balanced as key/value pairs are added, key lookup
+is O(log n) (where n is the number of key/value pairs in the tree).</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="GLib.Tree.lookup_extended">
-<code class="descname">lookup_extended</code><span class="sig-paren">(</span><em>lookup_key</em>, <em>orig_key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.46.2#n870"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">lookup_extended</code><span class="sig-paren">(</span><em>lookup_key</em>, <em>orig_key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n870"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>lookup_key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the key to look up</li>
-<li><strong>orig_key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; returns the original key</li>
-<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; returns the value associated with the key</li>
+<li><strong>lookup_key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the key to look up</li>
+<li><strong>orig_key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; returns the original key</li>
+<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; returns the value associated with the key</li>
 </ul>
 </td>
 </tr>
@@ -273,17 +295,17 @@ so that the distance from the root to every leaf is as small as possible.</p>
 <p>Looks up a key in the <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a>, returning the original key and the
 associated value. This is useful if you need to free the memory
 allocated for the original key, for example before calling
-<a class="reference internal" href="#GLib.Tree.remove" title="GLib.Tree.remove"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree.remove</span></code></a> ().</p>
+<a class="reference internal" href="#GLib.Tree.remove" title="GLib.Tree.remove"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree.remove</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GLib.Tree.nnodes">
-<code class="descname">nnodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.46.2#n1068"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">nnodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n1068"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of nodes in <cite>tree</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of nodes in <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -294,12 +316,12 @@ allocated for the original key, for example before calling
 
 <dl class="method">
 <dt id="GLib.Tree.remove">
-<code class="descname">remove</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.46.2#n578"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n578"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the key to remove</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the key to remove</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the key was found (prior to 2.8, this function
 returned nothing)</td>
@@ -309,7 +331,7 @@ returned nothing)</td>
 </tbody>
 </table>
 <p>Removes a key/value pair from a <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a>.</p>
-<p>If the <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a> was created using <code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree.new_full</span></code> (), the key and value
+<p>If the <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a> was created using g_tree_new_full(), the key and value
 are freed using the supplied destroy functions, otherwise you have to
 make sure that any dynamically allocated values are freed yourself.
 If the key does not exist in the <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a>, the function does nothing.</p>
@@ -317,20 +339,20 @@ If the key does not exist in the <a class="reference internal" href="#GLib.Tree"
 
 <dl class="method">
 <dt id="GLib.Tree.replace">
-<code class="descname">replace</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.46.2#n418"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">replace</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n418"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the key to insert</li>
-<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the value corresponding to the key</li>
+<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the key to insert</li>
+<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the value corresponding to the key</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Inserts a new key and value into a <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a> similar to <a class="reference internal" href="#GLib.Tree.insert" title="GLib.Tree.insert"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree.insert</span></code></a> ().
+<p>Inserts a new key and value into a <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a> similar to <a class="reference internal" href="#GLib.Tree.insert" title="GLib.Tree.insert"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree.insert</span></code></a>().
 The difference is that if the key already exists in the <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a>, it gets
 replaced by the new key. If you supplied a <cite>value_destroy_func</cite> when
 creating the <a class="reference internal" href="#GLib.Tree" title="GLib.Tree"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Tree</span></code></a>, the old value is freed using that function. If you
@@ -342,12 +364,12 @@ so that the distance from the root to every leaf is as small as possible.</p>
 
 <dl class="method">
 <dt id="GLib.Tree.steal">
-<code class="descname">steal</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.46.2#n608"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">steal</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n608"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the key to remove</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the key to remove</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the key was found (prior to 2.8, this function
 returned nothing)</td>
@@ -363,11 +385,11 @@ the key and value destroy functions.</p>
 
 <dl class="method">
 <dt id="GLib.Tree.unref">
-<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.46.2#n337"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Decrements the reference count of <cite>tree</cite> by one.
+<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gtree.c?h=2.48.0#n337"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Decrements the reference count of <cite>self</cite> by one.
 If the reference count drops to 0, all keys and values will
 be destroyed (if destroy functions were specified) and all
-memory allocated by <cite>tree</cite> will be released.</p>
+memory allocated by <cite>self</cite> will be released.</p>
 <p>It is safe to call this function from any thread.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
@@ -390,7 +412,4 @@ memory allocated by <cite>tree</cite> will be released.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

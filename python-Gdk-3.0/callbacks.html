@@ -32,13 +32,11 @@
   
     <link rel="stylesheet" href="_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gdk 3.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Classes" href="classes/index.html"/>
         <link rel="prev" title="Functions" href="functions.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -145,9 +143,12 @@
 <td><a class="reference internal" href="#Gdk.FilterFunc" title="Gdk.FilterFunc"><code class="xref py py-func docutils literal"><span class="pre">FilterFunc</span></code></a> (xevent, event, data)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Gdk.WindowChildFunc" title="Gdk.WindowChildFunc"><code class="xref py py-func docutils literal"><span class="pre">WindowChildFunc</span></code></a> (window, user_data)</td>
+<td><a class="reference internal" href="#Gdk.SeatGrabPrepareFunc" title="Gdk.SeatGrabPrepareFunc"><code class="xref py py-func docutils literal"><span class="pre">SeatGrabPrepareFunc</span></code></a> (seat, window, user_data)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gdk.WindowChildFunc" title="Gdk.WindowChildFunc"><code class="xref py py-func docutils literal"><span class="pre">WindowChildFunc</span></code></a> (window, user_data)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gdk.WindowInvalidateHandlerFunc" title="Gdk.WindowInvalidateHandlerFunc"><code class="xref py py-func docutils literal"><span class="pre">WindowInvalidateHandlerFunc</span></code></a> (window, region)</td>
 </tr>
 </tbody>
@@ -164,13 +165,13 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>event</strong> (<a class="reference internal" href="unions/Event.html#Gdk.Event" title="Gdk.Event"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event</span></code></a>) &#8211; the <a class="reference internal" href="unions/Event.html#Gdk.Event" title="Gdk.Event"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event</span></code></a> to process.</li>
 <li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data set when the event handler was installed with
-<a class="reference internal" href="unions/Event.html#Gdk.Event.handler_set" title="Gdk.Event.handler_set"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.handler_set</span></code></a> ().</li>
+<a class="reference internal" href="unions/Event.html#Gdk.Event.handler_set" title="Gdk.Event.handler_set"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.handler_set</span></code></a>().</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Specifies the type of function passed to <a class="reference internal" href="unions/Event.html#Gdk.Event.handler_set" title="Gdk.Event.handler_set"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.handler_set</span></code></a> () to
+<p>Specifies the type of function passed to <a class="reference internal" href="unions/Event.html#Gdk.Event.handler_set" title="Gdk.Event.handler_set"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Event.handler_set</span></code></a>() to
 handle all GDK events.</p>
 </dd></dl>
 
@@ -206,6 +207,31 @@ continue, it should return <a class="reference internal" href="enums.html#Gdk.Fi
 </dd></dl>
 
 <dl class="function">
+<dt id="Gdk.SeatGrabPrepareFunc">
+<code class="descclassname">Gdk.</code><code class="descname">SeatGrabPrepareFunc</code><span class="sig-paren">(</span><em>seat</em>, <em>window</em>, <em>user_data</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>seat</strong> (<a class="reference internal" href="classes/Seat.html#Gdk.Seat" title="Gdk.Seat"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Seat</span></code></a>) &#8211; the <a class="reference internal" href="classes/Seat.html#Gdk.Seat" title="Gdk.Seat"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Seat</span></code></a> being grabbed</li>
+<li><strong>window</strong> (<a class="reference internal" href="classes/Window.html#Gdk.Window" title="Gdk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window</span></code></a>) &#8211; the <a class="reference internal" href="classes/Window.html#Gdk.Window" title="Gdk.Window"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window</span></code></a> being grabbed</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data passed in <a class="reference internal" href="classes/Seat.html#Gdk.Seat.grab" title="Gdk.Seat.grab"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Seat.grab</span></code></a>()</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Type of the callback used to set up <cite>window</cite> so it can be
+grabbed. A typical action would be ensuring the window is
+visible, although there&#8217;s room for other initialization
+actions.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.20.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="Gdk.WindowChildFunc">
 <code class="descclassname">Gdk.</code><code class="descname">WindowChildFunc</code><span class="sig-paren">(</span><em>window</em>, <em>user_data</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -226,7 +252,7 @@ continue, it should return <a class="reference internal" href="enums.html#Gdk.Fi
 </tr>
 </tbody>
 </table>
-<p>A function of this type is passed to <a class="reference internal" href="classes/Window.html#Gdk.Window.invalidate_maybe_recurse" title="Gdk.Window.invalidate_maybe_recurse"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.invalidate_maybe_recurse</span></code></a> ().
+<p>A function of this type is passed to <a class="reference internal" href="classes/Window.html#Gdk.Window.invalidate_maybe_recurse" title="Gdk.Window.invalidate_maybe_recurse"><code class="xref py py-obj docutils literal"><span class="pre">Gdk.Window.invalidate_maybe_recurse</span></code></a>().
 It gets called for each child of the window to determine whether to
 recursively invalidate it or now.</p>
 </dd></dl>
@@ -271,7 +297,4 @@ a child in multiple places.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

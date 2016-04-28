@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GstCheck 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GstCheck.HarnessThread" href="HarnessThread.html"/>
         <link rel="prev" title="GstCheck.CheckABIStruct" href="CheckABIStruct.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -375,36 +373,36 @@
 <dl class="class">
 <dt id="GstCheck.Harness">
 <em class="property">class </em><code class="descclassname">GstCheck.</code><code class="descname">Harness</code></dt>
-<dd><p><a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> is ment to make writing unit test for GStreamer much easier.
-It can be though of as a way of treating a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> as a black box,
-deterministially feeding it data, and controlling what data it outputs.</p>
-<p>The basic structure of <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> is two &#8220;floating&#8221; <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pads</span></code></a>, that connects
+<dd><p><a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> is meant to make writing unit test for GStreamer much easier.
+It can be thought of as a way of treating a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> as a black box,
+deterministically feeding it data, and controlling what data it outputs.</p>
+<p>The basic structure of <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> is two &#8220;floating&#8221; <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pads</span></code></a> that connect
 to the harnessed <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> src and sink <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pads</span></code></a> like so:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">__________________________</span>
- <span class="n">_____</span>   <span class="o">|</span>  <span class="n">_____</span>            <span class="n">_____</span>  <span class="o">|</span>   <span class="n">_____</span>
-<span class="o">|</span>     <span class="o">|</span>  <span class="o">|</span> <span class="o">|</span>     <span class="o">|</span>          <span class="o">|</span>     <span class="o">|</span> <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>
-<span class="o">|</span> <span class="n">src</span> <span class="o">|--+-|</span> <span class="n">sink</span><span class="o">|</span>  <span class="n">Element</span> <span class="o">|</span> <span class="n">src</span> <span class="o">|-+--|</span> <span class="n">sink</span><span class="o">|</span>
-<span class="o">|</span><span class="n">_____</span><span class="o">|</span>  <span class="o">|</span> <span class="o">|</span><span class="n">_____</span><span class="o">|</span>          <span class="o">|</span><span class="n">_____</span><span class="o">|</span> <span class="o">|</span>  <span class="o">|</span><span class="n">_____</span><span class="o">|</span>
-         <span class="o">|</span><span class="n">__________________________</span><span class="o">|</span>
+<div class="highlight-none"><div class="highlight"><pre>__________________________
+ _____   |  _____            _____  |   _____
+|     |  | |     |          |     | |  |     |
+| src |--+-| sink|  Element | src |-+--| sink|
+|_____|  | |_____|          |_____| |  |_____|
+         |__________________________|
 </pre></div>
 </div>
 <p>With this, you can now simulate any environment the <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> might find
 itself in. By specifying the <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> of the harness <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pads</span></code></a>, using
-functions like <a class="reference internal" href="#GstCheck.Harness.set_src_caps" title="GstCheck.Harness.set_src_caps"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.set_src_caps</span></code></a> or <a class="reference internal" href="#GstCheck.Harness.set_sink_caps_str" title="GstCheck.Harness.set_sink_caps_str"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.set_sink_caps_str</span></code></a>,
-you can test how the <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> interacts with different capssets.</p>
+functions like <a class="reference internal" href="#GstCheck.Harness.set_src_caps" title="GstCheck.Harness.set_src_caps"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.set_src_caps</span></code></a>() or <a class="reference internal" href="#GstCheck.Harness.set_sink_caps_str" title="GstCheck.Harness.set_sink_caps_str"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.set_sink_caps_str</span></code></a>(),
+you can test how the <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> interacts with different caps sets.</p>
 <p>Your harnessed <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> can of course also be a bin, and using
-<code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.new_parse</span></code> supporting standard gst-launch syntax, you can
+gst_harness_new_parse() supporting standard gst-launch syntax, you can
 easily test a whole pipeline instead of just one element.</p>
 <p>You can then go on to push <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffers</span></code></a> and <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Event.html#Gst.Event" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Events</span></code></a> on to the srcpad,
-using functions like <a class="reference internal" href="#GstCheck.Harness.push" title="GstCheck.Harness.push"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.push</span></code></a> and <a class="reference internal" href="#GstCheck.Harness.push_event" title="GstCheck.Harness.push_event"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.push_event</span></code></a>, and
-then pull them out to examine them with <a class="reference internal" href="#GstCheck.Harness.pull" title="GstCheck.Harness.pull"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.pull</span></code></a> and
-<a class="reference internal" href="#GstCheck.Harness.pull_event" title="GstCheck.Harness.pull_event"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.pull_event</span></code></a>.</p>
+using functions like <a class="reference internal" href="#GstCheck.Harness.push" title="GstCheck.Harness.push"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.push</span></code></a>() and <a class="reference internal" href="#GstCheck.Harness.push_event" title="GstCheck.Harness.push_event"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.push_event</span></code></a>(), and
+then pull them out to examine them with <a class="reference internal" href="#GstCheck.Harness.pull" title="GstCheck.Harness.pull"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.pull</span></code></a>() and
+<a class="reference internal" href="#GstCheck.Harness.pull_event" title="GstCheck.Harness.pull_event"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.pull_event</span></code></a>().</p>
 <dl class="docutils">
 <dt>A simple buffer-in buffer-out example</dt>
 <dd></dd>
 </dl>
-<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;gst/gst.h&gt;</span>
-<span class="cp">#include &lt;gst/check/gstharness.h&gt;</span>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;gst/gst.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gst/check/gstharness.h&gt;</span><span class="cp"></span>
 <span class="n">GstHarness</span> <span class="o">*</span><span class="n">h</span><span class="p">;</span>
 <span class="n">GstBuffer</span> <span class="o">*</span><span class="n">in_buf</span><span class="p">;</span>
 <span class="n">GstBuffer</span> <span class="o">*</span><span class="n">out_buf</span><span class="p">;</span>
@@ -435,14 +433,14 @@ then pull them out to examine them with <a class="reference internal" href="#Gst
 <p>Another main feature of the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> is its integration with the
 <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a>. Operating the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a> can be very challenging, but
 <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> simplifies some of the most desired actions a lot, like wanting
-to manually advance the clock while at the same time releasing a <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockID</span></code>
-that is waiting, with functions like <a class="reference internal" href="#GstCheck.Harness.crank_single_clock_wait" title="GstCheck.Harness.crank_single_clock_wait"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.crank_single_clock_wait</span></code></a>.</p>
+to manually advance the clock while at the same time releasing a #GstClockID
+that is waiting, with functions like <a class="reference internal" href="#GstCheck.Harness.crank_single_clock_wait" title="GstCheck.Harness.crank_single_clock_wait"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.crank_single_clock_wait</span></code></a>().</p>
 <p><a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> also supports sub-harnesses, as a way of generating and
 validating data. A sub-harness is another <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> that is managed by
 the &#8220;parent&#8221; harness, and can either be created by using the standard
-<code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.new</span></code> type functions directly on the (<a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> *)-&gt;src_harness,
-or using the much more convenient <a class="reference internal" href="#GstCheck.Harness.add_src" title="GstCheck.Harness.add_src"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.add_src</span></code></a> or
-<a class="reference internal" href="#GstCheck.Harness.add_sink_parse" title="GstCheck.Harness.add_sink_parse"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.add_sink_parse</span></code></a>. If you have a decoder-element you want to test,
+gst_harness_new type functions directly on the (<a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> *)-&gt;src_harness,
+or using the much more convenient <a class="reference internal" href="#GstCheck.Harness.add_src" title="GstCheck.Harness.add_src"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.add_src</span></code></a>() or
+<a class="reference internal" href="#GstCheck.Harness.add_sink_parse" title="GstCheck.Harness.add_sink_parse"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.add_sink_parse</span></code></a>(). If you have a decoder-element you want to test,
 (like vp8dec) it can be very useful to add a src-harness with both a
 src-element (videotestsrc) and an encoder (vp8enc) to feed the decoder data
 with different configurations, by simply doing:</p>
@@ -457,7 +455,7 @@ with different configurations, by simply doing:</p>
 </div>
 <dl class="staticmethod">
 <dt id="GstCheck.Harness.stress_thread_stop">
-<em class="property">static </em><code class="descname">stress_thread_stop</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2830"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">stress_thread_stop</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2894"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -486,7 +484,7 @@ with different configurations, by simply doing:</p>
 </tr>
 </tbody>
 </table>
-<p>Links the specifed <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad</span></code></a> the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> srcpad.</p>
+<p>Links the specifed <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad</span></code></a> the <cite>GstHarness</cite> srcpad.</p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -495,7 +493,7 @@ with different configurations, by simply doing:</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.add_element_src_pad">
-<code class="descname">add_element_src_pad</code><span class="sig-paren">(</span><em>srcpad</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n991"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_element_src_pad</code><span class="sig-paren">(</span><em>srcpad</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1095"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -504,7 +502,7 @@ with different configurations, by simply doing:</p>
 </tr>
 </tbody>
 </table>
-<p>Links the specifed <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad</span></code></a> the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> sinkpad. This can be useful if
+<p>Links the specifed <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad</span></code></a> the <cite>GstHarness</cite> sinkpad. This can be useful if
 perhaps the srcpad did not exist at the time of creating the harness,
 like a demuxer that provides a sometimes-pad after receiving data.</p>
 <p>MT safe.</p>
@@ -515,7 +513,7 @@ like a demuxer that provides a sometimes-pad after receiving data.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.add_probe">
-<code class="descname">add_probe</code><span class="sig-paren">(</span><em>element_name</em>, <em>pad_name</em>, <em>mask</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2469"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_probe</code><span class="sig-paren">(</span><em>element_name</em>, <em>pad_name</em>, <em>mask</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2530"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -523,9 +521,9 @@ like a demuxer that provides a sometimes-pad after receiving data.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>element_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> with a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/ElementFactory.html#Gst.ElementFactory" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.ElementFactory</span></code></a> name</li>
 <li><strong>pad_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> with the name of the pad to attach the probe to</li>
-<li><strong>mask</strong> (<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/flags.html#Gst.PadProbeType" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeType</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/flags.html#Gst.PadProbeType" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeType</span></code></a> (see <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad.add_probe" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.add_probe</span></code></a> )</li>
-<li><strong>callback</strong> (<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/callbacks.html#Gst.PadProbeCallback" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeCallback</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/callbacks.html#Gst.PadProbeCallback" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeCallback</span></code></a> (see <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad.add_probe" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.add_probe</span></code></a> )</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> (see <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad.add_probe" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.add_probe</span></code></a> )</li>
+<li><strong>mask</strong> (<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/flags.html#Gst.PadProbeType" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeType</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/flags.html#Gst.PadProbeType" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeType</span></code></a> (see <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad.add_probe" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.add_probe</span></code></a>)</li>
+<li><strong>callback</strong> (<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/callbacks.html#Gst.PadProbeCallback" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeCallback</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/callbacks.html#Gst.PadProbeCallback" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeCallback</span></code></a> (see <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad.add_probe" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.add_probe</span></code></a>)</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> (see <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad.add_probe" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.add_probe</span></code></a>)</li>
 </ul>
 </td>
 </tr>
@@ -542,7 +540,7 @@ by using normal <a class="reference external" href="../_docs/GstCheck-1.0/../../
 
 <dl class="method">
 <dt id="GstCheck.Harness.add_sink">
-<code class="descname">add_sink</code><span class="sig-paren">(</span><em>sink_element_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2262"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_sink</code><span class="sig-paren">(</span><em>sink_element_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2322"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -561,7 +559,7 @@ directly create a sink-harness using the <cite>sink_element_name</cite> name spe
 
 <dl class="method">
 <dt id="GstCheck.Harness.add_sink_harness">
-<code class="descname">add_sink_harness</code><span class="sig-paren">(</span><em>sink_harness</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2233"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_sink_harness</code><span class="sig-paren">(</span><em>sink_harness</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2294"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -575,7 +573,7 @@ of your harnessed <a class="reference external" href="../_docs/GstCheck-1.0/../.
 responses the element output might create in sink elements. An example might
 be an existing sink providing some analytical data on the input it receives that
 can be useful to your testing. If the goal is to test a sink-element itself,
-this is better acheived using <code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.new</span></code> directly on the sink.</p>
+this is better acheived using gst_harness_new directly on the sink.</p>
 <p>If a sink-harness already exists it will be replaced.</p>
 <p>MT safe.</p>
 <div class="versionadded">
@@ -585,7 +583,7 @@ this is better acheived using <code class="xref py py-obj docutils literal"><spa
 
 <dl class="method">
 <dt id="GstCheck.Harness.add_sink_parse">
-<code class="descname">add_sink_parse</code><span class="sig-paren">(</span><em>launchline</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2281"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_sink_parse</code><span class="sig-paren">(</span><em>launchline</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2341"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -604,7 +602,7 @@ instead of just an element name. See <a class="reference internal" href="#GstChe
 
 <dl class="method">
 <dt id="GstCheck.Harness.add_src">
-<code class="descname">add_src</code><span class="sig-paren">(</span><em>src_element_name</em>, <em>has_clock_wait</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2071"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_src</code><span class="sig-paren">(</span><em>src_element_name</em>, <em>has_clock_wait</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2131"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -628,7 +626,7 @@ directly create a src-harness using the <cite>src_element_name</cite> name speci
 
 <dl class="method">
 <dt id="GstCheck.Harness.add_src_harness">
-<code class="descname">add_src_harness</code><span class="sig-paren">(</span><em>src_harness</em>, <em>has_clock_wait</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2043"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_src_harness</code><span class="sig-paren">(</span><em>src_harness</em>, <em>has_clock_wait</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2105"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -658,7 +656,7 @@ spin out of control producing buffers as fast as possible.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.add_src_parse">
-<code class="descname">add_src_parse</code><span class="sig-paren">(</span><em>launchline</em>, <em>has_clock_wait</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2096"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_src_parse</code><span class="sig-paren">(</span><em>launchline</em>, <em>has_clock_wait</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2156"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -685,7 +683,7 @@ the elements.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.buffers_in_queue">
-<code class="descname">buffers_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1640"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">buffers_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1702"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -705,7 +703,7 @@ the elements.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.buffers_received">
-<code class="descname">buffers_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1621"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">buffers_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1683"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -727,12 +725,12 @@ that have already been pulled out.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.crank_multiple_clock_waits">
-<code class="descname">crank_multiple_clock_waits</code><span class="sig-paren">(</span><em>waits</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1355"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">crank_multiple_clock_waits</code><span class="sig-paren">(</span><em>waits</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1411"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>waits</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> describing the number of <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockIDs</span></code> to crank</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>waits</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> describing the number of #GstClockIDs to crank</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <cite>gboolean</cite> <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the &#8220;crank&#8221; was successful, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not.</td>
 </tr>
@@ -740,9 +738,9 @@ that have already been pulled out.</p>
 </tr>
 </tbody>
 </table>
-<p>Similar to <a class="reference internal" href="#GstCheck.Harness.crank_single_clock_wait" title="GstCheck.Harness.crank_single_clock_wait"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.crank_single_clock_wait</span></code></a>, this is the function to use
+<p>Similar to <a class="reference internal" href="#GstCheck.Harness.crank_single_clock_wait" title="GstCheck.Harness.crank_single_clock_wait"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.crank_single_clock_wait</span></code></a>(), this is the function to use
 if your harnessed element(s) are using more then one <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Clock.html#Gst.Clock.id_wait" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Clock.id_wait</span></code></a>.
-Failing to do so can (and will) make it racy which <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockID</span></code> you actually
+Failing to do so can (and will) make it racy which #GstClockID you actually
 are releasing, where as this function will process all the waits at the
 same time, ensuring that one thread can&#8217;t register another wait before
 both are released.</p>
@@ -754,7 +752,7 @@ both are released.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.crank_single_clock_wait">
-<code class="descname">crank_single_clock_wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1306"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">crank_single_clock_wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1388"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -766,9 +764,9 @@ both are released.</p>
 </tbody>
 </table>
 <p>A &#8220;crank&#8221; consists of three steps:
-1: Wait for a <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockID</span></code> to be registered with the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a>.
-2: Advance the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a> to the time the <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockID</span></code> is waiting for.
-3: Release the <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockID</span></code> wait.
+1: Wait for a #GstClockID to be registered with the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a>.
+2: Advance the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a> to the time the #GstClockID is waiting for.
+3: Release the #GstClockID wait.
 Together, this provides an easy way to not have to think about the details
 around clocks and time, but still being able to write deterministic tests
 that are dependant on this. A &#8220;crank&#8221; can be though of as the notion of
@@ -781,7 +779,7 @@ manually driving the clock forward to its next logical step.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.create_buffer">
-<code class="descname">create_buffer</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1472"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">create_buffer</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1532"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -804,7 +802,7 @@ configured <a class="reference external" href="../_docs/GstCheck-1.0/../../../py
 
 <dl class="method">
 <dt id="GstCheck.Harness.dump_to_file">
-<code class="descname">dump_to_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1676"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">dump_to_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1738"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -823,7 +821,7 @@ to a file.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.events_in_queue">
-<code class="descname">events_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1813"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">events_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1875"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -843,7 +841,7 @@ to a file.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.events_received">
-<code class="descname">events_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1794"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">events_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1856"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -865,7 +863,7 @@ that have already been pulled out.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.find_element">
-<code class="descname">find_element</code><span class="sig-paren">(</span><em>element_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2354"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">find_element</code><span class="sig-paren">(</span><em>element_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2415"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -874,11 +872,11 @@ that have already been pulled out.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if not found</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Most useful in conjunction with <code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.new_parse</span></code>, this will scan the
+<p>Most useful in conjunction with gst_harness_new_parse, this will scan the
 <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Elements</span></code></a> inside the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a>, and check if any of them matches
 <cite>element_name</cite>. Typical usecase being that you need to access one of the
 harnessed elements for properties and/or signals.</p>
@@ -890,7 +888,7 @@ harnessed elements for properties and/or signals.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.get_allocator">
-<code class="descname">get_allocator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1988"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_allocator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2050"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -922,12 +920,12 @@ allocation query.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.get_last_pushed_timestamp">
-<code class="descname">get_last_pushed_timestamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1713"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_last_pushed_timestamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1775"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockTime</span></code> with the timestamp or <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/constants.html#Gst.CLOCK_TIME_NONE" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CLOCK_TIME_NONE</span></code></a> if no
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a #GstClockTime with the timestamp or <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/constants.html#Gst.CLOCK_TIME_NONE" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CLOCK_TIME_NONE</span></code></a> if no
 <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> has been pushed on the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> srcpad</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
@@ -944,7 +942,7 @@ typically with <a class="reference internal" href="#GstCheck.Harness.push" title
 
 <dl class="method">
 <dt id="GstCheck.Harness.get_testclock">
-<code class="descname">get_testclock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1200"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_testclock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1302"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -966,14 +964,14 @@ needed.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.play">
-<code class="descname">play</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1391"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">play</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1442"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>This will set the harnessed <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> to <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/enums.html#Gst.State.PLAYING" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.State.PLAYING</span></code></a>.
 <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Elements</span></code></a> without a sink-<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Pad.html#Gst.Pad" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad</span></code></a> and with the <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/flags.html#Gst.ElementFlags.SOURCE" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.ElementFlags.SOURCE</span></code></a>
 flag set is concidered a src <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>
 Non-src <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Elements</span></code></a> (like sinks and filters) are automatically set to
 playing by the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a>, but src <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Elements</span></code></a> are not to avoid them
 starting to produce buffers.
-Hence, for src <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> you will need to call <a class="reference internal" href="#GstCheck.Harness.play" title="GstCheck.Harness.play"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.play</span></code></a> explicitly.</p>
+Hence, for src <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> you must call <a class="reference internal" href="#GstCheck.Harness.play" title="GstCheck.Harness.play"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.play</span></code></a>() explicitly.</p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -982,7 +980,7 @@ Hence, for src <a class="reference external" href="../_docs/GstCheck-1.0/../../.
 
 <dl class="method">
 <dt id="GstCheck.Harness.pull">
-<code class="descname">pull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1540"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">pull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1600"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1004,7 +1002,7 @@ from a harnessed <a class="reference external" href="../_docs/GstCheck-1.0/../..
 
 <dl class="method">
 <dt id="GstCheck.Harness.pull_event">
-<code class="descname">pull_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1752"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">pull_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1814"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1025,7 +1023,7 @@ Timeouts after 60 seconds similar to <a class="reference internal" href="#GstChe
 
 <dl class="method">
 <dt id="GstCheck.Harness.pull_upstream_event">
-<code class="descname">pull_upstream_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1855"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">pull_upstream_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1917"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1046,7 +1044,7 @@ Timeouts after 60 seconds similar to <a class="reference internal" href="#GstChe
 
 <dl class="method">
 <dt id="GstCheck.Harness.push">
-<code class="descname">push</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1519"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1579"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1069,7 +1067,7 @@ interacting with an harnessed element.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.push_and_pull">
-<code class="descname">push_and_pull</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1598"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push_and_pull</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1660"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1093,7 +1091,7 @@ in, and inspect the outcome.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.push_event">
-<code class="descname">push_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1732"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1794"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1115,7 +1113,7 @@ in, and inspect the outcome.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.push_from_src">
-<code class="descname">push_from_src</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2120"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push_from_src</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2180"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1128,10 +1126,10 @@ in, and inspect the outcome.</p>
 </table>
 <p>Transfer data from the src-<a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> to the main-<a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a>. It consists
 of 4 steps:
-1: Make sure the src is started. (see: <a class="reference internal" href="#GstCheck.Harness.play" title="GstCheck.Harness.play"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.play</span></code></a> )
-2: Crank the clock (see: <a class="reference internal" href="#GstCheck.Harness.crank_single_clock_wait" title="GstCheck.Harness.crank_single_clock_wait"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.crank_single_clock_wait</span></code></a> )
-3: Pull a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> from the src-<a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> (see: <a class="reference internal" href="#GstCheck.Harness.pull" title="GstCheck.Harness.pull"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.pull</span></code></a> )
-4: Push the same <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> into the main-<a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> (see: <a class="reference internal" href="#GstCheck.Harness.push" title="GstCheck.Harness.push"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.push</span></code></a> )</p>
+1: Make sure the src is started. (see: <a class="reference internal" href="#GstCheck.Harness.play" title="GstCheck.Harness.play"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.play</span></code></a>)
+2: Crank the clock (see: <a class="reference internal" href="#GstCheck.Harness.crank_single_clock_wait" title="GstCheck.Harness.crank_single_clock_wait"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.crank_single_clock_wait</span></code></a>)
+3: Pull a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> from the src-<a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> (see: <a class="reference internal" href="#GstCheck.Harness.pull" title="GstCheck.Harness.pull"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.pull</span></code></a>)
+4: Push the same <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> into the main-<a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> (see: <a class="reference internal" href="#GstCheck.Harness.push" title="GstCheck.Harness.push"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.push</span></code></a>)</p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -1140,7 +1138,7 @@ of 4 steps:
 
 <dl class="method">
 <dt id="GstCheck.Harness.push_to_sink">
-<code class="descname">push_to_sink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2301"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push_to_sink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2361"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1161,7 +1159,7 @@ See <a class="reference internal" href="#GstCheck.Harness.push_from_src" title="
 
 <dl class="method">
 <dt id="GstCheck.Harness.push_upstream_event">
-<code class="descname">push_upstream_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1831"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push_upstream_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1893"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1183,12 +1181,12 @@ See <a class="reference internal" href="#GstCheck.Harness.push_from_src" title="
 
 <dl class="method">
 <dt id="GstCheck.Harness.query_latency">
-<code class="descname">query_latency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1933"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">query_latency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1995"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockTime</span></code> with min latency</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a #GstClockTime with min latency</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -1203,11 +1201,11 @@ See <a class="reference internal" href="#GstCheck.Harness.push_from_src" title="
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_blocking_push_mode">
-<code class="descname">set_blocking_push_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1419"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_blocking_push_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1470"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Setting this will make the harness block in the chain-function, and
-then release when <a class="reference internal" href="#GstCheck.Harness.pull" title="GstCheck.Harness.pull"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.pull</span></code></a> or <a class="reference internal" href="#GstCheck.Harness.try_pull" title="GstCheck.Harness.try_pull"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.try_pull</span></code></a> is called.
+then release when <a class="reference internal" href="#GstCheck.Harness.pull" title="GstCheck.Harness.pull"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.pull</span></code></a>() or <a class="reference internal" href="#GstCheck.Harness.try_pull" title="GstCheck.Harness.try_pull"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.try_pull</span></code></a>() is called.
 Can be useful when wanting to control a src-element that is not implementing
-<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Clock.html#Gst.Clock.id_wait" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Clock.id_wait</span></code></a> so it can&#8217;t be controlled by the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a>, since
+<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Clock.html#Gst.Clock.id_wait" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Clock.id_wait</span></code></a>() so it can&#8217;t be controlled by the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a>, since
 it otherwise would produce buffers as fast as possible.</p>
 <p>MT safe.</p>
 <div class="versionadded">
@@ -1217,20 +1215,20 @@ it otherwise would produce buffers as fast as possible.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_caps">
-<code class="descname">set_caps</code><span class="sig-paren">(</span><em>in_</em>, <em>out</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1087"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_caps</code><span class="sig-paren">(</span><em>in_</em>, <em>out</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1191"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>in_</strong> (<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to set on the harness srcpad</li>
+<li><strong>in</strong> (<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to set on the harness srcpad</li>
 <li><strong>out</strong> (<a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to set on the harness sinkpad</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Sets the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> srcpad and sinkpad caps.</p>
+<p>Sets the <cite>GstHarness</cite> srcpad and sinkpad caps.</p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -1239,20 +1237,20 @@ it otherwise would produce buffers as fast as possible.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_caps_str">
-<code class="descname">set_caps_str</code><span class="sig-paren">(</span><em>in_</em>, <em>out</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1141"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_caps_str</code><span class="sig-paren">(</span><em>in_</em>, <em>out</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1245"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>in_</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a <cite>gchar</cite> describing a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to set on the harness srcpad</li>
+<li><strong>in</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a <cite>gchar</cite> describing a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to set on the harness srcpad</li>
 <li><strong>out</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a <cite>gchar</cite> describing a <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to set on the harness sinkpad</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Sets the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> srcpad and sinkpad caps using strings.</p>
+<p>Sets the <cite>GstHarness</cite> srcpad and sinkpad caps using strings.</p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -1261,7 +1259,7 @@ it otherwise would produce buffers as fast as possible.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_drop_buffers">
-<code class="descname">set_drop_buffers</code><span class="sig-paren">(</span><em>drop_buffers</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1659"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_drop_buffers</code><span class="sig-paren">(</span><em>drop_buffers</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1721"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1280,7 +1278,7 @@ it otherwise would produce buffers as fast as possible.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_forwarding">
-<code class="descname">set_forwarding</code><span class="sig-paren">(</span><em>forwarding</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1447"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_forwarding</code><span class="sig-paren">(</span><em>forwarding</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1498"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1294,7 +1292,7 @@ it otherwise would produce buffers as fast as possible.</p>
 is enabled, and forward any sticky-events from the main-harness to
 the sink-harness. It will also forward the <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/enums.html#Gst.QueryType.ALLOCATION" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.QueryType.ALLOCATION</span></code></a>.</p>
 <p>If forwarding is disabled, the user will have to either manually push
-these events from the src-harness using <a class="reference internal" href="#GstCheck.Harness.src_push_event" title="GstCheck.Harness.src_push_event"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.src_push_event</span></code></a>, or
+these events from the src-harness using <a class="reference internal" href="#GstCheck.Harness.src_push_event" title="GstCheck.Harness.src_push_event"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness.src_push_event</span></code></a>(), or
 create and push them manually. While this will allow full control and
 inspection of these events, for the most cases having forwarding enabled
 will be sufficient when writing a test where the src-harness&#8217; main function
@@ -1308,7 +1306,7 @@ is providing data for the main-harness.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_propose_allocator">
-<code class="descname">set_propose_allocator</code><span class="sig-paren">(</span><em>allocator</em>, <em>params</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2013"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_propose_allocator</code><span class="sig-paren">(</span><em>allocator</em>, <em>params</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2075"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1331,7 +1329,7 @@ query.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_sink_caps">
-<code class="descname">set_sink_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1066"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_sink_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1170"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1340,7 +1338,7 @@ query.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> sinkpad caps.</p>
+<p>Sets the <cite>GstHarness</cite> sinkpad caps.</p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -1349,7 +1347,7 @@ query.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_sink_caps_str">
-<code class="descname">set_sink_caps_str</code><span class="sig-paren">(</span><em>str</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1123"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_sink_caps_str</code><span class="sig-paren">(</span><em>str</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1227"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1358,7 +1356,7 @@ query.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> sinkpad caps using a string.</p>
+<p>Sets the <cite>GstHarness</cite> sinkpad caps using a string.</p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -1367,7 +1365,7 @@ query.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_src_caps">
-<code class="descname">set_src_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1040"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_src_caps</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1144"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1376,7 +1374,7 @@ query.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> srcpad caps. This must be done before any buffers
+<p>Sets the <cite>GstHarness</cite> srcpad caps. This must be done before any buffers
 can legally be pushed from the harness to the element.</p>
 <p>MT safe.</p>
 <div class="versionadded">
@@ -1386,7 +1384,7 @@ can legally be pushed from the harness to the element.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_src_caps_str">
-<code class="descname">set_src_caps_str</code><span class="sig-paren">(</span><em>str</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1106"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_src_caps_str</code><span class="sig-paren">(</span><em>str</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1210"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1395,7 +1393,7 @@ can legally be pushed from the harness to the element.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> srcpad caps using a string. This must be done before
+<p>Sets the <cite>GstHarness</cite> srcpad caps using a string. This must be done before
 any buffers can legally be pushed from the harness to the element.</p>
 <p>MT safe.</p>
 <div class="versionadded">
@@ -1405,12 +1403,12 @@ any buffers can legally be pushed from the harness to the element.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_time">
-<code class="descname">set_time</code><span class="sig-paren">(</span><em>time</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1229"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_time</code><span class="sig-paren">(</span><em>time</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1320"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockTime</span></code> to advance the clock to</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a #GstClockTime to advance the clock to</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <cite>gboolean</cite> <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the time could be set. <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if not.</td>
 </tr>
@@ -1427,12 +1425,12 @@ any buffers can legally be pushed from the harness to the element.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.set_upstream_latency">
-<code class="descname">set_upstream_latency</code><span class="sig-paren">(</span><em>latency</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1966"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_upstream_latency</code><span class="sig-paren">(</span><em>latency</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2028"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>latency</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockTime</span></code> specifying the latency</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>latency</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a #GstClockTime specifying the latency</td>
 </tr>
 </tbody>
 </table>
@@ -1445,7 +1443,7 @@ any buffers can legally be pushed from the harness to the element.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.sink_push_many">
-<code class="descname">sink_push_many</code><span class="sig-paren">(</span><em>pushes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2325"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">sink_push_many</code><span class="sig-paren">(</span><em>pushes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2385"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1468,7 +1466,7 @@ Will abort the pushing if any one push fails.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.src_crank_and_push_many">
-<code class="descname">src_crank_and_push_many</code><span class="sig-paren">(</span><em>cranks</em>, <em>pushes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2160"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">src_crank_and_push_many</code><span class="sig-paren">(</span><em>cranks</em>, <em>pushes</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2220"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1500,7 +1498,7 @@ buffer to push and v.v.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.src_push_event">
-<code class="descname">src_push_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n2201"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">src_push_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n2262"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1523,8 +1521,8 @@ for details.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.teardown">
-<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n901"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Tears down a <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a>, freeing all resources allocated using it.</p>
+<code class="descname">teardown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1003"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Tears down a <cite>GstHarness</cite>, freeing all resources allocated using it.</p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -1533,7 +1531,7 @@ for details.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.try_pull">
-<code class="descname">try_pull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1569"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">try_pull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1630"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1555,7 +1553,7 @@ and return <a class="reference external" href="http://docs.python.org/2.7/librar
 
 <dl class="method">
 <dt id="GstCheck.Harness.try_pull_event">
-<code class="descname">try_pull_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1773"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">try_pull_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1835"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1576,7 +1574,7 @@ See <a class="reference internal" href="#GstCheck.Harness.try_pull" title="GstCh
 
 <dl class="method">
 <dt id="GstCheck.Harness.try_pull_upstream_event">
-<code class="descname">try_pull_upstream_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1876"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">try_pull_upstream_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1938"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1597,7 +1595,7 @@ See <a class="reference internal" href="#GstCheck.Harness.try_pull" title="GstCh
 
 <dl class="method">
 <dt id="GstCheck.Harness.upstream_events_in_queue">
-<code class="descname">upstream_events_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1916"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">upstream_events_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1978"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1617,7 +1615,7 @@ See <a class="reference internal" href="#GstCheck.Harness.try_pull" title="GstCh
 
 <dl class="method">
 <dt id="GstCheck.Harness.upstream_events_received">
-<code class="descname">upstream_events_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1897"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">upstream_events_received</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1959"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1639,8 +1637,8 @@ that have already been pulled out.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.use_systemclock">
-<code class="descname">use_systemclock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1158"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Sets the system <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Clock.html#Gst.Clock" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Clock</span></code></a> on the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a></p>
+<code class="descname">use_systemclock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1262"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Sets the system <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Clock.html#Gst.Clock" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Clock</span></code></a> on the <cite>GstHarness</cite> <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a></p>
 <p>MT safe.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -1649,7 +1647,7 @@ that have already been pulled out.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.use_testclock">
-<code class="descname">use_testclock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1177"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">use_testclock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1282"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Sets the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a> on the <a class="reference internal" href="#GstCheck.Harness" title="GstCheck.Harness"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.Harness</span></code></a> <a class="reference external" href="../_docs/GstCheck-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a></p>
 <p>MT safe.</p>
 <div class="versionadded">
@@ -1659,13 +1657,13 @@ that have already been pulled out.</p>
 
 <dl class="method">
 <dt id="GstCheck.Harness.wait_for_clock_id_waits">
-<code class="descname">wait_for_clock_id_waits</code><span class="sig-paren">(</span><em>waits</em>, <em>timeout</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.6.2#n1261"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_for_clock_id_waits</code><span class="sig-paren">(</span><em>waits</em>, <em>timeout</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/check/gstharness.c?h=1.8.1#n1346"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>waits</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> describing the numbers of <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockID</span></code> registered with
+<li><strong>waits</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> describing the numbers of #GstClockID registered with
 the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a></li>
 <li><strong>timeout</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> describing how many seconds to wait for <cite>waits</cite> to be true</li>
 </ul>
@@ -1680,7 +1678,7 @@ the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestC
 </tr>
 </tbody>
 </table>
-<p>Waits for <cite>timeout</cite> seconds until <cite>waits</cite> number of <code class="xref py py-obj docutils literal"><span class="pre">Gst.ClockID</span></code> waits is
+<p>Waits for <cite>timeout</cite> seconds until <cite>waits</cite> number of #GstClockID waits is
 registered with the <a class="reference internal" href="../classes/TestClock.html#GstCheck.TestClock" title="GstCheck.TestClock"><code class="xref py py-obj docutils literal"><span class="pre">GstCheck.TestClock</span></code></a>. Useful for writing deterministic tests,
 where you want to make sure that an expected number of waits have been
 reached.</p>
@@ -1706,7 +1704,4 @@ reached.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

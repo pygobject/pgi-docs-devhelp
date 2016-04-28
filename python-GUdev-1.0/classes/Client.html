@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GUdev 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GUdev.Device" href="Device.html"/>
         <link rel="prev" title="Classes" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -364,11 +362,11 @@ manager.</p>
 memory) and as such there are no asynchronous versions of the
 provided methods.</p>
 <p>To get <a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> objects, use
-<a class="reference internal" href="#GUdev.Client.query_by_subsystem" title="GUdev.Client.query_by_subsystem"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_subsystem</span></code></a> (),
-<a class="reference internal" href="#GUdev.Client.query_by_device_number" title="GUdev.Client.query_by_device_number"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_device_number</span></code></a> (),
-<a class="reference internal" href="#GUdev.Client.query_by_device_file" title="GUdev.Client.query_by_device_file"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_device_file</span></code></a> (),
-<a class="reference internal" href="#GUdev.Client.query_by_sysfs_path" title="GUdev.Client.query_by_sysfs_path"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_sysfs_path</span></code></a> (),
-<a class="reference internal" href="#GUdev.Client.query_by_subsystem_and_name" title="GUdev.Client.query_by_subsystem_and_name"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_subsystem_and_name</span></code></a> ()
+<a class="reference internal" href="#GUdev.Client.query_by_subsystem" title="GUdev.Client.query_by_subsystem"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_subsystem</span></code></a>(),
+<a class="reference internal" href="#GUdev.Client.query_by_device_number" title="GUdev.Client.query_by_device_number"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_device_number</span></code></a>(),
+<a class="reference internal" href="#GUdev.Client.query_by_device_file" title="GUdev.Client.query_by_device_file"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_device_file</span></code></a>(),
+<a class="reference internal" href="#GUdev.Client.query_by_sysfs_path" title="GUdev.Client.query_by_sysfs_path"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_sysfs_path</span></code></a>(),
+<a class="reference internal" href="#GUdev.Client.query_by_subsystem_and_name" title="GUdev.Client.query_by_subsystem_and_name"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client.query_by_subsystem_and_name</span></code></a>()
 or the <a class="reference internal" href="Enumerator.html#GUdev.Enumerator" title="GUdev.Enumerator"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Enumerator</span></code></a> type.</p>
 <p>To listen to uevents, connect to the <a class="reference internal" href="#GUdev.Client" title="GUdev.Client"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client</span></code></a> <a class="reference internal" href="#GUdev.Client.signals.uevent" title="GUdev.Client.signals.uevent"><code class="xref py py-func docutils literal"><span class="pre">::uevent</span></code></a> signal.</p>
 <dl class="staticmethod">
@@ -380,7 +378,7 @@ or the <a class="reference internal" href="Enumerator.html#GUdev.Enumerator" tit
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subsystems</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>] or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> terminated string array of subsystems to listen for uevents on, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to not listen on uevents at all, or an empty array to listen to uevents on all subsystems. See the documentation for the <a class="reference internal" href="#GUdev.Client" title="GUdev.Client"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client</span></code></a> <a class="reference internal" href="#GUdev.Client.props.subsystems" title="GUdev.Client.props.subsystems"><code class="xref py py-data docutils literal"><span class="pre">:subsystems</span></code></a> property for details on this parameter.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new <a class="reference internal" href="#GUdev.Client" title="GUdev.Client"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client</span></code></a> object. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ().</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new <a class="reference internal" href="#GUdev.Client" title="GUdev.Client"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client</span></code></a> object. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GUdev.Client" title="GUdev.Client"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client</span></code></a></td>
 </tr>
@@ -389,7 +387,7 @@ or the <a class="reference internal" href="Enumerator.html#GUdev.Enumerator" tit
 <p>Constructs a <a class="reference internal" href="#GUdev.Client" title="GUdev.Client"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client</span></code></a> object that can be used to query
 information about devices. Connect to the <a class="reference internal" href="#GUdev.Client" title="GUdev.Client"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Client</span></code></a> <a class="reference internal" href="#GUdev.Client.signals.uevent" title="GUdev.Client.signals.uevent"><code class="xref py py-func docutils literal"><span class="pre">::uevent</span></code></a>
 signal to listen for uevents. Note that signals are emitted in the</p>
-<p><a class="reference external" href="../_docs/GUdev-1.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.push_thread_default</span></code></a>
+<p><a class="reference external" href="../_docs/GUdev-1.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">thread-default</span> <span class="pre">main</span> <span class="pre">loop</span></code></a>
 of the thread that you call this constructor from.</p>
 </dd></dl>
 
@@ -403,7 +401,7 @@ of the thread that you call this constructor from.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device_file</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; A device file.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> object or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
-if the device was not found. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ().</td>
+if the device was not found. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
@@ -426,7 +424,7 @@ if the device was not found. Free with <a class="reference external" href="../_d
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> object or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
-if the device was not found. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ().</p>
+if the device was not found. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></p>
@@ -448,8 +446,8 @@ if the device was not found. Free with <a class="reference external" href="../_d
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A
 list of <a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> objects. The caller should free the result by
-using <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> () on each element in the list and then
-<code class="xref py py-obj docutils literal"><span class="pre">GLib.List.free</span></code> () on the list.</td>
+using <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>() on each element in the list and then
+g_list_free() on the list.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a>] or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
@@ -472,7 +470,7 @@ using <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GOb
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> object or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
-if the device was not found. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ().</p>
+if the device was not found. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></p>
@@ -493,7 +491,7 @@ if the device was not found. Free with <a class="reference external" href="../_d
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sysfs_path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; A sysfs path.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> object or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
-if the device was not found. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a> ().</td>
+if the device was not found. Free with <a class="reference external" href="../_docs/GUdev-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Device.html#GUdev.Device" title="GUdev.Device"><code class="xref py py-obj docutils literal"><span class="pre">GUdev.Device</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
@@ -548,7 +546,7 @@ if the device was not found. Free with <a class="reference external" href="../_d
 </table>
 <p>Emitted when <cite>client</cite> receives an uevent.</p>
 <p>This signal is emitted in the</p>
-<p><a class="reference external" href="../_docs/GUdev-1.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.push_thread_default</span></code></a>
+<p><a class="reference external" href="../_docs/GUdev-1.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">thread-default</span> <span class="pre">main</span> <span class="pre">loop</span></code></a>
 of the thread that <cite>client</cite> was created in.</p>
 </dd></dl>
 
@@ -596,7 +594,4 @@ reported.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

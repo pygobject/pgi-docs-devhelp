@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gtk.ColorChooser" href="ColorChooser.html"/>
         <link rel="prev" title="Gtk.CellEditable" href="CellEditable.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -183,7 +181,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Implementations:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-class docutils literal"><span class="pre">Gtk.CellArea</span></code></a>, <a class="reference internal" href="../classes/ComboBox.html#Gtk.ComboBox" title="Gtk.ComboBox"><code class="xref py py-class docutils literal"><span class="pre">Gtk.ComboBox</span></code></a>, <a class="reference internal" href="../classes/EntryCompletion.html#Gtk.EntryCompletion" title="Gtk.EntryCompletion"><code class="xref py py-class docutils literal"><span class="pre">Gtk.EntryCompletion</span></code></a>, <a class="reference internal" href="../classes/IconView.html#Gtk.IconView" title="Gtk.IconView"><code class="xref py py-class docutils literal"><span class="pre">Gtk.IconView</span></code></a>, <a class="reference internal" href="../classes/TreeViewColumn.html#Gtk.TreeViewColumn" title="Gtk.TreeViewColumn"><code class="xref py py-class docutils literal"><span class="pre">Gtk.TreeViewColumn</span></code></a></td>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-class docutils literal"><span class="pre">Gtk.CellArea</span></code></a>, <a class="reference internal" href="../classes/CellView.html#Gtk.CellView" title="Gtk.CellView"><code class="xref py py-class docutils literal"><span class="pre">Gtk.CellView</span></code></a>, <a class="reference internal" href="../classes/ComboBox.html#Gtk.ComboBox" title="Gtk.ComboBox"><code class="xref py py-class docutils literal"><span class="pre">Gtk.ComboBox</span></code></a>, <a class="reference internal" href="../classes/EntryCompletion.html#Gtk.EntryCompletion" title="Gtk.EntryCompletion"><code class="xref py py-class docutils literal"><span class="pre">Gtk.EntryCompletion</span></code></a>, <a class="reference internal" href="../classes/IconView.html#Gtk.IconView" title="Gtk.IconView"><code class="xref py py-class docutils literal"><span class="pre">Gtk.IconView</span></code></a>, <a class="reference internal" href="../classes/TreeViewColumn.html#Gtk.TreeViewColumn" title="Gtk.TreeViewColumn"><code class="xref py py-class docutils literal"><span class="pre">Gtk.TreeViewColumn</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -290,135 +288,292 @@
 </tr>
 </tbody>
 </table>
+<p><a class="reference internal" href="#Gtk.CellLayout" title="Gtk.CellLayout"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayout</span></code></a> is an interface to be implemented by all objects which
+want to provide a <a class="reference internal" href="../classes/TreeViewColumn.html#Gtk.TreeViewColumn" title="Gtk.TreeViewColumn"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeViewColumn</span></code></a> like API for packing cells,
+setting attributes and data funcs.</p>
+<p>One of the notable features provided by implementations of
+<a class="reference internal" href="#Gtk.CellLayout" title="Gtk.CellLayout"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayout</span></code></a> are attributes. Attributes let you set the properties
+in flexible ways. They can just be set to constant values like regular
+properties. But they can also be mapped to a column of the underlying
+tree model with gtk_cell_layout_set_attributes(), which means that the value
+of the attribute can change from cell to cell as they are rendered by
+the cell renderer. Finally, it is possible to specify a function with
+<a class="reference internal" href="#Gtk.CellLayout.set_cell_data_func" title="Gtk.CellLayout.set_cell_data_func"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayout.set_cell_data_func</span></code></a>() that is called to determine the
+value of the attribute for each cell that is rendered.</p>
+<dl class="docutils">
+<dt>GtkCellLayouts as <a class="reference internal" href="Buildable.html#Gtk.Buildable" title="Gtk.Buildable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Buildable</span></code></a></dt>
+<dd></dd>
+</dl>
+<p>Implementations of <a class="reference internal" href="#Gtk.CellLayout" title="Gtk.CellLayout"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayout</span></code></a> which also implement the <a class="reference internal" href="Buildable.html#Gtk.Buildable" title="Gtk.Buildable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Buildable</span></code></a>
+interface (<a class="reference internal" href="../classes/CellView.html#Gtk.CellView" title="Gtk.CellView"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellView</span></code></a>, <a class="reference internal" href="../classes/IconView.html#Gtk.IconView" title="Gtk.IconView"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IconView</span></code></a>, <a class="reference internal" href="../classes/ComboBox.html#Gtk.ComboBox" title="Gtk.ComboBox"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ComboBox</span></code></a>,
+<a class="reference internal" href="../classes/EntryCompletion.html#Gtk.EntryCompletion" title="Gtk.EntryCompletion"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.EntryCompletion</span></code></a>, <a class="reference internal" href="../classes/TreeViewColumn.html#Gtk.TreeViewColumn" title="Gtk.TreeViewColumn"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeViewColumn</span></code></a>) accept <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a> objects
+as &lt;child&gt; elements in UI definitions. They support a custom &lt;attributes&gt;
+element for their children, which can contain multiple &lt;attribute&gt;
+elements. Each &lt;attribute&gt; element has a name attribute which specifies
+a property of the cell renderer; the content of the element is the
+attribute value.</p>
+<p>This is an example of a UI definition fragment specifying attributes:</p>
+<div class="highlight-none"><div class="highlight"><pre>&lt;object class=&quot;GtkCellView&quot;&gt;
+  &lt;child&gt;
+    &lt;object class=&quot;GtkCellRendererText&quot; /&gt;
+    &lt;attributes&gt;
+      &lt;attribute name=&quot;text&quot;&gt;0&lt;/attribute&gt;
+    &lt;/attributes&gt;
+  &lt;/child&gt;&quot;
+&lt;/object&gt;
+</pre></div>
+</div>
+<p>Furthermore for implementations of <a class="reference internal" href="#Gtk.CellLayout" title="Gtk.CellLayout"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayout</span></code></a> that use a <a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>
+to lay out cells (all GtkCellLayouts in GTK+ use a <a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>)
+&#8216;cell properties [cell-properties]&#8217; can also be defined in the format by
+specifying the custom &lt;cell-packing&gt; attribute which can contain multiple</p>
+<p>elements defined in the normal way.</p>
+<p>Here is a UI definition fragment specifying cell properties:</p>
+<div class="highlight-none"><div class="highlight"><pre>&lt;object class=&quot;GtkTreeViewColumn&quot;&gt;
+  &amp;lt;child&amp;gt;
+    &lt;object class=&quot;GtkCellRendererText&quot;/&gt;
+    &amp;lt;cell-packing&amp;gt;
+      &lt;property name=&quot;align&quot;&gt;True&lt;/property&gt;
+&lt;property name=&quot;expand&quot;&gt;False&lt;/property&gt;
+&lt;para&gt;    &amp;lt;/cell-packing&amp;gt;
+  &amp;lt;/child&amp;gt;&quot;
+&amp;lt;/object&amp;gt;
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Subclassing <a class="reference internal" href="#Gtk.CellLayout" title="Gtk.CellLayout"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayout</span></code></a> implementations</dt>
+<dd></dd>
+</dl>
+<p>When subclassing a widget that implements <a class="reference internal" href="#Gtk.CellLayout" title="Gtk.CellLayout"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayout</span></code></a> like
+<a class="reference internal" href="../classes/IconView.html#Gtk.IconView" title="Gtk.IconView"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IconView</span></code></a> or <a class="reference internal" href="../classes/ComboBox.html#Gtk.ComboBox" title="Gtk.ComboBox"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.ComboBox</span></code></a>, there are some considerations related
+to the fact that these widgets internally use a <a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>.
+The cell area is exposed as a construct-only property by these
+widgets. This means that it is possible to e.g. do</p>
+<p><code class="docutils literal"><span class="pre">combo</span> <span class="pre">=</span> <span class="pre">g_object_new</span> <span class="pre">(GTK_TYPE_COMBO_BOX,</span> <span class="pre">&quot;cell-area&quot;,</span> <span class="pre">my_cell_area,</span> <span class="pre">NULL);</span></code></p>
+<p>to use a custom cell area with a combo box. But construct properties
+are only initialized after instance init()
+functions have run, which means that using functions which rely on
+the existence of the cell area in your subclass’ init() function will
+cause the default cell area to be instantiated. In this case, a provided
+construct property value will be ignored (with a warning, to alert
+you to the problem).</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="kt">void</span>
+<span class="nf">my_combo_box_init</span> <span class="p">(</span><span class="n">MyComboBox</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GtkCellRenderer</span> <span class="o">*</span><span class="n">cell</span><span class="p">;</span>
+
+  <span class="n">cell</span> <span class="o">=</span> <span class="n">gtk_cell_renderer_pixbuf_new</span> <span class="p">();</span>
+  <span class="c1">// The following call causes the default cell area for combo boxes,</span>
+  <span class="c1">// a GtkCellAreaBox, to be instantiated</span>
+  <span class="n">gtk_cell_layout_pack_start</span> <span class="p">(</span><span class="n">GTK_CELL_LAYOUT</span> <span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">cell</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">);</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="n">GtkWidget</span> <span class="o">*</span>
+<span class="nf">my_combo_box_new</span> <span class="p">(</span><span class="n">GtkCellArea</span> <span class="o">*</span><span class="n">area</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// This call is going to cause a warning about area being ignored</span>
+  <span class="k">return</span> <span class="n">g_object_new</span> <span class="p">(</span><span class="n">MY_TYPE_COMBO_BOX</span><span class="p">,</span> <span class="s">&quot;cell-area&quot;</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If supporting alternative cell areas with your derived widget is
+not important, then this does not have to concern you. If you want
+to support alternative cell areas, you can do so by moving the
+problematic calls out of init() and into a constructor()
+for your class.</p>
 <dl class="method">
 <dt id="Gtk.CellLayout.add_attribute">
-<code class="descname">add_attribute</code><span class="sig-paren">(</span><em>cell</em>, <em>attribute</em>, <em>column</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.18.6#n488"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_attribute</code><span class="sig-paren">(</span><em>cell</em>, <em>attribute</em>, <em>column</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.20.3#n488"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>attribute</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
-<li><strong>column</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a></li>
+<li><strong>attribute</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; an attribute on the renderer</li>
+<li><strong>column</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the column position on the model to get the attribute from</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Adds an attribute mapping to the list in <cite>self</cite>.</p>
+<p>The <cite>column</cite> is the column of the model to get a value from, and the
+<cite>attribute</cite> is the parameter on <cite>cell</cite> to be set from the value. So for
+example if column 2 of the model contains strings, you could have the
+“text” attribute of a <a class="reference internal" href="../classes/CellRendererText.html#Gtk.CellRendererText" title="Gtk.CellRendererText"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRendererText</span></code></a> get its values from column 2.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.18.6#n410"><span class="viewcode-link">[source]</span></a></dt>
-<dd></dd></dl>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.20.3#n410"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Unsets all the mappings on all renderers on <cite>self</cite> and
+removes all renderers from <cite>self</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.clear_attributes">
-<code class="descname">clear_attributes</code><span class="sig-paren">(</span><em>cell</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.18.6#n542"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">clear_attributes</code><span class="sig-paren">(</span><em>cell</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.20.3#n542"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a> to clear the attribute mapping on</td>
 </tr>
 </tbody>
 </table>
+<p>Clears all existing attributes previously set with
+gtk_cell_layout_set_attributes().</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.get_area">
-<code class="descname">get_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.18.6#n608"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.20.3#n609"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the cell area used by <cite>self</cite>,
+or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> in case no cell area is used.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>Returns the underlying <a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> which might be <cite>self</cite>
+if called on a <a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> or might be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no <a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>
+is used by <cite>self</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.get_cells">
-<code class="descname">get_cells</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.18.6#n588"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_cells</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.20.3#n588"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>]</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of cell renderers. The list, but not the renderers has
+been newly allocated and should be freed with g_list_free()
+when no longer needed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>]</td>
 </tr>
 </tbody>
 </table>
+<p>Returns the cell renderers which have been added to <cite>self</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.12.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.pack_end">
-<code class="descname">pack_end</code><span class="sig-paren">(</span><em>cell</em>, <em>expand</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.18.6#n392"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">pack_end</code><span class="sig-paren">(</span><em>cell</em>, <em>expand</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.20.3#n392"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>expand</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a></li>
+<li><strong>expand</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>cell</cite> is to be given extra space allocated to <cite>self</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Adds the <cite>cell</cite> to the end of <cite>self</cite>. If <cite>expand</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, then the
+<cite>cell</cite> is allocated no more space than it needs. Any unused space is
+divided evenly between cells for which <cite>expand</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
+<p>Note that reusing the same cell renderer is not supported.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.pack_start">
-<code class="descname">pack_start</code><span class="sig-paren">(</span><em>cell</em>, <em>expand</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.18.6#n367"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">pack_start</code><span class="sig-paren">(</span><em>cell</em>, <em>expand</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.20.3#n367"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>expand</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a></li>
+<li><strong>expand</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>cell</cite> is to be given extra space allocated to <cite>self</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Packs the <cite>cell</cite> into the beginning of <cite>self</cite>. If <cite>expand</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>,
+then the <cite>cell</cite> is allocated no more space than it needs. Any unused space
+is divided evenly between cells for which <cite>expand</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
+<p>Note that reusing the same cell renderer is not supported.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.reorder">
-<code class="descname">reorder</code><span class="sig-paren">(</span><em>cell</em>, <em>position</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.18.6#n566"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">reorder</code><span class="sig-paren">(</span><em>cell</em>, <em>position</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.20.3#n566"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a> to reorder</li>
+<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new position to insert <cite>cell</cite> at</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Re-inserts <cite>cell</cite> at <cite>position</cite>.</p>
+<p>Note that <cite>cell</cite> has already to be packed into <cite>self</cite>
+for this to function properly.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.set_cell_data_func">
-<code class="descname">set_cell_data_func</code><span class="sig-paren">(</span><em>cell</em>, <em>func</em>, <em>*func_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.18.6#n521"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_cell_data_func</code><span class="sig-paren">(</span><em>cell</em>, <em>func</em>, <em>*func_data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkcelllayout.c?h=3.20.3#n521"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gtk.CellLayoutDataFunc" title="Gtk.CellLayoutDataFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayoutDataFunc</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </li>
-<li><strong>func_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a></li>
+<li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gtk.CellLayoutDataFunc" title="Gtk.CellLayoutDataFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayoutDataFunc</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the <a class="reference internal" href="../callbacks.html#Gtk.CellLayoutDataFunc" title="Gtk.CellLayoutDataFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayoutDataFunc</span></code></a> to use, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
+<li><strong>func_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data for <cite>func</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Sets the <a class="reference internal" href="../callbacks.html#Gtk.CellLayoutDataFunc" title="Gtk.CellLayoutDataFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayoutDataFunc</span></code></a> to use for <cite>self</cite>.</p>
+<p>This function is used instead of the standard attributes mapping
+for setting the column value, and should set the value of <cite>self</cite>’s
+cell renderer(s) as appropriate.</p>
+<p><cite>func</cite> may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to remove a previously set function.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -429,20 +584,33 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>attribute</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
-<li><strong>column</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a></li>
+<li><strong>attribute</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; an attribute on the renderer</li>
+<li><strong>column</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the column position on the model to get the attribute from</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Adds an attribute mapping to the list in <cite>cell_layout</cite>.</p>
+<p>The <cite>column</cite> is the column of the model to get a value from, and the
+<cite>attribute</cite> is the parameter on <cite>cell</cite> to be set from the value. So for
+example if column 2 of the model contains strings, you could have the
+“text” attribute of a <a class="reference internal" href="../classes/CellRendererText.html#Gtk.CellRendererText" title="Gtk.CellRendererText"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRendererText</span></code></a> get its values from column 2.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.do_clear">
 <code class="descname">do_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
-<dd></dd></dl>
+<dd><p>Unsets all the mappings on all renderers on <cite>cell_layout</cite> and
+removes all renderers from <cite>cell_layout</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="Gtk.CellLayout.do_clear_attributes">
@@ -451,10 +619,15 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a> to clear the attribute mapping on</td>
 </tr>
 </tbody>
 </table>
+<p>Clears all existing attributes previously set with
+gtk_cell_layout_set_attributes().</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -464,10 +637,19 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the cell area used by <cite>cell_layout</cite>,
+or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> in case no cell area is used.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>Returns the underlying <a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> which might be <cite>cell_layout</cite>
+if called on a <a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a> or might be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no <a class="reference internal" href="../classes/CellArea.html#Gtk.CellArea" title="Gtk.CellArea"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellArea</span></code></a>
+is used by <cite>cell_layout</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 3.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -477,10 +659,18 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>]</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of cell renderers. The list, but not the renderers has
+been newly allocated and should be freed with g_list_free()
+when no longer needed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>]</td>
 </tr>
 </tbody>
 </table>
+<p>Returns the cell renderers which have been added to <cite>cell_layout</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.12.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -491,13 +681,20 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>expand</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a></li>
+<li><strong>expand</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>cell</cite> is to be given extra space allocated to <cite>cell_layout</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Adds the <cite>cell</cite> to the end of <cite>cell_layout</cite>. If <cite>expand</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, then the
+<cite>cell</cite> is allocated no more space than it needs. Any unused space is
+divided evenly between cells for which <cite>expand</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
+<p>Note that reusing the same cell renderer is not supported.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -508,13 +705,20 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>expand</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a></li>
+<li><strong>expand</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>cell</cite> is to be given extra space allocated to <cite>cell_layout</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Packs the <cite>cell</cite> into the beginning of <cite>cell_layout</cite>. If <cite>expand</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>,
+then the <cite>cell</cite> is allocated no more space than it needs. Any unused space
+is divided evenly between cells for which <cite>expand</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
+<p>Note that reusing the same cell renderer is not supported.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -525,13 +729,19 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a> to reorder</li>
+<li><strong>position</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; new position to insert <cite>cell</cite> at</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Re-inserts <cite>cell</cite> at <cite>position</cite>.</p>
+<p>Note that <cite>cell</cite> has already to be packed into <cite>cell_layout</cite>
+for this to function properly.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -542,14 +752,22 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; </li>
-<li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gtk.CellLayoutDataFunc" title="Gtk.CellLayoutDataFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayoutDataFunc</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </li>
-<li><strong>func_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; </li>
+<li><strong>cell</strong> (<a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a>) &#8211; a <a class="reference internal" href="../classes/CellRenderer.html#Gtk.CellRenderer" title="Gtk.CellRenderer"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellRenderer</span></code></a></li>
+<li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gtk.CellLayoutDataFunc" title="Gtk.CellLayoutDataFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayoutDataFunc</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the <a class="reference internal" href="../callbacks.html#Gtk.CellLayoutDataFunc" title="Gtk.CellLayoutDataFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayoutDataFunc</span></code></a> to use, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
+<li><strong>func_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; user data for <cite>func</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Sets the <a class="reference internal" href="../callbacks.html#Gtk.CellLayoutDataFunc" title="Gtk.CellLayoutDataFunc"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.CellLayoutDataFunc</span></code></a> to use for <cite>cell_layout</cite>.</p>
+<p>This function is used instead of the standard attributes mapping
+for setting the column value, and should set the value of <cite>cell_layout</cite>’s
+cell renderer(s) as appropriate.</p>
+<p><cite>func</cite> may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to remove a previously set function.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.4.</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -568,7 +786,4 @@
   </div> 
 
 </body>
-
-  
-
 </html>

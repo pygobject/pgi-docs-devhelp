@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="NM 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Hierarchy" href="../hierarchy.html"/>
-        <link rel="prev" title="NM.VpnConnection" href="VpnConnection.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+        <link rel="prev" title="NM.VpnPluginInfo" href="VpnPluginInfo.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -65,7 +63,7 @@
 
 
 
-<td><a accesskey="p" href="VpnConnection.html"><i class="fa fa-chevron-left"></i></a></td>
+<td><a accesskey="p" href="VpnPluginInfo.html"><i class="fa fa-chevron-left"></i></a></td>
 
 
 
@@ -111,7 +109,7 @@
 
 
 
-<td><a accesskey="p" href="VpnConnection.html"><i class="fa fa-chevron-left"></i></a></td>
+<td><a accesskey="p" href="VpnPluginInfo.html"><i class="fa fa-chevron-left"></i></a></td>
 
 
 
@@ -403,7 +401,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connection</strong> (<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a>) &#8211; an <a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a> to validate against <cite>nsp</cite></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connection</strong> (<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a>) &#8211; an <a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a> to validate against <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the connection may be activated with this WiMAX NSP,
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if it cannot be.</td>
@@ -414,7 +412,7 @@
 </table>
 <p>Validates a given connection against a given WiMAX NSP to ensure that the
 connection may be activated with that NSP.  The connection must match the
-<cite>nsp</cite> &#8216;s network name and other attributes.</p>
+<cite>self</cite>&#8216;s network name and other attributes.</p>
 </dd></dl>
 
 <dl class="method">
@@ -428,8 +426,8 @@ connection may be activated with that NSP.  The connection must match the
 filter</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an array of
-<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connections</span></code></a> that could be activated with the given <cite>nsp</cite>.  The array should
-be freed with <code class="xref py py-obj docutils literal"><span class="pre">GLib.PtrArray.unref</span></code> () when it is no longer required.</td>
+<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connections</span></code></a> that could be activated with the given <cite>self</cite>.  The array should
+be freed with g_ptr_array_unref() when it is no longer required.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="../interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a>]</td>
 </tr>
@@ -437,7 +435,7 @@ be freed with <code class="xref py py-obj docutils literal"><span class="pre">GL
 </table>
 <p>Filters a given array of connections for a given <a class="reference internal" href="#NM.WimaxNsp" title="NM.WimaxNsp"><code class="xref py py-obj docutils literal"><span class="pre">NM.WimaxNsp</span></code></a> object and
 return connections which may be activated with the NSP.  Any returned
-connections will match the <cite>nsp</cite> &#8216;s network name and other attributes.</p>
+connections will match the <cite>self</cite>&#8216;s network name and other attributes.</p>
 </dd></dl>
 
 <dl class="method">
@@ -567,7 +565,4 @@ connections will match the <cite>nsp</cite> &#8216;s network name and other attr
   </div> 
 
 </body>
-
-  
-
 </html>

@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gtk.AppChooser" href="AppChooser.html"/>
         <link rel="prev" title="Gtk.Actionable" href="Actionable.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -185,7 +183,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Implementations:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><a class="reference internal" href="../classes/Button.html#Gtk.Button" title="Gtk.Button"><code class="xref py py-class docutils literal"><span class="pre">Gtk.Button</span></code></a>, <a class="reference internal" href="../classes/MenuItem.html#Gtk.MenuItem" title="Gtk.MenuItem"><code class="xref py py-class docutils literal"><span class="pre">Gtk.MenuItem</span></code></a>, <a class="reference internal" href="../classes/ToolItem.html#Gtk.ToolItem" title="Gtk.ToolItem"><code class="xref py py-class docutils literal"><span class="pre">Gtk.ToolItem</span></code></a></td>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><a class="reference internal" href="../classes/Button.html#Gtk.Button" title="Gtk.Button"><code class="xref py py-class docutils literal"><span class="pre">Gtk.Button</span></code></a>, <a class="reference internal" href="../classes/MenuItem.html#Gtk.MenuItem" title="Gtk.MenuItem"><code class="xref py py-class docutils literal"><span class="pre">Gtk.MenuItem</span></code></a>, <a class="reference internal" href="../classes/RecentChooserMenu.html#Gtk.RecentChooserMenu" title="Gtk.RecentChooserMenu"><code class="xref py py-class docutils literal"><span class="pre">Gtk.RecentChooserMenu</span></code></a>, <a class="reference internal" href="../classes/Switch.html#Gtk.Switch" title="Gtk.Switch"><code class="xref py py-class docutils literal"><span class="pre">Gtk.Switch</span></code></a>, <a class="reference internal" href="../classes/ToolItem.html#Gtk.ToolItem" title="Gtk.ToolItem"><code class="xref py py-class docutils literal"><span class="pre">Gtk.ToolItem</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -255,12 +253,12 @@
 <tr class="row-even"><td><a class="reference internal" href="#Gtk.Activatable.props.related_action" title="Gtk.Activatable.props.related_action"><code class="xref py py-data docutils literal"><span class="pre">related-action</span></code></a></td>
 <td><a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a></td>
 <td>r/w</td>
-<td>The action this activatable will activate and receive updates from</td>
+<td>The action this activatable will activate and receive updates from <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#Gtk.Activatable.props.use_action_appearance" title="Gtk.Activatable.props.use_action_appearance"><code class="xref py py-data docutils literal"><span class="pre">use-action-appearance</span></code></a></td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 <td>r/w</td>
-<td>Whether to use the related actions appearance properties</td>
+<td>Whether to use the related actions appearance properties <code class="docutils literal"><span class="pre">deprecated</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -288,82 +286,386 @@
 </tr>
 </tbody>
 </table>
+<p>Activatable widgets can be connected to a <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> and reflects
+the state of its action. A <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> can also provide feedback
+through its action, as they are responsible for activating their
+related actions.</p>
+<dl class="docutils">
+<dt>Implementing <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a></dt>
+<dd></dd>
+</dl>
+<p>When extending a class that is already <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a>; it is only
+necessary to implement the <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a>-&gt;sync_action_properties()
+and <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a>-&gt;update() methods and chain up to the parent
+implementation, however when introducing
+a new <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> class; the <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> <a class="reference internal" href="#Gtk.Activatable.props.related_action" title="Gtk.Activatable.props.related_action"><code class="xref py py-data docutils literal"><span class="pre">:related-action</span></code></a> and
+<a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> <a class="reference internal" href="#Gtk.Activatable.props.use_action_appearance" title="Gtk.Activatable.props.use_action_appearance"><code class="xref py py-data docutils literal"><span class="pre">:use-action-appearance</span></code></a> properties need to be handled by
+the implementor. Handling these properties is mostly a matter of installing
+the action pointer and boolean flag on your instance, and calling
+<a class="reference internal" href="#Gtk.Activatable.do_set_related_action" title="Gtk.Activatable.do_set_related_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable.do_set_related_action</span></code></a>() and
+<a class="reference internal" href="#Gtk.Activatable.sync_action_properties" title="Gtk.Activatable.sync_action_properties"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable.sync_action_properties</span></code></a>() at the appropriate times.</p>
+<dl class="docutils">
+<dt>A class fragment implementing <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a></dt>
+<dd></dd>
+</dl>
+<div class="highlight-c"><div class="highlight"><pre>enum {
+...
+
+PROP_ACTIVATABLE_RELATED_ACTION,
+PROP_ACTIVATABLE_USE_ACTION_APPEARANCE
+}
+
+struct _FooBarPrivate
+{
+
+  ...
+
+  GtkAction      *action;
+  gboolean        use_action_appearance;
+};
+
+...
+
+static void foo_bar_activatable_interface_init         (GtkActivatableIface  *iface);
+static void foo_bar_activatable_update                 (GtkActivatable       *activatable,
+                                                           GtkAction            *action,
+                                                           const gchar          *property_name);
+static void foo_bar_activatable_sync_action_properties (GtkActivatable       *activatable,
+                                                           GtkAction            *action);
+...
+
+
+static void
+foo_bar_class_init (FooBarClass *klass)
+{
+
+  ...
+
+  g_object_class_override_property (gobject_class, PROP_ACTIVATABLE_RELATED_ACTION, &quot;related-action&quot;);
+  g_object_class_override_property (gobject_class, PROP_ACTIVATABLE_USE_ACTION_APPEARANCE, &quot;use-action-appearance&quot;);
+
+  ...
+}
+
+
+static void
+foo_bar_activatable_interface_init (GtkActivatableIface  *iface)
+{
+  iface-&gt;update = foo_bar_activatable_update;
+  iface-&gt;sync_action_properties = foo_bar_activatable_sync_action_properties;
+}
+
+... Break the reference using gtk_activatable_do_set_related_action()...
+
+static void
+foo_bar_dispose (GObject *object)
+{
+  FooBar *bar = FOO_BAR (object);
+  FooBarPrivate *priv = FOO_BAR_GET_PRIVATE (bar);
+
+  ...
+
+  if (priv-&gt;action)
+    {
+      gtk_activatable_do_set_related_action (GTK_ACTIVATABLE (bar), NULL);
+      priv-&gt;action = NULL;
+    }
+  G_OBJECT_CLASS (foo_bar_parent_class)-&gt;dispose (object);
+}
+
+... Handle the “related-action” and “use-action-appearance” properties ...
+
+static void
+foo_bar_set_property (GObject         *object,
+                      guint            prop_id,
+                      const GValue    *value,
+                      GParamSpec      *pspec)
+{
+  FooBar *bar = FOO_BAR (object);
+  FooBarPrivate *priv = FOO_BAR_GET_PRIVATE (bar);
+
+  switch (prop_id)
+    {
+
+      ...
+
+    case PROP_ACTIVATABLE_RELATED_ACTION:
+      foo_bar_set_related_action (bar, g_value_get_object (value));
+      break;
+    case PROP_ACTIVATABLE_USE_ACTION_APPEARANCE:
+      foo_bar_set_use_action_appearance (bar, g_value_get_boolean (value));
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
+}
+
+static void
+foo_bar_get_property (GObject         *object,
+                         guint            prop_id,
+                         GValue          *value,
+                         GParamSpec      *pspec)
+{
+  FooBar *bar = FOO_BAR (object);
+  FooBarPrivate *priv = FOO_BAR_GET_PRIVATE (bar);
+
+  switch (prop_id)
+    {
+
+      ...
+
+    case PROP_ACTIVATABLE_RELATED_ACTION:
+      g_value_set_object (value, priv-&gt;action);
+      break;
+    case PROP_ACTIVATABLE_USE_ACTION_APPEARANCE:
+      g_value_set_boolean (value, priv-&gt;use_action_appearance);
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
+}
+
+
+static void
+foo_bar_set_use_action_appearance (FooBar   *bar,
+                                   gboolean  use_appearance)
+{
+  FooBarPrivate *priv = FOO_BAR_GET_PRIVATE (bar);
+
+  if (priv-&gt;use_action_appearance != use_appearance)
+    {
+      priv-&gt;use_action_appearance = use_appearance;
+
+      gtk_activatable_sync_action_properties (GTK_ACTIVATABLE (bar), priv-&gt;action);
+    }
+}
+
+... call gtk_activatable_do_set_related_action() and then assign the action pointer,
+no need to reference the action here since gtk_activatable_do_set_related_action() already
+holds a reference here for you...
+static void
+foo_bar_set_related_action (FooBar    *bar,
+                            GtkAction *action)
+{
+  FooBarPrivate *priv = FOO_BAR_GET_PRIVATE (bar);
+
+  if (priv-&gt;action == action)
+    return;
+
+  gtk_activatable_do_set_related_action (GTK_ACTIVATABLE (bar), action);
+
+  priv-&gt;action = action;
+}
+
+... Selectively reset and update activatable depending on the use-action-appearance property ...
+static void
+gtk_button_activatable_sync_action_properties (GtkActivatable       *activatable,
+                                                  GtkAction            *action)
+{
+  GtkButtonPrivate *priv = GTK_BUTTON_GET_PRIVATE (activatable);
+
+  if (!action)
+    return;
+
+  if (gtk_action_is_visible (action))
+    gtk_widget_show (GTK_WIDGET (activatable));
+  else
+    gtk_widget_hide (GTK_WIDGET (activatable));
+
+  gtk_widget_set_sensitive (GTK_WIDGET (activatable), gtk_action_is_sensitive (action));
+
+  ...
+
+  if (priv-&gt;use_action_appearance)
+    {
+      if (gtk_action_get_stock_id (action))
+        foo_bar_set_stock (button, gtk_action_get_stock_id (action));
+      else if (gtk_action_get_label (action))
+        foo_bar_set_label (button, gtk_action_get_label (action));
+
+      ...
+
+    }
+}
+
+static void
+foo_bar_activatable_update (GtkActivatable       *activatable,
+                               GtkAction            *action,
+                               const gchar          *property_name)
+{
+  FooBarPrivate *priv = FOO_BAR_GET_PRIVATE (activatable);
+
+  if (strcmp (property_name, &quot;visible&quot;) == 0)
+    {
+      if (gtk_action_is_visible (action))
+        gtk_widget_show (GTK_WIDGET (activatable));
+      else
+        gtk_widget_hide (GTK_WIDGET (activatable));
+    }
+  else if (strcmp (property_name, &quot;sensitive&quot;) == 0)
+    gtk_widget_set_sensitive (GTK_WIDGET (activatable), gtk_action_is_sensitive (action));
+
+  ...
+
+  if (!priv-&gt;use_action_appearance)
+    return;
+
+  if (strcmp (property_name, &quot;stock-id&quot;) == 0)
+    foo_bar_set_stock (button, gtk_action_get_stock_id (action));
+  else if (strcmp (property_name, &quot;label&quot;) == 0)
+    foo_bar_set_label (button, gtk_action_get_label (action));
+
+  ...
+}
+</pre></div>
+</div>
 <dl class="method">
 <dt id="Gtk.Activatable.do_set_related_action">
-<code class="descname">do_set_related_action</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.18.6#n430"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">do_set_related_action</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.20.3#n430"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a>) &#8211; the <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> to set</td>
 </tr>
 </tbody>
 </table>
+<p>This is a utility function for <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> implementors.</p>
+<p>When implementing <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> you must call this when
+handling changes of the <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> <a class="reference internal" href="#Gtk.Activatable.props.related_action" title="Gtk.Activatable.props.related_action"><code class="xref py py-data docutils literal"><span class="pre">:related-action</span></code></a>, and
+you must also use this to break references in <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a>-&gt;dispose().</p>
+<p>This function adds a reference to the currently set related
+action for you, it also makes sure the <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a>-&gt;update()
+method is called when the related <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> properties change
+and registers to the action’s proxy list.</p>
+<p>Be careful to call this before setting the local
+copy of the <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> property, since this function uses
+<a class="reference internal" href="#Gtk.Activatable.get_related_action" title="Gtk.Activatable.get_related_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable.get_related_action</span></code></a>() to retrieve the
+previous action.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.16.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 3.10.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Activatable.get_related_action">
-<code class="descname">get_related_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.18.6#n497"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_related_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.20.3#n497"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the related <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> if one is set.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>Gets the related <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> for <cite>self</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.16.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 3.10.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Activatable.get_use_action_appearance">
-<code class="descname">get_use_action_appearance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.18.6#n551"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_use_action_appearance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.20.3#n551"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether <cite>self</cite> uses its actions appearance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>Gets whether this activatable should reset its layout
+and appearance when setting the related action or when
+the action changes appearance.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.16.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 3.10.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Activatable.set_related_action">
-<code class="descname">set_related_action</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.18.6#n387"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_related_action</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.20.3#n387"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a>) &#8211; the <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> to set</td>
 </tr>
 </tbody>
 </table>
+<p>Sets the related action on the <cite>self</cite> object.</p>
+<p><a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> implementors need to handle the <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> <a class="reference internal" href="#Gtk.Activatable.props.related_action" title="Gtk.Activatable.props.related_action"><code class="xref py py-data docutils literal"><span class="pre">:related-action</span></code></a>
+property and call <a class="reference internal" href="#Gtk.Activatable.do_set_related_action" title="Gtk.Activatable.do_set_related_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable.do_set_related_action</span></code></a>() when it changes.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.16.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 3.10.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Activatable.set_use_action_appearance">
-<code class="descname">set_use_action_appearance</code><span class="sig-paren">(</span><em>use_appearance</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.18.6#n531"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_use_action_appearance</code><span class="sig-paren">(</span><em>use_appearance</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.20.3#n531"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>use_appearance</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>use_appearance</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; whether to use the actions appearance</td>
 </tr>
 </tbody>
 </table>
+<p>Sets whether this activatable should reset its layout and appearance
+when setting the related action or when the action changes appearance</p>
+<p><a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> implementors need to handle the
+<a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> <a class="reference internal" href="#Gtk.Activatable.props.use_action_appearance" title="Gtk.Activatable.props.use_action_appearance"><code class="xref py py-data docutils literal"><span class="pre">:use-action-appearance</span></code></a> property and call
+<a class="reference internal" href="#Gtk.Activatable.sync_action_properties" title="Gtk.Activatable.sync_action_properties"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable.sync_action_properties</span></code></a>() to update <cite>self</cite>
+if needed.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.16.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 3.10.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.Activatable.sync_action_properties">
-<code class="descname">sync_action_properties</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.18.6#n356"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">sync_action_properties</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/deprecated/gtkactivatable.c?h=3.20.3#n356"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the related <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>This is called to update the activatable completely, this is called
+internally when the <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> <a class="reference internal" href="#Gtk.Activatable.props.related_action" title="Gtk.Activatable.props.related_action"><code class="xref py py-data docutils literal"><span class="pre">:related-action</span></code></a> property is set
+or unset and by the implementing class when
+<a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> <a class="reference internal" href="#Gtk.Activatable.props.use_action_appearance" title="Gtk.Activatable.props.use_action_appearance"><code class="xref py py-data docutils literal"><span class="pre">:use-action-appearance</span></code></a> changes.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.16.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 3.10.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -373,10 +675,20 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the related <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>This is called to update the activatable completely, this is called
+internally when the <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> <a class="reference internal" href="#Gtk.Activatable.props.related_action" title="Gtk.Activatable.props.related_action"><code class="xref py py-data docutils literal"><span class="pre">:related-action</span></code></a> property is set
+or unset and by the implementing class when
+<a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> <a class="reference internal" href="#Gtk.Activatable.props.use_action_appearance" title="Gtk.Activatable.props.use_action_appearance"><code class="xref py py-data docutils literal"><span class="pre">:use-action-appearance</span></code></a> changes.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.16.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 3.10.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -418,7 +730,16 @@
 </tr>
 </tbody>
 </table>
-<p>The action this activatable will activate and receive updates from</p>
+<p>The action that this activatable will activate and receive
+updates from for various states and possibly appearance.</p>
+<p><a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> implementors need to handle the this property and
+call <a class="reference internal" href="#Gtk.Activatable.do_set_related_action" title="Gtk.Activatable.do_set_related_action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable.do_set_related_action</span></code></a>() when it changes.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.16.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 3.10.</span></p>
+</div>
 </dd></dl>
 
 <dl class="data">
@@ -438,7 +759,20 @@
 </tr>
 </tbody>
 </table>
-<p>Whether to use the related actions appearance properties</p>
+<p>Whether this activatable should reset its layout
+and appearance when setting the related action or when
+the action changes appearance.</p>
+<p>See the <a class="reference internal" href="../classes/Action.html#Gtk.Action" title="Gtk.Action"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Action</span></code></a> documentation directly to find which properties
+should be ignored by the <a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> when this property is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</p>
+<p><a class="reference internal" href="#Gtk.Activatable" title="Gtk.Activatable"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable</span></code></a> implementors need to handle this property
+and call <a class="reference internal" href="#Gtk.Activatable.sync_action_properties" title="Gtk.Activatable.sync_action_properties"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Activatable.sync_action_properties</span></code></a>() on the activatable
+widget when it changes.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.16.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 3.10.</span></p>
+</div>
 </dd></dl>
 
 </div>
@@ -455,7 +789,4 @@
   </div> 
 
 </body>
-
-  
-
 </html>

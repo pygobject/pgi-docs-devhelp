@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GUPnP 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GUPnP.ServiceInfo" href="ServiceInfo.html"/>
         <link rel="prev" title="GUPnP.RootDevice" href="RootDevice.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -160,7 +158,7 @@
 <title>g</title>
 <!-- GUPnP.ServiceInfo -->
 <g id="node1" class="node"><title>GUPnP.ServiceInfo</title>
-<g id="a_node1"><a xlink:href="#GUPnP.Service" xlink:title="GUPnP.ServiceInfo">
+<g id="a_node1"><a xlink:href="ServiceInfo.html#GUPnP.ServiceInfo" xlink:title="GUPnP.ServiceInfo">
 <path fill="none" stroke="#aaaaaa" d="M88,-72C88,-72 6,-72 6,-72 3,-72 -7.10543e-15,-69 -7.10543e-15,-66 -7.10543e-15,-66 -7.10543e-15,-60 -7.10543e-15,-60 -7.10543e-15,-57 3,-54 6,-54 6,-54 88,-54 88,-54 91,-54 94,-57 94,-60 94,-60 94,-66 94,-66 94,-69 91,-72 88,-72"/>
 <text text-anchor="middle" x="47" y="-60.7" font-family="inherit" font-size="8.50">GUPnP.ServiceInfo</text>
 </a>
@@ -168,7 +166,7 @@
 </g>
 <!-- GUPnP.Service -->
 <g id="node2" class="node"><title>GUPnP.Service</title>
-<g id="a_node2"><a xlink:href="ServiceInfo.html#GUPnP.ServiceInfo" xlink:title="GUPnP.Service">
+<g id="a_node2"><a xlink:href="#GUPnP.Service" xlink:title="GUPnP.Service">
 <path fill="none" stroke="#75507b" d="M80,-18C80,-18 14,-18 14,-18 11,-18 8,-15 8,-12 8,-12 8,-6 8,-6 8,-3 11,-0 14,-0 14,-0 80,-0 80,-0 83,-0 86,-3 86,-6 86,-6 86,-12 86,-12 86,-15 83,-18 80,-18"/>
 <text text-anchor="middle" x="47" y="-6.7" font-family="inherit" font-size="8.50">GUPnP.Service</text>
 </a>
@@ -382,7 +380,7 @@ functions below.</p>
 <dl class="method">
 <dt id="GUPnP.Service.freeze_notify">
 <code class="descname">freeze_notify</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Causes new notifications to be queued up until <a class="reference internal" href="#GUPnP.Service.thaw_notify" title="GUPnP.Service.thaw_notify"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.Service.thaw_notify</span></code></a> ()
+<dd><p>Causes new notifications to be queued up until <a class="reference internal" href="#GUPnP.Service.thaw_notify" title="GUPnP.Service.thaw_notify"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.Service.thaw_notify</span></code></a>()
 is called.</p>
 </dd></dl>
 
@@ -413,13 +411,13 @@ is called.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the data to pass to each of the callbacks</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>A convenience function that attempts to connect all possible
 <a class="reference internal" href="#GUPnP.Service" title="GUPnP.Service"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.Service</span></code></a> <a class="reference internal" href="#GUPnP.Service.signals.action_invoked" title="GUPnP.Service.signals.action_invoked"><code class="xref py py-func docutils literal"><span class="pre">::action-invoked</span></code></a> and <a class="reference internal" href="#GUPnP.Service" title="GUPnP.Service"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.Service</span></code></a> <a class="reference internal" href="#GUPnP.Service.signals.query_variable" title="GUPnP.Service.signals.query_variable"><code class="xref py py-func docutils literal"><span class="pre">::query-variable</span></code></a> signals to
-appropriate callbacks for the service <cite>service</cite>. It uses service introspection
+appropriate callbacks for the service <cite>self</cite>. It uses service introspection
 and #GModule &#8216;s introspective features. It is very simillar to
 gtk_builder_connect_signals() except that it attempts to guess the names of
 the signal handlers on its own.</p>
@@ -434,7 +432,7 @@ for the query of &#8220;SystemUpdateID&#8221; state variable should be named
 query_system_update_id_cb or
 on_query_system_update_id.</p>
 <p>This function will not work correctly if #GModule is not supported
-on the platform or introspection is not available for <cite>service</cite>.</p>
+on the platform or introspection is not available for <cite>self</cite>.</p>
 <p>This function can not and therefore does not guarantee that the
 resulting signal connections will be correct as it depends heavily on a
 particular naming schemes described above.</p>
@@ -503,8 +501,8 @@ particular naming schemes described above.</p>
 </tbody>
 </table>
 <p>Emitted whenever an action is invoked. Handler should process
-<cite>action</cite> and must call either <a class="reference internal" href="../structs/ServiceAction.html#GUPnP.ServiceAction.return_" title="GUPnP.ServiceAction.return_"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceAction.return_</span></code></a> () or
-<a class="reference internal" href="../structs/ServiceAction.html#GUPnP.ServiceAction.return_error" title="GUPnP.ServiceAction.return_error"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceAction.return_error</span></code></a> ().</p>
+<cite>action</cite> and must call either <a class="reference internal" href="../structs/ServiceAction.html#GUPnP.ServiceAction.return_" title="GUPnP.ServiceAction.return_"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceAction.return_</span></code></a>() or
+<a class="reference internal" href="../structs/ServiceAction.html#GUPnP.ServiceAction.return_error" title="GUPnP.ServiceAction.return_error"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.ServiceAction.return_error</span></code></a>().</p>
 </dd></dl>
 
 <dl class="function">
@@ -523,7 +521,7 @@ particular naming schemes described above.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>service</strong> (<a class="reference internal" href="#GUPnP.Service" title="GUPnP.Service"><code class="xref py py-obj docutils literal"><span class="pre">GUPnP.Service</span></code></a>) &#8211; The object which received the signal</li>
 <li><strong>callback_url</strong> ([<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-Soup-2.4/structs/URI.html#Soup.URI" title="(in Soup 2.4 v2.4)"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a>]) &#8211; A <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/structs/List.html#GLib.List" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.List</span></code></a> of callback URLs</li>
-<li><strong>reason</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.GError</span></code></a>) &#8211; A pointer to a <code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code> describing why the notify failed</li>
+<li><strong>reason</strong> (<a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a>) &#8211; A pointer to a <a class="reference external" href="../_docs/GUPnP-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> describing why the notify failed</li>
 </ul>
 </td>
 </tr>
@@ -601,7 +599,4 @@ Handler should fill <cite>value</cite> with the value of <cite>variable</cite>.<
   </div> 
 
 </body>
-
-  
-
 </html>

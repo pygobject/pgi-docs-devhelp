@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.IMContextSimple" href="IMContextSimple.html"/>
         <link rel="prev" title="Gtk.HeaderBar" href="HeaderBar.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -458,25 +456,25 @@ example results in the € sign.</p>
 loadable modules. An input method module is a small shared library which
 implements a subclass of <a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> or <a class="reference internal" href="IMContextSimple.html#Gtk.IMContextSimple" title="Gtk.IMContextSimple"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContextSimple</span></code></a> and exports
 these four functions:</p>
-<p><code class="docutils literal"><span class="pre">void</span> <span class="pre">im_module_init(#GTypeModule</span> <span class="pre">*module);</span></code></p>
-<p>This function should register the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of the <a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> subclass which
-implements the input method by means of <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/TypeModule.html#GObject.TypeModule.register_type" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TypeModule.register_type</span></code></a> (). Note
-that <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/functions.html#GObject.type_register_static" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.type_register_static</span></code></a> () cannot be used as the type needs to be
+<p><code class="docutils literal"><span class="pre">void</span> <span class="pre">im_module_init(GTypeModule</span> <span class="pre">*module);</span></code></p>
+<p>This function should register the <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the <a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> subclass which
+implements the input method by means of <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/classes/TypeModule.html#GObject.TypeModule.register_type" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TypeModule.register_type</span></code></a>(). Note
+that <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GObject-2.0/functions.html#GObject.type_register_static" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.type_register_static</span></code></a>() cannot be used as the type needs to be
 registered dynamically.</p>
 <p><code class="docutils literal"><span class="pre">void</span> <span class="pre">im_module_exit(void);</span></code></p>
 <p>Here goes any cleanup code your input method might require on module unload.</p>
-<div class="highlight-c"><div class="highlight"><pre>void im_module_list(const #GtkIMContextInfo ***contexts, int *n_contexts)
-{
-  *contexts = info_list;
-  *n_contexts = G_N_ELEMENTS (info_list);
-}
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">im_module_list</span><span class="p">(</span><span class="k">const</span> <span class="n">GtkIMContextInfo</span> <span class="o">***</span><span class="n">contexts</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">n_contexts</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="o">*</span><span class="n">contexts</span> <span class="o">=</span> <span class="n">info_list</span><span class="p">;</span>
+  <span class="o">*</span><span class="n">n_contexts</span> <span class="o">=</span> <span class="n">G_N_ELEMENTS</span> <span class="p">(</span><span class="n">info_list</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>This function returns the list of input methods provided by the module. The
 example implementation above shows a common solution and simply returns a
 pointer to statically defined array of <a class="reference internal" href="../structs/IMContextInfo.html#Gtk.IMContextInfo" title="Gtk.IMContextInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContextInfo</span></code></a> items for each
 provided input method.</p>
-<p><code class="docutils literal"><span class="pre">#GtkIMContext</span> <span class="pre">*</span> <span class="pre">im_module_create(const</span> <span class="pre">#gchar</span> <span class="pre">*context_id);</span></code></p>
+<p><code class="docutils literal"><span class="pre">GtkIMContext</span> <span class="pre">*</span> <span class="pre">im_module_create(const</span> <span class="pre">gchar</span> <span class="pre">*context_id);</span></code></p>
 <p>This function should return a pointer to a newly created instance of the
 <a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> subclass identified by <cite>context_id</cite>. The context ID is the same
 as specified in the <a class="reference internal" href="../structs/IMContextInfo.html#Gtk.IMContextInfo" title="Gtk.IMContextInfo"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContextInfo</span></code></a> array returned by im_module_list().</p>
@@ -486,7 +484,7 @@ regenerated by &#8216;gtk-query-immodules-3.0 [gtk-query-immodules-3.0]&#8217;,
 in order for the new input method to become available to GTK+ applications.</p>
 <dl class="method">
 <dt id="Gtk.IMContext.delete_surrounding">
-<code class="descname">delete_surrounding</code><span class="sig-paren">(</span><em>offset</em>, <em>n_chars</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n743"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">delete_surrounding</code><span class="sig-paren">(</span><em>offset</em>, <em>n_chars</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n743"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -508,11 +506,11 @@ a negative value means start before the cursor.</li>
 </table>
 <p>Asks the widget that the input context is attached to to delete
 characters around the cursor position by emitting the
-<a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> <a class="reference internal" href="#Gtk.IMContext.signals.delete_surrounding" title="Gtk.IMContext.signals.delete_surrounding"><code class="xref py py-func docutils literal"><span class="pre">::delete-surrounding</span></code></a> signal. Note that <cite>offset</cite> and <cite>n_chars</cite>
+GtkIMContext::delete_surrounding signal. Note that <cite>offset</cite> and <cite>n_chars</cite>
 are in characters not in bytes which differs from the usage other
 places in <a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a>.</p>
 <p>In order to use this function, you should first call
-<a class="reference internal" href="#Gtk.IMContext.get_surrounding" title="Gtk.IMContext.get_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.get_surrounding</span></code></a> () to get the current context, and
+<a class="reference internal" href="#Gtk.IMContext.get_surrounding" title="Gtk.IMContext.get_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.get_surrounding</span></code></a>() to get the current context, and
 call this function immediately afterwards to make sure that you
 know what you are deleting. You should also account for the fact
 that even if the signal was handled, the input context might not
@@ -524,7 +522,7 @@ not useful for applications.</p>
 
 <dl class="method">
 <dt id="Gtk.IMContext.filter_keypress">
-<code class="descname">filter_keypress</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n508"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">filter_keypress</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n508"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -544,7 +542,7 @@ should be done for this key event.</p>
 
 <dl class="method">
 <dt id="Gtk.IMContext.focus_in">
-<code class="descname">focus_in</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n529"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">focus_in</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n529"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Notify the input method that the widget to which this
 input context corresponds has gained focus. The input method
 may, for example, change the displayed feedback to reflect
@@ -553,7 +551,7 @@ this change.</p>
 
 <dl class="method">
 <dt id="Gtk.IMContext.focus_out">
-<code class="descname">focus_out</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n550"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">focus_out</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n550"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Notify the input method that the widget to which this
 input context corresponds has lost focus. The input method
 may, for example, change the displayed feedback or reset the contexts
@@ -562,7 +560,7 @@ state to reflect this change.</p>
 
 <dl class="method">
 <dt id="Gtk.IMContext.get_preedit_string">
-<code class="descname">get_preedit_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n483"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_preedit_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n483"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -572,11 +570,11 @@ state to reflect this change.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">str:</th><td class="field-body">location to store the retrieved
-string. The string retrieved must be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</td>
+string. The string retrieved must be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">attrs:</th><td class="field-body">location to store the retrieved
 attribute list.  When you are done with this list, you
-must unreference it with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Pango-1.0/structs/AttrList.html#Pango.AttrList.unref" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.unref</span></code></a> ().</td>
+must unreference it with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Pango-1.0/structs/AttrList.html#Pango.AttrList.unref" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.unref</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">cursor_pos:</th><td class="field-body">location to store position of cursor (in characters)
 within the preedit string.</td>
@@ -597,29 +595,25 @@ point.</p>
 
 <dl class="method">
 <dt id="Gtk.IMContext.get_surrounding">
-<code class="descname">get_surrounding</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n693"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_surrounding</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n693"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if surrounding text was provided; in this case
-you must free the result stored in *text.<table class="docutils field-list" frame="void" rules="none">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if no surrounding text was provided; otherwise a tuple
+containing:<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">text:</th><td class="field-body">location to store a UTF-8 encoded
-string of text holding context around the insertion point.
-If the function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, then you must free the result
-stored in this location with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</td>
+<tr class="field-odd field"><th class="field-name">text:</th><td class="field-body">text holding context around the insertion point.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">cursor_index:</th><td class="field-body">location to store byte index of the insertion
-cursor within <cite>text</cite>.</td>
+<tr class="field-even field"><th class="field-name">cursor_index:</th><td class="field-body">byte index of the insertion cursor within <cite>text</cite></td>
 </tr>
 </tbody>
 </table>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>text</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, <strong>cursor_index</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>)</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(<strong>text</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, <strong>cursor_index</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -628,17 +622,17 @@ typically want context in order to constrain input text based on
 existing text; this is important for languages such as Thai where
 only some sequences of characters are allowed.</p>
 <p>This function is implemented by emitting the
-<a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> <a class="reference internal" href="#Gtk.IMContext.signals.retrieve_surrounding" title="Gtk.IMContext.signals.retrieve_surrounding"><code class="xref py py-func docutils literal"><span class="pre">::retrieve-surrounding</span></code></a> signal on the input method; in
+GtkIMContext::retrieve_surrounding signal on the input method; in
 response to this signal, a widget should provide as much context as
 is available, up to an entire paragraph, by calling
-<a class="reference internal" href="#Gtk.IMContext.set_surrounding" title="Gtk.IMContext.set_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.set_surrounding</span></code></a> (). Note that there is no obligation
-for a widget to respond to the <a class="reference internal" href="#Gtk.IMContext.signals.retrieve_surrounding" title="Gtk.IMContext.signals.retrieve_surrounding"><code class="xref py py-func docutils literal"><span class="pre">::retrieve-surrounding</span></code></a> signal, so input
+<a class="reference internal" href="#Gtk.IMContext.set_surrounding" title="Gtk.IMContext.set_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.set_surrounding</span></code></a>(). Note that there is no obligation
+for a widget to respond to the ::retrieve_surrounding signal, so input
 methods must be prepared to function without context.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.IMContext.reset">
-<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n570"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n570"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Notify the input method that a change such as a change in cursor
 position has been made. This will typically cause the input
 method to clear the preedit state.</p>
@@ -646,7 +640,7 @@ method to clear the preedit state.</p>
 
 <dl class="method">
 <dt id="Gtk.IMContext.set_client_window">
-<code class="descname">set_client_window</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n452"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_client_window</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n452"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -664,7 +658,7 @@ also be used for purposes internal to the input method.</p>
 
 <dl class="method">
 <dt id="Gtk.IMContext.set_cursor_location">
-<code class="descname">set_cursor_location</code><span class="sig-paren">(</span><em>area</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n593"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_cursor_location</code><span class="sig-paren">(</span><em>area</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n593"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -680,7 +674,7 @@ window.</p>
 
 <dl class="method">
 <dt id="Gtk.IMContext.set_surrounding">
-<code class="descname">set_surrounding</code><span class="sig-paren">(</span><em>text</em>, <em>len</em>, <em>cursor_index</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n645"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_surrounding</code><span class="sig-paren">(</span><em>text</em>, <em>len</em>, <em>cursor_index</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n645"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -698,13 +692,13 @@ the preedit string should not be included within
 </table>
 <p>Sets surrounding context around the insertion point and preedit
 string. This function is expected to be called in response to the
-<a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> <a class="reference internal" href="#Gtk.IMContext.signals.retrieve_surrounding" title="Gtk.IMContext.signals.retrieve_surrounding"><code class="xref py py-func docutils literal"><span class="pre">::retrieve-surrounding</span></code></a> signal, and will likely have no
+GtkIMContext::retrieve_surrounding signal, and will likely have no
 effect if called at other times.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.IMContext.set_use_preedit">
-<code class="descname">set_use_preedit</code><span class="sig-paren">(</span><em>use_preedit</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.18.6#n616"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_use_preedit</code><span class="sig-paren">(</span><em>use_preedit</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkimcontext.c?h=3.20.3#n616"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -715,7 +709,7 @@ effect if called at other times.</p>
 </table>
 <p>Sets whether the IM context should use the preedit string
 to display feedback. If <cite>use_preedit</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> (default
-is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> ), then the IM context may use some other method to display
+is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>), then the IM context may use some other method to display
 feedback, such as displaying it in a child of the root window.</p>
 </dd></dl>
 
@@ -756,11 +750,11 @@ a negative value means start before the cursor.</li>
 </table>
 <p>Asks the widget that the input context is attached to to delete
 characters around the cursor position by emitting the
-<a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> <a class="reference internal" href="#Gtk.IMContext.signals.delete_surrounding" title="Gtk.IMContext.signals.delete_surrounding"><code class="xref py py-func docutils literal"><span class="pre">::delete-surrounding</span></code></a> signal. Note that <cite>offset</cite> and <cite>n_chars</cite>
+GtkIMContext::delete_surrounding signal. Note that <cite>offset</cite> and <cite>n_chars</cite>
 are in characters not in bytes which differs from the usage other
 places in <a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a>.</p>
 <p>In order to use this function, you should first call
-<a class="reference internal" href="#Gtk.IMContext.get_surrounding" title="Gtk.IMContext.get_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.get_surrounding</span></code></a> () to get the current context, and
+<a class="reference internal" href="#Gtk.IMContext.get_surrounding" title="Gtk.IMContext.get_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.get_surrounding</span></code></a>() to get the current context, and
 call this function immediately afterwards to make sure that you
 know what you are deleting. You should also account for the fact
 that even if the signal was handled, the input context might not
@@ -820,11 +814,11 @@ state to reflect this change.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">str:</th><td class="field-body">location to store the retrieved
-string. The string retrieved must be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</td>
+string. The string retrieved must be freed with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">attrs:</th><td class="field-body">location to store the retrieved
 attribute list.  When you are done with this list, you
-must unreference it with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Pango-1.0/structs/AttrList.html#Pango.AttrList.unref" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.unref</span></code></a> ().</td>
+must unreference it with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-Pango-1.0/structs/AttrList.html#Pango.AttrList.unref" title="(in Pango 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.unref</span></code></a>().</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">cursor_pos:</th><td class="field-body">location to store position of cursor (in characters)
 within the preedit string.</td>
@@ -858,7 +852,7 @@ you must free the result stored in *text.<table class="docutils field-list" fram
 <tr class="field-odd field"><th class="field-name">text:</th><td class="field-body">location to store a UTF-8 encoded
 string of text holding context around the insertion point.
 If the function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, then you must free the result
-stored in this location with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> ().</td>
+stored in this location with <a class="reference external" href="../_docs/Gtk-3.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">cursor_index:</th><td class="field-body">location to store byte index of the insertion
 cursor within <cite>text</cite>.</td>
@@ -876,11 +870,11 @@ typically want context in order to constrain input text based on
 existing text; this is important for languages such as Thai where
 only some sequences of characters are allowed.</p>
 <p>This function is implemented by emitting the
-<a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> <a class="reference internal" href="#Gtk.IMContext.signals.retrieve_surrounding" title="Gtk.IMContext.signals.retrieve_surrounding"><code class="xref py py-func docutils literal"><span class="pre">::retrieve-surrounding</span></code></a> signal on the input method; in
+GtkIMContext::retrieve_surrounding signal on the input method; in
 response to this signal, a widget should provide as much context as
 is available, up to an entire paragraph, by calling
-<a class="reference internal" href="#Gtk.IMContext.set_surrounding" title="Gtk.IMContext.set_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.set_surrounding</span></code></a> (). Note that there is no obligation
-for a widget to respond to the <a class="reference internal" href="#Gtk.IMContext.signals.retrieve_surrounding" title="Gtk.IMContext.signals.retrieve_surrounding"><code class="xref py py-func docutils literal"><span class="pre">::retrieve-surrounding</span></code></a> signal, so input
+<a class="reference internal" href="#Gtk.IMContext.set_surrounding" title="Gtk.IMContext.set_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.set_surrounding</span></code></a>(). Note that there is no obligation
+for a widget to respond to the ::retrieve_surrounding signal, so input
 methods must be prepared to function without context.</p>
 </dd></dl>
 
@@ -974,7 +968,7 @@ the preedit string should not be included within
 </table>
 <p>Sets surrounding context around the insertion point and preedit
 string. This function is expected to be called in response to the
-<a class="reference internal" href="#Gtk.IMContext" title="Gtk.IMContext"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext</span></code></a> <a class="reference internal" href="#Gtk.IMContext.signals.retrieve_surrounding" title="Gtk.IMContext.signals.retrieve_surrounding"><code class="xref py py-func docutils literal"><span class="pre">::retrieve-surrounding</span></code></a> signal, and will likely have no
+GtkIMContext::retrieve_surrounding signal, and will likely have no
 effect if called at other times.</p>
 </dd></dl>
 
@@ -991,7 +985,7 @@ effect if called at other times.</p>
 </table>
 <p>Sets whether the IM context should use the preedit string
 to display feedback. If <cite>use_preedit</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> (default
-is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> ), then the IM context may use some other method to display
+is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>), then the IM context may use some other method to display
 feedback, such as displaying it in a child of the root window.</p>
 </dd></dl>
 
@@ -1078,7 +1072,7 @@ needs to delete all or part of the context surrounding the cursor.</p>
 <p>The <a class="reference internal" href="#Gtk.IMContext.signals.preedit_changed" title="Gtk.IMContext.signals.preedit_changed"><code class="xref py py-func docutils literal"><span class="pre">::preedit-changed</span></code></a> signal is emitted whenever the preedit sequence
 currently being entered has changed.  It is also emitted at the end of
 a preedit sequence, in which case
-<a class="reference internal" href="#Gtk.IMContext.get_preedit_string" title="Gtk.IMContext.get_preedit_string"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.get_preedit_string</span></code></a> () returns the empty string.</p>
+<a class="reference internal" href="#Gtk.IMContext.get_preedit_string" title="Gtk.IMContext.get_preedit_string"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.get_preedit_string</span></code></a>() returns the empty string.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1141,7 +1135,7 @@ starts.</p>
 <p>The <a class="reference internal" href="#Gtk.IMContext.signals.retrieve_surrounding" title="Gtk.IMContext.signals.retrieve_surrounding"><code class="xref py py-func docutils literal"><span class="pre">::retrieve-surrounding</span></code></a> signal is emitted when the input method
 requires the context surrounding the cursor.  The callback should set
 the input method surrounding context by calling the
-<a class="reference internal" href="#Gtk.IMContext.set_surrounding" title="Gtk.IMContext.set_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.set_surrounding</span></code></a> () method.</p>
+<a class="reference internal" href="#Gtk.IMContext.set_surrounding" title="Gtk.IMContext.set_surrounding"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.IMContext.set_surrounding</span></code></a>() method.</p>
 </dd></dl>
 
 </div>
@@ -1201,7 +1195,4 @@ the input method surrounding context by calling the
   </div> 
 
 </body>
-
-  
-
 </html>

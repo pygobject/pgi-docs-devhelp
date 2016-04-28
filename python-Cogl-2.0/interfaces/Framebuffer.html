@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Cogl.Onscreen" href="Onscreen.html"/>
         <link rel="prev" title="Interfaces" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -448,7 +446,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if there were no error allocating the framebuffer, else <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</td>
 </tr>
@@ -478,12 +476,12 @@ automatic allocation.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>closure</strong> (<a class="reference internal" href="../structs/FenceClosure.html#Cogl.FenceClosure" title="Cogl.FenceClosure"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.FenceClosure</span></code></a>) &#8211; The <a class="reference internal" href="../structs/FenceClosure.html#Cogl.FenceClosure" title="Cogl.FenceClosure"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.FenceClosure</span></code></a> returned from
-<code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.add_fence_callback</span></code> ()</td>
+cogl_framebuffer_add_fence_callback()</td>
 </tr>
 </tbody>
 </table>
 <p>Removes a fence previously submitted with
-<code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.add_fence_callback</span></code> (); the callback will not be
+cogl_framebuffer_add_fence_callback(); the callback will not be
 called.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.0.</span></p>
@@ -587,7 +585,7 @@ a #CoglOffscreen framebuffer since they are single-buffered.</p>
 <li><strong>mode</strong> (<a class="reference internal" href="../enums.html#Cogl.VerticesMode" title="Cogl.VerticesMode"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.VerticesMode</span></code></a>) &#8211; The <a class="reference internal" href="../enums.html#Cogl.VerticesMode" title="Cogl.VerticesMode"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.VerticesMode</span></code></a> defining the topology of vertices</li>
 <li><strong>first_vertex</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The vertex offset within the given attributes to draw from</li>
 <li><strong>n_vertices</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of vertices to draw from the given attributes</li>
-<li><strong>attributes</strong> (<a class="reference internal" href="../classes/Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a>) &#8211; An array of pointers to <a class="reference internal" href="../classes/Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a> &lt;&#8211; &#8211;&gt;s defining vertex
+<li><strong>attributes</strong> (<a class="reference internal" href="../classes/Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a>) &#8211; An array of pointers to <a class="reference internal" href="../classes/Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a>&lt;&#8211; &#8211;&gt;s defining vertex
 geometry</li>
 <li><strong>n_attributes</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of attributes in the <cite>attributes</cite> array.</li>
 </ul>
@@ -595,11 +593,11 @@ geometry</li>
 </tr>
 </tbody>
 </table>
-<p>First defines a geometry primitive by grouping a set of vertex <cite>attributes</cite> ;
-specifying a <cite>first_vertex</cite> ; a number of vertices (<cite>n_vertices</cite> ) and
+<p>First defines a geometry primitive by grouping a set of vertex <cite>attributes</cite>;
+specifying a <cite>first_vertex</cite>; a number of vertices (<cite>n_vertices</cite>) and
 specifying  what kind of topology the vertices have via <cite>mode</cite>.</p>
 <p>Then the function draws the given <cite>primitive</cite> geometry to the specified
-destination <cite>framebuffer</cite> using the graphics processing pipeline described by
+destination <cite>self</cite> using the graphics processing pipeline described by
 <cite>pipeline</cite>.</p>
 <p>The list of <a class="reference internal" href="../classes/Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a> s define the attributes of the vertices to
 be drawn, such as positions, colors and normals and the number of attributes
@@ -616,7 +614,7 @@ cogl_program_use()</p>
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.16: </span>Use <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> s and <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a> () instead</p>
+<p><span class="versionmodified">Deprecated since version 1.16: </span>Use <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> s and <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a>() instead</p>
 </div>
 </dd></dl>
 
@@ -634,7 +632,7 @@ cogl_program_use()</p>
 <li><strong>n_vertices</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of vertices to draw from the given attributes</li>
 <li><strong>indices</strong> (<a class="reference internal" href="../classes/Indices.html#Cogl.Indices" title="Cogl.Indices"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Indices</span></code></a>) &#8211; The array of indices used by the GPU to lookup attribute
 data for each vertex.</li>
-<li><strong>attributes</strong> (<a class="reference internal" href="../classes/Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a>) &#8211; An array of pointers to <a class="reference internal" href="../classes/Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a> &lt;&#8211; &#8211;&gt;s defining vertex
+<li><strong>attributes</strong> (<a class="reference internal" href="../classes/Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a>) &#8211; An array of pointers to <a class="reference internal" href="../classes/Attribute.html#Cogl.Attribute" title="Cogl.Attribute"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Attribute</span></code></a>&lt;&#8211; &#8211;&gt;s defining vertex
 geometry</li>
 <li><strong>n_attributes</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of attributes in the <cite>attributes</cite> array.</li>
 </ul>
@@ -642,7 +640,7 @@ geometry</li>
 </tr>
 </tbody>
 </table>
-<p>Behaves the same as <a class="reference internal" href="#Cogl.Framebuffer.draw_attributes" title="Cogl.Framebuffer.draw_attributes"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_attributes</span></code></a> () except that
+<p>Behaves the same as <a class="reference internal" href="#Cogl.Framebuffer.draw_attributes" title="Cogl.Framebuffer.draw_attributes"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_attributes</span></code></a>() except that
 instead of reading vertex data sequentially from the specified
 <cite>attributes</cite> the <cite>indices</cite> provide an indirection for how the data
 should be indexed allowing a random access order to be
@@ -665,7 +663,7 @@ shared vertex.</p>
 looking up vertex data.
 Since it&#8217;s very common to want to draw a run of rectangles using
 indices to avoid duplicating vertex data you can use
-<code class="xref py py-obj docutils literal"><span class="pre">Cogl.get_rectangle_indices</span></code> () to get a set of indices that can be
+cogl_get_rectangle_indices() to get a set of indices that can be
 shared.</p>
 <p>This drawing api doesn&#8217;t support high-level meta texture types such
 as <a class="reference internal" href="Texture2DSliced.html#Cogl.Texture2DSliced" title="Cogl.Texture2DSliced"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2DSliced</span></code></a> so it is the user&#8217;s responsibility to
@@ -679,7 +677,7 @@ cogl_set_backface_culling_enabled() or cogl_program_use()</p>
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.16: </span>Use <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> s and <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a> () instead</p>
+<p><span class="versionmodified">Deprecated since version 1.16: </span>Use <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> s and <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a>() instead</p>
 </div>
 </dd></dl>
 
@@ -709,19 +707,19 @@ and one group of texture coordinates, this would be 4)</li>
 </tr>
 </tbody>
 </table>
-<p>Draws a textured rectangle to <cite>framebuffer</cite> with the given <cite>pipeline</cite>
-state with the top left corner positioned at (<cite>x_1</cite>, <cite>y_1</cite> ) and the
-bottom right corner positioned at (<cite>x_2</cite>, <cite>y_2</cite> ). As a pipeline may
+<p>Draws a textured rectangle to <cite>self</cite> with the given <cite>pipeline</cite>
+state with the top left corner positioned at (<cite>x_1</cite>, <cite>y_1</cite>) and the
+bottom right corner positioned at (<cite>x_2</cite>, <cite>y_2</cite>). As a pipeline may
 contain multiple texture layers this interface lets you supply
 texture coordinates for each layer of the pipeline.</p>
 <p>The position is the position before the rectangle has been
 transformed by the model-view matrix and the projection
 matrix.
 This is a high level drawing api that can handle any kind of
-<code class="xref py py-obj docutils literal"><span class="pre">Cogl.MetaTexture</span></code> texture for the first layer such as
+#CoglMetaTexture texture for the first layer such as
 <a class="reference internal" href="Texture2DSliced.html#Cogl.Texture2DSliced" title="Cogl.Texture2DSliced"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2DSliced</span></code></a> textures which may internally be comprised of
 multiple low-level textures.  This is unlike low-level drawing apis
-such as <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a> () which only support low level texture
+such as <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a>() which only support low level texture
 types that are directly supported by GPUs such as <a class="reference internal" href="Texture2D.html#Cogl.Texture2D" title="Cogl.Texture2D"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2D</span></code></a>.</p>
 <p>This api can not currently handle multiple high-level meta
 texture layers. The first layer may be a high level meta texture
@@ -768,7 +766,7 @@ texture coordinates (0.0, 0.0, 1.0, 1.0) are generated.</p>
 </tbody>
 </table>
 <p>Draws the given <cite>primitive</cite> geometry to the specified destination
-<cite>framebuffer</cite> using the graphics processing state described by <cite>pipeline</cite>.</p>
+<cite>self</cite> using the graphics processing state described by <cite>pipeline</cite>.</p>
 <p>This drawing api doesn&#8217;t support high-level meta texture types such
 as <a class="reference internal" href="Texture2DSliced.html#Cogl.Texture2DSliced" title="Cogl.Texture2DSliced"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2DSliced</span></code></a> so it is the user&#8217;s responsibility to
 ensure that only low-level textures that can be directly sampled by
@@ -781,7 +779,7 @@ cogl_program_use()</p>
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.16: </span>Use <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> s and <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a> () instead</p>
+<p><span class="versionmodified">Deprecated since version 1.16: </span>Use <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive" title="Cogl.Primitive"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive</span></code></a> s and <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a>() instead</p>
 </div>
 </dd></dl>
 
@@ -803,15 +801,15 @@ cogl_program_use()</p>
 </tr>
 </tbody>
 </table>
-<p>Draws a rectangle to <cite>framebuffer</cite> with the given <cite>pipeline</cite> state
-and with the top left corner positioned at (<cite>x_1</cite>, <cite>y_1</cite> ) and the
-bottom right corner positioned at (<cite>x_2</cite>, <cite>y_2</cite> ).</p>
+<p>Draws a rectangle to <cite>self</cite> with the given <cite>pipeline</cite> state
+and with the top left corner positioned at (<cite>x_1</cite>, <cite>y_1</cite>) and the
+bottom right corner positioned at (<cite>x_2</cite>, <cite>y_2</cite>).</p>
 <p>The position is the position before the rectangle has been
 transformed by the model-view matrix and the projection
 matrix.
 If you want to describe a rectangle with a texture mapped on
 it then you can use
-<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -837,9 +835,9 @@ rectangle (x2, y2).</li>
 </tr>
 </tbody>
 </table>
-<p>Draws a series of rectangles to <cite>framebuffer</cite> with the given
+<p>Draws a series of rectangles to <cite>self</cite> with the given
 <cite>pipeline</cite> state in the same way that
-<a class="reference internal" href="#Cogl.Framebuffer.draw_rectangle" title="Cogl.Framebuffer.draw_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_rectangle</span></code></a> () does.</p>
+<a class="reference internal" href="#Cogl.Framebuffer.draw_rectangle" title="Cogl.Framebuffer.draw_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_rectangle</span></code></a>() does.</p>
 <p>The top left corner of the first rectangle is positioned at
 (coordinates[0], coordinates[1]) and the bottom right corner is
 positioned at (coordinates[2], coordinates[3]). The positions for
@@ -850,7 +848,7 @@ transformed by the model-view matrix and the projection
 matrix.
 As a general rule for better performance its recommended to use
 this this API instead of calling
-<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a> () separately for multiple
+<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a>() separately for multiple
 rectangles if all of the rectangles will be drawn together with the
 same <cite>pipeline</cite> state.</p>
 <div class="versionadded">
@@ -880,28 +878,28 @@ same <cite>pipeline</cite> state.</p>
 </tr>
 </tbody>
 </table>
-<p>Draws a textured rectangle to <cite>framebuffer</cite> using the given
-<cite>pipeline</cite> state with the top left corner positioned at (<cite>x_1</cite>, <cite>y_1</cite> )
-and the bottom right corner positioned at (<cite>x_2</cite>, <cite>y_2</cite> ). The top
-left corner will have texture coordinates of (<cite>s_1</cite>, <cite>t_1</cite> ) and the
-bottom right corner will have texture coordinates of (<cite>s_2</cite>, <cite>t_2</cite> ).</p>
+<p>Draws a textured rectangle to <cite>self</cite> using the given
+<cite>pipeline</cite> state with the top left corner positioned at (<cite>x_1</cite>, <cite>y_1</cite>)
+and the bottom right corner positioned at (<cite>x_2</cite>, <cite>y_2</cite>). The top
+left corner will have texture coordinates of (<cite>s_1</cite>, <cite>t_1</cite>) and the
+bottom right corner will have texture coordinates of (<cite>s_2</cite>, <cite>t_2</cite>).</p>
 <p>The position is the position before the rectangle has been
 transformed by the model-view matrix and the projection
 matrix.
 This is a high level drawing api that can handle any kind of
-<code class="xref py py-obj docutils literal"><span class="pre">Cogl.MetaTexture</span></code> texture such as <a class="reference internal" href="Texture2DSliced.html#Cogl.Texture2DSliced" title="Cogl.Texture2DSliced"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2DSliced</span></code></a> textures
+#CoglMetaTexture texture such as <a class="reference internal" href="Texture2DSliced.html#Cogl.Texture2DSliced" title="Cogl.Texture2DSliced"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2DSliced</span></code></a> textures
 which may internally be comprised of multiple low-level textures.
-This is unlike low-level drawing apis such as <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a> ()
+This is unlike low-level drawing apis such as <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a>()
 which only support low level texture types that are directly
 supported by GPUs such as <a class="reference internal" href="Texture2D.html#Cogl.Texture2D" title="Cogl.Texture2D"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2D</span></code></a>.</p>
 <p>The given texture coordinates will only be used for the first
 texture layer of the pipeline and if your pipeline has more than
 one layer then all other layers will have default texture
-coordinates of <cite>s_1</cite> =0.0 <cite>t_1</cite> =0.0 <cite>s_2</cite> =1.0 <cite>t_2</cite> =1.0
+coordinates of <cite>s_1</cite>=0.0 <cite>t_1</cite>=0.0 <cite>s_2</cite>=1.0 <cite>t_2</cite>=1.0
 The given texture coordinates should always be normalized such that
 (0, 0) corresponds to the top left and (1, 1) corresponds to the
 bottom right. To map an entire texture across the rectangle pass
-in <cite>s_1</cite> =0, <cite>t_1</cite> =0, <cite>s_2</cite> =1, <cite>t_2</cite> =1.</p>
+in <cite>s_1</cite>=0, <cite>t_1</cite>=0, <cite>s_2</cite>=1, <cite>t_2</cite>=1.</p>
 <p>Even if you have associated a <a class="reference internal" href="TextureRectangle.html#Cogl.TextureRectangle" title="Cogl.TextureRectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.TextureRectangle</span></code></a> texture
 with one of your <cite>pipeline</cite> layers which normally implies working
 with non-normalized texture coordinates this api should still be
@@ -923,23 +921,23 @@ passed normalized texture coordinates.</p>
 <li><strong>coordinates</strong> ([<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a>]) &#8211; an array containing
 groups of 8 float values: [x_1, y_1, x_2, y_2, s_1, t_1, s_2, t_2]
 that have the same meaning as the arguments for
-<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a> ().</li>
+<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a>().</li>
 <li><strong>n_rectangles</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; number of rectangles to <cite>coordinates</cite> to draw</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Draws a series of rectangles to <cite>framebuffer</cite> with the given
+<p>Draws a series of rectangles to <cite>self</cite> with the given
 <cite>pipeline</cite> state in the same way that
-<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a> () does.</p>
+<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a>() does.</p>
 <p>The position is the position before the rectangle has been
 transformed by the model-view matrix and the projection
 matrix.
 This is a high level drawing api that can handle any kind of
-<code class="xref py py-obj docutils literal"><span class="pre">Cogl.MetaTexture</span></code> texture such as <a class="reference internal" href="Texture2DSliced.html#Cogl.Texture2DSliced" title="Cogl.Texture2DSliced"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2DSliced</span></code></a> textures
+#CoglMetaTexture texture such as <a class="reference internal" href="Texture2DSliced.html#Cogl.Texture2DSliced" title="Cogl.Texture2DSliced"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2DSliced</span></code></a> textures
 which may internally be comprised of multiple low-level textures.
-This is unlike low-level drawing apis such as <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a> ()
+This is unlike low-level drawing apis such as <a class="reference internal" href="../classes/Primitive.html#Cogl.Primitive.draw" title="Cogl.Primitive.draw"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Primitive.draw</span></code></a>()
 which only support low level texture types that are directly
 supported by GPUs such as <a class="reference internal" href="Texture2D.html#Cogl.Texture2D" title="Cogl.Texture2D"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture2D</span></code></a>.</p>
 <p>The top left corner of the first rectangle is positioned at
@@ -951,7 +949,7 @@ coordinates[7]). The coordinates for subsequent rectangles
 are defined similarly by the subsequent coordinates.</p>
 <p>As a general rule for better performance its recommended to use
 this this API instead of calling
-<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a> () separately for multiple
+<a class="reference internal" href="#Cogl.Framebuffer.draw_textured_rectangle" title="Cogl.Framebuffer.draw_textured_rectangle"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.draw_textured_rectangle</span></code></a>() separately for multiple
 rectangles if all of the rectangles will be drawn together with the
 same <cite>pipeline</cite> state.</p>
 <p>The given texture coordinates should always be normalized such that
@@ -1028,7 +1026,7 @@ all cross through the origin and 2 near and far clip planes.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the number of alpha bits of <cite>framebuffer</cite></p>
+<p>Retrieves the number of alpha bits of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1047,7 +1045,7 @@ all cross through the origin and 2 near and far clip planes.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the number of blue bits of <cite>framebuffer</cite></p>
+<p>Retrieves the number of blue bits of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1082,15 +1080,15 @@ corresponding color would be written.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The <a class="reference internal" href="../classes/Context.html#Cogl.Context" title="Cogl.Context"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context</span></code></a> that the given
-<cite>framebuffer</cite> was instantiated within.</td>
+<cite>self</cite> was instantiated within.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../classes/Context.html#Cogl.Context" title="Cogl.Context"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Can be used to query the <a class="reference internal" href="../classes/Context.html#Cogl.Context" title="Cogl.Context"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context</span></code></a> a given <cite>framebuffer</cite> was
+<p>Can be used to query the <a class="reference internal" href="../classes/Context.html#Cogl.Context" title="Cogl.Context"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context</span></code></a> a given <cite>self</cite> was
 instantiated within. This is the <a class="reference internal" href="../classes/Context.html#Cogl.Context" title="Cogl.Context"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Context</span></code></a> that was passed to
-<a class="reference internal" href="Onscreen.html#Cogl.Onscreen.new" title="Cogl.Onscreen.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Onscreen.new</span></code></a> () for example.</p>
+<a class="reference internal" href="Onscreen.html#Cogl.Onscreen.new" title="Cogl.Onscreen.new"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Onscreen.new</span></code></a>() for example.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1109,7 +1107,7 @@ instantiated within. This is the <a class="reference internal" href="../classes/
 </tr>
 </tbody>
 </table>
-<p>Retrieves the number of depth bits of <cite>framebuffer</cite></p>
+<p>Retrieves the number of depth bits of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.0.</span></p>
 </div>
@@ -1128,8 +1126,8 @@ instantiated within. This is the <a class="reference internal" href="../classes/
 </tr>
 </tbody>
 </table>
-<p>Retrieves the depth buffer of <cite>framebuffer</cite> as a <a class="reference internal" href="Texture.html#Cogl.Texture" title="Cogl.Texture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture</span></code></a>. You need to
-call <a class="reference internal" href="#Cogl.Framebuffer.get_depth_texture" title="Cogl.Framebuffer.get_depth_texture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.get_depth_texture</span></code></a> (fb, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> ); before using this
+<p>Retrieves the depth buffer of <cite>self</cite> as a <a class="reference internal" href="Texture.html#Cogl.Texture" title="Cogl.Texture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture</span></code></a>. You need to
+call <a class="reference internal" href="#Cogl.Framebuffer.get_depth_texture" title="Cogl.Framebuffer.get_depth_texture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.get_depth_texture</span></code></a>(fb, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>); before using this
 function.</p>
 <p>Calling this function implicitely allocates the framebuffer.
 The texture returned stays valid as long as the framebuffer stays
@@ -1154,7 +1152,7 @@ valid.</p>
 </tbody>
 </table>
 <p>Queries whether texture based depth buffer has been enabled via
-<a class="reference internal" href="#Cogl.Framebuffer.set_depth_texture_enabled" title="Cogl.Framebuffer.set_depth_texture_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_depth_texture_enabled</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.Framebuffer.set_depth_texture_enabled" title="Cogl.Framebuffer.set_depth_texture_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_depth_texture_enabled</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.14.</span></p>
 </div>
@@ -1173,8 +1171,8 @@ valid.</p>
 </tr>
 </tbody>
 </table>
-<p>Queries whether depth buffer writing is enabled for <cite>framebuffer</cite>. This
-can be controlled via <a class="reference internal" href="#Cogl.Framebuffer.set_depth_write_enabled" title="Cogl.Framebuffer.set_depth_write_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_depth_write_enabled</span></code></a> ().</p>
+<p>Queries whether depth buffer writing is enabled for <cite>self</cite>. This
+can be controlled via <a class="reference internal" href="#Cogl.Framebuffer.set_depth_write_enabled" title="Cogl.Framebuffer.set_depth_write_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_depth_write_enabled</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.18.</span></p>
 </div>
@@ -1193,9 +1191,9 @@ can be controlled via <a class="reference internal" href="#Cogl.Framebuffer.set_
 </tr>
 </tbody>
 </table>
-<p>Returns whether dithering has been requested for the given <cite>framebuffer</cite>.
-See <a class="reference internal" href="#Cogl.Framebuffer.set_dither_enabled" title="Cogl.Framebuffer.set_dither_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_dither_enabled</span></code></a> () for more details about dithering.</p>
-<p>This may return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> even when the underlying <cite>framebuffer</cite>
+<p>Returns whether dithering has been requested for the given <cite>self</cite>.
+See <a class="reference internal" href="#Cogl.Framebuffer.set_dither_enabled" title="Cogl.Framebuffer.set_dither_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_dither_enabled</span></code></a>() for more details about dithering.</p>
+<p>This may return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> even when the underlying <cite>self</cite>
 display pipeline does not support dithering. This value only represents
 the user&#8217;s request for dithering.</p>
 <div class="versionadded">
@@ -1216,7 +1214,7 @@ the user&#8217;s request for dithering.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the number of green bits of <cite>framebuffer</cite></p>
+<p>Retrieves the number of green bits of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1229,13 +1227,13 @@ the user&#8217;s request for dithering.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The height of <cite>framebuffer</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The height of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Queries the current height of the given <cite>framebuffer</cite>.</p>
+<p>Queries the current height of the given <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1305,7 +1303,7 @@ the user&#8217;s request for dithering.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the number of red bits of <cite>framebuffer</cite></p>
+<p>Retrieves the number of red bits of <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1331,10 +1329,10 @@ rasterizing geometry. Usually by default this will return 0 which
 means that single-sample not multisample rendering has been chosen.
 When using a GPU supporting multisample rendering it&#8217;s possible to
 increase the number of samples per pixel using
-<a class="reference internal" href="#Cogl.Framebuffer.set_samples_per_pixel" title="Cogl.Framebuffer.set_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_samples_per_pixel</span></code></a> ().</p>
-<p>Calling <a class="reference internal" href="#Cogl.Framebuffer.get_samples_per_pixel" title="Cogl.Framebuffer.get_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.get_samples_per_pixel</span></code></a> () before the
+<a class="reference internal" href="#Cogl.Framebuffer.set_samples_per_pixel" title="Cogl.Framebuffer.set_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_samples_per_pixel</span></code></a>().</p>
+<p>Calling <a class="reference internal" href="#Cogl.Framebuffer.get_samples_per_pixel" title="Cogl.Framebuffer.get_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.get_samples_per_pixel</span></code></a>() before the
 framebuffer has been allocated will simply return the value set
-using <a class="reference internal" href="#Cogl.Framebuffer.set_samples_per_pixel" title="Cogl.Framebuffer.set_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_samples_per_pixel</span></code></a> (). After the
+using <a class="reference internal" href="#Cogl.Framebuffer.set_samples_per_pixel" title="Cogl.Framebuffer.set_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_samples_per_pixel</span></code></a>(). After the
 framebuffer has been allocated the value will reflect the actual
 number of samples that will be made by the GPU.</p>
 <div class="versionadded">
@@ -1356,7 +1354,7 @@ number of samples that will be made by the GPU.</p>
 </tbody>
 </table>
 <p>Gets the current <a class="reference internal" href="../enums.html#Cogl.StereoMode" title="Cogl.StereoMode"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.StereoMode</span></code></a>, which defines which stereo buffers
-should be drawn to. See <a class="reference internal" href="#Cogl.Framebuffer.set_stereo_mode" title="Cogl.Framebuffer.set_stereo_mode"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_stereo_mode</span></code></a> ().</p>
+should be drawn to. See <a class="reference internal" href="#Cogl.Framebuffer.set_stereo_mode" title="Cogl.Framebuffer.set_stereo_mode"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_stereo_mode</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.20.</span></p>
 </div>
@@ -1378,7 +1376,7 @@ components of the current viewport.</td>
 </tbody>
 </table>
 <p>Queries the x, y, width and height components of the current viewport as set
-using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a> () or the default values which are 0, 0,
+using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a>() or the default values which are 0, 0,
 framebuffer_width and framebuffer_height.  The values are written into the
 given <cite>viewport</cite> array.</p>
 <div class="versionadded">
@@ -1399,7 +1397,7 @@ given <cite>viewport</cite> array.</p>
 </tr>
 </tbody>
 </table>
-<p>Queries the height of the viewport as set using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a> ()
+<p>Queries the height of the viewport as set using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a>()
 or the default value which is the height of the framebuffer.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
@@ -1419,7 +1417,7 @@ or the default value which is the height of the framebuffer.</p>
 </tr>
 </tbody>
 </table>
-<p>Queries the width of the viewport as set using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a> ()
+<p>Queries the width of the viewport as set using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a>()
 or the default value which is the width of the framebuffer.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
@@ -1439,7 +1437,7 @@ or the default value which is the width of the framebuffer.</p>
 </tr>
 </tbody>
 </table>
-<p>Queries the x coordinate of the viewport origin as set using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a> ()
+<p>Queries the x coordinate of the viewport origin as set using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a>()
 or the default value which is 0.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
@@ -1459,7 +1457,7 @@ or the default value which is 0.</p>
 </tr>
 </tbody>
 </table>
-<p>Queries the y coordinate of the viewport origin as set using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a> ()
+<p>Queries the y coordinate of the viewport origin as set using <a class="reference internal" href="#Cogl.Framebuffer.set_viewport" title="Cogl.Framebuffer.set_viewport"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_viewport</span></code></a>()
 or the default value which is 0.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
@@ -1473,13 +1471,13 @@ or the default value which is 0.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The width of <cite>framebuffer</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The width of <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Queries the current width of the given <cite>framebuffer</cite>.</p>
+<p>Queries the current width of the given <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -1557,8 +1555,8 @@ objects near to each other.</p>
 <dt id="Cogl.Framebuffer.pop_clip">
 <code class="descname">pop_clip</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Reverts the clipping region to the state before the last call to
-<a class="reference internal" href="#Cogl.Framebuffer.push_scissor_clip" title="Cogl.Framebuffer.push_scissor_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.push_scissor_clip</span></code></a> (), <a class="reference internal" href="#Cogl.Framebuffer.push_rectangle_clip" title="Cogl.Framebuffer.push_rectangle_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.push_rectangle_clip</span></code></a> ()
-cogl_framebuffer_push_path_clip(), or <a class="reference internal" href="#Cogl.Framebuffer.push_primitive_clip" title="Cogl.Framebuffer.push_primitive_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.push_primitive_clip</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.Framebuffer.push_scissor_clip" title="Cogl.Framebuffer.push_scissor_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.push_scissor_clip</span></code></a>(), <a class="reference internal" href="#Cogl.Framebuffer.push_rectangle_clip" title="Cogl.Framebuffer.push_rectangle_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.push_rectangle_clip</span></code></a>()
+cogl_framebuffer_push_path_clip(), or <a class="reference internal" href="#Cogl.Framebuffer.push_primitive_clip" title="Cogl.Framebuffer.push_primitive_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.push_primitive_clip</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -1577,7 +1575,7 @@ cogl_framebuffer_push_path_clip(), or <a class="reference internal" href="#Cogl.
 <dt id="Cogl.Framebuffer.push_matrix">
 <code class="descname">push_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Copies the current model-view matrix onto the matrix stack. The matrix
-can later be restored with <a class="reference internal" href="#Cogl.Framebuffer.pop_matrix" title="Cogl.Framebuffer.pop_matrix"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.pop_matrix</span></code></a> ().</p>
+can later be restored with <a class="reference internal" href="#Cogl.Framebuffer.pop_matrix" title="Cogl.Framebuffer.pop_matrix"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.pop_matrix</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -1615,7 +1613,7 @@ bounds are smaller than the true bounds.</p>
 <p>The primitive is transformed by the current model-view matrix and
 the silhouette is intersected with the previous clipping area.  To
 restore the previous clipping area, call
-<a class="reference internal" href="#Cogl.Framebuffer.pop_clip" title="Cogl.Framebuffer.pop_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.pop_clip</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.Framebuffer.pop_clip" title="Cogl.Framebuffer.pop_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.pop_clip</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -1644,7 +1642,7 @@ outside the rectangle will be clipped so that only the portion
 inside the rectangle will be displayed. The rectangle dimensions
 are transformed by the current model-view matrix.</p>
 <p>The rectangle is intersected with the current clip region. To undo
-the effect of this function, call <a class="reference internal" href="#Cogl.Framebuffer.pop_clip" title="Cogl.Framebuffer.pop_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.pop_clip</span></code></a> ().</p>
+the effect of this function, call <a class="reference internal" href="#Cogl.Framebuffer.pop_clip" title="Cogl.Framebuffer.pop_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.pop_clip</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -1673,7 +1671,7 @@ will be clipped so that only the portion inside the rectangle will
 be displayed. The rectangle dimensions are not transformed by the
 current model-view matrix.</p>
 <p>The rectangle is intersected with the current clip region. To undo
-the effect of this function, call <a class="reference internal" href="#Cogl.Framebuffer.pop_clip" title="Cogl.Framebuffer.pop_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.pop_clip</span></code></a> ().</p>
+the effect of this function, call <a class="reference internal" href="#Cogl.Framebuffer.pop_clip" title="Cogl.Framebuffer.pop_clip"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.pop_clip</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.10.</span></p>
 </div>
@@ -1705,25 +1703,25 @@ the effect of this function, call <a class="reference internal" href="#Cogl.Fram
 </tbody>
 </table>
 <p>This is a convenience wrapper around
-<a class="reference internal" href="#Cogl.Framebuffer.read_pixels_into_bitmap" title="Cogl.Framebuffer.read_pixels_into_bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.read_pixels_into_bitmap</span></code></a> () which allocates a
+<a class="reference internal" href="#Cogl.Framebuffer.read_pixels_into_bitmap" title="Cogl.Framebuffer.read_pixels_into_bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.read_pixels_into_bitmap</span></code></a>() which allocates a
 temporary <a class="reference internal" href="../classes/Bitmap.html#Cogl.Bitmap" title="Cogl.Bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap</span></code></a> to read pixel data directly into the given
 buffer. The rowstride of the buffer is assumed to be the width of
 the region times the bytes per pixel of the format. The source for
 the data is always taken from the color buffer. If you want to use
 any other rowstride or source, please use the
-<a class="reference internal" href="#Cogl.Framebuffer.read_pixels_into_bitmap" title="Cogl.Framebuffer.read_pixels_into_bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.read_pixels_into_bitmap</span></code></a> () function directly.</p>
+<a class="reference internal" href="#Cogl.Framebuffer.read_pixels_into_bitmap" title="Cogl.Framebuffer.read_pixels_into_bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.read_pixels_into_bitmap</span></code></a>() function directly.</p>
 <p>The implementation of the function looks like this:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">bitmap</span> <span class="o">=</span> <span class="n">cogl_bitmap_new_for_data</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span>
-                                   <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span>
-                                   <span class="n">format</span><span class="p">,</span>
-                                   <span class="o">/&lt;!--</span> <span class="o">--&gt;*</span> <span class="n">rowstride</span> <span class="o">*&lt;!--</span> <span class="o">--&gt;/</span>
-                                   <span class="n">bpp</span> <span class="o">*</span> <span class="n">width</span><span class="p">,</span>
-                                   <span class="n">pixels</span><span class="p">);</span>
-<span class="n">cogl_framebuffer_read_pixels_into_bitmap</span> <span class="p">(</span><span class="n">framebuffer</span><span class="p">,</span>
-                                          <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
-                                          <span class="n">COGL_READ_PIXELS_COLOR_BUFFER</span><span class="p">,</span>
-                                          <span class="n">bitmap</span><span class="p">);</span>
-<span class="n">cogl_object_unref</span> <span class="p">(</span><span class="n">bitmap</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>bitmap = cogl_bitmap_new_for_data (context,
+                                   width, height,
+                                   format,
+                                   /&lt;!-- --&gt;* rowstride *&lt;!-- --&gt;/
+                                   bpp * width,
+                                   pixels);
+cogl_framebuffer_read_pixels_into_bitmap (framebuffer,
+                                          x, y,
+                                          COGL_READ_PIXELS_COLOR_BUFFER,
+                                          bitmap);
+cogl_object_unref (bitmap);
 </pre></div>
 </div>
 <div class="versionadded">
@@ -1775,9 +1773,9 @@ use one of the formats ending in PRE.</p>
 <dt id="Cogl.Framebuffer.resolve_samples">
 <code class="descname">resolve_samples</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>When point sample rendering (also known as multisample rendering)
-has been enabled via <a class="reference internal" href="#Cogl.Framebuffer.set_samples_per_pixel" title="Cogl.Framebuffer.set_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_samples_per_pixel</span></code></a> ()
+has been enabled via <a class="reference internal" href="#Cogl.Framebuffer.set_samples_per_pixel" title="Cogl.Framebuffer.set_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_samples_per_pixel</span></code></a>()
 then you can optionally call this function (or
-<a class="reference internal" href="#Cogl.Framebuffer.resolve_samples_region" title="Cogl.Framebuffer.resolve_samples_region"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples_region</span></code></a> ()) to explicitly resolve
+<a class="reference internal" href="#Cogl.Framebuffer.resolve_samples_region" title="Cogl.Framebuffer.resolve_samples_region"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples_region</span></code></a>()) to explicitly resolve
 the point samples into values for the final color buffer.</p>
 <p>Some GPUs will implicitly resolve the point samples during
 rendering and so this function is effectively a nop, but with other
@@ -1789,7 +1787,7 @@ used if explicit control is desired - perhaps because you want to
 ensure that the resolve is completed in advance to avoid later
 having to wait for the resolve to complete.</p>
 <p>If you are performing incremental updates to a framebuffer you
-should consider using <a class="reference internal" href="#Cogl.Framebuffer.resolve_samples_region" title="Cogl.Framebuffer.resolve_samples_region"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples_region</span></code></a> ()
+should consider using <a class="reference internal" href="#Cogl.Framebuffer.resolve_samples_region" title="Cogl.Framebuffer.resolve_samples_region"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples_region</span></code></a>()
 instead to avoid resolving redundant pixels.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
@@ -1814,9 +1812,9 @@ instead to avoid resolving redundant pixels.</p>
 </tbody>
 </table>
 <p>When point sample rendering (also known as multisample rendering)
-has been enabled via <a class="reference internal" href="#Cogl.Framebuffer.set_samples_per_pixel" title="Cogl.Framebuffer.set_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_samples_per_pixel</span></code></a> ()
+has been enabled via <a class="reference internal" href="#Cogl.Framebuffer.set_samples_per_pixel" title="Cogl.Framebuffer.set_samples_per_pixel"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.set_samples_per_pixel</span></code></a>()
 then you can optionally call this function (or
-<a class="reference internal" href="#Cogl.Framebuffer.resolve_samples" title="Cogl.Framebuffer.resolve_samples"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples</span></code></a> ()) to explicitly resolve the point
+<a class="reference internal" href="#Cogl.Framebuffer.resolve_samples" title="Cogl.Framebuffer.resolve_samples"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples</span></code></a>()) to explicitly resolve the point
 samples into values for the final color buffer.</p>
 <p>Some GPUs will implicitly resolve the point samples during
 rendering and so this function is effectively a nop, but with other
@@ -1935,7 +1933,7 @@ the current framebuffer.</td>
 </tbody>
 </table>
 <p>Defines a bit mask of which color channels should be written to the
-given <cite>framebuffer</cite>. If a bit is set in <cite>color_mask</cite> that means that
+given <cite>self</cite>. If a bit is set in <cite>color_mask</cite> that means that
 color will be written.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
@@ -1953,9 +1951,9 @@ color will be written.</p>
 </tr>
 </tbody>
 </table>
-<p>If <cite>enabled</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, the depth buffer used when rendering to <cite>framebuffer</cite>
+<p>If <cite>enabled</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, the depth buffer used when rendering to <cite>self</cite>
 is available as a texture. You can retrieve the texture with
-<a class="reference internal" href="#Cogl.Framebuffer.get_depth_texture" title="Cogl.Framebuffer.get_depth_texture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.get_depth_texture</span></code></a> ().</p>
+<a class="reference internal" href="#Cogl.Framebuffer.get_depth_texture" title="Cogl.Framebuffer.get_depth_texture"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.get_depth_texture</span></code></a>().</p>
 <p>It&#8217;s possible that your GPU does not support depth textures. You
 should check the <a class="reference internal" href="../enums.html#Cogl.FeatureID.OGL_FEATURE_ID_DEPTH_TEXTURE" title="Cogl.FeatureID.OGL_FEATURE_ID_DEPTH_TEXTURE"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.FeatureID.OGL_FEATURE_ID_DEPTH_TEXTURE</span></code></a> feature before using this
 function.
@@ -1977,7 +1975,7 @@ allocated as the creation of the depth texture is done at allocation time.</p>
 </tr>
 </tbody>
 </table>
-<p>Enables or disables depth buffer writing when rendering to <cite>framebuffer</cite>.
+<p>Enables or disables depth buffer writing when rendering to <cite>self</cite>.
 If depth writing is enabled for both the framebuffer and the rendering
 pipeline, and the framebuffer has an associated depth buffer, depth
 information will be written to this buffer during rendering.</p>
@@ -2005,7 +2003,7 @@ tricks with the colors placed into the framebuffer to give the illusion
 of other colors. (For example this can be compared to half-toning used
 by some news papers to show varying levels of grey even though their may
 only be black and white are available).</p>
-<p>If the current display pipeline for <cite>framebuffer</cite> does not support dithering
+<p>If the current display pipeline for <cite>self</cite> does not support dithering
 then this has no affect.</p>
 <p>Dithering is enabled by default.</p>
 <div class="versionadded">
@@ -2058,7 +2056,7 @@ then this has no affect.</p>
 </tr>
 </tbody>
 </table>
-<p>Requires that when rendering to <cite>framebuffer</cite> then <cite>n</cite> point samples
+<p>Requires that when rendering to <cite>self</cite> then <cite>n</cite> point samples
 should be made per pixel which will all contribute to the final
 resolved color for that pixel. The idea is that the hardware aims
 to get quality similar to what you would get if you rendered
@@ -2077,11 +2075,11 @@ as &#8220;single-sample&#8221; rendering. A value of 1 or greater is referred
 to as &#8220;multisample&#8221; rendering.</p>
 <p>There are some semantic differences between single-sample
 rendering and multisampling with just 1 point sample such as it
-being redundant to use the <a class="reference internal" href="#Cogl.Framebuffer.resolve_samples" title="Cogl.Framebuffer.resolve_samples"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples</span></code></a> () and
-<a class="reference internal" href="#Cogl.Framebuffer.resolve_samples_region" title="Cogl.Framebuffer.resolve_samples_region"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples_region</span></code></a> () apis with single-sample
+being redundant to use the <a class="reference internal" href="#Cogl.Framebuffer.resolve_samples" title="Cogl.Framebuffer.resolve_samples"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples</span></code></a>() and
+<a class="reference internal" href="#Cogl.Framebuffer.resolve_samples_region" title="Cogl.Framebuffer.resolve_samples_region"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples_region</span></code></a>() apis with single-sample
 rendering.
 It&#8217;s recommended that
-<a class="reference internal" href="#Cogl.Framebuffer.resolve_samples_region" title="Cogl.Framebuffer.resolve_samples_region"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples_region</span></code></a> () be explicitly used at the
+<a class="reference internal" href="#Cogl.Framebuffer.resolve_samples_region" title="Cogl.Framebuffer.resolve_samples_region"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.resolve_samples_region</span></code></a>() be explicitly used at the
 end of rendering to a point sample buffer to minimize the number of
 samples that get resolved. By default Cogl will implicitly resolve
 all framebuffer samples but if only a small region of a
@@ -2109,8 +2107,8 @@ is <a class="reference internal" href="../enums.html#Cogl.StereoMode.BOTH" title
 right buffers will be affected by drawing. For this to have
 an effect, the display system must support stereo drawables,
 and the framebuffer must have been created with stereo
-enabled. (See <a class="reference internal" href="../classes/OnscreenTemplate.html#Cogl.OnscreenTemplate.set_stereo_enabled" title="Cogl.OnscreenTemplate.set_stereo_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.OnscreenTemplate.set_stereo_enabled</span></code></a> (),
-<a class="reference internal" href="#Cogl.Framebuffer.get_is_stereo" title="Cogl.Framebuffer.get_is_stereo"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.get_is_stereo</span></code></a> ().)</p>
+enabled. (See <a class="reference internal" href="../classes/OnscreenTemplate.html#Cogl.OnscreenTemplate.set_stereo_enabled" title="Cogl.OnscreenTemplate.set_stereo_enabled"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.OnscreenTemplate.set_stereo_enabled</span></code></a>(),
+<a class="reference internal" href="#Cogl.Framebuffer.get_is_stereo" title="Cogl.Framebuffer.get_is_stereo"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Framebuffer.get_is_stereo</span></code></a>().)</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.20.</span></p>
 </div>
@@ -2209,7 +2207,4 @@ model along all three axes according to the given values.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

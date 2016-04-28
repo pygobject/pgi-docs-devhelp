@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gst.ParamFraction" href="ParamFraction.html"/>
         <link rel="prev" title="Gst.Pad" href="Pad.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -418,7 +416,7 @@ handle. This allows for both inspection of handled types before loading the
 element plugin as well as identifying pads on elements that are not yet
 created (request or sometimes pads).</p>
 <p>Pad and PadTemplates have <a class="reference internal" href="../structs/Caps.html#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> attached to it to describe the media type
-they are capable of dealing with. <a class="reference internal" href="#Gst.PadTemplate.get_caps" title="Gst.PadTemplate.get_caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadTemplate.get_caps</span></code></a> () or
+they are capable of dealing with. <a class="reference internal" href="#Gst.PadTemplate.get_caps" title="Gst.PadTemplate.get_caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadTemplate.get_caps</span></code></a>() or
 GST_PAD_TEMPLATE_CAPS() are used to get the caps of a padtemplate. It&#8217;s not
 possible to modify the caps of a padtemplate after creation.</p>
 <p>PadTemplates have a <a class="reference internal" href="../enums.html#Gst.PadPresence" title="Gst.PadPresence"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadPresence</span></code></a> property which identifies the lifetime
@@ -426,13 +424,13 @@ of the pad and that can be retrieved with GST_PAD_TEMPLATE_PRESENCE(). Also
 the direction of the pad can be retrieved from the <a class="reference internal" href="#Gst.PadTemplate" title="Gst.PadTemplate"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadTemplate</span></code></a> with
 GST_PAD_TEMPLATE_DIRECTION().</p>
 <p>The GST_PAD_TEMPLATE_NAME_TEMPLATE () is important for <a class="reference internal" href="../enums.html#Gst.PadPresence.REQUEST" title="Gst.PadPresence.REQUEST"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadPresence.REQUEST</span></code></a> pads
-because it has to be used as the name in the <a class="reference internal" href="Element.html#Gst.Element.get_request_pad" title="Gst.Element.get_request_pad"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element.get_request_pad</span></code></a> ()
+because it has to be used as the name in the <a class="reference internal" href="Element.html#Gst.Element.get_request_pad" title="Gst.Element.get_request_pad"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element.get_request_pad</span></code></a>()
 call to instantiate a pad from this template.</p>
-<p>Padtemplates can be created with <a class="reference internal" href="#Gst.PadTemplate.new" title="Gst.PadTemplate.new"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadTemplate.new</span></code></a> () or with
+<p>Padtemplates can be created with <a class="reference internal" href="#Gst.PadTemplate.new" title="Gst.PadTemplate.new"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadTemplate.new</span></code></a>() or with
 <a class="reference internal" href="../structs/StaticPadTemplate.html#Gst.StaticPadTemplate.get" title="Gst.StaticPadTemplate.get"><code class="xref py py-obj docutils literal"><span class="pre">Gst.StaticPadTemplate.get</span></code></a> (), which creates a <a class="reference internal" href="#Gst.PadTemplate" title="Gst.PadTemplate"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadTemplate</span></code></a> from a
 <a class="reference internal" href="../structs/StaticPadTemplate.html#Gst.StaticPadTemplate" title="Gst.StaticPadTemplate"><code class="xref py py-obj docutils literal"><span class="pre">Gst.StaticPadTemplate</span></code></a> that can be filled with the
 convenient GST_STATIC_PAD_TEMPLATE() macro.</p>
-<p>A padtemplate can be used to create a pad (see <a class="reference internal" href="Pad.html#Gst.Pad.new_from_template" title="Gst.Pad.new_from_template"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.new_from_template</span></code></a> ()
+<p>A padtemplate can be used to create a pad (see <a class="reference internal" href="Pad.html#Gst.Pad.new_from_template" title="Gst.Pad.new_from_template"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.new_from_template</span></code></a>()
 or <a class="reference internal" href="Pad.html#Gst.Pad.new_from_static_template" title="Gst.Pad.new_from_static_template"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad.new_from_static_template</span></code></a> ()) or to add to an element class
 (see <a class="reference internal" href="../class-structs/ElementClass.html#Gst.ElementClass.add_pad_template" title="Gst.ElementClass.add_pad_template"><code class="xref py py-obj docutils literal"><span class="pre">Gst.ElementClass.add_pad_template</span></code></a> ()).</p>
 <p>The following code example shows the code to create a pad from a padtemplate.</p>
@@ -469,7 +467,7 @@ element class, this is usually done in the class_init of the class:</p>
 </div>
 <dl class="staticmethod">
 <dt id="Gst.PadTemplate.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>name_template</em>, <em>direction</em>, <em>presence</em>, <em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpadtemplate.c?h=1.6.2#n306"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>name_template</em>, <em>direction</em>, <em>presence</em>, <em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpadtemplate.c?h=1.8.1#n306"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -496,7 +494,7 @@ and with the given arguments.</p>
 
 <dl class="method">
 <dt id="Gst.PadTemplate.get_caps">
-<code class="descname">get_caps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpadtemplate.c?h=1.6.2#n357"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_caps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpadtemplate.c?h=1.8.1#n357"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -513,7 +511,7 @@ Unref after usage.</td>
 
 <dl class="method">
 <dt id="Gst.PadTemplate.pad_created">
-<code class="descname">pad_created</code><span class="sig-paren">(</span><em>pad</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpadtemplate.c?h=1.6.2#n375"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">pad_created</code><span class="sig-paren">(</span><em>pad</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpadtemplate.c?h=1.8.1#n375"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -665,7 +663,4 @@ Unref after usage.</td>
   </div> 
 
 </body>
-
-  
-
 </html>

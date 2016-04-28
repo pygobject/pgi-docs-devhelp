@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.Hmac" href="Hmac.html"/>
         <link rel="prev" title="GLib.HashTable" href="HashTable.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -205,7 +203,7 @@
 <td><a class="reference internal" href="#GLib.HashTableIter.init" title="GLib.HashTableIter.init"><code class="xref py py-obj docutils literal"><span class="pre">init</span></code></a> (hash_table)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GLib.HashTableIter.next" title="GLib.HashTableIter.next"><code class="xref py py-obj docutils literal"><span class="pre">next</span></code></a> (key, value)</td>
+<td><a class="reference internal" href="#GLib.HashTableIter.next" title="GLib.HashTableIter.next"><code class="xref py py-obj docutils literal"><span class="pre">next</span></code></a> ()</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GLib.HashTableIter.remove" title="GLib.HashTableIter.remove"><code class="xref py py-obj docutils literal"><span class="pre">remove</span></code></a> ()</td>
@@ -227,10 +225,10 @@
 <dd><p>A <a class="reference internal" href="#GLib.HashTableIter" title="GLib.HashTableIter"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter</span></code></a> structure represents an iterator that can be used
 to iterate over the elements of a <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>. <a class="reference internal" href="#GLib.HashTableIter" title="GLib.HashTableIter"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter</span></code></a>
 structures are typically allocated on the stack and then initialized
-with <a class="reference internal" href="#GLib.HashTableIter.init" title="GLib.HashTableIter.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.init</span></code></a> ().</p>
+with <a class="reference internal" href="#GLib.HashTableIter.init" title="GLib.HashTableIter.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.init</span></code></a>().</p>
 <dl class="method">
 <dt id="GLib.HashTableIter.init">
-<code class="descname">init</code><span class="sig-paren">(</span><em>hash_table</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.46.2#n756"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">init</code><span class="sig-paren">(</span><em>hash_table</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n756"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -259,26 +257,28 @@ invalidates the returned iterator.</p>
 
 <dl class="method">
 <dt id="GLib.HashTableIter.next">
-<code class="descname">next</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.46.2#n788"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n788"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a location to store the key, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
-<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a location to store the value, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the end of the <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> has been reached.<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">key:</th><td class="field-body">a location to store the key</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if the end of the <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> has been reached.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
-</td>
+<tr class="field-even field"><th class="field-name">value:</th><td class="field-body">a location to store the value</td>
 </tr>
 </tbody>
 </table>
-<p>Advances <cite>iter</cite> and retrieves the key and/or value that are now
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>key</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>, <strong>value</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>)</td>
+</tr>
+</tbody>
+</table>
+<p>Advances <cite>self</cite> and retrieves the key and/or value that are now
 pointed to as a result of this advancement. If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> is returned,
 <cite>key</cite> and <cite>value</cite> are not set, and the iterator becomes invalid.</p>
 <div class="versionadded">
@@ -288,12 +288,12 @@ pointed to as a result of this advancement. If <a class="reference external" hre
 
 <dl class="method">
 <dt id="GLib.HashTableIter.remove">
-<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.46.2#n880"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n880"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Removes the key/value pair currently pointed to by the iterator
 from its associated <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>. Can only be called after
-<a class="reference internal" href="#GLib.HashTableIter.next" title="GLib.HashTableIter.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.next</span></code></a> () returned <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, and cannot be called
+<a class="reference internal" href="#GLib.HashTableIter.next" title="GLib.HashTableIter.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.next</span></code></a>() returned <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, and cannot be called
 more than once for the same key/value pair.</p>
-<p>If the <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> was created using <code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable.new_full</span></code> (),
+<p>If the <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> was created using g_hash_table_new_full(),
 the key and value are freed using the supplied destroy functions,
 otherwise you have to make sure that any dynamically allocated
 values are freed yourself.</p>
@@ -312,18 +312,18 @@ values are freed yourself.</p>
 
 <dl class="method">
 <dt id="GLib.HashTableIter.replace">
-<code class="descname">replace</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.46.2#n1020"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">replace</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n1020"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; the value to replace with</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the value to replace with</td>
 </tr>
 </tbody>
 </table>
 <p>Replaces the value currently pointed to by the iterator
 from its associated <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>. Can only be called after
-<a class="reference internal" href="#GLib.HashTableIter.next" title="GLib.HashTableIter.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.next</span></code></a> () returned <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
+<a class="reference internal" href="#GLib.HashTableIter.next" title="GLib.HashTableIter.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.next</span></code></a>() returned <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
 <p>If you supplied a <cite>value_destroy_func</cite> when creating the
 <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>, the old value is freed using that function.</p>
 <div class="versionadded">
@@ -333,11 +333,11 @@ from its associated <a class="reference internal" href="HashTable.html#GLib.Hash
 
 <dl class="method">
 <dt id="GLib.HashTableIter.steal">
-<code class="descname">steal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.46.2#n1053"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">steal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n1053"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Removes the key/value pair currently pointed to by the
 iterator from its associated <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>, without calling
 the key and value destroy functions. Can only be called
-after <a class="reference internal" href="#GLib.HashTableIter.next" title="GLib.HashTableIter.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.next</span></code></a> () returned <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, and cannot
+after <a class="reference internal" href="#GLib.HashTableIter.next" title="GLib.HashTableIter.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.next</span></code></a>() returned <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, and cannot
 be called more than once for the same key/value pair.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.16.</span></p>
@@ -360,7 +360,4 @@ be called more than once for the same key/value pair.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

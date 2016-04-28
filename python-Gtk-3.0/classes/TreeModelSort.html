@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gtk.TreeSelection" href="TreeSelection.html"/>
         <link rel="prev" title="Gtk.TreeModelRowIter" href="TreeModelRowIter.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -488,10 +486,10 @@ selected row on the child model, and change the row there.</p>
 </div>
 <dl class="method">
 <dt id="Gtk.TreeModelSort.clear_cache">
-<code class="descname">clear_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.18.6#n2734"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>This function should almost never be called.  It clears the <cite>tree_model_sort</cite>
+<code class="descname">clear_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.20.3#n2734"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function should almost never be called.  It clears the <cite>self</cite>
 of any cached iterators that haven’t been reffed with
-<a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a> ().  This might be useful if the child model being
+<a class="reference internal" href="../interfaces/TreeModel.html#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModel.ref_node</span></code></a>().  This might be useful if the child model being
 sorted is static (and doesn’t change often) and there has been a lot of
 unreffed access to nodes.  As a side effect of this function, all unreffed
 iters will be invalid.</p>
@@ -499,7 +497,7 @@ iters will be invalid.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelSort.convert_child_iter_to_iter">
-<code class="descname">convert_child_iter_to_iter</code><span class="sig-paren">(</span><em>child_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.18.6#n2321"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_child_iter_to_iter</code><span class="sig-paren">(</span><em>child_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.20.3#n2321"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -521,14 +519,14 @@ valid iterator pointer to a visible row in the child model.<table class="docutil
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>sort_iter</cite> to point to the row in <cite>tree_model_sort</cite> that corresponds to
+<p>Sets <cite>sort_iter</cite> to point to the row in <cite>self</cite> that corresponds to
 the row pointed at by <cite>child_iter</cite>.  If <cite>sort_iter</cite> was not set, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
 is returned.  Note: a boolean is only returned since 2.14.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gtk.TreeModelSort.convert_child_path_to_path">
-<code class="descname">convert_child_path_to_path</code><span class="sig-paren">(</span><em>child_path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.18.6#n2296"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_child_path_to_path</code><span class="sig-paren">(</span><em>child_path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.20.3#n2296"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -537,11 +535,11 @@ is returned.  Note: a boolean is only returned since 2.14.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Converts <cite>child_path</cite> to a path relative to <cite>tree_model_sort</cite>.  That is,
+<p>Converts <cite>child_path</cite> to a path relative to <cite>self</cite>.  That is,
 <cite>child_path</cite> points to a path in the child model.  The returned path will
 point to the same row in the sorted model.  If <cite>child_path</cite> isn’t a valid
 path on the child model, then <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.</p>
@@ -549,12 +547,12 @@ path on the child model, then <a class="reference external" href="http://docs.py
 
 <dl class="method">
 <dt id="Gtk.TreeModelSort.convert_iter_to_child_iter">
-<code class="descname">convert_iter_to_child_iter</code><span class="sig-paren">(</span><em>sorted_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.18.6#n2434"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_iter_to_child_iter</code><span class="sig-paren">(</span><em>sorted_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.20.3#n2434"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sorted_iter</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; A valid <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> pointing to a row on <cite>tree_model_sort</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sorted_iter</strong> (<a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a>) &#8211; A valid <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a> pointing to a row on <cite>self</cite>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An uninitialized <a class="reference internal" href="../structs/TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeIter</span></code></a></td>
 </tr>
@@ -567,7 +565,7 @@ path on the child model, then <a class="reference external" href="http://docs.py
 
 <dl class="method">
 <dt id="Gtk.TreeModelSort.convert_path_to_child_path">
-<code class="descname">convert_path_to_child_path</code><span class="sig-paren">(</span><em>sorted_path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.18.6#n2369"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_path_to_child_path</code><span class="sig-paren">(</span><em>sorted_path</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.20.3#n2369"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -576,12 +574,12 @@ path on the child model, then <a class="reference external" href="http://docs.py
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../structs/TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreePath</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Converts <cite>sorted_path</cite> to a path on the child model of <cite>tree_model_sort</cite>.
-That is, <cite>sorted_path</cite> points to a location in <cite>tree_model_sort</cite>.  The
+<p>Converts <cite>sorted_path</cite> to a path on the child model of <cite>self</cite>.
+That is, <cite>sorted_path</cite> points to a location in <cite>self</cite>.  The
 returned path will point to the same location in the model not being
 sorted.  If <cite>sorted_path</cite> does not point to a location in the child model,
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> is returned.</p>
@@ -589,7 +587,7 @@ sorted.  If <cite>sorted_path</cite> does not point to a location in the child m
 
 <dl class="method">
 <dt id="Gtk.TreeModelSort.get_model">
-<code class="descname">get_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.18.6#n2213"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.20.3#n2213"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -605,7 +603,7 @@ sorted.  If <cite>sorted_path</cite> does not point to a location in the child m
 
 <dl class="method">
 <dt id="Gtk.TreeModelSort.iter_is_valid">
-<code class="descname">iter_is_valid</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.18.6#n2782"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iter_is_valid</code><span class="sig-paren">(</span><em>iter</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.20.3#n2782"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -628,7 +626,7 @@ purposes.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelSort.reset_default_sort_func">
-<code class="descname">reset_default_sort_func</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.18.6#n2699"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">reset_default_sort_func</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtktreemodelsort.c?h=3.20.3#n2699"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>This resets the default sort function to be in the “unsorted” state.  That
 is, it is in the same order as the child model. It will re-sort the model
 to be in the same order as the child model only if the <a class="reference internal" href="#Gtk.TreeModelSort" title="Gtk.TreeModelSort"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.TreeModelSort</span></code></a>
@@ -674,7 +672,4 @@ is in “unsorted” state.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

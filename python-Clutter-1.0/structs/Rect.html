@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Clutter 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Clutter.ScrollEvent" href="ScrollEvent.html"/>
         <link rel="prev" title="Clutter.Point" href="Point.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -251,7 +249,7 @@
 a rectangle with an origin of [ 0.0, 0.0 ] and a size of [ 10.0, 10.0 ] to
 be equivalent to a rectangle with origin of [ 10.0, 10.0 ] and size of
 [ -10.0, -10.0 ].</p>
-<p>Application code can normalize rectangles using <a class="reference internal" href="#Clutter.Rect.normalize" title="Clutter.Rect.normalize"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect.normalize</span></code></a> ():
+<p>Application code can normalize rectangles using <a class="reference internal" href="#Clutter.Rect.normalize" title="Clutter.Rect.normalize"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect.normalize</span></code></a>():
 this function will ensure that the width and height of a <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> are
 positive values. All functions taking a <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> as an argument will
 implicitly normalize it before computing eventual results. For this reason
@@ -268,14 +266,14 @@ API at all times, instead of directly accessing the structure members.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the newly allocated <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a>.
-Use <a class="reference internal" href="#Clutter.Rect.free" title="Clutter.Rect.free"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect.free</span></code></a> () to free its resources</td>
+Use <a class="reference internal" href="#Clutter.Rect.free" title="Clutter.Rect.free"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect.free</span></code></a>() to free its resources</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Creates a new, empty <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a>.</p>
-<p>You can use <a class="reference internal" href="#Clutter.Rect.init" title="Clutter.Rect.init"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect.init</span></code></a> () to initialize the returned rectangle,
+<p>You can use <a class="reference internal" href="#Clutter.Rect.init" title="Clutter.Rect.init"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect.init</span></code></a>() to initialize the returned rectangle,
 for instance:</p>
 <p><code class="docutils literal"><span class="pre">rect</span> <span class="pre">=</span> <span class="pre">clutter_rect_init</span> <span class="pre">(clutter_rect_alloc</span> <span class="pre">(),</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height);</span></code></p>
 <div class="versionadded">
@@ -298,7 +296,7 @@ be modified or freed.</td>
 </tr>
 </tbody>
 </table>
-<p>A <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> with <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a>.origin set at (0, 0) and a size
+<p>A <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> with <a class="reference internal" href="#clutter-rect-fields"><span>Clutter.Rect.origin</span></a> set at (0, 0) and a size
 of 0.</p>
 <p>The returned value can be used as a guard.</p>
 <div class="versionadded">
@@ -309,8 +307,8 @@ of 0.</p>
 <dl class="method">
 <dt id="Clutter.Rect.clamp_to_pixel">
 <code class="descname">clamp_to_pixel</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Rounds the origin of <cite>rect</cite> downwards to the nearest integer, and rounds
-the size of <cite>rect</cite> upwards to the nearest integer, so that <cite>rect</cite> is
+<dd><p>Rounds the origin of <cite>self</cite> downwards to the nearest integer, and rounds
+the size of <cite>self</cite> upwards to the nearest integer, so that <cite>self</cite> is
 updated to the smallest rectangle capable of fully containing the
 original, fractional rectangle.</p>
 <div class="versionadded">
@@ -327,13 +325,13 @@ original, fractional rectangle.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<a class="reference internal" href="Point.html#Clutter.Point" title="Clutter.Point"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Point</span></code></a>) &#8211; the point to check</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>point</cite> is contained by <cite>rect</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the <cite>point</cite> is contained by <cite>self</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks whether <cite>point</cite> is contained by <cite>rect</cite>, after normalizing the
+<p>Checks whether <cite>point</cite> is contained by <cite>self</cite>, after normalizing the
 rectangle.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
@@ -355,7 +353,7 @@ rectangle.</p>
 </tr>
 </tbody>
 </table>
-<p>Checks whether <cite>a</cite> contains <cite>b</cite>.</p>
+<p>Checks whether <cite>self</cite> contains <cite>b</cite>.</p>
 <p>The first rectangle contains the second if the union of the
 two <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> is equal to the first rectangle.</p>
 <div class="versionadded">
@@ -370,14 +368,14 @@ two <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><cod
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the newly allocate copy of <cite>rect</cite>.
-Use <a class="reference internal" href="#Clutter.Rect.free" title="Clutter.Rect.free"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect.free</span></code></a> () to free the associated resources</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the newly allocate copy of <cite>self</cite>.
+Use <a class="reference internal" href="#Clutter.Rect.free" title="Clutter.Rect.free"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect.free</span></code></a>() to free the associated resources</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Copies <cite>rect</cite> into a new <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> instance.</p>
+<p>Copies <cite>self</cite> into a new <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> instance.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -398,8 +396,8 @@ Use <a class="reference internal" href="#Clutter.Rect.free" title="Clutter.Rect.
 </tr>
 </tbody>
 </table>
-<p>Checks whether <cite>a</cite> and <cite>b</cite> are equals.</p>
-<p>This function will normalize both <cite>a</cite> and <cite>b</cite> before comparing
+<p>Checks whether <cite>self</cite> and <cite>b</cite> are equals.</p>
+<p>This function will normalize both <cite>self</cite> and <cite>b</cite> before comparing
 their origin and size.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
@@ -409,7 +407,7 @@ their origin and size.</p>
 <dl class="method">
 <dt id="Clutter.Rect.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Frees the resources allocated by <cite>rect</cite>.</p>
+<dd><p>Frees the resources allocated by <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -428,7 +426,7 @@ their origin and size.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the center of <cite>rect</cite>, after normalizing the rectangle,
+<p>Retrieves the center of <cite>self</cite>, after normalizing the rectangle,
 and updates <cite>center</cite> with the correct coordinates.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
@@ -448,7 +446,7 @@ and updates <cite>center</cite> with the correct coordinates.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the height of <cite>rect</cite>.</p>
+<p>Retrieves the height of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -467,7 +465,7 @@ and updates <cite>center</cite> with the correct coordinates.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the width of <cite>rect</cite>.</p>
+<p>Retrieves the width of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -486,7 +484,7 @@ and updates <cite>center</cite> with the correct coordinates.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the X coordinate of the origin of <cite>rect</cite>.</p>
+<p>Retrieves the X coordinate of the origin of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -505,7 +503,7 @@ and updates <cite>center</cite> with the correct coordinates.</p>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the Y coordinate of the origin of <cite>rect</cite>.</p>
+<p>Retrieves the Y coordinate of the origin of <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -557,8 +555,8 @@ and a negative value will create a larger rectangle</li>
 </tr>
 </tbody>
 </table>
-<p>Normalizes the <cite>rect</cite> and offsets its origin by the <cite>d_x</cite> and <cite>d_y</cite> values;
-the size is adjusted by (2 * <cite>d_x</cite>, 2 * <cite>d_y</cite> ).</p>
+<p>Normalizes the <cite>self</cite> and offsets its origin by the <cite>d_x</cite> and <cite>d_y</cite> values;
+the size is adjusted by (2 * <cite>d_x</cite>, 2 * <cite>d_y</cite>).</p>
 <p>If <cite>d_x</cite> and <cite>d_y</cite> are positive the size of the rectangle is decreased; if
 the values are negative, the size of the rectangle is increased.</p>
 <p>If the resulting rectangle has a negative width or height, the size is
@@ -577,7 +575,7 @@ set to 0.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>b</strong> (<a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a>) &#8211; a <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the intersection of <cite>a</cite> and <cite>b</cite> is not empty<table class="docutils field-list" frame="void" rules="none">
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the intersection of <cite>self</cite> and <cite>b</cite> is not empty<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -591,11 +589,11 @@ set to 0.</p>
 </tr>
 </tbody>
 </table>
-<p>Computes the intersection of <cite>a</cite> and <cite>b</cite>, and places it in <cite>res</cite>, if <cite>res</cite>
+<p>Computes the intersection of <cite>self</cite> and <cite>b</cite>, and places it in <cite>res</cite>, if <cite>res</cite>
 is not <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
-<p>This function will normalize both <cite>a</cite> and <cite>b</cite> prior to computing their
+<p>This function will normalize both <cite>self</cite> and <cite>b</cite> prior to computing their
 intersection.</p>
-<p>This function can be used to simply check if the intersection of <cite>a</cite> and <cite>b</cite>
+<p>This function can be used to simply check if the intersection of <cite>self</cite> and <cite>b</cite>
 is not empty, by using <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for <cite>res</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
@@ -615,11 +613,11 @@ is not empty, by using <a class="reference external" href="http://docs.python.or
 </table>
 <p>Normalizes a <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a>.</p>
 <p>A <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> is defined by the area covered by its size; this means
-that a <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> with <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a>.origin in [ 0, 0 ] and a
-<a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a>.size of [ 10, 10 ] is equivalent to a <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> with
-<a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a>.origin in [ 10, 10 ] and a <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a>.size of [ -10, -10 ].</p>
+that a <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> with <a class="reference internal" href="#clutter-rect-fields"><span>Clutter.Rect.origin</span></a> in [ 0, 0 ] and a
+<a class="reference internal" href="#clutter-rect-fields"><span>Clutter.Rect.size</span></a> of [ 10, 10 ] is equivalent to a <a class="reference internal" href="#Clutter.Rect" title="Clutter.Rect"><code class="xref py py-obj docutils literal"><span class="pre">Clutter.Rect</span></code></a> with
+<a class="reference internal" href="#clutter-rect-fields"><span>Clutter.Rect.origin</span></a> in [ 10, 10 ] and a <a class="reference internal" href="#clutter-rect-fields"><span>Clutter.Rect.size</span></a> of [ -10, -10 ].</p>
 <p>This function is useful to ensure that a rectangle has positive width
-and height; it will modify the passed <cite>rect</cite> and normalize its size.</p>
+and height; it will modify the passed <cite>self</cite> and normalize its size.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
 </div>
@@ -640,7 +638,7 @@ and height; it will modify the passed <cite>rect</cite> and normalize its size.<
 </tr>
 </tbody>
 </table>
-<p>Offsets the origin of <cite>rect</cite> by the given values, after normalizing
+<p>Offsets the origin of <cite>self</cite> by the given values, after normalizing
 the rectangle.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
@@ -663,8 +661,8 @@ the rectangle.</p>
 </tbody>
 </table>
 <p>Computes the smallest possible rectangle capable of fully containing
-both <cite>a</cite> and <cite>b</cite>, and places it into <cite>res</cite>.</p>
-<p>This function will normalize both <cite>a</cite> and <cite>b</cite> prior to computing their
+both <cite>self</cite> and <cite>b</cite>, and places it into <cite>res</cite>.</p>
+<p>This function will normalize both <cite>self</cite> and <cite>b</cite> prior to computing their
 union.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
@@ -687,7 +685,4 @@ union.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

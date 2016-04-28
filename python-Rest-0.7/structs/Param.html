@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Rest 0.7 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Rest.Params" href="Params.html"/>
         <link rel="prev" title="Structures" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -286,14 +284,14 @@ value.  <cite>content_type</cite> is the type of the data as a MIME type, for ex
 <p>If the parameter is a file upload it can be passed as <cite>filename</cite>.</p>
 <p>When the <a class="reference internal" href="#Rest.Param" title="Rest.Param"><code class="xref py py-obj docutils literal"><span class="pre">Rest.Param</span></code></a> is freed, it will call <cite>owner_dnotify</cite>, passing <cite>owner</cite> to
 it. This allows you to do something like this:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">GMappedFile</span> <span class="o">*</span><span class="n">map</span> <span class="o">=</span> <span class="n">g_mapped_file_new</span> <span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">FALSE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error</span><span class="p">);</span>
-<span class="n">RestParam</span> <span class="o">*</span><span class="n">param</span> <span class="o">=</span> <span class="n">rest_param_new_with_owner</span> <span class="p">(</span><span class="s">&quot;media&quot;</span><span class="p">,</span>
-                                              <span class="n">g_mapped_file_get_contents</span> <span class="p">(</span><span class="n">map</span><span class="p">),</span>
-                                              <span class="n">g_mapped_file_get_length</span> <span class="p">(</span><span class="n">map</span><span class="p">),</span>
-                                              <span class="s">&quot;image/jpeg&quot;</span><span class="p">,</span>
-                                              <span class="n">filename</span><span class="p">,</span>
-                                              <span class="n">map</span><span class="p">,</span>
-                                              <span class="p">(</span><span class="n">GDestroyNotify</span><span class="p">)</span><span class="n">g_mapped_file_unref</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>GMappedFile *map = g_mapped_file_new (filename, FALSE, &amp;error);
+RestParam *param = rest_param_new_with_owner (&quot;media&quot;,
+                                              g_mapped_file_get_contents (map),
+                                              g_mapped_file_get_length (map),
+                                              &quot;image/jpeg&quot;,
+                                              filename,
+                                              map,
+                                              (GDestroyNotify)g_mapped_file_unref);
 </pre></div>
 </div>
 </dd></dl>
@@ -311,7 +309,7 @@ it. This allows you to do something like this:</p>
 </tr>
 </tbody>
 </table>
-<p>Get the content of <cite>param</cite>.  The content should be treated as read-only and
+<p>Get the content of <cite>self</cite>.  The content should be treated as read-only and
 not modified in any way.</p>
 </dd></dl>
 
@@ -328,7 +326,7 @@ not modified in any way.</p>
 </tr>
 </tbody>
 </table>
-<p>Get the length of the content of <cite>param</cite>.</p>
+<p>Get the length of the content of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -409,13 +407,13 @@ type &#8220;text/plain&#8221;.</p>
 </tr>
 </tbody>
 </table>
-<p>Increase the reference count on <cite>param</cite>.</p>
+<p>Increase the reference count on <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Rest.Param.unref">
 <code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Decrease the reference count on <cite>param</cite>, destroying it if the reference count
+<dd><p>Decrease the reference count on <cite>self</cite>, destroying it if the reference count
 reaches 0.</p>
 </dd></dl>
 
@@ -435,7 +433,4 @@ reaches 0.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

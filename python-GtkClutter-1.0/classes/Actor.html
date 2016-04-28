@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GtkClutter 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="GtkClutter.Embed" href="Embed.html"/>
         <link rel="prev" title="Classes" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -449,7 +447,7 @@
 <p>Creates a new <a class="reference internal" href="#GtkClutter.Actor" title="GtkClutter.Actor"><code class="xref py py-obj docutils literal"><span class="pre">GtkClutter.Actor</span></code></a>.</p>
 <p>This widget can be used to embed a <a class="reference external" href="../_docs/GtkClutter-1.0/../../../python-Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> into a Clutter scene,
 by retrieving the internal <a class="reference external" href="../_docs/GtkClutter-1.0/../../../python-Gtk-3.0/classes/Bin.html#Gtk.Bin" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Bin</span></code></a> container using
-<a class="reference internal" href="#GtkClutter.Actor.get_widget" title="GtkClutter.Actor.get_widget"><code class="xref py py-obj docutils literal"><span class="pre">GtkClutter.Actor.get_widget</span></code></a> () and adding the <a class="reference external" href="../_docs/GtkClutter-1.0/../../../python-Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> to it.</p>
+<a class="reference internal" href="#GtkClutter.Actor.get_widget" title="GtkClutter.Actor.get_widget"><code class="xref py py-obj docutils literal"><span class="pre">GtkClutter.Actor.get_widget</span></code></a>() and adding the <a class="reference external" href="../_docs/GtkClutter-1.0/../../../python-Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Widget</span></code></a> to it.</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -470,10 +468,10 @@ by retrieving the internal <a class="reference external" href="../_docs/GtkClutt
 <p>Creates a new <a class="reference internal" href="#GtkClutter.Actor" title="GtkClutter.Actor"><code class="xref py py-obj docutils literal"><span class="pre">GtkClutter.Actor</span></code></a> widget. This widget can be
 used to embed a Gtk widget into a clutter scene.</p>
 <p>This function is the logical equivalent of:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">ClutterActor</span> <span class="o">*</span><span class="n">actor</span> <span class="o">=</span> <span class="n">gtk_clutter_actor_new</span> <span class="p">();</span>
-<span class="n">GtkWidget</span> <span class="o">*</span><span class="n">bin</span> <span class="o">=</span> <span class="n">gtk_clutter_actor_get_widget</span> <span class="p">(</span><span class="n">GTK_CLUTTER_ACTOR</span> <span class="p">(</span><span class="n">actor</span><span class="p">));</span>
+<div class="highlight-none"><div class="highlight"><pre>ClutterActor *actor = gtk_clutter_actor_new ();
+GtkWidget *bin = gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (actor));
 
-<span class="n">gtk_container_add</span> <span class="p">(</span><span class="n">GTK_CONTAINER</span> <span class="p">(</span><span class="n">bin</span><span class="p">),</span> <span class="n">contents</span><span class="p">);</span>
+gtk_container_add (GTK_CONTAINER (bin), contents);
 </pre></div>
 </div>
 </dd></dl>
@@ -492,12 +490,12 @@ has been set</td>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the child of the <a class="reference external" href="../_docs/GtkClutter-1.0/../../../python-Gtk-3.0/classes/Bin.html#Gtk.Bin" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Bin</span></code></a> used to hold the contents of <cite>actor</cite>.</p>
+<p>Retrieves the child of the <a class="reference external" href="../_docs/GtkClutter-1.0/../../../python-Gtk-3.0/classes/Bin.html#Gtk.Bin" title="(in Gtk 3.0 v3.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.Bin</span></code></a> used to hold the contents of <cite>self</cite>.</p>
 <p>This convenience function is the logical equivalent of:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">GtkWidget</span> <span class="o">*</span><span class="n">bin</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>GtkWidget *bin;
 
-<span class="n">bin</span> <span class="o">=</span> <span class="n">gtk_clutter_actor_get_widget</span> <span class="p">(</span><span class="n">GTK_CLUTTER_ACTOR</span> <span class="p">(</span><span class="n">actor</span><span class="p">));</span>
-<span class="k">return</span> <span class="nf">gtk_bin_get_child</span> <span class="p">(</span><span class="n">GTK_BIN</span> <span class="p">(</span><span class="n">bin</span><span class="p">));</span>
+bin = gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (actor));
+return gtk_bin_get_child (GTK_BIN (bin));
 </pre></div>
 </div>
 </dd></dl>
@@ -557,7 +555,4 @@ has been set</td>
   </div> 
 
 </body>
-
-  
-
 </html>

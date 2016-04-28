@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GWeather 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GWeather.Timezone" href="Timezone.html"/>
         <link rel="prev" title="GWeather.Conditions" href="Conditions.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -260,7 +258,7 @@ hierarchy of locations works.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/GWeather-3.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a></td>
 </tr>
@@ -332,7 +330,7 @@ any missing information from the static database.</p>
 representing a hierarchy containing all of the locations from
 Locations.xml.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 3.10: </span>Use <a class="reference internal" href="#GWeather.Location.get_world" title="GWeather.Location.get_world"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_world</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 3.10: </span>Use <a class="reference internal" href="#GWeather.Location.get_world" title="GWeather.Location.get_world"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_world</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
@@ -351,9 +349,9 @@ Locations.xml.</p>
 </tr>
 </tbody>
 </table>
-<p>This call undoes the effect of <a class="reference internal" href="#GWeather.Location.serialize" title="GWeather.Location.serialize"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.serialize</span></code></a> (), that
+<p>This call undoes the effect of <a class="reference internal" href="#GWeather.Location.serialize" title="GWeather.Location.serialize"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.serialize</span></code></a>(), that
 is, it turns a <a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> into a <a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a>. The conversion
-happens in the context of <cite>world</cite> (i.e, for a city or weather station,
+happens in the context of <cite>self</cite> (i.e, for a city or weather station,
 the resulting location will be attached to a administrative division,
 country and region as appropriate).</p>
 </dd></dl>
@@ -376,9 +374,9 @@ country and region as appropriate).</p>
 </tr>
 </tbody>
 </table>
-<p>Initializes geocode reversing to find place for (<cite>lat</cite>, <cite>lon</cite> ) coordinates. Calls the callback
+<p>Initializes geocode reversing to find place for (<cite>lat</cite>, <cite>lon</cite>) coordinates. Calls the callback
 function passed by user when the result is ready.</p>
-<p><cite>loc</cite> must be at most a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.ADM2" title="GWeather.LocationLevel.ADM2"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.ADM2</span></code></a> location.
+<p><cite>self</cite> must be at most a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.ADM2" title="GWeather.LocationLevel.ADM2"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.ADM2</span></code></a> location.
 This restriction may be lifted in a future version.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.12.</span></p>
@@ -408,7 +406,7 @@ detached locations.
 Note that this function only checks for geographical characteristics,
 such as coordinates and METAR code. It is still possible that the two
 locations belong to different worlds (in which case care must be
-taken when passing them <a class="reference internal" href="../classes/LocationEntry.html#GWeather.LocationEntry" title="GWeather.LocationEntry"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationEntry</span></code></a> and <a class="reference internal" href="../classes/Info.html#GWeather.Info" title="GWeather.Info"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info</span></code></a> ), or
+taken when passing them <a class="reference internal" href="../classes/LocationEntry.html#GWeather.LocationEntry" title="GWeather.LocationEntry"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationEntry</span></code></a> and <a class="reference internal" href="../classes/Info.html#GWeather.Info" title="GWeather.Info"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Info</span></code></a>), or
 if one is them is detached it could have a custom name.</p>
 </dd></dl>
 
@@ -432,7 +430,7 @@ or <a class="reference external" href="http://docs.python.org/2.7/library/consta
 Note that multiple instances of the same weather station can exist
 in the database, and this function will return any of them, so this
 not usually what you want.</p>
-<p>See <a class="reference internal" href="#GWeather.Location.deserialize" title="GWeather.Location.deserialize"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.deserialize</span></code></a> () to recover a stored <a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a>.</p>
+<p>See <a class="reference internal" href="#GWeather.Location.deserialize" title="GWeather.Location.deserialize"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.deserialize</span></code></a>() to recover a stored <a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -448,8 +446,8 @@ not usually what you want.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the city closest to (<cite>lat</cite>, <cite>lon</cite> ), in the
-region or administrative district of <cite>loc</cite>.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the city closest to (<cite>lat</cite>, <cite>lon</cite>), in the
+region or administrative district of <cite>self</cite>.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a></p>
@@ -458,11 +456,11 @@ region or administrative district of <cite>loc</cite>.</p>
 </tbody>
 </table>
 <p>Finds the nearest city to the passed latitude and
-longitude, among the descendants of <cite>loc</cite>.</p>
-<p><cite>loc</cite> must be at most a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.ADM2" title="GWeather.LocationLevel.ADM2"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.ADM2</span></code></a> location.
+longitude, among the descendants of <cite>self</cite>.</p>
+<p><cite>self</cite> must be at most a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.ADM2" title="GWeather.LocationLevel.ADM2"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.ADM2</span></code></a> location.
 This restriction may be lifted in a future version.</p>
-<p>Note that this function does not check if (<cite>lat</cite>, <cite>lon</cite> ) fall inside
-<cite>loc</cite>, or are in the same region and timezone as the return value.</p>
+<p>Note that this function does not check if (<cite>lat</cite>, <cite>lon</cite>) fall inside
+<cite>self</cite>, or are in the same region and timezone as the return value.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.12.</span></p>
 </div>
@@ -484,8 +482,8 @@ the location and false to filter the location out</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the city closest to (<cite>lat</cite>, <cite>lon</cite> ), in the
-region or administrative district of <cite>loc</cite> with validation of filter function.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the city closest to (<cite>lat</cite>, <cite>lon</cite>), in the
+region or administrative district of <cite>self</cite> with validation of filter function.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a></p>
@@ -494,10 +492,10 @@ region or administrative district of <cite>loc</cite> with validation of filter 
 </tbody>
 </table>
 <p>Finds the nearest city to the passed latitude and
-longitude, among the descendants of <cite>loc</cite>.</p>
+longitude, among the descendants of <cite>self</cite>.</p>
 <p>Supports the use of own filter function to filter out locations.
 Geocoding should be done on the application side if needed.</p>
-<p><cite>loc</cite> must be at most a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.ADM2" title="GWeather.LocationLevel.ADM2"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.ADM2</span></code></a> location.
+<p><cite>self</cite> must be at most a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.ADM2" title="GWeather.LocationLevel.ADM2"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.ADM2</span></code></a> location.
 This restriction may be lifted in a future version.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.12.</span></p>
@@ -511,12 +509,12 @@ This restriction may be lifted in a future version.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>zones</strong> (<a class="reference internal" href="Timezone.html#GWeather.Timezone" title="GWeather.Timezone"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Timezone</span></code></a>) &#8211; an array returned from <a class="reference internal" href="#GWeather.Location.get_timezones" title="GWeather.Location.get_timezones"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_timezones</span></code></a> ()</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>zones</strong> (<a class="reference internal" href="Timezone.html#GWeather.Timezone" title="GWeather.Timezone"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Timezone</span></code></a>) &#8211; an array returned from <a class="reference internal" href="#GWeather.Location.get_timezones" title="GWeather.Location.get_timezones"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_timezones</span></code></a>()</td>
 </tr>
 </tbody>
 </table>
 <p>Frees the array of timezones returned by
-<a class="reference internal" href="#GWeather.Location.get_timezones" title="GWeather.Location.get_timezones"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_timezones</span></code></a> ().</p>
+<a class="reference internal" href="#GWeather.Location.get_timezones" title="GWeather.Location.get_timezones"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_timezones</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
@@ -526,15 +524,15 @@ This restriction may be lifted in a future version.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s
 children. (May be empty, but will not be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a>]</td>
 </tr>
 </tbody>
 </table>
-<p>Gets an array of <cite>loc</cite> &#8216;s children; this is owned by <cite>loc</cite> and will
-not remain valid if <cite>loc</cite> is freed.</p>
+<p>Gets an array of <cite>self</cite>&#8216;s children; this is owned by <cite>self</cite> and will
+not remain valid if <cite>self</cite> is freed.</p>
 </dd></dl>
 
 <dl class="method">
@@ -544,16 +542,16 @@ not remain valid if <cite>loc</cite> is freed.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s city name, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s city name, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>For a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.CITY" title="GWeather.LocationLevel.CITY"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.CITY</span></code></a> or <a class="reference internal" href="../enums.html#GWeather.LocationLevel.DETACHED" title="GWeather.LocationLevel.DETACHED"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.DETACHED</span></code></a> location,
-this is equivalent to <a class="reference internal" href="#GWeather.Location.get_name" title="GWeather.Location.get_name"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_name</span></code></a> ().
+this is equivalent to <a class="reference internal" href="#GWeather.Location.get_name" title="GWeather.Location.get_name"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_name</span></code></a>().
 For a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.WEATHER_STATION" title="GWeather.LocationLevel.WEATHER_STATION"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.WEATHER_STATION</span></code></a> location, it is equivalent to
-calling <a class="reference internal" href="#GWeather.Location.get_name" title="GWeather.Location.get_name"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_name</span></code></a> () on the location&#8217;s parent. For
+calling <a class="reference internal" href="#GWeather.Location.get_name" title="GWeather.Location.get_name"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_name</span></code></a>() on the location&#8217;s parent. For
 other locations it will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
 
@@ -564,7 +562,7 @@ other locations it will return <a class="reference external" href="http://docs.p
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s METAR station code, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s METAR station code, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -585,9 +583,9 @@ other locations it will return <a class="reference external" href="http://docs.p
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">latitude:</th><td class="field-body">on return will contain <cite>loc</cite> &#8216;s latitude</td>
+<tr class="field-odd field"><th class="field-name">latitude:</th><td class="field-body">on return will contain <cite>self</cite>&#8216;s latitude</td>
 </tr>
-<tr class="field-even field"><th class="field-name">longitude:</th><td class="field-body">on return will contain <cite>loc</cite> &#8216;s longitude</td>
+<tr class="field-even field"><th class="field-name">longitude:</th><td class="field-body">on return will contain <cite>self</cite>&#8216;s longitude</td>
 </tr>
 </tbody>
 </table>
@@ -597,8 +595,8 @@ other locations it will return <a class="reference external" href="http://docs.p
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>loc</cite> &#8216;s coordinates; you must check
-<a class="reference internal" href="#GWeather.Location.has_coords" title="GWeather.Location.has_coords"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.has_coords</span></code></a> () before calling this.</p>
+<p>Gets <cite>self</cite>&#8216;s coordinates; you must check
+<a class="reference internal" href="#GWeather.Location.has_coords" title="GWeather.Location.has_coords"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.has_coords</span></code></a>() before calling this.</p>
 </dd></dl>
 
 <dl class="method">
@@ -608,14 +606,14 @@ other locations it will return <a class="reference external" href="http://docs.p
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s country code (or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>loc</cite>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s country code (or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite>
 is a region- or world-level location)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the ISO 3166 country code of <cite>loc</cite> (or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>loc</cite> is a
+<p>Gets the ISO 3166 country code of <cite>self</cite> (or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> is a
 region- or world-level location)</p>
 </dd></dl>
 
@@ -626,7 +624,7 @@ region- or world-level location)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s country name, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s country name, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -634,7 +632,7 @@ region- or world-level location)</p>
 </table>
 <p>Gets the country name of loc.
 For a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.COUNTRY" title="GWeather.LocationLevel.COUNTRY"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.COUNTRY</span></code></a> location, this is equivalent to
-<a class="reference internal" href="#GWeather.Location.get_name" title="GWeather.Location.get_name"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_name</span></code></a> ().
+<a class="reference internal" href="#GWeather.Location.get_name" title="GWeather.Location.get_name"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.get_name</span></code></a>().
 For a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.REGION" title="GWeather.LocationLevel.REGION"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.REGION</span></code></a> and <a class="reference internal" href="../enums.html#GWeather.LocationLevel.WORLD" title="GWeather.LocationLevel.WORLD"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.WORLD</span></code></a> location it
 will return <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.
 For other locations it will find the parent <a class="reference internal" href="../enums.html#GWeather.LocationLevel.COUNTRY" title="GWeather.LocationLevel.COUNTRY"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.COUNTRY</span></code></a>
@@ -650,13 +648,13 @@ and return its name.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>loc2</strong> (<a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a>) &#8211; a second <a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the distance between <cite>loc</cite> and <cite>loc2</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the distance between <cite>self</cite> and <cite>loc2</cite>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#float" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Determines the distance in kilometers between <cite>loc</cite> and <cite>loc2</cite>.</p>
+<p>Determines the distance in kilometers between <cite>self</cite> and <cite>loc2</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -666,13 +664,13 @@ and return its name.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s level</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s level</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../enums.html#GWeather.LocationLevel" title="GWeather.LocationLevel"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>loc</cite> &#8216;s level, from <a class="reference internal" href="../enums.html#GWeather.LocationLevel.WORLD" title="GWeather.LocationLevel.WORLD"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.WORLD</span></code></a>, to
+<p>Gets <cite>self</cite>&#8216;s level, from <a class="reference internal" href="../enums.html#GWeather.LocationLevel.WORLD" title="GWeather.LocationLevel.WORLD"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.WORLD</span></code></a>, to
 <a class="reference internal" href="../enums.html#GWeather.LocationLevel.WEATHER_STATION" title="GWeather.LocationLevel.WEATHER_STATION"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.WEATHER_STATION</span></code></a>.</p>
 </dd></dl>
 
@@ -683,13 +681,13 @@ and return its name.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s name</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s name</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>loc</cite> &#8216;s name, localized into the current language.</p>
+<p>Gets <cite>self</cite>&#8216;s name, localized into the current language.</p>
 </dd></dl>
 
 <dl class="method">
@@ -699,14 +697,14 @@ and return its name.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s parent, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
-if <cite>loc</cite> is a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.WORLD" title="GWeather.LocationLevel.WORLD"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.WORLD</span></code></a> node.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s parent, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
+if <cite>self</cite> is a <a class="reference internal" href="../enums.html#GWeather.LocationLevel.WORLD" title="GWeather.LocationLevel.WORLD"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.LocationLevel.WORLD</span></code></a> node.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>loc</cite> &#8216;s parent location.</p>
+<p>Gets <cite>self</cite>&#8216;s parent location.</p>
 </dd></dl>
 
 <dl class="method">
@@ -716,14 +714,14 @@ if <cite>loc</cite> is a <a class="reference internal" href="../enums.html#GWeat
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s sort name</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s sort name</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>loc</cite> &#8216;s &#8220;sort name&#8221;, which is the name after having
-<a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/functions.html#GLib.utf8_normalize" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.utf8_normalize</span></code></a> () (with <a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/enums.html#GLib.NormalizeMode.ALL" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.NormalizeMode.ALL</span></code></a> ) and <a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/functions.html#GLib.utf8_casefold" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.utf8_casefold</span></code></a> ()
+<p>Gets <cite>self</cite>&#8216;s &#8220;sort name&#8221;, which is the name after having
+<a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/functions.html#GLib.utf8_normalize" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.utf8_normalize</span></code></a>() (with <a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/enums.html#GLib.NormalizeMode.ALL" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.NormalizeMode.ALL</span></code></a>) and <a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/functions.html#GLib.utf8_casefold" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.utf8_casefold</span></code></a>()
 called on it. You can use this to sort locations, or to comparing
 user input against a location name.</p>
 </dd></dl>
@@ -735,15 +733,15 @@ user input against a location name.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite> &#8216;s timezone, or
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s timezone, or
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Timezone.html#GWeather.Timezone" title="GWeather.Timezone"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Timezone</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the timezone associated with <cite>loc</cite>, if known.</p>
-<p>The timezone is owned either by <cite>loc</cite> or by one of its parents.
+<p>Gets the timezone associated with <cite>self</cite>, if known.</p>
+<p>The timezone is owned either by <cite>self</cite> or by one of its parents.
 FIXME.</p>
 </dd></dl>
 
@@ -762,7 +760,7 @@ of timezones. May be empty but will not be <a class="reference external" href="h
 </tbody>
 </table>
 <p>Gets an array of all timezones associated with any location under
-<cite>loc</cite>. You can use <a class="reference internal" href="#GWeather.Location.free_timezones" title="GWeather.Location.free_timezones"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.free_timezones</span></code></a> () to free this
+<cite>self</cite>. You can use <a class="reference internal" href="#GWeather.Location.free_timezones" title="GWeather.Location.free_timezones"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.free_timezones</span></code></a>() to free this
 array.</p>
 </dd></dl>
 
@@ -773,13 +771,13 @@ array.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>loc</cite> has valid latitude and longitude.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> has valid latitude and longitude.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Checks if <cite>loc</cite> has valid latitude and longitude.</p>
+<p>Checks if <cite>self</cite> has valid latitude and longitude.</p>
 </dd></dl>
 
 <dl class="method">
@@ -789,13 +787,13 @@ array.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>loc</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Adds 1 to <cite>loc</cite> &#8216;s reference count.</p>
+<p>Adds 1 to <cite>self</cite>&#8216;s reference count.</p>
 </dd></dl>
 
 <dl class="method">
@@ -812,7 +810,7 @@ array.</p>
 </tbody>
 </table>
 <p>Transforms a <a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a> into a <a class="reference external" href="../_docs/GWeather-3.0/../../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>, in a way that
-calling <a class="reference internal" href="#GWeather.Location.deserialize" title="GWeather.Location.deserialize"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.deserialize</span></code></a> () will hold an equivalent
+calling <a class="reference internal" href="#GWeather.Location.deserialize" title="GWeather.Location.deserialize"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location.deserialize</span></code></a>() will hold an equivalent
 <a class="reference internal" href="#GWeather.Location" title="GWeather.Location"><code class="xref py py-obj docutils literal"><span class="pre">GWeather.Location</span></code></a>.
 The resulting variant can then be stored into <a class="reference external" href="../_docs/GWeather-3.0/../../../python-Gio-2.0/classes/Settings.html#Gio.Settings" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Settings</span></code></a> or on disk.
 This call is only valid for cities, weather stations and detached
@@ -825,7 +823,7 @@ to ensure maximum compatibility with future versions of the library.</p>
 <dl class="method">
 <dt id="GWeather.Location.unref">
 <code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Subtracts 1 from <cite>loc</cite> &#8216;s reference count, and frees it if the
+<dd><p>Subtracts 1 from <cite>self</cite>&#8216;s reference count, and frees it if the
 reference count reaches 0.</p>
 </dd></dl>
 
@@ -845,7 +843,4 @@ reference count reaches 0.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

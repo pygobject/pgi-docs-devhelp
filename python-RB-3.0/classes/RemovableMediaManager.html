@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="RB 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="RB.RhythmDB" href="RhythmDB.html"/>
         <link rel="prev" title="RB.Rating" href="Rating.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -212,6 +210,12 @@
 <td><a class="reference internal" href="#RB.RemovableMediaManager.new" title="RB.RemovableMediaManager.new"><code class="xref py py-func docutils literal"><span class="pre">new</span></code></a> (shell)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#RB.RemovableMediaManager.device_is_android" title="RB.RemovableMediaManager.device_is_android"><code class="xref py py-func docutils literal"><span class="pre">device_is_android</span></code></a> (device)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#RB.RemovableMediaManager.get_gudev_device" title="RB.RemovableMediaManager.get_gudev_device"><code class="xref py py-func docutils literal"><span class="pre">get_gudev_device</span></code></a> (volume)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#RB.RemovableMediaManager.scan" title="RB.RemovableMediaManager.scan"><code class="xref py py-func docutils literal"><span class="pre">scan</span></code></a> ()</td>
 </tr>
 </tbody>
@@ -371,6 +375,42 @@
 </tbody>
 </table>
 <p>Creates the <a class="reference internal" href="#RB.RemovableMediaManager" title="RB.RemovableMediaManager"><code class="xref py py-obj docutils literal"><span class="pre">RB.RemovableMediaManager</span></code></a> instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RB.RemovableMediaManager.device_is_android">
+<code class="descname">device_is_android</code><span class="sig-paren">(</span><em>device</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a>) &#8211; the #GUdevDevice to query</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the device appears to be Android-based</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Determines whether the specified device looks like an Android device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="RB.RemovableMediaManager.get_gudev_device">
+<code class="descname">get_gudev_device</code><span class="sig-paren">(</span><em>volume</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>volume</strong> (<a class="reference external" href="../_docs/RB-3.0/../../../python-Gio-2.0/interfaces/Volume.html#Gio.Volume" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Volume</span></code></a>) &#8211; the <a class="reference external" href="../_docs/RB-3.0/../../../python-Gio-2.0/interfaces/Volume.html#Gio.Volume" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Volume</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the #GUDevDevice instance, if any</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/RB-3.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Finds the #GUdevDevice for the volume.</p>
 </dd></dl>
 
 <dl class="method">
@@ -585,7 +625,4 @@ already set to <a class="reference external" href="http://docs.python.org/2.7/li
   </div> 
 
 </body>
-
-  
-
 </html>

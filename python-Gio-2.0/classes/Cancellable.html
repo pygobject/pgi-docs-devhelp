@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Gio.CharsetConverter" href="CharsetConverter.html"/>
         <link rel="prev" title="Gio.BytesIcon" href="BytesIcon.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -356,7 +354,7 @@ throughout GIO to allow for cancellation of synchronous and
 asynchronous operations.</p>
 <dl class="staticmethod">
 <dt id="Gio.Cancellable.get_current">
-<em class="property">static </em><code class="descname">get_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n231"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n231"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -373,7 +371,7 @@ of the stack, or <a class="reference external" href="http://docs.python.org/2.7/
 
 <dl class="staticmethod">
 <dt id="Gio.Cancellable.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n168"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n168"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -394,15 +392,15 @@ operations or in multiple concurrent operations.</p>
 
 <dl class="method">
 <dt id="Gio.Cancellable.cancel">
-<code class="descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n484"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Will set <cite>cancellable</cite> to cancelled, and will emit the
+<code class="descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n484"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Will set <cite>self</cite> to cancelled, and will emit the
 <a class="reference internal" href="#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> <a class="reference internal" href="#Gio.Cancellable.signals.cancelled" title="Gio.Cancellable.signals.cancelled"><code class="xref py py-func docutils literal"><span class="pre">::cancelled</span></code></a> signal. (However, see the warning about
 race conditions in the documentation for that signal if you are
 planning to connect to it.)</p>
 <p>This function is thread-safe. In other words, you can safely call
 it from a thread other than the one running the operation that was
-passed the <cite>cancellable</cite>.</p>
-<p>If <cite>cancellable</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, this function returns immediately for convenience.</p>
+passed the <cite>self</cite>.</p>
+<p>If <cite>self</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, this function returns immediately for convenience.</p>
 <p>The convention within GIO is that cancelling an asynchronous
 operation causes it to complete asynchronously. That is, if you
 cancel the operation from the same thread in which it is running,
@@ -412,18 +410,18 @@ the application returns to the main loop.</p>
 
 <dl class="method">
 <dt id="Gio.Cancellable.connect">
-<code class="descname">connect</code><span class="sig-paren">(</span><em>callback</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n557"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">connect</code><span class="sig-paren">(</span><em>callback</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n557"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>callback</strong> (<a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/callbacks.html#GObject.Callback" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Callback</span></code></a>) &#8211; The <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/callbacks.html#GObject.Callback" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Callback</span></code></a> to connect.</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; Data to pass to <cite>callback</cite>.</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Data to pass to <cite>callback</cite>.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The id of the signal handler or 0 if <cite>cancellable</cite> has already
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The id of the signal handler or 0 if <cite>self</cite> has already
 been cancelled.</p>
 </td>
 </tr>
@@ -436,16 +434,16 @@ been cancelled.</p>
 signal. Also handles the race condition that may happen
 if the cancellable is cancelled right before connecting.</p>
 <p><cite>callback</cite> is called at most once, either directly at the
-time of the connect if <cite>cancellable</cite> is already cancelled,
-or when <cite>cancellable</cite> is cancelled in some thread.</p>
+time of the connect if <cite>self</cite> is already cancelled,
+or when <cite>self</cite> is cancelled in some thread.</p>
 <p><cite>data_destroy_func</cite> will be called when the handler is
 disconnected, or immediately if the cancellable is already
 cancelled.</p>
 <p>See <a class="reference internal" href="#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> <a class="reference internal" href="#Gio.Cancellable.signals.cancelled" title="Gio.Cancellable.signals.cancelled"><code class="xref py py-func docutils literal"><span class="pre">::cancelled</span></code></a> for details on how to use this.</p>
-<p>Since GLib 2.40, the lock protecting <cite>cancellable</cite> is not held when
+<p>Since GLib 2.40, the lock protecting <cite>self</cite> is not held when
 <cite>callback</cite> is invoked.  This lifts a restriction in place for
 earlier GLib versions which now makes it easier to write cleanup
-code that unconditionally invokes e.g. <a class="reference internal" href="#Gio.Cancellable.cancel" title="Gio.Cancellable.cancel"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.cancel</span></code></a> ().</p>
+code that unconditionally invokes e.g. <a class="reference internal" href="#Gio.Cancellable.cancel" title="Gio.Cancellable.cancel"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.cancel</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -453,7 +451,7 @@ code that unconditionally invokes e.g. <a class="reference internal" href="#Gio.
 
 <dl class="method">
 <dt id="Gio.Cancellable.disconnect">
-<code class="descname">disconnect</code><span class="sig-paren">(</span><em>handler_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n621"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">disconnect</code><span class="sig-paren">(</span><em>handler_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n621"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -463,7 +461,7 @@ code that unconditionally invokes e.g. <a class="reference internal" href="#Gio.
 </tbody>
 </table>
 <p>Disconnects a handler from a cancellable instance similar to
-<a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/functions.html#GObject.signal_handler_disconnect" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handler_disconnect</span></code></a> ().  Additionally, in the event that a
+<a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/functions.html#GObject.signal_handler_disconnect" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handler_disconnect</span></code></a>().  Additionally, in the event that a
 signal handler is currently running, this call will block until the
 handler has finished.  Calling this function from a
 <a class="reference internal" href="#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> <a class="reference internal" href="#Gio.Cancellable.signals.cancelled" title="Gio.Cancellable.signals.cancelled"><code class="xref py py-func docutils literal"><span class="pre">::cancelled</span></code></a> signal handler will therefore result in a
@@ -472,7 +470,7 @@ deadlock.</p>
 same time as the cancellable operation is finished and the
 signal handler is removed. See <a class="reference internal" href="#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> <a class="reference internal" href="#Gio.Cancellable.signals.cancelled" title="Gio.Cancellable.signals.cancelled"><code class="xref py py-func docutils literal"><span class="pre">::cancelled</span></code></a> for
 details on how to use this.</p>
-<p>If <cite>cancellable</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> or <cite>handler_id</cite> is %0 this function does
+<p>If <cite>self</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> or <cite>handler_id</cite> is %0 this function does
 nothing.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
@@ -481,7 +479,7 @@ nothing.</p>
 
 <dl class="method">
 <dt id="Gio.Cancellable.get_fd">
-<code class="descname">get_fd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n346"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_fd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n346"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -495,24 +493,24 @@ is not supported, or on errors.</td>
 </table>
 <p>Gets the file descriptor for a cancellable job. This can be used to
 implement cancellable operations on Unix systems. The returned fd will
-turn readable when <cite>cancellable</cite> is cancelled.</p>
+turn readable when <cite>self</cite> is cancelled.</p>
 <p>You are not supposed to read from the fd yourself, just check for
 readable status. Reading to unset the readable status is done
-with <a class="reference internal" href="#Gio.Cancellable.reset" title="Gio.Cancellable.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.reset</span></code></a> ().</p>
+with <a class="reference internal" href="#Gio.Cancellable.reset" title="Gio.Cancellable.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.reset</span></code></a>().</p>
 <p>After a successful return from this function, you should use
-<a class="reference internal" href="#Gio.Cancellable.release_fd" title="Gio.Cancellable.release_fd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.release_fd</span></code></a> () to free up resources allocated for
+<a class="reference internal" href="#Gio.Cancellable.release_fd" title="Gio.Cancellable.release_fd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.release_fd</span></code></a>() to free up resources allocated for
 the returned file descriptor.</p>
-<p>See also <a class="reference internal" href="#Gio.Cancellable.make_pollfd" title="Gio.Cancellable.make_pollfd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.make_pollfd</span></code></a> ().</p>
+<p>See also <a class="reference internal" href="#Gio.Cancellable.make_pollfd" title="Gio.Cancellable.make_pollfd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.make_pollfd</span></code></a>().</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.Cancellable.is_cancelled">
-<code class="descname">is_cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n294"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n294"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>cancellable</cite> is cancelled,
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> is cancelled,
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if called with <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> or if item is not cancelled.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
@@ -524,7 +522,7 @@ the returned file descriptor.</p>
 
 <dl class="method">
 <dt id="Gio.Cancellable.make_pollfd">
-<code class="descname">make_pollfd</code><span class="sig-paren">(</span><em>pollfd</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n393"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">make_pollfd</code><span class="sig-paren">(</span><em>pollfd</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n393"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -538,21 +536,21 @@ failure to prepare the cancellable.</td>
 </tr>
 </tbody>
 </table>
-<p>Creates a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/PollFD.html#GLib.PollFD" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a> corresponding to <cite>cancellable</cite> ; this can be passed
-to <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/functions.html#GLib.poll" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.poll</span></code></a> () and used to poll for cancellation. This is useful both
+<p>Creates a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/PollFD.html#GLib.PollFD" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PollFD</span></code></a> corresponding to <cite>self</cite>; this can be passed
+to <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/functions.html#GLib.poll" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.poll</span></code></a>() and used to poll for cancellation. This is useful both
 for unix systems without a native poll and for portability to
 windows.</p>
 <p>When this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, you should use
-<a class="reference internal" href="#Gio.Cancellable.release_fd" title="Gio.Cancellable.release_fd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.release_fd</span></code></a> () to free up resources allocated for the
-<cite>pollfd</cite>. After a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> return, do not call <a class="reference internal" href="#Gio.Cancellable.release_fd" title="Gio.Cancellable.release_fd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.release_fd</span></code></a> ().</p>
-<p>If this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, either no <cite>cancellable</cite> was given or
+<a class="reference internal" href="#Gio.Cancellable.release_fd" title="Gio.Cancellable.release_fd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.release_fd</span></code></a>() to free up resources allocated for the
+<cite>pollfd</cite>. After a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> return, do not call <a class="reference internal" href="#Gio.Cancellable.release_fd" title="Gio.Cancellable.release_fd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.release_fd</span></code></a>().</p>
+<p>If this function returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>, either no <cite>self</cite> was given or
 resource limits prevent this function from allocating the necessary
 structures for polling. (On Linux, you will likely have reached
 the maximum number of file descriptors.) The suggested way to handle
-these cases is to ignore the <cite>cancellable</cite>.</p>
+these cases is to ignore the <cite>self</cite>.</p>
 <p>You are not supposed to read from the fd yourself, just check for
 readable status. Reading to unset the readable status is done
-with <a class="reference internal" href="#Gio.Cancellable.reset" title="Gio.Cancellable.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.reset</span></code></a> ().</p>
+with <a class="reference internal" href="#Gio.Cancellable.reset" title="Gio.Cancellable.reset"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.reset</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -560,16 +558,16 @@ with <a class="reference internal" href="#Gio.Cancellable.reset" title="Gio.Canc
 
 <dl class="method">
 <dt id="Gio.Cancellable.pop_current">
-<code class="descname">pop_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n206"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Pops <cite>cancellable</cite> off the cancellable stack (verifying that <cite>cancellable</cite>
+<code class="descname">pop_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n206"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Pops <cite>self</cite> off the cancellable stack (verifying that <cite>self</cite>
 is on the top of the stack).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gio.Cancellable.push_current">
-<code class="descname">push_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n190"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Pushes <cite>cancellable</cite> onto the cancellable stack. The current
-cancellable can then be received using <a class="reference internal" href="#Gio.Cancellable.get_current" title="Gio.Cancellable.get_current"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.get_current</span></code></a> ().</p>
+<code class="descname">push_current</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n190"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Pushes <cite>self</cite> onto the cancellable stack. The current
+cancellable can then be received using <a class="reference internal" href="#Gio.Cancellable.get_current" title="Gio.Cancellable.get_current"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.get_current</span></code></a>().</p>
 <p>This is useful when implementing cancellable operations in
 code that does not allow you to pass down the cancellable object.</p>
 <p>This is typically called automatically by e.g. <a class="reference internal" href="../interfaces/File.html#Gio.File" title="Gio.File"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> operations,
@@ -578,12 +576,12 @@ so you rarely have to call this yourself.</p>
 
 <dl class="method">
 <dt id="Gio.Cancellable.release_fd">
-<code class="descname">release_fd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n438"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Releases a resources previously allocated by <a class="reference internal" href="#Gio.Cancellable.get_fd" title="Gio.Cancellable.get_fd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.get_fd</span></code></a> ()
-or <a class="reference internal" href="#Gio.Cancellable.make_pollfd" title="Gio.Cancellable.make_pollfd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.make_pollfd</span></code></a> ().</p>
+<code class="descname">release_fd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n438"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Releases a resources previously allocated by <a class="reference internal" href="#Gio.Cancellable.get_fd" title="Gio.Cancellable.get_fd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.get_fd</span></code></a>()
+or <a class="reference internal" href="#Gio.Cancellable.make_pollfd" title="Gio.Cancellable.make_pollfd"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.make_pollfd</span></code></a>().</p>
 <p>For compatibility reasons with older releases, calling this function
 is not strictly required, the resources will be automatically freed
-when the <cite>cancellable</cite> is finalized. However, the <cite>cancellable</cite> will
+when the <cite>self</cite> is finalized. However, the <cite>self</cite> will
 block scarce file descriptors until it is finalized if this function
 is not called. This can cause the application to run out of file
 descriptors when many <a class="reference internal" href="#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellables</span></code></a> are used at the same time.</p>
@@ -594,8 +592,8 @@ descriptors when many <a class="reference internal" href="#Gio.Cancellable" titl
 
 <dl class="method">
 <dt id="Gio.Cancellable.reset">
-<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n256"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Resets <cite>cancellable</cite> to its uncancelled state.</p>
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n256"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Resets <cite>self</cite> to its uncancelled state.</p>
 <p>If cancellable is currently in use by any cancellable operation
 then the behavior of this function is undefined.</p>
 <p>Note that it is generally not a good idea to reuse an existing
@@ -608,20 +606,20 @@ create a fresh cancellable for further async operations.</p>
 
 <dl class="method">
 <dt id="Gio.Cancellable.set_error_if_cancelled">
-<code class="descname">set_error_if_cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.46.2#n310"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_error_if_cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gcancellable.c?h=2.48.0#n310"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>cancellable</cite> was cancelled, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if it was not</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> was cancelled, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if it was not</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>If the <cite>cancellable</cite> is cancelled, sets the error to notify
+<p>If the <cite>self</cite> is cancelled, sets the error to notify
 that the operation was cancelled.</p>
 </dd></dl>
 
@@ -658,15 +656,15 @@ thread that is running the operation.</p>
 <p>Note that disconnecting from this signal (or any signal) in a
 multi-threaded program is prone to race conditions. For instance
 it is possible that a signal handler may be invoked even after
-a call to <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/functions.html#GObject.signal_handler_disconnect" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handler_disconnect</span></code></a> () for that handler has
+a call to <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/functions.html#GObject.signal_handler_disconnect" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.signal_handler_disconnect</span></code></a>() for that handler has
 already returned.</p>
 <p>There is also a problem when cancellation happens right before
 connecting to the signal. If this happens the signal will
 unexpectedly not be emitted, and checking before connecting to
 the signal leaves a race condition where this is still happening.</p>
 <p>In order to make it safe and easy to connect handlers there
-are two helper functions: <a class="reference internal" href="#Gio.Cancellable.connect" title="Gio.Cancellable.connect"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.connect</span></code></a> () and
-<a class="reference internal" href="#Gio.Cancellable.disconnect" title="Gio.Cancellable.disconnect"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.disconnect</span></code></a> () which protect against problems
+are two helper functions: <a class="reference internal" href="#Gio.Cancellable.connect" title="Gio.Cancellable.connect"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.connect</span></code></a>() and
+<a class="reference internal" href="#Gio.Cancellable.disconnect" title="Gio.Cancellable.disconnect"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable.disconnect</span></code></a>() which protect against problems
 like this.</p>
 <p>An example of how to us this:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="c1">// Make sure we don&#39;t do unnecessary work if already cancelled</span>
@@ -711,7 +709,4 @@ cancellable signal should not do something that can block.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

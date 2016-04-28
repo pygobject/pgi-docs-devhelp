@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gtk 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gtk.BindingSet" href="BindingSet.html"/>
         <link rel="prev" title="Gtk.BindingArg" href="BindingArg.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -240,7 +238,7 @@
 represented by a <a class="reference internal" href="#Gtk.BindingEntry" title="Gtk.BindingEntry"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.BindingEntry</span></code></a>.</p>
 <dl class="staticmethod">
 <dt id="Gtk.BindingEntry.add_signal_from_string">
-<em class="property">static </em><code class="descname">add_signal_from_string</code><span class="sig-paren">(</span><em>binding_set</em>, <em>signal_desc</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkbindings.c?h=3.18.6#n1367"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">add_signal_from_string</code><span class="sig-paren">(</span><em>binding_set</em>, <em>signal_desc</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkbindings.c?h=3.20.3#n1367"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -264,16 +262,16 @@ the expected token otherwise</p>
 it into <cite>binding_set</cite>.</p>
 <p>Signal descriptions may either bind a key combination to
 one or more signals:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">bind</span> <span class="s">&quot;key&quot;</span> <span class="p">{</span>
-  <span class="s">&quot;signalname&quot;</span> <span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="p">...)</span>
-  <span class="p">...</span>
-<span class="p">}</span>
+<div class="highlight-none"><div class="highlight"><pre>bind &quot;key&quot; {
+  &quot;signalname&quot; (param, ...)
+  ...
+}
 </pre></div>
 </div>
 <p>Or they may also unbind a key combination:</p>
 <p><code class="docutils literal"><span class="pre">unbind</span> <span class="pre">&quot;key&quot;</span></code></p>
 <p>Key combinations must be in a format that can be parsed by
-<a class="reference internal" href="../functions.html#Gtk.accelerator_parse" title="Gtk.accelerator_parse"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.accelerator_parse</span></code></a> ().</p>
+<a class="reference internal" href="../functions.html#Gtk.accelerator_parse" title="Gtk.accelerator_parse"><code class="xref py py-obj docutils literal"><span class="pre">Gtk.accelerator_parse</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 3.0.</span></p>
 </div>
@@ -281,7 +279,7 @@ one or more signals:</p>
 
 <dl class="staticmethod">
 <dt id="Gtk.BindingEntry.add_signall">
-<em class="property">static </em><code class="descname">add_signall</code><span class="sig-paren">(</span><em>binding_set</em>, <em>keyval</em>, <em>modifiers</em>, <em>signal_name</em>, <em>binding_args</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkbindings.c?h=3.18.6#n890"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">add_signall</code><span class="sig-paren">(</span><em>binding_set</em>, <em>keyval</em>, <em>modifiers</em>, <em>signal_name</em>, <em>binding_args</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkbindings.c?h=3.20.3#n890"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -303,7 +301,7 @@ one or more signals:</p>
 
 <dl class="staticmethod">
 <dt id="Gtk.BindingEntry.remove">
-<em class="property">static </em><code class="descname">remove</code><span class="sig-paren">(</span><em>binding_set</em>, <em>keyval</em>, <em>modifiers</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkbindings.c?h=3.18.6#n861"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">remove</code><span class="sig-paren">(</span><em>binding_set</em>, <em>keyval</em>, <em>modifiers</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkbindings.c?h=3.20.3#n861"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -318,12 +316,12 @@ one or more signals:</p>
 </tbody>
 </table>
 <p>Remove a binding previously installed via
-<code class="xref py py-obj docutils literal"><span class="pre">Gtk.BindingEntry.add_signal</span></code> () on <cite>binding_set</cite>.</p>
+gtk_binding_entry_add_signal() on <cite>binding_set</cite>.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="Gtk.BindingEntry.skip">
-<em class="property">static </em><code class="descname">skip</code><span class="sig-paren">(</span><em>binding_set</em>, <em>keyval</em>, <em>modifiers</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkbindings.c?h=3.18.6#n832"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">skip</code><span class="sig-paren">(</span><em>binding_set</em>, <em>keyval</em>, <em>modifiers</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/gtk+/tree/gtk/gtkbindings.c?h=3.20.3#n832"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -361,7 +359,4 @@ to be activated.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

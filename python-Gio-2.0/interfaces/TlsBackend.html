@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gio.TlsClientConnection" href="TlsClientConnection.html"/>
         <link rel="prev" title="Gio.SocketConnectable" href="SocketConnectable.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -208,12 +206,21 @@
 <td><a class="reference internal" href="#Gio.TlsBackend.get_default_database" title="Gio.TlsBackend.get_default_database"><code class="xref py py-func docutils literal"><span class="pre">get_default_database</span></code></a> ()</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gio.TlsBackend.get_dtls_client_connection_type" title="Gio.TlsBackend.get_dtls_client_connection_type"><code class="xref py py-func docutils literal"><span class="pre">get_dtls_client_connection_type</span></code></a> ()</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gio.TlsBackend.get_dtls_server_connection_type" title="Gio.TlsBackend.get_dtls_server_connection_type"><code class="xref py py-func docutils literal"><span class="pre">get_dtls_server_connection_type</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gio.TlsBackend.get_file_database_type" title="Gio.TlsBackend.get_file_database_type"><code class="xref py py-func docutils literal"><span class="pre">get_file_database_type</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gio.TlsBackend.get_server_connection_type" title="Gio.TlsBackend.get_server_connection_type"><code class="xref py py-func docutils literal"><span class="pre">get_server_connection_type</span></code></a> ()</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gio.TlsBackend.supports_dtls" title="Gio.TlsBackend.supports_dtls"><code class="xref py py-func docutils literal"><span class="pre">supports_dtls</span></code></a> ()</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gio.TlsBackend.supports_tls" title="Gio.TlsBackend.supports_tls"><code class="xref py py-func docutils literal"><span class="pre">supports_tls</span></code></a> ()</td>
 </tr>
 </tbody>
@@ -231,6 +238,9 @@
 <td><a class="reference internal" href="#Gio.TlsBackend.do_get_default_database" title="Gio.TlsBackend.do_get_default_database"><code class="xref py py-func docutils literal"><span class="pre">do_get_default_database</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gio.TlsBackend.do_supports_dtls" title="Gio.TlsBackend.do_supports_dtls"><code class="xref py py-func docutils literal"><span class="pre">do_supports_dtls</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gio.TlsBackend.do_supports_tls" title="Gio.TlsBackend.do_supports_tls"><code class="xref py py-func docutils literal"><span class="pre">do_supports_tls</span></code></a> ()</td>
 </tr>
 </tbody>
@@ -263,13 +273,13 @@
 </tr>
 </tbody>
 </table>
-<p>TLS (Transport Layer Security, aka SSL) backend</p>
+<p>TLS (Transport Layer Security, aka SSL) and DTLS backend.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
 <dl class="staticmethod">
 <dt id="Gio.TlsBackend.get_default">
-<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.46.2#n97"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n103"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -288,19 +298,19 @@
 
 <dl class="method">
 <dt id="Gio.TlsBackend.get_certificate_type">
-<code class="descname">get_certificate_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.46.2#n159"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_certificate_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n187"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of <cite>backend</cite> &#8216;s <a class="reference internal" href="../classes/TlsCertificate.html#Gio.TlsCertificate" title="Gio.TlsCertificate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>&#8216;s <a class="reference internal" href="../classes/TlsCertificate.html#Gio.TlsCertificate" title="Gio.TlsCertificate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a>
 implementation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of <cite>backend</cite> &#8216;s <a class="reference internal" href="../classes/TlsCertificate.html#Gio.TlsCertificate" title="Gio.TlsCertificate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a> implementation.</p>
+<p>Gets the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>&#8216;s <a class="reference internal" href="../classes/TlsCertificate.html#Gio.TlsCertificate" title="Gio.TlsCertificate"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsCertificate</span></code></a> implementation.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -308,19 +318,19 @@ implementation.</td>
 
 <dl class="method">
 <dt id="Gio.TlsBackend.get_client_connection_type">
-<code class="descname">get_client_connection_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.46.2#n176"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_client_connection_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n204"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of <cite>backend</cite> &#8216;s <a class="reference internal" href="TlsClientConnection.html#Gio.TlsClientConnection" title="Gio.TlsClientConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsClientConnection</span></code></a>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>&#8216;s <a class="reference internal" href="TlsClientConnection.html#Gio.TlsClientConnection" title="Gio.TlsClientConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsClientConnection</span></code></a>
 implementation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of <cite>backend</cite> &#8216;s <a class="reference internal" href="TlsClientConnection.html#Gio.TlsClientConnection" title="Gio.TlsClientConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsClientConnection</span></code></a> implementation.</p>
+<p>Gets the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>&#8216;s <a class="reference internal" href="TlsClientConnection.html#Gio.TlsClientConnection" title="Gio.TlsClientConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsClientConnection</span></code></a> implementation.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
@@ -328,7 +338,7 @@ implementation.</td>
 
 <dl class="method">
 <dt id="Gio.TlsBackend.get_default_database">
-<code class="descname">get_default_database</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.46.2#n136"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_default_database</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n164"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -347,19 +357,59 @@ unreffed when done.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="Gio.TlsBackend.get_file_database_type">
-<code class="descname">get_file_database_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.46.2#n209"><span class="viewcode-link">[source]</span></a></dt>
+<dt id="Gio.TlsBackend.get_dtls_client_connection_type">
+<code class="descname">get_dtls_client_connection_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n238"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of backend&#8217;s <a class="reference internal" href="TlsFileDatabase.html#Gio.TlsFileDatabase" title="Gio.TlsFileDatabase"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsFileDatabase</span></code></a> implementation.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>’s <a class="reference internal" href="DtlsClientConnection.html#Gio.DtlsClientConnection" title="Gio.DtlsClientConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DtlsClientConnection</span></code></a>
+implementation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of <cite>backend</cite> &#8216;s <a class="reference internal" href="TlsFileDatabase.html#Gio.TlsFileDatabase" title="Gio.TlsFileDatabase"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsFileDatabase</span></code></a> implementation.</p>
+<p>Gets the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>’s <a class="reference internal" href="DtlsClientConnection.html#Gio.DtlsClientConnection" title="Gio.DtlsClientConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DtlsClientConnection</span></code></a> implementation.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.48.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gio.TlsBackend.get_dtls_server_connection_type">
+<code class="descname">get_dtls_server_connection_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n255"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>’s <a class="reference internal" href="DtlsServerConnection.html#Gio.DtlsServerConnection" title="Gio.DtlsServerConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DtlsServerConnection</span></code></a>
+implementation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Gets the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>’s <a class="reference internal" href="DtlsServerConnection.html#Gio.DtlsServerConnection" title="Gio.DtlsServerConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.DtlsServerConnection</span></code></a> implementation.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.48.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gio.TlsBackend.get_file_database_type">
+<code class="descname">get_file_database_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n271"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of backend&#8217;s <a class="reference internal" href="TlsFileDatabase.html#Gio.TlsFileDatabase" title="Gio.TlsFileDatabase"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsFileDatabase</span></code></a> implementation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Gets the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>&#8216;s <a class="reference internal" href="TlsFileDatabase.html#Gio.TlsFileDatabase" title="Gio.TlsFileDatabase"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsFileDatabase</span></code></a> implementation.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
 </div>
@@ -367,27 +417,47 @@ unreffed when done.</td>
 
 <dl class="method">
 <dt id="Gio.TlsBackend.get_server_connection_type">
-<code class="descname">get_server_connection_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.46.2#n193"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_server_connection_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n221"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of <cite>backend</cite> &#8216;s <a class="reference internal" href="TlsServerConnection.html#Gio.TlsServerConnection" title="Gio.TlsServerConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsServerConnection</span></code></a>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>&#8216;s <a class="reference internal" href="TlsServerConnection.html#Gio.TlsServerConnection" title="Gio.TlsServerConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsServerConnection</span></code></a>
 implementation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets the <code class="xref py py-obj docutils literal"><span class="pre">GLib.Type</span></code> of <cite>backend</cite> &#8216;s <a class="reference internal" href="TlsServerConnection.html#Gio.TlsServerConnection" title="Gio.TlsServerConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsServerConnection</span></code></a> implementation.</p>
+<p>Gets the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of <cite>self</cite>&#8216;s <a class="reference internal" href="TlsServerConnection.html#Gio.TlsServerConnection" title="Gio.TlsServerConnection"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsServerConnection</span></code></a> implementation.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.28.</span></p>
 </div>
 </dd></dl>
 
 <dl class="method">
+<dt id="Gio.TlsBackend.supports_dtls">
+<code class="descname">supports_dtls</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n142"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether DTLS is supported</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Checks if DTLS is supported. DTLS support may not be available even if TLS
+support is available, and vice-versa.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.48.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="Gio.TlsBackend.supports_tls">
-<code class="descname">supports_tls</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.46.2#n114"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">supports_tls</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gtlsbackend.c?h=2.48.0#n120"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -422,6 +492,26 @@ unreffed when done.</td>
 <p>Gets the default <a class="reference internal" href="../classes/TlsDatabase.html#Gio.TlsDatabase" title="Gio.TlsDatabase"><code class="xref py py-obj docutils literal"><span class="pre">Gio.TlsDatabase</span></code></a> used to verify TLS connections.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gio.TlsBackend.do_supports_dtls">
+<code class="descname">do_supports_dtls</code><span class="sig-paren">(</span><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether DTLS is supported</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Checks if DTLS is supported. DTLS support may not be available even if TLS
+support is available, and vice-versa.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.48.</span></p>
 </div>
 </dd></dl>
 
@@ -461,7 +551,4 @@ unreffed when done.</td>
   </div> 
 
 </body>
-
-  
-
 </html>

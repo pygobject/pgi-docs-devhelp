@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="WebKit2 4.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="WebKit2.UserMediaPermissionRequest" href="UserMediaPermissionRequest.html"/>
         <link rel="prev" title="WebKit2.URISchemeRequest" href="URISchemeRequest.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -267,7 +265,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#WebKit2.UserContentManager.signals.script_message_received" title="WebKit2.UserContentManager.signals.script_message_received"><code class="xref py py-func docutils literal"><span class="pre">script-message-received</span></code></a></td>
-<td>This signal is emitted when JavaScript in a web view calls  window.webkit.messageHandlers.&lt;name&gt;.postMessage(), after registering &lt;name&gt; using <a class="reference internal" href="#WebKit2.UserContentManager.register_script_message_handler" title="WebKit2.UserContentManager.register_script_message_handler"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.UserContentManager.register_script_message_handler</span></code></a> ()</td>
+<td>This signal is emitted when JavaScript in a web view calls  window.webkit.messageHandlers.&lt;name&gt;.postMessage(), after registering &lt;name&gt; using <a class="reference internal" href="#WebKit2.UserContentManager.register_script_message_handler" title="WebKit2.UserContentManager.register_script_message_handler"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.UserContentManager.register_script_message_handler</span></code></a>()</td>
 </tr>
 </tbody>
 </table>
@@ -402,11 +400,11 @@ handler name is used as the detail of the signal. To avoid race
 conditions between registering the handler name, and starting to
 receive the signals, it is recommended to connect to the signal
 *before* registering the handler name:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">WebKitWebView</span> <span class="o">*</span><span class="n">view</span> <span class="o">=</span> <span class="n">webkit_web_view_new</span> <span class="p">();</span>
-<span class="n">WebKitUserContentManager</span> <span class="o">*</span><span class="n">manager</span> <span class="o">=</span> <span class="n">webkit_web_view_get_user_content_manager</span> <span class="p">();</span>
-<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="s">&quot;script-message-received::foobar&quot;</span><span class="p">,</span>
-                  <span class="n">G_CALLBACK</span> <span class="p">(</span><span class="n">handle_script_message</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="n">webkit_user_content_manager_register_script_message_handler</span> <span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="s">&quot;foobar&quot;</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>WebKitWebView *view = webkit_web_view_new ();
+WebKitUserContentManager *manager = webkit_web_view_get_user_content_manager ();
+g_signal_connect (manager, &quot;script-message-received::foobar&quot;,
+                  G_CALLBACK (handle_script_message), NULL);
+webkit_user_content_manager_register_script_message_handler (manager, &quot;foobar&quot;);
 </pre></div>
 </div>
 <p>Registering a script message handler will fail if the requested
@@ -450,7 +448,7 @@ name has been already registered before.</p>
 <a class="reference internal" href="#WebKit2.UserContentManager" title="WebKit2.UserContentManager"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.UserContentManager</span></code></a> <a class="reference internal" href="#WebKit2.UserContentManager.signals.script_message_received" title="WebKit2.UserContentManager.signals.script_message_received"><code class="xref py py-func docutils literal"><span class="pre">::script-message-received</span></code></a> signal,
 they will be kept connected, but the signal will not be emitted
 unless the handler name is registered again.</p>
-<p>See also <a class="reference internal" href="#WebKit2.UserContentManager.register_script_message_handler" title="WebKit2.UserContentManager.register_script_message_handler"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.UserContentManager.register_script_message_handler</span></code></a> ()</p>
+<p>See also <a class="reference internal" href="#WebKit2.UserContentManager.register_script_message_handler" title="WebKit2.UserContentManager.register_script_message_handler"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.UserContentManager.register_script_message_handler</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.8.</span></p>
 </div>
@@ -485,7 +483,7 @@ unless the handler name is registered again.</p>
 <p>This signal is emitted when JavaScript in a web view calls</p>
 <p>window.webkit.messageHandlers.&lt;name&gt;.postMessage(), after registering
 &lt;name&gt; using
-<a class="reference internal" href="#WebKit2.UserContentManager.register_script_message_handler" title="WebKit2.UserContentManager.register_script_message_handler"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.UserContentManager.register_script_message_handler</span></code></a> ()</p>
+<a class="reference internal" href="#WebKit2.UserContentManager.register_script_message_handler" title="WebKit2.UserContentManager.register_script_message_handler"><code class="xref py py-obj docutils literal"><span class="pre">WebKit2.UserContentManager.register_script_message_handler</span></code></a>()</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.8.</span></p>
 </div>
@@ -505,7 +503,4 @@ unless the handler name is registered again.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

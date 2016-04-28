@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Pango 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Pango.AttrShape" href="AttrShape.html"/>
         <link rel="prev" title="Pango.AttrLanguage" href="AttrLanguage.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -193,7 +191,7 @@
 <dd><p>The <a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a> structure represents a list of attributes
 that apply to a section of text. The attributes are, in general,
 allowed to overlap in an arbitrary fashion, however, if the
-attributes are manipulated only through <a class="reference internal" href="#Pango.AttrList.change" title="Pango.AttrList.change"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.change</span></code></a> (),
+attributes are manipulated only through <a class="reference internal" href="#Pango.AttrList.change" title="Pango.AttrList.change"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.change</span></code></a>(),
 the overlap between properties will meet stricter criteria.</p>
 <p>Since the <a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a> structure is stored as a linear list,
 it is not suitable for storing attributes for large amounts
@@ -201,13 +199,13 @@ of text. In general, you should not use a single <a class="reference internal" h
 for more than one paragraph of text.</p>
 <dl class="staticmethod">
 <dt id="Pango.AttrList.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.38.1#n1195"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n1195"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the newly allocated <a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a>,
-which should be freed with <a class="reference internal" href="#Pango.AttrList.unref" title="Pango.AttrList.unref"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.unref</span></code></a> ().</td>
+which should be freed with <a class="reference internal" href="#Pango.AttrList.unref" title="Pango.AttrList.unref"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.unref</span></code></a>().</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a></td>
 </tr>
@@ -218,7 +216,7 @@ which should be freed with <a class="reference internal" href="#Pango.AttrList.u
 
 <dl class="method">
 <dt id="Pango.AttrList.change">
-<code class="descname">change</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.38.1#n1412"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">change</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n1412"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -231,35 +229,35 @@ value is assumed by the list.</td>
 <p>Insert the given attribute into the <a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a>. It will
 replace any attributes of the same type on that segment
 and be merged with any adjoining attributes that are identical.</p>
-<p>This function is slower than <a class="reference internal" href="#Pango.AttrList.insert" title="Pango.AttrList.insert"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.insert</span></code></a> () for
+<p>This function is slower than <a class="reference internal" href="#Pango.AttrList.insert" title="Pango.AttrList.insert"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.insert</span></code></a>() for
 creating a attribute list in order (potentially much slower
-for large lists). However, <a class="reference internal" href="#Pango.AttrList.insert" title="Pango.AttrList.insert"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.insert</span></code></a> () is not
+for large lists). However, <a class="reference internal" href="#Pango.AttrList.insert" title="Pango.AttrList.insert"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.insert</span></code></a>() is not
 suitable for continually changing a set of attributes
 since it never removes or combines existing attributes.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Pango.AttrList.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.38.1#n1279"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n1279"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the newly allocated <a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a>, with a
 reference count of one, which should
-be freed with <a class="reference internal" href="#Pango.AttrList.unref" title="Pango.AttrList.unref"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.unref</span></code></a> ().
-Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>list</cite> was <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
+be freed with <a class="reference internal" href="#Pango.AttrList.unref" title="Pango.AttrList.unref"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.unref</span></code></a>().
+Returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>self</cite> was <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Copy <cite>list</cite> and return an identical new list.</p>
+<p>Copy <cite>self</cite> and return an identical new list.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Pango.AttrList.filter">
-<code class="descname">filter</code><span class="sig-paren">(</span><em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.38.1#n2055"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">filter</code><span class="sig-paren">(</span><em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n2055"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -281,7 +279,7 @@ if an attribute should be filtered out.</li>
 </tbody>
 </table>
 <p>Given a <a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a> and callback function, removes any elements
-of <cite>list</cite> for which <cite>func</cite> returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> and inserts them into
+of <cite>self</cite> for which <cite>func</cite> returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> and inserts them into
 a new list.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
@@ -290,7 +288,7 @@ a new list.</p>
 
 <dl class="method">
 <dt id="Pango.AttrList.insert">
-<code class="descname">insert</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.38.1#n1367"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n1367"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -307,7 +305,7 @@ be inserted after all other attributes with a matching
 
 <dl class="method">
 <dt id="Pango.AttrList.insert_before">
-<code class="descname">insert_before</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.38.1#n1387"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_before</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n1387"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -324,7 +322,7 @@ be inserted before all other attributes with a matching
 
 <dl class="method">
 <dt id="Pango.AttrList.ref">
-<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.38.1#n1218"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n1218"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -343,14 +341,14 @@ be inserted before all other attributes with a matching
 
 <dl class="method">
 <dt id="Pango.AttrList.splice">
-<code class="descname">splice</code><span class="sig-paren">(</span><em>other</em>, <em>pos</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.38.1#n1624"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">splice</code><span class="sig-paren">(</span><em>other</em>, <em>pos</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n1624"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>other</strong> (<a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a>) &#8211; another <a class="reference internal" href="#Pango.AttrList" title="Pango.AttrList"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList</span></code></a></li>
-<li><strong>pos</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the position in <cite>list</cite> at which to insert <cite>other</cite></li>
+<li><strong>pos</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the position in <cite>self</cite> at which to insert <cite>other</cite></li>
 <li><strong>len</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the length of the spliced segment. (Note that this
 must be specified since the attributes in <cite>other</cite>
 may only be present at some subsection of this range)</li>
@@ -359,19 +357,19 @@ may only be present at some subsection of this range)</li>
 </tr>
 </tbody>
 </table>
-<p>This function opens up a hole in <cite>list</cite>, fills it in with attributes from
+<p>This function opens up a hole in <cite>self</cite>, fills it in with attributes from
 the left, and then merges <cite>other</cite> on top of the hole.</p>
 <p>This operation is equivalent to stretching every attribute
-that applies at position <cite>pos</cite> in <cite>list</cite> by an amount <cite>len</cite>,
-and then calling <a class="reference internal" href="#Pango.AttrList.change" title="Pango.AttrList.change"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.change</span></code></a> () with a copy
-of each attribute in <cite>other</cite> in sequence (offset in position by <cite>pos</cite> ).</p>
+that applies at position <cite>pos</cite> in <cite>self</cite> by an amount <cite>len</cite>,
+and then calling <a class="reference internal" href="#Pango.AttrList.change" title="Pango.AttrList.change"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrList.change</span></code></a>() with a copy
+of each attribute in <cite>other</cite> in sequence (offset in position by <cite>pos</cite>).</p>
 <p>This operation proves useful for, for instance, inserting
 a pre-edit string in the middle of an edit buffer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Pango.AttrList.unref">
-<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.38.1#n1239"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n1239"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Decrease the reference count of the given attribute list by one.
 If the result is zero, free the attribute list and the attributes
 it contains.</p>
@@ -393,7 +391,4 @@ it contains.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

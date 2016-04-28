@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Atk 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Atk.StateSet" href="StateSet.html"/>
         <link rel="prev" title="Atk.RelationSet" href="RelationSet.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -358,25 +356,25 @@
 accessibles from one process into another in a fashion that is
 transparent to assistive technologies. <a class="reference internal" href="#Atk.Socket" title="Atk.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket</span></code></a> works as the
 container of <a class="reference internal" href="Plug.html#Atk.Plug" title="Atk.Plug"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug</span></code></a>, embedding it using the method
-<a class="reference internal" href="#Atk.Socket.embed" title="Atk.Socket.embed"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket.embed</span></code></a> (). Any accessible contained in the <a class="reference internal" href="Plug.html#Atk.Plug" title="Atk.Plug"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug</span></code></a> will
+<a class="reference internal" href="#Atk.Socket.embed" title="Atk.Socket.embed"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket.embed</span></code></a>(). Any accessible contained in the <a class="reference internal" href="Plug.html#Atk.Plug" title="Atk.Plug"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug</span></code></a> will
 appear to the assistive technologies as being inside the
 application that created the <a class="reference internal" href="#Atk.Socket" title="Atk.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket</span></code></a>.</p>
 <p>The communication between a <a class="reference internal" href="#Atk.Socket" title="Atk.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket</span></code></a> and a <a class="reference internal" href="Plug.html#Atk.Plug" title="Atk.Plug"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug</span></code></a> is done by
 the IPC layer of the accessibility framework, normally implemented
 by the D-Bus based implementation of AT-SPI (at-spi2). If that is
 the case, at-spi-atk2 is the responsible to implement the abstract
-methods <a class="reference internal" href="Plug.html#Atk.Plug.get_id" title="Atk.Plug.get_id"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug.get_id</span></code></a> () and <a class="reference internal" href="#Atk.Socket.embed" title="Atk.Socket.embed"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket.embed</span></code></a> (), so an ATK
+methods <a class="reference internal" href="Plug.html#Atk.Plug.get_id" title="Atk.Plug.get_id"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug.get_id</span></code></a>() and <a class="reference internal" href="#Atk.Socket.embed" title="Atk.Socket.embed"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket.embed</span></code></a>(), so an ATK
 implementor shouldn&#8217;t reimplement them. The process that contains
 the <a class="reference internal" href="Plug.html#Atk.Plug" title="Atk.Plug"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug</span></code></a> is responsible to send the ID returned by
 atk_plug_id() to the process that contains the <a class="reference internal" href="#Atk.Socket" title="Atk.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket</span></code></a>, so it
-could call the method <a class="reference internal" href="#Atk.Socket.embed" title="Atk.Socket.embed"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket.embed</span></code></a> () in order to embed it.</p>
+could call the method <a class="reference internal" href="#Atk.Socket.embed" title="Atk.Socket.embed"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket.embed</span></code></a>() in order to embed it.</p>
 <p>For the same reasons, an implementor doesn&#8217;t need to implement
-<a class="reference internal" href="Object.html#Atk.Object.get_n_accessible_children" title="Atk.Object.get_n_accessible_children"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Object.get_n_accessible_children</span></code></a> () and
-<a class="reference internal" href="Object.html#Atk.Object.ref_accessible_child" title="Atk.Object.ref_accessible_child"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Object.ref_accessible_child</span></code></a> (). All the logic related to those
+<a class="reference internal" href="Object.html#Atk.Object.get_n_accessible_children" title="Atk.Object.get_n_accessible_children"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Object.get_n_accessible_children</span></code></a>() and
+<a class="reference internal" href="Object.html#Atk.Object.ref_accessible_child" title="Atk.Object.ref_accessible_child"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Object.ref_accessible_child</span></code></a>(). All the logic related to those
 functions will be implemented by the IPC layer.</p>
 <dl class="staticmethod">
 <dt id="Atk.Socket.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atksocket.c?h=ATK_2_18_0#n95"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atksocket.c?h=ATK_2_20_0#n95"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -389,7 +387,7 @@ functions will be implemented by the IPC layer.</p>
 
 <dl class="method">
 <dt id="Atk.Socket.embed">
-<code class="descname">embed</code><span class="sig-paren">(</span><em>plug_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atksocket.c?h=ATK_2_18_0#n130"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">embed</code><span class="sig-paren">(</span><em>plug_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atksocket.c?h=ATK_2_20_0#n130"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -404,7 +402,7 @@ process.</p>
 <p>The class item used by this function should be filled in by the IPC
 layer (usually at-spi2-atk). The implementor of the <a class="reference internal" href="#Atk.Socket" title="Atk.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket</span></code></a>
 should call this function and pass the id for the plug as returned
-by <a class="reference internal" href="Plug.html#Atk.Plug.get_id" title="Atk.Plug.get_id"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug.get_id</span></code></a> ().  It is the responsibility of the application
+by <a class="reference internal" href="Plug.html#Atk.Plug.get_id" title="Atk.Plug.get_id"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug.get_id</span></code></a>().  It is the responsibility of the application
 to pass the plug id on to the process implementing the <a class="reference internal" href="#Atk.Socket" title="Atk.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket</span></code></a>
 as needed.</p>
 <div class="versionadded">
@@ -414,7 +412,7 @@ as needed.</p>
 
 <dl class="method">
 <dt id="Atk.Socket.is_occupied">
-<code class="descname">is_occupied</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atksocket.c?h=ATK_2_18_0#n155"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_occupied</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atksocket.c?h=ATK_2_20_0#n155"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -448,7 +446,7 @@ process.</p>
 <p>The class item used by this function should be filled in by the IPC
 layer (usually at-spi2-atk). The implementor of the <a class="reference internal" href="#Atk.Socket" title="Atk.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket</span></code></a>
 should call this function and pass the id for the plug as returned
-by <a class="reference internal" href="Plug.html#Atk.Plug.get_id" title="Atk.Plug.get_id"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug.get_id</span></code></a> ().  It is the responsibility of the application
+by <a class="reference internal" href="Plug.html#Atk.Plug.get_id" title="Atk.Plug.get_id"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Plug.get_id</span></code></a>().  It is the responsibility of the application
 to pass the plug id on to the process implementing the <a class="reference internal" href="#Atk.Socket" title="Atk.Socket"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Socket</span></code></a>
 as needed.</p>
 <div class="versionadded">
@@ -472,7 +470,4 @@ as needed.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

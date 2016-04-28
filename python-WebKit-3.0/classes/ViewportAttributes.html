@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="WebKit 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="WebKit.WebBackForwardList" href="WebBackForwardList.html"/>
         <link rel="prev" title="WebKit.SoupAuthDialog" href="SoupAuthDialog.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -387,38 +385,38 @@ You should call <a class="reference internal" href="#WebKit.ViewportAttributes.r
 override those values in the handler of <a class="reference internal" href="WebView.html#WebKit.WebView" title="WebKit.WebView"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView</span></code></a> <a class="reference internal" href="WebView.html#WebKit.WebView.signals.viewport_attributes_recompute_requested" title="WebKit.WebView.signals.viewport_attributes_recompute_requested"><code class="xref py py-func docutils literal"><span class="pre">::viewport-attributes-recompute-requested</span></code></a> signal.</p>
 <p>For more information on the viewport properties, refer to the Safari reference library at
 http://developer.apple.com/safari/library/documentation/appleapplications/reference/safarihtmlref/articles/metatags.html</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="cm">/* Connect to the viewport-attributes-changes signal */</span>
-<span class="n">WebKitViewportAttributes</span><span class="o">*</span> <span class="n">attributes</span> <span class="o">=</span> <span class="n">webkit_web_view_get_viewport_attributes</span> <span class="p">(</span><span class="n">web_view</span><span class="p">);</span>
-<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">web_view</span><span class="p">,</span> <span class="s">&quot;viewport-attributes-recompute-requested&quot;</span><span class="p">,</span> <span class="n">G_CALLBACK</span> <span class="p">(</span><span class="n">viewport_recompute_cb</span><span class="p">),</span> <span class="n">window</span><span class="p">);</span>
-<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">web_view</span><span class="p">,</span> <span class="s">&quot;viewport-attributes-changed&quot;</span><span class="p">,</span> <span class="n">G_CALLBACK</span> <span class="p">(</span><span class="n">viewport_changed_cb</span><span class="p">),</span> <span class="n">window</span><span class="p">);</span>
-<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="s">&quot;notify::valid&quot;</span><span class="p">,</span> <span class="n">G_CALLBACK</span> <span class="p">(</span><span class="n">viewport_valid_changed_cb</span><span class="p">),</span> <span class="n">web_view</span><span class="p">);</span>
+<div class="highlight-none"><div class="highlight"><pre>/* Connect to the viewport-attributes-changes signal */
+WebKitViewportAttributes* attributes = webkit_web_view_get_viewport_attributes (web_view);
+g_signal_connect (web_view, &quot;viewport-attributes-recompute-requested&quot;, G_CALLBACK (viewport_recompute_cb), window);
+g_signal_connect (web_view, &quot;viewport-attributes-changed&quot;, G_CALLBACK (viewport_changed_cb), window);
+g_signal_connect (attributes, &quot;notify::valid&quot;, G_CALLBACK (viewport_valid_changed_cb), web_view);
 
-<span class="cm">/* Handle the viewport-attributes-recompute-requested signal to override the device width */</span>
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">viewport_recompute_cb</span> <span class="p">(</span><span class="n">WebKitWebView</span><span class="o">*</span> <span class="n">web_view</span><span class="p">,</span> <span class="n">WebKitViewportAttributes</span><span class="o">*</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">GtkWidget</span><span class="o">*</span> <span class="n">window</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">override_available_width</span> <span class="o">=</span> <span class="mi">480</span><span class="p">;</span>
-    <span class="n">g_object_set</span> <span class="p">(</span><span class="n">G_OBJECT</span><span class="p">(</span><span class="n">attributes</span><span class="p">),</span> <span class="s">&quot;available-width&quot;</span><span class="p">,</span> <span class="n">override_available_width</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="p">}</span>
+/* Handle the viewport-attributes-recompute-requested signal to override the device width */
+static void
+viewport_recompute_cb (WebKitWebView* web_view, WebKitViewportAttributes* attributes, GtkWidget* window)
+{
+    int override_available_width = 480;
+    g_object_set (G_OBJECT(attributes), &quot;available-width&quot;, override_available_width, NULL);
+}
 
-<span class="cm">/* Handle the viewport-attributes-changed signal to recompute the initial scale factor */</span>
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">viewport_changed_cb</span> <span class="p">(</span><span class="n">WebKitWebView</span><span class="o">*</span> <span class="n">web_view</span><span class="p">,</span> <span class="n">WebKitViewportAttributes</span><span class="o">*</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">data</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">gfloat</span> <span class="n">initialScale</span><span class="p">;</span>
-    <span class="n">g_object_get</span> <span class="p">(</span><span class="n">G_OBJECT</span> <span class="p">(</span><span class="n">atributes</span><span class="p">),</span> <span class="s">&quot;initial-scale-factor&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">initialScale</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-    <span class="n">webkit_web_view_set_zoom_level</span> <span class="p">(</span><span class="n">web_view</span><span class="p">,</span> <span class="n">initialScale</span><span class="p">);</span>
-<span class="p">}</span>
+/* Handle the viewport-attributes-changed signal to recompute the initial scale factor */
+static void
+viewport_changed_cb (WebKitWebView* web_view, WebKitViewportAttributes* attributes, gpointer data)
+{
+    gfloat initialScale;
+    g_object_get (G_OBJECT (atributes), &quot;initial-scale-factor&quot;, &amp;amp;initialScale, NULL);
+    webkit_web_view_set_zoom_level (web_view, initialScale);
+}
 
-<span class="cm">/* Handle the notify::valid signal to initialize the zoom level */</span>
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">viewport_valid_changed_cb</span> <span class="p">(</span><span class="n">WebKitViewportAttributes</span><span class="o">*</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">GParamSpec</span><span class="o">*</span> <span class="n">pspec</span><span class="p">,</span> <span class="n">WebKitWebView</span><span class="o">*</span> <span class="n">web_view</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">gboolean</span> <span class="n">is_valid</span><span class="p">;</span>
-    <span class="n">g_object_get</span> <span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="s">&quot;valid&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">is_valid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_valid</span><span class="p">)</span>
-        <span class="n">webkit_web_view_set_zoom_level</span> <span class="p">(</span><span class="n">web_view</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
-<span class="p">}</span>
+/* Handle the notify::valid signal to initialize the zoom level */
+static void
+viewport_valid_changed_cb (WebKitViewportAttributes* attributes, GParamSpec* pspec, WebKitWebView* web_view)
+{
+    gboolean is_valid;
+    g_object_get (attributes, &quot;valid&quot;, &amp;amp;is_valid, NULL);
+    if (!is_valid)
+        webkit_web_view_set_zoom_level (web_view, 1.0);
+}
 </pre></div>
 </div>
 <dl class="method">
@@ -731,7 +729,4 @@ the device size, available size, desktop width, or device DPI.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

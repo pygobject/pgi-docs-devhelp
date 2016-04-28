@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="WebKit 3.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="WebKit.FileChooserRequest" href="FileChooserRequest.html"/>
         <link rel="prev" title="WebKit.Download" href="Download.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -353,7 +351,7 @@ images found into a memory cache if possible. That cache is frozen
 to an on-disk database for persistence.</p>
 <p>The database is disabled by default. In order for icons to be
 stored and accessed, you will need to set an icon database path
-using <a class="reference internal" href="#WebKit.FaviconDatabase.set_path" title="WebKit.FaviconDatabase.set_path"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.set_path</span></code></a> (). Disable the database
+using <a class="reference internal" href="#WebKit.FaviconDatabase.set_path" title="WebKit.FaviconDatabase.set_path"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.set_path</span></code></a>(). Disable the database
 again passing <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to the previous call.</p>
 <p>If <a class="reference internal" href="WebSettings.html#WebKit.WebSettings" title="WebKit.WebSettings"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebSettings</span></code></a> <code class="xref py py-func docutils literal"><span class="pre">::enable-private-browsing</span></code> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> new icons
 won&#8217;t be added to the on-disk database and no existing icons will
@@ -390,13 +388,13 @@ satisfied or <a class="reference external" href="http://docs.python.org/2.7/libr
 </table>
 <p>Asynchronously obtains a <a class="reference external" href="../_docs/WebKit-3.0/../../../python-GdkPixbuf-2.0/classes/Pixbuf.html#GdkPixbuf.Pixbuf" title="(in GdkPixbuf 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GdkPixbuf.Pixbuf</span></code></a> of the favicon for the given
 page URI. The advantage of this method over
-<a class="reference internal" href="#WebKit.FaviconDatabase.try_get_favicon_pixbuf" title="WebKit.FaviconDatabase.try_get_favicon_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.try_get_favicon_pixbuf</span></code></a> () is that it always returns the
+<a class="reference internal" href="#WebKit.FaviconDatabase.try_get_favicon_pixbuf" title="WebKit.FaviconDatabase.try_get_favicon_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.try_get_favicon_pixbuf</span></code></a>() is that it always returns the
 cached icon if it&#8217;s in the database asynchronously waiting for the
 icon to be read from the database.</p>
 <p>This is an asynchronous method. When the operation is finished, callback will
-be invoked. You can then call <a class="reference internal" href="#WebKit.FaviconDatabase.get_favicon_pixbuf_finish" title="WebKit.FaviconDatabase.get_favicon_pixbuf_finish"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.get_favicon_pixbuf_finish</span></code></a> ()
+be invoked. You can then call <a class="reference internal" href="#WebKit.FaviconDatabase.get_favicon_pixbuf_finish" title="WebKit.FaviconDatabase.get_favicon_pixbuf_finish"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.get_favicon_pixbuf_finish</span></code></a>()
 to get the result of the operation.
-See also <a class="reference internal" href="#WebKit.FaviconDatabase.try_get_favicon_pixbuf" title="WebKit.FaviconDatabase.try_get_favicon_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.try_get_favicon_pixbuf</span></code></a> ().</p>
+See also <a class="reference internal" href="#WebKit.FaviconDatabase.try_get_favicon_pixbuf" title="WebKit.FaviconDatabase.try_get_favicon_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.try_get_favicon_pixbuf</span></code></a>().</p>
 <p>If <cite>width</cite> and <cite>height</cite> are both 0 then this method will return the
 maximum available size for the icon. Note that if you specify a
 different size the icon will be scaled each time you call this
@@ -413,9 +411,9 @@ function.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; A <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a> obtained from the <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> passed to <a class="reference internal" href="#WebKit.FaviconDatabase.get_favicon_pixbuf" title="WebKit.FaviconDatabase.get_favicon_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.get_favicon_pixbuf</span></code></a> ()</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; A <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a> obtained from the <a class="reference external" href="../_docs/WebKit-3.0/../../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> passed to <a class="reference internal" href="#WebKit.FaviconDatabase.get_favicon_pixbuf" title="WebKit.FaviconDatabase.get_favicon_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.get_favicon_pixbuf</span></code></a>()</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/WebKit-3.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/WebKit-3.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new reference to a <a class="reference external" href="../_docs/WebKit-3.0/../../../python-GdkPixbuf-2.0/classes/Pixbuf.html#GdkPixbuf.Pixbuf" title="(in GdkPixbuf 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GdkPixbuf.Pixbuf</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
 </tr>
@@ -423,7 +421,7 @@ function.</p>
 </tr>
 </tbody>
 </table>
-<p>Finishes an operation started with <a class="reference internal" href="#WebKit.FaviconDatabase.get_favicon_pixbuf" title="WebKit.FaviconDatabase.get_favicon_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.get_favicon_pixbuf</span></code></a> ().</p>
+<p>Finishes an operation started with <a class="reference internal" href="#WebKit.FaviconDatabase.get_favicon_pixbuf" title="WebKit.FaviconDatabase.get_favicon_pixbuf"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.get_favicon_pixbuf</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -445,7 +443,7 @@ function.</p>
 </tbody>
 </table>
 <p>Obtains the URI for the favicon for the given page URI.
-See also <a class="reference internal" href="WebView.html#WebKit.WebView.get_icon_uri" title="WebKit.WebView.get_icon_uri"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView.get_icon_uri</span></code></a> ().</p>
+See also <a class="reference internal" href="WebView.html#WebKit.WebView.get_icon_uri" title="WebKit.WebView.get_icon_uri"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.WebView.get_icon_uri</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
@@ -515,7 +513,7 @@ if the given URI doesn&#8217;t have an icon or it hasn&#8217;t been loaded yet.<
 </table>
 <p>Obtains a <a class="reference external" href="../_docs/WebKit-3.0/../../../python-GdkPixbuf-2.0/classes/Pixbuf.html#GdkPixbuf.Pixbuf" title="(in GdkPixbuf 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GdkPixbuf.Pixbuf</span></code></a> of the favicon for the given page URI, or
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if there is no icon for the given page or it hasn&#8217;t been
-loaded from disk yet. Use <a class="reference internal" href="#WebKit.FaviconDatabase.get_favicon_uri" title="WebKit.FaviconDatabase.get_favicon_uri"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.get_favicon_uri</span></code></a> ()
+loaded from disk yet. Use <a class="reference internal" href="#WebKit.FaviconDatabase.get_favicon_uri" title="WebKit.FaviconDatabase.get_favicon_uri"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase.get_favicon_uri</span></code></a>()
 if you need to distinguish these cases.  To make sure this method
 will return a valid icon when the given URI has one, you should
 connect to <a class="reference internal" href="#WebKit.FaviconDatabase" title="WebKit.FaviconDatabase"><code class="xref py py-obj docutils literal"><span class="pre">WebKit.FaviconDatabase</span></code></a> <a class="reference internal" href="#WebKit.FaviconDatabase.signals.icon_loaded" title="WebKit.FaviconDatabase.signals.icon_loaded"><code class="xref py py-func docutils literal"><span class="pre">::icon-loaded</span></code></a> and use this function
@@ -607,7 +605,4 @@ of the favicon.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

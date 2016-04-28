@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Vips 8.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Class Structures" href="index.html"/>
         <link rel="next" title="Vips.ForeignSaveClass" href="ForeignSaveClass.html"/>
         <link rel="prev" title="Vips.ForeignClass" href="ForeignClass.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -208,99 +206,99 @@
 <dt id="Vips.ForeignLoadClass">
 <em class="property">class </em><code class="descclassname">Vips.</code><code class="descname">ForeignLoadClass</code></dt>
 <dd><p>Add a new loader to VIPS by subclassing <a class="reference internal" href="../classes/ForeignLoad.html#Vips.ForeignLoad" title="Vips.ForeignLoad"><code class="xref py py-obj docutils literal"><span class="pre">Vips.ForeignLoad</span></code></a>. Subclasses need to
-implement at least <cite>header</cite> ().</p>
+implement at least <cite>header</cite>().</p>
 <p>As a complete example, here&#8217;s code for a PNG loader, minus the actual
 calls to libpng.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_VipsForeignLoadPng</span> <span class="p">{</span>
-  <span class="n">VipsForeignLoad</span> <span class="n">parent_object</span><span class="p">;</span>
+<div class="highlight-none"><div class="highlight"><pre>typedef struct _VipsForeignLoadPng {
+  VipsForeignLoad parent_object;
 
-  <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">VipsForeignLoadPng</span><span class="p">;</span>
+  char *filename;
+} VipsForeignLoadPng;
 
-<span class="k">typedef</span> <span class="n">VipsForeignLoadClass</span> <span class="n">VipsForeignLoadPngClass</span><span class="p">;</span>
+typedef VipsForeignLoadClass VipsForeignLoadPngClass;
 
-<span class="n">G_DEFINE_TYPE</span><span class="p">(</span> <span class="n">VipsForeignLoadPng</span><span class="p">,</span> <span class="n">vips_foreign_load_png</span><span class="p">,</span>
-  <span class="n">VIPS_TYPE_FOREIGN_LOAD</span> <span class="p">);</span>
+G_DEFINE_TYPE( VipsForeignLoadPng, vips_foreign_load_png,
+  VIPS_TYPE_FOREIGN_LOAD );
 
-<span class="k">static</span> <span class="n">VipsForeignFlags</span>
-<span class="nf">vips_foreign_load_png_get_flags_filename</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">VipsForeignFlags</span> <span class="n">flags</span><span class="p">;</span>
+static VipsForeignFlags
+vips_foreign_load_png_get_flags_filename( const char *filename )
+{
+  VipsForeignFlags flags;
 
-  <span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">if</span><span class="p">(</span> <span class="n">vips__png_isinterlaced</span><span class="p">(</span> <span class="n">filename</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="n">flags</span> <span class="o">=</span> <span class="n">VIPS_FOREIGN_PARTIAL</span><span class="p">;</span>
-  <span class="k">else</span>
-        <span class="n">flags</span> <span class="o">=</span> <span class="n">VIPS_FOREIGN_SEQUENTIAL</span><span class="p">;</span>
+  flags = 0;
+  if( vips__png_isinterlaced( filename ) )
+        flags = VIPS_FOREIGN_PARTIAL;
+  else
+        flags = VIPS_FOREIGN_SEQUENTIAL;
 
-  <span class="k">return</span><span class="p">(</span> <span class="n">flags</span> <span class="p">);</span>
-<span class="p">}</span>
+  return( flags );
+}
 
-<span class="k">static</span> <span class="n">VipsForeignFlags</span>
-<span class="nf">vips_foreign_load_png_get_flags</span><span class="p">(</span> <span class="n">VipsForeignLoad</span> <span class="o">*</span><span class="n">load</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">VipsForeignLoadPng</span> <span class="o">*</span><span class="n">png</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsForeignLoadPng</span> <span class="o">*</span><span class="p">)</span> <span class="n">load</span><span class="p">;</span>
+static VipsForeignFlags
+vips_foreign_load_png_get_flags( VipsForeignLoad *load )
+{
+  VipsForeignLoadPng *png = (VipsForeignLoadPng *) load;
 
-  <span class="k">return</span><span class="p">(</span> <span class="n">vips_foreign_load_png_get_flags_filename</span><span class="p">(</span> <span class="n">png</span><span class="o">-&gt;</span><span class="n">filename</span> <span class="p">)</span> <span class="p">);</span>
-<span class="p">}</span>
+  return( vips_foreign_load_png_get_flags_filename( png-&gt;filename ) );
+}
 
-<span class="k">static</span> <span class="kt">int</span>
-<span class="nf">vips_foreign_load_png_header</span><span class="p">(</span> <span class="n">VipsForeignLoad</span> <span class="o">*</span><span class="n">load</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">VipsForeignLoadPng</span> <span class="o">*</span><span class="n">png</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsForeignLoadPng</span> <span class="o">*</span><span class="p">)</span> <span class="n">load</span><span class="p">;</span>
+static int
+vips_foreign_load_png_header( VipsForeignLoad *load )
+{
+  VipsForeignLoadPng *png = (VipsForeignLoadPng *) load;
 
-  <span class="k">if</span><span class="p">(</span> <span class="n">vips__png_header</span><span class="p">(</span> <span class="n">png</span><span class="o">-&gt;</span><span class="n">filename</span><span class="p">,</span> <span class="n">load</span><span class="o">-&gt;</span><span class="n">out</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">return</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="p">);</span>
+  if( vips__png_header( png-&gt;filename, load-&gt;out ) )
+        return( -1 );
 
-  <span class="k">return</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
-<span class="p">}</span>
+  return( 0 );
+}
 
-<span class="k">static</span> <span class="kt">int</span>
-<span class="nf">vips_foreign_load_png_load</span><span class="p">(</span> <span class="n">VipsForeignLoad</span> <span class="o">*</span><span class="n">load</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">VipsForeignLoadPng</span> <span class="o">*</span><span class="n">png</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsForeignLoadPng</span> <span class="o">*</span><span class="p">)</span> <span class="n">load</span><span class="p">;</span>
+static int
+vips_foreign_load_png_load( VipsForeignLoad *load )
+{
+  VipsForeignLoadPng *png = (VipsForeignLoadPng *) load;
 
-  <span class="k">if</span><span class="p">(</span> <span class="n">vips__png_read</span><span class="p">(</span> <span class="n">png</span><span class="o">-&gt;</span><span class="n">filename</span><span class="p">,</span> <span class="n">load</span><span class="o">-&gt;</span><span class="n">real</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">return</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="p">);</span>
+  if( vips__png_read( png-&gt;filename, load-&gt;real ) )
+        return( -1 );
 
-  <span class="k">return</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
-<span class="p">}</span>
+  return( 0 );
+}
 
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">vips_foreign_load_png_class_init</span><span class="p">(</span> <span class="n">VipsForeignLoadPngClass</span> <span class="o">*</span><span class="n">class</span> <span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">GObjectClass</span> <span class="o">*</span><span class="n">gobject_class</span> <span class="o">=</span> <span class="n">G_OBJECT_CLASS</span><span class="p">(</span> <span class="n">class</span> <span class="p">);</span>
-  <span class="n">VipsObjectClass</span> <span class="o">*</span><span class="n">object_class</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsObjectClass</span> <span class="o">*</span><span class="p">)</span> <span class="n">class</span><span class="p">;</span>
-  <span class="n">VipsForeignClass</span> <span class="o">*</span><span class="n">foreign_class</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsForeignClass</span> <span class="o">*</span><span class="p">)</span> <span class="n">class</span><span class="p">;</span>
-  <span class="n">VipsForeignLoadClass</span> <span class="o">*</span><span class="n">load_class</span> <span class="o">=</span> <span class="p">(</span><span class="n">VipsForeignLoadClass</span> <span class="o">*</span><span class="p">)</span> <span class="n">class</span><span class="p">;</span>
+static void
+vips_foreign_load_png_class_init( VipsForeignLoadPngClass *class )
+{
+  GObjectClass *gobject_class = G_OBJECT_CLASS( class );
+  VipsObjectClass *object_class = (VipsObjectClass *) class;
+  VipsForeignClass *foreign_class = (VipsForeignClass *) class;
+  VipsForeignLoadClass *load_class = (VipsForeignLoadClass *) class;
 
-  <span class="n">gobject_class</span><span class="o">-&gt;</span><span class="n">set_property</span> <span class="o">=</span> <span class="n">vips_object_set_property</span><span class="p">;</span>
-  <span class="n">gobject_class</span><span class="o">-&gt;</span><span class="n">get_property</span> <span class="o">=</span> <span class="n">vips_object_get_property</span><span class="p">;</span>
+  gobject_class-&gt;set_property = vips_object_set_property;
+  gobject_class-&gt;get_property = vips_object_get_property;
 
-  <span class="n">object_class</span><span class="o">-&gt;</span><span class="n">nickname</span> <span class="o">=</span> <span class="s">&quot;pngload&quot;</span><span class="p">;</span>
-  <span class="n">object_class</span><span class="o">-&gt;</span><span class="n">description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span> <span class="s">&quot;load png from file&quot;</span> <span class="p">);</span>
+  object_class-&gt;nickname = &quot;pngload&quot;;
+  object_class-&gt;description = _( &quot;load png from file&quot; );
 
-  <span class="n">foreign_class</span><span class="o">-&gt;</span><span class="n">suffs</span> <span class="o">=</span> <span class="n">vips__png_suffs</span><span class="p">;</span>
+  foreign_class-&gt;suffs = vips__png_suffs;
 
-  <span class="n">load_class</span><span class="o">-&gt;</span><span class="n">is_a</span> <span class="o">=</span> <span class="n">vips__png_ispng</span><span class="p">;</span>
-  <span class="n">load_class</span><span class="o">-&gt;</span><span class="n">get_flags_filename</span> <span class="o">=</span>
-        <span class="n">vips_foreign_load_png_get_flags_filename</span><span class="p">;</span>
-  <span class="n">load_class</span><span class="o">-&gt;</span><span class="n">get_flags</span> <span class="o">=</span> <span class="n">vips_foreign_load_png_get_flags</span><span class="p">;</span>
-  <span class="n">load_class</span><span class="o">-&gt;</span><span class="n">header</span> <span class="o">=</span> <span class="n">vips_foreign_load_png_header</span><span class="p">;</span>
-  <span class="n">load_class</span><span class="o">-&gt;</span><span class="n">load</span> <span class="o">=</span> <span class="n">vips_foreign_load_png_load</span><span class="p">;</span>
+  load_class-&gt;is_a = vips__png_ispng;
+  load_class-&gt;get_flags_filename =
+        vips_foreign_load_png_get_flags_filename;
+  load_class-&gt;get_flags = vips_foreign_load_png_get_flags;
+  load_class-&gt;header = vips_foreign_load_png_header;
+  load_class-&gt;load = vips_foreign_load_png_load;
 
-  <span class="n">VIPS_ARG_STRING</span><span class="p">(</span> <span class="n">class</span><span class="p">,</span> <span class="s">&quot;filename&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="n">_</span><span class="p">(</span> <span class="s">&quot;Filename&quot;</span> <span class="p">),</span>
-        <span class="n">_</span><span class="p">(</span> <span class="s">&quot;Filename to load from&quot;</span> <span class="p">),</span>
-        <span class="n">VIPS_ARGUMENT_REQUIRED_INPUT</span><span class="p">,</span>
-        <span class="n">G_STRUCT_OFFSET</span><span class="p">(</span> <span class="n">VipsForeignLoadPng</span><span class="p">,</span> <span class="n">filename</span> <span class="p">),</span>
-        <span class="nb">NULL</span> <span class="p">);</span>
-<span class="p">}</span>
+  VIPS_ARG_STRING( class, &quot;filename&quot;, 1,
+        _( &quot;Filename&quot; ),
+        _( &quot;Filename to load from&quot; ),
+        VIPS_ARGUMENT_REQUIRED_INPUT,
+        G_STRUCT_OFFSET( VipsForeignLoadPng, filename ),
+        NULL );
+}
 
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">vips_foreign_load_png_init</span><span class="p">(</span> <span class="n">VipsForeignLoadPng</span> <span class="o">*</span><span class="n">png</span> <span class="p">)</span>
-<span class="p">{</span>
-<span class="p">}</span>
+static void
+vips_foreign_load_png_init( VipsForeignLoadPng *png )
+{
+}
 </pre></div>
 </div>
 </dd></dl>
@@ -319,7 +317,4 @@ calls to libpng.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

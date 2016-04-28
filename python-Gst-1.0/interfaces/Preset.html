@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gst.TagSetter" href="TagSetter.html"/>
         <link rel="prev" title="Gst.ChildProxy" href="ChildProxy.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -302,19 +300,21 @@ on demand, if presets are not used, the list is not created.</p>
 <p>The interface comes with a default implementation that serves most plugins.
 Wrapper plugins will override most methods to implement support for the
 native preset format of those wrapped plugins.
-One method that is useful to be overridden is <a class="reference internal" href="#Gst.Preset.get_property_names" title="Gst.Preset.get_property_names"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Preset.get_property_names</span></code></a> ().
+One method that is useful to be overridden is <a class="reference internal" href="#Gst.Preset.get_property_names" title="Gst.Preset.get_property_names"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Preset.get_property_names</span></code></a>().
 With that one can control which properties are saved and in which order.
 When implementing support for read-only presets, one should set the vmethods
-for <a class="reference internal" href="#Gst.Preset.save_preset" title="Gst.Preset.save_preset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Preset.save_preset</span></code></a> () and <a class="reference internal" href="#Gst.Preset.delete_preset" title="Gst.Preset.delete_preset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Preset.delete_preset</span></code></a> () to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.
-Applications can use <a class="reference internal" href="#Gst.Preset.is_editable" title="Gst.Preset.is_editable"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Preset.is_editable</span></code></a> () to check for that.</p>
+for <a class="reference internal" href="#Gst.Preset.save_preset" title="Gst.Preset.save_preset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Preset.save_preset</span></code></a>() and <a class="reference internal" href="#Gst.Preset.delete_preset" title="Gst.Preset.delete_preset"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Preset.delete_preset</span></code></a>() to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.
+Applications can use <a class="reference internal" href="#Gst.Preset.is_editable" title="Gst.Preset.is_editable"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Preset.is_editable</span></code></a>() to check for that.</p>
 <p>The default implementation supports presets located in a system directory,
 application specific directory and in the users home directory. When getting
 a list of presets individual presets are read and overlaid in 1) system,
 2) application and 3) user order. Whenever an earlier entry is newer, the
-later entries will be updated.</p>
+later entries will be updated. Since 1.8 you can also provide extra paths
+where to find presets through the GST_PRESET_PATH environment variable.
+Presets found in those paths will be concidered as &#8220;app presets&#8221;.</p>
 <dl class="staticmethod">
 <dt id="Gst.Preset.get_app_dir">
-<em class="property">static </em><code class="descname">get_app_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n1163"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">get_app_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1239"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -332,7 +332,7 @@ application.</p>
 
 <dl class="staticmethod">
 <dt id="Gst.Preset.set_app_dir">
-<em class="property">static </em><code class="descname">set_app_dir</code><span class="sig-paren">(</span><em>app_dir</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n1140"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">static </em><code class="descname">set_app_dir</code><span class="sig-paren">(</span><em>app_dir</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1216"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -352,7 +352,7 @@ system presets.</p>
 
 <dl class="method">
 <dt id="Gst.Preset.delete_preset">
-<code class="descname">delete_preset</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n1072"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">delete_preset</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1148"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -370,7 +370,7 @@ system presets.</p>
 
 <dl class="method">
 <dt id="Gst.Preset.get_meta">
-<code class="descname">get_meta</code><span class="sig-paren">(</span><em>name</em>, <em>tag</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n1119"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_meta</code><span class="sig-paren">(</span><em>name</em>, <em>tag</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1195"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -405,12 +405,12 @@ something like e.g. &#8220;comment&#8221;. Returned values need to be released w
 
 <dl class="method">
 <dt id="Gst.Preset.get_preset_names">
-<code class="descname">get_preset_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n978"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_preset_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1054"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list with names, use <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a> () after usage.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list with names, use <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a>() after usage.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]</td>
 </tr>
@@ -421,13 +421,13 @@ something like e.g. &#8220;comment&#8221;. Returned values need to be released w
 
 <dl class="method">
 <dt id="Gst.Preset.get_property_names">
-<code class="descname">get_property_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n995"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_property_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1071"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an
-array of property names which should be freed with <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a> () after use.</td>
+array of property names which should be freed with <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a>() after use.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]</td>
 </tr>
@@ -438,7 +438,7 @@ array of property names which should be freed with <a class="reference external"
 
 <dl class="method">
 <dt id="Gst.Preset.is_editable">
-<code class="descname">is_editable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n1177"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_editable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1253"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -457,7 +457,7 @@ array of property names which should be freed with <a class="reference external"
 
 <dl class="method">
 <dt id="Gst.Preset.load_preset">
-<code class="descname">load_preset</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n1012"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">load_preset</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1088"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -475,7 +475,7 @@ array of property names which should be freed with <a class="reference external"
 
 <dl class="method">
 <dt id="Gst.Preset.rename_preset">
-<code class="descname">rename_preset</code><span class="sig-paren">(</span><em>old_name</em>, <em>new_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n1052"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">rename_preset</code><span class="sig-paren">(</span><em>old_name</em>, <em>new_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1128"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -500,7 +500,7 @@ overwritten.</p>
 
 <dl class="method">
 <dt id="Gst.Preset.save_preset">
-<code class="descname">save_preset</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n1031"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">save_preset</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1107"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -519,7 +519,7 @@ is already a preset by this <cite>name</cite> it will be overwritten.</p>
 
 <dl class="method">
 <dt id="Gst.Preset.set_meta">
-<code class="descname">set_meta</code><span class="sig-paren">(</span><em>name</em>, <em>tag</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.6.2#n1095"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_meta</code><span class="sig-paren">(</span><em>name</em>, <em>tag</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstpreset.c?h=1.8.1#n1171"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -604,7 +604,7 @@ something like e.g. &#8220;comment&#8221;. Returned values need to be released w
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list with names, use <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a> () after usage.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list with names, use <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a>() after usage.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]</td>
 </tr>
@@ -621,7 +621,7 @@ something like e.g. &#8220;comment&#8221;. Returned values need to be released w
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an
-array of property names which should be freed with <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a> () after use.</td>
+array of property names which should be freed with <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a>() after use.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>]</td>
 </tr>
@@ -735,7 +735,4 @@ data <cite>tag</cite> names can be something like e.g. &#8220;comment&#8221;. Su
   </div> 
 
 </body>
-
-  
-
 </html>

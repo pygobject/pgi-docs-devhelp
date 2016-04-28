@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Atk 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Atk.Document" href="Document.html"/>
         <link rel="prev" title="Atk.Action" href="Action.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -345,7 +343,7 @@ transparent background, in which case text glyph bounding box
 information is provided by <a class="reference internal" href="Text.html#Atk.Text" title="Atk.Text"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Text</span></code></a>.</p>
 <dl class="method">
 <dt id="Atk.Component.contains">
-<code class="descname">contains</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n205"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">contains</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n205"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -359,7 +357,7 @@ or to the components top level window</li>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> indicating whether the specified point is within
-the extent of the <cite>component</cite> or not</p>
+the extent of the <cite>self</cite> or not</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
@@ -367,7 +365,7 @@ the extent of the <cite>component</cite> or not</p>
 </tr>
 </tbody>
 </table>
-<p>Checks whether the specified point is within the extent of the <cite>component</cite>.</p>
+<p>Checks whether the specified point is within the extent of the <cite>self</cite>.</p>
 <p>Toolkit implementor note: ATK provides a default implementation for
 this virtual method. In general there are little reason to
 re-implement it.</p>
@@ -375,7 +373,7 @@ re-implement it.</p>
 
 <dl class="method">
 <dt id="Atk.Component.get_alpha">
-<code class="descname">get_alpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n436"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_alpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n436"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -387,7 +385,7 @@ re-implement it.</p>
 </tbody>
 </table>
 <p>Returns the alpha value (i.e. the opacity) for this
-<cite>component</cite>, on a scale from 0 (fully transparent) to 1.0
+<cite>self</cite>, on a scale from 0 (fully transparent) to 1.0
 (fully opaque).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.12.</span></p>
@@ -396,7 +394,7 @@ re-implement it.</p>
 
 <dl class="method">
 <dt id="Atk.Component.get_extents">
-<code class="descname">get_extents</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n268"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_extents</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n268"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -413,12 +411,12 @@ or to the components top level window</li>
 </tr>
 </tbody>
 </table>
-<p>Gets the rectangle which gives the extent of the <cite>component</cite>.</p>
+<p>Gets the rectangle which gives the extent of the <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Atk.Component.get_layer">
-<code class="descname">get_layer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n386"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_layer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n386"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -434,7 +432,7 @@ or to the components top level window</li>
 
 <dl class="method">
 <dt id="Atk.Component.get_mdi_zorder">
-<code class="descname">get_mdi_zorder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n411"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_mdi_zorder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n411"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -453,7 +451,7 @@ if the layer of the component is not <a class="reference internal" href="../enum
 
 <dl class="method">
 <dt id="Atk.Component.get_position">
-<code class="descname">get_position</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n316"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_position</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n316"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -468,37 +466,37 @@ or to the components top level window</li>
 </tr>
 </tbody>
 </table>
-<p>Gets the position of <cite>component</cite> in the form of
-a point specifying <cite>component</cite> &#8216;s top-left corner.</p>
+<p>Gets the position of <cite>self</cite> in the form of
+a point specifying <cite>self</cite>&#8216;s top-left corner.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Since 2.12. Use <a class="reference internal" href="#Atk.Component.get_extents" title="Atk.Component.get_extents"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Component.get_extents</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 2.12: </span>Use <a class="reference internal" href="#Atk.Component.get_extents" title="Atk.Component.get_extents"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Component.get_extents</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Atk.Component.get_size">
-<code class="descname">get_size</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n352"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_size</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n352"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; address of <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> to put width of <cite>component</cite></li>
-<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; address of <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> to put height of <cite>component</cite></li>
+<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; address of <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> to put width of <cite>self</cite></li>
+<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; address of <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a> to put height of <cite>self</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Gets the size of the <cite>component</cite> in terms of width and height.</p>
+<p>Gets the size of the <cite>self</cite> in terms of width and height.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Since 2.12. Use <a class="reference internal" href="#Atk.Component.get_extents" title="Atk.Component.get_extents"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Component.get_extents</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 2.12: </span>Use <a class="reference internal" href="#Atk.Component.get_extents" title="Atk.Component.get_extents"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Component.get_extents</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Atk.Component.grab_focus">
-<code class="descname">grab_focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n458"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">grab_focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n458"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -509,12 +507,12 @@ a point specifying <cite>component</cite> &#8216;s top-left corner.</p>
 </tr>
 </tbody>
 </table>
-<p>Grabs focus for this <cite>component</cite>.</p>
+<p>Grabs focus for this <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Atk.Component.ref_accessible_at_point">
-<code class="descname">ref_accessible_at_point</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n236"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">ref_accessible_at_point</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n236"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -542,13 +540,13 @@ coordinate point specified by <cite>x</cite> and <cite>y</cite>.</p>
 
 <dl class="method">
 <dt id="Atk.Component.remove_focus_handler">
-<code class="descname">remove_focus_handler</code><span class="sig-paren">(</span><em>handler_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n173"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_focus_handler</code><span class="sig-paren">(</span><em>handler_id</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n173"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>handler_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the handler id of the focus handler to be removed
-from <cite>component</cite></td>
+from <cite>self</cite></td>
 </tr>
 </tbody>
 </table>
@@ -562,7 +560,7 @@ functions to be executed when this object receives focus events
 
 <dl class="method">
 <dt id="Atk.Component.set_extents">
-<code class="descname">set_extents</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n491"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_extents</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n491"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -570,8 +568,8 @@ functions to be executed when this object receives focus events
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>x</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; x coordinate</li>
 <li><strong>y</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; y coordinate</li>
-<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; width to set for <cite>component</cite></li>
-<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; height to set for <cite>component</cite></li>
+<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; width to set for <cite>self</cite></li>
+<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; height to set for <cite>self</cite></li>
 <li><strong>coord_type</strong> (<a class="reference internal" href="../enums.html#Atk.CoordType" title="Atk.CoordType"><code class="xref py py-obj docutils literal"><span class="pre">Atk.CoordType</span></code></a>) &#8211; specifies whether the coordinates are relative to the screen
 or to the components top level window</li>
 </ul>
@@ -585,12 +583,12 @@ or to the components top level window</li>
 </tr>
 </tbody>
 </table>
-<p>Sets the extents of <cite>component</cite>.</p>
+<p>Sets the extents of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Atk.Component.set_position">
-<code class="descname">set_position</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n520"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_position</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>coord_type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n520"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -611,19 +609,19 @@ or to the components top level window</li>
 </tr>
 </tbody>
 </table>
-<p>Sets the postition of <cite>component</cite>.</p>
+<p>Sets the postition of <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Atk.Component.set_size">
-<code class="descname">set_size</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_18_0#n546"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_size</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/atk/tree/atk/atkcomponent.c?h=ATK_2_20_0#n546"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; width to set for <cite>component</cite></li>
-<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; height to set for <cite>component</cite></li>
+<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; width to set for <cite>self</cite></li>
+<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; height to set for <cite>self</cite></li>
 </ul>
 </td>
 </tr>
@@ -635,7 +633,7 @@ or to the components top level window</li>
 </tr>
 </tbody>
 </table>
-<p>Set the size of the <cite>component</cite> in terms of width and height.</p>
+<p>Set the size of the <cite>self</cite> in terms of width and height.</p>
 </dd></dl>
 
 <dl class="method">
@@ -777,9 +775,9 @@ or to the components top level window</li>
 </tbody>
 </table>
 <p>Gets the position of <cite>component</cite> in the form of
-a point specifying <cite>component</cite> &#8216;s top-left corner.</p>
+a point specifying <cite>component</cite>&#8216;s top-left corner.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Since 2.12. Use <a class="reference internal" href="#Atk.Component.get_extents" title="Atk.Component.get_extents"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Component.get_extents</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 2.12: </span>Use <a class="reference internal" href="#Atk.Component.get_extents" title="Atk.Component.get_extents"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Component.get_extents</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
@@ -800,7 +798,7 @@ a point specifying <cite>component</cite> &#8216;s top-left corner.</p>
 </table>
 <p>Gets the size of the <cite>component</cite> in terms of width and height.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version ???: </span>Since 2.12. Use <a class="reference internal" href="#Atk.Component.get_extents" title="Atk.Component.get_extents"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Component.get_extents</span></code></a> () instead.</p>
+<p><span class="versionmodified">Deprecated since version 2.12: </span>Use <a class="reference internal" href="#Atk.Component.get_extents" title="Atk.Component.get_extents"><code class="xref py py-obj docutils literal"><span class="pre">Atk.Component.get_extents</span></code></a>() instead.</p>
 </div>
 </dd></dl>
 
@@ -990,7 +988,4 @@ size of the component changes.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

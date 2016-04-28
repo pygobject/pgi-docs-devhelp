@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Soup 2.4 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Soup.Date" href="Date.html"/>
         <link rel="prev" title="Soup.ClientContext" href="ClientContext.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -330,7 +328,7 @@ cross-site scripting attacks.</p>
 </tbody>
 </table>
 <p>Creates a new <a class="reference internal" href="#Soup.Cookie" title="Soup.Cookie"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie</span></code></a> with the given attributes. (Use
-<a class="reference internal" href="#Soup.Cookie.set_secure" title="Soup.Cookie.set_secure"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_secure</span></code></a> () and <a class="reference internal" href="#Soup.Cookie.set_http_only" title="Soup.Cookie.set_http_only"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_http_only</span></code></a> () if you
+<a class="reference internal" href="#Soup.Cookie.set_secure" title="Soup.Cookie.set_secure"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_secure</span></code></a>() and <a class="reference internal" href="#Soup.Cookie.set_http_only" title="Soup.Cookie.set_http_only"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_http_only</span></code></a>() if you
 need to set those attributes on the returned cookie.)</p>
 <p>If <cite>domain</cite> starts with &#8221;.&#8221;, that indicates a domain (which matches
 the string after the &#8221;.&#8221;, or any hostname that has <cite>domain</cite> as a
@@ -343,7 +341,7 @@ lifetime in seconds. You can use the constants
 <a class="reference internal" href="../constants.html#Soup.COOKIE_MAX_AGE_ONE_WEEK" title="Soup.COOKIE_MAX_AGE_ONE_WEEK"><code class="xref py py-obj docutils literal"><span class="pre">Soup.COOKIE_MAX_AGE_ONE_WEEK</span></code></a> and <a class="reference internal" href="../constants.html#Soup.COOKIE_MAX_AGE_ONE_YEAR" title="Soup.COOKIE_MAX_AGE_ONE_YEAR"><code class="xref py py-obj docutils literal"><span class="pre">Soup.COOKIE_MAX_AGE_ONE_YEAR</span></code></a> (or
 multiples thereof) to calculate this value. (If you really care
 about setting the exact time that the cookie will expire, use
-<a class="reference internal" href="#Soup.Cookie.set_expires" title="Soup.Cookie.set_expires"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_expires</span></code></a> ().)</p>
+<a class="reference internal" href="#Soup.Cookie.set_expires" title="Soup.Cookie.set_expires"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_expires</span></code></a>().)</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -394,15 +392,15 @@ of the cookie.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uri</strong> (<a class="reference internal" href="URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a>) &#8211; a <a class="reference internal" href="URI.html#Soup.URI" title="Soup.URI"><code class="xref py py-obj docutils literal"><span class="pre">Soup.URI</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>cookie</cite> should be sent to <cite>uri</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>self</cite> should be sent to <cite>uri</cite>, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if
 not</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Tests if <cite>cookie</cite> should be sent to <cite>uri</cite>.</p>
-<p>(At the moment, this does not check that <cite>cookie</cite> &#8216;s domain matches
+<p>Tests if <cite>self</cite> should be sent to <cite>uri</cite>.</p>
+<p>(At the moment, this does not check that <cite>self</cite>&#8216;s domain matches
 <cite>uri</cite>, because it assumes that the caller has already done that.
 But don&#8217;t rely on that; it may change in the future.)</p>
 <div class="versionadded">
@@ -417,13 +415,13 @@ But don&#8217;t rely on that; it may change in the future.)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a copy of <cite>cookie</cite></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a copy of <cite>self</cite></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Soup.Cookie" title="Soup.Cookie"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Copies <cite>cookie</cite>.</p>
+<p>Copies <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -444,9 +442,9 @@ But don&#8217;t rely on that; it may change in the future.)</p>
 </tr>
 </tbody>
 </table>
-<p>Checks if the <cite>cookie</cite> &#8216;s domain and <cite>host</cite> match in the sense that
-<cite>cookie</cite> should be sent when making a request to <cite>host</cite>, or that
-<cite>cookie</cite> should be accepted when receiving a response from <cite>host</cite>.</p>
+<p>Checks if the <cite>self</cite>&#8216;s domain and <cite>host</cite> match in the sense that
+<cite>self</cite> should be sent when making a request to <cite>host</cite>, or that
+<cite>self</cite> should be accepted when receiving a response from <cite>host</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
 </div>
@@ -467,7 +465,7 @@ But don&#8217;t rely on that; it may change in the future.)</p>
 </tr>
 </tbody>
 </table>
-<p>Tests if <cite>cookie1</cite> and <cite>cookie2</cite> are equal.</p>
+<p>Tests if <cite>self</cite> and <cite>cookie2</cite> are equal.</p>
 <p>Note that currently, this does not check that the cookie domains
 match. This may change in the future.</p>
 <div class="versionadded">
@@ -478,7 +476,7 @@ match. This may change in the future.</p>
 <dl class="method">
 <dt id="Soup.Cookie.free">
 <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Frees <cite>cookie</cite></p>
+<dd><p>Frees <cite>self</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -491,13 +489,13 @@ match. This may change in the future.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>cookie</cite> &#8216;s domain</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s domain</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>cookie</cite> &#8216;s domain</p>
+<p>Gets <cite>self</cite>&#8216;s domain</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -510,14 +508,14 @@ match. This may change in the future.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>cookie</cite> &#8216;s expiration time, which is
-owned by <cite>cookie</cite> and should not be modified or freed.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s expiration time, which is
+owned by <cite>self</cite> and should not be modified or freed.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Date.html#Soup.Date" title="Soup.Date"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Date</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>cookie</cite> &#8216;s expiration time</p>
+<p>Gets <cite>self</cite>&#8216;s expiration time</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -530,13 +528,13 @@ owned by <cite>cookie</cite> and should not be modified or freed.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>cookie</cite> &#8216;s HttpOnly attribute</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s HttpOnly attribute</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>cookie</cite> &#8216;s HttpOnly attribute</p>
+<p>Gets <cite>self</cite>&#8216;s HttpOnly attribute</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -549,13 +547,13 @@ owned by <cite>cookie</cite> and should not be modified or freed.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>cookie</cite> &#8216;s name</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s name</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>cookie</cite> &#8216;s name</p>
+<p>Gets <cite>self</cite>&#8216;s name</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -568,13 +566,13 @@ owned by <cite>cookie</cite> and should not be modified or freed.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>cookie</cite> &#8216;s path</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s path</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>cookie</cite> &#8216;s path</p>
+<p>Gets <cite>self</cite>&#8216;s path</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -587,13 +585,13 @@ owned by <cite>cookie</cite> and should not be modified or freed.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>cookie</cite> &#8216;s secure attribute</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s secure attribute</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>cookie</cite> &#8216;s secure attribute</p>
+<p>Gets <cite>self</cite>&#8216;s secure attribute</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -606,13 +604,13 @@ owned by <cite>cookie</cite> and should not be modified or freed.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>cookie</cite> &#8216;s value</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>&#8216;s value</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Gets <cite>cookie</cite> &#8216;s value</p>
+<p>Gets <cite>self</cite>&#8216;s value</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
@@ -629,7 +627,7 @@ owned by <cite>cookie</cite> and should not be modified or freed.</td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>cookie</cite> &#8216;s domain to <cite>domain</cite></p>
+<p>Sets <cite>self</cite>&#8216;s domain to <cite>domain</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -646,10 +644,10 @@ owned by <cite>cookie</cite> and should not be modified or freed.</td>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>cookie</cite> &#8216;s expiration time to <cite>expires</cite>. If <cite>expires</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>,
-<cite>cookie</cite> will be a session cookie and will expire at the end of the
+<p>Sets <cite>self</cite>&#8216;s expiration time to <cite>expires</cite>. If <cite>expires</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>,
+<cite>self</cite> will be a session cookie and will expire at the end of the
 client&#8217;s session.</p>
-<p>(This sets the same property as <a class="reference internal" href="#Soup.Cookie.set_max_age" title="Soup.Cookie.set_max_age"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_max_age</span></code></a> ().)</p>
+<p>(This sets the same property as <a class="reference internal" href="#Soup.Cookie.set_max_age" title="Soup.Cookie.set_max_age"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_max_age</span></code></a>().)</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -666,7 +664,7 @@ client&#8217;s session.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>cookie</cite> &#8216;s HttpOnly attribute to <cite>http_only</cite>. If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, <cite>cookie</cite>
+<p>Sets <cite>self</cite>&#8216;s HttpOnly attribute to <cite>http_only</cite>. If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, <cite>self</cite>
 will be marked as &#8220;http only&#8221;, meaning it should not be exposed to
 web page scripts or other untrusted code.</p>
 <div class="versionadded">
@@ -685,7 +683,7 @@ web page scripts or other untrusted code.</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>cookie</cite> &#8216;s max age to <cite>max_age</cite>. If <cite>max_age</cite> is -1, the cookie
+<p>Sets <cite>self</cite>&#8216;s max age to <cite>max_age</cite>. If <cite>max_age</cite> is -1, the cookie
 is a session cookie, and will expire at the end of the client&#8217;s
 session. Otherwise, it is the number of seconds until the cookie
 expires. You can use the constants <a class="reference internal" href="../constants.html#Soup.COOKIE_MAX_AGE_ONE_HOUR" title="Soup.COOKIE_MAX_AGE_ONE_HOUR"><code class="xref py py-obj docutils literal"><span class="pre">Soup.COOKIE_MAX_AGE_ONE_HOUR</span></code></a>,
@@ -693,7 +691,7 @@ expires. You can use the constants <a class="reference internal" href="../consta
 <a class="reference internal" href="../constants.html#Soup.COOKIE_MAX_AGE_ONE_YEAR" title="Soup.COOKIE_MAX_AGE_ONE_YEAR"><code class="xref py py-obj docutils literal"><span class="pre">Soup.COOKIE_MAX_AGE_ONE_YEAR</span></code></a> (or multiples thereof) to calculate
 this value. (A value of 0 indicates that the cookie should be
 considered already-expired.)</p>
-<p>(This sets the same property as <a class="reference internal" href="#Soup.Cookie.set_expires" title="Soup.Cookie.set_expires"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_expires</span></code></a> ().)</p>
+<p>(This sets the same property as <a class="reference internal" href="#Soup.Cookie.set_expires" title="Soup.Cookie.set_expires"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Cookie.set_expires</span></code></a>().)</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -710,7 +708,7 @@ considered already-expired.)</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>cookie</cite> &#8216;s name to <cite>name</cite></p>
+<p>Sets <cite>self</cite>&#8216;s name to <cite>name</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -727,7 +725,7 @@ considered already-expired.)</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>cookie</cite> &#8216;s path to <cite>path</cite></p>
+<p>Sets <cite>self</cite>&#8216;s path to <cite>path</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -744,7 +742,7 @@ considered already-expired.)</p>
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>cookie</cite> &#8216;s secure attribute to <cite>secure</cite>. If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, <cite>cookie</cite> will
+<p>Sets <cite>self</cite>&#8216;s secure attribute to <cite>secure</cite>. If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, <cite>self</cite> will
 only be transmitted from the client to the server over secure
 (https) connections.</p>
 <div class="versionadded">
@@ -763,7 +761,7 @@ only be transmitted from the client to the server over secure
 </tr>
 </tbody>
 </table>
-<p>Sets <cite>cookie</cite> &#8216;s value to <cite>value</cite></p>
+<p>Sets <cite>self</cite>&#8216;s value to <cite>value</cite></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
 </div>
@@ -782,7 +780,7 @@ only be transmitted from the client to the server over secure
 </tr>
 </tbody>
 </table>
-<p>Serializes <cite>cookie</cite> in the format used by the Cookie header (ie, for
+<p>Serializes <cite>self</cite> in the format used by the Cookie header (ie, for
 returning a cookie from a <a class="reference internal" href="../classes/Session.html#Soup.Session" title="Soup.Session"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Session</span></code></a> to a server).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
@@ -802,7 +800,7 @@ returning a cookie from a <a class="reference internal" href="../classes/Session
 </tr>
 </tbody>
 </table>
-<p>Serializes <cite>cookie</cite> in the format used by the Set-Cookie header
+<p>Serializes <cite>self</cite> in the format used by the Set-Cookie header
 (ie, for sending a cookie from a <a class="reference internal" href="../classes/Server.html#Soup.Server" title="Soup.Server"><code class="xref py py-obj docutils literal"><span class="pre">Soup.Server</span></code></a> to a client).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.24.</span></p>
@@ -825,7 +823,4 @@ returning a cookie from a <a class="reference internal" href="../classes/Session
   </div> 
 
 </body>
-
-  
-
 </html>

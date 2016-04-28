@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="Cogl 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Classes" href="../classes/index.html"/>
         <link rel="prev" title="Interfaces" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -270,7 +268,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-1.0/../../../python-GLib-2.0/classes/GError.html#GLib.GError" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.GError</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the texture was successfully allocated,
 otherwise <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> and <cite>error</cite> will be updated if it
@@ -280,7 +278,7 @@ wasn&#8217;t <a class="reference external" href="http://docs.python.org/2.7/libr
 </tr>
 </tbody>
 </table>
-<p>Explicitly allocates the storage for the given <cite>texture</cite> which
+<p>Explicitly allocates the storage for the given <cite>self</cite> which
 allows you to be sure that there is enough memory for the
 texture and if not then the error can be handled gracefully.</p>
 <p>Normally applications don&#8217;t need to use this api directly
@@ -300,8 +298,8 @@ framebuffer and rendered too.</p>
 </tr>
 </tbody>
 </table>
-<p>Queries what components the given <cite>texture</cite> stores internally as set
-via <a class="reference internal" href="#Cogl.Texture.set_components" title="Cogl.Texture.set_components"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture.set_components</span></code></a> ().</p>
+<p>Queries what components the given <cite>self</cite> stores internally as set
+via <a class="reference internal" href="#Cogl.Texture.set_components" title="Cogl.Texture.set_components"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture.set_components</span></code></a>().</p>
 <p>For textures created by the ‘_with_size’ constructors the default
 is <a class="reference internal" href="../enums.html#Cogl.TextureComponents.RGBA" title="Cogl.TextureComponents.RGBA"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.TextureComponents.RGBA</span></code></a>. The other constructors which take
 a <a class="reference internal" href="../classes/Bitmap.html#Cogl.Bitmap" title="Cogl.Bitmap"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Bitmap</span></code></a> or a data pointer default to the same components as
@@ -322,8 +320,8 @@ the pixel format of the data.</p>
 <li><strong>format</strong> (<a class="reference internal" href="../enums.html#Cogl.PixelFormat" title="Cogl.PixelFormat"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PixelFormat</span></code></a>) &#8211; the <a class="reference internal" href="../enums.html#Cogl.PixelFormat" title="Cogl.PixelFormat"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PixelFormat</span></code></a> to store the texture as.</li>
 <li><strong>rowstride</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the rowstride of <cite>data</cite> in bytes or pass 0 to calculate
 from the bytes-per-pixel of <cite>format</cite> multiplied by the
-<cite>texture</cite> width.</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; memory location to write the <cite>texture</cite> &#8216;s contents, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
+<cite>self</cite> width.</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; memory location to write the <cite>self</cite>&#8216;s contents, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>
 to only query the data size through the return value.</li>
 </ul>
 </td>
@@ -423,8 +421,8 @@ value or <a class="reference external" href="http://docs.python.org/2.7/library/
 </tbody>
 </table>
 <p>Queries the pre-multiplied alpha status for internally stored red,
-green and blue components for the given <cite>texture</cite> as set by
-<a class="reference internal" href="#Cogl.Texture.set_premultiplied" title="Cogl.Texture.set_premultiplied"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture.set_premultiplied</span></code></a> ().</p>
+green and blue components for the given <cite>self</cite> as set by
+<a class="reference internal" href="#Cogl.Texture.set_premultiplied" title="Cogl.Texture.set_premultiplied"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Texture.set_premultiplied</span></code></a>().</p>
 <p>By default the pre-multipled state is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.18.</span></p>
@@ -546,9 +544,9 @@ converted.</p>
 <li><strong>dst_x</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; upper left destination horizontal coordinate.</li>
 <li><strong>dst_y</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; upper left destination vertical coordinate.</li>
 <li><strong>dst_width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; width of destination region to write. (Must be less
-than or equal to <cite>width</cite> )</li>
+than or equal to <cite>width</cite>)</li>
 <li><strong>dst_height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; height of destination region to write. (Must be less
-than or equal to <cite>height</cite> )</li>
+than or equal to <cite>height</cite>)</li>
 <li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; width of source data buffer.</li>
 <li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; height of source data buffer.</li>
 <li><strong>format</strong> (<a class="reference internal" href="../enums.html#Cogl.PixelFormat" title="Cogl.PixelFormat"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PixelFormat</span></code></a>) &#8211; the <a class="reference internal" href="../enums.html#Cogl.PixelFormat" title="Cogl.PixelFormat"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PixelFormat</span></code></a> used in the source buffer.</li>
@@ -567,7 +565,7 @@ specified)</li>
 </tr>
 </tbody>
 </table>
-<p>Sets the pixels in a rectangular subregion of <cite>texture</cite> from an in-memory
+<p>Sets the pixels in a rectangular subregion of <cite>self</cite> from an in-memory
 buffer containing pixel data.</p>
 <p>The region set can&#8217;t be larger than the source <cite>data</cite></p>
 </dd></dl>
@@ -588,7 +586,4 @@ buffer containing pixel data.</p>
   </div> 
 
 </body>
-
-  
-
 </html>

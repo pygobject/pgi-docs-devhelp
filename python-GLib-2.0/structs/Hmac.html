@@ -34,14 +34,12 @@
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
   
+
+  
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.Hook" href="Hook.html"/>
         <link rel="prev" title="GLib.HashTableIter" href="HashTableIter.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -176,14 +174,14 @@
 <dt id="GLib.Hmac">
 <em class="property">class </em><code class="descclassname">GLib.</code><code class="descname">Hmac</code></dt>
 <dd><p>An opaque structure representing a HMAC operation.
-To create a new <a class="reference internal" href="#GLib.Hmac" title="GLib.Hmac"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac</span></code></a>, use <code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac.new</span></code> (). To free
-a <a class="reference internal" href="#GLib.Hmac" title="GLib.Hmac"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac</span></code></a>, use <a class="reference internal" href="#GLib.Hmac.unref" title="GLib.Hmac.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac.unref</span></code></a> ().</p>
+To create a new <a class="reference internal" href="#GLib.Hmac" title="GLib.Hmac"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac</span></code></a>, use g_hmac_new(). To free
+a <a class="reference internal" href="#GLib.Hmac" title="GLib.Hmac"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac</span></code></a>, use <a class="reference internal" href="#GLib.Hmac.unref" title="GLib.Hmac.unref"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac.unref</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
 </div>
 <dl class="method">
 <dt id="GLib.Hmac.get_digest">
-<code class="descname">get_digest</code><span class="sig-paren">(</span><em>buffer</em>, <em>digest_len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghmac.c?h=2.46.2#n316"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_digest</code><span class="sig-paren">(</span><em>buffer</em>, <em>digest_len</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghmac.c?h=2.48.0#n316"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -200,7 +198,7 @@ size of <cite>buffer</cite>. After the call it contains the length of the digest
 <p>Gets the digest from <cite>checksum</cite> as a raw binary array and places it
 into <cite>buffer</cite>. The size of the digest depends on the type of checksum.</p>
 <p>Once this function has been called, the <a class="reference internal" href="#GLib.Hmac" title="GLib.Hmac"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac</span></code></a> is closed and can
-no longer be updated with <a class="reference internal" href="Checksum.html#GLib.Checksum.update" title="GLib.Checksum.update"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Checksum.update</span></code></a> ().</p>
+no longer be updated with <a class="reference internal" href="Checksum.html#GLib.Checksum.update" title="GLib.Checksum.update"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Checksum.update</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
 </div>
@@ -208,7 +206,7 @@ no longer be updated with <a class="reference internal" href="Checksum.html#GLib
 
 <dl class="method">
 <dt id="GLib.Hmac.get_string">
-<code class="descname">get_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghmac.c?h=2.46.2#n280"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghmac.c?h=2.48.0#n280"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -223,7 +221,7 @@ or freed.</td>
 </table>
 <p>Gets the HMAC as an hexadecimal string.</p>
 <p>Once this function has been called the <a class="reference internal" href="#GLib.Hmac" title="GLib.Hmac"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac</span></code></a> can no longer be
-updated with <a class="reference internal" href="#GLib.Hmac.update" title="GLib.Hmac.update"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac.update</span></code></a> ().</p>
+updated with <a class="reference internal" href="#GLib.Hmac.update" title="GLib.Hmac.update"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac.update</span></code></a>().</p>
 <p>The hexadecimal characters will be lower case.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
@@ -232,12 +230,12 @@ updated with <a class="reference internal" href="#GLib.Hmac.update" title="GLib.
 
 <dl class="method">
 <dt id="GLib.Hmac.unref">
-<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghmac.c?h=2.46.2#n227"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Atomically decrements the reference count of <cite>hmac</cite> by one.</p>
+<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghmac.c?h=2.48.0#n227"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Atomically decrements the reference count of <cite>self</cite> by one.</p>
 <p>If the reference count drops to 0, all keys and values will be
 destroyed, and all memory allocated by the hash table is released.
 This function is MT-safe and may be called from any thread.
-Frees the memory allocated for <cite>hmac</cite>.</p>
+Frees the memory allocated for <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
 </div>
@@ -245,7 +243,7 @@ Frees the memory allocated for <cite>hmac</cite>.</p>
 
 <dl class="method">
 <dt id="GLib.Hmac.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghmac.c?h=2.46.2#n255"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">update</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghmac.c?h=2.48.0#n255"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -255,8 +253,8 @@ Frees the memory allocated for <cite>hmac</cite>.</p>
 </tbody>
 </table>
 <p>Feeds <cite>data</cite> into an existing <a class="reference internal" href="#GLib.Hmac" title="GLib.Hmac"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac</span></code></a>.</p>
-<p>The HMAC must still be open, that is <a class="reference internal" href="#GLib.Hmac.get_string" title="GLib.Hmac.get_string"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac.get_string</span></code></a> () or
-<a class="reference internal" href="#GLib.Hmac.get_digest" title="GLib.Hmac.get_digest"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac.get_digest</span></code></a> () must not have been called on <cite>hmac</cite>.</p>
+<p>The HMAC must still be open, that is <a class="reference internal" href="#GLib.Hmac.get_string" title="GLib.Hmac.get_string"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac.get_string</span></code></a>() or
+<a class="reference internal" href="#GLib.Hmac.get_digest" title="GLib.Hmac.get_digest"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Hmac.get_digest</span></code></a>() must not have been called on <cite>self</cite>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.30.</span></p>
 </div>
@@ -278,7 +276,4 @@ Frees the memory allocated for <cite>hmac</cite>.</p>
   </div> 
 
 </body>
-
-  
-
 </html>
