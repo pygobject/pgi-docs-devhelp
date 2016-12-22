@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gst.CapsFeatures" href="CapsFeatures.html"/>
@@ -143,7 +146,7 @@
 <h1>Gst.Caps</h1>
 <div class="section" id="fields">
 <span id="gst-caps-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -168,22 +171,22 @@
 </div>
 <div class="section" id="methods">
 <span id="gst-caps-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Caps.from_string" title="Gst.Caps.from_string"><code class="xref py py-obj docutils literal"><span class="pre">from_string</span></code></a> (string)</td>
 </tr>
-<tr class="row-even"><td><em>static</em></td>
+<tr class="row-even"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Caps.new_any" title="Gst.Caps.new_any"><code class="xref py py-obj docutils literal"><span class="pre">new_any</span></code></a> ()</td>
 </tr>
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Caps.new_empty" title="Gst.Caps.new_empty"><code class="xref py py-obj docutils literal"><span class="pre">new_empty</span></code></a> ()</td>
 </tr>
-<tr class="row-even"><td><em>static</em></td>
+<tr class="row-even"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Caps.new_empty_simple" title="Gst.Caps.new_empty_simple"><code class="xref py py-obj docutils literal"><span class="pre">new_empty_simple</span></code></a> (media_type)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
@@ -311,7 +314,7 @@ a description of the <a class="reference internal" href="../classes/Element.html
 function. This function describes the possible types that the pad can
 handle or produce at runtime.</p>
 <p>A <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> can be constructed with the following code fragment:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">GstCaps</span> <span class="o">*</span><span class="n">caps</span> <span class="o">=</span> <span class="n">gst_caps_new_simple</span> <span class="p">(</span><span class="s">&quot;video/x-raw&quot;</span><span class="p">,</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">GstCaps</span> <span class="o">*</span><span class="n">caps</span> <span class="o">=</span> <span class="n">gst_caps_new_simple</span> <span class="p">(</span><span class="s">&quot;video/x-raw&quot;</span><span class="p">,</span>
 <span class="s">&quot;format&quot;</span><span class="p">,</span> <span class="n">G_TYPE_STRING</span><span class="p">,</span> <span class="s">&quot;I420&quot;</span><span class="p">,</span>
 <span class="s">&quot;framerate&quot;</span><span class="p">,</span> <span class="n">GST_TYPE_FRACTION</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
 <span class="s">&quot;pixel-aspect-ratio&quot;</span><span class="p">,</span> <span class="n">GST_TYPE_FRACTION</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
@@ -330,9 +333,9 @@ has limited support for nested <a class="reference internal" href="#Gst.Caps" ti
 support one level of nesting. Using more levels will lead to unexpected
 behavior when using serialization features, such as <a class="reference internal" href="#Gst.Caps.to_string" title="Gst.Caps.to_string"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps.to_string</span></code></a>() or
 <a class="reference internal" href="../functions.html#Gst.value_serialize" title="Gst.value_serialize"><code class="xref py py-obj docutils literal"><span class="pre">Gst.value_serialize</span></code></a>() and their counterparts.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Caps.from_string">
-<em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2352"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n2364"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -350,9 +353,9 @@ behavior when using serialization features, such as <a class="reference internal
 when there are nested <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> / <a class="reference internal" href="Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a> deeper than one level.</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Caps.new_any">
-<em class="property">static </em><code class="descname">new_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n263"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n272"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -367,9 +370,9 @@ when there are nested <a class="reference internal" href="#Gst.Caps" title="Gst.
 any media format.</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Caps.new_empty">
-<em class="property">static </em><code class="descname">new_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n239"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n248"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -386,9 +389,9 @@ The <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><code class=
 Caller is responsible for unreffing the returned caps.</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Caps.new_empty_simple">
-<em class="property">static </em><code class="descname">new_empty_simple</code><span class="sig-paren">(</span><em>media_type</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n283"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_empty_simple</code><span class="sig-paren">(</span><em>media_type</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n292"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -408,7 +411,7 @@ Caller is responsible for unreffing the returned caps.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.append">
-<code class="descname">append</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n526"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">append</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n538"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -424,7 +427,7 @@ freed. If either caps is ANY, the resulting caps will be ANY.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.append_structure">
-<code class="descname">append_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n614"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">append_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n626"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -439,7 +442,7 @@ becomes the owner of <cite>structure</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.append_structure_full">
-<code class="descname">append_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n637"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">append_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n649"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -461,7 +464,7 @@ becomes the owner of <cite>structure</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.can_intersect">
-<code class="descname">can_intersect</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1409"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">can_intersect</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1421"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -480,7 +483,7 @@ be empty</p>
 
 <dl class="method">
 <dt id="Gst.Caps.copy_nth">
-<code class="descname">copy_nth</code><span class="sig-paren">(</span><em>nth</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n925"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy_nth</code><span class="sig-paren">(</span><em>nth</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n937"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -499,7 +502,7 @@ contained in <cite>self</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.filter_and_map_in_place">
-<code class="descname">filter_and_map_in_place</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2492"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">filter_and_map_in_place</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n2504"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -525,7 +528,7 @@ The caps must be mutable.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.fixate">
-<code class="descname">fixate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2137"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">fixate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n2149"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -546,7 +549,7 @@ reference to it with gst_caps_ref().</p>
 
 <dl class="method">
 <dt id="Gst.Caps.foreach">
-<code class="descname">foreach</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2403"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">foreach</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n2415"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -576,7 +579,7 @@ Also see <a class="reference internal" href="#Gst.Caps.map_in_place" title="Gst.
 
 <dl class="method">
 <dt id="Gst.Caps.get_features">
-<code class="descname">get_features</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n850"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_features</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n862"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -609,7 +612,7 @@ belongs to the <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><
 
 <dl class="method">
 <dt id="Gst.Caps.get_size">
-<code class="descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n785"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n798"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -625,7 +628,7 @@ belongs to the <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><
 
 <dl class="method">
 <dt id="Gst.Caps.get_structure">
-<code class="descname">get_structure</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n816"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_structure</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n828"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -655,7 +658,7 @@ belongs to the <a class="reference internal" href="#Gst.Caps" title="Gst.Caps"><
 
 <dl class="method">
 <dt id="Gst.Caps.intersect">
-<code class="descname">intersect</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1684"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">intersect</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1696"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -674,7 +677,7 @@ to both <cite>self</cite> and <cite>caps2</cite>. Defaults to <a class="referenc
 
 <dl class="method">
 <dt id="Gst.Caps.intersect_full">
-<code class="descname">intersect_full</code><span class="sig-paren">(</span><em>caps2</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1656"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">intersect_full</code><span class="sig-paren">(</span><em>caps2</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1668"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -700,7 +703,7 @@ used.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_always_compatible">
-<code class="descname">is_always_compatible</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1182"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_always_compatible</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1194"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -720,7 +723,7 @@ second.  That is, <cite>self</cite> is a subset of <cite>caps2</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_any">
-<code class="descname">is_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1075"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_any</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1088"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -736,7 +739,7 @@ second.  That is, <cite>self</cite> is a subset of <cite>caps2</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_empty">
-<code class="descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1091"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1104"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -752,7 +755,7 @@ second.  That is, <cite>self</cite> is a subset of <cite>caps2</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_equal">
-<code class="descname">is_equal</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1338"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_equal</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1350"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -770,7 +773,7 @@ second.  That is, <cite>self</cite> is a subset of <cite>caps2</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_equal_fixed">
-<code class="descname">is_equal_fixed</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1149"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_equal_fixed</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1161"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -789,7 +792,7 @@ second.  That is, <cite>self</cite> is a subset of <cite>caps2</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_fixed">
-<code class="descname">is_fixed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1123"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_fixed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1135"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -807,7 +810,7 @@ Examples of non-fixed types are GST_TYPE_INT_RANGE and GST_TYPE_LIST.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_strictly_equal">
-<code class="descname">is_strictly_equal</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1362"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_strictly_equal</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1374"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -825,7 +828,7 @@ Examples of non-fixed types are GST_TYPE_INT_RANGE and GST_TYPE_LIST.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_subset">
-<code class="descname">is_subset</code><span class="sig-paren">(</span><em>superset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1200"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_subset</code><span class="sig-paren">(</span><em>superset</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1212"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -843,7 +846,7 @@ Examples of non-fixed types are GST_TYPE_INT_RANGE and GST_TYPE_LIST.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_subset_structure">
-<code class="descname">is_subset_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1256"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_subset_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1268"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -862,7 +865,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.is_subset_structure_full">
-<code class="descname">is_subset_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1295"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_subset_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1307"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -890,7 +893,7 @@ for more information.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.map_in_place">
-<code class="descname">map_in_place</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2437"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">map_in_place</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n2449"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -920,7 +923,7 @@ delete the structures and features. The caps must be mutable.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.merge">
-<code class="descname">merge</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n564"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">merge</code><span class="sig-paren">(</span><em>caps2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n576"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -941,7 +944,7 @@ If either caps is ANY, the resulting caps will be ANY.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.merge_structure">
-<code class="descname">merge_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n678"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">merge_structure</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n690"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -959,7 +962,7 @@ If either caps is ANY, the resulting caps will be ANY.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.merge_structure_full">
-<code class="descname">merge_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n729"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">merge_structure_full</code><span class="sig-paren">(</span><em>structure</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n741"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -986,7 +989,7 @@ If either caps is ANY, the resulting caps will be ANY.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.normalize">
-<code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1900"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1912"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1007,7 +1010,7 @@ reference to it with gst_caps_ref().</p>
 
 <dl class="method">
 <dt id="Gst.Caps.remove_structure">
-<code class="descname">remove_structure</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n656"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_structure</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n668"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1022,7 +1025,7 @@ contained in <cite>self</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.set_features">
-<code class="descname">set_features</code><span class="sig-paren">(</span><em>index</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n895"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_features</code><span class="sig-paren">(</span><em>index</em>, <em>features</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n907"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1043,14 +1046,14 @@ contained in <cite>self</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.set_value">
-<code class="descname">set_value</code><span class="sig-paren">(</span><em>field</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n992"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>field</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1004"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>field</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; name of the field to set</li>
-<li><strong>value</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; value to set the field to</li>
+<li><strong>value</strong> (<a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; value to set the field to</li>
 </ul>
 </td>
 </tr>
@@ -1063,7 +1066,7 @@ all structures of <cite>self</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.simplify">
-<code class="descname">simplify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2061"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">simplify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n2073"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1086,7 +1089,7 @@ additional reference to it with gst_caps_ref().</p>
 
 <dl class="method">
 <dt id="Gst.Caps.steal_structure">
-<code class="descname">steal_structure</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n505"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">steal_structure</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n517"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1106,7 +1109,7 @@ contained in <cite>self</cite>. The caller becomes the owner of the returned str
 
 <dl class="method">
 <dt id="Gst.Caps.subtract">
-<code class="descname">subtract</code><span class="sig-paren">(</span><em>subtrahend</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n1763"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">subtract</code><span class="sig-paren">(</span><em>subtrahend</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n1775"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1126,7 +1129,7 @@ are included on one caps and omitted on the other.</p>
 
 <dl class="method">
 <dt id="Gst.Caps.to_string">
-<code class="descname">to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n2187"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n2199"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1148,7 +1151,7 @@ when there are nested <a class="reference internal" href="#Gst.Caps" title="Gst.
 
 <dl class="method">
 <dt id="Gst.Caps.truncate">
-<code class="descname">truncate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.8.1#n961"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">truncate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstcaps.c?h=1.10.2#n973"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

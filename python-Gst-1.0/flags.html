@@ -34,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Gst 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Enums" href="enums.html"/>
         <link rel="prev" title="Gst.URIHandlerInterface" href="iface-structs/URIHandlerInterface.html"/> 
@@ -162,6 +165,7 @@
 <li><a class="reference internal" href="#Gst.SeekFlags" title="Gst.SeekFlags"><code class="xref py py-class docutils literal"><span class="pre">Gst.SeekFlags</span></code></a></li>
 <li><a class="reference internal" href="#Gst.SegmentFlags" title="Gst.SegmentFlags"><code class="xref py py-class docutils literal"><span class="pre">Gst.SegmentFlags</span></code></a></li>
 <li><a class="reference internal" href="#Gst.StreamFlags" title="Gst.StreamFlags"><code class="xref py py-class docutils literal"><span class="pre">Gst.StreamFlags</span></code></a></li>
+<li><a class="reference internal" href="#Gst.StreamType" title="Gst.StreamType"><code class="xref py py-class docutils literal"><span class="pre">Gst.StreamType</span></code></a></li>
 <li><a class="reference internal" href="#Gst.TracerValueFlags" title="Gst.TracerValueFlags"><code class="xref py py-class docutils literal"><span class="pre">Gst.TracerValueFlags</span></code></a></li>
 </ul>
 <div class="section" id="details">
@@ -169,7 +173,7 @@
 <dl class="class">
 <dt id="Gst.AllocatorFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">AllocatorFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flags for allocators.</p>
 <dl class="attribute">
 <dt id="Gst.AllocatorFlags.LAST">
@@ -188,7 +192,7 @@
 <dl class="class">
 <dt id="Gst.BinFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">BinFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p><a class="reference internal" href="#Gst.BinFlags" title="Gst.BinFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BinFlags</span></code></a> are a set of flags specific to bins. Most are set/used
 internally. They can be checked using the GST_OBJECT_FLAG_IS_SET () macro,
 and (un)set using GST_OBJECT_FLAG_SET () and GST_OBJECT_FLAG_UNSET ().</p>
@@ -197,6 +201,14 @@ and (un)set using GST_OBJECT_FLAG_SET () and GST_OBJECT_FLAG_UNSET ().</p>
 <code class="descname">NO_RESYNC</code><em class="property"> = 16384</em></dt>
 <dd><p>don&#8217;t resync a state change when elements are
 added or linked in the bin (Since 1.0.5)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gst.BinFlags.STREAMS_AWARE">
+<code class="descname">STREAMS_AWARE</code><em class="property"> = 32768</em></dt>
+<dd><p>Indicates whether the bin can handle elements
+that add/remove source pads at any point in time without
+first posting a no-more-pads signal (Since 1.10)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -211,7 +223,7 @@ Derived classes can use this as first value in a list of flags.</p>
 <dl class="class">
 <dt id="Gst.BufferCopyFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">BufferCopyFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>A set of flags that can be provided to the <a class="reference internal" href="structs/Buffer.html#Gst.Buffer.copy_into" title="Gst.Buffer.copy_into"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer.copy_into</span></code></a>()
 function to specify which items should be copied.</p>
 <dl class="attribute">
@@ -268,7 +280,7 @@ Add <a class="reference internal" href="#Gst.BufferCopyFlags.DEEP" title="Gst.Bu
 <dl class="class">
 <dt id="Gst.BufferFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">BufferFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>A set of buffer flags used to describe properties of a <a class="reference internal" href="structs/Buffer.html#Gst.Buffer" title="Gst.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>.</p>
 <dl class="attribute">
 <dt id="Gst.BufferFlags.HEADER">
@@ -371,7 +383,7 @@ from a live or network source.</p>
 <dl class="class">
 <dt id="Gst.BufferPoolAcquireFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">BufferPoolAcquireFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Additional flags to control the allocation of a buffer</p>
 <dl class="attribute">
 <dt id="Gst.BufferPoolAcquireFlags.NONE">
@@ -411,7 +423,7 @@ starting from this value.</p>
 <dl class="class">
 <dt id="Gst.BusFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">BusFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>The standard flags that a bus may have.</p>
 <dl class="attribute">
 <dt id="Gst.BusFlags.FLUSHING">
@@ -430,7 +442,7 @@ starting from this value.</p>
 <dl class="class">
 <dt id="Gst.CapsFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">CapsFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Extra flags for a caps.</p>
 <dl class="attribute">
 <dt id="Gst.CapsFlags.ANY">
@@ -444,7 +456,7 @@ anything.</p>
 <dl class="class">
 <dt id="Gst.ClockFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">ClockFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>The capabilities of this clock</p>
 <dl class="attribute">
 <dt id="Gst.ClockFlags.NEEDS_STARTUP_SYNC">
@@ -500,7 +512,7 @@ anything.</p>
 <dl class="class">
 <dt id="Gst.DebugGraphDetails">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">DebugGraphDetails</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Available details for pipeline graphs produced by GST_DEBUG_BIN_TO_DOT_FILE()
 and GST_DEBUG_BIN_TO_DOT_FILE_WITH_TS().</p>
 <dl class="attribute">
@@ -553,7 +565,7 @@ elements</p>
 <dl class="class">
 <dt id="Gst.ElementFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">ElementFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>The standard flags that an element may have.</p>
 <dl class="attribute">
 <dt id="Gst.ElementFlags.PROVIDE_CLOCK">
@@ -602,7 +614,7 @@ elements</p>
 <dl class="class">
 <dt id="Gst.EventTypeFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">EventTypeFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p><a class="reference internal" href="#Gst.EventTypeFlags" title="Gst.EventTypeFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.EventTypeFlags</span></code></a> indicate the aspects of the different <a class="reference internal" href="enums.html#Gst.EventType" title="Gst.EventType"><code class="xref py py-obj docutils literal"><span class="pre">Gst.EventType</span></code></a>
 values. You can get the type flags of a <a class="reference internal" href="enums.html#Gst.EventType" title="Gst.EventType"><code class="xref py py-obj docutils literal"><span class="pre">Gst.EventType</span></code></a> with the
 <a class="reference internal" href="enums.html#Gst.EventType.get_flags" title="Gst.EventType.get_flags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.EventType.get_flags</span></code></a>() function.</p>
@@ -643,7 +655,7 @@ flow.</p>
 <dl class="class">
 <dt id="Gst.LockFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">LockFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flags used when locking miniobjects</p>
 <dl class="attribute">
 <dt id="Gst.LockFlags.READ">
@@ -674,7 +686,7 @@ flow.</p>
 <dl class="class">
 <dt id="Gst.MapFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">MapFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flags used when mapping memory</p>
 <dl class="attribute">
 <dt id="Gst.MapFlags.READ">
@@ -699,7 +711,7 @@ flow.</p>
 <dl class="class">
 <dt id="Gst.MemoryFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">MemoryFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flags for wrapped memory.</p>
 <dl class="attribute">
 <dt id="Gst.MemoryFlags.LAST">
@@ -750,12 +762,41 @@ memory with <a class="reference internal" href="#Gst.MapFlags.WRITE" title="Gst.
 <dl class="class">
 <dt id="Gst.MessageType">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">MessageType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>The different message types that are available.</p>
 <dl class="attribute">
 <dt id="Gst.MessageType.ANY">
 <code class="descname">ANY</code><em class="property"> = -1</em></dt>
 <dd><p>mask for all of the above messages.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gst.MessageType.REDIRECT">
+<code class="descname">REDIRECT</code><em class="property"> = -2147483642</em></dt>
+<dd><p>Message indicating to request the application to
+try to play the given URL(s). Useful if for example a HTTP 302/303
+response is received with a non-HTTP URL inside. (Since 1.10)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gst.MessageType.STREAMS_SELECTED">
+<code class="descname">STREAMS_SELECTED</code><em class="property"> = -2147483643</em></dt>
+<dd><p>Message indicating the active selection of
+<a class="reference internal" href="classes/Stream.html#Gst.Stream" title="Gst.Stream"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Streams</span></code></a> has changed (Since 1.10)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gst.MessageType.STREAM_COLLECTION">
+<code class="descname">STREAM_COLLECTION</code><em class="property"> = -2147483644</em></dt>
+<dd><p>Message indicating a new <a class="reference internal" href="classes/StreamCollection.html#Gst.StreamCollection" title="Gst.StreamCollection"><code class="xref py py-obj docutils literal"><span class="pre">Gst.StreamCollection</span></code></a>
+is available (Since 1.10)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gst.MessageType.PROPERTY_NOTIFY">
+<code class="descname">PROPERTY_NOTIFY</code><em class="property"> = -2147483645</em></dt>
+<dd><p>Message indicating a <a class="reference external" href="../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> property has
+changed (Since 1.10)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1018,7 +1059,7 @@ stops, errors, etc..</p>
 <dl class="class">
 <dt id="Gst.MetaFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">MetaFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Extra metadata flags.</p>
 <dl class="attribute">
 <dt id="Gst.MetaFlags.NONE">
@@ -1055,7 +1096,7 @@ stops, errors, etc..</p>
 <dl class="class">
 <dt id="Gst.MiniObjectFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">MiniObjectFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flags for the mini object</p>
 <dl class="attribute">
 <dt id="Gst.MiniObjectFlags.LOCKABLE">
@@ -1077,13 +1118,29 @@ stops, errors, etc..</p>
 READONLY mode. Only read locks can be performed on the object.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="Gst.MiniObjectFlags.MAY_BE_LEAKED">
+<code class="descname">MAY_BE_LEAKED</code><em class="property"> = 4</em></dt>
+<dd><p>the object is expected to stay alive
+even after <a class="reference internal" href="functions.html#Gst.deinit" title="Gst.deinit"><code class="xref py py-obj docutils literal"><span class="pre">Gst.deinit</span></code></a>() has been called and so should be ignored by leak
+detection tools. (Since 1.10)</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="Gst.ObjectFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">ObjectFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>The standard flags that an gstobject may have.</p>
+<dl class="attribute">
+<dt id="Gst.ObjectFlags.MAY_BE_LEAKED">
+<code class="descname">MAY_BE_LEAKED</code><em class="property"> = 1</em></dt>
+<dd><p>the object is expected to stay alive even
+after <a class="reference internal" href="functions.html#Gst.deinit" title="Gst.deinit"><code class="xref py py-obj docutils literal"><span class="pre">Gst.deinit</span></code></a>() has been called and so should be ignored by leak
+detection tools. (Since 1.10)</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="Gst.ObjectFlags.LAST">
 <code class="descname">LAST</code><em class="property"> = 16</em></dt>
@@ -1095,7 +1152,7 @@ READONLY mode. Only read locks can be performed on the object.</p>
 <dl class="class">
 <dt id="Gst.PadFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">PadFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Pad state flags</p>
 <dl class="attribute">
 <dt id="Gst.PadFlags.PENDING_EVENTS">
@@ -1203,7 +1260,7 @@ instead of discarding them.</p>
 <dl class="class">
 <dt id="Gst.PadLinkCheck">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">PadLinkCheck</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>The amount of checking to be done when linking pads. <a class="reference internal" href="#Gst.PadLinkCheck.CAPS" title="Gst.PadLinkCheck.CAPS"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadLinkCheck.CAPS</span></code></a>
 and <a class="reference internal" href="#Gst.PadLinkCheck.TEMPLATE_CAPS" title="Gst.PadLinkCheck.TEMPLATE_CAPS"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadLinkCheck.TEMPLATE_CAPS</span></code></a> are mutually exclusive. If both are
 specified, expensive but safe <a class="reference internal" href="#Gst.PadLinkCheck.CAPS" title="Gst.PadLinkCheck.CAPS"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadLinkCheck.CAPS</span></code></a> are performed.</p>
@@ -1252,7 +1309,7 @@ pads (i.e. the ones used by <a class="reference internal" href="classes/Pad.html
 <dl class="class">
 <dt id="Gst.PadProbeType">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">PadProbeType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>The different probing types that can occur. When either one of
 <a class="reference internal" href="#Gst.PadProbeType.IDLE" title="Gst.PadProbeType.IDLE"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeType.IDLE</span></code></a> or <a class="reference internal" href="#Gst.PadProbeType.BLOCK" title="Gst.PadProbeType.BLOCK"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PadProbeType.BLOCK</span></code></a> is used, the probe will be a
 blocking probe.</p>
@@ -1265,7 +1322,7 @@ blocking probe.</p>
 <dl class="attribute">
 <dt id="Gst.PadProbeType.IDLE">
 <code class="descname">IDLE</code><em class="property"> = 1</em></dt>
-<dd><p>probe idle pads and block</p>
+<dd><p>probe idle pads and block while the callback is called</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1396,7 +1453,7 @@ explicitly enabled and is not included in the
 <dl class="class">
 <dt id="Gst.PadTemplateFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">PadTemplateFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flags for the padtemplate</p>
 <dl class="attribute">
 <dt id="Gst.PadTemplateFlags.LAST">
@@ -1409,7 +1466,7 @@ explicitly enabled and is not included in the
 <dl class="class">
 <dt id="Gst.ParseFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">ParseFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Parsing options.</p>
 <dl class="attribute">
 <dt id="Gst.ParseFlags.NONE">
@@ -1432,12 +1489,20 @@ in some cases)</p>
 just return the element.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="Gst.ParseFlags.PLACE_IN_BIN">
+<code class="descname">PLACE_IN_BIN</code><em class="property"> = 4</em></dt>
+<dd><p>If more than one toplevel element is described
+by the pipeline description string, put them in a <a class="reference internal" href="classes/Bin.html#Gst.Bin" title="Gst.Bin"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Bin</span></code></a> instead of a
+<a class="reference internal" href="classes/Pipeline.html#Gst.Pipeline" title="Gst.Pipeline"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pipeline</span></code></a>. (Since 1.10)</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="Gst.PipelineFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">PipelineFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Pipeline flags</p>
 <dl class="attribute">
 <dt id="Gst.PipelineFlags.FIXED_CLOCK">
@@ -1456,7 +1521,7 @@ just return the element.</p>
 <dl class="class">
 <dt id="Gst.PluginDependencyFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">PluginDependencyFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flags used in connection with <a class="reference internal" href="classes/Plugin.html#Gst.Plugin.add_dependency" title="Gst.Plugin.add_dependency"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Plugin.add_dependency</span></code></a>().</p>
 <dl class="attribute">
 <dt id="Gst.PluginDependencyFlags.NONE">
@@ -1501,7 +1566,7 @@ the directory.</p>
 <dl class="class">
 <dt id="Gst.PluginFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">PluginFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>The plugin loading state</p>
 <dl class="attribute">
 <dt id="Gst.PluginFlags.CACHED">
@@ -1520,7 +1585,7 @@ the directory.</p>
 <dl class="class">
 <dt id="Gst.QueryTypeFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">QueryTypeFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p><a class="reference internal" href="#Gst.QueryTypeFlags" title="Gst.QueryTypeFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.QueryTypeFlags</span></code></a> indicate the aspects of the different <a class="reference internal" href="enums.html#Gst.QueryType" title="Gst.QueryType"><code class="xref py py-obj docutils literal"><span class="pre">Gst.QueryType</span></code></a>
 values. You can get the type flags of a <a class="reference internal" href="enums.html#Gst.QueryType" title="Gst.QueryType"><code class="xref py py-obj docutils literal"><span class="pre">Gst.QueryType</span></code></a> with the
 <a class="reference internal" href="enums.html#Gst.QueryType.get_flags" title="Gst.QueryType.get_flags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.QueryType.get_flags</span></code></a>() function.</p>
@@ -1548,7 +1613,7 @@ flow.</p>
 <dl class="class">
 <dt id="Gst.SchedulingFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">SchedulingFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>The different scheduling flags.</p>
 <dl class="attribute">
 <dt id="Gst.SchedulingFlags.SEEKABLE">
@@ -1573,7 +1638,7 @@ flow.</p>
 <dl class="class">
 <dt id="Gst.SeekFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">SeekFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flags to be used with <a class="reference internal" href="classes/Element.html#Gst.Element.seek" title="Gst.Element.seek"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element.seek</span></code></a>() or <a class="reference internal" href="structs/Event.html#Gst.Event.new_seek" title="Gst.Event.new_seek"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event.new_seek</span></code></a>(). All flags
 can be used together.</p>
 <p>A non flushing seek might take some time to perform as the currently
@@ -1701,7 +1766,7 @@ distance, behaves like <a class="reference internal" href="#Gst.SeekFlags.SNAP_B
 <dl class="class">
 <dt id="Gst.SegmentFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">SegmentFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flags for the <a class="reference internal" href="structs/Segment.html#Gst.Segment" title="Gst.Segment"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Segment</span></code></a> structure. Currently mapped to the corresponding
 values of the seek flags.</p>
 <dl class="attribute">
@@ -1755,7 +1820,7 @@ possible (Since 1.6)</p>
 <dl class="class">
 <dt id="Gst.StreamFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">StreamFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
 </div>
@@ -1794,9 +1859,50 @@ a director&#8217;s commentary track).</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="Gst.StreamType">
+<em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">StreamType</code></dt>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<p><a class="reference internal" href="#Gst.StreamType" title="Gst.StreamType"><code class="xref py py-obj docutils literal"><span class="pre">Gst.StreamType</span></code></a> describes a high level classification set for
+flows of data in <a class="reference internal" href="classes/Stream.html#Gst.Stream" title="Gst.Stream"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Stream</span></code></a> objects.</p>
+<p>Note that this is a flag, and therefore users should not assume it
+will be a single value. Do not use the equality operator for checking
+whether a stream is of a certain type.</p>
+<dl class="attribute">
+<dt id="Gst.StreamType.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 1</em></dt>
+<dd><p>The stream is of unknown (unclassified) type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gst.StreamType.TEXT">
+<code class="descname">TEXT</code><em class="property"> = 16</em></dt>
+<dd><p>The stream contains subtitle / subpicture data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gst.StreamType.AUDIO">
+<code class="descname">AUDIO</code><em class="property"> = 2</em></dt>
+<dd><p>The stream is of audio data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gst.StreamType.VIDEO">
+<code class="descname">VIDEO</code><em class="property"> = 4</em></dt>
+<dd><p>The stream carries video data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Gst.StreamType.CONTAINER">
+<code class="descname">CONTAINER</code><em class="property"> = 8</em></dt>
+<dd><p>The stream is a muxed container type</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="Gst.TracerValueFlags">
 <em class="property">class </em><code class="descclassname">Gst.</code><code class="descname">TracerValueFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/flags.html#GObject.GFlags" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GFlags</span></code></a></p>
 <p>Flag that describe the value. These flags help applications processing the
 logs to understand the values.</p>
 <dl class="attribute">

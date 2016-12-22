@@ -34,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Gst 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Symbol Mapping" href="mapping.html"/>
         <link rel="prev" title="Enums" href="enums.html"/> 
@@ -706,14 +709,14 @@ its real value.</p>
 <dl class="data">
 <dt id="Gst.PARAM_CONTROLLABLE">
 <code class="descclassname">Gst.</code><code class="descname">PARAM_CONTROLLABLE</code><em class="property"> = 2</em></dt>
-<dd><p>Use this flag on <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> properties to signal they can make sense to be.
+<dd><p>Use this flag on <a class="reference external" href="../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> properties to signal they can make sense to be.
 controlled over time. This hint is used by the GstController.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="Gst.PARAM_MUTABLE_PAUSED">
 <code class="descclassname">Gst.</code><code class="descname">PARAM_MUTABLE_PAUSED</code><em class="property"> = 8</em></dt>
-<dd><p>Use this flag on <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> properties of GstElements to indicate that
+<dd><p>Use this flag on <a class="reference external" href="../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> properties of GstElements to indicate that
 they can be changed when the element is in the PAUSED or lower state.
 This flag implies <a class="reference internal" href="#Gst.PARAM_MUTABLE_READY" title="Gst.PARAM_MUTABLE_READY"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PARAM_MUTABLE_READY</span></code></a>.</p>
 </dd></dl>
@@ -721,7 +724,7 @@ This flag implies <a class="reference internal" href="#Gst.PARAM_MUTABLE_READY" 
 <dl class="data">
 <dt id="Gst.PARAM_MUTABLE_PLAYING">
 <code class="descclassname">Gst.</code><code class="descname">PARAM_MUTABLE_PLAYING</code><em class="property"> = 16</em></dt>
-<dd><p>Use this flag on <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> properties of GstElements to indicate that
+<dd><p>Use this flag on <a class="reference external" href="../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> properties of GstElements to indicate that
 they can be changed when the element is in the PLAYING or lower state.
 This flag implies <a class="reference internal" href="#Gst.PARAM_MUTABLE_PAUSED" title="Gst.PARAM_MUTABLE_PAUSED"><code class="xref py py-obj docutils literal"><span class="pre">Gst.PARAM_MUTABLE_PAUSED</span></code></a>.</p>
 </dd></dl>
@@ -729,7 +732,7 @@ This flag implies <a class="reference internal" href="#Gst.PARAM_MUTABLE_PAUSED"
 <dl class="data">
 <dt id="Gst.PARAM_MUTABLE_READY">
 <code class="descclassname">Gst.</code><code class="descname">PARAM_MUTABLE_READY</code><em class="property"> = 4</em></dt>
-<dd><p>Use this flag on <a class="reference external" href="_docs/Gst-1.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> properties of GstElements to indicate that
+<dd><p>Use this flag on <a class="reference external" href="../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> properties of GstElements to indicate that
 they can be changed when the element is in the READY or lower state.</p>
 </dd></dl>
 
@@ -752,8 +755,15 @@ system.</p>
 <dl class="data">
 <dt id="Gst.PTR_FORMAT">
 <code class="descclassname">Gst.</code><code class="descname">PTR_FORMAT</code><em class="property"> = 'paA'</em></dt>
-<dd><p>printf format type used to debug GStreamer types.
-This can only be used on types whose size is &gt;= sizeof(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>).</p>
+<dd><p>printf format type used to debug GStreamer types. You can use this in
+combination with GStreamer&#8217;s debug logging system as well as the functions
+gst_info_vasprintf(), gst_info_strdup_vprintf() and gst_info_strdup_printf()
+to pretty-print the following types: <a class="reference internal" href="structs/Caps.html#Gst.Caps" title="Gst.Caps"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>, <a class="reference internal" href="structs/Structure.html#Gst.Structure" title="Gst.Structure"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Structure</span></code></a>,
+<a class="reference internal" href="structs/CapsFeatures.html#Gst.CapsFeatures" title="Gst.CapsFeatures"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsFeatures</span></code></a>, <a class="reference internal" href="structs/TagList.html#Gst.TagList" title="Gst.TagList"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagList</span></code></a>, <a class="reference internal" href="structs/DateTime.html#Gst.DateTime" title="Gst.DateTime"><code class="xref py py-obj docutils literal"><span class="pre">Gst.DateTime</span></code></a>, <a class="reference internal" href="structs/Buffer.html#Gst.Buffer" title="Gst.Buffer"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>, <a class="reference internal" href="structs/BufferList.html#Gst.BufferList" title="Gst.BufferList"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferList</span></code></a>,
+<a class="reference internal" href="structs/Message.html#Gst.Message" title="Gst.Message"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, <a class="reference internal" href="structs/Event.html#Gst.Event" title="Gst.Event"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Event</span></code></a>, <a class="reference internal" href="structs/Query.html#Gst.Query" title="Gst.Query"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Query</span></code></a>, <a class="reference internal" href="structs/Context.html#Gst.Context" title="Gst.Context"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Context</span></code></a>, <a class="reference internal" href="classes/Pad.html#Gst.Pad" title="Gst.Pad"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pad</span></code></a>, <a class="reference internal" href="classes/Object.html#Gst.Object" title="Gst.Object"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Object</span></code></a>. All
+<a class="reference external" href="../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> types will be printed as typename plus pointer, and everything
+else will simply be printed as pointer address.</p>
+<p>This can only be used on types whose size is &gt;= sizeof(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>).</p>
 </dd></dl>
 
 <dl class="data">
@@ -776,7 +786,10 @@ This can only be used on types whose size is &gt;= sizeof(<a class="reference ex
 <dl class="data">
 <dt id="Gst.SEGMENT_FORMAT">
 <code class="descclassname">Gst.</code><code class="descname">SEGMENT_FORMAT</code><em class="property"> = 'paB'</em></dt>
-<dd><p>printf format type used to debug GStreamer segments.
+<dd><p>printf format type used to debug GStreamer segments. You can use this in
+combination with GStreamer&#8217;s debug logging system as well as the functions
+gst_info_vasprintf(), gst_info_strdup_vprintf() and gst_info_strdup_printf()
+to pretty-print <a class="reference internal" href="structs/Segment.html#Gst.Segment" title="Gst.Segment"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Segment</span></code></a> structures.
 This can only be used on pointers to <a class="reference internal" href="structs/Segment.html#Gst.Segment" title="Gst.Segment"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Segment</span></code></a> structures.</p>
 </dd></dl>
 
@@ -959,7 +972,7 @@ attachment)</p>
 <dl class="data">
 <dt id="Gst.TAG_DATE">
 <code class="descclassname">Gst.</code><code class="descname">TAG_DATE</code><em class="property"> = 'date'</em></dt>
-<dd><p>date the data was created (<a class="reference external" href="_docs/Gst-1.0/../../../python-GLib-2.0/structs/Date.html#GLib.Date" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Date</span></code></a> structure)</p>
+<dd><p>date the data was created (<a class="reference external" href="../python-GLib-2.0/structs/Date.html#GLib.Date" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Date</span></code></a> structure)</p>
 </dd></dl>
 
 <dl class="data">
@@ -1462,13 +1475,13 @@ determine a order for the two provided values.</p>
 
 <dl class="data">
 <dt id="Gst.VERSION_MICRO">
-<code class="descclassname">Gst.</code><code class="descname">VERSION_MICRO</code><em class="property"> = 1</em></dt>
+<code class="descclassname">Gst.</code><code class="descname">VERSION_MICRO</code><em class="property"> = 2</em></dt>
 <dd><p>The micro version of GStreamer at compile time:</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="Gst.VERSION_MINOR">
-<code class="descclassname">Gst.</code><code class="descname">VERSION_MINOR</code><em class="property"> = 8</em></dt>
+<code class="descclassname">Gst.</code><code class="descname">VERSION_MINOR</code><em class="property"> = 10</em></dt>
 <dd><p>The minor version of GStreamer at compile time:</p>
 </dd></dl>
 

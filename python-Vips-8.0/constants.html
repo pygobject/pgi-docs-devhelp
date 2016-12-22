@@ -34,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Vips 8.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Symbol Mapping" href="mapping.html"/>
         <link rel="prev" title="Enums" href="enums.html"/> 
@@ -175,6 +178,7 @@
 <li><a class="reference internal" href="#Vips.META_IMAGEDESCRIPTION" title="Vips.META_IMAGEDESCRIPTION"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_IMAGEDESCRIPTION</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_IPCT_NAME" title="Vips.META_IPCT_NAME"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_IPCT_NAME</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_LOADER" title="Vips.META_LOADER"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_LOADER</span></code></a></li>
+<li><a class="reference internal" href="#Vips.META_ORIENTATION" title="Vips.META_ORIENTATION"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_ORIENTATION</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_PHOTOSHOP_NAME" title="Vips.META_PHOTOSHOP_NAME"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_PHOTOSHOP_NAME</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_RESOLUTION_UNIT" title="Vips.META_RESOLUTION_UNIT"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_RESOLUTION_UNIT</span></code></a></li>
 <li><a class="reference internal" href="#Vips.META_XML" title="Vips.META_XML"><code class="xref py py-obj docutils literal"><span class="pre">Vips.META_XML</span></code></a></li>
@@ -426,6 +430,31 @@ vips_icc_transform() operations.</p>
 <code class="descclassname">Vips.</code><code class="descname">META_LOADER</code><em class="property"> = 'vips-loader'</em></dt>
 <dd><p>Record the name of the original loader here. Handy for hinting file formats
 and for debugging.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Vips.META_ORIENTATION">
+<code class="descclassname">Vips.</code><code class="descname">META_ORIENTATION</code><em class="property"> = 'orientation'</em></dt>
+<dd><p>The orientation tag for this image. An int from 1 - 8 using the standard
+exif/tiff meanings.</p>
+<ul class="simple">
+<li>1 - The 0th row represents the visual top of the image, and the 0th column
+represents the visual left-hand side.</li>
+<li>2 - The 0th row represents the visual top of the image, and the 0th column
+represents the visual right-hand side.</li>
+<li>3 - The 0th row represents the visual bottom of the image, and the 0th
+column represents the visual right-hand side.</li>
+<li>4 - The 0th row represents the visual bottom of the image, and the 0th
+column represents the visual left-hand side.</li>
+<li>5 - The 0th row represents the visual left-hand side of the image, and the
+0th column represents the visual top.</li>
+<li>6 - The 0th row represents the visual right-hand side of the image, and the
+0th column represents the visual top.</li>
+<li>7 - The 0th row represents the visual right-hand side of the image, and the
+0th column represents the visual bottom.</li>
+<li>8 - The 0th row represents the visual left-hand side of the image, and the
+0th column represents the visual bottom.</li>
+</ul>
 </dd></dl>
 
 <dl class="data">

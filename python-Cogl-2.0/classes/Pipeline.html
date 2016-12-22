@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Classes" href="index.html"/>
         <link rel="next" title="Cogl.PixelBuffer" href="PixelBuffer.html"/>
@@ -186,17 +189,17 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Object.html#cogl-object-methods"><span>Cogl.Object (1)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="Object.html#cogl-object-methods"><span class="std std-ref">Cogl.Object (2)</span></a></td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Cogl.Pipeline.new" title="Cogl.Pipeline.new"><code class="xref py py-func docutils literal"><span class="pre">new</span></code></a> (context)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
@@ -417,9 +420,9 @@
 </tr>
 </tbody>
 </table>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Cogl.Pipeline.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">new</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -519,7 +522,7 @@ state changes.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Cogl.PipelineLayerCallback" title="Cogl.PipelineLayerCallback"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PipelineLayerCallback</span></code></a>) &#8211; A <a class="reference internal" href="../callbacks.html#Cogl.PipelineLayerCallback" title="Cogl.PipelineLayerCallback"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.PipelineLayerCallback</span></code></a> to be
 called for each layer index</li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; Private data that will be passed to the
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Private data that will be passed to the
 callback</li>
 </ul>
 </td>
@@ -1129,7 +1132,7 @@ time. See <a class="reference internal" href="#Cogl.Pipeline.set_ambient" title=
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blend_string</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; A &#8216;Cogl blend string [cogl-Blend-Strings]&#8217;
 describing the desired blend function.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the blend string was successfully parsed, and the
 described blending is supported by the underlying driver/hardware. If
@@ -1171,7 +1174,7 @@ before computing the result of blending.</p>
 </dl>
 <p>Blend a non-premultiplied source over a destination with
 premultiplied alpha:</p>
-<div class="highlight-none"><div class="highlight"><pre>&quot;RGB = ADD(SRC_COLOR*(SRC_COLOR[A]), DST_COLOR*(1-SRC_COLOR[A]))&quot;
+<div class="highlight-none"><div class="highlight"><pre><span></span>&quot;RGB = ADD(SRC_COLOR*(SRC_COLOR[A]), DST_COLOR*(1-SRC_COLOR[A]))&quot;
 &quot;A   = ADD(SRC_COLOR, DST_COLOR*(1-SRC_COLOR[A]))&quot;
 </pre></div>
 </div>
@@ -1336,7 +1339,7 @@ model. This order can be specified by calling
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<a class="reference internal" href="../structs/DepthState.html#Cogl.DepthState" title="Cogl.DepthState"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.DepthState</span></code></a>) &#8211; A <a class="reference internal" href="../structs/DepthState.html#Cogl.DepthState" title="Cogl.DepthState"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.DepthState</span></code></a> struct</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the GPU supports all the given <cite>state</cite> else <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>
 and returns an <cite>error</cite>.</td>
@@ -1434,7 +1437,7 @@ describing the desired texture combine function.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the blend string was successfully parsed, and the
@@ -1464,13 +1467,13 @@ strings are and there syntax.</p>
 </li>
 <li><p class="first">SUBTRACT(arg0, arg1) = arg0 - arg1</p>
 </li>
-<li><div class="first highlight-none"><div class="highlight"><pre>DOT3_RGB(arg0, arg1) = 4 x ((arg0[R] - 0.5)) * (arg1[R] - 0.5) +
+<li><div class="first highlight-none"><div class="highlight"><pre><span></span>DOT3_RGB(arg0, arg1) = 4 x ((arg0[R] - 0.5)) * (arg1[R] - 0.5) +
 (arg0[G] - 0.5)) * (arg1[G] - 0.5) +
 (arg0[B] - 0.5)) * (arg1[B] - 0.5))
 </pre></div>
 </div>
 </li>
-<li><div class="first highlight-none"><div class="highlight"><pre>DOT3_RGBA(arg0, arg1) = 4 x ((arg0[R] - 0.5)) * (arg1[R] - 0.5) +
+<li><div class="first highlight-none"><div class="highlight"><pre><span></span>DOT3_RGBA(arg0, arg1) = 4 x ((arg0[R] - 0.5)) * (arg1[R] - 0.5) +
 (arg0[G] - 0.5)) * (arg1[G] - 0.5) +
 (arg0[B] - 0.5)) * (arg1[B] - 0.5))
 </pre></div>
@@ -1628,7 +1631,7 @@ internal texture type state for efficiency.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the function succeeds, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise.</p>
@@ -1768,7 +1771,7 @@ this layer. &#8216;p&#8217; is the third coordinate.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; whether to enable per-vertex point size</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Cogl-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the change suceeded or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> otherwise</td>
 </tr>
@@ -2039,7 +2042,7 @@ the result of <a class="reference internal" href="../structs/Matrix.html#Cogl.Ma
 program can take full control of vertex and/or fragment processing.</p>
 <p>This is an example of how it can be used to associate an ARBfp
 program with a <a class="reference internal" href="#Cogl.Pipeline" title="Cogl.Pipeline"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Pipeline</span></code></a>:</p>
-<div class="highlight-none"><div class="highlight"><pre>CoglHandle shader;
+<div class="highlight-none"><div class="highlight"><pre><span></span>CoglHandle shader;
 CoglHandle program;
 CoglPipeline *pipeline;
 

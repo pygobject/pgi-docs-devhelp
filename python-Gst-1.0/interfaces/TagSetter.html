@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Gst.TocSetter" href="TocSetter.html"/>
@@ -162,7 +165,7 @@
 </g>
 <!-- GObject.GInterface -->
 <g id="node2" class="node"><title>GObject.GInterface</title>
-<g id="a_node2"><a xlink:href="../_docs/Gst-1.0/../../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" xlink:title="GObject.GInterface">
+<g id="a_node2"><a xlink:href="../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" xlink:title="GObject.GInterface">
 <path fill="none" stroke="#3091d1" d="M92,-72C92,-72 6,-72 6,-72 3,-72 0,-69 0,-66 0,-66 0,-60 0,-60 0,-57 3,-54 6,-54 6,-54 92,-54 92,-54 95,-54 98,-57 98,-60 98,-60 98,-66 98,-66 98,-69 95,-72 92,-72"/>
 <text text-anchor="middle" x="49" y="-60.7" font-family="inherit" font-size="8.50">GObject.GInterface</text>
 </a>
@@ -187,7 +190,7 @@
 </table>
 <div class="section" id="methods">
 <span id="gst-tagsetter-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -239,7 +242,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Bases:</th><td class="field-body"><a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GInterface</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Bases:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GInterface</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Structure:</th><td class="field-body"><a class="reference internal" href="../iface-structs/TagSetterInterface.html#Gst.TagSetterInterface" title="Gst.TagSetterInterface"><code class="xref py py-class docutils literal"><span class="pre">Gst.TagSetterInterface</span></code></a></td>
 </tr>
@@ -260,7 +263,7 @@ The application should do that before the element goes to <a class="reference in
 <p>Elements implementing the <a class="reference internal" href="#Gst.TagSetter" title="Gst.TagSetter"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagSetter</span></code></a> interface often have to merge
 any tags received from upstream and the tags set by the application via
 the interface. This can be done like this:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">GstTagMergeMode</span> <span class="n">merge_mode</span><span class="p">;</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">GstTagMergeMode</span> <span class="n">merge_mode</span><span class="p">;</span>
 <span class="k">const</span> <span class="n">GstTagList</span> <span class="o">*</span><span class="n">application_tags</span><span class="p">;</span>
 <span class="k">const</span> <span class="n">GstTagList</span> <span class="o">*</span><span class="n">event_tags</span><span class="p">;</span>
 <span class="n">GstTagSetter</span> <span class="o">*</span><span class="n">tagsetter</span><span class="p">;</span>
@@ -283,7 +286,7 @@ the interface. This can be done like this:</p>
 </div>
 <dl class="method">
 <dt id="Gst.TagSetter.add_tag_value">
-<code class="descname">add_tag_value</code><span class="sig-paren">(</span><em>mode</em>, <em>tag</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n315"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_tag_value</code><span class="sig-paren">(</span><em>mode</em>, <em>tag</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.10.2#n315"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -291,18 +294,18 @@ the interface. This can be done like this:</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>mode</strong> (<a class="reference internal" href="../enums.html#Gst.TagMergeMode" title="Gst.TagMergeMode"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagMergeMode</span></code></a>) &#8211; the mode to use</li>
 <li><strong>tag</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; tag to set</li>
-<li><strong>value</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> to set for the tag</li>
+<li><strong>value</strong> (<a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; <a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> to set for the tag</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Adds the given tag / <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> pair on the setter using the given merge mode.</p>
+<p>Adds the given tag / <a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> pair on the setter using the given merge mode.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.TagSetter.get_tag_list">
-<code class="descname">get_tag_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n347"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_tag_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.10.2#n347"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -321,7 +324,7 @@ modified or freed.</p>
 
 <dl class="method">
 <dt id="Gst.TagSetter.get_tag_merge_mode">
-<code class="descname">get_tag_merge_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n388"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_tag_merge_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.10.2#n388"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -338,7 +341,7 @@ from events</p>
 
 <dl class="method">
 <dt id="Gst.TagSetter.merge_tags">
-<code class="descname">merge_tags</code><span class="sig-paren">(</span><em>list</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n175"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">merge_tags</code><span class="sig-paren">(</span><em>list</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.10.2#n175"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -356,14 +359,14 @@ from events</p>
 
 <dl class="method">
 <dt id="Gst.TagSetter.reset_tags">
-<code class="descname">reset_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n149"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">reset_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.10.2#n149"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Reset the internal taglist. Elements should call this from within the
 state-change handler.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.TagSetter.set_tag_merge_mode">
-<code class="descname">set_tag_merge_mode</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.8.1#n364"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_tag_merge_mode</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gsttagsetter.c?h=1.10.2#n364"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

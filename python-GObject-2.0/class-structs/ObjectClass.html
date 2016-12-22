@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GObject 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Class Structures" href="index.html"/>
         <link rel="next" title="GObject.ParamSpecClass" href="ParamSpecClass.html"/>
@@ -143,7 +146,7 @@
 <h1>GObject.ObjectClass</h1>
 <div class="section" id="fields">
 <span id="gobject-objectclass-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -223,7 +226,7 @@
 </div>
 <div class="section" id="methods">
 <span id="gobject-objectclass-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -257,7 +260,7 @@
 <dt>Implementing singletons using a constructor</dt>
 <dd></dd>
 </dl>
-<div class="highlight-none"><div class="highlight"><pre>static MySingleton *the_singleton = NULL;
+<div class="highlight-none"><div class="highlight"><pre><span></span>static MySingleton *the_singleton = NULL;
 
 static GObject*
 my_singleton_constructor (GType                  type,
@@ -282,7 +285,7 @@ my_singleton_constructor (GType                  type,
 </div>
 <dl class="method">
 <dt id="GObject.ObjectClass.find_property">
-<code class="descname">find_property</code><span class="sig-paren">(</span><em>property_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.48.0#n759"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">find_property</code><span class="sig-paren">(</span><em>property_name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.50.0#n765"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -301,7 +304,7 @@ my_singleton_constructor (GType                  type,
 
 <dl class="method">
 <dt id="GObject.ObjectClass.install_properties">
-<code class="descname">install_properties</code><span class="sig-paren">(</span><em>pspecs</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.48.0#n655"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">install_properties</code><span class="sig-paren">(</span><em>pspecs</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.50.0#n661"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -323,7 +326,7 @@ be used to store a <a class="reference internal" href="../classes/ParamSpec.html
 <p>This function should be used if you plan to use a static array of
 <a class="reference internal" href="../classes/ParamSpec.html#GObject.ParamSpec" title="GObject.ParamSpec"><code class="xref py py-obj docutils literal"><span class="pre">GObject.ParamSpecs</span></code></a> and <a class="reference internal" href="../classes/Object.html#GObject.Object.notify_by_pspec" title="GObject.Object.notify_by_pspec"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.notify_by_pspec</span></code></a>(). For instance, this
 class initialization:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">enum</span> <span class="p">{</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="p">{</span>
   <span class="n">PROP_0</span><span class="p">,</span> <span class="n">PROP_FOO</span><span class="p">,</span> <span class="n">PROP_BAR</span><span class="p">,</span> <span class="n">N_PROPERTIES</span>
 <span class="p">};</span>
 
@@ -354,7 +357,7 @@ class initialization:</p>
 </pre></div>
 </div>
 <p>allows calling <a class="reference internal" href="../classes/Object.html#GObject.Object.notify_by_pspec" title="GObject.Object.notify_by_pspec"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.notify_by_pspec</span></code></a>() to notify of property changes:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">void</span>
 <span class="nf">my_object_set_foo</span> <span class="p">(</span><span class="n">MyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">gint</span> <span class="n">foo</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">foo</span> <span class="o">!=</span> <span class="n">foo</span><span class="p">)</span>
@@ -372,7 +375,7 @@ class initialization:</p>
 
 <dl class="method">
 <dt id="GObject.ObjectClass.install_property">
-<code class="descname">install_property</code><span class="sig-paren">(</span><em>property_id</em>, <em>pspec</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.48.0#n546"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">install_property</code><span class="sig-paren">(</span><em>property_id</em>, <em>pspec</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.50.0#n552"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -397,7 +400,7 @@ e.g. to change the range of allowed values or the default value.</p>
 
 <dl class="method">
 <dt id="GObject.ObjectClass.list_properties">
-<code class="descname">list_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.48.0#n905"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">list_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.50.0#n911"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -414,7 +417,7 @@ e.g. to change the range of allowed values or the default value.</p>
 
 <dl class="method">
 <dt id="GObject.ObjectClass.override_property">
-<code class="descname">override_property</code><span class="sig-paren">(</span><em>property_id</em>, <em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.48.0#n845"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">override_property</code><span class="sig-paren">(</span><em>property_id</em>, <em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.50.0#n851"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

@@ -34,9 +34,12 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="GstPbutils 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Callbacks" href="callbacks.html"/>
-        <link rel="prev" title="GstPbutils 1.0 (1.8.1.0)" href="index.html"/> 
+        <link rel="prev" title="GstPbutils 1.0 (1.10.2.0)" href="index.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -130,7 +133,7 @@
             
   <div class="section" id="functions">
 <h1>Functions</h1>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -140,13 +143,19 @@
 <td><a class="reference internal" href="#GstPbutils.codec_utils_aac_caps_set_level_and_profile" title="GstPbutils.codec_utils_aac_caps_set_level_and_profile"><code class="xref py py-func docutils literal"><span class="pre">codec_utils_aac_caps_set_level_and_profile</span></code></a> (caps, audio_config, len)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GstPbutils.codec_utils_aac_get_index_from_sample_rate" title="GstPbutils.codec_utils_aac_get_index_from_sample_rate"><code class="xref py py-func docutils literal"><span class="pre">codec_utils_aac_get_index_from_sample_rate</span></code></a> (rate)</td>
+<td><a class="reference internal" href="#GstPbutils.codec_utils_aac_get_channels" title="GstPbutils.codec_utils_aac_get_channels"><code class="xref py py-func docutils literal"><span class="pre">codec_utils_aac_get_channels</span></code></a> (audio_config, len)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#GstPbutils.codec_utils_aac_get_level" title="GstPbutils.codec_utils_aac_get_level"><code class="xref py py-func docutils literal"><span class="pre">codec_utils_aac_get_level</span></code></a> (audio_config, len)</td>
+<td><a class="reference internal" href="#GstPbutils.codec_utils_aac_get_index_from_sample_rate" title="GstPbutils.codec_utils_aac_get_index_from_sample_rate"><code class="xref py py-func docutils literal"><span class="pre">codec_utils_aac_get_index_from_sample_rate</span></code></a> (rate)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstPbutils.codec_utils_aac_get_level" title="GstPbutils.codec_utils_aac_get_level"><code class="xref py py-func docutils literal"><span class="pre">codec_utils_aac_get_level</span></code></a> (audio_config, len)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstPbutils.codec_utils_aac_get_profile" title="GstPbutils.codec_utils_aac_get_profile"><code class="xref py py-func docutils literal"><span class="pre">codec_utils_aac_get_profile</span></code></a> (audio_config, len)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstPbutils.codec_utils_aac_get_sample_rate" title="GstPbutils.codec_utils_aac_get_sample_rate"><code class="xref py py-func docutils literal"><span class="pre">codec_utils_aac_get_sample_rate</span></code></a> (audio_config, len)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstPbutils.codec_utils_aac_get_sample_rate_from_index" title="GstPbutils.codec_utils_aac_get_sample_rate_from_index"><code class="xref py py-func docutils literal"><span class="pre">codec_utils_aac_get_sample_rate_from_index</span></code></a> (sr_idx)</td>
@@ -298,13 +307,13 @@
 <h2>Details</h2>
 <dl class="function">
 <dt id="GstPbutils.codec_utils_aac_caps_set_level_and_profile">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_caps_set_level_and_profile</code><span class="sig-paren">(</span><em>caps</em>, <em>audio_config</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n377"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_caps_set_level_and_profile</code><span class="sig-paren">(</span><em>caps</em>, <em>audio_config</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n430"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which level and profile fields are to be added</li>
+<li><strong>caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which level and profile fields are to be added</li>
 <li><strong>audio_config</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a pointer to the AudioSpecificConfig as specified in the
 Elementary Stream Descriptor (esds) in ISO/IEC 14496-1 (see
 below for a more details).</li>
@@ -328,8 +337,33 @@ If mpegversion is 4, the &#8220;base-profile&#8221; field is also set in <cite>c
 </dd></dl>
 
 <dl class="function">
+<dt id="GstPbutils.codec_utils_aac_get_channels">
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_channels</code><span class="sig-paren">(</span><em>audio_config</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n152"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>audio_config</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a pointer to the AudioSpecificConfig as specified in the
+Elementary Stream Descriptor (esds) in ISO/IEC 14496-1.</li>
+<li><strong>len</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The channels or 0 if the channel could not be determined.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the channels of the given AAC stream.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="GstPbutils.codec_utils_aac_get_index_from_sample_rate">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_index_from_sample_rate</code><span class="sig-paren">(</span><em>rate</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n100"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_index_from_sample_rate</code><span class="sig-paren">(</span><em>rate</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n100"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -348,7 +382,7 @@ valid AAC sample rate.</td>
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_aac_get_level">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_level</code><span class="sig-paren">(</span><em>audio_config</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n209"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_level</code><span class="sig-paren">(</span><em>audio_config</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n262"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -386,7 +420,7 @@ fields are appropriately shifted).</li>
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_aac_get_profile">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_profile</code><span class="sig-paren">(</span><em>audio_config</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n134"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_profile</code><span class="sig-paren">(</span><em>audio_config</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n187"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -415,8 +449,34 @@ determined using the AudioObjectType field which is in the first 5 bits of
 </dd></dl>
 
 <dl class="function">
+<dt id="GstPbutils.codec_utils_aac_get_sample_rate">
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_sample_rate</code><span class="sig-paren">(</span><em>audio_config</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n129"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>audio_config</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; a pointer to the AudioSpecificConfig as specified in the
+Elementary Stream Descriptor (esds) in ISO/IEC 14496-1.</li>
+<li><strong>len</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Length of <cite>audio_config</cite> in bytes</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The sample rate if sr_idx is valid, 0 otherwise.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Translates the sample rate index found in AAC headers to the actual sample
+rate.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="GstPbutils.codec_utils_aac_get_sample_rate_from_index">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_sample_rate_from_index</code><span class="sig-paren">(</span><em>sr_idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n82"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_aac_get_sample_rate_from_index</code><span class="sig-paren">(</span><em>sr_idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n82"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -436,13 +496,13 @@ rate.</p>
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_h264_caps_set_level_and_profile">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h264_caps_set_level_and_profile</code><span class="sig-paren">(</span><em>caps</em>, <em>sps</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n641"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h264_caps_set_level_and_profile</code><span class="sig-paren">(</span><em>caps</em>, <em>sps</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n701"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which the level and profile are to be added</li>
+<li><strong>caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which the level and profile are to be added</li>
 <li><strong>sps</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Pointer to the sequence parameter set for the stream.</li>
 <li><strong>len</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Length of the data available in <cite>sps</cite>.</li>
 </ul>
@@ -463,7 +523,7 @@ for more details on the parameters.</p>
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_h264_get_level">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h264_get_level</code><span class="sig-paren">(</span><em>sps</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n531"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h264_get_level</code><span class="sig-paren">(</span><em>sps</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n589"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -489,7 +549,7 @@ same format as for <a class="reference internal" href="#GstPbutils.codec_utils_h
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_h264_get_level_idc">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h264_get_level_idc</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n584"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h264_get_level_idc</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n644"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -507,7 +567,7 @@ same format as for <a class="reference internal" href="#GstPbutils.codec_utils_h
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_h264_get_profile">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h264_get_profile</code><span class="sig-paren">(</span><em>sps</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n445"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h264_get_profile</code><span class="sig-paren">(</span><em>sps</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n498"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -545,13 +605,13 @@ byte.</p>
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_h265_caps_set_level_tier_and_profile">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_caps_set_level_tier_and_profile</code><span class="sig-paren">(</span><em>caps</em>, <em>profile_tier_level</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n877"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_caps_set_level_tier_and_profile</code><span class="sig-paren">(</span><em>caps</em>, <em>profile_tier_level</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n939"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which the level, tier and profile are to be added</li>
+<li><strong>caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which the level, tier and profile are to be added</li>
 <li><strong>profile_tier_level</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Pointer to the profile_tier_level struct</li>
 <li><strong>len</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Length of the data available in <cite>profile_tier_level</cite>.</li>
 </ul>
@@ -573,7 +633,7 @@ for more details on the parameters.</p>
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_h265_get_level">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_get_level</code><span class="sig-paren">(</span><em>profile_tier_level</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n775"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_get_level</code><span class="sig-paren">(</span><em>profile_tier_level</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n835"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -600,7 +660,7 @@ expected to have the same format as for <a class="reference internal" href="#Gst
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_h265_get_level_idc">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_get_level_idc</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n825"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_get_level_idc</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n887"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -618,7 +678,7 @@ expected to have the same format as for <a class="reference internal" href="#Gst
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_h265_get_profile">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_get_profile</code><span class="sig-paren">(</span><em>profile_tier_level</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n700"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_get_profile</code><span class="sig-paren">(</span><em>profile_tier_level</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n760"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -659,7 +719,7 @@ with bit 0 being the most significant bit of the first byte.</p>
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_h265_get_tier">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_get_tier</code><span class="sig-paren">(</span><em>profile_tier_level</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n741"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_h265_get_tier</code><span class="sig-paren">(</span><em>profile_tier_level</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n801"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -686,13 +746,13 @@ is expected to have the same format as for <a class="reference internal" href="#
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_mpeg4video_caps_set_level_and_profile">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_mpeg4video_caps_set_level_and_profile</code><span class="sig-paren">(</span><em>caps</em>, <em>vis_obj_seq</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n1086"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_mpeg4video_caps_set_level_and_profile</code><span class="sig-paren">(</span><em>caps</em>, <em>vis_obj_seq</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n1148"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which the level and profile are to be added</li>
+<li><strong>caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which the level and profile are to be added</li>
 <li><strong>vis_obj_seq</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Pointer to the visual object sequence for the stream.</li>
 <li><strong>len</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Length of the data available in <cite>sps</cite>.</li>
 </ul>
@@ -714,7 +774,7 @@ parameters.</p>
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_mpeg4video_get_level">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_mpeg4video_get_level</code><span class="sig-paren">(</span><em>vis_obj_seq</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n990"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_mpeg4video_get_level</code><span class="sig-paren">(</span><em>vis_obj_seq</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n1052"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -741,7 +801,7 @@ object sequence start code. Only the first byte
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_mpeg4video_get_profile">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_mpeg4video_get_profile</code><span class="sig-paren">(</span><em>vis_obj_seq</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n918"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_mpeg4video_get_profile</code><span class="sig-paren">(</span><em>vis_obj_seq</em>, <em>len</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n980"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -768,7 +828,7 @@ object sequence start code. Only the first byte
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_opus_create_caps">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_create_caps</code><span class="sig-paren">(</span><em>rate</em>, <em>channels</em>, <em>channel_mapping_family</em>, <em>stream_count</em>, <em>coupled_count</em>, <em>channel_mapping</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n1243"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_create_caps</code><span class="sig-paren">(</span><em>rate</em>, <em>channels</em>, <em>channel_mapping_family</em>, <em>stream_count</em>, <em>coupled_count</em>, <em>channel_mapping</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n1305"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -783,10 +843,10 @@ object sequence start code. Only the first byte
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -799,21 +859,21 @@ object sequence start code. Only the first byte
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_opus_create_caps_from_header">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_create_caps_from_header</code><span class="sig-paren">(</span><em>header</em>, <em>comments</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n1373"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_create_caps_from_header</code><span class="sig-paren">(</span><em>header</em>, <em>comments</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n1435"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>header</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>) &#8211; OpusHead header</li>
-<li><strong>comments</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Comment header or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
+<li><strong>header</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>) &#8211; OpusHead header</li>
+<li><strong>comments</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Comment header or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -827,7 +887,7 @@ object sequence start code. Only the first byte
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_opus_create_header">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_create_header</code><span class="sig-paren">(</span><em>rate</em>, <em>channels</em>, <em>channel_mapping_family</em>, <em>stream_count</em>, <em>coupled_count</em>, <em>channel_mapping</em>, <em>pre_skip</em>, <em>output_gain</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n1435"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_create_header</code><span class="sig-paren">(</span><em>rate</em>, <em>channels</em>, <em>channel_mapping_family</em>, <em>stream_count</em>, <em>coupled_count</em>, <em>channel_mapping</em>, <em>pre_skip</em>, <em>output_gain</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n1497"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -844,10 +904,10 @@ object sequence start code. Only the first byte
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> containing the OpusHead.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <a class="reference external" href="../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> containing the OpusHead.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -860,13 +920,13 @@ object sequence start code. Only the first byte
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_opus_parse_caps">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_parse_caps</code><span class="sig-paren">(</span><em>caps</em>, <em>rate</em>, <em>channels</em>, <em>channel_mapping_family</em>, <em>stream_count</em>, <em>coupled_count</em>, <em>channel_mapping</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n1128"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_parse_caps</code><span class="sig-paren">(</span><em>caps</em>, <em>rate</em>, <em>channels</em>, <em>channel_mapping_family</em>, <em>stream_count</em>, <em>coupled_count</em>, <em>channel_mapping</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n1190"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which the level and profile are to be added</li>
+<li><strong>caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> to which the level and profile are to be added</li>
 <li><strong>rate</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the sample rate</li>
 <li><strong>channels</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the number of channels</li>
 <li><strong>channel_mapping_family</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the channel mapping family</li>
@@ -892,13 +952,13 @@ object sequence start code. Only the first byte
 
 <dl class="function">
 <dt id="GstPbutils.codec_utils_opus_parse_header">
-<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_parse_header</code><span class="sig-paren">(</span><em>header</em>, <em>rate</em>, <em>channels</em>, <em>channel_mapping_family</em>, <em>stream_count</em>, <em>coupled_count</em>, <em>channel_mapping</em>, <em>pre_skip</em>, <em>output_gain</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.8.1#n1517"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">codec_utils_opus_parse_header</code><span class="sig-paren">(</span><em>header</em>, <em>rate</em>, <em>channels</em>, <em>channel_mapping_family</em>, <em>stream_count</em>, <em>coupled_count</em>, <em>channel_mapping</em>, <em>pre_skip</em>, <em>output_gain</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/codec-utils.c?h=1.10.2#n1579"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>header</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>) &#8211; the OpusHead <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a></li>
+<li><strong>header</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>) &#8211; the OpusHead <a class="reference external" href="../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a></li>
 <li><strong>rate</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the sample rate</li>
 <li><strong>channels</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the number of channels</li>
 <li><strong>channel_mapping_family</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the channel mapping family</li>
@@ -926,7 +986,7 @@ object sequence start code. Only the first byte
 
 <dl class="function">
 <dt id="GstPbutils.encoding_list_all_targets">
-<code class="descclassname">GstPbutils.</code><code class="descname">encoding_list_all_targets</code><span class="sig-paren">(</span><em>categoryname</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/encoding-target.c?h=1.8.1#n1186"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">encoding_list_all_targets</code><span class="sig-paren">(</span><em>categoryname</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/encoding-target.c?h=1.10.2#n1186"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -946,7 +1006,7 @@ if <cite>categoryname</cite> is <a class="reference external" href="http://docs.
 
 <dl class="function">
 <dt id="GstPbutils.encoding_list_available_categories">
-<code class="descclassname">GstPbutils.</code><code class="descname">encoding_list_available_categories</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/encoding-target.c?h=1.8.1#n1071"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">encoding_list_available_categories</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/encoding-target.c?h=1.10.2#n1071"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -963,7 +1023,7 @@ of <a class="reference internal" href="classes/EncodingTarget.html#GstPbutils.En
 
 <dl class="function">
 <dt id="GstPbutils.install_plugins_async">
-<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_async</code><span class="sig-paren">(</span><em>details</em>, <em>ctx</em>, <em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.8.1#n726"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_async</code><span class="sig-paren">(</span><em>details</em>, <em>ctx</em>, <em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.10.2#n726"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -990,7 +1050,7 @@ installed or installation has failed, <cite>func</cite> will be called with the 
 of the installation and your provided <cite>user_data</cite> pointer.</p>
 <p>This function requires a running GLib/Gtk main loop. If you are not
 running a GLib/Gtk main loop, make sure to regularly call
-<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.iteration" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.iteration</span></code></a>(<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>,:obj:<cite>False</cite>).</p>
+<a class="reference external" href="../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.iteration" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.iteration</span></code></a>(<a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>,:obj:<cite>False</cite>).</p>
 <p>The installer strings that make up <cite>detail</cite> are typically obtained by
 calling <a class="reference internal" href="#GstPbutils.missing_plugin_message_get_installer_detail" title="GstPbutils.missing_plugin_message_get_installer_detail"><code class="xref py py-obj docutils literal"><span class="pre">GstPbutils.missing_plugin_message_get_installer_detail</span></code></a>() on missing-plugin
 messages that have been caught on a pipeline&#8217;s bus or created by the
@@ -1002,7 +1062,7 @@ installed but no suitable video decoder and no suitable audio decoder).</p>
 
 <dl class="function">
 <dt id="GstPbutils.install_plugins_installation_in_progress">
-<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_installation_in_progress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.8.1#n847"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_installation_in_progress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.10.2#n847"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1019,7 +1079,7 @@ is currently in progress.</p>
 
 <dl class="function">
 <dt id="GstPbutils.install_plugins_return_get_name">
-<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_return_get_name</code><span class="sig-paren">(</span><em>ret</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.8.1#n806"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_return_get_name</code><span class="sig-paren">(</span><em>ret</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.10.2#n806"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1040,7 +1100,7 @@ in debugging.</p>
 
 <dl class="function">
 <dt id="GstPbutils.install_plugins_supported">
-<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_supported</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.8.1#n861"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_supported</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.10.2#n861"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1059,7 +1119,7 @@ exists.</p>
 
 <dl class="function">
 <dt id="GstPbutils.install_plugins_sync">
-<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_sync</code><span class="sig-paren">(</span><em>details</em>, <em>ctx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.8.1#n773"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">install_plugins_sync</code><span class="sig-paren">(</span><em>details</em>, <em>ctx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/install-plugins.c?h=1.10.2#n773"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1090,12 +1150,12 @@ using the other non-GLib main loop. You should almost always use
 
 <dl class="function">
 <dt id="GstPbutils.is_missing_plugin_message">
-<code class="descclassname">GstPbutils.</code><code class="descname">is_missing_plugin_message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n599"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">is_missing_plugin_message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n606"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>) &#8211; a <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>) &#8211; a <a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>msg</cite> is a missing-plugins message, otherwise <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</td>
 </tr>
@@ -1108,15 +1168,15 @@ using the other non-GLib main loop. You should almost always use
 
 <dl class="function">
 <dt id="GstPbutils.missing_decoder_installer_detail_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_decoder_installer_detail_new</code><span class="sig-paren">(</span><em>decode_caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n742"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_decoder_installer_detail_new</code><span class="sig-paren">(</span><em>decode_caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n749"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>decode_caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) caps for which a decoder element is needed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>decode_caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) caps for which a decoder element is needed</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated detail string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free string
-with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1133,21 +1193,21 @@ missing.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_decoder_message_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_decoder_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>decode_caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n270"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_decoder_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>decode_caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n277"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>element</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
-<li><strong>decode_caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) caps for which a decoder element is needed</li>
+<li><strong>element</strong> (<a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
+<li><strong>decode_caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) caps for which a decoder element is needed</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -1159,7 +1219,7 @@ This function is mainly for use in plugins.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_element_installer_detail_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_element_installer_detail_new</code><span class="sig-paren">(</span><em>factory_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n718"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_element_installer_detail_new</code><span class="sig-paren">(</span><em>factory_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n725"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1168,7 +1228,7 @@ This function is mainly for use in plugins.</p>
 e.g. &#8220;videoscale&#8221; or &#8220;cdparanoiasrc&#8221;</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated detail string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free string
-with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1185,22 +1245,22 @@ missing.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_element_message_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_element_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>factory_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n242"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_element_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>factory_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n249"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>element</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
+<li><strong>element</strong> (<a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
 <li><strong>factory_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the name of the missing element (element factory),
 e.g. &#8220;videoscale&#8221; or &#8220;cdparanoiasrc&#8221;</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -1212,15 +1272,15 @@ use in plugins.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_encoder_installer_detail_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_encoder_installer_detail_new</code><span class="sig-paren">(</span><em>encode_caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n780"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_encoder_installer_detail_new</code><span class="sig-paren">(</span><em>encode_caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n787"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>encode_caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) caps for which an encoder element is needed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>encode_caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) caps for which an encoder element is needed</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated detail string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free string
-with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1237,21 +1297,21 @@ missing.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_encoder_message_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_encoder_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>encode_caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n310"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_encoder_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>encode_caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n317"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>element</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
-<li><strong>encode_caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) caps for which an encoder element is needed</li>
+<li><strong>element</strong> (<a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
+<li><strong>encode_caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) caps for which an encoder element is needed</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -1263,15 +1323,15 @@ This function is mainly for use in plugins.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_plugin_message_get_description">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_plugin_message_get_description</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n498"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_plugin_message_get_description</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n505"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>) &#8211; a missing-plugin <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a> of type <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/flags.html#Gst.MessageType.ELEMENT" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.MessageType.ELEMENT</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>) &#8211; a missing-plugin <a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a> of type <a class="reference external" href="../python-Gst-1.0/flags.html#Gst.MessageType.ELEMENT" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.MessageType.ELEMENT</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated description string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free
-string with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+string with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1287,15 +1347,15 @@ message</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_plugin_message_get_installer_detail">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_plugin_message_get_installer_detail</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n401"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_plugin_message_get_installer_detail</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n408"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>) &#8211; a missing-plugin <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a> of type <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/flags.html#Gst.MessageType.ELEMENT" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.MessageType.ELEMENT</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>) &#8211; a missing-plugin <a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a> of type <a class="reference external" href="../python-Gst-1.0/flags.html#Gst.MessageType.ELEMENT" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.MessageType.ELEMENT</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated detail string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free string
-with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1310,7 +1370,7 @@ installation mechanisms using one of the two above-mentioned functions.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_uri_sink_installer_detail_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_uri_sink_installer_detail_new</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n690"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_uri_sink_installer_detail_new</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n697"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1319,7 +1379,7 @@ installation mechanisms using one of the two above-mentioned functions.</p>
 e.g. &#8220;http&#8221; or &#8220;mms&#8221;</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated detail string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free string
-with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1336,22 +1396,22 @@ missing.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_uri_sink_message_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_uri_sink_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n209"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_uri_sink_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n216"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>element</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
+<li><strong>element</strong> (<a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
 <li><strong>protocol</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the URI protocol the missing sink needs to implement,
 e.g. &#8220;http&#8221; or &#8220;smb&#8221;</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -1363,7 +1423,7 @@ function is mainly for use in plugins.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_uri_source_installer_detail_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_uri_source_installer_detail_new</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n662"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_uri_source_installer_detail_new</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n669"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1372,7 +1432,7 @@ function is mainly for use in plugins.</p>
 e.g. &#8220;http&#8221; or &#8220;mms&#8221;</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated detail string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free string
-with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1389,22 +1449,22 @@ missing.</p>
 
 <dl class="function">
 <dt id="GstPbutils.missing_uri_source_message_new">
-<code class="descclassname">GstPbutils.</code><code class="descname">missing_uri_source_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.8.1#n177"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">missing_uri_source_message_new</code><span class="sig-paren">(</span><em>element</em>, <em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/missing-plugins.c?h=1.10.2#n184"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>element</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
+<li><strong>element</strong> (<a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a>) &#8211; the <a class="reference external" href="../python-Gst-1.0/classes/Element.html#Gst.Element" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Element</span></code></a> posting the message</li>
 <li><strong>protocol</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the URI protocol the missing source needs to implement,
 e.g. &#8220;http&#8221; or &#8220;mms&#8221;</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new <a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -1416,17 +1476,17 @@ function is mainly for use in plugins.</p>
 
 <dl class="function">
 <dt id="GstPbutils.pb_utils_add_codec_description_to_tag_list">
-<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_add_codec_description_to_tag_list</code><span class="sig-paren">(</span><em>taglist</em>, <em>codec_tag</em>, <em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.8.1#n1147"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_add_codec_description_to_tag_list</code><span class="sig-paren">(</span><em>taglist</em>, <em>codec_tag</em>, <em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.10.2#n1148"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>taglist</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/TagList.html#Gst.TagList" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagList</span></code></a>) &#8211; a <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/TagList.html#Gst.TagList" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagList</span></code></a></li>
-<li><strong>codec_tag</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a GStreamer codec tag such as <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/constants.html#Gst.TAG_AUDIO_CODEC" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_AUDIO_CODEC</span></code></a>,
-<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/constants.html#Gst.TAG_VIDEO_CODEC" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_VIDEO_CODEC</span></code></a> or <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/constants.html#Gst.TAG_CODEC" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_CODEC</span></code></a>. If none is specified,
+<li><strong>taglist</strong> (<a class="reference external" href="../python-Gst-1.0/structs/TagList.html#Gst.TagList" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagList</span></code></a>) &#8211; a <a class="reference external" href="../python-Gst-1.0/structs/TagList.html#Gst.TagList" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TagList</span></code></a></li>
+<li><strong>codec_tag</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a GStreamer codec tag such as <a class="reference external" href="../python-Gst-1.0/constants.html#Gst.TAG_AUDIO_CODEC" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_AUDIO_CODEC</span></code></a>,
+<a class="reference external" href="../python-Gst-1.0/constants.html#Gst.TAG_VIDEO_CODEC" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_VIDEO_CODEC</span></code></a> or <a class="reference external" href="../python-Gst-1.0/constants.html#Gst.TAG_CODEC" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.TAG_CODEC</span></code></a>. If none is specified,
 the function will attempt to detect the appropriate category.</li>
-<li><strong>caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> for which a codec tag should be added.</li>
+<li><strong>caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> for which a codec tag should be added.</li>
 </ul>
 </td>
 </tr>
@@ -1443,15 +1503,15 @@ the function will attempt to detect the appropriate category.</li>
 
 <dl class="function">
 <dt id="GstPbutils.pb_utils_get_codec_description">
-<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_codec_description</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.8.1#n1195"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_codec_description</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.10.2#n1196"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> for which an format description is needed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> for which an format description is needed</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated description string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free
-string with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+string with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1466,15 +1526,15 @@ to be seen by the user. Should never return <a class="reference external" href="
 
 <dl class="function">
 <dt id="GstPbutils.pb_utils_get_decoder_description">
-<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_decoder_description</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.8.1#n1012"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_decoder_description</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.10.2#n1013"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> for which an decoder description is needed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> for which an decoder description is needed</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated description string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free
-string with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+string with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1490,7 +1550,7 @@ a missing feature from a missing-plugin message.</p>
 
 <dl class="function">
 <dt id="GstPbutils.pb_utils_get_element_description">
-<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_element_description</code><span class="sig-paren">(</span><em>factory_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.8.1#n1116"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_element_description</code><span class="sig-paren">(</span><em>factory_name</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.10.2#n1117"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1498,7 +1558,7 @@ a missing feature from a missing-plugin message.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>factory_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the name of the element, e.g. &#8220;giosrc&#8221;</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated description string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free
-string with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+string with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1514,15 +1574,15 @@ a missing feature from a missing-plugin message.</p>
 
 <dl class="function">
 <dt id="GstPbutils.pb_utils_get_encoder_description">
-<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_encoder_description</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.8.1#n1065"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_encoder_description</code><span class="sig-paren">(</span><em>caps</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.10.2#n1066"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caps</strong> (<a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> for which an encoder description is needed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caps</strong> (<a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a>) &#8211; the (fixed) <a class="reference external" href="../python-Gst-1.0/structs/Caps.html#Gst.Caps" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Caps</span></code></a> for which an encoder description is needed</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated description string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free
-string with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+string with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1538,7 +1598,7 @@ a missing feature from a missing-plugin message.</p>
 
 <dl class="function">
 <dt id="GstPbutils.pb_utils_get_sink_description">
-<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_sink_description</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.8.1#n977"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_sink_description</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.10.2#n978"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1546,7 +1606,7 @@ a missing feature from a missing-plugin message.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>protocol</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the protocol the sink element needs to handle, e.g. &#8220;http&#8221;</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated description string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free
-string with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+string with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1562,7 +1622,7 @@ a missing feature from a missing-plugin message.</p>
 
 <dl class="function">
 <dt id="GstPbutils.pb_utils_get_source_description">
-<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_source_description</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.8.1#n929"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_get_source_description</code><span class="sig-paren">(</span><em>protocol</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/descriptions.c?h=1.10.2#n930"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1570,7 +1630,7 @@ a missing feature from a missing-plugin message.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>protocol</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the protocol the source element needs to handle, e.g. &#8220;http&#8221;</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly-allocated description string, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free
-string with <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
+string with <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when not needed any longer.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
@@ -1586,9 +1646,9 @@ a missing feature from a missing-plugin message.</p>
 
 <dl class="function">
 <dt id="GstPbutils.pb_utils_init">
-<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/pbutils.c?h=1.8.1#n90"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">pb_utils_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/pbutils.c?h=1.10.2#n90"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Initialises the base utils support library. This function is not
-thread-safe. Applications should call it after calling <a class="reference external" href="_docs/GstPbutils-1.0/../../../python-Gst-1.0/functions.html#Gst.init" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.init</span></code></a>(),
+thread-safe. Applications should call it after calling <a class="reference external" href="../python-Gst-1.0/functions.html#Gst.init" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.init</span></code></a>(),
 plugins should call it from their plugin_init function.</p>
 <p>This function may be called multiple times. It will do nothing if the
 library has already been initialised.</p>
@@ -1596,7 +1656,7 @@ library has already been initialised.</p>
 
 <dl class="function">
 <dt id="GstPbutils.plugins_base_version">
-<code class="descclassname">GstPbutils.</code><code class="descname">plugins_base_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/gstpluginsbaseversion.c?h=1.8.1#n46"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">plugins_base_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/gstpluginsbaseversion.c?h=1.10.2#n46"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1626,7 +1686,7 @@ library has already been initialised.</p>
 
 <dl class="function">
 <dt id="GstPbutils.plugins_base_version_string">
-<code class="descclassname">GstPbutils.</code><code class="descname">plugins_base_version_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/gstpluginsbaseversion.c?h=1.8.1#n68"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">GstPbutils.</code><code class="descname">plugins_base_version_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/pbutils/gstpluginsbaseversion.c?h=1.10.2#n68"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

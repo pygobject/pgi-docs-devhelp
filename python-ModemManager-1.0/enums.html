@@ -34,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="ModemManager 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
@@ -132,6 +135,9 @@
 <h1>Enums</h1>
 <ul class="simple">
 <li><a class="reference internal" href="#ModemManager.BearerIpMethod" title="ModemManager.BearerIpMethod"><code class="xref py py-class docutils literal"><span class="pre">ModemManager.BearerIpMethod</span></code></a></li>
+<li><a class="reference internal" href="#ModemManager.CallDirection" title="ModemManager.CallDirection"><code class="xref py py-class docutils literal"><span class="pre">ModemManager.CallDirection</span></code></a></li>
+<li><a class="reference internal" href="#ModemManager.CallState" title="ModemManager.CallState"><code class="xref py py-class docutils literal"><span class="pre">ModemManager.CallState</span></code></a></li>
+<li><a class="reference internal" href="#ModemManager.CallStateReason" title="ModemManager.CallStateReason"><code class="xref py py-class docutils literal"><span class="pre">ModemManager.CallStateReason</span></code></a></li>
 <li><a class="reference internal" href="#ModemManager.CdmaActivationError" title="ModemManager.CdmaActivationError"><code class="xref py py-class docutils literal"><span class="pre">ModemManager.CdmaActivationError</span></code></a></li>
 <li><a class="reference internal" href="#ModemManager.ConnectionError" title="ModemManager.ConnectionError"><code class="xref py py-class docutils literal"><span class="pre">ModemManager.ConnectionError</span></code></a></li>
 <li><a class="reference internal" href="#ModemManager.CoreError" title="ModemManager.CoreError"><code class="xref py py-class docutils literal"><span class="pre">ModemManager.CoreError</span></code></a></li>
@@ -170,10 +176,10 @@
 <dl class="class">
 <dt id="ModemManager.BearerIpMethod">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">BearerIpMethod</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.BearerIpMethod.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -212,12 +218,174 @@
 </dd></dl>
 
 <dl class="class">
+<dt id="ModemManager.CallDirection">
+<em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">CallDirection</code></dt>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
+<dt id="ModemManager.CallDirection.get_string">
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> (<a class="reference internal" href="#ModemManager.CallDirection" title="ModemManager.CallDirection"><code class="xref py py-obj docutils literal"><span class="pre">ModemManager.CallDirection</span></code></a>) &#8211; a <a class="reference internal" href="#ModemManager.CallDirection" title="ModemManager.CallDirection"><code class="xref py py-obj docutils literal"><span class="pre">ModemManager.CallDirection</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a string with the nickname, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if not found. Do not free the returned value.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Gets the nickname string for the <a class="reference internal" href="#ModemManager.CallDirection" title="ModemManager.CallDirection"><code class="xref py py-obj docutils literal"><span class="pre">ModemManager.CallDirection</span></code></a> specified at <cite>val</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallDirection.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallDirection.INCOMING">
+<code class="descname">INCOMING</code><em class="property"> = 1</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallDirection.OUTGOING">
+<code class="descname">OUTGOING</code><em class="property"> = 2</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ModemManager.CallState">
+<em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">CallState</code></dt>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
+<dt id="ModemManager.CallState.get_string">
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> (<a class="reference internal" href="#ModemManager.CallState" title="ModemManager.CallState"><code class="xref py py-obj docutils literal"><span class="pre">ModemManager.CallState</span></code></a>) &#8211; a <a class="reference internal" href="#ModemManager.CallState" title="ModemManager.CallState"><code class="xref py py-obj docutils literal"><span class="pre">ModemManager.CallState</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a string with the nickname, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if not found. Do not free the returned value.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Gets the nickname string for the <a class="reference internal" href="#ModemManager.CallState" title="ModemManager.CallState"><code class="xref py py-obj docutils literal"><span class="pre">ModemManager.CallState</span></code></a> specified at <cite>val</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallState.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallState.DIALING">
+<code class="descname">DIALING</code><em class="property"> = 1</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallState.RINGING_OUT">
+<code class="descname">RINGING_OUT</code><em class="property"> = 2</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallState.RINGING_IN">
+<code class="descname">RINGING_IN</code><em class="property"> = 3</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallState.ACTIVE">
+<code class="descname">ACTIVE</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallState.HELD">
+<code class="descname">HELD</code><em class="property"> = 5</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallState.WAITING">
+<code class="descname">WAITING</code><em class="property"> = 6</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallState.TERMINATED">
+<code class="descname">TERMINATED</code><em class="property"> = 7</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ModemManager.CallStateReason">
+<em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">CallStateReason</code></dt>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
+<dt id="ModemManager.CallStateReason.get_string">
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> (<a class="reference internal" href="#ModemManager.CallStateReason" title="ModemManager.CallStateReason"><code class="xref py py-obj docutils literal"><span class="pre">ModemManager.CallStateReason</span></code></a>) &#8211; a <a class="reference internal" href="#ModemManager.CallStateReason" title="ModemManager.CallStateReason"><code class="xref py py-obj docutils literal"><span class="pre">ModemManager.CallStateReason</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a string with the nickname, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if not found. Do not free the returned value.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Gets the nickname string for the <a class="reference internal" href="#ModemManager.CallStateReason" title="ModemManager.CallStateReason"><code class="xref py py-obj docutils literal"><span class="pre">ModemManager.CallStateReason</span></code></a> specified at <cite>val</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallStateReason.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallStateReason.OUTGOING_STARTED">
+<code class="descname">OUTGOING_STARTED</code><em class="property"> = 1</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallStateReason.INCOMING_NEW">
+<code class="descname">INCOMING_NEW</code><em class="property"> = 2</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallStateReason.ACCEPTED">
+<code class="descname">ACCEPTED</code><em class="property"> = 3</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallStateReason.TERMINATED">
+<code class="descname">TERMINATED</code><em class="property"> = 4</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallStateReason.REFUSED_OR_BUSY">
+<code class="descname">REFUSED_OR_BUSY</code><em class="property"> = 5</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModemManager.CallStateReason.ERROR">
+<code class="descname">ERROR</code><em class="property"> = 6</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="ModemManager.CdmaActivationError">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">CdmaActivationError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.CdmaActivationError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -283,10 +451,10 @@
 <dl class="class">
 <dt id="ModemManager.ConnectionError">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ConnectionError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ConnectionError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -327,10 +495,10 @@
 <dl class="class">
 <dt id="ModemManager.CoreError">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">CoreError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.CoreError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -416,10 +584,10 @@
 <dl class="class">
 <dt id="ModemManager.FirmwareImageType">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">FirmwareImageType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.FirmwareImageType.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -455,10 +623,10 @@
 <dl class="class">
 <dt id="ModemManager.MessageError">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">MessageError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.MessageError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -589,10 +757,10 @@
 <dl class="class">
 <dt id="ModemManager.MobileEquipmentError">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">MobileEquipmentError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.MobileEquipmentError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -893,10 +1061,10 @@
 <dl class="class">
 <dt id="ModemManager.Modem3gppNetworkAvailability">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">Modem3gppNetworkAvailability</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.Modem3gppNetworkAvailability.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -937,10 +1105,10 @@
 <dl class="class">
 <dt id="ModemManager.Modem3gppRegistrationState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">Modem3gppRegistrationState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.Modem3gppRegistrationState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -991,10 +1159,10 @@
 <dl class="class">
 <dt id="ModemManager.Modem3gppSubscriptionState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">Modem3gppSubscriptionState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.Modem3gppSubscriptionState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1035,10 +1203,10 @@
 <dl class="class">
 <dt id="ModemManager.Modem3gppUssdSessionState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">Modem3gppUssdSessionState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.Modem3gppUssdSessionState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1079,10 +1247,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemBand">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemBand</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemBand.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1458,10 +1626,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemCdmaActivationState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemCdmaActivationState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemCdmaActivationState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1507,10 +1675,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemCdmaRegistrationState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemCdmaRegistrationState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemCdmaRegistrationState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1551,10 +1719,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemCdmaRmProtocol">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemCdmaRmProtocol</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemCdmaRmProtocol.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1605,10 +1773,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemContactsStorage">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemContactsStorage</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemContactsStorage.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1649,10 +1817,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemLock">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemLock</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemLock.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1758,10 +1926,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemPortType">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemPortType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemPortType.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1817,10 +1985,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemPowerState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemPowerState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemPowerState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1861,10 +2029,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1950,10 +2118,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemStateChangeReason">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemStateChangeReason</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemStateChangeReason.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1994,10 +2162,10 @@
 <dl class="class">
 <dt id="ModemManager.ModemStateFailedReason">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">ModemStateFailedReason</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.ModemStateFailedReason.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2038,10 +2206,10 @@
 <dl class="class">
 <dt id="ModemManager.OmaSessionState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">OmaSessionState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.OmaSessionState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2122,10 +2290,10 @@
 <dl class="class">
 <dt id="ModemManager.OmaSessionStateFailedReason">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">OmaSessionStateFailedReason</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.OmaSessionStateFailedReason.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2176,10 +2344,10 @@
 <dl class="class">
 <dt id="ModemManager.OmaSessionType">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">OmaSessionType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.OmaSessionType.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2240,10 +2408,10 @@
 <dl class="class">
 <dt id="ModemManager.SerialError">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">SerialError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.SerialError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2294,15 +2462,20 @@
 <code class="descname">PARSEFAILED</code><em class="property"> = 7</em></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="ModemManager.SerialError.FRAMENOTFOUND">
+<code class="descname">FRAMENOTFOUND</code><em class="property"> = 8</em></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="ModemManager.SmsCdmaServiceCategory">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">SmsCdmaServiceCategory</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.SmsCdmaServiceCategory.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2508,10 +2681,10 @@
 <dl class="class">
 <dt id="ModemManager.SmsCdmaTeleserviceId">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">SmsCdmaTeleserviceId</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.SmsCdmaTeleserviceId.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2577,10 +2750,10 @@
 <dl class="class">
 <dt id="ModemManager.SmsDeliveryState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">SmsDeliveryState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.SmsDeliveryState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -3011,10 +3184,10 @@
 <dl class="class">
 <dt id="ModemManager.SmsPduType">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">SmsPduType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.SmsPduType.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -3085,10 +3258,10 @@
 <dl class="class">
 <dt id="ModemManager.SmsState">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">SmsState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.SmsState.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -3139,10 +3312,10 @@
 <dl class="class">
 <dt id="ModemManager.SmsStorage">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">SmsStorage</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.SmsStorage.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -3198,10 +3371,10 @@
 <dl class="class">
 <dt id="ModemManager.SmsValidityType">
 <em class="property">class </em><code class="descclassname">ModemManager.</code><code class="descname">SmsValidityType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/ModemManager-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<dl class="staticmethod">
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dl class="classmethod">
 <dt id="ModemManager.SmsValidityType.get_string">
-<em class="property">static </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_string</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

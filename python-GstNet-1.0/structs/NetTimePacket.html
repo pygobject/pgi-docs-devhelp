@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GstNet 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Class Structures" href="../class-structs/index.html"/>
@@ -143,7 +146,7 @@
 <h1>GstNet.NetTimePacket</h1>
 <div class="section" id="fields">
 <span id="gstnet-nettimepacket-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -173,16 +176,16 @@
 </div>
 <div class="section" id="methods">
 <span id="gstnet-nettimepacket-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#GstNet.NetTimePacket.new" title="GstNet.NetTimePacket.new"><code class="xref py py-obj docutils literal"><span class="pre">new</span></code></a> (buffer)</td>
 </tr>
-<tr class="row-even"><td><em>static</em></td>
+<tr class="row-even"><td><em>class</em></td>
 <td><a class="reference internal" href="#GstNet.NetTimePacket.receive" title="GstNet.NetTimePacket.receive"><code class="xref py py-obj docutils literal"><span class="pre">receive</span></code></a> (socket)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
@@ -207,9 +210,9 @@
 <em class="property">class </em><code class="descclassname">GstNet.</code><code class="descname">NetTimePacket</code></dt>
 <dd><p>Various functions for receiving, sending an serializing <a class="reference internal" href="#GstNet.NetTimePacket" title="GstNet.NetTimePacket"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetTimePacket</span></code></a>
 structures.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="GstNet.NetTimePacket.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.8.1#n63"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.10.2#n63"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -226,20 +229,20 @@ structures.</p>
 caller is responsible for ensuring that <cite>buffer</cite> is at least
 <a class="reference internal" href="../constants.html#GstNet.NET_TIME_PACKET_SIZE" title="GstNet.NET_TIME_PACKET_SIZE"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NET_TIME_PACKET_SIZE</span></code></a> bytes long.</p>
 <p>If <cite>buffer</cite> is <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, the local and remote times will be set to
-<a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gst-1.0/constants.html#Gst.CLOCK_TIME_NONE" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CLOCK_TIME_NONE</span></code></a>.</p>
+<a class="reference external" href="../../python-Gst-1.0/constants.html#Gst.CLOCK_TIME_NONE" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CLOCK_TIME_NONE</span></code></a>.</p>
 <p>MT safe. Caller owns return value (<a class="reference internal" href="#GstNet.NetTimePacket.free" title="GstNet.NetTimePacket.free"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetTimePacket.free</span></code></a> to free).</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="GstNet.NetTimePacket.receive">
-<em class="property">static </em><code class="descname">receive</code><span class="sig-paren">(</span><em>socket</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.8.1#n156"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">receive</code><span class="sig-paren">(</span><em>socket</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.10.2#n156"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>socket</strong> (<a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gio-2.0/classes/Socket.html#Gio.Socket" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket</span></code></a>) &#8211; socket to receive the time packet on</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>socket</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Socket.html#Gio.Socket" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket</span></code></a>) &#8211; socket to receive the time packet on</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/GstNet-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#GstNet.NetTimePacket" title="GstNet.NetTimePacket"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetTimePacket</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error. Free
 with <a class="reference internal" href="#GstNet.NetTimePacket.free" title="GstNet.NetTimePacket.free"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetTimePacket.free</span></code></a>() when done.<table class="docutils field-list" frame="void" rules="none">
@@ -252,7 +255,7 @@ with <a class="reference internal" href="#GstNet.NetTimePacket.free" title="GstN
 </table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="#GstNet.NetTimePacket" title="GstNet.NetTimePacket"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetTimePacket</span></code></a>, <strong>src_address</strong>: <a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gio-2.0/classes/SocketAddress.html#Gio.SocketAddress" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketAddress</span></code></a>)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="#GstNet.NetTimePacket" title="GstNet.NetTimePacket"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NetTimePacket</span></code></a>, <strong>src_address</strong>: <a class="reference external" href="../../python-Gio-2.0/classes/SocketAddress.html#Gio.SocketAddress" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketAddress</span></code></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -262,7 +265,7 @@ calls, but otherwise returns <a class="reference external" href="http://docs.pyt
 
 <dl class="method">
 <dt id="GstNet.NetTimePacket.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.8.1#n103"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.10.2#n103"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -278,24 +281,24 @@ calls, but otherwise returns <a class="reference external" href="http://docs.pyt
 
 <dl class="method">
 <dt id="GstNet.NetTimePacket.free">
-<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.8.1#n90"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.10.2#n90"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Free <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstNet.NetTimePacket.send">
-<code class="descname">send</code><span class="sig-paren">(</span><em>socket</em>, <em>dest_address</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.8.1#n215"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">send</code><span class="sig-paren">(</span><em>socket</em>, <em>dest_address</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.10.2#n215"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>socket</strong> (<a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gio-2.0/classes/Socket.html#Gio.Socket" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket</span></code></a>) &#8211; socket to send the time packet on</li>
-<li><strong>dest_address</strong> (<a class="reference external" href="../_docs/GstNet-1.0/../../../python-Gio-2.0/classes/SocketAddress.html#Gio.SocketAddress" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketAddress</span></code></a>) &#8211; address to send the time packet to</li>
+<li><strong>socket</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Socket.html#Gio.Socket" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Socket</span></code></a>) &#8211; socket to send the time packet on</li>
+<li><strong>dest_address</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/SocketAddress.html#Gio.SocketAddress" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.SocketAddress</span></code></a>) &#8211; address to send the time packet to</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/GstNet-1.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if successful, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> in case an error occurred.</p>
@@ -312,7 +315,7 @@ calls, but otherwise returns <a class="reference external" href="http://docs.pyt
 
 <dl class="method">
 <dt id="GstNet.NetTimePacket.serialize">
-<code class="descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.8.1#n128"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/libs/gst/net/gstnettimepacket.c?h=1.10.2#n128"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -327,7 +330,7 @@ calls, but otherwise returns <a class="reference external" href="http://docs.pyt
 <a class="reference internal" href="../constants.html#GstNet.NET_TIME_PACKET_SIZE" title="GstNet.NET_TIME_PACKET_SIZE"><code class="xref py py-obj docutils literal"><span class="pre">GstNet.NET_TIME_PACKET_SIZE</span></code></a> bytes, in network byte order. The value returned is
 suitable for passing to write(2) or sendto(2) for communication over the
 network.</p>
-<p>MT safe. Caller owns return value (<a class="reference external" href="../_docs/GstNet-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> to free).</p>
+<p>MT safe. Caller owns return value (<a class="reference external" href="../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> to free).</p>
 </dd></dl>
 
 </dd></dl>

@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gst.MapInfo" href="MapInfo.html"/>
@@ -143,7 +146,7 @@
 <h1>Gst.Iterator</h1>
 <div class="section" id="fields">
 <span id="gst-iterator-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -179,7 +182,7 @@
 <td>The function to be called for each item retrieved</td>
 </tr>
 <tr class="row-even"><td>lock</td>
-<td><a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/unions/Mutex.html#GLib.Mutex" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Mutex</span></code></a></td>
+<td><a class="reference external" href="../../python-GLib-2.0/unions/Mutex.html#GLib.Mutex" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Mutex</span></code></a></td>
 <td>r/w</td>
 <td>The lock protecting the data structure and the cookie.</td>
 </tr>
@@ -209,7 +212,7 @@
 <td>the size of the iterator</td>
 </tr>
 <tr class="row-even"><td>type</td>
-<td><a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
+<td><a class="reference external" href="../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a></td>
 <td>r/w</td>
 <td>The type of the object that this iterator will return</td>
 </tr>
@@ -218,13 +221,13 @@
 </div>
 <div class="section" id="methods">
 <span id="gst-iterator-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Iterator.new_single" title="Gst.Iterator.new_single"><code class="xref py py-obj docutils literal"><span class="pre">new_single</span></code></a> (type, object)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
@@ -255,11 +258,11 @@ a threadsafe way.</p>
 <p>Various GStreamer objects provide access to their internal structures using
 an iterator.</p>
 <p>Note that if calling a <a class="reference internal" href="#Gst.Iterator" title="Gst.Iterator"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Iterator</span></code></a> function results in your code receiving
-a refcounted object (with, say, <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value.get_object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value.get_object</span></code></a>()), the refcount for that
+a refcounted object (with, say, <a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value.get_object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value.get_object</span></code></a>()), the refcount for that
 object will not be increased. Your code is responsible for taking a reference
 if it wants to continue using it later.</p>
 <p>The basic use pattern of an iterator is as follows:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">GstIterator</span> <span class="o">*</span><span class="n">it</span> <span class="o">=</span> <span class="n">_get_iterator</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">GstIterator</span> <span class="o">*</span><span class="n">it</span> <span class="o">=</span> <span class="n">_get_iterator</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
 <span class="n">GValue</span> <span class="n">item</span> <span class="o">=</span> <span class="n">G_VALUE_INIT</span><span class="p">;</span>
 <span class="n">done</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
 <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">done</span><span class="p">)</span> <span class="p">{</span>
@@ -285,16 +288,16 @@ if it wants to continue using it later.</p>
 <span class="n">gst_iterator_free</span> <span class="p">(</span><span class="n">it</span><span class="p">);</span>
 </pre></div>
 </div>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Iterator.new_single">
-<em class="property">static </em><code class="descname">new_single</code><span class="sig-paren">(</span><em>type</em>, <em>object</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.8.1#n805"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_single</code><span class="sig-paren">(</span><em>type</em>, <em>object</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.10.2#n813"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>type</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the passed object</li>
-<li><strong>object</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; object that this iterator should return</li>
+<li><strong>type</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; <a class="reference external" href="../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of the passed object</li>
+<li><strong>object</strong> (<a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; object that this iterator should return</li>
 </ul>
 </td>
 </tr>
@@ -314,14 +317,14 @@ for the <a class="reference internal" href="../callbacks.html#Gst.PadIterIntLink
 
 <dl class="method">
 <dt id="Gst.Iterator.filter">
-<code class="descname">filter</code><span class="sig-paren">(</span><em>func</em>, <em>user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.8.1#n546"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">filter</code><span class="sig-paren">(</span><em>func</em>, <em>user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.10.2#n546"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>func</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/callbacks.html#GLib.CompareFunc" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.CompareFunc</span></code></a>) &#8211; the compare function to select elements</li>
-<li><strong>user_data</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; user data passed to the compare function</li>
+<li><strong>func</strong> (<a class="reference external" href="../../python-GLib-2.0/callbacks.html#GLib.CompareFunc" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.CompareFunc</span></code></a>) &#8211; the compare function to select elements</li>
+<li><strong>user_data</strong> (<a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; user data passed to the compare function</li>
 </ul>
 </td>
 </tr>
@@ -337,7 +340,7 @@ for the <a class="reference internal" href="../callbacks.html#Gst.PadIterIntLink
 </table>
 <p>Create a new iterator from an existing iterator. The new iterator
 will only return those elements that match the given compare function <cite>func</cite>.
-The first parameter that is passed to <cite>func</cite> is the <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> of the current
+The first parameter that is passed to <cite>func</cite> is the <a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> of the current
 iterator element and the second parameter is <cite>user_data</cite>. <cite>func</cite> should
 return 0 for elements that should be included in the filtered iterator.</p>
 <p>When this iterator is freed, <cite>self</cite> will also be freed.</p>
@@ -345,13 +348,13 @@ return 0 for elements that should be included in the filtered iterator.</p>
 
 <dl class="method">
 <dt id="Gst.Iterator.find_custom">
-<code class="descname">find_custom</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.8.1#n717"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">find_custom</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.10.2#n725"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>func</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/callbacks.html#GLib.CompareFunc" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.CompareFunc</span></code></a>) &#8211; the compare function to use</li>
+<li><strong>func</strong> (<a class="reference external" href="../../python-GLib-2.0/callbacks.html#GLib.CompareFunc" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.CompareFunc</span></code></a>) &#8211; the compare function to use</li>
 <li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to the compare function</li>
 </ul>
 </td>
@@ -362,14 +365,14 @@ return 0 for elements that should be included in the filtered iterator.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">elem:</th><td class="field-body">pointer to a <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> where to store the result</td>
+<tr class="field-odd field"><th class="field-name">elem:</th><td class="field-body">pointer to a <a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a> where to store the result</td>
 </tr>
 </tbody>
 </table>
 </p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>elem</strong>: <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>)</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>elem</strong>: <a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -386,14 +389,14 @@ or if the element wasn&#8217;t found.</p>
 
 <dl class="method">
 <dt id="Gst.Iterator.fold">
-<code class="descname">fold</code><span class="sig-paren">(</span><em>func</em>, <em>ret</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.8.1#n605"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">fold</code><span class="sig-paren">(</span><em>func</em>, <em>ret</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.10.2#n605"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gst.IteratorFoldFunction" title="Gst.IteratorFoldFunction"><code class="xref py py-obj docutils literal"><span class="pre">Gst.IteratorFoldFunction</span></code></a>) &#8211; the fold function</li>
-<li><strong>ret</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; the seed value passed to the fold function</li>
+<li><strong>ret</strong> (<a class="reference external" href="../../python-GObject-2.0/structs/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Value</span></code></a>) &#8211; the seed value passed to the fold function</li>
 <li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data passed to the fold function</li>
 </ul>
 </td>
@@ -424,7 +427,7 @@ appropriate.</p>
 
 <dl class="method">
 <dt id="Gst.Iterator.foreach">
-<code class="descname">foreach</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.8.1#n662"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">foreach</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.10.2#n670"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -452,7 +455,7 @@ each element.</p>
 
 <dl class="method">
 <dt id="Gst.Iterator.push">
-<code class="descname">push</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.8.1#n446"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">push</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstiterator.c?h=1.10.2#n446"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

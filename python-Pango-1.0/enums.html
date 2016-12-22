@@ -34,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Pango 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
@@ -154,7 +157,7 @@
 <dl class="class">
 <dt id="Pango.Alignment">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">Alignment</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>A <a class="reference internal" href="#Pango.Alignment" title="Pango.Alignment"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Alignment</span></code></a> describes how to align the lines of a <a class="reference internal" href="classes/Layout.html#Pango.Layout" title="Pango.Layout"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Layout</span></code></a> within the
 available space. If the <a class="reference internal" href="classes/Layout.html#Pango.Layout" title="Pango.Layout"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Layout</span></code></a> is set to justify
 using <a class="reference internal" href="classes/Layout.html#Pango.Layout.set_justify" title="Pango.Layout.set_justify"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Layout.set_justify</span></code></a>(), this only has effect for partial lines.</p>
@@ -181,16 +184,16 @@ using <a class="reference internal" href="classes/Layout.html#Pango.Layout.set_j
 <dl class="class">
 <dt id="Pango.AttrType">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">AttrType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The <a class="reference internal" href="#Pango.AttrType" title="Pango.AttrType"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrType</span></code></a>
 distinguishes between different types of attributes. Along with the
 predefined values, it is possible to allocate additional values
 for custom attributes using <a class="reference internal" href="#Pango.AttrType.register" title="Pango.AttrType.register"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrType.register</span></code></a>(). The predefined
 values are given below. The type of structure used to store the
 attribute is listed in parentheses after the description.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Pango.AttrType.get_name">
-<em class="property">static </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n119"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.3#n119"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -206,16 +209,16 @@ attribute is listed in parentheses after the description.</p>
 </table>
 <p>Fetches the attribute type name passed in when registering the type using
 <a class="reference internal" href="#Pango.AttrType.register" title="Pango.AttrType.register"><code class="xref py py-obj docutils literal"><span class="pre">Pango.AttrType.register</span></code></a>().</p>
-<p>The returned value is an interned string (see <a class="reference external" href="_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.intern_string" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.intern_string</span></code></a>() for what
+<p>The returned value is an interned string (see <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.intern_string" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.intern_string</span></code></a>() for what
 that means) that should not be modified or freed.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.22.</span></p>
 </div>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Pango.AttrType.register">
-<em class="property">static </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.1#n81"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-attributes.c?h=1.40.3#n81"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -402,16 +405,16 @@ later by using <a class="reference internal" href="#Pango.AttrType.get_name" tit
 <dl class="class">
 <dt id="Pango.BidiType">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">BidiType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The <a class="reference internal" href="#Pango.BidiType" title="Pango.BidiType"><code class="xref py py-obj docutils literal"><span class="pre">Pango.BidiType</span></code></a> type represents the bidirectional character
 type of a Unicode character as specified by the</p>
 <p><a class="reference external" href="http://www.unicode.org/reports/tr9/">Unicode bidirectional algorithm</a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.22.</span></p>
 </div>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Pango.BidiType.for_unichar">
-<em class="property">static </em><code class="descname">for_unichar</code><span class="sig-paren">(</span><em>ch</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-bidi-type.c?h=1.40.1#n67"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">for_unichar</code><span class="sig-paren">(</span><em>ch</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-bidi-type.c?h=1.40.3#n67"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -553,7 +556,7 @@ character, as specified in the Unicode Character Database.</p>
 <dl class="class">
 <dt id="Pango.CoverageLevel">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">CoverageLevel</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Used to indicate how well a font can represent a particular Unicode
 character point for a particular script.</p>
 <dl class="attribute">
@@ -590,7 +593,7 @@ the current script.</p>
 <dl class="class">
 <dt id="Pango.Direction">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">Direction</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The <a class="reference internal" href="#Pango.Direction" title="Pango.Direction"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Direction</span></code></a> type represents a direction in the
 Unicode bidirectional algorithm; not every value in this
 enumeration makes sense for every usage of <a class="reference internal" href="#Pango.Direction" title="Pango.Direction"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Direction</span></code></a>;
@@ -654,7 +657,7 @@ same as <a class="reference internal" href="#Pango.Direction.LTR" title="Pango.D
 <dl class="class">
 <dt id="Pango.EllipsizeMode">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">EllipsizeMode</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The <a class="reference internal" href="#Pango.EllipsizeMode" title="Pango.EllipsizeMode"><code class="xref py py-obj docutils literal"><span class="pre">Pango.EllipsizeMode</span></code></a> type describes what sort of (if any)
 ellipsization should be applied to a line of text. In
 the ellipsization process characters are removed from the
@@ -689,7 +692,7 @@ with an ellipsis.</p>
 <dl class="class">
 <dt id="Pango.Gravity">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">Gravity</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The <a class="reference internal" href="#Pango.Gravity" title="Pango.Gravity"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Gravity</span></code></a> type represents the orientation of glyphs in a segment
 of text.  This is useful when rendering vertical text layouts.  In
 those situations, the layout is rotated using a non-identity <a class="reference internal" href="structs/Matrix.html#Pango.Matrix" title="Pango.Matrix"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Matrix</span></code></a>,
@@ -702,9 +705,9 @@ Not every value in this enumeration makes sense for every usage of
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.16.</span></p>
 </div>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Pango.Gravity.get_for_matrix">
-<em class="property">static </em><code class="descname">get_for_matrix</code><span class="sig-paren">(</span><em>matrix</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-gravity.c?h=1.40.1#n139"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_for_matrix</code><span class="sig-paren">(</span><em>matrix</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-gravity.c?h=1.40.3#n139"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -725,9 +728,9 @@ in a <a class="reference internal" href="structs/Matrix.html#Pango.Matrix" title
 </div>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Pango.Gravity.get_for_script">
-<em class="property">static </em><code class="descname">get_for_script</code><span class="sig-paren">(</span><em>script</em>, <em>base_gravity</em>, <em>hint</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-gravity.c?h=1.40.1#n313"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_for_script</code><span class="sig-paren">(</span><em>script</em>, <em>base_gravity</em>, <em>hint</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-gravity.c?h=1.40.3#n313"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -758,16 +761,16 @@ pass <a class="reference internal" href="#Pango.Gravity.AUTO" title="Pango.Gravi
 </div>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Pango.Gravity.get_for_script_and_width">
-<em class="property">static </em><code class="descname">get_for_script_and_width</code><span class="sig-paren">(</span><em>script</em>, <em>wide</em>, <em>base_gravity</em>, <em>hint</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-gravity.c?h=1.40.1#n354"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_for_script_and_width</code><span class="sig-paren">(</span><em>script</em>, <em>wide</em>, <em>base_gravity</em>, <em>hint</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-gravity.c?h=1.40.3#n354"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>script</strong> (<a class="reference internal" href="#Pango.Script" title="Pango.Script"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Script</span></code></a>) &#8211; <a class="reference internal" href="#Pango.Script" title="Pango.Script"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Script</span></code></a> to query</li>
-<li><strong>wide</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> for wide characters as returned by <a class="reference external" href="_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.unichar_iswide" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.unichar_iswide</span></code></a>()</li>
+<li><strong>wide</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> for wide characters as returned by <a class="reference external" href="../python-GLib-2.0/functions.html#GLib.unichar_iswide" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.unichar_iswide</span></code></a>()</li>
 <li><strong>base_gravity</strong> (<a class="reference internal" href="#Pango.Gravity" title="Pango.Gravity"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Gravity</span></code></a>) &#8211; base gravity of the paragraph</li>
 <li><strong>hint</strong> (<a class="reference internal" href="#Pango.GravityHint" title="Pango.GravityHint"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GravityHint</span></code></a>) &#8211; orientation hint</li>
 </ul>
@@ -798,9 +801,9 @@ preferred gravity of <cite>script</cite>.</p>
 </div>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Pango.Gravity.to_rotation">
-<em class="property">static </em><code class="descname">to_rotation</code><span class="sig-paren">(</span><em>gravity</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-gravity.c?h=1.40.1#n105"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">to_rotation</code><span class="sig-paren">(</span><em>gravity</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-gravity.c?h=1.40.3#n105"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -817,7 +820,7 @@ preferred gravity of <cite>script</cite>.</p>
 <cite>gravity</cite> should not be <a class="reference internal" href="#Pango.Gravity.AUTO" title="Pango.Gravity.AUTO"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Gravity.AUTO</span></code></a>.</p>
 <p>Note that <a class="reference internal" href="structs/Matrix.html#Pango.Matrix.rotate" title="Pango.Matrix.rotate"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Matrix.rotate</span></code></a>() takes angle in degrees, not radians.
 So, to call <a class="reference internal" href="structs/Matrix.html#Pango.Matrix.rotate" title="Pango.Matrix.rotate"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Matrix.rotate</span></code></a>() with the output of this function
-you should multiply it by (180. / <a class="reference external" href="_docs/Pango-1.0/../../../python-GLib-2.0/constants.html#GLib.PI" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PI</span></code></a>).</p>
+you should multiply it by (180. / <a class="reference external" href="../python-GLib-2.0/constants.html#GLib.PI" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.PI</span></code></a>).</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.16.</span></p>
 </div>
@@ -858,7 +861,7 @@ you should multiply it by (180. / <a class="reference external" href="_docs/Pang
 <dl class="class">
 <dt id="Pango.GravityHint">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">GravityHint</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The <a class="reference internal" href="#Pango.GravityHint" title="Pango.GravityHint"><code class="xref py py-obj docutils literal"><span class="pre">Pango.GravityHint</span></code></a> defines how horizontal scripts should behave in a
 vertical context.  That is, English excerpt in a vertical paragraph for
 example.</p>
@@ -894,7 +897,7 @@ opposite gravities and both flow top-to-bottom for example.</p>
 <dl class="class">
 <dt id="Pango.RenderPart">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">RenderPart</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#Pango.RenderPart" title="Pango.RenderPart"><code class="xref py py-obj docutils literal"><span class="pre">Pango.RenderPart</span></code></a> defines different items to render for such
 purposes as setting colors.</p>
 <div class="versionadded">
@@ -929,17 +932,17 @@ purposes as setting colors.</p>
 <dl class="class">
 <dt id="Pango.Script">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">Script</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The <a class="reference internal" href="#Pango.Script" title="Pango.Script"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Script</span></code></a> enumeration identifies different writing
 systems. The values correspond to the names as defined in the
 Unicode standard.
 Note that new types may be added in the future. Applications should be ready
 to handle unknown values.  This enumeration is interchangeable with
-<a class="reference external" href="_docs/Pango-1.0/../../../python-GLib-2.0/enums.html#GLib.UnicodeScript" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.UnicodeScript</span></code></a>.  See <a class="reference external" href="http://www.unicode.org/reports/tr24/">Unicode Standard Annex
+<a class="reference external" href="../python-GLib-2.0/enums.html#GLib.UnicodeScript" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.UnicodeScript</span></code></a>.  See <a class="reference external" href="http://www.unicode.org/reports/tr24/">Unicode Standard Annex
 #24: Script names</a>.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Pango.Script.for_unichar">
-<em class="property">static </em><code class="descname">for_unichar</code><span class="sig-paren">(</span><em>ch</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-script.c?h=1.40.1#n90"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">for_unichar</code><span class="sig-paren">(</span><em>ch</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-script.c?h=1.40.3#n90"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -957,15 +960,15 @@ Unicode Standard Annex \#24). No check is made for <cite>ch</cite> being a
 valid Unicode character; if you pass in invalid character, the
 result is undefined.</p>
 <p>As of Pango 1.18, this function simply returns the return value of
-<a class="reference external" href="_docs/Pango-1.0/../../../python-GLib-2.0/functions.html#GLib.unichar_get_script" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.unichar_get_script</span></code></a>().</p>
+<a class="reference external" href="../python-GLib-2.0/functions.html#GLib.unichar_get_script" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.unichar_get_script</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.4.</span></p>
 </div>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Pango.Script.get_sample_language">
-<em class="property">static </em><code class="descname">get_sample_language</code><span class="sig-paren">(</span><em>script</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-language.c?h=1.40.1#n874"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_sample_language</code><span class="sig-paren">(</span><em>script</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/pango/tree/pango/pango-language.c?h=1.40.3#n874"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1915,7 +1918,7 @@ base glyph to which it is attached</p>
 <dl class="class">
 <dt id="Pango.Stretch">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">Stretch</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>An enumeration specifying the width of the font relative to other designs
 within a family.</p>
 <dl class="attribute">
@@ -1977,7 +1980,7 @@ within a family.</p>
 <dl class="class">
 <dt id="Pango.Style">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">Style</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>An enumeration specifying the various slant styles possible for a font.</p>
 <dl class="attribute">
 <dt id="Pango.Style.NORMAL">
@@ -2002,7 +2005,7 @@ within a family.</p>
 <dl class="class">
 <dt id="Pango.TabAlign">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">TabAlign</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>A <a class="reference internal" href="#Pango.TabAlign" title="Pango.TabAlign"><code class="xref py py-obj docutils literal"><span class="pre">Pango.TabAlign</span></code></a> specifies where a tab stop appears relative to the text.</p>
 <dl class="attribute">
 <dt id="Pango.TabAlign.LEFT">
@@ -2015,7 +2018,7 @@ within a family.</p>
 <dl class="class">
 <dt id="Pango.Underline">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">Underline</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The <a class="reference internal" href="#Pango.Underline" title="Pango.Underline"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Underline</span></code></a> enumeration is used to specify
 whether text should be underlined, and if so, the type
 of underlining.</p>
@@ -2063,7 +2066,7 @@ be used. This type of underlining is available since Pango 1.4.</p>
 <dl class="class">
 <dt id="Pango.Variant">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">Variant</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>An enumeration specifying capitalization variant of the font.</p>
 <dl class="attribute">
 <dt id="Pango.Variant.NORMAL">
@@ -2083,7 +2086,7 @@ replaced by smaller variants of the capital characters.</p>
 <dl class="class">
 <dt id="Pango.Weight">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">Weight</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>An enumeration specifying the weight (boldness) of a font. This is a numerical
 value ranging from 100 to 1000, but there are some predefined values:</p>
 <dl class="attribute">
@@ -2178,7 +2181,7 @@ value ranging from 100 to 1000, but there are some predefined values:</p>
 <dl class="class">
 <dt id="Pango.WrapMode">
 <em class="property">class </em><code class="descclassname">Pango.</code><code class="descname">WrapMode</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/Pango-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>A <a class="reference internal" href="#Pango.WrapMode" title="Pango.WrapMode"><code class="xref py py-obj docutils literal"><span class="pre">Pango.WrapMode</span></code></a> describes how to wrap the lines of a <a class="reference internal" href="classes/Layout.html#Pango.Layout" title="Pango.Layout"><code class="xref py py-obj docutils literal"><span class="pre">Pango.Layout</span></code></a> to the desired width.</p>
 <dl class="attribute">
 <dt id="Pango.WrapMode.WORD">

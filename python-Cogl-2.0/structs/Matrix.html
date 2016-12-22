@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Cogl 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Cogl.MatrixEntry" href="MatrixEntry.html"/>
@@ -143,7 +146,7 @@
 <h1>Cogl.Matrix</h1>
 <div class="section" id="fields">
 <span id="cogl-matrix-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -263,13 +266,13 @@
 </div>
 <div class="section" id="methods">
 <span id="cogl-matrix-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Cogl.Matrix.equal" title="Cogl.Matrix.equal"><code class="xref py py-obj docutils literal"><span class="pre">equal</span></code></a> (v1, v2)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
@@ -368,7 +371,7 @@ translation, sheering, and linear projections. You can combine these
 transforms by multiplying multiple matrices in the order you want them
 applied.</p>
 <p>The transformation of a vertex (x, y, z, w) by a <a class="reference internal" href="#Cogl.Matrix" title="Cogl.Matrix"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Matrix</span></code></a> is given by:</p>
-<div class="highlight-none"><div class="highlight"><pre>x_new = xx * x + xy * y + xz * z + xw * w
+<div class="highlight-none"><div class="highlight"><pre><span></span>x_new = xx * x + xy * y + xz * z + xw * w
 y_new = yx * x + yy * y + yz * z + yw * w
 z_new = zx * x + zy * y + zz * z + zw * w
 w_new = wx * x + wy * y + wz * z + ww * w
@@ -380,16 +383,16 @@ and all matrix modifications must be done via the cogl_matrix API. This
 allows Cogl to annotate the matrices internally. Violation of this will give
 undefined results. If you need to initialize a matrix with a constant other
 than the identity matrix you can use <a class="reference internal" href="#Cogl.Matrix.init_from_array" title="Cogl.Matrix.init_from_array"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Matrix.init_from_array</span></code></a>().</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Cogl.Matrix.equal">
-<em class="property">static </em><code class="descname">equal</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">equal</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>v1</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A 4x4 transformation matrix</li>
-<li><strong>v2</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A 4x4 transformation matrix</li>
+<li><strong>v1</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A 4x4 transformation matrix</li>
+<li><strong>v2</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A 4x4 transformation matrix</li>
 </ul>
 </td>
 </tr>
@@ -561,7 +564,7 @@ avoid costly inversion calculations.</p>
 <dt id="Cogl.Matrix.init_identity">
 <code class="descname">init_identity</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Resets matrix to the identity matrix:</p>
-<div class="highlight-none"><div class="highlight"><pre>.xx=1; .xy=0; .xz=0; .xw=0;
+<div class="highlight-none"><div class="highlight"><pre><span></span>.xx=1; .xy=0; .xz=0; .xw=0;
 .yx=0; .yy=1; .yz=0; .yw=0;
 .zx=0; .zy=0; .zz=1; .zw=0;
 .wx=0; .wy=0; .wz=0; .ww=1;
@@ -586,7 +589,7 @@ avoid costly inversion calculations.</p>
 </tbody>
 </table>
 <p>Resets matrix to the (tx, ty, tz) translation matrix:</p>
-<div class="highlight-none"><div class="highlight"><pre>.xx=1; .xy=0; .xz=0; .xw=tx;
+<div class="highlight-none"><div class="highlight"><pre><span></span>.xx=1; .xy=0; .xz=0; .xw=tx;
 .yx=0; .yy=1; .yz=0; .yw=ty;
 .zx=0; .zy=0; .zz=1; .zw=tz;
 .wx=0; .wy=0; .wz=0; .ww=1;
@@ -779,9 +782,9 @@ objects near to each other.</p>
 <li><strong>n_components</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of position components for each input point.
 (either 2, 3 or 4)</li>
 <li><strong>stride_in</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The stride in bytes between input points.</li>
-<li><strong>points_in</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A pointer to the first component of the first input point.</li>
+<li><strong>points_in</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A pointer to the first component of the first input point.</li>
 <li><strong>stride_out</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The stride in bytes between output points.</li>
-<li><strong>points_out</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A pointer to the first component of the first output point.</li>
+<li><strong>points_out</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A pointer to the first component of the first output point.</li>
 <li><strong>n_points</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of points to transform.</li>
 </ul>
 </td>
@@ -794,7 +797,7 @@ components each. The output points always have 4 components (known
 as homogenous coordinates). The output array can simply point to
 the input array to do the transform in-place.</p>
 <p>Here&#8217;s an example with differing input/output strides:</p>
-<div class="highlight-none"><div class="highlight"><pre>typedef struct {
+<div class="highlight-none"><div class="highlight"><pre><span></span>typedef struct {
   float x,y;
   uint8_t r,g,b,a;
   float s,t,p;
@@ -950,9 +953,9 @@ components.</p>
 <li><strong>n_components</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of position components for each input point.
 (either 2 or 3)</li>
 <li><strong>stride_in</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The stride in bytes between input points.</li>
-<li><strong>points_in</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A pointer to the first component of the first input point.</li>
+<li><strong>points_in</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A pointer to the first component of the first input point.</li>
 <li><strong>stride_out</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The stride in bytes between output points.</li>
-<li><strong>points_out</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>) &#8211; A pointer to the first component of the first output point.</li>
+<li><strong>points_out</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A pointer to the first component of the first output point.</li>
 <li><strong>n_points</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The number of points to transform.</li>
 </ul>
 </td>
@@ -967,7 +970,7 @@ transform in-place.</p>
 <p>If you need to transform 4 component points see
 <a class="reference internal" href="#Cogl.Matrix.project_points" title="Cogl.Matrix.project_points"><code class="xref py py-obj docutils literal"><span class="pre">Cogl.Matrix.project_points</span></code></a>().</p>
 <p>Here&#8217;s an example with differing input/output strides:</p>
-<div class="highlight-none"><div class="highlight"><pre>typedef struct {
+<div class="highlight-none"><div class="highlight"><pre><span></span>typedef struct {
   float x,y;
   uint8_t r,g,b,a;
   float s,t,p;

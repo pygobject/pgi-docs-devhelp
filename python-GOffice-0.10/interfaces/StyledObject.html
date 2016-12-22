@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GOffice 0.10 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="GOffice.gDataAllocator" href="gDataAllocator.html"/>
@@ -162,7 +165,7 @@
 </g>
 <!-- GObject.GInterface -->
 <g id="node2" class="node"><title>GObject.GInterface</title>
-<g id="a_node2"><a xlink:href="../_docs/GOffice-0.10/../../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" xlink:title="GObject.GInterface">
+<g id="a_node2"><a xlink:href="../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" xlink:title="GObject.GInterface">
 <path fill="none" stroke="#3091d1" d="M95,-72C95,-72 9,-72 9,-72 6,-72 3,-69 3,-66 3,-66 3,-60 3,-60 3,-57 6,-54 9,-54 9,-54 95,-54 95,-54 98,-54 101,-57 101,-60 101,-60 101,-66 101,-66 101,-69 98,-72 95,-72"/>
 <text text-anchor="middle" x="52" y="-60.7" font-family="inherit" font-size="8.50">GObject.GInterface</text>
 </a>
@@ -187,7 +190,7 @@
 </table>
 <div class="section" id="methods">
 <span id="goffice-styledobject-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -245,7 +248,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Bases:</th><td class="field-body"><a class="reference external" href="../_docs/GOffice-0.10/../../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GInterface</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Bases:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GInterface</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -373,7 +376,7 @@ does not take ownership of <cite>style</cite>.</p>
 <p>The best way to change the style is to set the &#8220;style&#8221; property.</p>
 <p>This function will fail if the new style and the previous style are the same.
 In that case, the function will always return false:</p>
-<div class="highlight-none"><div class="highlight"><pre>style = go_styled_object_get_style (gso);
+<div class="highlight-none"><div class="highlight"><pre><span></span>style = go_styled_object_get_style (gso);
 style-&gt;line.width = 2;
 size_changed = go_styled_object_set_style (gso, style);
 </pre></div>
@@ -382,7 +385,7 @@ size_changed = go_styled_object_set_style (gso, style);
 need to check yourself if you really change the size, call
 <a class="reference internal" href="#GOffice.StyledObject.style_changed" title="GOffice.StyledObject.style_changed"><code class="xref py py-obj docutils literal"><span class="pre">GOffice.StyledObject.style_changed</span></code></a>() to trigger the &#8220;style-changed&#8221; event.
 So the following code is much better:</p>
-<div class="highlight-none"><div class="highlight"><pre>style = go_styled_object_get_style (gso);
+<div class="highlight-none"><div class="highlight"><pre><span></span>style = go_styled_object_get_style (gso);
 if (style-&gt;line.width != 2.) {
  style-&gt;line.width = 2;
  go_styled_object_style_changed (gso);
@@ -392,7 +395,7 @@ if (style-&gt;line.width != 2.) {
 </pre></div>
 </div>
 <p>or even better:</p>
-<div class="highlight-none"><div class="highlight"><pre>style = go_style_dup (go_styled_object_get_style (gso));
+<div class="highlight-none"><div class="highlight"><pre><span></span>style = go_style_dup (go_styled_object_get_style (gso));
 style-&gt;line.width = 2;
 size_changed = go_styled_object_set_style (gso, style);
 g_object_unref (style);

@@ -36,10 +36,13 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GstGL 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GstGL.GLVideoAllocationParams" href="GLVideoAllocationParams.html"/>
-        <link rel="prev" title="GstGL.GLQuery" href="GLQuery.html"/> 
+        <link rel="prev" title="GstGL.GLRenderbufferAllocationParams" href="GLRenderbufferAllocationParams.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -63,7 +66,7 @@
 
 
 
-<td><a accesskey="p" href="GLQuery.html"><i class="fa fa-chevron-left"></i></a></td>
+<td><a accesskey="p" href="GLRenderbufferAllocationParams.html"><i class="fa fa-chevron-left"></i></a></td>
 
 
 
@@ -105,7 +108,7 @@
 
 
 
-<td><a accesskey="p" href="GLQuery.html"><i class="fa fa-chevron-left"></i></a></td>
+<td><a accesskey="p" href="GLRenderbufferAllocationParams.html"><i class="fa fa-chevron-left"></i></a></td>
 
 
 
@@ -143,7 +146,7 @@
 <h1>GstGL.GLSyncMeta</h1>
 <div class="section" id="fields">
 <span id="gstgl-glsyncmeta-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -161,7 +164,7 @@
 <tr class="row-even"><td>context</td>
 <td><a class="reference internal" href="../classes/GLContext.html#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a></td>
 <td>r/w</td>
-<td>&nbsp;</td>
+<td>the <a class="reference internal" href="../classes/GLContext.html#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a> used to allocate the meta</td>
 </tr>
 <tr class="row-odd"><td>copy</td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
@@ -171,7 +174,7 @@
 <tr class="row-even"><td>data</td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
 <td>r/w</td>
-<td>&nbsp;</td>
+<td>a custom data pointer for the implementation</td>
 </tr>
 <tr class="row-odd"><td>free</td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
@@ -184,9 +187,9 @@
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>parent</td>
-<td><a class="reference external" href="../_docs/GstGL-1.0/../../../python-Gst-1.0/structs/Meta.html#Gst.Meta" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta</span></code></a></td>
+<td><a class="reference external" href="../../python-Gst-1.0/structs/Meta.html#Gst.Meta" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta</span></code></a></td>
 <td>r/w</td>
-<td>&nbsp;</td>
+<td>the parent <a class="reference external" href="../../python-Gst-1.0/structs/Meta.html#Gst.Meta" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Meta</span></code></a></td>
 </tr>
 <tr class="row-even"><td>set_sync</td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
@@ -223,13 +226,13 @@
 </div>
 <div class="section" id="methods">
 <span id="gstgl-glsyncmeta-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#GstGL.GLSyncMeta.get_info" title="GstGL.GLSyncMeta.get_info"><code class="xref py py-obj docutils literal"><span class="pre">get_info</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
@@ -243,14 +246,16 @@
 <dl class="class">
 <dt id="GstGL.GLSyncMeta">
 <em class="property">class </em><code class="descclassname">GstGL.</code><code class="descname">GLSyncMeta</code></dt>
-<dd><dl class="staticmethod">
+<dd><p><a class="reference internal" href="#GstGL.GLSyncMeta" title="GstGL.GLSyncMeta"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLSyncMeta</span></code></a> provides the ability to synchronize the OpenGL command stream
+with the CPU or with other OpenGL contexts.</p>
+<dl class="classmethod">
 <dt id="GstGL.GLSyncMeta.get_info">
-<em class="property">static </em><code class="descname">get_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">get_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../_docs/GstGL-1.0/../../../python-Gst-1.0/structs/MetaInfo.html#Gst.MetaInfo" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.MetaInfo</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-Gst-1.0/structs/MetaInfo.html#Gst.MetaInfo" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.MetaInfo</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -263,10 +268,14 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> (<a class="reference internal" href="../classes/GLContext.html#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> (<a class="reference internal" href="../classes/GLContext.html#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a>) &#8211; a <a class="reference internal" href="../classes/GLContext.html#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a></td>
 </tr>
 </tbody>
 </table>
+<p>Set a sync point to possibly wait on at a later time.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.6.</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>

@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GObject 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Classes" href="../classes/index.html"/>
@@ -187,7 +190,7 @@
 </table>
 <div class="section" id="methods">
 <span id="gobject-typeplugin-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -243,7 +246,7 @@ of dynamically loaded types. It goes as follows:</p>
 <p>The type is initially introduced (usually upon loading the module
 the first time, or by your main application that knows what modules
 introduces what types), like this:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">new_type_id</span> <span class="o">=</span> <span class="n">g_type_register_dynamic</span> <span class="p">(</span><span class="n">parent_type_id</span><span class="p">,</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">new_type_id</span> <span class="o">=</span> <span class="n">g_type_register_dynamic</span> <span class="p">(</span><span class="n">parent_type_id</span><span class="p">,</span>
 <span class="s">&quot;TypeName&quot;</span><span class="p">,</span>
 <span class="n">new_type_plugin</span><span class="p">,</span>
 <span class="n">type_flags</span><span class="p">);</span>
@@ -278,7 +281,7 @@ implements most of this except for the actual module loading and
 unloading. It even handles multiple registered types per module.</p>
 <dl class="method">
 <dt id="GObject.TypePlugin.complete_interface_info">
-<code class="descname">complete_interface_info</code><span class="sig-paren">(</span><em>instance_type</em>, <em>interface_type</em>, <em>info</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gtypeplugin.c?h=2.48.0#n183"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">complete_interface_info</code><span class="sig-paren">(</span><em>instance_type</em>, <em>interface_type</em>, <em>info</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gtypeplugin.c?h=2.50.0#n183"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -300,7 +303,7 @@ function outside of the <a class="reference internal" href="../classes/Object.ht
 
 <dl class="method">
 <dt id="GObject.TypePlugin.complete_type_info">
-<code class="descname">complete_type_info</code><span class="sig-paren">(</span><em>g_type</em>, <em>info</em>, <em>value_table</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gtypeplugin.c?h=2.48.0#n152"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">complete_type_info</code><span class="sig-paren">(</span><em>g_type</em>, <em>info</em>, <em>value_table</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gtypeplugin.c?h=2.50.0#n152"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -321,7 +324,7 @@ type system itself.</p>
 
 <dl class="method">
 <dt id="GObject.TypePlugin.unuse">
-<code class="descname">unuse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gtypeplugin.c?h=2.48.0#n127"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unuse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gtypeplugin.c?h=2.50.0#n127"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Calls the <cite>unuse_plugin</cite> function from the <a class="reference internal" href="../structs/TypePluginClass.html#GObject.TypePluginClass" title="GObject.TypePluginClass"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TypePluginClass</span></code></a> of
 <cite>self</cite>.  There should be no need to use this function outside of
 the <a class="reference internal" href="../classes/Object.html#GObject.Object" title="GObject.Object"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> type system itself.</p>
@@ -329,7 +332,7 @@ the <a class="reference internal" href="../classes/Object.html#GObject.Object" t
 
 <dl class="method">
 <dt id="GObject.TypePlugin.use">
-<code class="descname">use</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gtypeplugin.c?h=2.48.0#n108"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">use</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gtypeplugin.c?h=2.50.0#n108"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Calls the <cite>use_plugin</cite> function from the <a class="reference internal" href="../structs/TypePluginClass.html#GObject.TypePluginClass" title="GObject.TypePluginClass"><code class="xref py py-obj docutils literal"><span class="pre">GObject.TypePluginClass</span></code></a> of
 <cite>self</cite>.  There should be no need to use this function outside of
 the <a class="reference internal" href="../classes/Object.html#GObject.Object" title="GObject.Object"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object</span></code></a> type system itself.</p>

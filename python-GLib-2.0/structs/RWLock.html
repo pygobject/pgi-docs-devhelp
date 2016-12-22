@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.Rand" href="Rand.html"/>
@@ -143,7 +146,7 @@
 <h1>GLib.RWLock</h1>
 <div class="section" id="fields">
 <span id="glib-rwlock-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -173,7 +176,7 @@
 </div>
 <div class="section" id="methods">
 <span id="glib-rwlock-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -221,7 +224,7 @@ lock via <a class="reference internal" href="#GLib.RWLock.writer_lock" title="GL
 simultaneous read-only access (by holding the &#8216;reader&#8217; lock via
 <a class="reference internal" href="#GLib.RWLock.reader_lock" title="GLib.RWLock.reader_lock"><code class="xref py py-obj docutils literal"><span class="pre">GLib.RWLock.reader_lock</span></code></a>()).</p>
 <p>Here is an example for an array with access functions:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">GRWLock</span> <span class="n">lock</span><span class="p">;</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">GRWLock</span> <span class="n">lock</span><span class="p">;</span>
 <span class="n">GPtrArray</span> <span class="o">*</span><span class="n">array</span><span class="p">;</span>
 
 <span class="n">gpointer</span>
@@ -271,7 +274,7 @@ without initialisation.  Otherwise, you should call
 </div>
 <dl class="method">
 <dt id="GLib.RWLock.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n525"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n523"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Frees the resources allocated to a lock with <a class="reference internal" href="#GLib.RWLock.init" title="GLib.RWLock.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.RWLock.init</span></code></a>().</p>
 <p>This function should not be used with a <a class="reference internal" href="#GLib.RWLock" title="GLib.RWLock"><code class="xref py py-obj docutils literal"><span class="pre">GLib.RWLock</span></code></a> that has been
 statically allocated.</p>
@@ -282,13 +285,13 @@ leads to undefined behaviour.</p>
 
 <dl class="method">
 <dt id="GLib.RWLock.init">
-<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n505"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n503"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Initializes a <a class="reference internal" href="#GLib.RWLock" title="GLib.RWLock"><code class="xref py py-obj docutils literal"><span class="pre">GLib.RWLock</span></code></a> so that it can be used.</p>
 <p>This function is useful to initialize a lock that has been
 allocated on the stack, or as part of a larger structure.  It is not
 necessary to initialise a reader-writer lock that has been statically
 allocated.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="n">GRWLock</span> <span class="n">l</span><span class="p">;</span>
     <span class="p">...</span>
   <span class="p">}</span> <span class="n">Blob</span><span class="p">;</span>
@@ -310,7 +313,7 @@ to undefined behaviour.</p>
 
 <dl class="method">
 <dt id="GLib.RWLock.reader_lock">
-<code class="descname">reader_lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n598"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">reader_lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n596"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Obtain a read lock on <cite>self</cite>. If another thread currently holds
 the write lock on <cite>self</cite> or blocks waiting for it, the current
 thread will block. Read locks can be taken recursively.</p>
@@ -323,7 +326,7 @@ hold read locks on the same lock simultaneously.</p>
 
 <dl class="method">
 <dt id="GLib.RWLock.reader_trylock">
-<code class="descname">reader_trylock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n616"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">reader_trylock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n614"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -344,7 +347,7 @@ returns <a class="reference external" href="http://docs.python.org/2.7/library/c
 
 <dl class="method">
 <dt id="GLib.RWLock.reader_unlock">
-<code class="descname">reader_unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n636"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">reader_unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n634"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Release a read lock on <cite>self</cite>.</p>
 <p>Calling <a class="reference internal" href="#GLib.RWLock.reader_unlock" title="GLib.RWLock.reader_unlock"><code class="xref py py-obj docutils literal"><span class="pre">GLib.RWLock.reader_unlock</span></code></a>() on a lock that is not held
 by the current thread leads to undefined behaviour.</p>
@@ -355,7 +358,7 @@ by the current thread leads to undefined behaviour.</p>
 
 <dl class="method">
 <dt id="GLib.RWLock.writer_lock">
-<code class="descname">writer_lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n541"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">writer_lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n539"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Obtain a write lock on <cite>self</cite>. If any thread already holds
 a read or write lock on <cite>self</cite>, the current thread will block
 until all other threads have dropped their locks on <cite>self</cite>.</p>
@@ -366,7 +369,7 @@ until all other threads have dropped their locks on <cite>self</cite>.</p>
 
 <dl class="method">
 <dt id="GLib.RWLock.writer_trylock">
-<code class="descname">writer_trylock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n559"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">writer_trylock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n557"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -387,7 +390,7 @@ Otherwise it locks <cite>self</cite> and returns <a class="reference external" h
 
 <dl class="method">
 <dt id="GLib.RWLock.writer_unlock">
-<code class="descname">writer_unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n637"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">writer_unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n635"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Release a write lock on <cite>self</cite>.</p>
 <p>Calling <a class="reference internal" href="#GLib.RWLock.writer_unlock" title="GLib.RWLock.writer_unlock"><code class="xref py py-obj docutils literal"><span class="pre">GLib.RWLock.writer_unlock</span></code></a>() on a lock that is not held
 by the current thread leads to undefined behaviour.</p>

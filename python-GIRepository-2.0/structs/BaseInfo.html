@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GIRepository 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GIRepository.Typelib" href="Typelib.html"/>
@@ -143,7 +146,7 @@
 <h1>GIRepository.BaseInfo</h1>
 <div class="section" id="fields">
 <span id="girepository-baseinfo-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -203,7 +206,7 @@
 </div>
 <div class="section" id="methods">
 <span id="girepository-baseinfo-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -251,7 +254,7 @@ All other structs can be casted to a <a class="reference internal" href="#GIRepo
 <dt>Casting a #GIFunctionInfo to <a class="reference internal" href="#GIRepository.BaseInfo" title="GIRepository.BaseInfo"><code class="xref py py-obj docutils literal"><span class="pre">GIRepository.BaseInfo</span></code></a></dt>
 <dd></dd>
 </dl>
-<div class="highlight-none"><div class="highlight"><pre>GIFunctionInfo *function_info = ...;
+<div class="highlight-none"><div class="highlight"><pre><span></span>GIFunctionInfo *function_info = ...;
 GIBaseInfo *info = (GIBaseInfo*)function_info;
 </pre></div>
 </div>
@@ -263,7 +266,7 @@ GIBaseInfos are normally accessed by calling either
 <dt>Getting the Button of the Gtk typelib</dt>
 <dd></dd>
 </dl>
-<div class="highlight-none"><div class="highlight"><pre>GIBaseInfo *button_info = g_irepository_find_by_name(NULL, &quot;Gtk&quot;, &quot;Button&quot;);
+<div class="highlight-none"><div class="highlight"><pre><span></span>GIBaseInfo *button_info = g_irepository_find_by_name(NULL, &quot;Gtk&quot;, &quot;Button&quot;);
 ... use button_info ...
 g_base_info_unref(button_info);
 </pre></div>
@@ -433,15 +436,17 @@ deprecated or not.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">Returned name, must not be freed</td>
+<tr class="field-odd field"><th class="field-name">iterator:</th><td class="field-body">a <a class="reference internal" href="AttributeIter.html#GIRepository.AttributeIter" title="GIRepository.AttributeIter"><code class="xref py py-obj docutils literal"><span class="pre">GIRepository.AttributeIter</span></code></a> structure, must be initialized; see below</td>
 </tr>
-<tr class="field-even field"><th class="field-name">value:</th><td class="field-body">Returned name, must not be freed</td>
+<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">Returned name, must not be freed</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body">Returned name, must not be freed</td>
 </tr>
 </tbody>
 </table>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>name</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, <strong>value</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>iterator</strong>: <a class="reference internal" href="AttributeIter.html#GIRepository.AttributeIter" title="GIRepository.AttributeIter"><code class="xref py py-obj docutils literal"><span class="pre">GIRepository.AttributeIter</span></code></a>, <strong>name</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, <strong>value</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -457,7 +462,7 @@ and must not be freed.</p>
 <dt>Iterating over attributes</dt>
 <dd></dd>
 </dl>
-<div class="highlight-none"><div class="highlight"><pre>void
+<div class="highlight-none"><div class="highlight"><pre><span></span>void
 print_attributes (GIBaseInfo *info)
 {
   GIAttributeIter iter = { 0, };

@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Unions" href="index.html"/>
         <link rel="next" title="GLib.TokenValue" href="TokenValue.html"/>
@@ -143,7 +146,7 @@
 <h1>GLib.Mutex</h1>
 <div class="section" id="fields">
 <span id="glib-mutex-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -173,7 +176,7 @@
 </div>
 <div class="section" id="methods">
 <h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -204,7 +207,7 @@
 <em class="property">class </em><code class="descclassname">GLib.</code><code class="descname">Mutex</code></dt>
 <dd><dl class="method">
 <dt id="GLib.Mutex.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1298"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1296"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Frees the resources allocated to a mutex with <a class="reference internal" href="#GLib.Mutex.init" title="GLib.Mutex.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Mutex.init</span></code></a>().</p>
 <p>This function should not be used with a <a class="reference internal" href="#GLib.Mutex" title="GLib.Mutex"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Mutex</span></code></a> that has been
 statically allocated.</p>
@@ -215,13 +218,13 @@ behaviour.</p>
 
 <dl class="method">
 <dt id="GLib.Mutex.init">
-<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1292"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1290"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Initializes a <a class="reference internal" href="#GLib.Mutex" title="GLib.Mutex"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Mutex</span></code></a> so that it can be used.</p>
 <p>This function is useful to initialize a mutex that has been
 allocated on the stack, or as part of a larger structure.
 It is not necessary to initialize a mutex that has been
 statically allocated.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="n">GMutex</span> <span class="n">m</span><span class="p">;</span>
     <span class="p">...</span>
   <span class="p">}</span> <span class="n">Blob</span><span class="p">;</span>
@@ -243,7 +246,7 @@ to undefined behaviour.</p>
 
 <dl class="method">
 <dt id="GLib.Mutex.lock">
-<code class="descname">lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1337"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1335"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Locks <cite>self</cite>. If <cite>self</cite> is already locked by another thread, the
 current thread will block until <cite>self</cite> is unlocked by the other
 thread.</p>
@@ -255,7 +258,7 @@ already been locked by the same thread results in undefined behaviour
 
 <dl class="method">
 <dt id="GLib.Mutex.trylock">
-<code class="descname">trylock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1355"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">trylock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1353"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -277,7 +280,7 @@ already been locked by the same thread results in undefined behaviour
 
 <dl class="method">
 <dt id="GLib.Mutex.unlock">
-<code class="descname">unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1346"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1344"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Unlocks <cite>self</cite>. If another thread is blocked in a <a class="reference internal" href="#GLib.Mutex.lock" title="GLib.Mutex.lock"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Mutex.lock</span></code></a>()
 call for <cite>self</cite>, it will become unblocked and can lock <cite>self</cite> itself.</p>
 <p>Calling <a class="reference internal" href="#GLib.Mutex.unlock" title="GLib.Mutex.unlock"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Mutex.unlock</span></code></a>() on a mutex that is not locked by the

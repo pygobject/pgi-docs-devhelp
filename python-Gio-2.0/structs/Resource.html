@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Gio 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gio.SettingsBackend" href="SettingsBackend.html"/>
@@ -147,16 +150,16 @@
 </div>
 <div class="section" id="methods">
 <span id="gio-resource-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gio.Resource.load" title="Gio.Resource.load"><code class="xref py py-obj docutils literal"><span class="pre">load</span></code></a> (filename)</td>
 </tr>
-<tr class="row-even"><td><em>static</em></td>
+<tr class="row-even"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gio.Resource.new_from_data" title="Gio.Resource.new_from_data"><code class="xref py py-obj docutils literal"><span class="pre">new_from_data</span></code></a> (data)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
@@ -218,7 +221,7 @@ abort.</p>
 which takes an XML file that describes the bundle, and a set of files that the XML references. These
 are combined into a binary resource bundle.</p>
 <p>An example resource description:</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;gresources&gt;
   &lt;gresource prefix=&quot;/org/gtk/Example&quot;&gt;
     &lt;file&gt;data/splashscreen.png&lt;/file&gt;
@@ -229,7 +232,7 @@ are combined into a binary resource bundle.</p>
 </pre></div>
 </div>
 <p>This will create a resource bundle with the following files:</p>
-<div class="highlight-none"><div class="highlight"><pre>/org/gtk/Example/data/splashscreen.png
+<div class="highlight-none"><div class="highlight"><pre><span></span>/org/gtk/Example/data/splashscreen.png
 /org/gtk/Example/dialog.ui
 /org/gtk/Example/menumarkup.xml
 </pre></div>
@@ -258,19 +261,38 @@ even on the minor ones where this is not available. (Constructor support is avai
 during runtime you need to be very careful with keeping around pointers to data from a resource, as this goes away
 when the library is unloaded. However, in practice this is not generally a problem, since most resource accesses
 is for your own resources, and resource data is often used once, during parsing, and then released.</p>
+<p>When debugging a program or testing a change to an installed version, it is often useful to be able to
+replace resources in the program or library, without recompiling, for debugging or quick hacking and testing
+purposes.</p>
+<p>Since GLib 2.50, it is possible to use the <code class="docutils literal"><span class="pre">G_RESOURCE_OVERLAYS</span></code> environment variable to selectively overlay
+resources with replacements from the filesystem.  It is a colon-separated list of substitutions to perform
+during resource lookups.</p>
+<p>A substitution has the form</p>
+<p><code class="docutils literal"><span class="pre">/org/gtk/libgtk=/home/desrt/gtk-overlay</span></code></p>
+<p>The part before the <code class="docutils literal"><span class="pre">=</span></code> is the resource subpath for which the overlay applies.  The part after is a
+filesystem path which contains files and subdirectories as you would like to be loaded as resources with the
+equivalent names.</p>
+<p>In the example above, if an application tried to load a resource with the resource path
+<code class="docutils literal"><span class="pre">/org/gtk/libgtk/ui/gtkdialog.ui</span></code> then <a class="reference internal" href="#Gio.Resource" title="Gio.Resource"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resource</span></code></a> would check the filesystem path
+<code class="docutils literal"><span class="pre">/home/desrt/gtk-overlay/ui/gtkdialog.ui</span></code>.  If a file was found there, it would be used instead.  This is an
+overlay, not an outright replacement, which means that if a file is not found at that path, the built-in
+version will be used instead.  Whiteouts are not currently supported.</p>
+<p>Substitutions must start with a slash, and must not contain a trailing slash before the &#8216;=&#8217;.  The path after
+the slash should ideally be absolute, but this is not strictly required.  It is possible to overlay the
+location of a single resource with an individual file.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.32.</span></p>
 </div>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gio.Resource.load">
-<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.48.0#n266"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">load</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.50.0#n557"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; the path of a filename to load, in the GLib filename encoding</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#Gio.Resource" title="Gio.Resource"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resource</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</td>
 </tr>
@@ -287,16 +309,16 @@ to register it with <code class="xref py py-obj docutils literal"><span class="p
 </div>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gio.Resource.new_from_data">
-<em class="property">static </em><code class="descname">new_from_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.48.0#n231"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_from_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.50.0#n522"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; A <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; A <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new <a class="reference internal" href="#Gio.Resource" title="Gio.Resource"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resource</span></code></a>, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error</td>
 </tr>
@@ -316,7 +338,7 @@ to register it with <code class="xref py py-obj docutils literal"><span class="p
 
 <dl class="method">
 <dt id="Gio.Resource.enumerate_children">
-<code class="descname">enumerate_children</code><span class="sig-paren">(</span><em>path</em>, <em>lookup_flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.48.0#n546"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">enumerate_children</code><span class="sig-paren">(</span><em>path</em>, <em>lookup_flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.50.0#n837"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -327,7 +349,7 @@ to register it with <code class="xref py py-obj docutils literal"><span class="p
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an array of constant strings</p>
@@ -340,7 +362,7 @@ to register it with <code class="xref py py-obj docutils literal"><span class="p
 </table>
 <p>Returns all the names of children at the specified <cite>path</cite> in the resource.
 The return result is a <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> terminated list of strings which should
-be released with <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a>().</p>
+be released with <a class="reference external" href="../../python-GLib-2.0/functions.html#GLib.strfreev" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.strfreev</span></code></a>().</p>
 <p>If <cite>path</cite> is invalid or does not exist in the <a class="reference internal" href="#Gio.Resource" title="Gio.Resource"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Resource</span></code></a>,
 <a class="reference internal" href="../enums.html#Gio.ResourceError.NOT_FOUND" title="Gio.ResourceError.NOT_FOUND"><code class="xref py py-obj docutils literal"><span class="pre">Gio.ResourceError.NOT_FOUND</span></code></a> will be returned.</p>
 <p><cite>lookup_flags</cite> controls the behaviour of the lookup.</p>
@@ -351,7 +373,7 @@ be released with <a class="reference external" href="../_docs/Gio-2.0/../../../p
 
 <dl class="method">
 <dt id="Gio.Resource.get_info">
-<code class="descname">get_info</code><span class="sig-paren">(</span><em>path</em>, <em>lookup_flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.48.0#n517"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_info</code><span class="sig-paren">(</span><em>path</em>, <em>lookup_flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.50.0#n808"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -362,7 +384,7 @@ be released with <a class="reference external" href="../_docs/Gio-2.0/../../../p
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if the file was found. <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> if there were errors</p>
@@ -396,7 +418,7 @@ if found returns information about it.</p>
 
 <dl class="method">
 <dt id="Gio.Resource.lookup_data">
-<code class="descname">lookup_data</code><span class="sig-paren">(</span><em>path</em>, <em>lookup_flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.48.0#n425"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">lookup_data</code><span class="sig-paren">(</span><em>path</em>, <em>lookup_flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.50.0#n716"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -407,24 +429,24 @@ if found returns information about it.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error.
-Free the returned object with <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes.unref</span></code></a>()</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error.
+Free the returned object with <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes.unref" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes.unref</span></code></a>()</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Looks for a file at the specified <cite>path</cite> in the resource and
-returns a <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> that lets you directly access the data in
+returns a <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a> that lets you directly access the data in
 memory.</p>
 <p>The data is always followed by a zero byte, so you
 can safely use the data as a C string. However, that byte
-is not included in the size of the <a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>.</p>
+is not included in the size of the <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>.</p>
 <p>For uncompressed resource files this is a pointer directly into
 the resource bundle, which is typically in some readonly data section
 in the program binary. For compressed files we allocate memory on
@@ -437,7 +459,7 @@ the heap and automatically uncompress the data.</p>
 
 <dl class="method">
 <dt id="Gio.Resource.open_stream">
-<code class="descname">open_stream</code><span class="sig-paren">(</span><em>path</em>, <em>lookup_flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.48.0#n365"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">open_stream</code><span class="sig-paren">(</span><em>path</em>, <em>lookup_flags</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.50.0#n656"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -448,11 +470,11 @@ the heap and automatically uncompress the data.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../_docs/Gio-2.0/../../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="../classes/InputStream.html#Gio.InputStream" title="Gio.InputStream"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> on error.
-Free the returned object with <a class="reference external" href="../_docs/Gio-2.0/../../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>()</p>
+Free the returned object with <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object.unref" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Object.unref</span></code></a>()</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../classes/InputStream.html#Gio.InputStream" title="Gio.InputStream"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a></p>
@@ -470,7 +492,7 @@ returns a <a class="reference internal" href="../classes/InputStream.html#Gio.In
 
 <dl class="method">
 <dt id="Gio.Resource.ref">
-<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.48.0#n168"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.50.0#n459"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -490,7 +512,7 @@ function is MT-safe and may be called from any thread.</p>
 
 <dl class="method">
 <dt id="Gio.Resource.unref">
-<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.48.0#n187"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gio/gresource.c?h=2.50.0#n478"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Atomically decrements the reference count of <cite>self</cite> by one. If the
 reference count drops to 0, all memory allocated by the resource is
 released. This function is MT-safe and may be called from any

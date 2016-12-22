@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GstGL 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GstGL.GLMemoryPBO" href="GLMemoryPBO.html"/>
@@ -143,7 +146,7 @@
 <h1>GstGL.GLMemory</h1>
 <div class="section" id="fields">
 <span id="gstgl-glmemory-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -159,14 +162,14 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>info</td>
-<td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
+<td><a class="reference external" href="../../python-GstVideo-1.0/structs/VideoInfo.html#GstVideo.VideoInfo" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoInfo</span></code></a></td>
 <td>r/w</td>
-<td>the texture&#8217;s #GstVideoInfo</td>
+<td>the texture&#8217;s <a class="reference external" href="../../python-GstVideo-1.0/structs/VideoInfo.html#GstVideo.VideoInfo" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoInfo</span></code></a></td>
 </tr>
 <tr class="row-odd"><td>mem</td>
 <td><a class="reference internal" href="GLBaseMemory.html#GstGL.GLBaseMemory" title="GstGL.GLBaseMemory"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLBaseMemory</span></code></a></td>
 <td>r/w</td>
-<td>the parent object</td>
+<td>the parent <a class="reference internal" href="GLBaseMemory.html#GstGL.GLBaseMemory" title="GstGL.GLBaseMemory"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLBaseMemory</span></code></a> object</td>
 </tr>
 <tr class="row-even"><td>plane</td>
 <td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
@@ -189,7 +192,7 @@
 <td>the GL texture target for this memory</td>
 </tr>
 <tr class="row-even"><td>tex_type</td>
-<td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
+<td><a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a></td>
 <td>r/w</td>
 <td>the texture type</td>
 </tr>
@@ -209,7 +212,7 @@
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>valign</td>
-<td><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a></td>
+<td><a class="reference external" href="../../python-GstVideo-1.0/structs/VideoAlignment.html#GstVideo.VideoAlignment" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoAlignment</span></code></a></td>
 <td>r/w</td>
 <td>data alignment for system memory mapping</td>
 </tr>
@@ -218,17 +221,23 @@
 </div>
 <div class="section" id="methods">
 <span id="gstgl-glmemory-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#GstGL.GLMemory.init_once" title="GstGL.GLMemory.init_once"><code class="xref py py-obj docutils literal"><span class="pre">init_once</span></code></a> ()</td>
 </tr>
-<tr class="row-even"><td><em>static</em></td>
-<td><a class="reference internal" href="#GstGL.GLMemory.setup_buffer" title="GstGL.GLMemory.setup_buffer"><code class="xref py py-obj docutils literal"><span class="pre">setup_buffer</span></code></a> (allocator, buffer, params)</td>
+<tr class="row-even"><td><em>class</em></td>
+<td><a class="reference internal" href="#GstGL.GLMemory.setup_buffer" title="GstGL.GLMemory.setup_buffer"><code class="xref py py-obj docutils literal"><span class="pre">setup_buffer</span></code></a> (allocator, buffer, params, tex_types, wrapped_data, n_wrapped_pointers)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstGL.GLMemory.copy_into" title="GstGL.GLMemory.copy_into"><code class="xref py py-obj docutils literal"><span class="pre">copy_into</span></code></a> (tex_id, target, tex_type, width, height)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstGL.GLMemory.copy_teximage" title="GstGL.GLMemory.copy_teximage"><code class="xref py py-obj docutils literal"><span class="pre">copy_teximage</span></code></a> (tex_id, out_target, out_tex_type, width, height)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstGL.GLMemory.get_texture_height" title="GstGL.GLMemory.get_texture_height"><code class="xref py py-obj docutils literal"><span class="pre">get_texture_height</span></code></a> ()</td>
@@ -240,7 +249,13 @@
 <td><a class="reference internal" href="#GstGL.GLMemory.get_texture_target" title="GstGL.GLMemory.get_texture_target"><code class="xref py py-obj docutils literal"><span class="pre">get_texture_target</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstGL.GLMemory.get_texture_type" title="GstGL.GLMemory.get_texture_type"><code class="xref py py-obj docutils literal"><span class="pre">get_texture_type</span></code></a> ()</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstGL.GLMemory.get_texture_width" title="GstGL.GLMemory.get_texture_width"><code class="xref py py-obj docutils literal"><span class="pre">get_texture_width</span></code></a> ()</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#GstGL.GLMemory.init" title="GstGL.GLMemory.init"><code class="xref py py-obj docutils literal"><span class="pre">init</span></code></a> (allocator, parent, context, target, tex_type, params, info, plane, valign, user_data, notify)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#GstGL.GLMemory.read_pixels" title="GstGL.GLMemory.read_pixels"><code class="xref py py-obj docutils literal"><span class="pre">read_pixels</span></code></a> (read_pointer)</td>
@@ -261,9 +276,9 @@ OpenGL textures.</p>
 <p><a class="reference internal" href="#GstGL.GLMemory" title="GstGL.GLMemory"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLMemory</span></code></a> is created or wrapped through gst_gl_base_memory_alloc()
 with <a class="reference internal" href="GLVideoAllocationParams.html#GstGL.GLVideoAllocationParams" title="GstGL.GLVideoAllocationParams"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLVideoAllocationParams</span></code></a>.</p>
 <p>Data is uploaded or downloaded from the GPU as is necessary.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="GstGL.GLMemory.init_once">
-<em class="property">static </em><code class="descname">init_once</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">init_once</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Initializes the GL Base Texture allocator. It is safe to call this function
 multiple times.  This must be called before any other <a class="reference internal" href="#GstGL.GLMemory" title="GstGL.GLMemory"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLMemory</span></code></a> operation.</p>
 <div class="versionadded">
@@ -271,17 +286,20 @@ multiple times.  This must be called before any other <a class="reference intern
 </div>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="GstGL.GLMemory.setup_buffer">
-<em class="property">static </em><code class="descname">setup_buffer</code><span class="sig-paren">(</span><em>allocator</em>, <em>buffer</em>, <em>params</em><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">setup_buffer</code><span class="sig-paren">(</span><em>allocator</em>, <em>buffer</em>, <em>params</em>, <em>tex_types</em>, <em>wrapped_data</em>, <em>n_wrapped_pointers</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>allocator</strong> (<a class="reference internal" href="../classes/GLMemoryAllocator.html#GstGL.GLMemoryAllocator" title="GstGL.GLMemoryAllocator"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLMemoryAllocator</span></code></a>) &#8211; the <cite>GstGLMemoryAllocator</cite> to allocate from</li>
-<li><strong>buffer</strong> (<a class="reference external" href="../_docs/GstGL-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>) &#8211; a <a class="reference external" href="../_docs/GstGL-1.0/../../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> to setup</li>
+<li><strong>buffer</strong> (<a class="reference external" href="../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>) &#8211; a <a class="reference external" href="../../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a> to setup</li>
 <li><strong>params</strong> (<a class="reference internal" href="GLVideoAllocationParams.html#GstGL.GLVideoAllocationParams" title="GstGL.GLVideoAllocationParams"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLVideoAllocationParams</span></code></a>) &#8211; the <a class="reference internal" href="GLVideoAllocationParams.html#GstGL.GLVideoAllocationParams" title="GstGL.GLVideoAllocationParams"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLVideoAllocationParams</span></code></a> to allocate with</li>
+<li><strong>tex_types</strong> (<a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a list of <a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a>&#8216;s to allocate with.</li>
+<li><strong>wrapped_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a list of wrapped data pointers</li>
+<li><strong>n_wrapped_pointers</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the number of elements in <cite>tex_types</cite> and <cite>wrapped_data</cite></li>
 </ul>
 </td>
 </tr>
@@ -296,6 +314,60 @@ multiple times.  This must be called before any other <a class="reference intern
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>
+</dd></dl>
+
+<dl class="method">
+<dt id="GstGL.GLMemory.copy_into">
+<code class="descname">copy_into</code><span class="sig-paren">(</span><em>tex_id</em>, <em>target</em>, <em>tex_type</em>, <em>width</em>, <em>height</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tex_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; OpenGL texture id</li>
+<li><strong>target</strong> (<a class="reference internal" href="../enums.html#GstGL.GLTextureTarget" title="GstGL.GLTextureTarget"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLTextureTarget</span></code></a>) &#8211; the <a class="reference internal" href="../enums.html#GstGL.GLTextureTarget" title="GstGL.GLTextureTarget"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLTextureTarget</span></code></a></li>
+<li><strong>tex_type</strong> (<a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a>) &#8211; the <a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a></li>
+<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; width of <cite>tex_id</cite></li>
+<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; height of <cite>tex_id</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Whether the copy suceeded</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Copies <cite>self</cite> into the texture specfified by <cite>tex_id</cite>.  The format of <cite>tex_id</cite>
+is specified by <cite>tex_type</cite>, <cite>width</cite> and <cite>height</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="GstGL.GLMemory.copy_teximage">
+<code class="descname">copy_teximage</code><span class="sig-paren">(</span><em>tex_id</em>, <em>out_target</em>, <em>out_tex_type</em>, <em>width</em>, <em>height</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tex_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+<li><strong>out_target</strong> (<a class="reference internal" href="../enums.html#GstGL.GLTextureTarget" title="GstGL.GLTextureTarget"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLTextureTarget</span></code></a>) &#8211; </li>
+<li><strong>out_tex_type</strong> (<a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a>) &#8211; </li>
+<li><strong>width</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+<li><strong>height</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -353,6 +425,24 @@ multiple times.  This must be called before any other <a class="reference intern
 </dd></dl>
 
 <dl class="method">
+<dt id="GstGL.GLMemory.get_texture_type">
+<code class="descname">get_texture_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a> of <cite>self</cite></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="GstGL.GLMemory.get_texture_width">
 <code class="descname">get_texture_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -365,6 +455,37 @@ multiple times.  This must be called before any other <a class="reference intern
 </tr>
 </tbody>
 </table>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="GstGL.GLMemory.init">
+<code class="descname">init</code><span class="sig-paren">(</span><em>allocator</em>, <em>parent</em>, <em>context</em>, <em>target</em>, <em>tex_type</em>, <em>params</em>, <em>info</em>, <em>plane</em>, <em>valign</em>, <em>user_data</em>, <em>notify</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>allocator</strong> (<a class="reference external" href="../../python-Gst-1.0/classes/Allocator.html#Gst.Allocator" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Allocator</span></code></a>) &#8211; the <a class="reference external" href="../../python-Gst-1.0/classes/Allocator.html#Gst.Allocator" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Allocator</span></code></a> to initialize with</li>
+<li><strong>parent</strong> (<a class="reference external" href="../../python-Gst-1.0/structs/Memory.html#Gst.Memory" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Memory</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the parent <a class="reference external" href="../../python-Gst-1.0/structs/Memory.html#Gst.Memory" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Memory</span></code></a> to initialize with</li>
+<li><strong>context</strong> (<a class="reference internal" href="../classes/GLContext.html#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a>) &#8211; the <a class="reference internal" href="../classes/GLContext.html#GstGL.GLContext" title="GstGL.GLContext"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLContext</span></code></a> to initialize with</li>
+<li><strong>target</strong> (<a class="reference internal" href="../enums.html#GstGL.GLTextureTarget" title="GstGL.GLTextureTarget"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLTextureTarget</span></code></a>) &#8211; the <a class="reference internal" href="../enums.html#GstGL.GLTextureTarget" title="GstGL.GLTextureTarget"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLTextureTarget</span></code></a> for this <a class="reference internal" href="#GstGL.GLMemory" title="GstGL.GLMemory"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLMemory</span></code></a></li>
+<li><strong>tex_type</strong> (<a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a>) &#8211; the <a class="reference external" href="../../python-GstVideo-1.0/enums.html#GstVideo.VideoGLTextureType" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a> for this <a class="reference internal" href="#GstGL.GLMemory" title="GstGL.GLMemory"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLMemory</span></code></a></li>
+<li><strong>params</strong> (<a class="reference external" href="../../python-Gst-1.0/structs/AllocationParams.html#Gst.AllocationParams" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.AllocationParams</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; the <cite>GstAllocationParams</cite> to initialize with</li>
+<li><strong>info</strong> (<a class="reference external" href="../../python-GstVideo-1.0/structs/VideoInfo.html#GstVideo.VideoInfo" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoInfo</span></code></a>) &#8211; the <a class="reference external" href="../../python-GstVideo-1.0/structs/VideoInfo.html#GstVideo.VideoInfo" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoInfo</span></code></a> for this <a class="reference internal" href="#GstGL.GLMemory" title="GstGL.GLMemory"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLMemory</span></code></a></li>
+<li><strong>plane</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the plane number (starting from 0) for this <a class="reference internal" href="#GstGL.GLMemory" title="GstGL.GLMemory"><code class="xref py py-obj docutils literal"><span class="pre">GstGL.GLMemory</span></code></a></li>
+<li><strong>valign</strong> (<a class="reference external" href="../../python-GstVideo-1.0/structs/VideoAlignment.html#GstVideo.VideoAlignment" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoAlignment</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; optional <a class="reference external" href="../../python-GstVideo-1.0/structs/VideoAlignment.html#GstVideo.VideoAlignment" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoAlignment</span></code></a> parameters</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user data to call <cite>notify</cite> with</li>
+<li><strong>notify</strong> (<a class="reference external" href="../../python-GLib-2.0/callbacks.html#GLib.DestroyNotify" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../../python-GLib-2.0/callbacks.html#GLib.DestroyNotify" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Initializes <cite>self</cite> with the required parameters.  <cite>info</cite> is assumed to have
+already have been modified with <a class="reference external" href="../../python-GstVideo-1.0/structs/VideoInfo.html#GstVideo.VideoInfo.align" title="(in GstVideo 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoInfo.align</span></code></a>().</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.8.</span></p>
 </div>

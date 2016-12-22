@@ -34,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="GLib 2.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
@@ -144,6 +147,7 @@
 <li><a class="reference internal" href="#GLib.IOError" title="GLib.IOError"><code class="xref py py-class docutils literal"><span class="pre">GLib.IOError</span></code></a></li>
 <li><a class="reference internal" href="#GLib.IOStatus" title="GLib.IOStatus"><code class="xref py py-class docutils literal"><span class="pre">GLib.IOStatus</span></code></a></li>
 <li><a class="reference internal" href="#GLib.KeyFileError" title="GLib.KeyFileError"><code class="xref py py-class docutils literal"><span class="pre">GLib.KeyFileError</span></code></a></li>
+<li><a class="reference internal" href="#GLib.LogWriterOutput" title="GLib.LogWriterOutput"><code class="xref py py-class docutils literal"><span class="pre">GLib.LogWriterOutput</span></code></a></li>
 <li><a class="reference internal" href="#GLib.MarkupError" title="GLib.MarkupError"><code class="xref py py-class docutils literal"><span class="pre">GLib.MarkupError</span></code></a></li>
 <li><a class="reference internal" href="#GLib.NormalizeMode" title="GLib.NormalizeMode"><code class="xref py py-class docutils literal"><span class="pre">GLib.NormalizeMode</span></code></a></li>
 <li><a class="reference internal" href="#GLib.OnceStatus" title="GLib.OnceStatus"><code class="xref py py-class docutils literal"><span class="pre">GLib.OnceStatus</span></code></a></li>
@@ -258,7 +262,7 @@ date to include new hashing algorithm types.</p>
 <dl class="attribute">
 <dt id="GLib.ChecksumType.SHA512">
 <code class="descname">SHA512</code><em class="property"> = 3</em></dt>
-<dd><p>Use the SHA-512 hashing algorithm</p>
+<dd><p>Use the SHA-512 hashing algorithm (Since: 2.36)</p>
 </dd></dl>
 
 </dd></dl>
@@ -918,6 +922,32 @@ an unknown encoding</p>
 <dt id="GLib.KeyFileError.INVALID_VALUE">
 <code class="descname">INVALID_VALUE</code><em class="property"> = 5</em></dt>
 <dd><p>a value could not be parsed</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="GLib.LogWriterOutput">
+<em class="property">class </em><code class="descclassname">GLib.</code><code class="descname">LogWriterOutput</code></dt>
+<dd><p>Bases: <a class="reference internal" href="#GLib.Enum" title="GLib.Enum"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
+<p>Return values from <a class="reference internal" href="callbacks.html#GLib.LogWriterFunc" title="GLib.LogWriterFunc"><code class="xref py py-obj docutils literal"><span class="pre">GLib.LogWriterFuncs</span></code></a> to indicate whether the given log entry
+was successfully handled by the writer, or whether there was an error in
+handling it (and hence a fallback writer should be used).</p>
+<p>If a <a class="reference internal" href="callbacks.html#GLib.LogWriterFunc" title="GLib.LogWriterFunc"><code class="xref py py-obj docutils literal"><span class="pre">GLib.LogWriterFunc</span></code></a> ignores a log entry, it should return
+<a class="reference internal" href="#GLib.LogWriterOutput.HANDLED" title="GLib.LogWriterOutput.HANDLED"><code class="xref py py-obj docutils literal"><span class="pre">GLib.LogWriterOutput.HANDLED</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.50.</span></p>
+</div>
+<dl class="attribute">
+<dt id="GLib.LogWriterOutput.UNHANDLED">
+<code class="descname">UNHANDLED</code><em class="property"> = 0</em></dt>
+<dd><p>Log writer could not handle the log entry.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GLib.LogWriterOutput.HANDLED">
+<code class="descname">HANDLED</code><em class="property"> = 1</em></dt>
+<dd><p>Log writer has handled the log entry.</p>
 </dd></dl>
 
 </dd></dl>
@@ -3552,7 +3582,7 @@ base glyph to which it is attached</p>
 <dd><p>Bases: <a class="reference internal" href="#GLib.Enum" title="GLib.Enum"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>These are the possible character classifications from the
 Unicode specification.
-See <a class="reference external" href="http://www.unicode.org/Public/UNIDATA/UnicodeData.html">http://www.unicode.org/Public/UNIDATA/UnicodeData.html</a>.</p>
+See <a class="reference external" href="http://www.unicode.org/reports/tr44/#General_Category_Values">Unicode Character Database&lt;/unlink&gt;.</a></p>
 <dl class="attribute">
 <dt id="GLib.UnicodeType.CONTROL">
 <code class="descname">CONTROL</code><em class="property"> = 0</em></dt>

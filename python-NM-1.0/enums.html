@@ -34,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="NM 1.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Constants" href="constants.html"/>
         <link rel="prev" title="Flags" href="flags.html"/> 
@@ -133,6 +136,7 @@
 <ul class="simple">
 <li><a class="reference internal" href="#NM.ActiveConnectionState" title="NM.ActiveConnectionState"><code class="xref py py-class docutils literal"><span class="pre">NM.ActiveConnectionState</span></code></a></li>
 <li><a class="reference internal" href="#NM.AgentManagerError" title="NM.AgentManagerError"><code class="xref py py-class docutils literal"><span class="pre">NM.AgentManagerError</span></code></a></li>
+<li><a class="reference internal" href="#NM.CheckpointCreateFlags" title="NM.CheckpointCreateFlags"><code class="xref py py-class docutils literal"><span class="pre">NM.CheckpointCreateFlags</span></code></a></li>
 <li><a class="reference internal" href="#NM.ClientError" title="NM.ClientError"><code class="xref py py-class docutils literal"><span class="pre">NM.ClientError</span></code></a></li>
 <li><a class="reference internal" href="#NM.ClientPermission" title="NM.ClientPermission"><code class="xref py py-class docutils literal"><span class="pre">NM.ClientPermission</span></code></a></li>
 <li><a class="reference internal" href="#NM.ClientPermissionResult" title="NM.ClientPermissionResult"><code class="xref py py-class docutils literal"><span class="pre">NM.ClientPermissionResult</span></code></a></li>
@@ -146,6 +150,7 @@
 <li><a class="reference internal" href="#NM.IPTunnelMode" title="NM.IPTunnelMode"><code class="xref py py-class docutils literal"><span class="pre">NM.IPTunnelMode</span></code></a></li>
 <li><a class="reference internal" href="#NM.ManagerError" title="NM.ManagerError"><code class="xref py py-class docutils literal"><span class="pre">NM.ManagerError</span></code></a></li>
 <li><a class="reference internal" href="#NM.Metered" title="NM.Metered"><code class="xref py py-class docutils literal"><span class="pre">NM.Metered</span></code></a></li>
+<li><a class="reference internal" href="#NM.RollbackResult" title="NM.RollbackResult"><code class="xref py py-class docutils literal"><span class="pre">NM.RollbackResult</span></code></a></li>
 <li><a class="reference internal" href="#NM.SecretAgentError" title="NM.SecretAgentError"><code class="xref py py-class docutils literal"><span class="pre">NM.SecretAgentError</span></code></a></li>
 <li><a class="reference internal" href="#NM.Setting8021xCKFormat" title="NM.Setting8021xCKFormat"><code class="xref py py-class docutils literal"><span class="pre">NM.Setting8021xCKFormat</span></code></a></li>
 <li><a class="reference internal" href="#NM.Setting8021xCKScheme" title="NM.Setting8021xCKScheme"><code class="xref py py-class docutils literal"><span class="pre">NM.Setting8021xCKScheme</span></code></a></li>
@@ -177,7 +182,7 @@
 <dl class="class">
 <dt id="NM.ActiveConnectionState">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">ActiveConnectionState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.ActiveConnectionState" title="NM.ActiveConnectionState"><code class="xref py py-obj docutils literal"><span class="pre">NM.ActiveConnectionState</span></code></a> values indicate the state of a connection to a
 specific network while it is starting, connected, or disconnecting from that
 network.</p>
@@ -218,14 +223,14 @@ and will be removed</p>
 <dl class="class">
 <dt id="NM.AgentManagerError">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">AgentManagerError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Errors returned from the secret-agent manager.</p>
 <p>These errors may be returned from operations that could cause secrets to be
 requested (such as nm_client_activate_connection()), and correspond to D-Bus
 errors in the &#8220;org.freedesktop.NetworkManager.AgentManager&#8221; namespace.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="NM.AgentManagerError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -280,15 +285,38 @@ request</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="NM.CheckpointCreateFlags">
+<em class="property">class </em><code class="descclassname">NM.</code><code class="descname">CheckpointCreateFlags</code></dt>
+<dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
+<p>The flags for CheckpointCreate call</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.4.</span></p>
+</div>
+<dl class="attribute">
+<dt id="NM.CheckpointCreateFlags.NONE">
+<code class="descname">NONE</code><em class="property"> = 0</em></dt>
+<dd><p>no flags</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.CheckpointCreateFlags.DESTROY_ALL">
+<code class="descname">DESTROY_ALL</code><em class="property"> = 1</em></dt>
+<dd><p>when creating
+a new checkpoint, destroy all existing ones.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="NM.ClientError">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">ClientError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Describes errors that may result from operations involving a <a class="reference internal" href="classes/Client.html#NM.Client" title="NM.Client"><code class="xref py py-obj docutils literal"><span class="pre">NM.Client</span></code></a>.</p>
 <p>D-Bus operations may also return errors from other domains, including
 <a class="reference internal" href="#NM.ManagerError" title="NM.ManagerError"><code class="xref py py-obj docutils literal"><span class="pre">NM.ManagerError</span></code></a>, <a class="reference internal" href="#NM.SettingsError" title="NM.SettingsError"><code class="xref py py-obj docutils literal"><span class="pre">NM.SettingsError</span></code></a>, <a class="reference internal" href="#NM.AgentManagerError" title="NM.AgentManagerError"><code class="xref py py-obj docutils literal"><span class="pre">NM.AgentManagerError</span></code></a>, and <a class="reference internal" href="#NM.ConnectionError" title="NM.ConnectionError"><code class="xref py py-obj docutils literal"><span class="pre">NM.ConnectionError</span></code></a>.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="NM.ClientError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -329,7 +357,7 @@ operation succeeded, but the object that was allegedly created (eg,
 <dl class="class">
 <dt id="NM.ClientPermission">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">ClientPermission</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.ClientPermission" title="NM.ClientPermission"><code class="xref py py-obj docutils literal"><span class="pre">NM.ClientPermission</span></code></a> values indicate various permissions that NetworkManager
 clients can obtain to perform certain tasks on behalf of the current user.</p>
 <dl class="attribute">
@@ -353,16 +381,42 @@ owned by the current user can be modified</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="NM.ClientPermission.LAST">
-<code class="descname">LAST</code><em class="property"> = 11</em></dt>
-<dd><p>a reserved boundary value</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="NM.ClientPermission.SETTINGS_MODIFY_HOSTNAME">
 <code class="descname">SETTINGS_MODIFY_HOSTNAME</code><em class="property"> = 11</em></dt>
 <dd><p>controls whether the
 persistent hostname can be changed</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.ClientPermission.SETTINGS_MODIFY_GLOBAL_DNS">
+<code class="descname">SETTINGS_MODIFY_GLOBAL_DNS</code><em class="property"> = 12</em></dt>
+<dd><p>modify persistent global
+DNS configuration</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.ClientPermission.RELOAD">
+<code class="descname">RELOAD</code><em class="property"> = 13</em></dt>
+<dd><p>controls access to Reload.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.ClientPermission.CHECKPOINT_ROLLBACK">
+<code class="descname">CHECKPOINT_ROLLBACK</code><em class="property"> = 14</em></dt>
+<dd><p>permission to create checkpoints.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.ClientPermission.ENABLE_DISABLE_STATISTICS">
+<code class="descname">ENABLE_DISABLE_STATISTICS</code><em class="property"> = 15</em></dt>
+<dd><p>controls whether device
+statistics can be globally enabled or disabled</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.ClientPermission.LAST">
+<code class="descname">LAST</code><em class="property"> = 15</em></dt>
+<dd><p>a reserved boundary value</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -426,7 +480,7 @@ that are available to all users can be modified</p>
 <dl class="class">
 <dt id="NM.ClientPermissionResult">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">ClientPermissionResult</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.ClientPermissionResult" title="NM.ClientPermissionResult"><code class="xref py py-obj docutils literal"><span class="pre">NM.ClientPermissionResult</span></code></a> values indicate what authorizations and permissions
 the user requires to obtain a given <a class="reference internal" href="#NM.ClientPermission" title="NM.ClientPermission"><code class="xref py py-obj docutils literal"><span class="pre">NM.ClientPermission</span></code></a></p>
 <dl class="attribute">
@@ -460,16 +514,16 @@ denied by system policy</p>
 <dl class="class">
 <dt id="NM.ConnectionError">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">ConnectionError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Describes errors that may result from operations involving a <a class="reference internal" href="interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a>
 or its <a class="reference internal" href="classes/Setting.html#NM.Setting" title="NM.Setting"><code class="xref py py-obj docutils literal"><span class="pre">NM.Settings</span></code></a>.</p>
 <p>These errors may be returned directly from <a class="reference internal" href="interfaces/Connection.html#NM.Connection" title="NM.Connection"><code class="xref py py-obj docutils literal"><span class="pre">NM.Connection</span></code></a> and <a class="reference internal" href="classes/Setting.html#NM.Setting" title="NM.Setting"><code class="xref py py-obj docutils literal"><span class="pre">NM.Setting</span></code></a>
 methods, or may be returned from D-Bus operations (eg on <a class="reference internal" href="classes/Client.html#NM.Client" title="NM.Client"><code class="xref py py-obj docutils literal"><span class="pre">NM.Client</span></code></a> or
 <a class="reference internal" href="classes/Device.html#NM.Device" title="NM.Device"><code class="xref py py-obj docutils literal"><span class="pre">NM.Device</span></code></a>), where they correspond to errors in the
 &#8220;org.freedesktop.NetworkManager.Settings.Connection&#8221; namespace.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="NM.ConnectionError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -550,7 +604,7 @@ the property that is invalid.</p>
 <dl class="class">
 <dt id="NM.ConnectivityState">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">ConnectivityState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <dl class="attribute">
 <dt id="NM.ConnectivityState.UNKNOWN">
 <code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
@@ -589,12 +643,12 @@ appears to be able to reach the full Internet.</p>
 <dl class="class">
 <dt id="NM.CryptoError">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">CryptoError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Cryptography-related errors that can be returned from some nm-utils methods,
 and some <a class="reference internal" href="classes/Setting8021x.html#NM.Setting8021x" title="NM.Setting8021x"><code class="xref py py-obj docutils literal"><span class="pre">NM.Setting8021x</span></code></a> operations.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="NM.CryptoError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -647,14 +701,14 @@ was invalid</p>
 <dl class="class">
 <dt id="NM.DeviceError">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">DeviceError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Device-related errors.</p>
 <p>These errors may be returned directly from <a class="reference internal" href="classes/Device.html#NM.Device" title="NM.Device"><code class="xref py py-obj docutils literal"><span class="pre">NM.Device</span></code></a> methods, or may be
 returned from D-Bus operations (where they correspond to errors in the
 &#8220;org.freedesktop.NetworkManager.Device&#8221; namespace).</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="NM.DeviceError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -729,7 +783,7 @@ found.</p>
 <dl class="class">
 <dt id="NM.DeviceState">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">DeviceState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <dl class="attribute">
 <dt id="NM.DeviceState.UNKNOWN">
 <code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
@@ -835,7 +889,7 @@ activated</p>
 <dl class="class">
 <dt id="NM.DeviceStateReason">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">DeviceStateReason</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Device state change reason codes</p>
 <dl class="attribute">
 <dt id="NM.DeviceStateReason.NONE">
@@ -1220,9 +1274,9 @@ activated</p>
 <dl class="class">
 <dt id="NM.DeviceType">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">DeviceType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
-<p><a class="reference internal" href="#NM.DeviceType" title="NM.DeviceType"><code class="xref py py-obj docutils literal"><span class="pre">NM.DeviceType</span></code></a> values indicate the type of hardware represented by
-an <a class="reference internal" href="classes/Device.html#NM.Device" title="NM.Device"><code class="xref py py-obj docutils literal"><span class="pre">NM.Device</span></code></a>.</p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<p><a class="reference internal" href="#NM.DeviceType" title="NM.DeviceType"><code class="xref py py-obj docutils literal"><span class="pre">NM.DeviceType</span></code></a> values indicate the type of hardware represented by a
+device object.</p>
 <dl class="attribute">
 <dt id="NM.DeviceType.UNKNOWN">
 <code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
@@ -1355,7 +1409,7 @@ GSM/UMTS, or LTE network access protocols</p>
 <dl class="class">
 <dt id="NM.IPTunnelMode">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">IPTunnelMode</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The tunneling mode.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
@@ -1425,14 +1479,14 @@ GSM/UMTS, or LTE network access protocols</p>
 <dl class="class">
 <dt id="NM.ManagerError">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">ManagerError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Errors related to the main &#8220;network management&#8221; interface of NetworkManager.
 These may be returned from <a class="reference internal" href="classes/Client.html#NM.Client" title="NM.Client"><code class="xref py py-obj docutils literal"><span class="pre">NM.Client</span></code></a> methods that invoke D-Bus operations on
 the &#8220;org.freedesktop.NetworkManager&#8221; interface, and correspond to D-Bus
 errors in that namespace.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="NM.ManagerError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1465,6 +1519,12 @@ errors in that namespace.</p>
 <dt id="NM.ManagerError.UNKNOWNLOGDOMAIN">
 <code class="descname">UNKNOWNLOGDOMAIN</code><em class="property"> = 11</em></dt>
 <dd><p>Unknown log domain in SetLogging</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.ManagerError.INVALIDARGUMENTS">
+<code class="descname">INVALIDARGUMENTS</code><em class="property"> = 12</em></dt>
+<dd><p>Invalid arguments for D-Bus request</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1526,7 +1586,7 @@ enabled/disabled.</p>
 <dl class="class">
 <dt id="NM.Metered">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">Metered</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.2.</span></p>
 </div>
@@ -1563,9 +1623,43 @@ enabled/disabled.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="NM.RollbackResult">
+<em class="property">class </em><code class="descclassname">NM.</code><code class="descname">RollbackResult</code></dt>
+<dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
+<p>The result of a checkpoint Rollback() operation for a specific device.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.4.</span></p>
+</div>
+<dl class="attribute">
+<dt id="NM.RollbackResult.OK">
+<code class="descname">OK</code><em class="property"> = 0</em></dt>
+<dd><p>the rollback succeeded.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.RollbackResult.ERR_NO_DEVICE">
+<code class="descname">ERR_NO_DEVICE</code><em class="property"> = 1</em></dt>
+<dd><p>the device no longer exists.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.RollbackResult.ERR_DEVICE_UNMANAGED">
+<code class="descname">ERR_DEVICE_UNMANAGED</code><em class="property"> = 2</em></dt>
+<dd><p>the device is now unmanaged.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NM.RollbackResult.ERR_FAILED">
+<code class="descname">ERR_FAILED</code><em class="property"> = 3</em></dt>
+<dd><p>other errors during rollback.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="NM.SecretAgentError">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SecretAgentError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.SecretAgentError" title="NM.SecretAgentError"><code class="xref py py-obj docutils literal"><span class="pre">NM.SecretAgentError</span></code></a> values are passed by secret agents back to NetworkManager
 when they encounter problems retrieving secrets on behalf of NM. They
 correspond to errors in the &#8220;org.freedesktop.NetworkManager.SecretManager&#8221;
@@ -1573,9 +1667,9 @@ namespace.</p>
 <p>Client APIs such as nm_client_activate_connection() will not see these error
 codes; instead, the secret agent manager will translate them to the
 corresponding <a class="reference internal" href="#NM.AgentManagerError" title="NM.AgentManagerError"><code class="xref py py-obj docutils literal"><span class="pre">NM.AgentManagerError</span></code></a> codes.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="NM.SecretAgentError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1631,7 +1725,7 @@ connection</p>
 <dl class="class">
 <dt id="NM.Setting8021xCKFormat">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">Setting8021xCKFormat</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.Setting8021xCKFormat" title="NM.Setting8021xCKFormat"><code class="xref py py-obj docutils literal"><span class="pre">NM.Setting8021xCKFormat</span></code></a> values indicate the general type of a certificate
 or private key</p>
 <dl class="attribute">
@@ -1665,7 +1759,7 @@ and private key</p>
 <dl class="class">
 <dt id="NM.Setting8021xCKScheme">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">Setting8021xCKScheme</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.Setting8021xCKScheme" title="NM.Setting8021xCKScheme"><code class="xref py py-obj docutils literal"><span class="pre">NM.Setting8021xCKScheme</span></code></a> values indicate how a certificate or private key is
 stored in the setting properties, either as a blob of the item&#8217;s data, or as
 a path to a certificate or private key file on the filesystem</p>
@@ -1695,7 +1789,7 @@ to a file containing the certificate or key data</p>
 <dl class="class">
 <dt id="NM.SettingCompareFlags">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingCompareFlags</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>These flags modify the comparison behavior when comparing two settings or
 two connections.</p>
 <dl class="attribute">
@@ -1775,7 +1869,7 @@ the secret&#8217;s flags indicate the secret is owned by a user secret agent
 <dl class="class">
 <dt id="NM.SettingConnectionAutoconnectSlaves">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingConnectionAutoconnectSlaves</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.SettingConnectionAutoconnectSlaves" title="NM.SettingConnectionAutoconnectSlaves"><code class="xref py py-obj docutils literal"><span class="pre">NM.SettingConnectionAutoconnectSlaves</span></code></a> values indicate whether slave connections
 should be activated when master is activated.</p>
 <dl class="attribute">
@@ -1803,7 +1897,7 @@ master is activated</p>
 <dl class="class">
 <dt id="NM.SettingConnectionLldp">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingConnectionLldp</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.SettingConnectionLldp" title="NM.SettingConnectionLldp"><code class="xref py py-obj docutils literal"><span class="pre">NM.SettingConnectionLldp</span></code></a> values indicate whether LLDP should be enabled.</p>
 <dl class="attribute">
 <dt id="NM.SettingConnectionLldp.DEFAULT">
@@ -1828,7 +1922,7 @@ master is activated</p>
 <dl class="class">
 <dt id="NM.SettingDiffResult">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingDiffResult</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>These values indicate the result of a setting difference operation.</p>
 <dl class="attribute">
 <dt id="NM.SettingDiffResult.UNKNOWN">
@@ -1867,7 +1961,7 @@ if you specify <a class="reference internal" href="#NM.SettingCompareFlags.DIFF_
 <dl class="class">
 <dt id="NM.SettingIP6ConfigAddrGenMode">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingIP6ConfigAddrGenMode</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.SettingIP6ConfigAddrGenMode" title="NM.SettingIP6ConfigAddrGenMode"><code class="xref py py-obj docutils literal"><span class="pre">NM.SettingIP6ConfigAddrGenMode</span></code></a> controls how the the Interface Identifier for
 RFC4862 Stateless Address Autoconfiguration is created.</p>
 <div class="versionadded">
@@ -1894,7 +1988,7 @@ specified by RFC7217.</p>
 <dl class="class">
 <dt id="NM.SettingIP6ConfigPrivacy">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingIP6ConfigPrivacy</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.SettingIP6ConfigPrivacy" title="NM.SettingIP6ConfigPrivacy"><code class="xref py py-obj docutils literal"><span class="pre">NM.SettingIP6ConfigPrivacy</span></code></a> values indicate if and how IPv6 Privacy
 Extensions are used (RFC4941).</p>
 <dl class="attribute">
@@ -1928,7 +2022,7 @@ are enabled and temporary addresses are preferred over public addresses</p>
 <dl class="class">
 <dt id="NM.SettingMacRandomization">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingMacRandomization</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Controls if and how the MAC address of a device is randomzied.</p>
 <dl class="attribute">
 <dt id="NM.SettingMacRandomization.DEFAULT">
@@ -1954,7 +2048,7 @@ overridden by user-controlled defaults configuration, is &#8220;never&#8221;.</p
 <dl class="class">
 <dt id="NM.SettingMacvlanMode">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingMacvlanMode</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <dl class="attribute">
 <dt id="NM.SettingMacvlanMode.UNKNOWN">
 <code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
@@ -1996,7 +2090,7 @@ overridden by user-controlled defaults configuration, is &#8220;never&#8221;.</p
 <dl class="class">
 <dt id="NM.SettingSerialParity">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingSerialParity</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The parity setting of a serial port.</p>
 <dl class="attribute">
 <dt id="NM.SettingSerialParity.NONE">
@@ -2021,7 +2115,7 @@ overridden by user-controlled defaults configuration, is &#8220;never&#8221;.</p
 <dl class="class">
 <dt id="NM.SettingTunMode">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingTunMode</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.SettingTunMode" title="NM.SettingTunMode"><code class="xref py py-obj docutils literal"><span class="pre">NM.SettingTunMode</span></code></a> values indicate the device type (TUN/TAP)</p>
 <dl class="attribute">
 <dt id="NM.SettingTunMode.UNKNOWN">
@@ -2046,7 +2140,7 @@ overridden by user-controlled defaults configuration, is &#8220;never&#8221;.</p
 <dl class="class">
 <dt id="NM.SettingWirelessPowersave">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingWirelessPowersave</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>These flags indicate whether wireless powersave must be enabled.</p>
 <dl class="attribute">
 <dt id="NM.SettingWirelessPowersave.DEFAULT">
@@ -2077,15 +2171,15 @@ overridden by user-controlled defaults configuration, is &#8220;never&#8221;.</p
 <dl class="class">
 <dt id="NM.SettingsError">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">SettingsError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Errors related to the settings/persistent configuration interface of
 NetworkManager.</p>
 <p>These may be returned from <a class="reference internal" href="classes/Client.html#NM.Client" title="NM.Client"><code class="xref py py-obj docutils literal"><span class="pre">NM.Client</span></code></a> methods that invoke D-Bus operations on
 the &#8220;org.freedesktop.NetworkManager.Settings&#8221; interface, and correspond to
 D-Bus errors in that namespace.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="NM.SettingsError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2144,7 +2238,7 @@ active settings backend</p>
 <dl class="class">
 <dt id="NM.State">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">State</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#NM.State" title="NM.State"><code class="xref py py-obj docutils literal"><span class="pre">NM.State</span></code></a> values indicate the current overall networking state.</p>
 <dl class="attribute">
 <dt id="NM.State.UNKNOWN">
@@ -2199,7 +2293,7 @@ active settings backend</p>
 <dl class="class">
 <dt id="NM.UtilsSecurityType">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">UtilsSecurityType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Describes generic security mechanisms that 802.11 access points may offer.
 Used with <a class="reference internal" href="functions.html#NM.utils_security_valid" title="NM.utils_security_valid"><code class="xref py py-obj docutils literal"><span class="pre">NM.utils_security_valid</span></code></a>() for checking whether a given access
 point is compatible with a network device.</p>
@@ -2264,7 +2358,7 @@ generating the dynamic WEP keys automatically</p>
 <dl class="class">
 <dt id="NM.VlanPriorityMap">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">VlanPriorityMap</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>A selector for traffic priority maps; these map Linux SKB priorities
 to 802.1p priorities used in VLANs.</p>
 <dl class="attribute">
@@ -2284,7 +2378,7 @@ to 802.1p priorities used in VLANs.</p>
 <dl class="class">
 <dt id="NM.VpnConnectionState">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">VpnConnectionState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>VPN connection states</p>
 <dl class="attribute">
 <dt id="NM.VpnConnectionState.UNKNOWN">
@@ -2343,7 +2437,7 @@ address.</p>
 <dl class="class">
 <dt id="NM.VpnConnectionStateReason">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">VpnConnectionStateReason</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>VPN connection state reasons</p>
 <dl class="attribute">
 <dt id="NM.VpnConnectionStateReason.UNKNOWN">
@@ -2434,12 +2528,12 @@ connection were not provided.</p>
 <dl class="class">
 <dt id="NM.VpnPluginError">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">VpnPluginError</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Returned by the VPN service plugin to indicate errors. These codes correspond
 to errors in the &#8220;org.freedesktop.NetworkManager.VPN.Error&#8221; namespace.</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="NM.VpnPluginError.quark">
-<em class="property">static </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<em class="property">classmethod </em><code class="descname">quark</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2527,7 +2621,7 @@ ConnectInteractive() or NewSecrets()</p>
 <dl class="class">
 <dt id="NM.VpnPluginFailure">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">VpnPluginFailure</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>VPN plugin failure reasons</p>
 <dl class="attribute">
 <dt id="NM.VpnPluginFailure.LOGIN_FAILED">
@@ -2553,7 +2647,7 @@ the VPN plugin.</p>
 <dl class="class">
 <dt id="NM.VpnServiceState">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">VpnServiceState</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>VPN daemon states</p>
 <dl class="attribute">
 <dt id="NM.VpnServiceState.UNKNOWN">
@@ -2602,7 +2696,7 @@ the VPN plugin.</p>
 <dl class="class">
 <dt id="NM.WepKeyType">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">WepKeyType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The <a class="reference internal" href="#NM.WepKeyType" title="NM.WepKeyType"><code class="xref py py-obj docutils literal"><span class="pre">NM.WepKeyType</span></code></a> values specify how any WEP keys present in the setting
 are intepreted.  There are no standards governing how to hash the various WEP
 key/passphrase formats into the actual WEP key.  Unfortunately some WEP keys
@@ -2647,7 +2741,7 @@ the actual WEP key using the MD5 hash algorithm.</p>
 <dl class="class">
 <dt id="NM.WimaxNspNetworkType">
 <em class="property">class </em><code class="descclassname">NM.</code><code class="descname">WimaxNspNetworkType</code></dt>
-<dd><p>Bases: <a class="reference external" href="_docs/NM-1.0/../../../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>WiMAX network type.</p>
 <dl class="attribute">
 <dt id="NM.WimaxNspNetworkType.UNKNOWN">

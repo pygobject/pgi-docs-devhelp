@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.Data" href="Data.html"/>
@@ -143,7 +146,7 @@
 <h1>GLib.Cond</h1>
 <div class="section" id="fields">
 <span id="glib-cond-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -173,7 +176,7 @@
 </div>
 <div class="section" id="methods">
 <span id="glib-cond-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -216,7 +219,7 @@ another thread publishes the data, it can signal one of the waiting
 threads to wake up to collect the data.</p>
 <p>Here is an example for using <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> to block a thread until a condition
 is satisfied:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">gpointer</span> <span class="n">current_data</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">gpointer</span> <span class="n">current_data</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 <span class="n">GMutex</span> <span class="n">data_mutex</span><span class="p">;</span>
 <span class="n">GCond</span> <span class="n">data_cond</span><span class="p">;</span>
 
@@ -266,7 +269,7 @@ on it and <a class="reference internal" href="#GLib.Cond.clear" title="GLib.Cond
 <p>A <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> should only be accessed via the g_cond_ functions.</p>
 <dl class="method">
 <dt id="GLib.Cond.broadcast">
-<code class="descname">broadcast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1411"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">broadcast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1409"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>If threads are waiting for <cite>self</cite>, all of them are unblocked.
 If no threads are waiting for <cite>self</cite>, this function has no effect.
 It is good practice to lock the same mutex as the waiting threads
@@ -275,7 +278,7 @@ while calling this function, though not required.</p>
 
 <dl class="method">
 <dt id="GLib.Cond.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1386"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1384"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Frees the resources allocated to a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> with <a class="reference internal" href="#GLib.Cond.init" title="GLib.Cond.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond.init</span></code></a>().</p>
 <p>This function should not be used with a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> that has been
 statically allocated.</p>
@@ -288,7 +291,7 @@ blocking leads to undefined behaviour.</p>
 
 <dl class="method">
 <dt id="GLib.Cond.init">
-<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1381"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1379"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Initialises a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> so that it can be used.</p>
 <p>This function is useful to initialise a <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a> that has been
 allocated as part of a larger structure.  It is not necessary to
@@ -304,7 +307,7 @@ to undefined behaviour.</p>
 
 <dl class="method">
 <dt id="GLib.Cond.signal">
-<code class="descname">signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1403"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1401"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>If threads are waiting for <cite>self</cite>, at least one of them is unblocked.
 If no threads are waiting for <cite>self</cite>, this function has no effect.
 It is good practice to hold the same lock as the waiting thread
@@ -313,7 +316,7 @@ while calling this function, though not required.</p>
 
 <dl class="method">
 <dt id="GLib.Cond.wait">
-<code class="descname">wait</code><span class="sig-paren">(</span><em>mutex</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1392"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait</code><span class="sig-paren">(</span><em>mutex</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1390"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -338,7 +341,7 @@ the documentation for <a class="reference internal" href="#GLib.Cond" title="GLi
 
 <dl class="method">
 <dt id="GLib.Cond.wait_until">
-<code class="descname">wait_until</code><span class="sig-paren">(</span><em>mutex</em>, <em>end_time</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.48.0#n1420"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">wait_until</code><span class="sig-paren">(</span><em>mutex</em>, <em>end_time</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/gthread-posix.c?h=2.50.0#n1418"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -367,7 +370,7 @@ passed.</p>
 <p>The following code shows how to correctly perform a timed wait on a
 condition variable (extending the example presented in the
 documentation for <a class="reference internal" href="#GLib.Cond" title="GLib.Cond"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Cond</span></code></a>):</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">gpointer</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">gpointer</span>
 <span class="nf">pop_data_timed</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">gint64</span> <span class="n">end_time</span><span class="p">;</span>

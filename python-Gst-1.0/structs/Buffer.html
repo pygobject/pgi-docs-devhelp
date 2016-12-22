@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Gst 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="Gst.BufferList" href="BufferList.html"/>
@@ -143,7 +146,7 @@
 <h1>Gst.Buffer</h1>
 <div class="section" id="fields">
 <span id="gst-buffer-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -198,25 +201,25 @@
 </div>
 <div class="section" id="methods">
 <span id="gst-buffer-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Buffer.get_max_memory" title="Gst.Buffer.get_max_memory"><code class="xref py py-obj docutils literal"><span class="pre">get_max_memory</span></code></a> ()</td>
 </tr>
-<tr class="row-even"><td><em>static</em></td>
+<tr class="row-even"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Buffer.new" title="Gst.Buffer.new"><code class="xref py py-obj docutils literal"><span class="pre">new</span></code></a> ()</td>
 </tr>
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Buffer.new_allocate" title="Gst.Buffer.new_allocate"><code class="xref py py-obj docutils literal"><span class="pre">new_allocate</span></code></a> (allocator, size, params)</td>
 </tr>
-<tr class="row-even"><td><em>static</em></td>
+<tr class="row-even"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Buffer.new_wrapped" title="Gst.Buffer.new_wrapped"><code class="xref py py-obj docutils literal"><span class="pre">new_wrapped</span></code></a> (data)</td>
 </tr>
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Gst.Buffer.new_wrapped_full" title="Gst.Buffer.new_wrapped_full"><code class="xref py py-obj docutils literal"><span class="pre">new_wrapped_full</span></code></a> (flags, data, maxsize, offset, user_data, notify)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
@@ -265,22 +268,28 @@
 <td><a class="reference internal" href="#Gst.Buffer.get_all_memory" title="Gst.Buffer.get_all_memory"><code class="xref py py-obj docutils literal"><span class="pre">get_all_memory</span></code></a> ()</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gst.Buffer.get_flags" title="Gst.Buffer.get_flags"><code class="xref py py-obj docutils literal"><span class="pre">get_flags</span></code></a> ()</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gst.Buffer.get_memory" title="Gst.Buffer.get_memory"><code class="xref py py-obj docutils literal"><span class="pre">get_memory</span></code></a> (idx)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gst.Buffer.get_memory_range" title="Gst.Buffer.get_memory_range"><code class="xref py py-obj docutils literal"><span class="pre">get_memory_range</span></code></a> (idx, length)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gst.Buffer.get_meta" title="Gst.Buffer.get_meta"><code class="xref py py-obj docutils literal"><span class="pre">get_meta</span></code></a> (api)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gst.Buffer.get_size" title="Gst.Buffer.get_size"><code class="xref py py-obj docutils literal"><span class="pre">get_size</span></code></a> ()</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gst.Buffer.get_sizes" title="Gst.Buffer.get_sizes"><code class="xref py py-obj docutils literal"><span class="pre">get_sizes</span></code></a> ()</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gst.Buffer.get_sizes_range" title="Gst.Buffer.get_sizes_range"><code class="xref py py-obj docutils literal"><span class="pre">get_sizes_range</span></code></a> (idx, length)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gst.Buffer.has_flags" title="Gst.Buffer.has_flags"><code class="xref py py-obj docutils literal"><span class="pre">has_flags</span></code></a> (flags)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gst.Buffer.insert_memory" title="Gst.Buffer.insert_memory"><code class="xref py py-obj docutils literal"><span class="pre">insert_memory</span></code></a> (idx, mem)</td>
@@ -343,10 +352,16 @@
 <td><a class="reference internal" href="#Gst.Buffer.resize_range" title="Gst.Buffer.resize_range"><code class="xref py py-obj docutils literal"><span class="pre">resize_range</span></code></a> (idx, length, offset, size)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Gst.Buffer.set_size" title="Gst.Buffer.set_size"><code class="xref py py-obj docutils literal"><span class="pre">set_size</span></code></a> (size)</td>
+<td><a class="reference internal" href="#Gst.Buffer.set_flags" title="Gst.Buffer.set_flags"><code class="xref py py-obj docutils literal"><span class="pre">set_flags</span></code></a> (flags)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gst.Buffer.set_size" title="Gst.Buffer.set_size"><code class="xref py py-obj docutils literal"><span class="pre">set_size</span></code></a> (size)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Gst.Buffer.unmap" title="Gst.Buffer.unmap"><code class="xref py py-obj docutils literal"><span class="pre">unmap</span></code></a> (info)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Gst.Buffer.unset_flags" title="Gst.Buffer.unset_flags"><code class="xref py py-obj docutils literal"><span class="pre">unset_flags</span></code></a> (flags)</td>
 </tr>
 </tbody>
 </table>
@@ -363,7 +378,7 @@ with the <a class="reference internal" href="Memory.html#Gst.Memory" title="Gst.
 created one will typically allocate memory for it and add it to the buffer.
 The following example creates a buffer that can hold a given video frame
 with a given width, height and bits per plane.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">GstBuffer</span> <span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">GstBuffer</span> <span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
 <span class="n">GstMemory</span> <span class="o">*</span><span class="n">memory</span><span class="p">;</span>
 <span class="n">gint</span> <span class="n">size</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">bpp</span><span class="p">;</span>
 <span class="p">...</span>
@@ -428,9 +443,9 @@ to hold a reference to another buffer that is only released when the child
 using the <a class="reference internal" href="Memory.html#Gst.Memory" title="Gst.Memory"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Memory</span></code></a> of the parent buffer, and wants to prevent the parent
 buffer from being returned to a buffer pool until the <a class="reference internal" href="Memory.html#Gst.Memory" title="Gst.Memory"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Memory</span></code></a> is available
 for re-use. (Since 1.6)</p>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Buffer.get_max_memory">
-<em class="property">static </em><code class="descname">get_max_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n394"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_max_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n465"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -450,9 +465,9 @@ together to make room for the new block.</p>
 </div>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Buffer.new">
-<em class="property">static </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n722"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n793"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -467,9 +482,9 @@ together to make room for the new block.</p>
 <p>MT safe.</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Buffer.new_allocate">
-<em class="property">static </em><code class="descname">new_allocate</code><span class="sig-paren">(</span><em>allocator</em>, <em>size</em>, <em>params</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n756"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_allocate</code><span class="sig-paren">(</span><em>allocator</em>, <em>size</em>, <em>params</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n827"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -499,9 +514,9 @@ allocated, <a class="reference external" href="http://docs.python.org/2.7/librar
 <p>MT safe.</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Buffer.new_wrapped">
-<em class="property">static </em><code class="descname">new_wrapped</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n893"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_wrapped</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n964"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -515,13 +530,13 @@ allocated, <a class="reference external" href="http://docs.python.org/2.7/librar
 </tbody>
 </table>
 <p>Creates a new buffer that wraps the given <cite>data</cite>. The memory will be freed
-with <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> and will be marked writable.</p>
+with <a class="reference external" href="../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a> and will be marked writable.</p>
 <p>MT safe.</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="Gst.Buffer.new_wrapped_full">
-<em class="property">static </em><code class="descname">new_wrapped_full</code><span class="sig-paren">(</span><em>flags</em>, <em>data</em>, <em>maxsize</em>, <em>offset</em>, <em>user_data</em>, <em>notify</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n864"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_wrapped_full</code><span class="sig-paren">(</span><em>flags</em>, <em>data</em>, <em>maxsize</em>, <em>offset</em>, <em>user_data</em>, <em>notify</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n935"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -532,7 +547,7 @@ with <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2
 <li><strong>maxsize</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; allocated size of <cite>data</cite></li>
 <li><strong>offset</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; offset in <cite>data</cite></li>
 <li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; user_data</li>
-<li><strong>notify</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/callbacks.html#GLib.DestroyNotify" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; called with <cite>user_data</cite> when the memory is freed</li>
+<li><strong>notify</strong> (<a class="reference external" href="../../python-GLib-2.0/callbacks.html#GLib.DestroyNotify" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.DestroyNotify</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; called with <cite>user_data</cite> when the memory is freed</li>
 </ul>
 </td>
 </tr>
@@ -554,7 +569,7 @@ with <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2
 
 <dl class="method">
 <dt id="Gst.Buffer.add_meta">
-<code class="descname">add_meta</code><span class="sig-paren">(</span><em>info</em>, <em>params</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n2082"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_meta</code><span class="sig-paren">(</span><em>info</em>, <em>params</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2153"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -578,7 +593,7 @@ with <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2
 
 <dl class="method">
 <dt id="Gst.Buffer.add_parent_buffer_meta">
-<code class="descname">add_parent_buffer_meta</code><span class="sig-paren">(</span><em>ref</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n2308"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_parent_buffer_meta</code><span class="sig-paren">(</span><em>ref</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2385"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -600,7 +615,7 @@ with <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2
 
 <dl class="method">
 <dt id="Gst.Buffer.add_protection_meta">
-<code class="descname">add_protection_meta</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstprotection.c?h=1.8.1#n141"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_protection_meta</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstprotection.c?h=1.10.2#n141"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -624,7 +639,7 @@ unsuccessful.</td>
 
 <dl class="method">
 <dt id="Gst.Buffer.append">
-<code class="descname">append</code><span class="sig-paren">(</span><em>buf2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1988"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">append</code><span class="sig-paren">(</span><em>buf2</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2059"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -644,7 +659,7 @@ concatenation of the memory of <cite>self</cite> and <cite>buf2</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.append_memory">
-<code class="descname">append_memory</code><span class="sig-paren">(</span><em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n944"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">append_memory</code><span class="sig-paren">(</span><em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1015"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -661,7 +676,7 @@ See <a class="reference internal" href="#Gst.Buffer.insert_memory" title="Gst.Bu
 
 <dl class="method">
 <dt id="Gst.Buffer.append_region">
-<code class="descname">append_region</code><span class="sig-paren">(</span><em>buf2</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n2008"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">append_region</code><span class="sig-paren">(</span><em>buf2</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2079"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -689,7 +704,7 @@ contain a concatenation of the memory of <cite>self</cite> and the requested reg
 
 <dl class="method">
 <dt id="Gst.Buffer.copy_deep">
-<code class="descname">copy_deep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n619"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy_deep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n690"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -709,7 +724,7 @@ copy of the data the source buffer contains.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.copy_into">
-<code class="descname">copy_into</code><span class="sig-paren">(</span><em>src</em>, <em>flags</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n416"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy_into</code><span class="sig-paren">(</span><em>src</em>, <em>flags</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n487"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -738,7 +753,7 @@ the memory from <cite>src</cite> will be appended to <cite>self</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.copy_region">
-<code class="descname">copy_region</code><span class="sig-paren">(</span><em>flags</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1957"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy_region</code><span class="sig-paren">(</span><em>flags</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2028"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -774,7 +789,7 @@ to <a class="reference internal" href="../constants.html#Gst.CLOCK_TIME_NONE" ti
 
 <dl class="method">
 <dt id="Gst.Buffer.extract">
-<code class="descname">extract</code><span class="sig-paren">(</span><em>offset</em>, <em>dest</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1794"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">extract</code><span class="sig-paren">(</span><em>offset</em>, <em>dest</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1865"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -800,7 +815,7 @@ when <cite>self</cite> did not contain enough data.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.extract_dup">
-<code class="descname">extract_dup</code><span class="sig-paren">(</span><em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n2282"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">extract_dup</code><span class="sig-paren">(</span><em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2359"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -821,7 +836,7 @@ the destination array will be written.</p>
 </tbody>
 </table>
 <p>Extracts a copy of at most <cite>size</cite> bytes the data at <cite>offset</cite> into
-newly-allocated memory. <cite>dest</cite> must be freed using <a class="reference external" href="../_docs/Gst-1.0/../../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when done.</p>
+newly-allocated memory. <cite>dest</cite> must be freed using <a class="reference external" href="../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.free</span></code></a>() when done.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.10.</span></p>
 </div>
@@ -829,7 +844,7 @@ newly-allocated memory. <cite>dest</cite> must be freed using <a class="referenc
 
 <dl class="method">
 <dt id="Gst.Buffer.fill">
-<code class="descname">fill</code><span class="sig-paren">(</span><em>offset</em>, <em>src</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1743"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">fill</code><span class="sig-paren">(</span><em>offset</em>, <em>src</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1814"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -854,7 +869,7 @@ when <cite>self</cite> did not contain enough data.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.find_memory">
-<code class="descname">find_memory</code><span class="sig-paren">(</span><em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1231"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">find_memory</code><span class="sig-paren">(</span><em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1302"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -899,7 +914,7 @@ for <cite>offset</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.foreach_meta">
-<code class="descname">foreach_meta</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n2218"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">foreach_meta</code><span class="sig-paren">(</span><em>func</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2295"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -926,7 +941,7 @@ in the buffer should be skipped.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.get_all_memory">
-<code class="descname">get_all_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1053"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_all_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1124"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -943,8 +958,27 @@ into one large <a class="reference internal" href="Memory.html#Gst.Memory" title
 </dd></dl>
 
 <dl class="method">
+<dt id="Gst.Buffer.get_flags">
+<code class="descname">get_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n321"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the flags set on this buffer.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../flags.html#Gst.BufferFlags" title="Gst.BufferFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferFlags</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Get the <a class="reference internal" href="../flags.html#Gst.BufferFlags" title="Gst.BufferFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferFlags</span></code></a> flags set on this buffer.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.10.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="Gst.Buffer.get_memory">
-<code class="descname">get_memory</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1037"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_memory</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1108"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -963,7 +997,7 @@ memory block at <cite>idx</cite>. Use gst_memory_unref () after usage.</td>
 
 <dl class="method">
 <dt id="Gst.Buffer.get_memory_range">
-<code class="descname">get_memory_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1075"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_memory_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1146"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -990,12 +1024,12 @@ be merged into one large <a class="reference internal" href="Memory.html#Gst.Mem
 
 <dl class="method">
 <dt id="Gst.Buffer.get_meta">
-<code class="descname">get_meta</code><span class="sig-paren">(</span><em>api</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n2051"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_meta</code><span class="sig-paren">(</span><em>api</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2122"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>api</strong> (<a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <a class="reference external" href="../_docs/Gst-1.0/../../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of an API</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>api</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a>) &#8211; the <a class="reference external" href="../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.GType</span></code></a> of an API</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the metadata for <cite>api</cite> on
 <cite>self</cite>.</td>
@@ -1013,7 +1047,7 @@ and check the meta-&gt;info.api member for the API type.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.get_size">
-<code class="descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1373"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1444"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1029,7 +1063,7 @@ and check the meta-&gt;info.api member for the API type.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.get_sizes">
-<code class="descname">get_sizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1358"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_sizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1429"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1060,7 +1094,7 @@ buffer memory blocks with <a class="reference internal" href="#Gst.Buffer.resize
 
 <dl class="method">
 <dt id="Gst.Buffer.get_sizes_range">
-<code class="descname">get_sizes_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1398"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_sizes_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1469"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1100,8 +1134,23 @@ and <cite>offset</cite> and the amount of extra padding on the memory block at <
 </dd></dl>
 
 <dl class="method">
+<dt id="Gst.Buffer.has_flags">
+<code class="descname">has_flags</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n338"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flags</strong> (<a class="reference internal" href="../flags.html#Gst.BufferFlags" title="Gst.BufferFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferFlags</span></code></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="Gst.Buffer.insert_memory">
-<code class="descname">insert_memory</code><span class="sig-paren">(</span><em>idx</em>, <em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n966"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">insert_memory</code><span class="sig-paren">(</span><em>idx</em>, <em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1037"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1123,7 +1172,7 @@ the new memory.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.is_all_memory_writable">
-<code class="descname">is_all_memory_writable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1337"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_all_memory_writable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1408"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1144,7 +1193,7 @@ gst_buffer_is_writable() to check that if needed.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.is_memory_range_writable">
-<code class="descname">is_memory_range_writable</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1300"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">is_memory_range_writable</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1371"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1174,7 +1223,7 @@ gst_buffer_is_writable() to check that if needed.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.iterate_meta">
-<code class="descname">iterate_meta</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n2181"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">iterate_meta</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2258"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1195,7 +1244,7 @@ to <a class="reference external" href="http://docs.python.org/2.7/library/consta
 
 <dl class="method">
 <dt id="Gst.Buffer.map">
-<code class="descname">map</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1603"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">map</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1674"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1230,7 +1279,7 @@ usage.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.map_range">
-<code class="descname">map_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em>, <em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1635"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">map_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em>, <em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1706"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1274,7 +1323,7 @@ will then also be replaced with this writable copy.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.memcmp">
-<code class="descname">memcmp</code><span class="sig-paren">(</span><em>offset</em>, <em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1844"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">memcmp</code><span class="sig-paren">(</span><em>offset</em>, <em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1915"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1298,7 +1347,7 @@ will then also be replaced with this writable copy.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.memset">
-<code class="descname">memset</code><span class="sig-paren">(</span><em>offset</em>, <em>val</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1897"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">memset</code><span class="sig-paren">(</span><em>offset</em>, <em>val</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1968"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1324,12 +1373,12 @@ when <cite>self</cite> did not contain enough data.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.n_memory">
-<code class="descname">n_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n908"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">n_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n980"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the amount of memory block in this buffer.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of memory blocks this buffer is made of.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
@@ -1341,7 +1390,7 @@ larger than what <a class="reference internal" href="#Gst.Buffer.get_max_memory"
 
 <dl class="method">
 <dt id="Gst.Buffer.peek_memory">
-<code class="descname">peek_memory</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1014"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">peek_memory</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1085"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1361,7 +1410,7 @@ any call that modifies the memory in <cite>self</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.prepend_memory">
-<code class="descname">prepend_memory</code><span class="sig-paren">(</span><em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n927"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">prepend_memory</code><span class="sig-paren">(</span><em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n998"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1378,13 +1427,13 @@ See <a class="reference internal" href="#Gst.Buffer.insert_memory" title="Gst.Bu
 
 <dl class="method">
 <dt id="Gst.Buffer.remove_all_memory">
-<code class="descname">remove_all_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1172"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_all_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1243"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Remove all the memory blocks in <cite>self</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Gst.Buffer.remove_memory">
-<code class="descname">remove_memory</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1160"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_memory</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1231"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1398,7 +1447,7 @@ See <a class="reference internal" href="#Gst.Buffer.insert_memory" title="Gst.Bu
 
 <dl class="method">
 <dt id="Gst.Buffer.remove_memory_range">
-<code class="descname">remove_memory_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1190"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_memory_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1261"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1417,7 +1466,7 @@ See <a class="reference internal" href="#Gst.Buffer.insert_memory" title="Gst.Bu
 
 <dl class="method">
 <dt id="Gst.Buffer.remove_meta">
-<code class="descname">remove_meta</code><span class="sig-paren">(</span><em>meta</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n2132"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove_meta</code><span class="sig-paren">(</span><em>meta</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n2209"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1436,7 +1485,7 @@ metadata was on <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gst.Buffer.replace_all_memory">
-<code class="descname">replace_all_memory</code><span class="sig-paren">(</span><em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1111"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">replace_all_memory</code><span class="sig-paren">(</span><em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1182"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1450,7 +1499,7 @@ metadata was on <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gst.Buffer.replace_memory">
-<code class="descname">replace_memory</code><span class="sig-paren">(</span><em>idx</em>, <em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1099"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">replace_memory</code><span class="sig-paren">(</span><em>idx</em>, <em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1170"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1468,7 +1517,7 @@ metadata was on <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gst.Buffer.replace_memory_range">
-<code class="descname">replace_memory_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em>, <em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1132"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">replace_memory_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em>, <em>mem</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1203"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1490,7 +1539,7 @@ replaced with <cite>mem</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.resize">
-<code class="descname">resize</code><span class="sig-paren">(</span><em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1458"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">resize</code><span class="sig-paren">(</span><em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1529"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1508,7 +1557,7 @@ replaced with <cite>mem</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.resize_range">
-<code class="descname">resize_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1491"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">resize_range</code><span class="sig-paren">(</span><em>idx</em>, <em>length</em>, <em>offset</em>, <em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1562"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1534,8 +1583,29 @@ replaced with <cite>mem</cite>.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="Gst.Buffer.set_flags">
+<code class="descname">set_flags</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n355"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flags</strong> (<a class="reference internal" href="../flags.html#Gst.BufferFlags" title="Gst.BufferFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferFlags</span></code></a>) &#8211; the <a class="reference internal" href="../flags.html#Gst.BufferFlags" title="Gst.BufferFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferFlags</span></code></a> to set.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> if <cite>flags</cite> were successfully set on buffer.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Sets one or more buffer flags on a buffer.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.10.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="Gst.Buffer.set_size">
-<code class="descname">set_size</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1471"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_size</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1542"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1549,7 +1619,7 @@ replaced with <cite>mem</cite>.</p>
 
 <dl class="method">
 <dt id="Gst.Buffer.unmap">
-<code class="descname">unmap</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.8.1#n1717"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unmap</code><span class="sig-paren">(</span><em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n1788"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1559,6 +1629,27 @@ replaced with <cite>mem</cite>.</p>
 </tbody>
 </table>
 <p>Release the memory previously mapped with <a class="reference internal" href="#Gst.Buffer.map" title="Gst.Buffer.map"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer.map</span></code></a>().</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Gst.Buffer.unset_flags">
+<code class="descname">unset_flags</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gstreamer/tree/gst/gstbuffer.c?h=1.10.2#n373"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flags</strong> (<a class="reference internal" href="../flags.html#Gst.BufferFlags" title="Gst.BufferFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferFlags</span></code></a>) &#8211; the <a class="reference internal" href="../flags.html#Gst.BufferFlags" title="Gst.BufferFlags"><code class="xref py py-obj docutils literal"><span class="pre">Gst.BufferFlags</span></code></a> to clear</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if <cite>flags</cite> is successfully cleared from buffer.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Clears one or more buffer flags.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.10.</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>

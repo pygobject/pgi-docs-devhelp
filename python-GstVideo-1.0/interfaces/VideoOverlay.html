@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GstVideo 1.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Interfaces" href="index.html"/>
         <link rel="next" title="Classes" href="../classes/index.html"/>
@@ -162,7 +165,7 @@
 </g>
 <!-- GObject.GInterface -->
 <g id="node2" class="node"><title>GObject.GInterface</title>
-<g id="a_node2"><a xlink:href="../_docs/GstVideo-1.0/../../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" xlink:title="GObject.GInterface">
+<g id="a_node2"><a xlink:href="../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" xlink:title="GObject.GInterface">
 <path fill="none" stroke="#3091d1" d="M99.5,-72C99.5,-72 13.5,-72 13.5,-72 10.5,-72 7.5,-69 7.5,-66 7.5,-66 7.5,-60 7.5,-60 7.5,-57 10.5,-54 13.5,-54 13.5,-54 99.5,-54 99.5,-54 102.5,-54 105.5,-57 105.5,-60 105.5,-60 105.5,-66 105.5,-66 105.5,-69 102.5,-72 99.5,-72"/>
 <text text-anchor="middle" x="56.5" y="-60.7" font-family="inherit" font-size="8.50">GObject.GInterface</text>
 </a>
@@ -187,7 +190,7 @@
 </table>
 <div class="section" id="methods">
 <span id="gstvideo-videooverlay-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -216,7 +219,7 @@
 </div>
 <div class="section" id="virtual-methods">
 <span id="gstvideo-videooverlay-vfuncs"></span><h2>Virtual Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -258,7 +261,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Bases:</th><td class="field-body"><a class="reference external" href="../_docs/GstVideo-1.0/../../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GInterface</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Bases:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/interfaces/GInterface.html#GObject.GInterface" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GInterface</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Structure:</th><td class="field-body"><a class="reference internal" href="../iface-structs/VideoOverlayInterface.html#GstVideo.VideoOverlayInterface" title="GstVideo.VideoOverlayInterface"><code class="xref py py-class docutils literal"><span class="pre">GstVideo.VideoOverlayInterface</span></code></a></td>
 </tr>
@@ -270,7 +273,7 @@ This is achieved by either being informed about the Window identifier that
 the video sink element generated, or by forcing the video sink element to use
 a specific Window identifier for rendering.</p>
 <p>To force a redrawing of the latest video frame the video sink element
-displayed on the Window. Indeed if the <a class="reference external" href="../_docs/GstVideo-1.0/../../../python-Gst-1.0/classes/Pipeline.html#Gst.Pipeline" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pipeline</span></code></a> is in <a class="reference external" href="../_docs/GstVideo-1.0/../../../python-Gst-1.0/enums.html#Gst.State.PAUSED" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.State.PAUSED</span></code></a>
+displayed on the Window. Indeed if the <a class="reference external" href="../../python-Gst-1.0/classes/Pipeline.html#Gst.Pipeline" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Pipeline</span></code></a> is in <a class="reference external" href="../../python-Gst-1.0/enums.html#Gst.State.PAUSED" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.State.PAUSED</span></code></a>
 state, moving the Window around will damage its content. Application
 developers will want to handle the Expose events themselves and force the
 video sink element to refresh the Window&#8217;s content.</p>
@@ -281,10 +284,10 @@ clicks.</p>
 <p>Setting a specific Window identifier on the video sink element is the most
 flexible solution but it has some issues. Indeed the application needs to set
 its Window identifier at the right time to avoid internal Window creation
-from the video sink element. To solve this issue a <a class="reference external" href="../_docs/GstVideo-1.0/../../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a> is posted on
+from the video sink element. To solve this issue a <a class="reference external" href="../../python-Gst-1.0/structs/Message.html#Gst.Message" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Message</span></code></a> is posted on
 the bus to inform the application that it should set the Window identifier
 immediately. Here is an example on how to do that correctly:</p>
-<div class="highlight-none"><div class="highlight"><pre>static GstBusSyncReply
+<div class="highlight-none"><div class="highlight"><pre><span></span>static GstBusSyncReply
 create_window (GstBus * bus, GstMessage * message, GstPipeline * pipeline)
 {
  // ignore anything but &#39;prepare-window-handle&#39; element messages
@@ -363,7 +366,7 @@ used in the callback).</p>
 <dt><a class="reference internal" href="#GstVideo.VideoOverlay" title="GstVideo.VideoOverlay"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlay</span></code></a> and Gtk+</dt>
 <dd></dd>
 </dl>
-<div class="highlight-none"><div class="highlight"><pre>#include &amp;lt;gst/video/videooverlay.h&amp;gt;
+<div class="highlight-none"><div class="highlight"><pre><span></span>#include &amp;lt;gst/video/videooverlay.h&amp;gt;
 #include &amp;lt;gtk/gtk.h&amp;gt;
 #ifdef GDK_WINDOWING_X11
 #include &amp;lt;gdk/gdkx.h&amp;gt;  // for GDK_WINDOW_XID
@@ -465,7 +468,7 @@ main (int argc, char **argv)
 <dt><a class="reference internal" href="#GstVideo.VideoOverlay" title="GstVideo.VideoOverlay"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlay</span></code></a> and Qt</dt>
 <dd></dd>
 </dl>
-<div class="highlight-none"><div class="highlight"><pre>#include &amp;lt;glib.h&amp;gt;
+<div class="highlight-none"><div class="highlight"><pre><span></span>#include &amp;lt;glib.h&amp;gt;
 #include &amp;lt;gst/gst.h&amp;gt;
 #include &amp;lt;gst/video/videooverlay.h&amp;gt;
 
@@ -522,14 +525,14 @@ int main(int argc, char *argv[])
 </div>
 <dl class="method">
 <dt id="GstVideo.VideoOverlay.expose">
-<code class="descname">expose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.8.1#n434"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">expose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.10.2#n434"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Tell an overlay that it has been exposed. This will redraw the current frame
 in the drawable even if the pipeline is PAUSED.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlay.got_window_handle">
-<code class="descname">got_window_handle</code><span class="sig-paren">(</span><em>handle</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.8.1#n385"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">got_window_handle</code><span class="sig-paren">(</span><em>handle</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.10.2#n385"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -544,7 +547,7 @@ in the drawable even if the pipeline is PAUSED.</p>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlay.handle_events">
-<code class="descname">handle_events</code><span class="sig-paren">(</span><em>handle_events</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.8.1#n461"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">handle_events</code><span class="sig-paren">(</span><em>handle_events</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.10.2#n461"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -562,7 +565,7 @@ from the <a class="reference internal" href="#GstVideo.VideoOverlay" title="GstV
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlay.prepare_window_handle">
-<code class="descname">prepare_window_handle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.8.1#n413"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">prepare_window_handle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.10.2#n413"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>This will post a &#8220;prepare-window-handle&#8221; element message on the bus
 to give applications an opportunity to call
 <a class="reference internal" href="#GstVideo.VideoOverlay.set_window_handle" title="GstVideo.VideoOverlay.set_window_handle"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoOverlay.set_window_handle</span></code></a>() before a plugin creates its own
@@ -572,7 +575,7 @@ window.</p>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlay.set_render_rectangle">
-<code class="descname">set_render_rectangle</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.8.1#n498"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_render_rectangle</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.10.2#n495"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -606,7 +609,7 @@ do not support subwindows.</p>
 
 <dl class="method">
 <dt id="GstVideo.VideoOverlay.set_window_handle">
-<code class="descname">set_window_handle</code><span class="sig-paren">(</span><em>handle</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.8.1#n360"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_window_handle</code><span class="sig-paren">(</span><em>handle</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/videooverlay.c?h=1.10.2#n360"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

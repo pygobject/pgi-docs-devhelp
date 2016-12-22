@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GObject 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GObject.ClosureNotifyData" href="ClosureNotifyData.html"/>
@@ -143,7 +146,7 @@
 <h1>GObject.Closure</h1>
 <div class="section" id="fields">
 <span id="gobject-closure-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -228,16 +231,16 @@
 </div>
 <div class="section" id="methods">
 <span id="gobject-closure-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><em>static</em></td>
+<tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#GObject.Closure.new_object" title="GObject.Closure.new_object"><code class="xref py py-obj docutils literal"><span class="pre">new_object</span></code></a> (sizeof_closure, object)</td>
 </tr>
-<tr class="row-even"><td><em>static</em></td>
+<tr class="row-even"><td><em>class</em></td>
 <td><a class="reference internal" href="#GObject.Closure.new_simple" title="GObject.Closure.new_simple"><code class="xref py py-obj docutils literal"><span class="pre">new_simple</span></code></a> (sizeof_closure, data)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
@@ -300,9 +303,9 @@ and its parameters won&#8217;t be freed until the invocation finishes.</li>
 <li><a class="reference internal" href="#GObject.Closure.invalidate" title="GObject.Closure.invalidate"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Closure.invalidate</span></code></a>() and invalidation notifiers allow callbacks to be
 automatically removed when the objects they point to go away.</li>
 </ul>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="GObject.Closure.new_object">
-<em class="property">static </em><code class="descname">new_object</code><span class="sig-paren">(</span><em>sizeof_closure</em>, <em>object</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.48.0#n4014"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_object</code><span class="sig-paren">(</span><em>sizeof_closure</em>, <em>object</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gobject.c?h=2.50.0#n4014"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -329,9 +332,9 @@ allocated <a class="reference internal" href="#GObject.Closure" title="GObject.C
 when implementing new types of closures.</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="GObject.Closure.new_simple">
-<em class="property">static </em><code class="descname">new_simple</code><span class="sig-paren">(</span><em>sizeof_closure</em>, <em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.48.0#n191"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_simple</code><span class="sig-paren">(</span><em>sizeof_closure</em>, <em>data</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.50.0#n191"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -354,7 +357,7 @@ when implementing new types of closures.</p>
 <p>Allocates a struct of the given size and initializes the initial
 part as a <a class="reference internal" href="#GObject.Closure" title="GObject.Closure"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Closure</span></code></a>. This function is mainly useful when
 implementing new types of closures.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_MyClosure</span> <span class="n">MyClosure</span><span class="p">;</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_MyClosure</span> <span class="n">MyClosure</span><span class="p">;</span>
 <span class="k">struct</span> <span class="n">_MyClosure</span>
 <span class="p">{</span>
   <span class="n">GClosure</span> <span class="n">closure</span><span class="p">;</span>
@@ -390,7 +393,7 @@ implementing new types of closures.</p>
 
 <dl class="method">
 <dt id="GObject.Closure.invalidate">
-<code class="descname">invalidate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.48.0#n573"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">invalidate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.50.0#n573"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Sets a flag on the closure to indicate that its calling
 environment has become invalid, and thus causes any future
 invocations of <a class="reference internal" href="#GObject.Closure.invoke" title="GObject.Closure.invoke"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Closure.invoke</span></code></a>() on this <cite>self</cite> to be
@@ -407,7 +410,7 @@ been invalidated before).</p>
 
 <dl class="method">
 <dt id="GObject.Closure.invoke">
-<code class="descname">invoke</code><span class="sig-paren">(</span><em>param_values</em>, <em>invocation_hint</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.48.0#n777"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">invoke</code><span class="sig-paren">(</span><em>param_values</em>, <em>invocation_hint</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.50.0#n777"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -435,7 +438,7 @@ doesn&#8217;t return a value.</p>
 
 <dl class="method">
 <dt id="GObject.Closure.ref">
-<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.48.0#n540"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">ref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.50.0#n540"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -452,7 +455,7 @@ alive while the caller holds a pointer to it.</p>
 
 <dl class="method">
 <dt id="GObject.Closure.sink">
-<code class="descname">sink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.48.0#n680"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">sink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.50.0#n680"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Takes over the initial ownership of a closure.  Each closure is
 initially created in a &#8220;floating&#8221; state, which means that the initial
 reference count is not owned by any caller. <a class="reference internal" href="#GObject.Closure.sink" title="GObject.Closure.sink"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Closure.sink</span></code></a>() checks
@@ -461,7 +464,7 @@ floating state and decreases the reference count. If the closure
 is not floating, <a class="reference internal" href="#GObject.Closure.sink" title="GObject.Closure.sink"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Closure.sink</span></code></a>() does nothing. The reason for the
 existence of the floating state is to prevent cumbersome code
 sequences like:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">closure</span> <span class="o">=</span> <span class="n">g_cclosure_new</span> <span class="p">(</span><span class="n">cb_func</span><span class="p">,</span> <span class="n">cb_data</span><span class="p">);</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">closure</span> <span class="o">=</span> <span class="n">g_cclosure_new</span> <span class="p">(</span><span class="n">cb_func</span><span class="p">,</span> <span class="n">cb_data</span><span class="p">);</span>
 <span class="n">g_source_set_closure</span> <span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">closure</span><span class="p">);</span>
 <span class="n">g_closure_unref</span> <span class="p">(</span><span class="n">closure</span><span class="p">);</span> <span class="c1">// GObject doesn&#39;t really need this</span>
 </pre></div>
@@ -471,7 +474,7 @@ initial reference count, if it is unowned, we instead can write:</p>
 <p><code class="docutils literal"><span class="pre">g_source_set_closure</span> <span class="pre">(source,</span> <span class="pre">g_cclosure_new</span> <span class="pre">(cb_func,</span> <span class="pre">cb_data));</span></code></p>
 <p>Generally, this function is used together with <a class="reference internal" href="#GObject.Closure.ref" title="GObject.Closure.ref"><code class="xref py py-obj docutils literal"><span class="pre">GObject.Closure.ref</span></code></a>(). Ane example
 of storing a closure for later notification looks like:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="n">GClosure</span> <span class="o">*</span><span class="n">notify_closure</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="n">GClosure</span> <span class="o">*</span><span class="n">notify_closure</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 <span class="kt">void</span>
 <span class="nf">foo_notify_set_closure</span> <span class="p">(</span><span class="n">GClosure</span> <span class="o">*</span><span class="n">closure</span><span class="p">)</span>
 <span class="p">{</span>
@@ -493,7 +496,7 @@ of storing a closure for later notification looks like:</p>
 
 <dl class="method">
 <dt id="GObject.Closure.unref">
-<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.48.0#n597"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">unref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/gobject/gclosure.c?h=2.50.0#n597"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Decrements the reference count of a closure after it was previously
 incremented by the same caller. If no other callers are using the
 closure, then the closure will be destroyed and freed.</p>

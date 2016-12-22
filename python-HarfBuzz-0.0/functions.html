@@ -34,9 +34,12 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="HarfBuzz 0.0 Python API Docs" href="index.html"/>
         <link rel="next" title="Callbacks" href="callbacks.html"/>
-        <link rel="prev" title="HarfBuzz 0.0 (1.2.6)" href="index.html"/> 
+        <link rel="prev" title="HarfBuzz 0.0 (1.2.7)" href="index.html"/> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -130,7 +133,7 @@
             
   <div class="section" id="functions">
 <h1>Functions</h1>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -1013,7 +1016,7 @@ fails.</p>
 gives it the initial cluster value of <cite>cluster</cite>. Clusters can be any thing
 the client wants, they are usually used to refer to the index of the
 character in the input text stream and are output in
-<a class="reference internal" href="structs/glyph_info_t.html#harfbuzz-glyph-info-t-fields"><span>HarfBuzz.glyph_info_t.cluster</span></a> field.</p>
+<a class="reference internal" href="structs/glyph_info_t.html#harfbuzz-glyph-info-t-fields"><span class="std std-ref">HarfBuzz.glyph_info_t.cluster</span></a> field.</p>
 <p>This function does not check the validity of <cite>codepoint</cite>, it is up to the
 caller to ensure it is a valid Unicode code point.</p>
 <div class="versionadded">
@@ -1766,10 +1769,10 @@ The serialized glyphs will look something like:</p>
 <li>Glyphs are separated with <code class="docutils literal"><span class="pre">|</span></code></li>
 <li>Each glyph starts with glyph name, or glyph index if
 <a class="reference internal" href="flags.html#HarfBuzz.buffer_serialize_flags_t.NO_GLYPH_NAMES" title="HarfBuzz.buffer_serialize_flags_t.NO_GLYPH_NAMES"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.buffer_serialize_flags_t.NO_GLYPH_NAMES</span></code></a> flag is set. Then,</li>
-<li>If <a class="reference internal" href="flags.html#HarfBuzz.buffer_serialize_flags_t.NO_CLUSTERS" title="HarfBuzz.buffer_serialize_flags_t.NO_CLUSTERS"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.buffer_serialize_flags_t.NO_CLUSTERS</span></code></a> is not set, <code class="docutils literal"><span class="pre">=</span></code> then <a class="reference internal" href="structs/glyph_info_t.html#harfbuzz-glyph-info-t-fields"><span>HarfBuzz.glyph_info_t.cluster</span></a>.</li>
+<li>If <a class="reference internal" href="flags.html#HarfBuzz.buffer_serialize_flags_t.NO_CLUSTERS" title="HarfBuzz.buffer_serialize_flags_t.NO_CLUSTERS"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.buffer_serialize_flags_t.NO_CLUSTERS</span></code></a> is not set, <code class="docutils literal"><span class="pre">=</span></code> then <a class="reference internal" href="structs/glyph_info_t.html#harfbuzz-glyph-info-t-fields"><span class="std std-ref">HarfBuzz.glyph_info_t.cluster</span></a>.</li>
 <li>If <a class="reference internal" href="flags.html#HarfBuzz.buffer_serialize_flags_t.NO_POSITIONS" title="HarfBuzz.buffer_serialize_flags_t.NO_POSITIONS"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.buffer_serialize_flags_t.NO_POSITIONS</span></code></a> is not set, the <a class="reference internal" href="structs/glyph_position_t.html#HarfBuzz.glyph_position_t" title="HarfBuzz.glyph_position_t"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.glyph_position_t</span></code></a> in the format:</li>
-<li>If both <a class="reference internal" href="structs/glyph_position_t.html#harfbuzz-glyph-position-t-fields"><span>HarfBuzz.glyph_position_t.x_offset</span></a> and <a class="reference internal" href="structs/glyph_position_t.html#harfbuzz-glyph-position-t-fields"><span>HarfBuzz.glyph_position_t.y_offset</span></a> are not 0, <code class="docutils literal"><span class="pre">&#64;x_offset,y_offset</span></code>. Then,</li>
-<li><code class="docutils literal"><span class="pre">+x_advance</span></code>, then <code class="docutils literal"><span class="pre">,y_advance</span></code> if <a class="reference internal" href="structs/glyph_position_t.html#harfbuzz-glyph-position-t-fields"><span>HarfBuzz.glyph_position_t.y_advance</span></a> is not 0. Then,</li>
+<li>If both <a class="reference internal" href="structs/glyph_position_t.html#harfbuzz-glyph-position-t-fields"><span class="std std-ref">HarfBuzz.glyph_position_t.x_offset</span></a> and <a class="reference internal" href="structs/glyph_position_t.html#harfbuzz-glyph-position-t-fields"><span class="std std-ref">HarfBuzz.glyph_position_t.y_offset</span></a> are not 0, <code class="docutils literal"><span class="pre">&#64;x_offset,y_offset</span></code>. Then,</li>
+<li><code class="docutils literal"><span class="pre">+x_advance</span></code>, then <code class="docutils literal"><span class="pre">,y_advance</span></code> if <a class="reference internal" href="structs/glyph_position_t.html#harfbuzz-glyph-position-t-fields"><span class="std std-ref">HarfBuzz.glyph_position_t.y_advance</span></a> is not 0. Then,</li>
 </ul>
 <p>If <a class="reference internal" href="flags.html#HarfBuzz.buffer_serialize_flags_t.GLYPH_EXTENTS" title="HarfBuzz.buffer_serialize_flags_t.GLYPH_EXTENTS"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.buffer_serialize_flags_t.GLYPH_EXTENTS</span></code></a> is set, the
 <a class="reference internal" href="structs/glyph_extents_t.html#HarfBuzz.glyph_extents_t" title="HarfBuzz.glyph_extents_t"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.glyph_extents_t</span></code></a> in the format
@@ -3686,7 +3689,7 @@ allocating big enough size for <cite>buf</cite>, 128 bytes is more than enough.<
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>gbytes</strong> (<a class="reference external" href="_docs/HarfBuzz-0.0/../../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>gbytes</strong> (<a class="reference external" href="../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="structs/blob_t.html#HarfBuzz.blob_t" title="HarfBuzz.blob_t"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.blob_t</span></code></a></td>
 </tr>
@@ -3719,7 +3722,7 @@ allocating big enough size for <cite>buf</cite>, 128 bytes is more than enough.<
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>script</strong> (<a class="reference internal" href="enums.html#HarfBuzz.script_t" title="HarfBuzz.script_t"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.script_t</span></code></a>) &#8211; </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="_docs/HarfBuzz-0.0/../../../python-GLib-2.0/enums.html#GLib.UnicodeScript" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.UnicodeScript</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../python-GLib-2.0/enums.html#GLib.UnicodeScript" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.UnicodeScript</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -3732,7 +3735,7 @@ allocating big enough size for <cite>buf</cite>, 128 bytes is more than enough.<
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>script</strong> (<a class="reference external" href="_docs/HarfBuzz-0.0/../../../python-GLib-2.0/enums.html#GLib.UnicodeScript" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.UnicodeScript</span></code></a>) &#8211; </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>script</strong> (<a class="reference external" href="../python-GLib-2.0/enums.html#GLib.UnicodeScript" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.UnicodeScript</span></code></a>) &#8211; </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="enums.html#HarfBuzz.script_t" title="HarfBuzz.script_t"><code class="xref py py-obj docutils literal"><span class="pre">HarfBuzz.script_t</span></code></a></td>
 </tr>

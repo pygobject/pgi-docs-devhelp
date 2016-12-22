@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="GLib 2.0 Python API Docs" href="../index.html"/>
         <link rel="up" title="Structures" href="index.html"/>
         <link rel="next" title="GLib.Hmac" href="Hmac.html"/>
@@ -143,7 +146,7 @@
 <h1>GLib.HashTableIter</h1>
 <div class="section" id="fields">
 <span id="glib-hashtableiter-fields"></span><h2>Fields</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="16%" />
 <col width="1%" />
@@ -193,7 +196,7 @@
 </div>
 <div class="section" id="methods">
 <span id="glib-hashtableiter-methods"></span><h2>Methods</h2>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="1%" />
 <col width="99%" />
@@ -228,7 +231,7 @@ structures are typically allocated on the stack and then initialized
 with <a class="reference internal" href="#GLib.HashTableIter.init" title="GLib.HashTableIter.init"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.init</span></code></a>().</p>
 <dl class="method">
 <dt id="GLib.HashTableIter.init">
-<code class="descname">init</code><span class="sig-paren">(</span><em>hash_table</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n756"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">init</code><span class="sig-paren">(</span><em>hash_table</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.50.0#n756"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -240,7 +243,7 @@ with <a class="reference internal" href="#GLib.HashTableIter.init" title="GLib.H
 <p>Initializes a key/value pair iterator and associates it with
 <cite>hash_table</cite>. Modifying the hash table after calling this function
 invalidates the returned iterator.</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">GHashTableIter</span> <span class="n">iter</span><span class="p">;</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">GHashTableIter</span> <span class="n">iter</span><span class="p">;</span>
 <span class="n">gpointer</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">;</span>
 
 <span class="n">g_hash_table_iter_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">,</span> <span class="n">hash_table</span><span class="p">);</span>
@@ -257,7 +260,7 @@ invalidates the returned iterator.</p>
 
 <dl class="method">
 <dt id="GLib.HashTableIter.next">
-<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n788"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.50.0#n788"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -288,7 +291,7 @@ pointed to as a result of this advancement. If <a class="reference external" hre
 
 <dl class="method">
 <dt id="GLib.HashTableIter.remove">
-<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n880"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.50.0#n880"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Removes the key/value pair currently pointed to by the iterator
 from its associated <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>. Can only be called after
 <a class="reference internal" href="#GLib.HashTableIter.next" title="GLib.HashTableIter.next"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTableIter.next</span></code></a>() returned <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, and cannot be called
@@ -298,7 +301,7 @@ the key and value are freed using the supplied destroy functions,
 otherwise you have to make sure that any dynamically allocated
 values are freed yourself.</p>
 <p>It is safe to continue iterating the <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a> afterward:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="k">while</span> <span class="p">(</span><span class="n">g_hash_table_iter_next</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">))</span>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">g_hash_table_iter_next</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">))</span>
 <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
     <span class="n">g_hash_table_iter_remove</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">);</span>
@@ -312,7 +315,7 @@ values are freed yourself.</p>
 
 <dl class="method">
 <dt id="GLib.HashTableIter.replace">
-<code class="descname">replace</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n1020"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">replace</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.50.0#n1020"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -333,7 +336,7 @@ from its associated <a class="reference internal" href="HashTable.html#GLib.Hash
 
 <dl class="method">
 <dt id="GLib.HashTableIter.steal">
-<code class="descname">steal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.48.0#n1053"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">steal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://git.gnome.org/browse/glib/tree/glib/ghash.c?h=2.50.0#n1053"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Removes the key/value pair currently pointed to by the
 iterator from its associated <a class="reference internal" href="HashTable.html#GLib.HashTable" title="GLib.HashTable"><code class="xref py py-obj docutils literal"><span class="pre">GLib.HashTable</span></code></a>, without calling
 the key and value destroy functions. Can only be called
