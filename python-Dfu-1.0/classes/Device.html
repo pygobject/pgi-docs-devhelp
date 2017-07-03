@@ -40,7 +40,7 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Dfu 1.0 Python API Docs" href="../index.html"/>
-        <link rel="up" title="Classes" href="index.html"/>
+        <link rel="up" title="Classes" href="../classes.html"/>
         <link rel="next" title="Dfu.Element" href="Element.html"/>
         <link rel="prev" title="Dfu.Context" href="Context.html"/> 
 </head>
@@ -54,7 +54,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Dfu 1.0</a> &raquo;</li>
       
-          <li><a href="index.html">Classes</a> &raquo;</li>
+          <li><a href="../classes.html">Classes</a> &raquo;</li>
       
     <li>Dfu.Device</li>
   </ul>
@@ -62,7 +62,7 @@
 <td><a accesskey="h" href="../index.html"><i class="fa fa-home"></i></a></td>
 
 
-<td><a accesskey="u" href="index.html"><i class="fa fa-chevron-up"></i></a></td>
+<td><a accesskey="u" href="../classes.html"><i class="fa fa-chevron-up"></i></a></td>
 
 
 
@@ -100,7 +100,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Dfu 1.0</a> &raquo;</li>
       
-          <li><a href="index.html">Classes</a> &raquo;</li>
+          <li><a href="../classes.html">Classes</a> &raquo;</li>
       
     <li>Dfu.Device</li>
   </ul>
@@ -108,7 +108,7 @@
 <td><a accesskey="h" href="../index.html"><i class="fa fa-home"></i></a></td>
 
 
-<td><a accesskey="u" href="index.html"><i class="fa fa-chevron-up"></i></a></td>
+<td><a accesskey="u" href="../classes.html"><i class="fa fa-chevron-up"></i></a></td>
 
 
 
@@ -197,7 +197,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (38)</span></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/class-structs/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
+<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -235,7 +235,7 @@
 <td><a class="reference internal" href="#Dfu.Device.download" title="Dfu.Device.download"><code class="xref py py-func docutils literal"><span class="pre">download</span></code></a> (firmware, flags, cancellable)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Dfu.Device.ensure_interface" title="Dfu.Device.ensure_interface"><code class="xref py py-func docutils literal"><span class="pre">ensure_interface</span></code></a> ()</td>
+<td><a class="reference internal" href="#Dfu.Device.ensure_interface" title="Dfu.Device.ensure_interface"><code class="xref py py-func docutils literal"><span class="pre">ensure_interface</span></code></a> (cancellable)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Dfu.Device.error_fixup" title="Dfu.Device.error_fixup"><code class="xref py py-func docutils literal"><span class="pre">error_fixup</span></code></a> (cancellable)</td>
@@ -338,12 +338,15 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Dfu.Device.do_percentage_changed" title="Dfu.Device.do_percentage_changed"><code class="xref py py-func docutils literal"><span class="pre">do_percentage_changed</span></code></a> (percentage)</td>
+<td><a class="reference internal" href="#Dfu.Device.do_action_changed" title="Dfu.Device.do_action_changed"><code class="xref py py-func docutils literal"><span class="pre">do_action_changed</span></code></a> (action)</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#Dfu.Device.do_state_changed" title="Dfu.Device.do_state_changed"><code class="xref py py-func docutils literal"><span class="pre">do_state_changed</span></code></a> (state)</td>
+<td><a class="reference internal" href="#Dfu.Device.do_percentage_changed" title="Dfu.Device.do_percentage_changed"><code class="xref py py-func docutils literal"><span class="pre">do_percentage_changed</span></code></a> (percentage)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#Dfu.Device.do_state_changed" title="Dfu.Device.do_state_changed"><code class="xref py py-func docutils literal"><span class="pre">do_state_changed</span></code></a> (state)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#Dfu.Device.do_status_changed" title="Dfu.Device.do_status_changed"><code class="xref py py-func docutils literal"><span class="pre">do_status_changed</span></code></a> (status)</td>
 </tr>
 </tbody>
@@ -374,13 +377,16 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#Dfu.Device.signals.percentage_changed" title="Dfu.Device.signals.percentage_changed"><code class="xref py py-func docutils literal"><span class="pre">percentage-changed</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Dfu.Device.signals.action_changed" title="Dfu.Device.signals.action_changed"><code class="xref py py-func docutils literal"><span class="pre">action-changed</span></code></a></td>
+<td>The <a class="reference internal" href="#Dfu.Device.signals.action_changed" title="Dfu.Device.signals.action_changed"><code class="xref py py-func docutils literal"><span class="pre">::action-changed</span></code></a> signal is emitted when the high level action changes.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#Dfu.Device.signals.percentage_changed" title="Dfu.Device.signals.percentage_changed"><code class="xref py py-func docutils literal"><span class="pre">percentage-changed</span></code></a></td>
 <td>The <a class="reference internal" href="#Dfu.Device.signals.percentage_changed" title="Dfu.Device.signals.percentage_changed"><code class="xref py py-func docutils literal"><span class="pre">::percentage-changed</span></code></a> signal is emitted when the percentage changes.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#Dfu.Device.signals.state_changed" title="Dfu.Device.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">state-changed</span></code></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#Dfu.Device.signals.state_changed" title="Dfu.Device.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">state-changed</span></code></a></td>
 <td>The <a class="reference internal" href="#Dfu.Device.signals.state_changed" title="Dfu.Device.signals.state_changed"><code class="xref py py-func docutils literal"><span class="pre">::state-changed</span></code></a> signal is emitted when the state changes.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#Dfu.Device.signals.status_changed" title="Dfu.Device.signals.status_changed"><code class="xref py py-func docutils literal"><span class="pre">status-changed</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#Dfu.Device.signals.status_changed" title="Dfu.Device.signals.status_changed"><code class="xref py py-func docutils literal"><span class="pre">status-changed</span></code></a></td>
 <td>The <a class="reference internal" href="#Dfu.Device.signals.status_changed" title="Dfu.Device.signals.status_changed"><code class="xref py py-func docutils literal"><span class="pre">::status-changed</span></code></a> signal is emitted when the status changes.</td>
 </tr>
 </tbody>
@@ -432,7 +438,7 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Abstract:</th><td class="field-body">No</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Structure:</th><td class="field-body"><a class="reference internal" href="../class-structs/DeviceClass.html#Dfu.DeviceClass" title="Dfu.DeviceClass"><code class="xref py py-class docutils literal"><span class="pre">Dfu.DeviceClass</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Structure:</th><td class="field-body"><a class="reference internal" href="DeviceClass.html#Dfu.DeviceClass" title="Dfu.DeviceClass"><code class="xref py py-class docutils literal"><span class="pre">Dfu.DeviceClass</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -640,14 +646,16 @@ the transfer.</p>
 
 <dl class="method">
 <dt id="Dfu.Device.ensure_interface">
-<code class="descname">ensure_interface</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<code class="descname">ensure_interface</code><span class="sig-paren">(</span><em>cancellable</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1209,6 +1217,19 @@ This does rely on a <a class="reference internal" href="Context.html#Dfu.Context
 </dd></dl>
 
 <dl class="method">
+<dt id="Dfu.Device.do_action_changed">
+<code class="descname">do_action_changed</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<a class="reference internal" href="../enums.html#Dfu.Action" title="Dfu.Action"><code class="xref py py-obj docutils literal"><span class="pre">Dfu.Action</span></code></a>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="Dfu.Device.do_percentage_changed">
 <code class="descname">do_percentage_changed</code><span class="sig-paren">(</span><em>percentage</em><span class="sig-paren">)</span><em class="property"> virtual</em></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -1252,6 +1273,33 @@ This does rely on a <a class="reference internal" href="Context.html#Dfu.Context
 </div>
 <div class="section" id="signal-details">
 <h2>Signal Details</h2>
+<dl class="function">
+<dt id="Dfu.Device.signals.action_changed">
+<code class="descclassname">Dfu.Device.signals.</code><code class="descname">action_changed</code><span class="sig-paren">(</span><em>device</em>, <em>action</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Signal Name:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">action-changed</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.SignalFlags.RUN_LAST" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">RUN_LAST</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>device</strong> (<a class="reference internal" href="#Dfu.Device" title="Dfu.Device"><code class="xref py py-obj docutils literal"><span class="pre">Dfu.Device</span></code></a>) &#8211; The object which received the signal</li>
+<li><strong>action</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; the new <a class="reference internal" href="../enums.html#Dfu.Action" title="Dfu.Action"><code class="xref py py-obj docutils literal"><span class="pre">Dfu.Action</span></code></a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <a class="reference internal" href="#Dfu.Device.signals.action_changed" title="Dfu.Device.signals.action_changed"><code class="xref py py-func docutils literal"><span class="pre">::action-changed</span></code></a> signal is emitted when the high level action changes.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.7.5.</span></p>
+</div>
+</dd></dl>
+
 <dl class="function">
 <dt id="Dfu.Device.signals.percentage_changed">
 <code class="descclassname">Dfu.Device.signals.</code><code class="descname">percentage_changed</code><span class="sig-paren">(</span><em>device</em>, <em>percentage</em><span class="sig-paren">)</span></dt>

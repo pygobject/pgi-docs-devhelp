@@ -146,6 +146,7 @@
 <li><a class="reference internal" href="#GstVideo.VideoColorPrimaries" title="GstVideo.VideoColorPrimaries"><code class="xref py py-class docutils literal"><span class="pre">GstVideo.VideoColorPrimaries</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.VideoColorRange" title="GstVideo.VideoColorRange"><code class="xref py py-class docutils literal"><span class="pre">GstVideo.VideoColorRange</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.VideoDitherMethod" title="GstVideo.VideoDitherMethod"><code class="xref py py-class docutils literal"><span class="pre">GstVideo.VideoDitherMethod</span></code></a></li>
+<li><a class="reference internal" href="#GstVideo.VideoFieldOrder" title="GstVideo.VideoFieldOrder"><code class="xref py py-class docutils literal"><span class="pre">GstVideo.VideoFieldOrder</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.VideoFormat" title="GstVideo.VideoFormat"><code class="xref py py-class docutils literal"><span class="pre">GstVideo.VideoFormat</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.VideoGLTextureOrientation" title="GstVideo.VideoGLTextureOrientation"><code class="xref py py-class docutils literal"><span class="pre">GstVideo.VideoGLTextureOrientation</span></code></a></li>
 <li><a class="reference internal" href="#GstVideo.VideoGLTextureType" title="GstVideo.VideoGLTextureType"><code class="xref py py-class docutils literal"><span class="pre">GstVideo.VideoGLTextureType</span></code></a></li>
@@ -166,7 +167,7 @@
 <h2>Details</h2>
 <dl class="class">
 <dt id="GstVideo.ColorBalanceType">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">ColorBalanceType</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">ColorBalanceType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>An enumeration indicating whether an element implements color balancing
 operations in software or in dedicated hardware. In general, dedicated
@@ -190,11 +191,11 @@ processing.</p>
 
 <dl class="class">
 <dt id="GstVideo.NavigationCommand">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">NavigationCommand</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">NavigationCommand</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>A set of commands that may be issued to an element providing the
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation" title="GstVideo.Navigation"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation</span></code></a> interface. The available commands can be queried via
-the <a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation.query_new_commands" title="GstVideo.Navigation.query_new_commands"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.query_new_commands</span></code></a>() query.</p>
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation" title="GstVideo.Navigation"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation</span></code></a> interface. The available commands can be queried via
+the <a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation.query_new_commands" title="GstVideo.Navigation.query_new_commands"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.query_new_commands</span></code></a>() query.</p>
 <p>For convenience in handling DVD navigation, the MENU commands are aliased as:
 GST_NAVIGATION_COMMAND_DVD_MENU            = <a class="reference internal" href="#GstVideo.NavigationCommand.MENU1" title="GstVideo.NavigationCommand.MENU1"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.NavigationCommand.MENU1</span></code></a>
 GST_NAVIGATION_COMMAND_DVD_TITLE_MENU      = <a class="reference internal" href="#GstVideo.NavigationCommand.MENU2" title="GstVideo.NavigationCommand.MENU2"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.NavigationCommand.MENU2</span></code></a>
@@ -311,36 +312,36 @@ this jumps to the chapter menu.</p>
 
 <dl class="class">
 <dt id="GstVideo.NavigationEventType">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">NavigationEventType</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">NavigationEventType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Enum values for the various events that an element implementing the
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation" title="GstVideo.Navigation"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation</span></code></a> interface might send up the pipeline.</p>
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation" title="GstVideo.Navigation"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation</span></code></a> interface might send up the pipeline.</p>
 <dl class="attribute">
 <dt id="GstVideo.NavigationEventType.INVALID">
 <code class="descname">INVALID</code><em class="property"> = 0</em></dt>
 <dd><p>Returned from
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation.event_get_type" title="GstVideo.Navigation.event_get_type"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_get_type</span></code></a>() when the passed event is not a navigation event.</p>
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation.event_get_type" title="GstVideo.Navigation.event_get_type"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_get_type</span></code></a>() when the passed event is not a navigation event.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.NavigationEventType.KEY_PRESS">
 <code class="descname">KEY_PRESS</code><em class="property"> = 1</em></dt>
 <dd><p>A key press event. Use
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation.event_parse_key_event" title="GstVideo.Navigation.event_parse_key_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_key_event</span></code></a>() to extract the details from the event.</p>
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation.event_parse_key_event" title="GstVideo.Navigation.event_parse_key_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_key_event</span></code></a>() to extract the details from the event.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.NavigationEventType.KEY_RELEASE">
 <code class="descname">KEY_RELEASE</code><em class="property"> = 2</em></dt>
 <dd><p>A key release event. Use
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation.event_parse_key_event" title="GstVideo.Navigation.event_parse_key_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_key_event</span></code></a>() to extract the details from the event.</p>
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation.event_parse_key_event" title="GstVideo.Navigation.event_parse_key_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_key_event</span></code></a>() to extract the details from the event.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.NavigationEventType.MOUSE_BUTTON_PRESS">
 <code class="descname">MOUSE_BUTTON_PRESS</code><em class="property"> = 3</em></dt>
 <dd><p>A mouse button press event. Use
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation.event_parse_mouse_button_event" title="GstVideo.Navigation.event_parse_mouse_button_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_mouse_button_event</span></code></a>() to extract the details from the
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation.event_parse_mouse_button_event" title="GstVideo.Navigation.event_parse_mouse_button_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_mouse_button_event</span></code></a>() to extract the details from the
 event.</p>
 </dd></dl>
 
@@ -348,7 +349,7 @@ event.</p>
 <dt id="GstVideo.NavigationEventType.MOUSE_BUTTON_RELEASE">
 <code class="descname">MOUSE_BUTTON_RELEASE</code><em class="property"> = 4</em></dt>
 <dd><p>A mouse button release event. Use
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation.event_parse_mouse_button_event" title="GstVideo.Navigation.event_parse_mouse_button_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_mouse_button_event</span></code></a>() to extract the details from the
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation.event_parse_mouse_button_event" title="GstVideo.Navigation.event_parse_mouse_button_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_mouse_button_event</span></code></a>() to extract the details from the
 event.</p>
 </dd></dl>
 
@@ -356,7 +357,7 @@ event.</p>
 <dt id="GstVideo.NavigationEventType.MOUSE_MOVE">
 <code class="descname">MOUSE_MOVE</code><em class="property"> = 5</em></dt>
 <dd><p>A mouse movement event. Use
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation.event_parse_mouse_move_event" title="GstVideo.Navigation.event_parse_mouse_move_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_mouse_move_event</span></code></a>() to extract the details from the
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation.event_parse_mouse_move_event" title="GstVideo.Navigation.event_parse_mouse_move_event"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_mouse_move_event</span></code></a>() to extract the details from the
 event.</p>
 </dd></dl>
 
@@ -364,14 +365,14 @@ event.</p>
 <dt id="GstVideo.NavigationEventType.COMMAND">
 <code class="descname">COMMAND</code><em class="property"> = 6</em></dt>
 <dd><p>A navigation command event. Use
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation.event_parse_command" title="GstVideo.Navigation.event_parse_command"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_command</span></code></a>() to extract the details from the event.</p>
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation.event_parse_command" title="GstVideo.Navigation.event_parse_command"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.event_parse_command</span></code></a>() to extract the details from the event.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="GstVideo.NavigationMessageType">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">NavigationMessageType</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">NavigationMessageType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>A set of notifications that may be received on the bus when navigation
 related status changes.</p>
@@ -379,7 +380,7 @@ related status changes.</p>
 <dt id="GstVideo.NavigationMessageType.INVALID">
 <code class="descname">INVALID</code><em class="property"> = 0</em></dt>
 <dd><p>Returned from
-<a class="reference internal" href="interfaces/Navigation.html#GstVideo.Navigation.message_get_type" title="GstVideo.Navigation.message_get_type"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.message_get_type</span></code></a>() when the passed message is not a
+<a class="reference internal" href="classes/Navigation.html#GstVideo.Navigation.message_get_type" title="GstVideo.Navigation.message_get_type"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.Navigation.message_get_type</span></code></a>() when the passed message is not a
 navigation message.</p>
 </dd></dl>
 
@@ -416,7 +417,7 @@ by any element in the pipeline (Since 1.6)</p>
 
 <dl class="class">
 <dt id="GstVideo.NavigationQueryType">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">NavigationQueryType</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">NavigationQueryType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Tyoes of navigation interface queries.</p>
 <dl class="attribute">
@@ -441,7 +442,7 @@ by any element in the pipeline (Since 1.6)</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoAlphaMode">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoAlphaMode</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoAlphaMode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Different alpha modes.</p>
 <div class="versionadded">
@@ -475,7 +476,7 @@ alpha value will be set to <a class="reference internal" href="constants.html#Gs
 
 <dl class="class">
 <dt id="GstVideo.VideoChromaMethod">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoChromaMethod</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoChromaMethod</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Different subsampling and upsampling methods</p>
 <dl class="attribute">
@@ -496,7 +497,7 @@ missing chroma and averaging to subsample</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoChromaMode">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoChromaMode</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoChromaMode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Different chroma downsampling and upsampling modes</p>
 <div class="versionadded">
@@ -530,13 +531,13 @@ missing chroma and averaging to subsample</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoColorMatrix">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoColorMatrix</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoColorMatrix</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The color matrix is used to convert between Y&#8217;PbPr and
 non-linear RGB (R&#8217;G&#8217;B&#8217;)</p>
 <dl class="classmethod">
 <dt id="GstVideo.VideoColorMatrix.get_Kr_Kb">
-<em class="property">classmethod </em><code class="descname">get_Kr_Kb</code><span class="sig-paren">(</span><em>matrix</em>, <em>Kr</em>, <em>Kb</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-color.c?h=1.10.2#n348"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_Kr_Kb</code><span class="sig-paren">(</span><em>matrix</em>, <em>Kr</em>, <em>Kb</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-color.c?h=1.12.1#n348"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -629,22 +630,22 @@ B&#39; = Y&#39; + Cb*2*(1-Kb)
 
 <dl class="class">
 <dt id="GstVideo.VideoColorPrimaries">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoColorPrimaries</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoColorPrimaries</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The color primaries define the how to transform linear RGB values to and from
 the CIE XYZ colorspace.</p>
 <dl class="classmethod">
 <dt id="GstVideo.VideoColorPrimaries.get_info">
-<em class="property">classmethod </em><code class="descname">get_info</code><span class="sig-paren">(</span><em>primaries</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-color.c?h=1.10.2#n303"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_info</code><span class="sig-paren">(</span><em>primaries</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-color.c?h=1.12.1#n303"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>primaries</strong> (<a class="reference internal" href="#GstVideo.VideoColorPrimaries" title="GstVideo.VideoColorPrimaries"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoColorPrimaries</span></code></a>) &#8211; a <a class="reference internal" href="#GstVideo.VideoColorPrimaries" title="GstVideo.VideoColorPrimaries"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoColorPrimaries</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="structs/VideoColorPrimariesInfo.html#GstVideo.VideoColorPrimariesInfo" title="GstVideo.VideoColorPrimariesInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoColorPrimariesInfo</span></code></a> for <cite>primaries</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="classes/VideoColorPrimariesInfo.html#GstVideo.VideoColorPrimariesInfo" title="GstVideo.VideoColorPrimariesInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoColorPrimariesInfo</span></code></a> for <cite>primaries</cite>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="structs/VideoColorPrimariesInfo.html#GstVideo.VideoColorPrimariesInfo" title="GstVideo.VideoColorPrimariesInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoColorPrimariesInfo</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="classes/VideoColorPrimariesInfo.html#GstVideo.VideoColorPrimariesInfo" title="GstVideo.VideoColorPrimariesInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoColorPrimariesInfo</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -718,20 +719,20 @@ the CIE XYZ colorspace.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoColorRange">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoColorRange</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoColorRange</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Possible color range values. These constants are defined for 8 bit color
 values and can be scaled for other bit depths.</p>
 <dl class="classmethod">
 <dt id="GstVideo.VideoColorRange.offsets">
-<em class="property">classmethod </em><code class="descname">offsets</code><span class="sig-paren">(</span><em>range</em>, <em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-color.c?h=1.10.2#n204"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">offsets</code><span class="sig-paren">(</span><em>range</em>, <em>info</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-color.c?h=1.12.1#n204"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>range</strong> (<a class="reference internal" href="#GstVideo.VideoColorRange" title="GstVideo.VideoColorRange"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoColorRange</span></code></a>) &#8211; a <a class="reference internal" href="#GstVideo.VideoColorRange" title="GstVideo.VideoColorRange"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoColorRange</span></code></a></li>
-<li><strong>info</strong> (<a class="reference internal" href="structs/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a>) &#8211; a <a class="reference internal" href="structs/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a></li>
+<li><strong>info</strong> (<a class="reference internal" href="classes/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a>) &#8211; a <a class="reference internal" href="classes/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a></li>
 </ul>
 </td>
 </tr>
@@ -794,7 +795,7 @@ the component values in range [0.0 .. 1.0] back to their representation in
 
 <dl class="class">
 <dt id="GstVideo.VideoDitherMethod">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoDitherMethod</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoDitherMethod</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Different dithering methods to use.</p>
 <dl class="attribute">
@@ -830,13 +831,89 @@ the component values in range [0.0 .. 1.0] back to their representation in
 </dd></dl>
 
 <dl class="class">
+<dt id="GstVideo.VideoFieldOrder">
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoFieldOrder</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
+<p>Field order of interlaced content. This is only valid for
+interlace-mode=interleaved and not interlace-mode=mixed. In the case of
+mixed or GST_VIDEO_FIELD_ORDER_UNKOWN, the field order is signalled via
+buffer flags.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.</span></p>
+</div>
+<dl class="classmethod">
+<dt id="GstVideo.VideoFieldOrder.from_string">
+<em class="property">classmethod </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>order</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-info.c?h=1.12.1#n323"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>order</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; a field order</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="#GstVideo.VideoFieldOrder" title="GstVideo.VideoFieldOrder"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFieldOrder</span></code></a> of <cite>order</cite> or
+<a class="reference internal" href="#GstVideo.VideoFieldOrder.UNKNOWN" title="GstVideo.VideoFieldOrder.UNKNOWN"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFieldOrder.UNKNOWN</span></code></a> when <cite>order</cite> is not a valid
+string representation for a <a class="reference internal" href="#GstVideo.VideoFieldOrder" title="GstVideo.VideoFieldOrder"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFieldOrder</span></code></a>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#GstVideo.VideoFieldOrder" title="GstVideo.VideoFieldOrder"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFieldOrder</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Convert <cite>order</cite> to a <a class="reference internal" href="#GstVideo.VideoFieldOrder" title="GstVideo.VideoFieldOrder"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFieldOrder</span></code></a></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.</span></p>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="GstVideo.VideoFieldOrder.to_string">
+<em class="property">classmethod </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>order</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-info.c?h=1.12.1#n303"><span class="viewcode-link">[source]</span></a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>order</strong> (<a class="reference internal" href="#GstVideo.VideoFieldOrder" title="GstVideo.VideoFieldOrder"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFieldOrder</span></code></a>) &#8211; a <a class="reference internal" href="#GstVideo.VideoFieldOrder" title="GstVideo.VideoFieldOrder"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFieldOrder</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><cite>order</cite> as a string or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> if <cite>order</cite> in invalid.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Convert <cite>order</cite> to its string representation.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.</span></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFieldOrder.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
+<dd><p>unknown field order for interlaced content.
+The actual field order is signalled via buffer flags.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFieldOrder.TOP_FIELD_FIRST">
+<code class="descname">TOP_FIELD_FIRST</code><em class="property"> = 1</em></dt>
+<dd><p>top field is first</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFieldOrder.BOTTOM_FIELD_FIRST">
+<code class="descname">BOTTOM_FIELD_FIRST</code><em class="property"> = 2</em></dt>
+<dd><p>bottom field is first</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="GstVideo.VideoFormat">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoFormat</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoFormat</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Enum value describing the most common video formats.</p>
 <dl class="classmethod">
 <dt id="GstVideo.VideoFormat.from_fourcc">
-<em class="property">classmethod </em><code class="descname">from_fourcc</code><span class="sig-paren">(</span><em>fourcc</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.10.2#n4041"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">from_fourcc</code><span class="sig-paren">(</span><em>fourcc</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.12.1#n5033"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -856,7 +933,7 @@ If the FOURCC cannot be represented by <a class="reference internal" href="#GstV
 
 <dl class="classmethod">
 <dt id="GstVideo.VideoFormat.from_masks">
-<em class="property">classmethod </em><code class="descname">from_masks</code><span class="sig-paren">(</span><em>depth</em>, <em>bpp</em>, <em>endianness</em>, <em>red_mask</em>, <em>green_mask</em>, <em>blue_mask</em>, <em>alpha_mask</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.10.2#n3984"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">from_masks</code><span class="sig-paren">(</span><em>depth</em>, <em>bpp</em>, <em>endianness</em>, <em>red_mask</em>, <em>green_mask</em>, <em>blue_mask</em>, <em>alpha_mask</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.12.1#n4976"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -887,7 +964,7 @@ not specify a known format.</p>
 
 <dl class="classmethod">
 <dt id="GstVideo.VideoFormat.from_string">
-<em class="property">classmethod </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.10.2#n4115"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.12.1#n5109"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -906,25 +983,25 @@ string is not a known format.</td>
 
 <dl class="classmethod">
 <dt id="GstVideo.VideoFormat.get_info">
-<em class="property">classmethod </em><code class="descname">get_info</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.10.2#n4177"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_info</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.12.1#n5171"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>format</strong> (<a class="reference internal" href="#GstVideo.VideoFormat" title="GstVideo.VideoFormat"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormat</span></code></a>) &#8211; a <a class="reference internal" href="#GstVideo.VideoFormat" title="GstVideo.VideoFormat"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormat</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The <a class="reference internal" href="structs/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a> for <cite>format</cite>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The <a class="reference internal" href="classes/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a> for <cite>format</cite>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="structs/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="classes/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Get the <a class="reference internal" href="structs/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a> for <cite>format</cite></p>
+<p>Get the <a class="reference internal" href="classes/VideoFormatInfo.html#GstVideo.VideoFormatInfo" title="GstVideo.VideoFormatInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoFormatInfo</span></code></a> for <cite>format</cite></p>
 </dd></dl>
 
 <dl class="classmethod">
 <dt id="GstVideo.VideoFormat.get_palette">
-<em class="property">classmethod </em><code class="descname">get_palette</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.10.2#n4197"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_palette</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.12.1#n5191"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -955,7 +1032,7 @@ function for paletted formats.</p>
 
 <dl class="classmethod">
 <dt id="GstVideo.VideoFormat.to_fourcc">
-<em class="property">classmethod </em><code class="descname">to_fourcc</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.10.2#n4138"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">to_fourcc</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.12.1#n5132"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -975,7 +1052,7 @@ no corresponding FOURCC value, 0 is returned.</p>
 
 <dl class="classmethod">
 <dt id="GstVideo.VideoFormat.to_string">
-<em class="property">classmethod </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.10.2#n4158"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>format</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-format.c?h=1.12.1#n5152"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1003,7 +1080,7 @@ the <a class="reference internal" href="#GstVideo.VideoFormat" title="GstVideo.V
 <code class="descname">ENCODED</code><em class="property"> = 1</em></dt>
 <dd><p>Encoded video format. Only ever use that in caps for
 special video formats in combination with non-system
-memory <a class="reference external" href="../python-Gst-1.0/structs/CapsFeatures.html#Gst.CapsFeatures" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsFeatures</span></code></a> where it does not make sense
+memory <a class="reference external" href="../python-Gst-1.0/classes/CapsFeatures.html#Gst.CapsFeatures" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.CapsFeatures</span></code></a> where it does not make sense
 to specify a real video format.</p>
 </dd></dl>
 
@@ -1244,25 +1321,25 @@ to specify a real video format.</p>
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.Y444_10BE">
 <code class="descname">Y444_10BE</code><em class="property"> = 46</em></dt>
-<dd><p>planar 4:4:4 YUV, 10 bits per channel</p>
+<dd><p>planar 4:4:4 YUV, 10 bits per channel (Since: 1.2)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.Y444_10LE">
 <code class="descname">Y444_10LE</code><em class="property"> = 47</em></dt>
-<dd><p>planar 4:4:4 YUV, 10 bits per channel</p>
+<dd><p>planar 4:4:4 YUV, 10 bits per channel (Since: 1.2)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.GBR">
 <code class="descname">GBR</code><em class="property"> = 48</em></dt>
-<dd><p>planar 4:4:4 RGB, 8 bits per channel</p>
+<dd><p>planar 4:4:4 RGB, 8 bits per channel (Since: 1.2)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.GBR_10BE">
 <code class="descname">GBR_10BE</code><em class="property"> = 49</em></dt>
-<dd><p>planar 4:4:4 RGB, 10 bits per channel</p>
+<dd><p>planar 4:4:4 RGB, 10 bits per channel (Since: 1.2)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1274,61 +1351,61 @@ to specify a real video format.</p>
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.GBR_10LE">
 <code class="descname">GBR_10LE</code><em class="property"> = 50</em></dt>
-<dd><p>planar 4:4:4 RGB, 10 bits per channel</p>
+<dd><p>planar 4:4:4 RGB, 10 bits per channel (Since: 1.2)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.NV16">
 <code class="descname">NV16</code><em class="property"> = 51</em></dt>
-<dd><p>planar 4:2:2 YUV with interleaved UV plane</p>
+<dd><p>planar 4:2:2 YUV with interleaved UV plane (Since: 1.2)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.NV24">
 <code class="descname">NV24</code><em class="property"> = 52</em></dt>
-<dd><p>planar 4:4:4 YUV with interleaved UV plane</p>
+<dd><p>planar 4:4:4 YUV with interleaved UV plane (Since: 1.2)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.NV12_64Z32">
 <code class="descname">NV12_64Z32</code><em class="property"> = 53</em></dt>
-<dd><p>NV12 with 64x32 tiling in zigzag pattern</p>
+<dd><p>NV12 with 64x32 tiling in zigzag pattern (Since: 1.4)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.A420_10BE">
 <code class="descname">A420_10BE</code><em class="property"> = 54</em></dt>
-<dd><p>planar 4:4:2:0 YUV, 10 bits per channel</p>
+<dd><p>planar 4:4:2:0 YUV, 10 bits per channel (Since: 1.6)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.A420_10LE">
 <code class="descname">A420_10LE</code><em class="property"> = 55</em></dt>
-<dd><p>planar 4:4:2:0 YUV, 10 bits per channel</p>
+<dd><p>planar 4:4:2:0 YUV, 10 bits per channel (Since: 1.6)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.A422_10BE">
 <code class="descname">A422_10BE</code><em class="property"> = 56</em></dt>
-<dd><p>planar 4:4:2:2 YUV, 10 bits per channel</p>
+<dd><p>planar 4:4:2:2 YUV, 10 bits per channel (Since: 1.6)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.A422_10LE">
 <code class="descname">A422_10LE</code><em class="property"> = 57</em></dt>
-<dd><p>planar 4:4:2:2 YUV, 10 bits per channel</p>
+<dd><p>planar 4:4:2:2 YUV, 10 bits per channel (Since: 1.6)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.A444_10BE">
 <code class="descname">A444_10BE</code><em class="property"> = 58</em></dt>
-<dd><p>planar 4:4:4:4 YUV, 10 bits per channel</p>
+<dd><p>planar 4:4:4:4 YUV, 10 bits per channel (Since: 1.6)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.A444_10LE">
 <code class="descname">A444_10LE</code><em class="property"> = 59</em></dt>
-<dd><p>planar 4:4:4:4 YUV, 10 bits per channel</p>
+<dd><p>planar 4:4:4:4 YUV, 10 bits per channel (Since: 1.6)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1340,19 +1417,19 @@ to specify a real video format.</p>
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.NV61">
 <code class="descname">NV61</code><em class="property"> = 60</em></dt>
-<dd><p>planar 4:2:2 YUV with interleaved VU plane (Since 1.6)</p>
+<dd><p>planar 4:2:2 YUV with interleaved VU plane (Since: 1.6)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.P010_10BE">
 <code class="descname">P010_10BE</code><em class="property"> = 61</em></dt>
-<dd><p>planar 4:2:0 YUV with interleaved UV plane, 10 bits per channel</p>
+<dd><p>planar 4:2:0 YUV with interleaved UV plane, 10 bits per channel (Since: 1.10)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoFormat.P010_10LE">
 <code class="descname">P010_10LE</code><em class="property"> = 62</em></dt>
-<dd><p>planar 4:2:0 YUV with interleaved UV plane, 10 bits per channel</p>
+<dd><p>planar 4:2:0 YUV with interleaved UV plane, 10 bits per channel (Since: 1.10)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1362,9 +1439,93 @@ to specify a real video format.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="GstVideo.VideoFormat.VYUY">
+<code class="descname">VYUY</code><em class="property"> = 64</em></dt>
+<dd><p>packed 4:2:2 YUV (V0-Y0-U0-Y1 V2-Y2-U2-Y3 V4 ...)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.GBRA">
+<code class="descname">GBRA</code><em class="property"> = 65</em></dt>
+<dd><p>planar 4:4:4:4 ARGB, 8 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.GBRA_10BE">
+<code class="descname">GBRA_10BE</code><em class="property"> = 66</em></dt>
+<dd><p>planar 4:4:4:4 ARGB, 10 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.GBRA_10LE">
+<code class="descname">GBRA_10LE</code><em class="property"> = 67</em></dt>
+<dd><p>planar 4:4:4:4 ARGB, 10 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.GBR_12BE">
+<code class="descname">GBR_12BE</code><em class="property"> = 68</em></dt>
+<dd><p>planar 4:4:4 RGB, 12 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.GBR_12LE">
+<code class="descname">GBR_12LE</code><em class="property"> = 69</em></dt>
+<dd><p>planar 4:4:4 RGB, 12 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="GstVideo.VideoFormat.RGBX">
 <code class="descname">RGBX</code><em class="property"> = 7</em></dt>
 <dd><p>sparse rgb packed into 32 bit, space last</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.GBRA_12BE">
+<code class="descname">GBRA_12BE</code><em class="property"> = 70</em></dt>
+<dd><p>planar 4:4:4:4 ARGB, 12 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.GBRA_12LE">
+<code class="descname">GBRA_12LE</code><em class="property"> = 71</em></dt>
+<dd><p>planar 4:4:4:4 ARGB, 12 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.I420_12BE">
+<code class="descname">I420_12BE</code><em class="property"> = 72</em></dt>
+<dd><p>planar 4:2:0 YUV, 12 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.I420_12LE">
+<code class="descname">I420_12LE</code><em class="property"> = 73</em></dt>
+<dd><p>planar 4:2:0 YUV, 12 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.I422_12BE">
+<code class="descname">I422_12BE</code><em class="property"> = 74</em></dt>
+<dd><p>planar 4:2:2 YUV, 12 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.I422_12LE">
+<code class="descname">I422_12LE</code><em class="property"> = 75</em></dt>
+<dd><p>planar 4:2:2 YUV, 12 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.Y444_12BE">
+<code class="descname">Y444_12BE</code><em class="property"> = 76</em></dt>
+<dd><p>planar 4:4:4 YUV, 12 bits per channel (Since: 1.12)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GstVideo.VideoFormat.Y444_12LE">
+<code class="descname">Y444_12LE</code><em class="property"> = 77</em></dt>
+<dd><p>planar 4:4:4 YUV, 12 bits per channel (Since: 1.12)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1383,7 +1544,7 @@ to specify a real video format.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoGLTextureOrientation">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoGLTextureOrientation</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoGLTextureOrientation</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The orientation of the GL texture.</p>
 <dl class="attribute">
@@ -1414,7 +1575,7 @@ to specify a real video format.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoGLTextureType">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoGLTextureType</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoGLTextureType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The GL texture type.</p>
 <dl class="attribute">
@@ -1463,7 +1624,7 @@ to specify a real video format.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoGammaMode">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoGammaMode</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoGammaMode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.6.</span></p>
@@ -1485,13 +1646,13 @@ Different gamma conversion modes</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoInterlaceMode">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoInterlaceMode</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoInterlaceMode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The possible values of the <a class="reference internal" href="#GstVideo.VideoInterlaceMode" title="GstVideo.VideoInterlaceMode"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoInterlaceMode</span></code></a> describing the interlace
 mode of the stream.</p>
 <dl class="classmethod">
 <dt id="GstVideo.VideoInterlaceMode.from_string">
-<em class="property">classmethod </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-info.c?h=1.10.2#n267"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-info.c?h=1.12.1#n275"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1514,7 +1675,7 @@ string representation for a <a class="reference internal" href="#GstVideo.VideoI
 
 <dl class="classmethod">
 <dt id="GstVideo.VideoInterlaceMode.to_string">
-<em class="property">classmethod </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-info.c?h=1.10.2#n247"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-info.c?h=1.12.1#n255"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1561,7 +1722,7 @@ frame ID to get access to the required field. For multiview (the
 &#8216;views&#8217; property &gt; 1) the fields of view N can be found at frame ID
 (N * 2) and (N * 2) + 1.
 Each field has only half the amount of lines as noted in the
-height property. This mode requires multiple <a class="reference internal" href="structs/VideoMeta.html#GstVideo.VideoMeta" title="GstVideo.VideoMeta"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoMeta</span></code></a> metadata
+height property. This mode requires multiple <a class="reference internal" href="classes/VideoMeta.html#GstVideo.VideoMeta" title="GstVideo.VideoMeta"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoMeta</span></code></a> metadata
 to describe the fields.</p>
 </dd></dl>
 
@@ -1569,7 +1730,7 @@ to describe the fields.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoMatrixMode">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoMatrixMode</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoMatrixMode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Different color matrix conversion modes</p>
 <div class="versionadded">
@@ -1605,7 +1766,7 @@ to and from R&#8217;G&#8217;B</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoMultiviewFramePacking">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoMultiviewFramePacking</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoMultiviewFramePacking</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p><a class="reference internal" href="#GstVideo.VideoMultiviewFramePacking" title="GstVideo.VideoMultiviewFramePacking"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoMultiviewFramePacking</span></code></a> represents the subset of <a class="reference internal" href="#GstVideo.VideoMultiviewMode" title="GstVideo.VideoMultiviewMode"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoMultiviewMode</span></code></a>
 values that can be applied to any video frame without needing extra metadata.
@@ -1689,14 +1850,14 @@ checkerboard fashion.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoMultiviewMode">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoMultiviewMode</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoMultiviewMode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>All possible stereoscopic 3D and multiview representations.
 In conjunction with <a class="reference internal" href="flags.html#GstVideo.VideoMultiviewFlags" title="GstVideo.VideoMultiviewFlags"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoMultiviewFlags</span></code></a>, describes how
 multiview content is being transported in the stream.</p>
 <dl class="classmethod">
 <dt id="GstVideo.VideoMultiviewMode.from_caps_string">
-<em class="property">classmethod </em><code class="descname">from_caps_string</code><span class="sig-paren">(</span><em>caps_mview_mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-multiview.c?h=1.10.2#n102"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">from_caps_string</code><span class="sig-paren">(</span><em>caps_mview_mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-multiview.c?h=1.12.1#n102"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1719,7 +1880,7 @@ or <a class="reference internal" href="#GstVideo.VideoMultiviewMode.NONE" title=
 
 <dl class="classmethod">
 <dt id="GstVideo.VideoMultiviewMode.to_caps_string">
-<em class="property">classmethod </em><code class="descname">to_caps_string</code><span class="sig-paren">(</span><em>mview_mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-multiview.c?h=1.10.2#n80"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">to_caps_string</code><span class="sig-paren">(</span><em>mview_mode</em><span class="sig-paren">)</span><a class="reference external" href="http://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/gst-libs/gst/video/video-multiview.c?h=1.12.1#n80"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1743,7 +1904,7 @@ for insertion into a caps structure</p>
 <dt id="GstVideo.VideoMultiviewMode.NONE">
 <code class="descname">NONE</code><em class="property"> = -1</em></dt>
 <dd><p>A special value indicating
-no multiview information. Used in <a class="reference internal" href="structs/VideoInfo.html#GstVideo.VideoInfo" title="GstVideo.VideoInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoInfo</span></code></a> and other places to
+no multiview information. Used in <a class="reference internal" href="classes/VideoInfo.html#GstVideo.VideoInfo" title="GstVideo.VideoInfo"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoInfo</span></code></a> and other places to
 indicate that no specific multiview handling has been requested or
 provided. This value is never carried on caps.</p>
 </dd></dl>
@@ -1787,16 +1948,16 @@ are provided in separate frames alternately.</p>
 independent views are provided in separate frames in sequence.
 This method only applies to raw video buffers at the moment.
 Specific view identification is via the #GstVideoMultiviewMeta
-and <a class="reference internal" href="structs/VideoMeta.html#GstVideo.VideoMeta" title="GstVideo.VideoMeta"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoMeta</span></code></a>(s) on raw video buffers.</p>
+and <a class="reference internal" href="classes/VideoMeta.html#GstVideo.VideoMeta" title="GstVideo.VideoMeta"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoMeta</span></code></a>(s) on raw video buffers.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="GstVideo.VideoMultiviewMode.SEPARATED">
 <code class="descname">SEPARATED</code><em class="property"> = 34</em></dt>
 <dd><p>Multiple views are
-provided as separate <a class="reference external" href="../python-Gst-1.0/structs/Memory.html#Gst.Memory" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Memory</span></code></a> framebuffers attached to each
-<a class="reference external" href="../python-Gst-1.0/structs/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>, described by the #GstVideoMultiviewMeta
-and <a class="reference internal" href="structs/VideoMeta.html#GstVideo.VideoMeta" title="GstVideo.VideoMeta"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoMeta</span></code></a>(s)</p>
+provided as separate <a class="reference external" href="../python-Gst-1.0/classes/Memory.html#Gst.Memory" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Memory</span></code></a> framebuffers attached to each
+<a class="reference external" href="../python-Gst-1.0/classes/Buffer.html#Gst.Buffer" title="(in Gst 1.0 v1.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gst.Buffer</span></code></a>, described by the #GstVideoMultiviewMeta
+and <a class="reference internal" href="classes/VideoMeta.html#GstVideo.VideoMeta" title="GstVideo.VideoMeta"><code class="xref py py-obj docutils literal"><span class="pre">GstVideo.VideoMeta</span></code></a>(s)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1841,7 +2002,7 @@ checkerboard fashion.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoOrientationMethod">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoOrientationMethod</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoOrientationMethod</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The different video orientation methods.</p>
 <div class="versionadded">
@@ -1926,7 +2087,7 @@ checkerboard fashion.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoOverlayFormatFlags">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoOverlayFormatFlags</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoOverlayFormatFlags</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Overlay format flags.</p>
 <dl class="attribute">
@@ -1951,7 +2112,7 @@ checkerboard fashion.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoPrimariesMode">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoPrimariesMode</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoPrimariesMode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Different primaries conversion modes</p>
 <div class="versionadded">
@@ -1980,7 +2141,7 @@ when it can be merged with color matrix conversion.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoResamplerMethod">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoResamplerMethod</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoResamplerMethod</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Different subsampling and upsampling methods</p>
 <div class="versionadded">
@@ -2022,7 +2183,7 @@ missing samples and averaging to downsample</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoTileMode">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoTileMode</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoTileMode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Enum value describing the available tiling modes.</p>
 <dl class="attribute">
@@ -2044,7 +2205,7 @@ of blocks is arranged in linear order.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoTileType">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoTileType</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoTileType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>Enum value describing the most common tiling types.</p>
 <dl class="attribute">
@@ -2059,7 +2220,7 @@ coordinates.</p>
 
 <dl class="class">
 <dt id="GstVideo.VideoTransferFunction">
-<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoTransferFunction</code></dt>
+<em class="property">class </em><code class="descclassname">GstVideo.</code><code class="descname">VideoTransferFunction</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The video transfer function defines the formula for converting between
 non-linear RGB (R&#8217;G&#8217;B&#8217;) and linear RGB</p>

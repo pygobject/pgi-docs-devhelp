@@ -1,9 +1,9 @@
-This repository was created automatically using https://github.com/lazka/pgi-docgen
+This repository was created automatically using https://github.com/pygobject/pgi-docgen
 
 It contains devhelp packages for PyGObject
 
 
-1) git clone https://github.com/lazka/pgi-docs-devhelp.git ~/.local/share/devhelp/books
+1) git clone https://github.com/pygobject/pgi-docs-devhelp.git ~/.local/share/devhelp/books
 
 2) devhelp
 

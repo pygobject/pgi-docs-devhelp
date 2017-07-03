@@ -195,7 +195,7 @@
 <h2>Details</h2>
 <dl class="class">
 <dt id="TelepathyGLib.AccessControlType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">AccessControlType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">AccessControlType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>A type for communication access control. These control           policies are used in           CommunicationPolicy.DRAFT           as well as most rich presence interfaces.          New interfaces should use this type, and NOT           Rich_Presence_Access_Control_Type.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -245,11 +245,11 @@
 
 <dl class="class">
 <dt id="TelepathyGLib.CMInfoSource">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CMInfoSource</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CMInfoSource</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Describes possible sources of information on connection managers&#8217;
 supported protocols.</p>
-<p>Since 0.11.5, there is a corresponding <a class="reference external" href="../python-GObject-2.0/structs/EnumClass.html#GObject.EnumClass" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.EnumClass</span></code></a> type,
+<p>Since 0.11.5, there is a corresponding <a class="reference external" href="../python-GObject-2.0/classes/EnumClass.html#GObject.EnumClass" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.EnumClass</span></code></a> type,
 %TP_TYPE_CM_INFO_SOURCE.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.7.1.</span></p>
@@ -276,7 +276,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.CallContentDisposition">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallContentDisposition</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallContentDisposition</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The disposition of this content, which defines whether to         automatically start sending data on the streams when         Accept is         called on the channel.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -296,7 +296,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.CallContentPacketizationType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallContentPacketizationType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallContentPacketizationType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>A packetization method that can be used for a content.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -322,7 +322,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.CallState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The state of a call, as a whole.          The allowed transitions are:                     Pending_Initiator → Initialising (for outgoing calls,             when Accept is called)           Initialising → Initialised (for outgoing calls, when             the remote client indicates that the user has been notified about             the call. If the network is known not to provide feedback about whether             the remote side is ringing, then the call should immediately be             set to Initialised.           Initialising → Initialised (for incoming calls, when e.g. the             implementation has been initialised far enough that it is sensible             to notify the user about the call (to reduce the probability that             the user will pick up the call and have it immediately fail).             The UI should then alert the user about the call, and call             SetRinging)           Initialised → Accepted (for outgoing calls to a contact,             when the remote contact accepts the call; for incoming calls, when             Accept is called.)           Accepted → Active (when the local user successfully             joins the call/conference, and media is known to be flowing             successfully; also, when temporary connection problems are             resolved (See below)). If the network is known not to provide             feedback about when the call is properly connected, the call             should immediately be set to Active.           Active → Accepted (when there are temporary connection problems             that the CM is aware of and able to recover from)           any state → Ended (when the call is terminated             normally, or when an error occurs that the CM is unable to recover             from)                   Clients MAY consider unknown values from this enum to be an           error - additional values will not be defined after the Call           specification is declared to be stable.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -372,7 +372,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.CallStateChangeReason">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallStateChangeReason</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallStateChangeReason</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>A simple representation of the reason for a change in the call&#8217;s         state, which may be used by simple clients, or used as a fallback         when the DBus_Reason member of a Call_State_Reason         struct is not understood.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -464,7 +464,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.CallStreamCandidateType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallStreamCandidateType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CallStreamCandidateType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The network topology that an IP candidate represents. This can         sometimes be used to infer what kind of performance characteristics         (latency, bandwith, etc) can be expected of connections made to this         candidate.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -508,7 +508,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.CaptchaCancelReason">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CaptchaCancelReason</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CaptchaCancelReason</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>A reason why captcha authentication was aborted by the client.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -534,7 +534,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.CaptchaStatus">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CaptchaStatus</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">CaptchaStatus</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -571,7 +571,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ChannelChatState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelChatState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelChatState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -608,7 +608,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ChannelContactSearchState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelContactSearchState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelContactSearchState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -645,7 +645,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ChannelGroupChangeReason">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelGroupChangeReason</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelGroupChangeReason</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The reason for a set of handles to move to one of           Members,           LocalPendingMembers or           RemotePendingMembers, or to be removed           from the group. A client may supply a reason when attempting to           remove members from a group with           RemoveMembersWithReason, and reasons           are supplied by the CM when emitting           MembersChanged and           MembersChangedDetailed. Some reason           codes have different meanings depending on the Actor in a           MembersChanged signal.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -725,7 +725,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ChannelTextMessageType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelTextMessageType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelTextMessageType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The type of message.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -763,7 +763,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ChannelTextSendError">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelTextSendError</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ChannelTextSendError</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -806,7 +806,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ConnectionPresenceType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ConnectionPresenceType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ConnectionPresenceType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -867,7 +867,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ConnectionStatus">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ConnectionStatus</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ConnectionStatus</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -892,7 +892,7 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ConnectionStatusReason">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ConnectionStatusReason</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ConnectionStatusReason</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>A reason why the status of the connection changed. Apart from           Requested, the values of this enumeration only make sense as           reasons why the status changed to Disconnected.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -1002,13 +1002,13 @@ supported protocols.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ContactFeature">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ContactFeature</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ContactFeature</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Enumeration representing the features a <a class="reference internal" href="classes/Contact.html#TelepathyGLib.Contact" title="TelepathyGLib.Contact"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.Contact</span></code></a> can optionally support.
 When requesting a <a class="reference internal" href="classes/Contact.html#TelepathyGLib.Contact" title="TelepathyGLib.Contact"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.Contact</span></code></a>, library users specify the desired features;
 the <a class="reference internal" href="classes/Contact.html#TelepathyGLib.Contact" title="TelepathyGLib.Contact"><code class="xref py py-obj docutils literal"><span class="pre">TelepathyGLib.Contact</span></code></a> code will only initialize state for those features, to
 avoid unwanted D-Bus round-trips and signal connections.</p>
-<p>Since 0.11.5, there is a corresponding <a class="reference external" href="../python-GObject-2.0/structs/EnumClass.html#GObject.EnumClass" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.EnumClass</span></code></a> type,
+<p>Since 0.11.5, there is a corresponding <a class="reference external" href="../python-GObject-2.0/classes/EnumClass.html#GObject.EnumClass" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.EnumClass</span></code></a> type,
 %TP_TYPE_CONTACT_FEATURE.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.7.18.</span></p>
@@ -1096,7 +1096,7 @@ interface. (available since 0.13.12)</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ContactListState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ContactListState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ContactListState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The progress made in retrieving the contact list.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -1128,7 +1128,7 @@ interface. (available since 0.13.12)</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ContactMetadataStorageType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ContactMetadataStorageType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ContactMetadataStorageType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Values of this enumeration indicate the extent to which metadata           such as aliases and group memberships can be stored for the contacts           on a particular connection.          On some protocols, certain metadata (for instance, contact aliases)           can only be stored for contacts on the contact list, or contacts           with a particular contact list state.          To make it easier to deal with such protocols, if clients set           metadata on a contact who is not in the required state, the           Connection MUST cache the metadata for the duration of the session.           If clients request the attributes of that contact after the           appropriate &#8220;set&#8221; method has returned successfully, the Connection           MUST return the new (cached) value.          If the contact is later placed in the required state to store           metadata (for instance, if subscription to the contact&#8217;s presence           is requested, on a protocol like MSN where the alias has storage type           Subscribed_Or_Pending), the connection MUST store the cached           metadata at that time.                     If the Connection didn&#8217;t cache changes in this way, a client             intending to change the alias on MSN would have to wait until             the server acknowledged the subscription request; in the meantime,             other clients would still display the old alias.                   The only exception to that general rule is that if the Connection           cannot store particular metadata at all (i.e. the           storage type is None), it MUST reject attempts to set it.                     If the implementation knows that metadata can&#8217;t be stored at             all, it&#8217;s useful to report that, which can be done             synchronously. In general, user interfaces should detect             storage type None and not display editing controls at all.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -1160,10 +1160,10 @@ interface. (available since 0.13.12)</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.DBusError">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">DBusError</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">DBusError</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p><a class="reference external" href="../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Error</span></code></a> codes for use with the %TP_DBUS_ERRORS domain.</p>
-<p>Since 0.11.5, there is a corresponding <a class="reference external" href="../python-GObject-2.0/structs/EnumClass.html#GObject.EnumClass" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.EnumClass</span></code></a> type,
+<p>Since 0.11.5, there is a corresponding <a class="reference external" href="../python-GObject-2.0/classes/EnumClass.html#GObject.EnumClass" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GObject.EnumClass</span></code></a> type,
 %TP_TYPE_DBUS_ERROR.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.7.1.</span></p>
@@ -1254,7 +1254,7 @@ loop (*_run_*) if they are cancelled</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.DTMFEvent">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">DTMFEvent</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">DTMFEvent</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -1357,7 +1357,7 @@ loop (*_run_*) if they are cancelled</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.DebugLevel">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">DebugLevel</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">DebugLevel</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -1400,7 +1400,7 @@ loop (*_run_*) if they are cancelled</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.DeliveryStatus">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">DeliveryStatus</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">DeliveryStatus</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The status of a message as indicated by a delivery report.          If this enum is extended in future specifications, this should           only be to add new, non-overlapping conditions (i.e. all failures           should still be signalled as either Temporarily_Failed           or Permanently_Failed). If additional detail is required (e.g.           distinguishing between the various types of permanent failure) this           will be done using additional           Delivery_Report_Header_Keys.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -1450,7 +1450,7 @@ loop (*_run_*) if they are cancelled</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.Error">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">Error</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">Error</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Enumerated type representing the Telepathy D-Bus errors.</p>
 <dl class="attribute">
@@ -1943,7 +1943,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.FileHashType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">FileHashType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">FileHashType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -1974,7 +1974,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.FileTransferState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">FileTransferState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">FileTransferState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2017,7 +2017,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.FileTransferStateChangeReason">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">FileTransferStateChangeReason</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">FileTransferStateChangeReason</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2060,7 +2060,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.HTTPMethod">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">HTTPMethod</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">HTTPMethod</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The HTTP Method with which to request a URL.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2080,7 +2080,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.HandleType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">HandleType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">HandleType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2117,7 +2117,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.LocalHoldState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">LocalHoldState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">LocalHoldState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The hold state of a channel.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2149,7 +2149,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.LocalHoldStateReason">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">LocalHoldStateReason</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">LocalHoldStateReason</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The reason for a change to the Local_Hold_State. Clients MUST         treat unknown values as equivalent to Local_Hold_State_Reason_None.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2175,7 +2175,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.MediaStreamBaseProto">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamBaseProto</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamBaseProto</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2194,7 +2194,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.MediaStreamDirection">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamDirection</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamDirection</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2225,7 +2225,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.MediaStreamError">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamError</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamError</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2280,7 +2280,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.MediaStreamState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2305,7 +2305,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.MediaStreamTransportType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamTransportType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamTransportType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2330,7 +2330,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.MediaStreamType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">MediaStreamType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2349,7 +2349,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.RCPTXRRTTMode">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">RCPTXRRTTMode</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">RCPTXRRTTMode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2368,7 +2368,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.RichPresenceAccessControlType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">RichPresenceAccessControlType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">RichPresenceAccessControlType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>A type of access control for Rich_Presence_Access_Control.           For most types, the exact access control is given by an associated           variant.                     These are the access control types from XMPP publish/subscribe           (XEP-0060).                   Location           uses this for historical reasons, new interfaces will use           Access_Control_Type.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2400,7 +2400,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.SASLAbortReason">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SASLAbortReason</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SASLAbortReason</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>A reason why SASL authentication was aborted by the client.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2420,7 +2420,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.SASLStatus">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SASLStatus</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SASLStatus</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2469,7 +2469,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.SendingState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SendingState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SendingState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Enum indicating whether a contact is sending media.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2501,7 +2501,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.ServicePointType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ServicePointType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">ServicePointType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The various types of service points a channel might connect to.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2527,7 +2527,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.SocketAccessControl">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SocketAccessControl</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SocketAccessControl</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2558,7 +2558,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.SocketAddressType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SocketAddressType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SocketAddressType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2589,7 +2589,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.StreamComponent">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">StreamComponent</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">StreamComponent</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Media streams can use more than one UDP socket: one for RTP (data)         and one for RTCP (control). Most of the time, they are adjacent         to each other, but some protocols (xmpp) signal each port separately.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2615,7 +2615,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.StreamEndpointState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">StreamEndpointState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">StreamEndpointState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Represents the state of ICE negotiation for a single component of a         stream to an endpoint.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2653,7 +2653,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.StreamFlowState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">StreamFlowState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">StreamFlowState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The type of SendingState         and ReceivingState.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2685,7 +2685,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.StreamTransportType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">StreamTransportType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">StreamTransportType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>A transport that can be used for streaming.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2735,7 +2735,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.SubscriptionState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SubscriptionState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">SubscriptionState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>An enumeration indicating whether presence subscription is denied,           denied but pending permission, or allowed. The exact semantics           vary according to where this type is used: see the           subscribe and           publish contact attributes for           details.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2773,7 +2773,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.TLSCertificateRejectReason">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TLSCertificateRejectReason</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TLSCertificateRejectReason</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Possible reasons to reject a TLS certificate.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2841,7 +2841,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.TLSCertificateState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TLSCertificateState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TLSCertificateState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The possible states for a TLSCertificate         object.</p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
@@ -2867,7 +2867,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.TubeChannelState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TubeChannelState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TubeChannelState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2898,7 +2898,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.TubeState">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TubeState</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TubeState</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">
@@ -2923,7 +2923,7 @@ The requested channel is invite-only.</p>
 
 <dl class="class">
 <dt id="TelepathyGLib.TubeType">
-<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TubeType</code></dt>
+<em class="property">class </em><code class="descclassname">TelepathyGLib.</code><code class="descname">TubeType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>Bitfield/set of flags generated from the Telepathy specification.</p>
 <dl class="attribute">

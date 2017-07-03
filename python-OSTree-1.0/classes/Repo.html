@@ -40,7 +40,7 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="OSTree 1.0 Python API Docs" href="../index.html"/>
-        <link rel="up" title="Classes" href="index.html"/>
+        <link rel="up" title="Classes" href="../classes.html"/>
         <link rel="next" title="OSTree.RepoFile" href="RepoFile.html"/>
         <link rel="prev" title="OSTree.MutableTree" href="MutableTree.html"/> 
 </head>
@@ -54,7 +54,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">OSTree 1.0</a> &raquo;</li>
       
-          <li><a href="index.html">Classes</a> &raquo;</li>
+          <li><a href="../classes.html">Classes</a> &raquo;</li>
       
     <li>OSTree.Repo</li>
   </ul>
@@ -62,7 +62,7 @@
 <td><a accesskey="h" href="../index.html"><i class="fa fa-home"></i></a></td>
 
 
-<td><a accesskey="u" href="index.html"><i class="fa fa-chevron-up"></i></a></td>
+<td><a accesskey="u" href="../classes.html"><i class="fa fa-chevron-up"></i></a></td>
 
 
 
@@ -101,7 +101,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">OSTree 1.0</a> &raquo;</li>
       
-          <li><a href="index.html">Classes</a> &raquo;</li>
+          <li><a href="../classes.html">Classes</a> &raquo;</li>
       
     <li>OSTree.Repo</li>
   </ul>
@@ -109,7 +109,7 @@
 <td><a accesskey="h" href="../index.html"><i class="fa fa-home"></i></a></td>
 
 
-<td><a accesskey="u" href="index.html"><i class="fa fa-chevron-up"></i></a></td>
+<td><a accesskey="u" href="../classes.html"><i class="fa fa-chevron-up"></i></a></td>
 
 
 
@@ -199,7 +199,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (38)</span></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/class-structs/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
+<tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -303,7 +303,7 @@
 <td><a class="reference internal" href="#OSTree.Repo.is_writable" title="OSTree.Repo.is_writable"><code class="xref py py-func docutils literal"><span class="pre">is_writable</span></code></a> ()</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
-<td><a class="reference internal" href="#OSTree.Repo.list_commit_objects_starting_with" title="OSTree.Repo.list_commit_objects_starting_with"><code class="xref py py-func docutils literal"><span class="pre">list_commit_objects_starting_with</span></code></a> (start, out_commits, cancellable)</td>
+<td><a class="reference internal" href="#OSTree.Repo.list_commit_objects_starting_with" title="OSTree.Repo.list_commit_objects_starting_with"><code class="xref py py-func docutils literal"><span class="pre">list_commit_objects_starting_with</span></code></a> (start, cancellable)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.list_objects" title="OSTree.Repo.list_objects"><code class="xref py py-func docutils literal"><span class="pre">list_objects</span></code></a> (flags, cancellable)</td>
@@ -342,28 +342,34 @@
 <td><a class="reference internal" href="#OSTree.Repo.prune" title="OSTree.Repo.prune"><code class="xref py py-func docutils literal"><span class="pre">prune</span></code></a> (flags, depth, cancellable)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
+<td><a class="reference internal" href="#OSTree.Repo.prune_from_reachable" title="OSTree.Repo.prune_from_reachable"><code class="xref py py-func docutils literal"><span class="pre">prune_from_reachable</span></code></a> (options, cancellable)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.prune_static_deltas" title="OSTree.Repo.prune_static_deltas"><code class="xref py py-func docutils literal"><span class="pre">prune_static_deltas</span></code></a> (commit, cancellable)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.pull" title="OSTree.Repo.pull"><code class="xref py py-func docutils literal"><span class="pre">pull</span></code></a> (remote_name, refs_to_fetch, flags, progress, cancellable)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.pull_one_dir" title="OSTree.Repo.pull_one_dir"><code class="xref py py-func docutils literal"><span class="pre">pull_one_dir</span></code></a> (remote_name, dir_to_pull, refs_to_fetch, flags, progress, cancellable)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.pull_with_options" title="OSTree.Repo.pull_with_options"><code class="xref py py-func docutils literal"><span class="pre">pull_with_options</span></code></a> (remote_name_or_baseurl, options, progress, cancellable)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.query_object_storage_size" title="OSTree.Repo.query_object_storage_size"><code class="xref py py-func docutils literal"><span class="pre">query_object_storage_size</span></code></a> (objtype, sha256, cancellable)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.read_commit" title="OSTree.Repo.read_commit"><code class="xref py py-func docutils literal"><span class="pre">read_commit</span></code></a> (ref, cancellable)</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.read_commit_detached_metadata" title="OSTree.Repo.read_commit_detached_metadata"><code class="xref py py-func docutils literal"><span class="pre">read_commit_detached_metadata</span></code></a> (checksum, cancellable)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.regenerate_summary" title="OSTree.Repo.regenerate_summary"><code class="xref py py-func docutils literal"><span class="pre">regenerate_summary</span></code></a> (additional_metadata, cancellable)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><a class="reference internal" href="#OSTree.Repo.reload_config" title="OSTree.Repo.reload_config"><code class="xref py py-func docutils literal"><span class="pre">reload_config</span></code></a> (cancellable)</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td><a class="reference internal" href="#OSTree.Repo.remote_add" title="OSTree.Repo.remote_add"><code class="xref py py-func docutils literal"><span class="pre">remote_add</span></code></a> (name, url, options, cancellable)</td>
@@ -532,7 +538,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#OSTree.Repo.props.path" title="OSTree.Repo.props.path"><code class="xref py py-data docutils literal"><span class="pre">path</span></code></a></td>
-<td><a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
+<td><a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
 <td>r/w/co</td>
 <td>&nbsp;</td>
 </tr>
@@ -542,7 +548,7 @@
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#OSTree.Repo.props.sysroot_path" title="OSTree.Repo.props.sysroot_path"><code class="xref py py-data docutils literal"><span class="pre">sysroot-path</span></code></a></td>
-<td><a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
+<td><a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
 <td>r/w/co</td>
 <td>&nbsp;</td>
 </tr>
@@ -632,7 +638,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to a repository</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to a repository</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An accessor object for an OSTree repository located at <cite>path</cite></td>
 </tr>
@@ -670,8 +676,8 @@ Otherwise use the path in the OSTREE_REPO environment variable
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>repo_path</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to a repository</li>
-<li><strong>sysroot_path</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to the system root</li>
+<li><strong>repo_path</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to a repository</li>
+<li><strong>sysroot_path</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to the system root</li>
 </ul>
 </td>
 </tr>
@@ -723,11 +729,11 @@ and <cite>user_data</cite> is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A new hash table</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">{<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>: <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>}</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">{<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>: <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>}</td>
 </tr>
 </tbody>
 </table>
-<p>This hash table is a set of <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> which can be accessed via
+<p>This hash table is a set of <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> which can be accessed via
 <a class="reference internal" href="../functions.html#OSTree.object_name_deserialize" title="OSTree.object_name_deserialize"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.object_name_deserialize</span></code></a>().</p>
 </dd></dl>
 
@@ -782,7 +788,7 @@ and <cite>user_data</cite> is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>commit_checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; SHA256 of given commit to sign</li>
-<li><strong>signature_bytes</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Signature data</li>
+<li><strong>signature_bytes</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Signature data</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A <a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a></li>
 </ul>
 </td>
@@ -806,7 +812,7 @@ and <cite>user_data</cite> is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>options</strong> (<a class="reference internal" href="../structs/RepoCheckoutAtOptions.html#OSTree.RepoCheckoutAtOptions" title="OSTree.RepoCheckoutAtOptions"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCheckoutAtOptions</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Options</li>
+<li><strong>options</strong> (<a class="reference internal" href="RepoCheckoutAtOptions.html#OSTree.RepoCheckoutAtOptions" title="OSTree.RepoCheckoutAtOptions"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCheckoutAtOptions</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Options</li>
 <li><strong>destination_dfd</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Directory FD for destination</li>
 <li><strong>destination_path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Directory for destination</li>
 <li><strong>commit</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Checksum for commit</li>
@@ -863,7 +869,7 @@ cache.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>mode</strong> (<a class="reference internal" href="../enums.html#OSTree.RepoCheckoutMode" title="OSTree.RepoCheckoutMode"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCheckoutMode</span></code></a>) &#8211; Options controlling all files</li>
 <li><strong>overwrite_mode</strong> (<a class="reference internal" href="../enums.html#OSTree.RepoCheckoutOverwriteMode" title="OSTree.RepoCheckoutOverwriteMode"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCheckoutOverwriteMode</span></code></a>) &#8211; Whether or not to overwrite files</li>
-<li><strong>destination</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Place tree here</li>
+<li><strong>destination</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Place tree here</li>
 <li><strong>source</strong> (<a class="reference internal" href="RepoFile.html#OSTree.RepoFile" title="OSTree.RepoFile"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoFile</span></code></a>) &#8211; Source tree</li>
 <li><strong>source_info</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/FileInfo.html#Gio.FileInfo" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.FileInfo</span></code></a>) &#8211; Source info</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
@@ -906,7 +912,7 @@ that happened during this transaction.</td>
 </table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_stats</strong>: <a class="reference internal" href="../structs/RepoTransactionStats.html#OSTree.RepoTransactionStats" title="OSTree.RepoTransactionStats"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoTransactionStats</span></code></a>)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_stats</strong>: <a class="reference internal" href="RepoTransactionStats.html#OSTree.RepoTransactionStats" title="OSTree.RepoTransactionStats"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoTransactionStats</span></code></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -924,7 +930,7 @@ that happened during this transaction.</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A newly-allocated copy of the repository config</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/structs/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -996,7 +1002,7 @@ is thrown if the object does not exist.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The repository configuration; do not modify</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/structs/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1076,7 +1082,7 @@ called.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Path to repo</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1119,7 +1125,8 @@ called.</p>
 <p>OSTree remotes are represented by keyfile groups, formatted like:
 <code class="docutils literal"><span class="pre">[remote</span> <span class="pre">&quot;remotename&quot;]</span></code>. This function returns a value named <cite>option_name</cite>
 underneath that group, and returns it as a boolean.
-If the option is not set, <cite>out_value</cite> will be set to <cite>default_value</cite>.</p>
+If the option is not set, <cite>out_value</cite> will be set to <cite>default_value</cite>. If an
+error is returned, <cite>out_value</cite> will be set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1159,8 +1166,9 @@ of strings. The list should be freed with
 </table>
 <p>OSTree remotes are represented by keyfile groups, formatted like:
 <code class="docutils literal"><span class="pre">[remote</span> <span class="pre">&quot;remotename&quot;]</span></code>. This function returns a value named <cite>option_name</cite>
-underneath that group, and returns it as an zero terminated array of strings.
-If the option is not set, <cite>out_value</cite> will be set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
+underneath that group, and returns it as a zero terminated array of strings.
+If the option is not set, or if an error is returned, <cite>out_value</cite> will be set
+to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1200,7 +1208,7 @@ If the option is not set, <cite>out_value</cite> will be set to <a class="refere
 <p>OSTree remotes are represented by keyfile groups, formatted like:
 <code class="docutils literal"><span class="pre">[remote</span> <span class="pre">&quot;remotename&quot;]</span></code>. This function returns a value named <cite>option_name</cite>
 underneath that group, or <cite>default_value</cite> if the remote exists but not the
-option name.</p>
+option name.  If an error is returned, <cite>out_value</cite> will be set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1212,10 +1220,10 @@ option name.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>remote_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Name of remote</li>
-<li><strong>data</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Data as a <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></li>
-<li><strong>signatures</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Signatures as a <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></li>
-<li><strong>keyringdir</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to directory GPG keyrings; overrides built-in default if given</li>
-<li><strong>extra_keyring</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to additional keyring file (not a directory)</li>
+<li><strong>data</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Data as a <a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></li>
+<li><strong>signatures</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Signatures as a <a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></li>
+<li><strong>keyringdir</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to directory GPG keyrings; overrides built-in default if given</li>
+<li><strong>extra_keyring</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to additional keyring file (not a directory)</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -1373,14 +1381,13 @@ If the repository is not writable, the <cite>error</cite> indicates why.</p>
 
 <dl class="method">
 <dt id="OSTree.Repo.list_commit_objects_starting_with">
-<code class="descname">list_commit_objects_starting_with</code><span class="sig-paren">(</span><em>start</em>, <em>out_commits</em>, <em>cancellable</em><span class="sig-paren">)</span></dt>
+<code class="descname">list_commit_objects_starting_with</code><span class="sig-paren">(</span><em>start</em>, <em>cancellable</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>start</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; List commits starting with this checksum</li>
-<li><strong>out_commits</strong> ({<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>}) &#8211; Array of GVariants</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -1388,10 +1395,19 @@ If the repository is not writable, the <cite>error</cite> indicates why.</p>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on error, and <cite>error</cite> will be set</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#False" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">False</span></code></a> on error, and <cite>error</cite> will be set</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">out_commits:</th><td class="field-body">Map of serialized commit name to variant data</td>
+</tr>
+</tbody>
+</table>
+</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_commits</strong>: {<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>: <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>})</p>
 </td>
 </tr>
 </tbody>
@@ -1428,7 +1444,7 @@ with <cite>start</cite>, returning data in <cite>out_commits</cite>.</p>
 </p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_objects</strong>: {<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a>})</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_objects</strong>: {<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>: <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>})</p>
 </td>
 </tr>
 </tbody>
@@ -1436,7 +1452,7 @@ with <cite>start</cite>, returning data in <cite>out_commits</cite>.</p>
 <p>This function synchronously enumerates all objects in the
 repository, returning data in <cite>out_objects</cite>.  <cite>out_objects</cite>
 maps from keys returned by <a class="reference internal" href="../functions.html#OSTree.object_name_serialize" title="OSTree.object_name_serialize"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.object_name_serialize</span></code></a>()
-to <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> values of type %OSTREE_REPO_LIST_OBJECTS_VARIANT_TYPE.</p>
+to <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> values of type %OSTREE_REPO_LIST_OBJECTS_VARIANT_TYPE.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1568,7 +1584,7 @@ repository, returning its result in <cite>out_deltas</cite>.</p>
 </table>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_commit</strong>: <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>, <strong>out_state</strong>: <a class="reference internal" href="../flags.html#OSTree.RepoCommitState" title="OSTree.RepoCommitState"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCommitState</span></code></a>)</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_commit</strong>: <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>, <strong>out_state</strong>: <a class="reference internal" href="../flags.html#OSTree.RepoCommitState" title="OSTree.RepoCommitState"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCommitState</span></code></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -1609,7 +1625,7 @@ means that only a sub-path of the commit is available.</p>
 </p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_input</strong>: <a class="reference external" href="../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a>, <strong>out_file_info</strong>: <a class="reference external" href="../../python-Gio-2.0/classes/FileInfo.html#Gio.FileInfo" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.FileInfo</span></code></a>, <strong>out_xattrs</strong>: <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>)</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_input</strong>: <a class="reference external" href="../../python-Gio-2.0/classes/InputStream.html#Gio.InputStream" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.InputStream</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, <strong>out_file_info</strong>: <a class="reference external" href="../../python-Gio-2.0/classes/FileInfo.html#Gio.FileInfo" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.FileInfo</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>, <strong>out_xattrs</strong>: <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -1684,7 +1700,7 @@ repositories.</p>
 </p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_variant</strong>: <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>)</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_variant</strong>: <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -1720,7 +1736,7 @@ result in <cite>out_variant</cite>.</p>
 </p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_variant</strong>: <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>)</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_variant</strong>: <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -1837,6 +1853,56 @@ deleting them.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="OSTree.Repo.prune_from_reachable">
+<code class="descname">prune_from_reachable</code><span class="sig-paren">(</span><em>options</em>, <em>cancellable</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>options</strong> (<a class="reference internal" href="RepoPruneOptions.html#OSTree.RepoPruneOptions" title="OSTree.RepoPruneOptions"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoPruneOptions</span></code></a>) &#8211; Options controlling prune process</li>
+<li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">out_objects_total:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Number of objects found</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">out_objects_pruned:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Number of objects deleted</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">out_pruned_object_size_total:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Storage size in bytes of objects deleted</td>
+</tr>
+</tbody>
+</table>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_objects_total</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, <strong>out_objects_pruned</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, <strong>out_pruned_object_size_total</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Delete content from the repository.  This function is the &#8220;backend&#8221;
+half of the higher level <a class="reference internal" href="#OSTree.Repo.prune" title="OSTree.Repo.prune"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.Repo.prune</span></code></a>().  To use this function,
+you determine the root set yourself, and this function finds all other
+unreferenced objects and deletes them.</p>
+<p>Use this API when you want to perform more selective pruning - for example,
+retain all commits from a production branch, but just GC some history from
+your dev branch.</p>
+<p>The <a class="reference internal" href="../enums.html#OSTree.RepoPruneFlags.NO_PRUNE" title="OSTree.RepoPruneFlags.NO_PRUNE"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoPruneFlags.NO_PRUNE</span></code></a> flag may be specified to just determine
+statistics on objects that would be deleted, without actually deleting them.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="OSTree.Repo.prune_static_deltas">
 <code class="descname">prune_static_deltas</code><span class="sig-paren">(</span><em>commit</em>, <em>cancellable</em><span class="sig-paren">)</span></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
@@ -1898,7 +1964,7 @@ summary file, then all refs will be fetched.</p>
 metadata for the commits in <cite>refs_to_fetch</cite> is pulled.</p>
 <p>Warning: This API will iterate the thread default main context,
 which is a bug, but kept for compatibility reasons.  If you want to
-avoid this, use <a class="reference external" href="../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.push_thread_default</span></code></a>() to push a new
+avoid this, use <a class="reference external" href="../../python-GLib-2.0/classes/MainContext.html#GLib.MainContext.push_thread_default" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext.push_thread_default</span></code></a>() to push a new
 one around this call.</p>
 </dd></dl>
 
@@ -1940,7 +2006,7 @@ subpath.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>remote_name_or_baseurl</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Name of remote or file:// url</li>
-<li><strong>options</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>) &#8211; A <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> a{sv} with an extensible set of flags.</li>
+<li><strong>options</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>) &#8211; A <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> a{sv} with an extensible set of flags.</li>
 <li><strong>progress</strong> (<a class="reference internal" href="AsyncProgress.html#OSTree.AsyncProgress" title="OSTree.AsyncProgress"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.AsyncProgress</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Progress</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
@@ -1970,8 +2036,9 @@ The following are currently defined:</p>
 <li>override-commit-ids (as): Array of specific commit IDs to fetch for refs</li>
 <li>dry-run (b): Only print information on what will be downloaded (requires static deltas)</li>
 <li>override-url (s): Fetch objects from this URL if remote specifies no metalink in options</li>
-<li>inherit-transaction (b): Don&#8217;t initiate, finish or abort a transaction, usefult to do mutliple pulls in one transaction.</li>
+<li>inherit-transaction (b): Don&#8217;t initiate, finish or abort a transaction, useful to do multiple pulls in one transaction.</li>
 <li>http-headers (a(ss)): Additional headers to add to all HTTP requests</li>
+<li>update-frequency (u): Frequency to call the async progress callback in milliseconds, if any; only values higher than 0 are valid</li>
 </ul>
 </dd></dl>
 
@@ -2041,7 +2108,7 @@ compression has been applied.</p>
 </p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_root</strong>: <a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>, <strong>out_commit</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_root</strong>: <a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>, <strong>out_commit</strong>: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -2076,7 +2143,7 @@ compression has been applied.</p>
 </p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_metadata</strong>: <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>)</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_metadata</strong>: <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -2094,7 +2161,7 @@ to <a class="reference external" href="http://docs.python.org/2.7/library/consta
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>additional_metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
+<li><strong>additional_metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -2109,8 +2176,30 @@ to <a class="reference external" href="http://docs.python.org/2.7/library/consta
 </table>
 <p>An OSTree repository can contain a high level &#8220;summary&#8221; file that
 describes the available branches and other metadata.</p>
+<p>If the timetable for making commits and updating the summary file is fairly
+regular, setting the <code class="docutils literal"><span class="pre">ostree.summary.expires</span></code> key in <cite>additional_metadata</cite>
+will aid clients in working out when to check for updates.</p>
 <p>It is regenerated automatically after a commit if
 <code class="docutils literal"><span class="pre">core/commit-update-summary</span></code> is set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="OSTree.Repo.reload_config">
+<code class="descname">reload_config</code><span class="sig-paren">(</span><em>cancellable</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; cancellable</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p>By default, an <a class="reference internal" href="#OSTree.Repo" title="OSTree.Repo"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.Repo</span></code></a> will cache the remote configuration and its
+own repo/config data.  This API can be used to reload it.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2123,7 +2212,7 @@ describes the available branches and other metadata.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Name of remote</li>
 <li><strong>url</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; URL for remote (if URL begins with metalink=, it will be used as such)</li>
-<li><strong>options</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}</li>
+<li><strong>options</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -2137,13 +2226,13 @@ describes the available branches and other metadata.</p>
 </tbody>
 </table>
 <p>Create a new remote named <cite>name</cite> pointing to <cite>url</cite>.  If <cite>options</cite> is
-provided, then it will be mapped to <a class="reference external" href="../../python-GLib-2.0/structs/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a> entries, where the
-<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> dictionary key is an option string, and the value is
+provided, then it will be mapped to <a class="reference external" href="../../python-GLib-2.0/classes/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a> entries, where the
+<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> dictionary key is an option string, and the value is
 mapped as follows:</p>
 <ul class="simple">
-<li>s: <a class="reference external" href="../../python-GLib-2.0/structs/KeyFile.html#GLib.KeyFile.set_string" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile.set_string</span></code></a>()</li>
-<li>b: <a class="reference external" href="../../python-GLib-2.0/structs/KeyFile.html#GLib.KeyFile.set_boolean" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile.set_boolean</span></code></a>()</li>
-<li>as: <a class="reference external" href="../../python-GLib-2.0/structs/KeyFile.html#GLib.KeyFile.set_string_list" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile.set_string_list</span></code></a>()</li>
+<li>s: <a class="reference external" href="../../python-GLib-2.0/classes/KeyFile.html#GLib.KeyFile.set_string" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile.set_string</span></code></a>()</li>
+<li>b: <a class="reference external" href="../../python-GLib-2.0/classes/KeyFile.html#GLib.KeyFile.set_boolean" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile.set_boolean</span></code></a>()</li>
+<li>as: <a class="reference external" href="../../python-GLib-2.0/classes/KeyFile.html#GLib.KeyFile.set_string_list" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile.set_string_list</span></code></a>()</li>
 </ul>
 </dd></dl>
 
@@ -2155,11 +2244,11 @@ mapped as follows:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>sysroot</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; System root</li>
+<li><strong>sysroot</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; System root</li>
 <li><strong>changeop</strong> (<a class="reference internal" href="../enums.html#OSTree.RepoRemoteChange" title="OSTree.RepoRemoteChange"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoRemoteChange</span></code></a>) &#8211; Operation to perform</li>
 <li><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Name of remote</li>
 <li><strong>url</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; URL for remote (if URL begins with metalink=, it will be used as such)</li>
-<li><strong>options</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}</li>
+<li><strong>options</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -2234,7 +2323,7 @@ signature data, or <a class="reference external" href="http://docs.python.org/2.
 </p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_summary</strong>: <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>, <strong>out_signatures</strong>: <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_summary</strong>: <a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>, <strong>out_signatures</strong>: <a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -2245,7 +2334,7 @@ respectively.</p>
 <p>If no summary file exists on the remote server, <cite>out_summary</cite> is set to
 <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.  Likewise if the summary file is not signed, <cite>out_signatures</cite> is
 set to <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.  In either case the function still returns <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>.</p>
-<p>Parse the summary data into a <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> using <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant.new_from_bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.new_from_bytes</span></code></a>()
+<p>Parse the summary data into a <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> using <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant.new_from_bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant.new_from_bytes</span></code></a>()
 with #OSTREE_SUMMARY_GVARIANT_FORMAT as the format string.</p>
 </dd></dl>
 
@@ -2258,7 +2347,7 @@ with #OSTREE_SUMMARY_GVARIANT_FORMAT as the format string.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; name of a remote</li>
-<li><strong>options</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> a{sv} with an extensible set of flags</li>
+<li><strong>options</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> a{sv} with an extensible set of flags</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; a <a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a></li>
 </ul>
 </td>
@@ -2282,7 +2371,7 @@ signature data, or <a class="reference external" href="http://docs.python.org/2.
 </p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_summary</strong>: <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>, <strong>out_signatures</strong>: <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_summary</strong>: <a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>, <strong>out_signatures</strong>: <a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -2291,6 +2380,7 @@ signature data, or <a class="reference external" href="http://docs.python.org/2.
 The following are currently defined:</p>
 <ul class="simple">
 <li>override-url (s): Fetch summary from this URL if remote specifies no metalink in options</li>
+<li>http-headers (a(ss)): Additional headers to add to all HTTP requests</li>
 </ul>
 </dd></dl>
 
@@ -2681,11 +2771,11 @@ case where we&#8217;re creating or overwriting an existing ref.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>from_commit</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
-<li><strong>to_commit</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
-<li><strong>key_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
-<li><strong>homedir</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; </li>
-<li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; </li>
+<li><strong>from_commit</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; From commit</li>
+<li><strong>to_commit</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; To commit</li>
+<li><strong>key_id</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; key id</li>
+<li><strong>homedir</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; homedir</li>
+<li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; cancellable</li>
 </ul>
 </td>
 </tr>
@@ -2709,7 +2799,7 @@ Add a GPG signature to a static delta.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dir_or_file</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to a directory containing static delta data, or directly to the superblock</li>
+<li><strong>dir_or_file</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to a directory containing static delta data, or directly to the superblock</li>
 <li><strong>skip_validation</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; If <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#True" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">True</span></code></a>, assume data integrity</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
@@ -2740,8 +2830,8 @@ must contain a file named &#8220;superblock&#8221;, along with at least one part
 <li><strong>opt</strong> (<a class="reference internal" href="../enums.html#OSTree.StaticDeltaGenerateOpt" title="OSTree.StaticDeltaGenerateOpt"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.StaticDeltaGenerateOpt</span></code></a>) &#8211; High level optimization choice</li>
 <li><strong>from</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; ASCII SHA256 checksum of origin, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></li>
 <li><strong>to</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; ASCII SHA256 checksum of target</li>
-<li><strong>metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional metadata</li>
-<li><strong>params</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Parameters, see below</li>
+<li><strong>metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional metadata</li>
+<li><strong>params</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Parameters, see below</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -2784,7 +2874,7 @@ for input files</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>remote</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; A remote for the ref</li>
 <li><strong>ref</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The ref to write</li>
-<li><strong>checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The checksum to point it to</li>
+<li><strong>checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; The checksum to point it to</li>
 </ul>
 </td>
 </tr>
@@ -2810,7 +2900,7 @@ be made to the repository.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>refspec</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The refspec to write</li>
-<li><strong>checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; The checksum to point it to</li>
+<li><strong>checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; The checksum to point it to</li>
 </ul>
 </td>
 </tr>
@@ -2849,7 +2939,7 @@ arguments.</p>
 </p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_reachable</strong>: {<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>: <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>})</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_reachable</strong>: {<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>: <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>})</p>
 </td>
 </tr>
 </tbody>
@@ -2867,8 +2957,8 @@ from <cite>commit_checksum</cite>, traversing <cite>maxdepth</cite> parent commi
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>commit_checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; ASCII SHA256 checksum</li>
-<li><strong>keyringdir</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to directory GPG keyrings; overrides built-in default if given</li>
-<li><strong>extra_keyring</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to additional keyring file (not a directory)</li>
+<li><strong>keyringdir</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to directory GPG keyrings; overrides built-in default if given</li>
+<li><strong>extra_keyring</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to additional keyring file (not a directory)</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -2897,8 +2987,8 @@ checksum <cite>commit_checksum</cite>.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>commit_checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; ASCII SHA256 checksum</li>
-<li><strong>keyringdir</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to directory GPG keyrings; overrides built-in default if given</li>
-<li><strong>extra_keyring</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to additional keyring file (not a directory)</li>
+<li><strong>keyringdir</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to directory GPG keyrings; overrides built-in default if given</li>
+<li><strong>extra_keyring</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Path to additional keyring file (not a directory)</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -2957,8 +3047,8 @@ configured for <cite>remote</cite>.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>remote_name</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Name of remote</li>
-<li><strong>summary</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Summary data as a <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></li>
-<li><strong>signatures</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Summary signatures as a <a class="reference external" href="../../python-GLib-2.0/structs/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></li>
+<li><strong>summary</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Summary data as a <a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></li>
+<li><strong>signatures</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a>) &#8211; Summary signatures as a <a class="reference external" href="../../python-GLib-2.0/classes/Bytes.html#GLib.Bytes" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Bytes</span></code></a></li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -2986,9 +3076,9 @@ configured for <cite>remote</cite>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>archive</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; A path to an archive file</li>
+<li><strong>archive</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; A path to an archive file</li>
 <li><strong>mtree</strong> (<a class="reference internal" href="MutableTree.html#OSTree.MutableTree" title="OSTree.MutableTree"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.MutableTree</span></code></a>) &#8211; The <a class="reference internal" href="MutableTree.html#OSTree.MutableTree" title="OSTree.MutableTree"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.MutableTree</span></code></a> to write to</li>
-<li><strong>modifier</strong> (<a class="reference internal" href="../structs/RepoCommitModifier.html#OSTree.RepoCommitModifier" title="OSTree.RepoCommitModifier"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCommitModifier</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional commit modifier</li>
+<li><strong>modifier</strong> (<a class="reference internal" href="RepoCommitModifier.html#OSTree.RepoCommitModifier" title="OSTree.RepoCommitModifier"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCommitModifier</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional commit modifier</li>
 <li><strong>autocreate_parents</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) &#8211; Autocreate parent directories</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
@@ -3017,7 +3107,7 @@ file structure to <cite>mtree</cite>.</p>
 <li><strong>parent</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; ASCII SHA256 checksum for parent, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for none</li>
 <li><strong>subject</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Subject</li>
 <li><strong>body</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Body</li>
-<li><strong>metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for none</li>
+<li><strong>metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for none</li>
 <li><strong>root</strong> (<a class="reference internal" href="RepoFile.html#OSTree.RepoFile" title="OSTree.RepoFile"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoFile</span></code></a>) &#8211; The tree to point the commit to</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
@@ -3055,7 +3145,7 @@ and <cite>root_metadata_checksum</cite>.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; ASCII SHA256 commit checksum</li>
-<li><strong>metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Metadata to associate with commit in with format &#8220;a{sv}&#8221;, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to delete</li>
+<li><strong>metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Metadata to associate with commit in with format &#8220;a{sv}&#8221;, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> to delete</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -3084,7 +3174,7 @@ data will be deleted.</p>
 <li><strong>parent</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; ASCII SHA256 checksum for parent, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for none</li>
 <li><strong>subject</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Subject</li>
 <li><strong>body</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Body</li>
-<li><strong>metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; <a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for none</li>
+<li><strong>metadata</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a> of type a{sv}, or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a> for none</li>
 <li><strong>root</strong> (<a class="reference internal" href="RepoFile.html#OSTree.RepoFile" title="OSTree.RepoFile"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoFile</span></code></a>) &#8211; The tree to point the commit to</li>
 <li><strong>time</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; The time to use to stamp the commit</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
@@ -3121,7 +3211,7 @@ and <cite>root_metadata_checksum</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_config</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a>) &#8211; Overwrite the config file with this data.  Do not change later!</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_config</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/KeyFile.html#GLib.KeyFile" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.KeyFile</span></code></a>) &#8211; Overwrite the config file with this data.  Do not change later!</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
@@ -3203,7 +3293,7 @@ checksum <cite>expected_checksum</cite> will be verified.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; a <a class="reference external" href="../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>result</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; a <a class="reference external" href="../../python-Gio-2.0/classes/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
@@ -3264,7 +3354,7 @@ disk, for example.</p>
 <li><strong>dfd</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; Directory file descriptor</li>
 <li><strong>path</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Path</li>
 <li><strong>mtree</strong> (<a class="reference internal" href="MutableTree.html#OSTree.MutableTree" title="OSTree.MutableTree"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.MutableTree</span></code></a>) &#8211; Overlay directory contents into this tree</li>
-<li><strong>modifier</strong> (<a class="reference internal" href="../structs/RepoCommitModifier.html#OSTree.RepoCommitModifier" title="OSTree.RepoCommitModifier"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCommitModifier</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional modifier</li>
+<li><strong>modifier</strong> (<a class="reference internal" href="RepoCommitModifier.html#OSTree.RepoCommitModifier" title="OSTree.RepoCommitModifier"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCommitModifier</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional modifier</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -3290,9 +3380,9 @@ resulting filesystem hierarchy into <cite>mtree</cite>.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dir</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to a directory</li>
+<li><strong>dir</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>) &#8211; Path to a directory</li>
 <li><strong>mtree</strong> (<a class="reference internal" href="MutableTree.html#OSTree.MutableTree" title="OSTree.MutableTree"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.MutableTree</span></code></a>) &#8211; Overlay directory contents into this tree</li>
-<li><strong>modifier</strong> (<a class="reference internal" href="../structs/RepoCommitModifier.html#OSTree.RepoCommitModifier" title="OSTree.RepoCommitModifier"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCommitModifier</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional modifier</li>
+<li><strong>modifier</strong> (<a class="reference internal" href="RepoCommitModifier.html#OSTree.RepoCommitModifier" title="OSTree.RepoCommitModifier"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.RepoCommitModifier</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Optional modifier</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -3319,7 +3409,7 @@ overlaying the resulting filesystem hierarchy into <cite>mtree</cite>.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>objtype</strong> (<a class="reference internal" href="../enums.html#OSTree.ObjectType" title="OSTree.ObjectType"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.ObjectType</span></code></a>) &#8211; Object type</li>
 <li><strong>expected_checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; If provided, validate content against this checksum</li>
-<li><strong>object</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>) &#8211; Metadata</li>
+<li><strong>object</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>) &#8211; Metadata</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -3359,7 +3449,7 @@ computed checksum.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>objtype</strong> (<a class="reference internal" href="../enums.html#OSTree.ObjectType" title="OSTree.ObjectType"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.ObjectType</span></code></a>) &#8211; Object type</li>
 <li><strong>expected_checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; If provided, validate content against this checksum</li>
-<li><strong>object</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>) &#8211; Metadata</li>
+<li><strong>object</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>) &#8211; Metadata</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 <li><strong>callback</strong> (<a class="reference external" href="../../python-Gio-2.0/callbacks.html#Gio.AsyncReadyCallback" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Invoked when metadata is writed</li>
 <li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Data for <cite>callback</cite></li>
@@ -3380,7 +3470,7 @@ the checksum <cite>expected_checksum</cite> will be verified.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>result</strong> (<a class="reference external" href="../../python-Gio-2.0/interfaces/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; </li>
+<li><strong>result</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/AsyncResult.html#Gio.AsyncResult" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.AsyncResult</span></code></a>) &#8211; </li>
 <li><strong>out_csum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) &#8211; </li>
 </ul>
 </td>
@@ -3433,7 +3523,7 @@ trusted.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>objtype</strong> (<a class="reference internal" href="../enums.html#OSTree.ObjectType" title="OSTree.ObjectType"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.ObjectType</span></code></a>) &#8211; Object type</li>
 <li><strong>checksum</strong> (<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; Store object with this ASCII SHA256 checksum</li>
-<li><strong>variant</strong> (<a class="reference external" href="../../python-GLib-2.0/structs/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>) &#8211; Metadata object</li>
+<li><strong>variant</strong> (<a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.Variant</span></code></a>) &#8211; Metadata object</li>
 <li><strong>cancellable</strong> (<a class="reference external" href="../../python-Gio-2.0/classes/Cancellable.html#Gio.Cancellable" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>) &#8211; Cancellable</li>
 </ul>
 </td>
@@ -3477,7 +3567,7 @@ trusted.</p>
 </p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_file</strong>: <a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>)</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, <strong>out_file</strong>: <a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -3517,7 +3607,7 @@ the <cite>mtree</cite> represented.</p>
 <p>Emitted during a pull operation upon GPG verification (if enabled).
 Applications can connect to this signal to output the verification
 results if desired.</p>
-<p>The signal will be emitted from whichever <a class="reference external" href="../../python-GLib-2.0/structs/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is the
+<p>The signal will be emitted from whichever <a class="reference external" href="../../python-GLib-2.0/classes/MainContext.html#GLib.MainContext" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">GLib.MainContext</span></code></a> is the
 thread-default at the point when <a class="reference internal" href="#OSTree.Repo.pull_with_options" title="OSTree.Repo.pull_with_options"><code class="xref py py-obj docutils literal"><span class="pre">OSTree.Repo.pull_with_options</span></code></a>()
 is called.</p>
 </dd></dl>
@@ -3534,7 +3624,7 @@ is called.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal"><span class="pre">path</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
@@ -3572,7 +3662,7 @@ is called.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal"><span class="pre">sysroot-path</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="../../python-Gio-2.0/interfaces/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="../../python-Gio-2.0/classes/File.html#Gio.File" title="(in Gio 2.0 v2.0)"><code class="xref py py-obj docutils literal"><span class="pre">Gio.File</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a></td>
 </tr>

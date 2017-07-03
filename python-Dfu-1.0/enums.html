@@ -134,6 +134,7 @@
   <div class="section" id="enums">
 <h1>Enums</h1>
 <ul class="simple">
+<li><a class="reference internal" href="#Dfu.Action" title="Dfu.Action"><code class="xref py py-class docutils literal"><span class="pre">Dfu.Action</span></code></a></li>
 <li><a class="reference internal" href="#Dfu.CipherKind" title="Dfu.CipherKind"><code class="xref py py-class docutils literal"><span class="pre">Dfu.CipherKind</span></code></a></li>
 <li><a class="reference internal" href="#Dfu.Error" title="Dfu.Error"><code class="xref py py-class docutils literal"><span class="pre">Dfu.Error</span></code></a></li>
 <li><a class="reference internal" href="#Dfu.FirmwareFormat" title="Dfu.FirmwareFormat"><code class="xref py py-class docutils literal"><span class="pre">Dfu.FirmwareFormat</span></code></a></li>
@@ -146,8 +147,63 @@
 <div class="section" id="details">
 <h2>Details</h2>
 <dl class="class">
+<dt id="Dfu.Action">
+<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Action</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
+<p>The device DFU attributes.</p>
+<dl class="attribute">
+<dt id="Dfu.Action.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 0</em></dt>
+<dd><p>No progress state</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Dfu.Action.IDLE">
+<code class="descname">IDLE</code><em class="property"> = 1</em></dt>
+<dd><p>Device is idle</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Dfu.Action.READ">
+<code class="descname">READ</code><em class="property"> = 2</em></dt>
+<dd><p>Reading from the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Dfu.Action.WRITE">
+<code class="descname">WRITE</code><em class="property"> = 3</em></dt>
+<dd><p>Writing to the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Dfu.Action.VERIFY">
+<code class="descname">VERIFY</code><em class="property"> = 4</em></dt>
+<dd><p>Verifying the write</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Dfu.Action.ERASE">
+<code class="descname">ERASE</code><em class="property"> = 5</em></dt>
+<dd><p>Erasing the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Dfu.Action.DETACH">
+<code class="descname">DETACH</code><em class="property"> = 6</em></dt>
+<dd><p>Detach into DFU mode</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Dfu.Action.ATTACH">
+<code class="descname">ATTACH</code><em class="property"> = 7</em></dt>
+<dd><p>Attach into APP mode</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="Dfu.CipherKind">
-<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">CipherKind</code></dt>
+<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">CipherKind</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The type of cipher used for transfering the firmware.</p>
 <dl class="attribute">
@@ -178,7 +234,7 @@
 
 <dl class="class">
 <dt id="Dfu.Error">
-<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Error</code></dt>
+<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Error</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The error code.</p>
 <dl class="attribute">
@@ -227,7 +283,7 @@
 
 <dl class="class">
 <dt id="Dfu.FirmwareFormat">
-<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">FirmwareFormat</code></dt>
+<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">FirmwareFormat</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The known versions of the DFU standard in BCD format.</p>
 <dl class="attribute">
@@ -270,7 +326,7 @@
 
 <dl class="class">
 <dt id="Dfu.Mode">
-<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Mode</code></dt>
+<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Mode</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The mode enumerated kind.</p>
 <dl class="attribute">
@@ -295,7 +351,7 @@
 
 <dl class="class">
 <dt id="Dfu.Request">
-<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Request</code></dt>
+<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Request</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The DFU request kinds.</p>
 <dl class="attribute">
@@ -344,7 +400,7 @@
 
 <dl class="class">
 <dt id="Dfu.State">
-<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">State</code></dt>
+<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">State</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The state enumerated kind.</p>
 <dl class="attribute">
@@ -417,7 +473,7 @@
 
 <dl class="class">
 <dt id="Dfu.Status">
-<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Status</code></dt>
+<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Status</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The status enumerated kind.</p>
 <dl class="attribute">
@@ -520,7 +576,7 @@
 
 <dl class="class">
 <dt id="Dfu.Version">
-<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Version</code></dt>
+<em class="property">class </em><code class="descclassname">Dfu.</code><code class="descname">Version</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GLib-2.0/enums.html#GLib.Enum" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal"><span class="pre">GLib.Enum</span></code></a></p>
 <p>The known versions of the DFU standard in BCD format.</p>
 <dl class="attribute">
