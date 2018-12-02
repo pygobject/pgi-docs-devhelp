@@ -200,7 +200,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (38)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (37)</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
 </tr>
@@ -297,7 +297,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#Gio.SocketListener.props.listen_backlog" title="Gio.SocketListener.props.listen_backlog"><code class="xref py py-data docutils literal notranslate"><span class="pre">listen-backlog</span></code></a></td>
-<td><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<td><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 <td>r/w/c</td>
 <td>outstanding connections in the listen queue</td>
 </tr>
@@ -384,15 +384,21 @@
 <p>A <a class="reference internal" href="#Gio.SocketListener" title="Gio.SocketListener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener</span></code></a> is an object that keeps track of a set
 of server sockets and helps you accept sockets from any of the
 socket, either sync or async.</p>
+<p>Add addresses and ports to listen on using <a class="reference internal" href="#Gio.SocketListener.add_address" title="Gio.SocketListener.add_address"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener.add_address</span></code></a>()
+and <a class="reference internal" href="#Gio.SocketListener.add_inet_port" title="Gio.SocketListener.add_inet_port"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener.add_inet_port</span></code></a>(). These will be listened on until
+<a class="reference internal" href="#Gio.SocketListener.close" title="Gio.SocketListener.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener.close</span></code></a>() is called. Dropping your final reference to the
+<a class="reference internal" href="#Gio.SocketListener" title="Gio.SocketListener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener</span></code></a> will not cause <a class="reference internal" href="#Gio.SocketListener.close" title="Gio.SocketListener.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener.close</span></code></a>() to be called
+implicitly, as some references to the <a class="reference internal" href="#Gio.SocketListener" title="Gio.SocketListener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener</span></code></a> may be held
+internally.</p>
 <p>If you want to implement a network server, also look at <a class="reference internal" href="SocketService.html#Gio.SocketService" title="Gio.SocketService"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketService</span></code></a>
-and <a class="reference internal" href="ThreadedSocketService.html#Gio.ThreadedSocketService" title="Gio.ThreadedSocketService"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.ThreadedSocketService</span></code></a> which are subclass of <a class="reference internal" href="#Gio.SocketListener" title="Gio.SocketListener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener</span></code></a>
-that makes this even easier.</p>
+and <a class="reference internal" href="ThreadedSocketService.html#Gio.ThreadedSocketService" title="Gio.ThreadedSocketService"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.ThreadedSocketService</span></code></a> which are subclasses of <a class="reference internal" href="#Gio.SocketListener" title="Gio.SocketListener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener</span></code></a>
+that make this even easier.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
 <dl class="classmethod">
 <dt id="Gio.SocketListener.new">
-<em class="property">classmethod </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L206"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L213"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -413,36 +419,36 @@ or <a class="reference internal" href="#Gio.SocketListener.add_inet_port" title=
 
 <dl class="method">
 <dt id="Gio.SocketListener.accept">
-<code class="descname">accept</code><span class="sig-paren">(</span><em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L743"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">accept</code><span class="sig-paren">(</span><em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L758"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cancellable</strong> (<a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – optional <a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> object, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> to ignore.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cancellable</strong> (<a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – optional <a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> object, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> to ignore.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> on error.<table class="docutils field-list" frame="void" rules="none">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> on error.<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">source_object:</th><td class="field-body">location where <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> pointer will be stored, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">source_object:</th><td class="field-body">location where <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> pointer will be stored, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a>, <strong>source_object</strong>: <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a>, <strong>source_object</strong>: <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>)</td>
 </tr>
 </tbody>
 </table>
 <p>Blocks waiting for a client to connect to any of the sockets added
 to the listener. Returns a <a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a> for the socket that was
 accepted.</p>
-<p>If <cite>source_object</cite> is not <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> it will be filled out with the source
+<p>If <cite>source_object</cite> is not <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> it will be filled out with the source
 object specified when the corresponding socket or address was added
 to the listener.</p>
-<p>If <cite>cancellable</cite> is not <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, then the operation can be cancelled by
+<p>If <cite>cancellable</cite> is not <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="reference internal" href="../enums.html#Gio.IOErrorEnum.CANCELLED" title="Gio.IOErrorEnum.CANCELLED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.IOErrorEnum.CANCELLED</span></code></a> will be returned.</p>
 <div class="versionadded">
@@ -452,15 +458,15 @@ was cancelled, the error <a class="reference internal" href="../enums.html#Gio.I
 
 <dl class="method">
 <dt id="Gio.SocketListener.accept_async">
-<code class="descname">accept_async</code><span class="sig-paren">(</span><em>cancellable</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L881"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">accept_async</code><span class="sig-paren">(</span><em>cancellable</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L896"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cancellable</strong> (<a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a>, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></li>
-<li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.AsyncReadyCallback</span></code></a></li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – user data for the callback</li>
+<li><strong>cancellable</strong> (<a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a>, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></li>
+<li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.AsyncReadyCallback</span></code></a></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – user data for the callback</li>
 </ul>
 </td>
 </tr>
@@ -477,7 +483,7 @@ to get the result of the operation.</p>
 
 <dl class="method">
 <dt id="Gio.SocketListener.accept_finish">
-<code class="descname">accept_finish</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L907"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">accept_finish</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L922"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -486,7 +492,7 @@ to get the result of the operation.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> on error.<table class="docutils field-list" frame="void" rules="none">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> on error.<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -496,7 +502,7 @@ to get the result of the operation.</p>
 </table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a>, <strong>source_object</strong>: <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a>, <strong>source_object</strong>: <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -508,26 +514,26 @@ to get the result of the operation.</p>
 
 <dl class="method">
 <dt id="Gio.SocketListener.accept_socket">
-<code class="descname">accept_socket</code><span class="sig-paren">(</span><em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L669"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">accept_socket</code><span class="sig-paren">(</span><em>cancellable</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L684"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cancellable</strong> (<a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – optional <a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> object, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> to ignore.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cancellable</strong> (<a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – optional <a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> object, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> to ignore.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> on error.<table class="docutils field-list" frame="void" rules="none">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> on error.<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">source_object:</th><td class="field-body">location where <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> pointer will be stored, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</td>
+<tr class="field-odd field"><th class="field-name">source_object:</th><td class="field-body">location where <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> pointer will be stored, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</td>
 </tr>
 </tbody>
 </table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a>, <strong>source_object</strong>: <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a>, <strong>source_object</strong>: <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -536,10 +542,10 @@ to the listener. Returns the <a class="reference internal" href="Socket.html#Gio
 <p>If you want to accept the high-level <a class="reference internal" href="SocketConnection.html#Gio.SocketConnection" title="Gio.SocketConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketConnection</span></code></a>, not a <a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a>,
 which is often the case, then you should use <a class="reference internal" href="#Gio.SocketListener.accept" title="Gio.SocketListener.accept"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener.accept</span></code></a>()
 instead.</p>
-<p>If <cite>source_object</cite> is not <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> it will be filled out with the source
+<p>If <cite>source_object</cite> is not <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> it will be filled out with the source
 object specified when the corresponding socket or address was added
 to the listener.</p>
-<p>If <cite>cancellable</cite> is not <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, then the operation can be cancelled by
+<p>If <cite>cancellable</cite> is not <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, then the operation can be cancelled by
 triggering the cancellable object from another thread. If the operation
 was cancelled, the error <a class="reference internal" href="../enums.html#Gio.IOErrorEnum.CANCELLED" title="Gio.IOErrorEnum.CANCELLED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.IOErrorEnum.CANCELLED</span></code></a> will be returned.</p>
 <div class="versionadded">
@@ -549,15 +555,15 @@ was cancelled, the error <a class="reference internal" href="../enums.html#Gio.I
 
 <dl class="method">
 <dt id="Gio.SocketListener.accept_socket_async">
-<code class="descname">accept_socket_async</code><span class="sig-paren">(</span><em>cancellable</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L809"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">accept_socket_async</code><span class="sig-paren">(</span><em>cancellable</em>, <em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L824"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cancellable</strong> (<a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a>, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></li>
-<li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.AsyncReadyCallback</span></code></a></li>
-<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – user data for the callback</li>
+<li><strong>cancellable</strong> (<a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="Cancellable.html#Gio.Cancellable" title="Gio.Cancellable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Cancellable</span></code></a>, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></li>
+<li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.AsyncReadyCallback</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="../callbacks.html#Gio.AsyncReadyCallback" title="Gio.AsyncReadyCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.AsyncReadyCallback</span></code></a></li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – user data for the callback</li>
 </ul>
 </td>
 </tr>
@@ -574,7 +580,7 @@ to get the result of the operation.</p>
 
 <dl class="method">
 <dt id="Gio.SocketListener.accept_socket_finish">
-<code class="descname">accept_socket_finish</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L851"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">accept_socket_finish</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L866"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -583,7 +589,7 @@ to get the result of the operation.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> on error.<table class="docutils field-list" frame="void" rules="none">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> on error.<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -593,7 +599,7 @@ to get the result of the operation.</p>
 </table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a>, <strong>source_object</strong>: <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a>, <strong>source_object</strong>: <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -605,7 +611,7 @@ to get the result of the operation.</p>
 
 <dl class="method">
 <dt id="Gio.SocketListener.add_address">
-<code class="descname">add_address</code><span class="sig-paren">(</span><em>address</em>, <em>type</em>, <em>protocol</em>, <em>source_object</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L323"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_address</code><span class="sig-paren">(</span><em>address</em>, <em>type</em>, <em>protocol</em>, <em>source_object</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L334"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -614,27 +620,27 @@ to get the result of the operation.</p>
 <li><strong>address</strong> (<a class="reference internal" href="SocketAddress.html#Gio.SocketAddress" title="Gio.SocketAddress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketAddress</span></code></a>) – a <a class="reference internal" href="SocketAddress.html#Gio.SocketAddress" title="Gio.SocketAddress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketAddress</span></code></a></li>
 <li><strong>type</strong> (<a class="reference internal" href="../enums.html#Gio.SocketType" title="Gio.SocketType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketType</span></code></a>) – a <a class="reference internal" href="../enums.html#Gio.SocketType" title="Gio.SocketType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketType</span></code></a></li>
 <li><strong>protocol</strong> (<a class="reference internal" href="../enums.html#Gio.SocketProtocol" title="Gio.SocketProtocol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketProtocol</span></code></a>) – a <a class="reference internal" href="../enums.html#Gio.SocketProtocol" title="Gio.SocketProtocol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketProtocol</span></code></a></li>
-<li><strong>source_object</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Optional <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> identifying this source</li>
+<li><strong>source_object</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Optional <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> identifying this source</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> on error.</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> on error.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">effective_address:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">location to store the address that was bound to, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">location to store the address that was bound to, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</td>
 </tr>
 </tbody>
 </table>
 </p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, <strong>effective_address</strong>: <a class="reference internal" href="SocketAddress.html#Gio.SocketAddress" title="Gio.SocketAddress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketAddress</span></code></a>)</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, <strong>effective_address</strong>: <a class="reference internal" href="SocketAddress.html#Gio.SocketAddress" title="Gio.SocketAddress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketAddress</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -650,11 +656,14 @@ connections.  For more deterministic behavior, see
 to accept to identify this particular source, which is
 useful if you’re listening on multiple addresses and do
 different things depending on what address is connected to.</p>
-<p>If successful and <cite>effective_address</cite> is non-<a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> then it will
+<p>If successful and <cite>effective_address</cite> is non-<a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> then it will
 be set to the address that the binding actually occurred at.  This
 is helpful for determining the port number that was used for when
 requesting a binding to port 0 (ie: “any port”).  This address, if
 requested, belongs to the caller and must be freed.</p>
+<p>Call <a class="reference internal" href="#Gio.SocketListener.close" title="Gio.SocketListener.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener.close</span></code></a>() to stop listening on <cite>address</cite>; this will not
+be done automatically when you drop your final reference to <cite>self</cite>, as
+references may be held internally.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -662,18 +671,18 @@ requested, belongs to the caller and must be freed.</p>
 
 <dl class="method">
 <dt id="Gio.SocketListener.add_any_inet_port">
-<code class="descname">add_any_inet_port</code><span class="sig-paren">(</span><em>source_object</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L1006"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_any_inet_port</code><span class="sig-paren">(</span><em>source_object</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L1021"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source_object</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Optional <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> identifying this source</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source_object</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Optional <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> identifying this source</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the port number, or 0 in case of failure.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -692,24 +701,24 @@ different things depending on what address is connected to.</p>
 
 <dl class="method">
 <dt id="Gio.SocketListener.add_inet_port">
-<code class="descname">add_inet_port</code><span class="sig-paren">(</span><em>port</em>, <em>source_object</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L415"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_inet_port</code><span class="sig-paren">(</span><em>port</em>, <em>source_object</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L430"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>port</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – an IP port number (non-zero)</li>
-<li><strong>source_object</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Optional <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> identifying this source</li>
+<li><strong>port</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – an IP port number (non-zero)</li>
+<li><strong>source_object</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Optional <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> identifying this source</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> on error.</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> on error.</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -721,6 +730,9 @@ supported) on the specified port on all interfaces.</p>
 to accept to identify this particular source, which is
 useful if you’re listening on multiple addresses and do
 different things depending on what address is connected to.</p>
+<p>Call <a class="reference internal" href="#Gio.SocketListener.close" title="Gio.SocketListener.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.SocketListener.close</span></code></a>() to stop listening on <cite>port</cite>; this will not
+be done automatically when you drop your final reference to <cite>self</cite>, as
+references may be held internally.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
 </div>
@@ -728,24 +740,24 @@ different things depending on what address is connected to.</p>
 
 <dl class="method">
 <dt id="Gio.SocketListener.add_socket">
-<code class="descname">add_socket</code><span class="sig-paren">(</span><em>socket</em>, <em>source_object</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L254"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">add_socket</code><span class="sig-paren">(</span><em>socket</em>, <em>source_object</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L261"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>socket</strong> (<a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a>) – a listening <a class="reference internal" href="Socket.html#Gio.Socket" title="Gio.Socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.Socket</span></code></a></li>
-<li><strong>source_object</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Optional <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> identifying this source</li>
+<li><strong>source_object</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Optional <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#GObject.Object" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Object</span></code></a> identifying this source</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GLib.Error</span></code></a></p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> on error.</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> on success, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> on error.</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -768,7 +780,7 @@ if references to it were held elsewhere.</p>
 
 <dl class="method">
 <dt id="Gio.SocketListener.close">
-<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L963"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L978"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Closes all the sockets in the listener.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.22.</span></p>
@@ -777,12 +789,12 @@ if references to it were held elsewhere.</p>
 
 <dl class="method">
 <dt id="Gio.SocketListener.set_backlog">
-<code class="descname">set_backlog</code><span class="sig-paren">(</span><em>listen_backlog</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.56.1/gio/gsocketlistener.c#L937"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_backlog</code><span class="sig-paren">(</span><em>listen_backlog</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gsocketlistener.c#L952"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listen_backlog</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – an integer</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listen_backlog</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – an integer</td>
 </tr>
 </tbody>
 </table>
@@ -863,7 +875,7 @@ the order they happen in is undefined.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">listen-backlog</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">10</span></code></td>
 </tr>

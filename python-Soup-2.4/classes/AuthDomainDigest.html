@@ -213,7 +213,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="AuthDomain.html#soup-authdomain-methods"><span class="std std-ref">Soup.AuthDomain (12)</span></a>,     <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (38)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference internal" href="AuthDomain.html#soup-authdomain-methods"><span class="std std-ref">Soup.AuthDomain (10)</span></a>,     <a class="reference external" href="../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (37)</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
 </tr>
@@ -227,6 +227,9 @@
 <tbody valign="top">
 <tr class="row-odd"><td><em>class</em></td>
 <td><a class="reference internal" href="#Soup.AuthDomainDigest.encode_password" title="Soup.AuthDomainDigest.encode_password"><code class="xref py py-func docutils literal notranslate"><span class="pre">encode_password</span></code></a> (username, realm, password)</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference internal" href="#Soup.AuthDomainDigest.set_auth_callback" title="Soup.AuthDomainDigest.set_auth_callback"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_auth_callback</span></code></a> (callback, *user_data)</td>
 </tr>
 </tbody>
 </table>
@@ -268,12 +271,12 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#Soup.AuthDomainDigest.props.auth_callback" title="Soup.AuthDomainDigest.props.auth_callback"><code class="xref py py-data docutils literal notranslate"><span class="pre">auth-callback</span></code></a></td>
-<td><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<td><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 <td>r/w</td>
 <td>Password-finding callback</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#Soup.AuthDomainDigest.props.auth_data" title="Soup.AuthDomainDigest.props.auth_data"><code class="xref py py-data docutils literal notranslate"><span class="pre">auth-data</span></code></a></td>
-<td><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<td><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 <td>r/w</td>
 <td>Data to pass to authentication callback</td>
 </tr>
@@ -349,16 +352,16 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>username</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a username</li>
-<li><strong>realm</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – an auth realm name</li>
-<li><strong>password</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – the password for <cite>username</cite> in <cite>realm</cite></li>
+<li><strong>username</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a username</li>
+<li><strong>realm</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – an auth realm name</li>
+<li><strong>password</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – the password for <cite>username</cite> in <cite>realm</cite></li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the encoded password</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -377,6 +380,31 @@ that the encoded password returned by this method is identical to
 the encoded password stored in an Apache .htdigest file.)</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="Soup.AuthDomainDigest.set_auth_callback">
+<code class="descname">set_auth_callback</code><span class="sig-paren">(</span><em>callback</em>, <em>*user_data</em><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>callback</strong> (<a class="reference internal" href="../callbacks.html#Soup.AuthDomainDigestAuthCallback" title="Soup.AuthDomainDigestAuthCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Soup.AuthDomainDigestAuthCallback</span></code></a>) – the callback</li>
+<li><strong>user_data</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – data to pass to <cite>auth_callback</cite></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Sets the callback that <cite>self</cite> will use to authenticate incoming
+requests. For each request containing authorization, <cite>self</cite> will
+invoke the callback, and then either accept or reject the request
+based on <cite>callback</cite>’s return value.</p>
+<p>You can also set the auth callback by setting the
+<a class="reference internal" href="../constants.html#Soup.AUTH_DOMAIN_DIGEST_AUTH_CALLBACK" title="Soup.AUTH_DOMAIN_DIGEST_AUTH_CALLBACK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Soup.AUTH_DOMAIN_DIGEST_AUTH_CALLBACK</span></code></a> and
+<a class="reference internal" href="../constants.html#Soup.AUTH_DOMAIN_DIGEST_AUTH_DATA" title="Soup.AUTH_DOMAIN_DIGEST_AUTH_DATA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Soup.AUTH_DOMAIN_DIGEST_AUTH_DATA</span></code></a> properties, which can also be
+used to set the callback at construct time.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -391,15 +419,15 @@ the encoded password stored in an Apache .htdigest file.)</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">auth-callback</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">READABLE</span></code></a>, <a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.WRITABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WRITABLE</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Password-finding callback</p>
+<p>The <a class="reference internal" href="../callbacks.html#Soup.AuthDomainDigestAuthCallback" title="Soup.AuthDomainDigestAuthCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Soup.AuthDomainDigestAuthCallback</span></code></a></p>
 </dd></dl>
 
 <dl class="data">
@@ -411,15 +439,15 @@ the encoded password stored in an Apache .htdigest file.)</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">auth-data</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">READABLE</span></code></a>, <a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.WRITABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WRITABLE</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Data to pass to authentication callback</p>
+<p>The data to pass to the <a class="reference internal" href="../callbacks.html#Soup.AuthDomainDigestAuthCallback" title="Soup.AuthDomainDigestAuthCallback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Soup.AuthDomainDigestAuthCallback</span></code></a></p>
 </dd></dl>
 
 </div>

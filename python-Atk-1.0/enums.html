@@ -139,6 +139,7 @@
 <li><a class="reference internal" href="#Atk.Layer" title="Atk.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atk.Layer</span></code></a></li>
 <li><a class="reference internal" href="#Atk.RelationType" title="Atk.RelationType"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atk.RelationType</span></code></a></li>
 <li><a class="reference internal" href="#Atk.Role" title="Atk.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atk.Role</span></code></a></li>
+<li><a class="reference internal" href="#Atk.ScrollType" title="Atk.ScrollType"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atk.ScrollType</span></code></a></li>
 <li><a class="reference internal" href="#Atk.StateType" title="Atk.StateType"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atk.StateType</span></code></a></li>
 <li><a class="reference internal" href="#Atk.TextAttribute" title="Atk.TextAttribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atk.TextAttribute</span></code></a></li>
 <li><a class="reference internal" href="#Atk.TextBoundary" title="Atk.TextBoundary"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atk.TextBoundary</span></code></a></li>
@@ -165,6 +166,16 @@ as <a class="reference internal" href="classes/Component.html#Atk.Component.get_
 <code class="descname">WINDOW</code><em class="property"> = 1</em></dt>
 <dd><p>specifies xy coordinates relative to the widget’s
 top-level window</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Atk.CoordType.PARENT">
+<code class="descname">PARENT</code><em class="property"> = 2</em></dt>
+<dd><p>specifies xy coordinates relative to the widget’s
+immediate parent.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.30.</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -259,12 +270,12 @@ determinations of when components occlude one another.</p>
 <p>Describes the type of the relation</p>
 <dl class="classmethod">
 <dt id="Atk.RelationType.for_name">
-<em class="property">classmethod </em><code class="descname">for_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkrelation.c#L186"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">for_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkrelation.c#L186"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a string which is the (non-localized) name of an ATK relation type.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a string which is the (non-localized) name of an ATK relation type.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="#Atk.RelationType" title="Atk.RelationType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.RelationType</span></code></a> enumerated type corresponding to the specified name,
 or <a class="reference internal" href="#Atk.RelationType.NULL" title="Atk.RelationType.NULL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.RelationType.NULL</span></code></a> if no matching relation type is found.</td>
@@ -278,7 +289,7 @@ or <a class="reference internal" href="#Atk.RelationType.NULL" title="Atk.Relati
 
 <dl class="classmethod">
 <dt id="Atk.RelationType.get_name">
-<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkrelation.c#L145"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkrelation.c#L145"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -287,7 +298,7 @@ or <a class="reference internal" href="#Atk.RelationType.NULL" title="Atk.Relati
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the string describing the <a class="reference internal" href="#Atk.RelationType" title="Atk.RelationType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.RelationType</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -296,12 +307,12 @@ or <a class="reference internal" href="#Atk.RelationType.NULL" title="Atk.Relati
 
 <dl class="classmethod">
 <dt id="Atk.RelationType.register">
-<em class="property">classmethod </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkrelation.c#L125"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkrelation.c#L125"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a name string</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a name string</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an <a class="reference internal" href="#Atk.RelationType" title="Atk.RelationType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.RelationType</span></code></a> associated with <cite>name</cite></td>
 </tr>
@@ -496,12 +507,12 @@ ATK.  Other roles may be added at runtime, so an <a class="reference internal" h
 <a class="reference internal" href="#Atk.Role.LAST_DEFINED" title="Atk.Role.LAST_DEFINED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.Role.LAST_DEFINED</span></code></a> is not necessarily an error.</p>
 <dl class="classmethod">
 <dt id="Atk.Role.for_name">
-<em class="property">classmethod </em><code class="descname">for_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkobject.c#L1620"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">for_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkobject.c#L1619"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a string which is the (non-localized) name of an ATK role.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a string which is the (non-localized) name of an ATK role.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="#Atk.Role" title="Atk.Role"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.Role</span></code></a> enumerated type corresponding to the specified name,
 or <a class="reference internal" href="#Atk.Role.INVALID" title="Atk.Role.INVALID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.Role.INVALID</span></code></a> if no matching role is found.</td>
@@ -515,7 +526,7 @@ or <a class="reference internal" href="#Atk.Role.INVALID" title="Atk.Role.INVALI
 
 <dl class="classmethod">
 <dt id="Atk.Role.get_localized_name">
-<em class="property">classmethod </em><code class="descname">get_localized_name</code><span class="sig-paren">(</span><em>role</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkobject.c#L1570"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_localized_name</code><span class="sig-paren">(</span><em>role</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkobject.c#L1569"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -524,7 +535,7 @@ or <a class="reference internal" href="#Atk.Role.INVALID" title="Atk.Role.INVALI
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the localized string describing the <a class="reference internal" href="#Atk.Role" title="Atk.Role"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.Role</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -533,7 +544,7 @@ or <a class="reference internal" href="#Atk.Role.INVALID" title="Atk.Role.INVALI
 
 <dl class="classmethod">
 <dt id="Atk.Role.get_name">
-<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>role</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkobject.c#L1548"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>role</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkobject.c#L1547"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -542,7 +553,7 @@ or <a class="reference internal" href="#Atk.Role.INVALID" title="Atk.Role.INVALI
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the string describing the <a class="reference internal" href="#Atk.Role" title="Atk.Role"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.Role</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -551,12 +562,12 @@ or <a class="reference internal" href="#Atk.Role.INVALID" title="Atk.Role.INVALI
 
 <dl class="classmethod">
 <dt id="Atk.Role.register">
-<em class="property">classmethod </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkobject.c#L886"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkobject.c#L885"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a character string describing the new role.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a character string describing the new role.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an <a class="reference internal" href="#Atk.Role" title="Atk.Role"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.Role</span></code></a> for the new role if added
 properly. <a class="reference internal" href="#Atk.Role.INVALID" title="Atk.Role.INVALID"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.Role.INVALID</span></code></a> in case of error.</td>
@@ -1540,18 +1551,78 @@ in other words it is an “input method window.”</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="Atk.ScrollType">
+<em class="property">class </em><code class="descclassname">Atk.</code><code class="descname">ScrollType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GObject.GEnum</span></code></a></p>
+<p>Specifies where an object should be placed on the screen when using scroll_to.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 2.30.</span></p>
+</div>
+<dl class="attribute">
+<dt id="Atk.ScrollType.TOP_LEFT">
+<code class="descname">TOP_LEFT</code><em class="property"> = 0</em></dt>
+<dd><p>Scroll the object vertically and horizontally to the top
+left corner of the window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Atk.ScrollType.BOTTOM_RIGHT">
+<code class="descname">BOTTOM_RIGHT</code><em class="property"> = 1</em></dt>
+<dd><p>Scroll the object vertically and horizontally to the
+bottom right corner of the window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Atk.ScrollType.TOP_EDGE">
+<code class="descname">TOP_EDGE</code><em class="property"> = 2</em></dt>
+<dd><p>Scroll the object vertically to the top edge of the
+window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Atk.ScrollType.BOTTOM_EDGE">
+<code class="descname">BOTTOM_EDGE</code><em class="property"> = 3</em></dt>
+<dd><p>Scroll the object vertically to the bottom edge of
+the window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Atk.ScrollType.LEFT_EDGE">
+<code class="descname">LEFT_EDGE</code><em class="property"> = 4</em></dt>
+<dd><p>Scroll the object vertically and horizontally to the
+left edge of the window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Atk.ScrollType.RIGHT_EDGE">
+<code class="descname">RIGHT_EDGE</code><em class="property"> = 5</em></dt>
+<dd><p>Scroll the object vertically and horizontally to the
+right edge of the window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Atk.ScrollType.ANYWHERE">
+<code class="descname">ANYWHERE</code><em class="property"> = 6</em></dt>
+<dd><p>Scroll the object vertically and horizontally so that
+as much as possible of the object becomes visible. The exact placement is
+determined by the application.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="Atk.StateType">
 <em class="property">class </em><code class="descclassname">Atk.</code><code class="descname">StateType</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <a class="reference external" href="../python-GObject-2.0/enums.html#GObject.GEnum" title="(in GObject 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GObject.GEnum</span></code></a></p>
 <p>The possible types of states of an object</p>
 <dl class="classmethod">
 <dt id="Atk.StateType.for_name">
-<em class="property">classmethod </em><code class="descname">for_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkstate.c#L110"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">for_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkstate.c#L110"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a character string state name</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a character string state name</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an <a class="reference internal" href="#Atk.StateType" title="Atk.StateType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.StateType</span></code></a> corresponding to <cite>name</cite></td>
 </tr>
@@ -1564,7 +1635,7 @@ in other words it is an “input method window.”</p>
 
 <dl class="classmethod">
 <dt id="Atk.StateType.get_name">
-<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkstate.c#L72"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkstate.c#L72"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1573,7 +1644,7 @@ in other words it is an “input method window.”</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the string describing the <a class="reference internal" href="#Atk.StateType" title="Atk.StateType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.StateType</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1582,12 +1653,12 @@ in other words it is an “input method window.”</p>
 
 <dl class="classmethod">
 <dt id="Atk.StateType.register">
-<em class="property">classmethod </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkstate.c#L51"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkstate.c#L51"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a character string describing the new state.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a character string describing the new state.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an #AtkState value for the new state.</td>
 </tr>
@@ -1939,12 +2010,12 @@ should contain <a class="reference internal" href="#Atk.StateType.READ_ONLY" tit
 <p>Describes the text attributes supported</p>
 <dl class="classmethod">
 <dt id="Atk.TextAttribute.for_name">
-<em class="property">classmethod </em><code class="descname">for_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atktext.c#L1216"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">for_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atktext.c#L1216"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a string which is the (non-localized) name of an ATK text attribute.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a string which is the (non-localized) name of an ATK text attribute.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="#Atk.TextAttribute" title="Atk.TextAttribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.TextAttribute</span></code></a> enumerated type corresponding to the specified
 name,
@@ -1959,7 +2030,7 @@ or #ATK_TEXT_ATTRIBUTE_INVALID if no matching text attribute is found.</td>
 
 <dl class="classmethod">
 <dt id="Atk.TextAttribute.get_name">
-<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atktext.c#L1173"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atktext.c#L1173"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1968,7 +2039,7 @@ or #ATK_TEXT_ATTRIBUTE_INVALID if no matching text attribute is found.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a string containing the name; this string should not be freed</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1977,23 +2048,23 @@ or #ATK_TEXT_ATTRIBUTE_INVALID if no matching text attribute is found.</td>
 
 <dl class="classmethod">
 <dt id="Atk.TextAttribute.get_value">
-<em class="property">classmethod </em><code class="descname">get_value</code><span class="sig-paren">(</span><em>attr</em>, <em>index_</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atktext.c#L1271"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_value</code><span class="sig-paren">(</span><em>attr</em>, <em>index_</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atktext.c#L1271"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>attr</strong> (<a class="reference internal" href="#Atk.TextAttribute" title="Atk.TextAttribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.TextAttribute</span></code></a>) – The <a class="reference internal" href="#Atk.TextAttribute" title="Atk.TextAttribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.TextAttribute</span></code></a> for which a value is required</li>
-<li><strong>index</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – The index of the required value</li>
+<li><strong>index</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – The index of the required value</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a string containing the value; this string
-should not be freed; <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned if there are no values
+should not be freed; <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned if there are no values
 maintained for the attr value.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -2003,12 +2074,12 @@ maintained for the attr value.</p>
 
 <dl class="classmethod">
 <dt id="Atk.TextAttribute.register">
-<em class="property">classmethod </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atktext.c#L1153"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">register</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atktext.c#L1153"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a name string</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a name string</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an <a class="reference internal" href="#Atk.TextAttribute" title="Atk.TextAttribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.TextAttribute</span></code></a> associated with <cite>name</cite></td>
 </tr>
@@ -2112,7 +2183,7 @@ maintained for the attr value.</p>
 <dl class="attribute">
 <dt id="Atk.TextAttribute.WRAP_MODE">
 <code class="descname">WRAP_MODE</code><em class="property"> = 22</em></dt>
-<dd><p>The wrap mode of the text, if any. Values are “none”, “<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>”, “word”, or “word_char”.</p>
+<dd><p>The wrap mode of the text, if any. Values are “none”, “<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>”, “word”, or “word_char”.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2340,7 +2411,7 @@ easily get localized strings to describe a given value or a given
 subrange, using <a class="reference internal" href="#Atk.ValueType.get_localized_name" title="Atk.ValueType.get_localized_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.ValueType.get_localized_name</span></code></a>().</p>
 <dl class="classmethod">
 <dt id="Atk.ValueType.get_localized_name">
-<em class="property">classmethod </em><code class="descname">get_localized_name</code><span class="sig-paren">(</span><em>value_type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkvalue.c#L739"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_localized_name</code><span class="sig-paren">(</span><em>value_type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkvalue.c#L739"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2349,7 +2420,7 @@ subrange, using <a class="reference internal" href="#Atk.ValueType.get_localized
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the localized string describing the <a class="reference internal" href="#Atk.ValueType" title="Atk.ValueType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.ValueType</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -2358,7 +2429,7 @@ subrange, using <a class="reference internal" href="#Atk.ValueType.get_localized
 
 <dl class="classmethod">
 <dt id="Atk.ValueType.get_name">
-<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>value_type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_28_1/atk/atkvalue.c#L717"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">get_name</code><span class="sig-paren">(</span><em>value_type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/atk/blob/ATK_2_30_0/atk/atkvalue.c#L717"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2367,7 +2438,7 @@ subrange, using <a class="reference internal" href="#Atk.ValueType.get_localized
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the string describing the <a class="reference internal" href="#Atk.ValueType" title="Atk.ValueType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atk.ValueType</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>

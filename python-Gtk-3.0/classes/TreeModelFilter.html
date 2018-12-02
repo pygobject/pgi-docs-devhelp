@@ -249,7 +249,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (38)</span></a>,     <a class="reference internal" href="TreeDragSource.html#gtk-treedragsource-methods"><span class="std std-ref">Gtk.TreeDragSource (3)</span></a>,     <a class="reference internal" href="TreeModel.html#gtk-treemodel-methods"><span class="std std-ref">Gtk.TreeModel (28)</span></a></td>
+<tr class="field-odd field"><th class="field-name">Inherited:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/Object.html#gobject-object-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.Object (37)</span></a>,     <a class="reference internal" href="TreeDragSource.html#gtk-treedragsource-methods"><span class="std std-ref">Gtk.TreeDragSource (3)</span></a>,     <a class="reference internal" href="TreeModel.html#gtk-treemodel-methods"><span class="std std-ref">Gtk.TreeModel (28)</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Structs:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/classes/ObjectClass.html#gobject-objectclass-methods" title="(in GObject 2.0 v2.0)"><span class="xref std std-ref">GObject.ObjectClass (5)</span></a></td>
 </tr>
@@ -473,7 +473,7 @@ do implement reference counting, obtain references on these child levels
 yourself.</p>
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.clear_cache">
-<code class="descname">clear_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L4283"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">clear_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L4283"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>This function should almost never be called. It clears the <cite>self</cite>
 of any cached iterators that haven’t been reffed with
 <a class="reference internal" href="TreeModel.html#Gtk.TreeModel.ref_node" title="Gtk.TreeModel.ref_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModel.ref_node</span></code></a>(). This might be useful if the child model
@@ -487,14 +487,14 @@ all unreffed iters will be invalid.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.convert_child_iter_to_iter">
-<code class="descname">convert_child_iter_to_iter</code><span class="sig-paren">(</span><em>child_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L3954"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_child_iter_to_iter</code><span class="sig-paren">(</span><em>child_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L3954"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>child_iter</strong> (<a class="reference internal" href="TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeIter</span></code></a>) – A valid <a class="reference internal" href="TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeIter</span></code></a> pointing to a row on the child model.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, if <cite>filter_iter</cite> was set, i.e. if <cite>child_iter</cite> is a
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>, if <cite>filter_iter</cite> was set, i.e. if <cite>child_iter</cite> is a
 valid iterator pointing to a visible row in child model.<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -505,12 +505,12 @@ valid iterator pointing to a visible row in child model.<table class="docutils f
 </table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, <strong>filter_iter</strong>: <a class="reference internal" href="TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeIter</span></code></a>)</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(<a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, <strong>filter_iter</strong>: <a class="reference internal" href="TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeIter</span></code></a>)</td>
 </tr>
 </tbody>
 </table>
 <p>Sets <cite>filter_iter</cite> to point to the row in <cite>self</cite> that corresponds to the
-row pointed at by <cite>child_iter</cite>.  If <cite>filter_iter</cite> was not set, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> is
+row pointed at by <cite>child_iter</cite>.  If <cite>filter_iter</cite> was not set, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> is
 returned.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
@@ -519,23 +519,23 @@ returned.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.convert_child_path_to_path">
-<code class="descname">convert_child_path_to_path</code><span class="sig-paren">(</span><em>child_path</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L4134"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_child_path_to_path</code><span class="sig-paren">(</span><em>child_path</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L4134"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>child_path</strong> (<a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a>) – A <a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a> to convert.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a>, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a>, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Converts <cite>child_path</cite> to a path relative to <cite>self</cite>. That is, <cite>child_path</cite>
 points to a path in the child model. The rerturned path will point to the
 same row in the filtered model. If <cite>child_path</cite> isn’t a valid path on the
-child model or points to a row which is not visible in <cite>self</cite>, then <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>
+child model or points to a row which is not visible in <cite>self</cite>, then <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>
 is returned.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
@@ -544,7 +544,7 @@ is returned.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.convert_iter_to_child_iter">
-<code class="descname">convert_iter_to_child_iter</code><span class="sig-paren">(</span><em>filter_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L3996"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_iter_to_child_iter</code><span class="sig-paren">(</span><em>filter_iter</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L3996"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -565,23 +565,23 @@ is returned.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.convert_path_to_child_path">
-<code class="descname">convert_path_to_child_path</code><span class="sig-paren">(</span><em>filter_path</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L4177"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">convert_path_to_child_path</code><span class="sig-paren">(</span><em>filter_path</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L4177"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filter_path</strong> (<a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a>) – A <a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a> to convert.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a>, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A newly allocated <a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a>, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Converts <cite>filter_path</cite> to a path on the child model of <cite>self</cite>. That is,
 <cite>filter_path</cite> points to a location in <cite>self</cite>. The returned path will
 point to the same location in the model not being filtered. If <cite>filter_path</cite>
-does not point to a location in the child model, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
+does not point to a location in the child model, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.4.</span></p>
 </div>
@@ -589,7 +589,7 @@ does not point to a location in the child model, <a class="reference external" h
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.get_model">
-<code class="descname">get_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L3792"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L3792"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -608,7 +608,7 @@ does not point to a location in the child model, <a class="reference external" h
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.refilter">
-<code class="descname">refilter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L4259"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">refilter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L4259"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>Emits ::row_changed for each row in the child model, which causes
 the filter to re-evaluate whether a row is visible or not.</p>
 <div class="versionadded">
@@ -618,7 +618,7 @@ the filter to re-evaluate whether a row is visible or not.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.set_modify_func">
-<code class="descname">set_modify_func</code><span class="sig-paren">(</span><em>types</em>, <em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L3889"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_modify_func</code><span class="sig-paren">(</span><em>types</em>, <em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L3889"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -626,7 +626,7 @@ the filter to re-evaluate whether a row is visible or not.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>types</strong> ([<a class="reference external" href="../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.GType</span></code></a>]) – The <a class="reference external" href="../../python-GObject-2.0/classes/GType.html#GObject.GType" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.GTypes</span></code></a> of the columns.</li>
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gtk.TreeModelFilterModifyFunc" title="Gtk.TreeModelFilterModifyFunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModelFilterModifyFunc</span></code></a>) – A <a class="reference internal" href="../callbacks.html#Gtk.TreeModelFilterModifyFunc" title="Gtk.TreeModelFilterModifyFunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModelFilterModifyFunc</span></code></a></li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – User data to pass to the modify function, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – User data to pass to the modify function, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>.</li>
 </ul>
 </td>
 </tr>
@@ -654,18 +654,18 @@ can only be called once for a given filter model.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.set_visible_column">
-<code class="descname">set_visible_column</code><span class="sig-paren">(</span><em>column</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L3923"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_visible_column</code><span class="sig-paren">(</span><em>column</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L3923"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>column</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – A <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> which is the column containing the visible information</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>column</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – A <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> which is the column containing the visible information</td>
 </tr>
 </tbody>
 </table>
 <p>Sets <cite>column</cite> of the child_model to be the column where <cite>self</cite> should
 look for visibility information. <cite>columns</cite> should be a column of type
-<a class="reference external" href="../../python-GObject-2.0/constants.html#GObject.TYPE_BOOLEAN" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.TYPE_BOOLEAN</span></code></a>, where <a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> means that a row is visible, and <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>
+<a class="reference external" href="../../python-GObject-2.0/constants.html#GObject.TYPE_BOOLEAN" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.TYPE_BOOLEAN</span></code></a>, where <a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> means that a row is visible, and <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>
 if not.</p>
 <p>Note that <a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_func" title="Gtk.TreeModelFilter.set_visible_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModelFilter.set_visible_func</span></code></a>() or
 <a class="reference internal" href="#Gtk.TreeModelFilter.set_visible_column" title="Gtk.TreeModelFilter.set_visible_column"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModelFilter.set_visible_column</span></code></a>() can only be called
@@ -677,22 +677,22 @@ once for a given filter model.</p>
 
 <dl class="method">
 <dt id="Gtk.TreeModelFilter.set_visible_func">
-<code class="descname">set_visible_func</code><span class="sig-paren">(</span><em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.22.30/gtk/gtktreemodelfilter.c#L3848"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_visible_func</code><span class="sig-paren">(</span><em>func</em>, <em>*data</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/gtk/blob/3.24.1/gtk/gtktreemodel.c#L3848"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>func</strong> (<a class="reference internal" href="../callbacks.html#Gtk.TreeModelFilterVisibleFunc" title="Gtk.TreeModelFilterVisibleFunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModelFilterVisibleFunc</span></code></a>) – A <a class="reference internal" href="../callbacks.html#Gtk.TreeModelFilterVisibleFunc" title="Gtk.TreeModelFilterVisibleFunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModelFilterVisibleFunc</span></code></a>, the visible function</li>
-<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – User data to pass to the visible function, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></li>
+<li><strong>data</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – User data to pass to the visible function, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Sets the visible function used when filtering the <cite>self</cite> to be <cite>func</cite>.
-The function should return <a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if the given row should be visible and
-<a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> otherwise.</p>
+The function should return <a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if the given row should be visible and
+<a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> otherwise.</p>
 <p>If the condition calculated by the function changes over time (e.g.
 because it depends on some global parameters), you must call
 <a class="reference internal" href="#Gtk.TreeModelFilter.refilter" title="Gtk.TreeModelFilter.refilter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModelFilter.refilter</span></code></a>() to keep the visibility information
@@ -737,7 +737,7 @@ once for a given filter model.</p>
 <li><strong>child_model</strong> (<a class="reference internal" href="TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModel</span></code></a>) – </li>
 <li><strong>iter</strong> (<a class="reference internal" href="TreeIter.html#Gtk.TreeIter" title="Gtk.TreeIter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeIter</span></code></a>) – </li>
 <li><strong>value</strong> (<a class="reference external" href="../../python-GObject-2.0/classes/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Value</span></code></a>) – </li>
-<li><strong>column</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – </li>
+<li><strong>column</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – </li>
 </ul>
 </td>
 </tr>
@@ -758,7 +758,7 @@ once for a given filter model.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -781,7 +781,7 @@ once for a given filter model.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="TreeModel.html#Gtk.TreeModel" title="Gtk.TreeModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreeModel</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">READABLE</span></code></a>, <a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.WRITABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WRITABLE</span></code></a>, <a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.CONSTRUCT_ONLY" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CONSTRUCT_ONLY</span></code></a></td>
 </tr>
@@ -801,7 +801,7 @@ once for a given filter model.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="TreePath.html#Gtk.TreePath" title="Gtk.TreePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gtk.TreePath</span></code></a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Default Value:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Flags:</th><td class="field-body"><a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.READABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">READABLE</span></code></a>, <a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.WRITABLE" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WRITABLE</span></code></a>, <a class="reference external" href="../../python-GObject-2.0/flags.html#GObject.ParamFlags.CONSTRUCT_ONLY" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CONSTRUCT_ONLY</span></code></a></td>
 </tr>

@@ -368,13 +368,14 @@ there should be no need to copy an immutable node.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> with its reference
 count increased.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Retrieves the <a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a> and returns it
-with its reference count increased by one. If the node does not hold an
-array value, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
+with its reference count increased by one. It is a programmer error
+to call this on a node which doesn’t hold an array value. Use
+%JSON_NODE_HOLDS_ARRAY first.</p>
 </dd></dl>
 
 <dl class="method">
@@ -386,13 +387,14 @@ array value, <a class="reference external" href="http://docs.python.org/3/librar
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Retrieves the <a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> inside <cite>self</cite>. The reference count of
-the returned object is increased. If the node does not hold an object value,
-<a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
+the returned object is increased. It is a programmer error
+to call this on a node which doesn’t hold an object value. Use
+%JSON_NODE_HOLDS_OBJECT first.</p>
 </dd></dl>
 
 <dl class="method">
@@ -406,12 +408,12 @@ the returned object is increased. If the node does not hold an object value,
 containing a copy of the <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a> contents. Use <a class="reference external" href="../../python-GLib-2.0/functions.html#GLib.free" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLib.free</span></code></a>() to free the
 allocated resources</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets a copy of the string value stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>. If the node does
-not hold a string value, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
+not hold a string value, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
 </dd></dl>
 
 <dl class="method">
@@ -423,9 +425,9 @@ not hold a string value, <a class="reference external" href="http://docs.python.
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>b</strong> (<a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>) – another JSON node</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if <cite>self</cite> and <cite>b</cite> are equal; <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> otherwise</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if <cite>self</cite> and <cite>b</cite> are equal; <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> otherwise</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -453,12 +455,13 @@ integer value 4.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the <a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>. If the node does not
-hold an array value, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
+<p>Retrieves the <a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>. It is a programmer error
+to call this on a node which doesn’t hold an array value. Use
+%JSON_NODE_HOLDS_ARRAY first.</p>
 </dd></dl>
 
 <dl class="method">
@@ -470,14 +473,14 @@ hold an array value, <a class="reference external" href="http://docs.python.org/
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a boolean value.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets the boolean value stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>. If the node holds an
-integer or double value which is zero, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> is returned; otherwise <a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>
+integer or double value which is zero, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> is returned; otherwise <a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>
 is returned. If the node holds a <a class="reference internal" href="../enums.html#Json.NodeType.NULL" title="Json.NodeType.NULL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.NodeType.NULL</span></code></a> value or a value of another
-non-boolean type, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> is returned.</p>
+non-boolean type, <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> is returned.</p>
 </dd></dl>
 
 <dl class="method">
@@ -489,12 +492,12 @@ non-boolean type, <a class="reference external" href="http://docs.python.org/3/l
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a double value.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets the double value stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>. If the node holds an integer
-value, it is returned as a double. If the node holds a <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> boolean value,
+value, it is returned as a double. If the node holds a <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> boolean value,
 <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is returned; otherwise a non-zero double is returned. If the node holds
 a <a class="reference internal" href="../enums.html#Json.NodeType.NULL" title="Json.NodeType.NULL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.NodeType.NULL</span></code></a> value or a value of another non-double type, <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is
 returned.</p>
@@ -509,12 +512,12 @@ returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an integer value.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets the integer value stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>. If the node holds a double
-value, its integer component is returned. If the node holds a <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> boolean
+value, its integer component is returned. If the node holds a <a class="reference external" href="http://docs.python.org/3/library/constants.html#False" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> boolean
 value, <code class="docutils literal notranslate"><span class="pre">0</span></code> is returned; otherwise a non-zero integer is returned. If the
 node holds a <a class="reference internal" href="../enums.html#Json.NodeType.NULL" title="Json.NodeType.NULL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.NodeType.NULL</span></code></a> value or a value of another non-integer type,
 <code class="docutils literal notranslate"><span class="pre">0</span></code> is returned.</p>
@@ -548,12 +551,13 @@ node holds a <a class="reference internal" href="../enums.html#Json.NodeType.NUL
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
-<p>Retrieves the <a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>. If the node does not
-hold an object value, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
+<p>Retrieves the <a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>. It is a programmer error
+to call this on a node which doesn’t hold an object value. Use
+%JSON_NODE_HOLDS_OBJECT first.</p>
 </dd></dl>
 
 <dl class="method">
@@ -563,10 +567,10 @@ hold an object value, <a class="reference external" href="http://docs.python.org
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the parent node, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> if <cite>self</cite>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the parent node, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> if <cite>self</cite>
 is the root node</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -582,12 +586,12 @@ is the root node</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string value.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets the string value stored inside a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>. If the node does not hold a
-string value, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
+string value, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> is returned.</p>
 </dd></dl>
 
 <dl class="method">
@@ -604,8 +608,9 @@ string value, <a class="reference external" href="http://docs.python.org/3/libra
 </tbody>
 </table>
 <p>Retrieves a value from a <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a> and copies into <cite>value</cite>. When done
-using it, call <a class="reference external" href="../../python-GObject-2.0/classes/Value.html#GObject.Value.unset" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Value.unset</span></code></a>() on the <a class="reference external" href="../../python-GObject-2.0/classes/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Value</span></code></a>. If the node does not hold a
-scalar value, <cite>value</cite> is not modified.</p>
+using it, call <a class="reference external" href="../../python-GObject-2.0/classes/Value.html#GObject.Value.unset" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Value.unset</span></code></a>() on the <a class="reference external" href="../../python-GObject-2.0/classes/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Value</span></code></a>. It is a programmer error
+to call this on a node which doesn’t hold a scalar value. Use
+%JSON_NODE_HOLDS_VALUE first.</p>
 </dd></dl>
 
 <dl class="method">
@@ -636,7 +641,7 @@ scalar value, <cite>value</cite> is not modified.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">hash value for <cite>self</cite></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -680,7 +685,7 @@ the given type, and any data contained will be cleared.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>array</strong> (<a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – the <a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> to initialize <cite>self</cite> with, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>array</strong> (<a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – the <a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> to initialize <cite>self</cite> with, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the initialized <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a></td>
 </tr>
@@ -704,7 +709,7 @@ the given type, and any data contained will be cleared.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>) – a boolean value</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>) – a boolean value</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the initialized <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a></td>
 </tr>
@@ -727,7 +732,7 @@ the given type, and any data contained will be cleared.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>) – a floating point value</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>) – a floating point value</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the initialized <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a></td>
 </tr>
@@ -750,7 +755,7 @@ the given type, and any data contained will be cleared.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – an integer</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – an integer</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the initialized <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a></td>
 </tr>
@@ -794,7 +799,7 @@ the given type, and any data contained will be cleared.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>object</strong> (<a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – the <a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> to initialize <cite>self</cite> with, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>object</strong> (<a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – the <a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> to initialize <cite>self</cite> with, or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the initialized <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a></td>
 </tr>
@@ -818,7 +823,7 @@ the given type, and any data contained will be cleared.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a string value</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a string value</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the initialized <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a></td>
 </tr>
@@ -841,9 +846,9 @@ the given type, and any data contained will be cleared.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if the <cite>self</cite> is immutable</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if the <cite>self</cite> is immutable</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -861,14 +866,14 @@ the given type, and any data contained will be cleared.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if the node is null</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/constants.html#True" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if the node is null</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Checks whether <cite>self</cite> is a <a class="reference internal" href="../enums.html#Json.NodeType.NULL" title="Json.NodeType.NULL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.NodeType.NULL</span></code></a>.</p>
-<p>A <a class="reference internal" href="../enums.html#Json.NodeType.NULL" title="Json.NodeType.NULL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.NodeType.NULL</span></code></a> node is not the same as a <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>; a
+<p>A <a class="reference internal" href="../enums.html#Json.NodeType.NULL" title="Json.NodeType.NULL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.NodeType.NULL</span></code></a> node is not the same as a <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>; a
 <a class="reference internal" href="../enums.html#Json.NodeType.NULL" title="Json.NodeType.NULL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.NodeType.NULL</span></code></a> represents a ‘null’ value in the JSON tree.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.8.</span></p>
@@ -919,7 +924,8 @@ sealed, etc.</p>
 </tbody>
 </table>
 <p>Sets <cite>array</cite> inside <cite>self</cite> and increases the <a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> reference count.</p>
-<p>It is an error to call this on an immutable node.</p>
+<p>It is an error to call this on an immutable node, or on a node which is not
+an array node.</p>
 </dd></dl>
 
 <dl class="method">
@@ -929,13 +935,14 @@ sealed, etc.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>) – a boolean value</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>) – a boolean value</td>
 </tr>
 </tbody>
 </table>
 <p>Sets <cite>value</cite> as the boolean content of the <cite>self</cite>, replacing any existing
 content.</p>
-<p>It is an error to call this on an immutable node.</p>
+<p>It is an error to call this on an immutable node, or on a node which is not
+a value node.</p>
 </dd></dl>
 
 <dl class="method">
@@ -945,13 +952,14 @@ content.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>) – a double value</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>) – a double value</td>
 </tr>
 </tbody>
 </table>
 <p>Sets <cite>value</cite> as the double content of the <cite>self</cite>, replacing any existing
 content.</p>
-<p>It is an error to call this on an immutable node.</p>
+<p>It is an error to call this on an immutable node, or on a node which is not
+a value node.</p>
 </dd></dl>
 
 <dl class="method">
@@ -961,13 +969,14 @@ content.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – an integer value</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – an integer value</td>
 </tr>
 </tbody>
 </table>
 <p>Sets <cite>value</cite> as the integer content of the <cite>self</cite>, replacing any existing
 content.</p>
-<p>It is an error to call this on an immutable node.</p>
+<p>It is an error to call this on an immutable node, or on a node which is not
+a value node.</p>
 </dd></dl>
 
 <dl class="method">
@@ -977,13 +986,14 @@ content.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>object</strong> (<a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>object</strong> (<a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – a <a class="reference internal" href="Object.html#Json.Object" title="Json.Object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Object</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Sets <cite>objects</cite> inside <cite>self</cite>. The reference count of <cite>object</cite> is increased.</p>
-<p>If <cite>object</cite> is <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, the node’s existing object is cleared.</p>
-<p>It is an error to call this on an immutable node.</p>
+<p>If <cite>object</cite> is <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, the node’s existing object is cleared.</p>
+<p>It is an error to call this on an immutable node, or on a node which is not
+an object node.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1012,13 +1022,14 @@ immutable.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a string value</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – a string value</td>
 </tr>
 </tbody>
 </table>
 <p>Sets <cite>value</cite> as the string content of the <cite>self</cite>, replacing any existing
 content.</p>
-<p>It is an error to call this on an immutable node.</p>
+<p>It is an error to call this on an immutable node, or on a node which is not
+a value node.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1033,7 +1044,8 @@ content.</p>
 </tbody>
 </table>
 <p>Sets <cite>value</cite> inside <cite>self</cite>. The passed <a class="reference external" href="../../python-GObject-2.0/classes/Value.html#GObject.Value" title="(in GObject 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GObject.Value</span></code></a> is copied into the <a class="reference internal" href="#Json.Node" title="Json.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Node</span></code></a>.</p>
-<p>It is an error to call this on an immutable node.</p>
+<p>It is an error to call this on an immutable node, or on a node which is not
+a value node.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1048,7 +1060,8 @@ content.</p>
 </tbody>
 </table>
 <p>Sets <cite>array</cite> into <cite>self</cite> without increasing the <a class="reference internal" href="Array.html#Json.Array" title="Json.Array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Json.Array</span></code></a> reference count.</p>
-<p>It is an error to call this on an immutable node.</p>
+<p>It is an error to call this on an immutable node, or a node which is not
+an array node.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1063,7 +1076,8 @@ content.</p>
 </tbody>
 </table>
 <p>Sets <cite>object</cite> inside <cite>self</cite>. The reference count of <cite>object</cite> is not increased.</p>
-<p>It is an error to call this on an immutable node.</p>
+<p>It is an error to call this on an immutable node, or on a node which is not
+an object node.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1076,7 +1090,7 @@ content.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing the name of the type. The returned string
 is owned by the node and should never be modified or freed</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
