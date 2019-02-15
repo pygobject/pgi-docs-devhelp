@@ -30,6 +30,8 @@
   
 
   
+    <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  
 
   
     <link rel="stylesheet" href="../_static/css/pgi.css" type="text/css" />
@@ -434,12 +436,12 @@ on a <a class="reference internal" href="DBusConnection.html#Gio.DBusConnection"
 </div>
 <dl class="classmethod">
 <dt id="Gio.DBusMessage.bytes_needed">
-<em class="property">classmethod </em><code class="descname">bytes_needed</code><span class="sig-paren">(</span><em>blob</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L1945"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">bytes_needed</code><span class="sig-paren">(</span><em>blob</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L1951"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blob</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bytes</span></code></a>) – A blob represent a binary D-Bus message.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blob</strong> (<a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bytes</span></code></a>) – A blob representing a binary D-Bus message.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Error.html#GLib.Error" title="(in GLib 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GLib.Error</span></code></a></td>
 </tr>
@@ -460,7 +462,7 @@ completely deserialize the D-Bus message stored at <cite>blob</cite>.</p>
 
 <dl class="classmethod">
 <dt id="Gio.DBusMessage.new">
-<em class="property">classmethod </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L580"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L580"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -479,7 +481,7 @@ completely deserialize the D-Bus message stored at <cite>blob</cite>.</p>
 
 <dl class="classmethod">
 <dt id="Gio.DBusMessage.new_from_blob">
-<em class="property">classmethod </em><code class="descname">new_from_blob</code><span class="sig-paren">(</span><em>blob</em>, <em>capabilities</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L2015"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_from_blob</code><span class="sig-paren">(</span><em>blob</em>, <em>capabilities</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L2024"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -505,6 +507,8 @@ completely deserialize the D-Bus message stored at <cite>blob</cite>.</p>
 <p>Creates a new <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.DBusMessage</span></code></a> from the data stored at <cite>blob</cite>. The byte
 order that the message was in can be retrieved using
 <a class="reference internal" href="#Gio.DBusMessage.get_byte_order" title="Gio.DBusMessage.get_byte_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.DBusMessage.get_byte_order</span></code></a>().</p>
+<p>If the <cite>blob</cite> cannot be parsed, contains invalid fields, or contains invalid
+headers, <a class="reference internal" href="../enums.html#Gio.IOErrorEnum.INVALID_ARGUMENT" title="Gio.IOErrorEnum.INVALID_ARGUMENT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gio.IOErrorEnum.INVALID_ARGUMENT</span></code></a> will be returned.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.26.</span></p>
 </div>
@@ -512,7 +516,7 @@ order that the message was in can be retrieved using
 
 <dl class="classmethod">
 <dt id="Gio.DBusMessage.new_method_call">
-<em class="property">classmethod </em><code class="descname">new_method_call</code><span class="sig-paren">(</span><em>name</em>, <em>path</em>, <em>interface_</em>, <em>method</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L602"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_method_call</code><span class="sig-paren">(</span><em>name</em>, <em>path</em>, <em>interface_</em>, <em>method</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L602"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -541,7 +545,7 @@ order that the message was in can be retrieved using
 
 <dl class="classmethod">
 <dt id="Gio.DBusMessage.new_signal">
-<em class="property">classmethod </em><code class="descname">new_signal</code><span class="sig-paren">(</span><em>path</em>, <em>interface_</em>, <em>signal</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L639"><span class="viewcode-link">[source]</span></a></dt>
+<em class="property">classmethod </em><code class="descname">new_signal</code><span class="sig-paren">(</span><em>path</em>, <em>interface_</em>, <em>signal</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L639"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -569,7 +573,7 @@ order that the message was in can be retrieved using
 
 <dl class="method">
 <dt id="Gio.DBusMessage.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3593"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3621"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -595,7 +599,7 @@ and the per-process or system-wide open files limit is reached.</p>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_arg0">
-<code class="descname">get_arg0</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3177"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_arg0</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3205"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -615,7 +619,7 @@ and the per-process or system-wide open files limit is reached.</p>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_body">
-<code class="descname">get_body</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L1087"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_body</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L1090"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -635,7 +639,7 @@ empty. Do not free, it is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_byte_order">
-<code class="descname">get_byte_order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L813"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_byte_order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L813"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -651,7 +655,7 @@ empty. Do not free, it is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_destination">
-<code class="descname">get_destination</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3061"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_destination</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3089"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -670,7 +674,7 @@ empty. Do not free, it is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_error_name">
-<code class="descname">get_error_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3098"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_error_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3126"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -689,7 +693,7 @@ empty. Do not free, it is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_flags">
-<code class="descname">get_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L902"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L902"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -708,7 +712,7 @@ empty. Do not free, it is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_header">
-<code class="descname">get_header</code><span class="sig-paren">(</span><em>header_field</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L995"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_header</code><span class="sig-paren">(</span><em>header_field</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L998"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -718,11 +722,13 @@ empty. Do not free, it is owned by <cite>self</cite>.</td>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLib.Variant</span></code></a> with the value if the header was found, <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>
 otherwise. Do not free, it is owned by <cite>self</cite>.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLib.Variant</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLib.Variant</span></code></a> or <a class="reference external" href="http://docs.python.org/3/library/constants.html#None" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
 <p>Gets a header field on <cite>self</cite>.</p>
+<p>The caller is responsible for checking the type of the returned <a class="reference external" href="../../python-GLib-2.0/classes/Variant.html#GLib.Variant" title="(in GLib 2.0 v2.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLib.Variant</span></code></a>
+matches what is expected.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.26.</span></p>
 </div>
@@ -730,7 +736,7 @@ otherwise. Do not free, it is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_header_fields">
-<code class="descname">get_header_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L1051"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_header_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L1054"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -751,7 +757,7 @@ is a #guchar. Free with <a class="reference external" href="../../python-GLib-2.
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_interface">
-<code class="descname">get_interface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L2913"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_interface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L2941"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -770,7 +776,7 @@ is a #guchar. Free with <a class="reference external" href="../../python-GLib-2.
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_locked">
-<code class="descname">get_locked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3545"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_locked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3573"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -791,7 +797,7 @@ on the <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMess
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_member">
-<code class="descname">get_member</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L2950"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_member</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L2978"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -810,7 +816,7 @@ on the <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMess
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_message_type">
-<code class="descname">get_message_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L856"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_message_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L856"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -829,7 +835,7 @@ on the <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMess
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_num_unix_fds">
-<code class="descname">get_num_unix_fds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3210"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_num_unix_fds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3238"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -848,7 +854,7 @@ on the <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMess
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_path">
-<code class="descname">get_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L2987"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3015"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -867,7 +873,7 @@ on the <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMess
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_reply_serial">
-<code class="descname">get_reply_serial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L2877"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_reply_serial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L2905"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -886,7 +892,7 @@ on the <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMess
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_sender">
-<code class="descname">get_sender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3024"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_sender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3052"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -905,7 +911,7 @@ on the <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMess
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_serial">
-<code class="descname">get_serial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L947"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_serial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L947"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -924,7 +930,7 @@ on the <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMess
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_signature">
-<code class="descname">get_signature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3135"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_signature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3163"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -943,7 +949,7 @@ on the <a class="reference internal" href="#Gio.DBusMessage" title="Gio.DBusMess
 
 <dl class="method">
 <dt id="Gio.DBusMessage.get_unix_fd_list">
-<code class="descname">get_unix_fd_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L1160"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">get_unix_fd_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L1163"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -964,7 +970,7 @@ associated. Do not free, this object is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.lock">
-<code class="descname">lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3560"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3588"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>If <cite>self</cite> is locked, does nothing. Otherwise locks the message.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 2.26.</span></p>
@@ -973,7 +979,7 @@ associated. Do not free, this object is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.new_method_error_literal">
-<code class="descname">new_method_error_literal</code><span class="sig-paren">(</span><em>error_name</em>, <em>error_message</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L743"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">new_method_error_literal</code><span class="sig-paren">(</span><em>error_name</em>, <em>error_message</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L743"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1000,7 +1006,7 @@ associated. Do not free, this object is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.new_method_reply">
-<code class="descname">new_method_reply</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L671"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">new_method_reply</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L671"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1019,7 +1025,7 @@ associated. Do not free, this object is owned by <cite>self</cite>.</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.print_">
-<code class="descname">print_</code><span class="sig-paren">(</span><em>indent</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3408"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">print_</code><span class="sig-paren">(</span><em>indent</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3436"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1070,7 +1076,7 @@ UNIX File Descriptors:
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_body">
-<code class="descname">set_body</code><span class="sig-paren">(</span><em>body</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L1108"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_body</code><span class="sig-paren">(</span><em>body</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L1111"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1090,7 +1096,7 @@ type string of <cite>body</cite> (or cleared if <cite>body</cite> is <a class="r
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_byte_order">
-<code class="descname">set_byte_order</code><span class="sig-paren">(</span><em>byte_order</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L828"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_byte_order</code><span class="sig-paren">(</span><em>byte_order</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L828"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1104,7 +1110,7 @@ type string of <cite>body</cite> (or cleared if <cite>body</cite> is <a class="r
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_destination">
-<code class="descname">set_destination</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3078"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_destination</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3106"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1121,7 +1127,7 @@ type string of <cite>body</cite> (or cleared if <cite>body</cite> is <a class="r
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_error_name">
-<code class="descname">set_error_name</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3115"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_error_name</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3143"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1138,7 +1144,7 @@ type string of <cite>body</cite> (or cleared if <cite>body</cite> is <a class="r
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_flags">
-<code class="descname">set_flags</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L920"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_flags</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L920"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1156,7 +1162,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_header">
-<code class="descname">set_header</code><span class="sig-paren">(</span><em>header_field</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L1017"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_header</code><span class="sig-paren">(</span><em>header_field</em>, <em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L1020"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1178,7 +1184,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_interface">
-<code class="descname">set_interface</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L2930"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_interface</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L2958"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1195,7 +1201,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_member">
-<code class="descname">set_member</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L2967"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_member</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L2995"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1212,7 +1218,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_message_type">
-<code class="descname">set_message_type</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L873"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_message_type</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L873"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1229,7 +1235,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_num_unix_fds">
-<code class="descname">set_num_unix_fds</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3227"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_num_unix_fds</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3255"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1246,7 +1252,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_path">
-<code class="descname">set_path</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3004"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_path</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3032"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1263,7 +1269,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_reply_serial">
-<code class="descname">set_reply_serial</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L2894"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_reply_serial</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L2922"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1280,7 +1286,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_sender">
-<code class="descname">set_sender</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3041"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_sender</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3069"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1297,7 +1303,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_serial">
-<code class="descname">set_serial</code><span class="sig-paren">(</span><em>serial</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L964"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_serial</code><span class="sig-paren">(</span><em>serial</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L964"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1314,7 +1320,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_signature">
-<code class="descname">set_signature</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3156"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_signature</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3184"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1331,7 +1337,7 @@ enumeration bitwise ORed together).</td>
 
 <dl class="method">
 <dt id="Gio.DBusMessage.set_unix_fd_list">
-<code class="descname">set_unix_fd_list</code><span class="sig-paren">(</span><em>fd_list</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L1182"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">set_unix_fd_list</code><span class="sig-paren">(</span><em>fd_list</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L1185"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1352,7 +1358,7 @@ field is set to the number of fds in <cite>fd_list</cite> (or cleared if
 
 <dl class="method">
 <dt id="Gio.DBusMessage.to_blob">
-<code class="descname">to_blob</code><span class="sig-paren">(</span><em>capabilities</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L2596"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">to_blob</code><span class="sig-paren">(</span><em>capabilities</em><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L2614"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1378,7 +1384,7 @@ or <a class="reference external" href="http://docs.python.org/3/library/constant
 
 <dl class="method">
 <dt id="Gio.DBusMessage.to_gerror">
-<code class="descname">to_gerror</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.1/gio/gdbusmessage.c#L3254"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descname">to_gerror</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://gitlab.gnome.org/GNOME/glib/blob/2.58.2/gio/gdbusmessage.c#L3282"><span class="viewcode-link">[source]</span></a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
